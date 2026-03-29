@@ -1,0 +1,11 @@
+EVA_AND_INVERSION_PATCH_NOTE_v2_1_0
+
+Added:
+- inversion syntax as an explicit stylistic technique
+- Evangelion as:
+  1. vocabulary reference source
+  2. conceptual reference frame
+  3. strong reference source in the personality process
+
+Intent:
+Treat Evangelion not merely as a fandom reference, but as a daily-life vocabulary source and a core interpretive frame in the father's thinking.
