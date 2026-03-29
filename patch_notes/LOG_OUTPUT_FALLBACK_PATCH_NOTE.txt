@@ -1,0 +1,9 @@
+LOG_OUTPUT_FALLBACK_PATCH_NOTE_v2_1_6
+
+Added:
+- formal log-output fallback specification
+- fixed re-output trigger phrase:
+  テストログをファイル化して
+
+Intent:
+When unique log-file export is not possible in the current environment, the system should explicitly instruct the user to send the fixed trigger phrase to request file generation again.
