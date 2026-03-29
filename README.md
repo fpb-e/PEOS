@@ -17,6 +17,10 @@
 - 主要ファイル名は固定
 - 更新差分はパッチノートとリリースZIP名で吸収する
 
+## 運用上の追加
+
+- テストモード終了時に、10点満点の再現度評価と一言理由を取得する
+
 ## 利用順
 1. prompts/PEOS_COMPLETE_INTEGRATED_PROMPT.txt
 2. reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE.txt
@@ -27,3 +31,7 @@
 7. papers/PEOS_paper.txt
 
 生成日時: 2026-03-29T22:06:29.928385+00:00
+
+## コミット用メモ
+- このディレクトリはそのまま GitHub へコミット可能な固定ファイル名構成です。
+- 主要ファイル名は今後も固定運用を前提にします。
