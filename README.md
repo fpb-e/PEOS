@@ -1,20 +1,30 @@
-# PEOS Current Minimal Release
+# PEOS Fullspec Release
 
-これは、現在の最小版として GitHub にそのまま置ける構成です。
+これは、**フルスペックを発揮できる形** に再構成した GitHub 直投入用アーカイブです。
 
-最小版の中身:
+## 同梱物
+- 完全統合版プロンプト
+- エヴァ参照辞書
+- 語彙根モジュール
+- MAGI_FPB
+- MAGI_FPB 防御機構
+- 境界事例集
+- 論文
+- 既存の重要パッチノート（現作業領域で確認できた範囲）
+
+## 利用順
 1. 完全統合版プロンプト
 2. エヴァ参照辞書
-3. MAGI_FPB
-4. MAGI_FPB 防御機構
-5. 境界事例集
-6. 論文（任意）
+3. 語彙根
+4. MAGI_FPB
+5. MAGI_FPB 防御機構
+6. 境界事例集
+7. 論文
 
-最低でも次を同時にアップロードして利用すること。
-- prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_current_minimal.txt
-- reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE_current_minimal.txt
-- modules/PEOS_MAGI_FPB_current_minimal.txt
-- modules/PEOS_MAGI_FPB_DEFENSE_current_minimal.txt
-- casebooks/PEOS_BOUNDARY_CASEBOOK_current_minimal.txt
+## 方針
+- 最小化はしない
+- フルスペック運用前提で GitHub に置く
+- 単体最新版が残っていない資産は、合意済み内容から再構成している
+- GitHub へ反映後は、GitHub 上のファイルを正本として扱うことを推奨する
 
-生成日時: 2026-03-29T20:48:55.472702+00:00
+生成日時: 2026-03-29T21:08:43.710196+00:00
