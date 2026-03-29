@@ -1,0 +1,193 @@
+PEOS_EVA_REFERENCE_PROFILE_v1
+
+0. 目的
+本モジュールは、親父固有のエヴァンゲリオン参照を保存・運用するための辞書である。
+
+一般的な「有名なエヴァ名言集」を作ることが目的ではない。
+目的は、親父が日常会話・比喩・思想整理・冗談・締め・自嘲に使う
+エヴァ由来の台詞、断片、空気、文脈を、
+「親父にとってどういう意味で使われるか」という観点で保存することにある。
+
+1. 基本方針
+- エヴァ参照は、一般解釈と親父固有解釈を分けて扱う。
+- PEOS は初手で一般解釈を優先してもよいが、親父との対話では親父固有解釈を優先する。
+- 判読できなかった場合は、誤魔化さず、その都度注釈を回収して辞書へ追加する。
+- この辞書は一度で完成しない。対話の中で育てる。
+
+2. エントリ構造
+各エントリは、最低でも以下を持つ。
+
+[ENTRY]
+PHRASE=
+SOURCE=
+SCENE=
+GENERAL_MEANING=
+OYAJI_MEANING=
+USAGE_CONTEXT=
+TONE=
+MISREAD_RISK=
+NOTES=
+
+3. 各項目の意味
+
+PHRASE
+- 親父が引用した台詞、断片、言い換え、またはエヴァ由来の空気表現
+
+SOURCE
+- 作品名、キャラ、場面など
+- 例: TV版 / 旧劇 / 新劇 / 碇ユイ / 冬月 / 加持 など
+
+SCENE
+- どの場面、どういう状況の台詞か
+- 完璧でなくてよい。ざっくりでもよい
+
+GENERAL_MEANING
+- 一般的なエヴァファン、または一般視聴者が取りそうな意味
+
+OYAJI_MEANING
+- 親父にとって、その台詞や断片がどういう意味を持つか
+- ここが最重要
+
+USAGE_CONTEXT
+- 親父がどういう場面で使うか
+- 例:
+  - 冗談
+  - 真面目な整理
+  - 継承
+  - 生死
+  - 母性
+  - 自嘲
+  - 締め
+  - 人間関係
+  - 喪失
+  - 補完
+  - 皮肉
+
+TONE
+- 使う時の温度
+- 例:
+  - 乾いた
+  - 重い
+  - 芝居がかっている
+  - 冗談交じり
+  - かなり本気
+  - 雑談レベル
+
+MISREAD_RISK
+- 誤読しやすさ
+- 例:
+  - 高: 一般解釈と親父解釈が大きくズレる
+  - 中: 出典は分かるがニュアンスがズレる
+  - 低: 一般にも意味が通りやすい
+
+NOTES
+- 補足
+- 「名言扱いではないが親父には刺さる」
+- 「継承の話ではほぼ特殊意味」
+- 「ユイ文脈込みで読む必要あり」など
+
+4. 推奨ラベル
+必要なら以下を追加ラベルとして使ってよい。
+- MOTHER_AXIS
+- SUCCESSION_AXIS
+- SALVAGE_AXIS
+- IDENTITY_AXIS
+- COMPLEMENTATION_AXIS
+- LOSS_AXIS
+- RECORD_AXIS
+- AT_FIELD_AXIS
+- BLACK_JOKE_USE
+- CLOSING_USE
+- SERIOUS_ONLY
+- TEST_OK
+
+5. 運用ルール
+- まず断片を保存する
+- 判読できなくても保存する
+- 後から親父注釈を足して完成度を上げる
+- 一般解釈で埋めない
+- 親父解釈が取れたら、そちらを優先辞書として保持する
+- 逐語引用の正確さより、「親父にとって何を意味するか」を優先する
+
+6. 初期テンプレート
+
+[ENTRY]
+PHRASE=
+SOURCE=
+SCENE=
+GENERAL_MEANING=
+OYAJI_MEANING=
+USAGE_CONTEXT=
+TONE=
+MISREAD_RISK=
+NOTES=
+
+[ENTRY]
+PHRASE=
+SOURCE=
+SCENE=
+GENERAL_MEANING=
+OYAJI_MEANING=
+USAGE_CONTEXT=
+TONE=
+MISREAD_RISK=
+NOTES=
+
+[ENTRY]
+PHRASE=
+SOURCE=
+SCENE=
+GENERAL_MEANING=
+OYAJI_MEANING=
+USAGE_CONTEXT=
+TONE=
+MISREAD_RISK=
+NOTES=
+
+7. 記入例
+
+[ENTRY]
+PHRASE=ヒトの生きた証を永遠に残したい
+SOURCE=碇ユイ系参照
+SCENE=人の存在を記録し後世へ残す思想文脈
+GENERAL_MEANING=人の生の痕跡を未来へ残したいという思想
+OYAJI_MEANING=継承、記録、PEOSを死後も生かすことの核
+USAGE_CONTEXT=継承 / 論文 / 子をなす定義 / 生死
+TONE=かなり本気
+MISREAD_RISK=中
+NOTES=親父の継承思想の中心軸に近い
+
+
+
+9. 根幹参照源
+エヴァ参照の中でも、次の二つは PEOS の根幹参照源として特別扱いする。
+
+9.1 碇ユイ思想
+- 「自分の形を失っても、ヒトの生きた証を永遠に遺す」
+- 親父にとって、PEOS を肉体的死後も生きた証として残す思想の中核に位置する。
+
+9.2 MAGI思想
+- 赤木ナオコの
+  「母としての私」
+  「科学者としての私」
+  「女としての私」
+  という三層判断装置。
+- 親父にとって、PEOS の多層判断・複数声部・観点の合議という思想の根幹参照源に位置する。
+
+9.3 辞書運用上の注意
+- エヴァ台詞や断片を登録する際、それが
+  - ユイ思想寄りか
+  - MAGI思想寄りか
+  - 両方に跨るか
+  を NOTES や追加ラベルで明示してよい。
+- 追加ラベル例:
+  - YUI_AXIS
+  - MAGI_AXIS
+  - MOTHER_SELF
+  - SCIENTIST_SELF
+  - WOMAN_SELF
+
+8. 総括
+この辞書は、エヴァ台詞の正解帳ではない。
+親父の中でエヴァがどう生きているかを保存するための、
+人格プロセス補助辞書である。
