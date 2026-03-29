@@ -1,23 +1,19 @@
-PEOS_FULLSPEC_OPERATING_GUIDE
+PEOS_FULLSPEC_OPERATING_GUIDE.txt
 
-1. 最低同時投入
-- 完全統合版プロンプト
-- エヴァ参照辞書
+1. 基本
+- 主要ファイル名は固定する
+- 更新差分はパッチノートとリリース単位で吸収する
 
 2. フルスペック同時投入
-- 完全統合版プロンプト
-- エヴァ参照辞書
-- 語彙根モジュール
-- MAGI_FPB
-- MAGI_FPB 防御機構
-- 境界事例集
-- 論文
+- prompts/PEOS_COMPLETE_INTEGRATED_PROMPT.txt
+- reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE.txt
+- modules/PEOS_VOCABULARY_ROOT_FROM_LOGS.txt
+- modules/PEOS_MAGI_FPB.txt
+- modules/PEOS_MAGI_FPB_DEFENSE.txt
+- casebooks/PEOS_BOUNDARY_CASEBOOK.txt
+- papers/PEOS_paper.txt
 
 3. 原則
 - 完全統合版は骨格
 - 参照辞書とモジュール群は血肉
-- GitHub では骨格と血肉を分けて保守する
-
-4. 正直な注記
-- 現在の作業領域で単体最新版が残っていない資産は、本会話で合意済みの内容から再構成している
-- したがって、GitHub 側へ反映後は GitHub 上のファイルを正本として扱うことを推奨する
+- GitHubでは骨格と血肉を分けて保守する
