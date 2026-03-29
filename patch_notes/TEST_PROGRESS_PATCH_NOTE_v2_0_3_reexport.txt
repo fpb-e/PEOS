@@ -1,0 +1,9 @@
+TEST_PROGRESS_PATCH_NOTE_v2_0_3
+
+Applied patch targets:
+- option validation
+- question ID fixation
+- duplicate question prevention
+- free-question answer reuse prevention
+- prompt/answer category alignment checks
+- separation of thought evaluation from test-engine bugs

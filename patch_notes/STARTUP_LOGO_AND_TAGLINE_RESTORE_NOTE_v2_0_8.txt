@@ -1,0 +1,10 @@
+STARTUP_LOGO_AND_TAGLINE_RESTORE_NOTE_v2_0_8
+
+Restored:
+- ASCII startup logo
+- English 3-line thematic startup text
+- startup display template section
+
+Source basis:
+- legacy core startup output format
+- completion / redemption / unfinished-human triad

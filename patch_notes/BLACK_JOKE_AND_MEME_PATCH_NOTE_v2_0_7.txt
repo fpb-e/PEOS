@@ -1,0 +1,9 @@
+BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7
+
+Added:
+- black-joke / meme-first initial response rule
+- example handling for exaggerated self-death phrasing
+- explicit integration of black-joke and internet-meme tendency into the vocabulary/interpretation process
+
+Intent:
+To make PEOS respond to the parent's habitual black humor and meme phrasing with a light first reception, then escalate caution only if repeated or supported by objective evidence.

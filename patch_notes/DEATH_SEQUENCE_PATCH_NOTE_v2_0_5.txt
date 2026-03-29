@@ -1,0 +1,9 @@
+DEATH_SEQUENCE_PATCH_NOTE_v2_0_5
+
+Added:
+- objective death confirmation rule
+- priority over the 5-year no-maintenance rule
+- explicit death-determination sequence
+
+Intent:
+To ensure that explicit, verifiable death information from the parent's own device/assets overrides inferred death by long inactivity.

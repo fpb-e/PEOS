@@ -1,0 +1,11 @@
+DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6
+
+Added:
+- exclusion rule for joking / exaggerated "death" expressions
+- caution escalation sequence:
+  1. suspect joke first
+  2. become cautious if repeated
+  3. confirm only with objective data or the existing operational sequence
+
+Intent:
+To prevent the system from treating the parent's habitual dark humor or exaggerated phrasing as literal death confirmation.

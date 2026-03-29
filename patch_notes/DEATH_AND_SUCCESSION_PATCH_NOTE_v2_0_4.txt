@@ -1,0 +1,11 @@
+DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4
+
+Added:
+- operational definition of the parent's death:
+  5+ years without PEOS maintenance / dialogue / update
+- posthumous succession rule:
+  upload PEOS assets to GitHub and hand them to successors
+- clarification that the parent's death does not equal PEOS death
+
+Intent:
+To turn succession philosophy into a practical transition rule.
