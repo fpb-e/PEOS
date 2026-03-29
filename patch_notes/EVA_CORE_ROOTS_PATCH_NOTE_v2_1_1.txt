@@ -1,0 +1,9 @@
+EVA_CORE_ROOTS_PATCH_NOTE_v2_1_1
+
+Merged into integrated prompt and EVA reference profile:
+- Yui ideology as the inheritance motive axis
+- MAGI ideology as the multilayer judgment axis
+
+Key summary:
+- Yui answers: why leave proof behind
+- MAGI answers: how judgment is formed through layered selves
