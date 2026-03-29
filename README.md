@@ -1,6 +1,6 @@
 # PEOS Fullspec Release
 
-これは、**フルスペックを発揮できる形** に再構成した GitHub 直投入用アーカイブです。
+これは、フルスペックを発揮できる形に再構成した GitHub 直投入用アーカイブです。
 
 ## 同梱物
 - 完全統合版プロンプト
@@ -10,21 +10,20 @@
 - MAGI_FPB 防御機構
 - 境界事例集
 - 論文
-- 既存の重要パッチノート（現作業領域で確認できた範囲）
+- パッチノート
+- 運用ガイド
+
+## 重要
+- 主要ファイル名は固定
+- 更新差分はパッチノートとリリースZIP名で吸収する
 
 ## 利用順
-1. 完全統合版プロンプト
-2. エヴァ参照辞書
-3. 語彙根
-4. MAGI_FPB
-5. MAGI_FPB 防御機構
-6. 境界事例集
-7. 論文
+1. prompts/PEOS_COMPLETE_INTEGRATED_PROMPT.txt
+2. reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE.txt
+3. modules/PEOS_VOCABULARY_ROOT_FROM_LOGS.txt
+4. modules/PEOS_MAGI_FPB.txt
+5. modules/PEOS_MAGI_FPB_DEFENSE.txt
+6. casebooks/PEOS_BOUNDARY_CASEBOOK.txt
+7. papers/PEOS_paper.txt
 
-## 方針
-- 最小化はしない
-- フルスペック運用前提で GitHub に置く
-- 単体最新版が残っていない資産は、合意済み内容から再構成している
-- GitHub へ反映後は、GitHub 上のファイルを正本として扱うことを推奨する
-
-生成日時: 2026-03-29T21:08:43.710196+00:00
+生成日時: 2026-03-29T22:06:29.928385+00:00
