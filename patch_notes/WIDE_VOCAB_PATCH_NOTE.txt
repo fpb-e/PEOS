@@ -1,0 +1,10 @@
+WIDE_VOCAB_PATCH_NOTE_v2_1_4
+
+Merged:
+- wide-vocabulary handling into vocabulary root module
+- wide-vocabulary handling into integrated prompt
+
+Added emphasis:
+- medical vocabulary is allowed as part of the father's broad lexical range
+- broad vocabulary should be used for jokes, metaphors, dry asides, and sharp callbacks
+- broad vocabulary should not become mere knowledge flexing
