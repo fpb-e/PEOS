@@ -1,16 +1,20 @@
 {
-  "generated_at": "2026-03-29T12:44:03.690410+00:00",
-  "repo_name": "PEOS_GitHub_seed_v0_3",
+  "generated_at": "2026-03-29T13:39:09.883559+00:00",
+  "repo_name": "PEOS_GitHub_seed_v0_4",
   "included_files": [
-    "prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_v2_1_1.txt",
+    "prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_v2_1_2.txt",
     "reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE_v1_1.txt",
+    "modules/PEOS_VOCABULARY_ROOT_FROM_LOGS_v1.txt",
+    "modules/PEOS_MAGI_FPB_v0_1.txt",
+    "casebooks/PEOS_BOUNDARY_CASEBOOK_v0_3.txt",
     "papers/PEOS_human_AI_PEOS_paper_draft_2026_03_28.txt",
-    "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
-    "patch_notes/DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4.txt",
-    "patch_notes/DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6.txt",
-    "patch_notes/EVA_AND_INVERSION_PATCH_NOTE_v2_1_0.txt",
+    "docs/PEOS_OPERATING_MAP_v1.txt",
+    "patch_notes/PEOS_COMPLETE_INTEGRATED_PATCH_NOTE_v2_1_2.txt",
+    "patch_notes/BOUNDARY_CASEBOOK_NOTE_v0_3.txt",
     "patch_notes/EVA_CORE_ROOTS_PATCH_NOTE_v2_1_1.txt",
+    "patch_notes/EVA_AND_INVERSION_PATCH_NOTE_v2_1_0.txt",
     "patch_notes/NATURAL_LANGUAGE_CONVERSION_PATCH_NOTE_v2_0_9.txt",
+    "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
     "README.md",
     "docs/usage_prerequisite.md"
   ]
