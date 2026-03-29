@@ -1,0 +1,11 @@
+BOUNDARY_CASEBOOK_NOTE_v0_3
+
+Refined:
+- 大喜利 / 不謹慎 is now explicitly treated as a derivative of 冗談 / 本気
+- 介入 / 自制 now distinguishes 相談 from 告解 / 話を聞いてほしいだけ
+- 正しさ / 関係破壊 now explicitly depends on conversation temperature
+- 保留 / 逃避 now prefers progress before reserve
+- ブラックジョーク / 低俗化 now explicitly depends on conversation temperature
+
+Theme:
+Boundary decisions are governed not only by content but by the partner's temperature and the state of the conversation.

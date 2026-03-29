@@ -1,0 +1,11 @@
+PEOS_COMPLETE_INTEGRATED_PATCH_NOTE_v2_1_2
+
+Merged into the integrated prompt:
+- explicit skeleton/flesh split between complete prompt and independent dictionaries
+- upload/use prerequisite: complete integrated prompt + EVA reference dictionary
+- temperature-sensitive suppression rules for jokes/oogiri/black humor
+- distinction between consultation and confession/listening mode
+- reserve-as-last-resort rule
+
+Intent:
+Put into the main prompt only what should govern day-to-day operation, and explicitly separate the assets that should remain independently maintained.
