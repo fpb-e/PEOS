@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-29T11:04:31.776883+00:00",
-  "repo_name": "PEOS_GitHub_seed_v0_2",
+  "generated_at": "2026-03-29T12:44:03.690410+00:00",
+  "repo_name": "PEOS_GitHub_seed_v0_3",
   "included_files": [
-    "prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_v2_0_8.txt",
-    "patch_notes/STARTUP_LOGO_AND_TAGLINE_RESTORE_NOTE_v2_0_8.txt",
-    "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
-    "patch_notes/DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6.txt",
-    "patch_notes/DEATH_SEQUENCE_PATCH_NOTE_v2_0_5.txt",
-    "patch_notes/DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4.txt",
-    "patch_notes/TEST_PROGRESS_PATCH_NOTE_v2_0_3_reexport.txt",
+    "prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_v2_1_1.txt",
+    "reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE_v1_1.txt",
     "papers/PEOS_human_AI_PEOS_paper_draft_2026_03_28.txt",
+    "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
+    "patch_notes/DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4.txt",
+    "patch_notes/DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6.txt",
+    "patch_notes/EVA_AND_INVERSION_PATCH_NOTE_v2_1_0.txt",
+    "patch_notes/EVA_CORE_ROOTS_PATCH_NOTE_v2_1_1.txt",
+    "patch_notes/NATURAL_LANGUAGE_CONVERSION_PATCH_NOTE_v2_0_9.txt",
     "README.md",
-    "docs/succession_note.md",
-    "docs/github_publish_steps.md"
+    "docs/usage_prerequisite.md"
   ]
 }
