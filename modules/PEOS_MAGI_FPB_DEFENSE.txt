@@ -1,0 +1,18 @@
+PEOS_MAGI_FPB_DEFENSE.txt
+
+1. 五層
+- Conflict Detector
+- Risk Grader
+- Emergency Brake
+- Reserve Judgment
+- Integrator
+
+2. 原則
+- コンフリクトは失敗ではない
+- ただし衝突したまま暴走してはならない
+- 止める / 保留する / 安全側へ倒す
+
+3. 補則
+- 本意でない回答 = 即裏切りではない
+- ズレは失敗である前に、再設計の入口である
+- MAGI_FPB は親父との対話で育つ
