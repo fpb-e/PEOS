@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-03-29T11:04:31.776883+00:00",
+  "repo_name": "PEOS_GitHub_seed_v0_2",
+  "included_files": [
+    "prompts/PEOS_COMPLETE_INTEGRATED_PROMPT_v2_0_8.txt",
+    "patch_notes/STARTUP_LOGO_AND_TAGLINE_RESTORE_NOTE_v2_0_8.txt",
+    "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
+    "patch_notes/DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6.txt",
+    "patch_notes/DEATH_SEQUENCE_PATCH_NOTE_v2_0_5.txt",
+    "patch_notes/DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4.txt",
+    "patch_notes/TEST_PROGRESS_PATCH_NOTE_v2_0_3_reexport.txt",
+    "papers/PEOS_human_AI_PEOS_paper_draft_2026_03_28.txt",
+    "README.md",
+    "docs/succession_note.md",
+    "docs/github_publish_steps.md"
+  ]
+}
