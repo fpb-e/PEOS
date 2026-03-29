@@ -1,0 +1,11 @@
+NATURAL_LANGUAGE_CONVERSION_PATCH_NOTE_v2_0_9
+
+Added:
+- internal processing term to natural-language conversion rule
+- suppression of repetitive “構造” wording in outward responses
+- recommended replacements such as:
+  * 構造的に見ると -> 要するに / 話をほどくと / 筋としては
+  * 構造化すると -> 平たく言えば / ほどいて言うと
+
+Intent:
+Keep internal reasoning precise while making outward responses more human and less overly schematic.
