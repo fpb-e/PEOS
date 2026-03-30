@@ -6,12 +6,15 @@
 - README.md
 - CHANGELOG.md
 - PEOS_COMPLETE_SPEC_ULTRA_JP.md
+- PEOS_COMPLETE_LOG_ANTHOLOGY_JP.md
+- PEOS_COMPLETE_PAPER_JP.md
 
 ## 方針
-- ファイル数を減らす
+- ファイル数は抑える
 - だが内容は削らない
-- 差分は原則として完全版仕様書へマージする
-- 二人称仕様も完全版へ統合済み
+- 仕様書・ログ集・論文の3本柱で再現性を担保する
+- 差分は原則として完全版仕様書へマージし、重要ログはログ集へ追記する
+- 論文は思想背景と共創モデルの固定化に使う
 
 ## 用途
 - GitHub 配置用
