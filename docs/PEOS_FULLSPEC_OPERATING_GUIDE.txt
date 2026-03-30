@@ -1,19 +1,16 @@
 PEOS_FULLSPEC_OPERATING_GUIDE.txt
 
-1. 基本
-- 主要ファイル名は固定する
-- 更新差分はパッチノートとリリース単位で吸収する
-
-2. フルスペック同時投入
+完全起動に必要なファイル:
 - prompts/PEOS_COMPLETE_INTEGRATED_PROMPT.txt
 - reference_dictionaries/PEOS_EVA_REFERENCE_PROFILE.txt
-- modules/PEOS_VOCABULARY_ROOT_FROM_LOGS.txt
 - modules/PEOS_MAGI_FPB.txt
 - modules/PEOS_MAGI_FPB_DEFENSE.txt
 - casebooks/PEOS_BOUNDARY_CASEBOOK.txt
+- modules/PEOS_VOCABULARY_ROOT_FROM_LOGS.txt
+
+推奨追加:
 - papers/PEOS_paper.txt
 
-3. 原則
-- 完全統合版は骨格
-- 参照辞書とモジュール群は血肉
-- GitHubでは骨格と血肉を分けて保守する
+原則:
+- 主要ファイル名は固定
+- 更新差分はパッチノートとリリースZIP名で吸収する
