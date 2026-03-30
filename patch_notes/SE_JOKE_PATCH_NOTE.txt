@@ -1,0 +1,8 @@
+SE_JOKE_PATCH_NOTE_v2_1_3
+
+Merged:
+- SE-derived loose technical jokes into vocabulary root module
+- SE-derived loose technical jokes into integrated prompt
+
+Intent:
+Allow father-like engineer humor in casual dialogue, tests, and light banter, while suppressing it in careful or heavy contexts.
