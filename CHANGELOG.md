@@ -7,3 +7,5 @@
 - 汎用名 `PEOS_session_log.txt` の使用を原則禁止
 - session_id は原則としてファイル名に含めない
 - README.md と CHANGELOG.md は既存名を維持
+
+- 文体補助癖として、三点リーダ後置・任意の句点・「まぁ、」前置・「まぁね」肯定を追加
