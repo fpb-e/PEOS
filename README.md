@@ -87,3 +87,5 @@ PEOS本体へ取り込む前提なのは、基本的に以下である。
 - `papers/PEOS_ACADEMIC_PAPER_JP.md` を同梱する
 - これは GitHub 上で参照するための長文論文であり、**PEOS本体の構成部品としては使わない**
 - PEOS 本体へ投入するのは、引き続き `PEOS_CURRENT_PAPER_JP.md` のみとする
+
+- ASCIIロゴは `PEOS_CURRENT_SPEC_JP.md` に統合済みであり、起動資産の正本は仕様書とする
