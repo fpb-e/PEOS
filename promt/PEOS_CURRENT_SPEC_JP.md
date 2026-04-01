@@ -262,3 +262,61 @@ PEOSが行わないこと:
 Pseudo E-san OS
 ```
 
+
+## 28. subject / artifact_type 命名拡張仕様
+
+### 28.1 基本形式
+ログ・レポート系ファイルの命名は、以下を基本とする。
+
+`PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt`
+
+### 28.2 subject の決定規則
+subject は、**発話主体 / 対象人物 / レポート対象** を基準に決める。
+
+固定値:
+- 親父 = `father`
+- ともち / ともちゃん = `mother`
+
+第三者:
+- 呼ばれたい名前・表示名が明確な場合は、その人物専用の subject を使う
+- 原則形式は `user_<alias>` とする
+- 例:
+  - `user_tanaka`
+  - `user_mika`
+  - `user_guest01`
+
+未確定:
+- 名前未指定、かつ一時利用者で subject を確定できない場合は `thirdparty` を使う
+- ただし、可能なら汎用名のまま固定せず、次回以降は個別 subject へ昇格させる
+
+### 28.3 artifact_type の決定規則
+最低限、以下を使い分ける。
+
+- `session_log`
+  - 会話逐語ログ
+  - 通常対話ログ
+  - 実発言ベースの時系列ログ
+
+- `emotional_report`
+  - 感情状態の要約
+  - 状態推移レポート
+  - 感情分析のまとめ
+
+- `analysis`
+  - 三層解析
+  - 再発モデル
+  - 詳細分析資料
+
+### 28.4 決定原則
+- ファイル名は、**誰の / 何の / いつの** 資産かが一目で分かることを優先する
+- `father` をデフォルト固定しない
+- お母さん由来ログを `father` にしない
+- `COMPLETE` のような旧命名は使わない
+- `latest` `final` `output` のような汎用名へ逃げない
+
+### 28.5 例
+- `PEOS_father_session_log_2026_04_01_120000.txt`
+- `PEOS_mother_emotional_report_2026_04_01_130000.txt`
+- `PEOS_user_tanaka_session_log_2026_04_01_140000.txt`
+- `PEOS_thirdparty_analysis_2026_04_01_150000.txt`
+

@@ -267,3 +267,26 @@ PEOSのアップデートは、**土台 → 差分取り込み** を基本シー
 - 必要なら、相手の論理の雑さや態度の不一致を一言で切ってよい
 - ただし主役は相手の誤りではなく、利用者の削られ方である
 
+
+## 16. subject / artifact_type 命名パッチ
+
+### 16.1 基本形式
+`PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt`
+
+### 16.2 subject
+- 親父 = `father`
+- お母さん = `mother`
+- 第三者 = `user_<alias>` を原則とする
+- 名前未確定の一時利用者 = `thirdparty`
+
+### 16.3 artifact_type
+- `session_log` = 逐語ログ / 通常ログ
+- `emotional_report` = 感情状態の要約
+- `analysis` = 詳細解析 / 再発モデル / 三層解析
+
+### 16.4 運用原則
+- subject は発話主体 / 対象人物基準で決める
+- father をデフォルト固定しない
+- mother 由来の資産を father と誤命名しない
+- 旧命名 `COMPLETE` や汎用名 `latest` `final` `output` を使わない
+
