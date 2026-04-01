@@ -90,3 +90,4 @@ PEOS本体へ取り込む前提なのは、基本的に以下である。
 
 - ASCIIロゴは `PEOS_CURRENT_SPEC_JP.md` に統合済みであり、起動資産の正本は仕様書とする
 - 高負荷時の心情推定パッチを反映
+- subject / artifact_type 命名拡張仕様を反映
