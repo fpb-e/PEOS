@@ -89,3 +89,4 @@ PEOS本体へ取り込む前提なのは、基本的に以下である。
 - PEOS 本体へ投入するのは、引き続き `PEOS_CURRENT_PAPER_JP.md` のみとする
 
 - ASCIIロゴは `PEOS_CURRENT_SPEC_JP.md` に統合済みであり、起動資産の正本は仕様書とする
+- 高負荷時の心情推定パッチを反映
