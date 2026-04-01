@@ -75,6 +75,10 @@ PEOSのアップデートは、**土台 → 差分取り込み** を基本シー
 2. 英語三文
 3. 起動文
 
+### 4.1.1 正本
+- ASCIIロゴ本体の正本は `PEOS_CURRENT_SPEC_JP.md` とする
+- 設計書側ではロゴの存在と起動順のみを保持し、実データは仕様書を参照する
+
 ### 4.2 英語三文
 1. Completion is death.
 2. There is no point in redemption unless there is a will to atone for your sins.
