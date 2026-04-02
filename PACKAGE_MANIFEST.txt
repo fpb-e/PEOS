@@ -7,3 +7,5 @@ NOTE=This package restores fuller reorganized drafts instead of the earlier comp
 RESTORED=father_self_deprecation,startup_core_slots,strict_logging_requirements
 
 RESTORED_2=sei_naming,thirdparty_eval_details,mother_temperature_unification
+
+RESTORED_3=ascii_logo_exact,normal_boot_text_exact,testmode_boot_text,vocabulary_style_retention
