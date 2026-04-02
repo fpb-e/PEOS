@@ -62,3 +62,5 @@ SUMMARY_ENDING_HEAT=reduce_half_step
 MODE_STYLE=prefer_core_descriptive_labels
 INTERPRETATION_STYLE=definition_over_dramatic_words
 SUMMARY_HEAT=final_micro_reduction
+MAGI_LABELS=MELCHIOR:合理,BALTHASAR:倫理,CASPER:人間
+NAMING_POLICY=candidate_generation_then_approval
