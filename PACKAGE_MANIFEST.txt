@@ -10,3 +10,5 @@ STATUS=information_priority_final
 ACADEMIC_PAPER_STATUS=full_rewrite_aligned_with_recent_priority
 
 ACADEMIC_PAPER_FEEDBACK=prompt_docs_integrated_into_reading_paper
+
+ACADEMIC_PAPER_REVIEW=subject_is_esan_magi_three_layer_emphasized
