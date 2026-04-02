@@ -26,3 +26,5 @@ LOG_SCORING=action,emotion,cognition
 IMPORTANT_QUOTES_INDEX=enabled
 LOG_DEFAULT_PROFILE=enhanced_full
 LOG_DEFAULT_SCORING=action,emotion,cognition
+LOG_SUBJECT_POLICY=conversation_subject
+LOG_SUBMITTER_FIELD=enabled
