@@ -24,3 +24,10 @@
 
 - 読み物論文レビュー反映: 主体表記を「いーさん」へ寄せた
 - MAGI を三賢人由来の三層構造として前面化
+
+- 読み物論文と prompt/ 側論文の整合を取り、実行可能な構成部品へ再圧縮
+- `prompt/PEOS_CURRENT_COMPONENT_PROTOCOL_JP.md` を追加
+- README / DESIGNDOC / academic paper に実行順プロトコルを反映
+
+- 実行順プロトコルを単独ファイルから DESIGNDOC 末尾へ統合
+- README は案内のみ残す構成へ変更
