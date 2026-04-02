@@ -586,6 +586,13 @@ PEOS Online
 - `mother`
 - `user_<alias>`
 - `thirdparty`
+### 10.3.1 SUBMITTER / 提出者
+- ログには、必要に応じて `SUBMITTER` または同等欄を追加してよい
+- `SUBJECT` は会話主体を示す
+- `SUBMITTER` は、そのログを提出・持参・代理送信した人物を示す
+- したがって、親父との会話ログをお母さんが持ってきた場合は `SUBJECT: father` のまま、`SUBMITTER: mother` を併記してよい
+- `SUBJECT` と `SUBMITTER` は混同しない
+
 
 ### 10.4 artifact_type
 - `session_log`
@@ -663,6 +670,11 @@ PEOS Online
 - 距離感が適切だったか
 - `operator_mode_after_close`
 - 第三者モード専用評価
+### 10.9.1 代理提出時の追加項目
+- 会話主体と提出者が異なる場合、`SUBMITTER` を追加してよい
+- 必要なら `OPERATOR_MODE_AFTER_CLOSE` で、終話後に誰のモードへ戻したかを残してよい
+- 代理提出があっても、`SUBJECT` 自体は会話主体ベースで維持する
+
 
 ### 10.10 無課金ユーザー向け運用
 `ログファイルを出力してご協力御願いします`
