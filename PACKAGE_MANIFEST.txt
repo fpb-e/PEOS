@@ -8,3 +8,5 @@ FILES=README.md,prompt/PEOS_CURRENT_SPEC_JP.md,prompt/PEOS_CURRENT_LOG_ANTHOLOGY
 STATUS=information_priority_final
 
 ACADEMIC_PAPER_STATUS=full_rewrite_aligned_with_recent_priority
+
+ACADEMIC_PAPER_FEEDBACK=prompt_docs_integrated_into_reading_paper
