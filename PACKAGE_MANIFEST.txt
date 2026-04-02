@@ -57,3 +57,5 @@ CROSS_PLATFORM_LAST_MILE_2=no_spec_talk_simple_submitter_session_log_quiet_endin
 SUBMITTER_POLICY=single_value_only
 SUMMARY_STYLE=administrative_and_short
 ENDING_STYLE=quiet_and_non_chuunibyou
+TIME_PRECISION=prefer_hh:mm:ss
+SUMMARY_ENDING_HEAT=reduce_half_step
