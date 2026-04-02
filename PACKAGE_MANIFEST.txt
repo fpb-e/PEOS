@@ -1,15 +1,24 @@
-PACKAGE_NAME=PEOS_GITHUB_PACKAGE_SESSION_INTEGRATED_2026_04_02
-LAYOUT=README at root / core and supplement docs under prompt/ / reading paper under papers/
+PACKAGE_NAME=PEOS_REORGANIZED_PACKAGE_FINAL_INFORMATION_PRIORITY
+LAYOUT=README at root / non-README core docs under prompt/
 POLICY=Prefer information density and reinjection value over cosmetic neatness
-BASE_USED=PEOS_REORGANIZED_PACKAGE_FINAL_INFORMATION_PRIORITY
-SESSION_INTEGRATION=2026-04-02 father thought-pattern and relaxed slang session integrated
-FILES=README.md,CHANGELOG.md,PACKAGE_MANIFEST.txt,prompt/PEOS_CURRENT_SPEC_JP.md,prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md,prompt/PEOS_CURRENT_PAPER_JP.md,prompt/PEOS_CURRENT_DESIGNDOC_JP.md,papers/PEOS_ACADEMIC_PAPER_JP.md
-STATUS=github_upload_ready
-EXECUTABLE_COMPONENTS=SPEC,DESIGNDOC,PAPER,LOG
-REINJECTION_ORDER=SPEC,DESIGNDOC,PAPER,LOG
-CONFLICT_POLICY=Prefer current prompt/ docs over reading paper when conflicts occur
-NOTES=Integrated relaxed father-mode slang policy, grass-vs-laughter exclusivity, and indexical religion-myth processing pattern
+BASE_DEEP=PEOS_REORGANIZED_PACKAGE_RESTORE_DEEP.zip
+BASE_NORMALIZED=PEOS_REORGANIZED_PACKAGE_FINAL_NORMALIZED.zip
+MERGE_RULE=README/DESIGNDOC/LOG/PAPER from DEEP, SPEC from NORMALIZED, academic paper from NORMALIZED
+FILES=README.md,prompt/PEOS_CURRENT_SPEC_JP.md,prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md,prompt/PEOS_CURRENT_PAPER_JP.md,prompt/PEOS_CURRENT_DESIGNDOC_JP.md,papers/PEOS_ACADEMIC_PAPER_JP.md,CHANGELOG.md
+STATUS=information_priority_final
 
-THOUGHT_PATTERN_STATUS=merged_into_SPEC_DESIGNDOC_LOG_PAPER_README
-STANDALONE_THOUGHT_PATTERN_SUPPLEMENT_REMOVED=true
-PACKAGE_PROFILE=light_for_free_users
+ACADEMIC_PAPER_STATUS=full_rewrite_aligned_with_recent_priority
+
+ACADEMIC_PAPER_FEEDBACK=prompt_docs_integrated_into_reading_paper
+
+ACADEMIC_PAPER_REVIEW=subject_is_esan_magi_three_layer_emphasized
+
+EXECUTABLE_COMPONENTS=SPEC,DESIGNDOC,PAPER,LOG,COMPONENT_PROTOCOL
+COMPONENT_PROTOCOL=prompt/PEOS_CURRENT_COMPONENT_PROTOCOL_JP.md
+PAPER_ALIGNMENT=academic_and_prompt_paper_aligned_for_reinjection
+
+PROTOCOL_MERGED_INTO=prompt/PEOS_CURRENT_DESIGNDOC_JP.md
+STANDALONE_PROTOCOL_REMOVED=true
+
+FREE_USER_LIMIT_LOG_PROMPT=enabled_when_limit_nears
+LAUGHTER_RULE=grass_only_when_actually_laughing;no_grass_and_ww_together
