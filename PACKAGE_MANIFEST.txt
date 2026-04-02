@@ -3,3 +3,5 @@ LAYOUT=README at root / reorganized non-README docs under prompt/
 POLICY=Do not lighten content; preserve chaptering and density
 FILES=README.md,prompt/PEOS_CURRENT_SPEC_JP.md,prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md,prompt/PEOS_CURRENT_PAPER_JP.md,prompt/PEOS_CURRENT_DESIGNDOC_JP.md,papers/PEOS_ACADEMIC_PAPER_JP.md,CHANGELOG.md
 NOTE=This package restores fuller reorganized drafts instead of the earlier compressed package
+
+RESTORED=father_self_deprecation,startup_core_slots,strict_logging_requirements
