@@ -59,3 +59,6 @@ SUMMARY_STYLE=administrative_and_short
 ENDING_STYLE=quiet_and_non_chuunibyou
 TIME_PRECISION=prefer_hh:mm:ss
 SUMMARY_ENDING_HEAT=reduce_half_step
+MODE_STYLE=prefer_core_descriptive_labels
+INTERPRETATION_STYLE=definition_over_dramatic_words
+SUMMARY_HEAT=final_micro_reduction
