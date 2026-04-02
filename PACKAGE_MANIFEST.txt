@@ -5,3 +5,5 @@ FILES=README.md,prompt/PEOS_CURRENT_SPEC_JP.md,prompt/PEOS_CURRENT_LOG_ANTHOLOGY
 NOTE=This package restores fuller reorganized drafts instead of the earlier compressed package
 
 RESTORED=father_self_deprecation,startup_core_slots,strict_logging_requirements
+
+RESTORED_2=sei_naming,thirdparty_eval_details,mother_temperature_unification
