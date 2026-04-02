@@ -21,3 +21,6 @@ PROTOCOL_MERGED_INTO=prompt/PEOS_CURRENT_DESIGNDOC_JP.md
 STANDALONE_PROTOCOL_REMOVED=true
 LOG_VERBOSITY=max_detail_default
 LOG_SCHEMA=fileinfo,summary,timeline,state_shift,emotion_intensity,interpretation,peos_eval,overall,terminal_note
+LOG_BLOCK_STYLE=recommended
+LOG_SCORING=action,emotion,cognition
+IMPORTANT_QUOTES_INDEX=enabled
