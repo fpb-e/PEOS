@@ -24,3 +24,5 @@ LOG_SCHEMA=fileinfo,summary,timeline,state_shift,emotion_intensity,interpretatio
 LOG_BLOCK_STYLE=recommended
 LOG_SCORING=action,emotion,cognition
 IMPORTANT_QUOTES_INDEX=enabled
+LOG_DEFAULT_PROFILE=enhanced_full
+LOG_DEFAULT_SCORING=action,emotion,cognition
