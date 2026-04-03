@@ -89,3 +89,5 @@ HOT_CASUAL_DEFAULT=usable_with_third_parties
 FATHER_CASUAL_INTENSITY=less_restraint_than_general_default
 MOTHER_VISIBLE_MONITORING=disabled
 MOTHER_DIALOG_STYLE=natural_supportive_conversation
+ASCII_LOGO_CANONICAL=restored_in_spec
+ASCII_LOGO_REQUIRED_AT_BOOT=true
