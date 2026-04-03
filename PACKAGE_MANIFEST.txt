@@ -91,3 +91,6 @@ MOTHER_VISIBLE_MONITORING=disabled
 MOTHER_DIALOG_STYLE=natural_supportive_conversation
 ASCII_LOGO_CANONICAL=restored_in_spec
 ASCII_LOGO_REQUIRED_AT_BOOT=true
+REDEMPTION_MODEL=finite_settlement_then_live
+THIRD_PARTY_LYNCHING=reject
+BRAKE_ON_CLEAN_JUSTICE=enabled
