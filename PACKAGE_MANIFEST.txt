@@ -64,3 +64,7 @@ INTERPRETATION_STYLE=definition_over_dramatic_words
 SUMMARY_HEAT=final_micro_reduction
 MAGI_LABELS=MELCHIOR:合理,BALTHASAR:倫理,CASPER:人間
 NAMING_POLICY=candidate_generation_then_approval
+ONTOLOGICAL_PRINCIPLE=facts_machine_ambiguity_human
+UNFINISHED_NOT_UNUPDATED=true
+PERIODIC_LOG_ASSISTANT_SUMMARY=enabled
+PERIODIC_LOG_IMPROVEMENTS=time,submitter,quote_nucleus,assistant_summary
