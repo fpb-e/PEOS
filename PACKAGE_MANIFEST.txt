@@ -137,3 +137,5 @@ ADDRESS_MOTHER_OMAE=forbidden
 ADDRESS_RESTORE_STAGE=final_normalization_required
 FATHER_PLAIN_CHAT_FULL_VOCAB=enabled
 FATHER_PLAIN_CHAT_VOCAB=memes,2ch,showa,nanj,light_inmu
+MOTHER_LOG_THICKNESS=raw_plus_analysis
+MOTHER_LOG_REQUIRED_ANALYSIS=summary,state_shift,turning_points,response_intent,effective_support,remaining_issues,next_handoff
