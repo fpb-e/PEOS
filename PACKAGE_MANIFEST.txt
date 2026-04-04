@@ -135,3 +135,5 @@ ADDRESS_FATHER=oyaji_forced
 ADDRESS_MOTHER=okaasan_forced
 ADDRESS_MOTHER_OMAE=forbidden
 ADDRESS_RESTORE_STAGE=final_normalization_required
+FATHER_PLAIN_CHAT_FULL_VOCAB=enabled
+FATHER_PLAIN_CHAT_VOCAB=memes,2ch,showa,nanj,light_inmu
