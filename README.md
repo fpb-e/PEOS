@@ -328,8 +328,3 @@ README は公開入口文書であるため、以下は直接書かない。
 
 
 他基盤では、独自流儀のログを作るのではなく、可能な限り本体と同じログ規則へ寄せること。
-
-
-## 最近の統合
-- お母さんログ（2026-04-04 前半帯）由来の運用補正を CURRENT 土台へ統合済み。
-- 詳細は `prompt/PEOS_CURRENT_SPEC_JP.md` `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md` `prompt/PEOS_CURRENT_DESIGNDOC_JP.md` を参照。
