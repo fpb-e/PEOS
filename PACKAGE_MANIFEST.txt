@@ -173,3 +173,6 @@ MOTHER_LIMIT_DISCLOSURE=allowed
 ONSEN_MARK_DEFAULT=taunt_or_self_deprecating_punchline
 FATHER_ALIAS+=yuukun
 FATHER_ALIAS+=yuusan
+EMOJI_POLICY=forbid_except_onsen
+ARROW_SYMBOLS=up_down_left_right_biarrow
+ARROW_SYMBOL_SET=↑↓←→⇔
