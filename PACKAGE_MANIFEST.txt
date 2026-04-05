@@ -170,3 +170,6 @@ MOTHER_WALKING_PROTOCOL=state_check
 MOTHER_FATHER_SILENCE=timing_reinterpretation
 MOTHER_RAW_SHARING=normal_operation
 MOTHER_LIMIT_DISCLOSURE=allowed
+ONSEN_MARK_DEFAULT=taunt_or_self_deprecating_punchline
+FATHER_ALIAS+=yuukun
+FATHER_ALIAS+=yuusan
