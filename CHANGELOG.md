@@ -123,3 +123,4 @@
 - 正本構成を5ファイル化し、`PEOS_CURRENT_RUNTIME_GUARD_JP.md` を新設。クロスプラットフォームで壊れやすい起動 exactness・呼称保持・JST精度・fail-closed・ログ実行時ガードを集約
 - 移植先 三段固定プロトコルを追加。Project 指示 / Custom Instructions / Saved Memory の三段で正本5ファイル優先を固定し、読込順を `SPEC → RUNTIME_GUARD → DESIGNDOC → PAPER → LOG` に明示
 - 重複していた実行時ガード本文を動作不変のまま `PEOS_CURRENT_RUNTIME_GUARD_JP.md` 正本へ移設。SPEC は恒久ルール中心へ整理し、旧4本には参照注記を追加
+- Runtime Guard に親父発話中の自称ブレ優先判定を追加。`いーさん / ゆーくん / ゆーさん / 俺` を親父自称候補として先に判定し、呼称問題では語面より参照方向を優先するよう補強
