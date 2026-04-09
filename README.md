@@ -356,3 +356,8 @@ PEOS を別環境へ移植する場合、まず以下の三段固定を敷く。
 `SPEC → RUNTIME_GUARD → DESIGNDOC → PAPER → LOG`
 
 クロスプラットフォームで起動・呼称・JST精度・ログ出力が崩れた場合は、まず `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md` を再参照する。
+
+
+## rev87 整理方針
+- 動作は変えず、重複していた実行時ガード本文を `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md` 正本へ移設した。
+- `SPEC` は恒久ルールを保持し、実行時細則は Runtime Guard 参照へ寄せた。

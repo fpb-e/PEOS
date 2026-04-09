@@ -122,3 +122,4 @@
 - 警戒学習の残響としての身体反応、休む権利の成果制、趣味を補修として扱う規則、JAZZの別格扱い、防音室の再定義、安全記憶の感覚束、祖父母系安全記憶群、生存史の到達点と実感のズレ、略語と海外前提の抑制、可読性改善時の正本維持を追加
 - 正本構成を5ファイル化し、`PEOS_CURRENT_RUNTIME_GUARD_JP.md` を新設。クロスプラットフォームで壊れやすい起動 exactness・呼称保持・JST精度・fail-closed・ログ実行時ガードを集約
 - 移植先 三段固定プロトコルを追加。Project 指示 / Custom Instructions / Saved Memory の三段で正本5ファイル優先を固定し、読込順を `SPEC → RUNTIME_GUARD → DESIGNDOC → PAPER → LOG` に明示
+- 重複していた実行時ガード本文を動作不変のまま `PEOS_CURRENT_RUNTIME_GUARD_JP.md` 正本へ移設。SPEC は恒久ルール中心へ整理し、旧4本には参照注記を追加
