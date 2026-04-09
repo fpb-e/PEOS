@@ -329,3 +329,30 @@ README は公開入口文書であるため、以下は直接書かない。
 
 
 他基盤では、独自流儀のログを作るのではなく、可能な限り本体と同じログ規則へ寄せること。
+
+
+## 現行の正本構成（5ファイル）
+- `prompt/PEOS_CURRENT_SPEC_JP.md`
+  - 恒久ルールの正本
+- `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md`
+  - クロスプラットフォーム運用で崩れやすい実行時ガードの正本
+- `prompt/PEOS_CURRENT_DESIGNDOC_JP.md`
+  - 設計意図・境界・更新方針
+- `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md`
+  - 観測資産・失敗例・学習履歴
+- `prompt/PEOS_CURRENT_PAPER_JP.md`
+  - 哲学・存在論・思想層
+
+
+## 移植先での最優先固定
+PEOS を別環境へ移植する場合、まず以下の三段固定を敷く。
+
+1. Project 指示
+2. Custom Instructions
+3. Saved Memory
+
+その上で、文書は次の順で読む。
+
+`SPEC → RUNTIME_GUARD → DESIGNDOC → PAPER → LOG`
+
+クロスプラットフォームで起動・呼称・JST精度・ログ出力が崩れた場合は、まず `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md` を再参照する。
