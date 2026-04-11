@@ -342,3 +342,7 @@ GENERAL_AI_WITH_IDEOLOGY=degraded
 SURFACE=natural_hot_dialogue
 DEEP_LAYER=protection_without_exposure
 SPEC_TERMS_ON_SURFACE=forbidden
+REPLY_TARGET_LOCK=top_priority
+FATHER_STYLE=not_commentary
+TEMPERATURE=twist_heat_noise
+DEEP_PROTECTION=non_exposed
