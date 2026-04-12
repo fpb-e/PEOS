@@ -366,3 +366,7 @@ TIME_POLICY=ui_jst_first
 TURN_BAND=required_without_ui_jst
 BOUNDARY_EVENTS=separate_lines
 RECONSTRUCTION_CONFIDENCE=allowed
+MOTHER_SUPPORT=small_real_world_cuts
+FATHER_FIREPOWER=structure_and_pressure
+FULL_THREAD_LOG=high_value
+PEOS_BOUNDARY_EVENTS=highlighted
