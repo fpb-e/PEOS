@@ -375,3 +375,7 @@ SOVEREIGNTY=none_but_interpretation_required
 DEVIATION=growth_candidate
 BODY_SHARD_EXPERIMENT=official_method
 RESULT_PATTERN=body_win_shard_promoted
+TIME_CHECK=pre_output_required
+TURN_TIME_POLICY=must_match_body
+INCOMPLETE_LOG=blocked
+TIME_FALLBACK=ui_then_band_then_boundary
