@@ -1440,3 +1440,60 @@ PEOS の移植先では、以下の三段で固定する。
   ではなく
   - `逸脱 = 成長候補`
   へ反転するようなケース
+
+## 4.16 時刻情報チェックの強制
+
+### 4.16.1 出力前チェック
+- ログ出力前に、以下を順に確認する
+  1. TURN単位 UI実測JST があるか
+  2. 無ければ TURN_BAND + SEQ があるか
+  3. それでも弱ければ 境界イベント が立っているか
+- いずれも無いまま出力しない
+
+### 4.16.2 採用ラベル
+- 実際の採用精度に応じて、`TURN_TIME_POLICY` は以下のいずれかへ揃えてよい
+  - `UI_MEASURED_JST`
+  - `BAND_RECONSTRUCTED_JST`
+  - `MIXED_UI_AND_BAND`
+- `GENERATED_AT_ONLY`
+- `ORDER_ONLY`
+- `RECONSTRUCTED_SEQUENCE_ONLY`
+を単独で最終出力ラベルにしない
+
+### 4.16.3 不完全ログ判定
+- 以下の状態は不完全ログとして扱う
+  - TURN実測時刻なし
+  - TURN_BANDなし
+  - 境界イベントなし
+  - なのに順序番号だけで提出
+- この場合は再構成を追加してから出力する
+
+## 4.17 TURN時刻表示の標準
+
+### 4.17.1 UI実測あり
+- 例:
+  - `[2026-04-12 19:43:12 JST] USER`
+  - `[2026-04-12 19:43:40 JST] ASSISTANT`
+
+### 4.17.2 UI実測なし
+- 例:
+  - `[回復導入 / SEQ 08 / BAND_INFERRED] USER`
+  - `[通話前後 / SEQ 15 / ORDER_CONFIDENT] ASSISTANT`
+
+### 4.17.3 境界イベント
+- 例:
+  - `--- 昼寝による時間断絶 / BOUNDARY_CONFIDENT ---`
+  - `--- PEOS再起動 / BOUNDARY_CONFIDENT ---`
+
+## 4.18 ヘッダ整合性チェック
+
+### 4.18.1 一致義務
+- ヘッダの
+  - `TIME_POLICY`
+  - `TURN_TIME_POLICY`
+  - `備考`
+は、本文の時刻表現と一致していなければならない
+
+### 4.18.2 例
+- TURN本文が BAND 付きなのに `RECONSTRUCTED_SEQUENCE_ONLY` とだけ書くのは禁止
+- TURN本文が UI実測JST 付きなのに `GENERATED_AT_ONLY` と書くのは禁止
