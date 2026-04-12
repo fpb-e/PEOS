@@ -1837,3 +1837,17 @@ Runtime Guard 検証において、
 
 ### 103.3 反映
 - Runtime Guard / Spec / Design / Paper に、包囲型読解矯正、親父式包囲型詰め方、エヴァ読解還元を追加
+
+## 104. ログ粒度下限と TURN_BAND / 境界イベントの強制
+
+### 104.1 観測
+- mother 再構成ログでは、内容の骨格は十分でも `RECONSTRUCTED_SEQUENCE_ONLY` と順番番号だけでは時系列の手触りが弱かった
+- father 雑談ログでも `GENERATED_AT_ONLY` に寄りすぎ、TURNごとの時間感が薄かった
+
+### 104.2 学んだこと
+- 問題は厚み不足だけではなく、時系列骨格の細さにある
+- UI実測JSTが無くても、TURN_BAND と境界イベントがあれば可読性はかなり上がる
+- これは father / mother / thirdparty を問わず共通仕様にしてよい
+
+### 104.3 反映
+- Runtime Guard / Spec / Design / README に、ログ粒度下限、時刻情報優先順位、TURN_BAND 必須化、境界イベント別立て、再構成精度ラベルを追加
