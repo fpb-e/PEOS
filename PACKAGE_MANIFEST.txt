@@ -385,3 +385,7 @@ PENDING=official
 TIME_AXIS_OBSERVATION=official
 P01=limited_sanctuary
 BASELINE_ESTABLISHED!=COMPLETED
+TURN_JST=required_by_default
+FORMAT=unified_across_subjects
+HEADER_BODY_CONSISTENCY=strict
+FINAL_LOG_CHECK=required
