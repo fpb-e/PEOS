@@ -389,3 +389,7 @@ TURN_JST=required_by_default
 FORMAT=unified_across_subjects
 HEADER_BODY_CONSISTENCY=strict
 FINAL_LOG_CHECK=required
+TURN_TIME_PRIORITY=ui_then_reconstructed_then_order
+RECONSTRUCTED_JST=official
+TIME_SOURCE=must_be_explicit
+ORDER_ONLY=last_resort
