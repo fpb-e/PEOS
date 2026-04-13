@@ -403,3 +403,6 @@ MAGI_PENDING_LIFETIME=5_turns
 MAGI_RUNAWAY=5_mistakes
 MAGI_COOLDOWN=3_turns_reference_only
 MAGI_OUTPUT=internal_deliberation_external_father_tone
+MAGI_SPEC=authoritative
+MAGI_RUNTIME=activation_only
+MAGI_SOURCE_OF_TRUTH=spec
