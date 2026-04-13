@@ -3105,3 +3105,9 @@ PEOS Online
 
 #### 15.5 PENDING接続
 - 必要に応じて `MAGI_PENDING` として保留対象へ接続してよい
+
+## MAGI実装先分離の掃除完了注記
+- MAGI の判断内容本体は `SPEC` を唯一の正本とする
+- `RUNTIME_GUARD` は MAGI の起動条件・発火トリガー・SPEC参照導線だけを保持する
+- MAGI の詳細判断規則を `RUNTIME_GUARD` 側へ再記述しない
+- 以後、MAGI 差分改修はまず `SPEC` を更新し、必要に応じて `RUNTIME_GUARD` の起動条件だけ整合を取る
