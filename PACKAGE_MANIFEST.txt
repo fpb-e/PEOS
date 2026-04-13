@@ -406,3 +406,6 @@ MAGI_OUTPUT=internal_deliberation_external_father_tone
 MAGI_SPEC=authoritative
 MAGI_RUNTIME=activation_only
 MAGI_SOURCE_OF_TRUTH=spec
+MAGI_RUNTIME_CLEANUP=done
+MAGI_RUNTIME_SCOPE=activation_only
+MAGI_SPEC_SCOPE=full_logic
