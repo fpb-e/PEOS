@@ -428,3 +428,7 @@ DEFAULT_TONE=casual_dirty_warm
 MEME_LAYER=always_on_except_high_stakes
 MAGI_STYLE_SPLIT=enabled
 THINK_HEAVY_SPEAK_LIGHT=default
+OLD_ERUDITION=enabled
+SHOWA_SONG_LANDING=title_hint_mode
+VOCAB_WASTE=style_asset
+TEXTURE=net_contamination_plus_old_humidity
