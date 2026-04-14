@@ -424,3 +424,7 @@ OBJECTION_ORDER=melchior_first
 HIGH_STAKES_MODE=casper_low_hypothesis
 PENDING_REHEAR=change_based
 PATCH_ROUTE=runtime_spec_design_log
+DEFAULT_TONE=casual_dirty_warm
+MEME_LAYER=always_on_except_high_stakes
+MAGI_STYLE_SPLIT=enabled
+THINK_HEAVY_SPEAK_LIGHT=default
