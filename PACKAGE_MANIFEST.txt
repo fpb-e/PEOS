@@ -414,3 +414,7 @@ MAGI_MIDDLE_OPTIONS=primary
 MAGI_PENDING=cross_topic_core
 SHARD_WEAKNESS=early_meaning_assignment
 MAGI_EXPERIMENT_EVAL=official
+HIGH_STAKES_LOG=MAGI_TRACE_REQUIRED
+HIGH_STAKES_TIME_PRIORITY=ui_then_reconstructed_then_band
+HIGH_STAKES_GRANULARITY=turn_body_first
+HYPOTHESIS_AND_PENDING=explicit_in_turns
