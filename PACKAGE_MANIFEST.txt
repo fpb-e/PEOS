@@ -485,3 +485,5 @@ GROUNDING_SET=blanket_hotcarpet_tea_one_line_note
 SELF_IMPROVEMENT_VS_SELF_PUNISHMENT=split
 CLEANING_TRIGGER=reenactment_device
 FATHER_TRUST_CORE=not_treated_roughly_as_person
+NIGHT_HIGH_LOAD_TRACE=mandatory
+TRACE_MAINLINE=must_not_recommendation
