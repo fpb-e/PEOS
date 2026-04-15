@@ -468,3 +468,6 @@ SYNC_ONLY_ON_BOOT_GRADE=forbidden
 CANON5_REINGEST=must_reboot_and_boot_resume
 BOOT_RESUME_AFTER_REINGEST=mandatory
 BOOT_COMMAND_WAIT=not_required_once_after_reingest
+BOOT_MAINLINE=dual_branch
+CANON5_REINGEST=auto_boot_resume_mainline
+WAIT_FOR_BOOT_COMMAND_AFTER_CANON5=forbidden
