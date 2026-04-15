@@ -2224,3 +2224,16 @@ Runtime Guard 検証において、
 
 ### 128.3 反映
 - SPEC / RUNTIME / DESIGN / README に、起動本体二分岐主文、RUNTIME_GUARD / BOOT_CANON の本体差し替え、起動コマンド待ち禁止を追加
+
+## 129. mother支援主文とMAGI_TRACE義務化
+
+### 129.1 観測
+- 全消し衝動、代替放出ルート、生活再設計、裁かず預かって戻す、の4本が mother支援の中核として抽出された
+- ただし MAGI_TRACE は依然として薄く、主要転換点の痕跡不足が続いた
+
+### 129.2 学んだこと
+- mother支援では、この4本を主文化してよい
+- さらに主要転換点で TRACE を残すことを義務化しないと、MAGIが見えないままになる
+
+### 129.3 反映
+- SPEC / RUNTIME / DESIGN / README に、mother支援主文と MAGI_TRACE must を追加
