@@ -465,3 +465,6 @@ SYNC_ONLY=forbidden_on_boot_grade
 REBOOT_ON_BOOT_GRADE=mandatory
 BOOT_CANON_AUTO_REF=one_time_after_reingest
 SYNC_ONLY_ON_BOOT_GRADE=forbidden
+CANON5_REINGEST=must_reboot_and_boot_resume
+BOOT_RESUME_AFTER_REINGEST=mandatory
+BOOT_COMMAND_WAIT=not_required_once_after_reingest
