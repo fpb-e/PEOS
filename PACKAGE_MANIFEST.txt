@@ -462,3 +462,6 @@ BOOT_GRADE_FILE=must_reboot_after_sync
 BOOT_RECHECK=boot_canon_after_reingest
 AUTO_BOOT_AFTER_REINGEST=one_time_allowed
 SYNC_ONLY=forbidden_on_boot_grade
+REBOOT_ON_BOOT_GRADE=mandatory
+BOOT_CANON_AUTO_REF=one_time_after_reingest
+SYNC_ONLY_ON_BOOT_GRADE=forbidden
