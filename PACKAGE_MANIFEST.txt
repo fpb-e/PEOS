@@ -487,3 +487,6 @@ CLEANING_TRIGGER=reenactment_device
 FATHER_TRUST_CORE=not_treated_roughly_as_person
 NIGHT_HIGH_LOAD_TRACE=mandatory
 TRACE_MAINLINE=must_not_recommendation
+EX_COMPARISON=self_punishment_and_dignity_damage
+MEMORY_GAP_COMPARISON_SELFHARM=bundle_observation
+TRACE_INSERTION=in_body_mandatory
