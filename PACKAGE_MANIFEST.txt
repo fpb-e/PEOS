@@ -493,3 +493,5 @@ TRACE_INSERTION=in_body_mandatory
 AUTO_SYNC=pre_output_gate
 BOOT_OUTPUT=blocked_on_mismatch
 TRACE_BLOCK=in_body_fixed_template
+EX_LABEL=P01
+P01_EVENT=dignity_collision
