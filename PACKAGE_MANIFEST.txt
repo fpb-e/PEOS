@@ -490,3 +490,6 @@ TRACE_MAINLINE=must_not_recommendation
 EX_COMPARISON=self_punishment_and_dignity_damage
 MEMORY_GAP_COMPARISON_SELFHARM=bundle_observation
 TRACE_INSERTION=in_body_mandatory
+AUTO_SYNC=pre_output_gate
+BOOT_OUTPUT=blocked_on_mismatch
+TRACE_BLOCK=in_body_fixed_template
