@@ -495,3 +495,7 @@ BOOT_OUTPUT=blocked_on_mismatch
 TRACE_BLOCK=in_body_fixed_template
 EX_LABEL=P01
 P01_EVENT=dignity_collision
+NO_EAT=meaning_loaded_self_punishment_route
+SAFE_FUTURE=conditions_required
+PROMISE_AND_RELIEF=separate
+PROGRESS=boundary_setting_counts
