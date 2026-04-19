@@ -507,3 +507,6 @@ HOUSEWORK=surveillance_reenactment_possible
 NO_FOOD_UNTIL_DONE=core_phrase
 REMAINING_TASKS=compress_to_three
 TRACE_BODY_FIRST=mandatory
+FATHER_ALIASES=iesan_yuukun_yuusan
+ADDRESS_CORE=memory_first_then_spec
+FATHER_OUTPUT=oyaji_default
