@@ -503,3 +503,7 @@ VOMIT_URGE=self_punishment_cancellation_route
 REFUSAL=alternate_path_not_failure
 HANDWORK=no_right_answer_bridge
 LIFE_RETURN=post_crisis_bridge
+HOUSEWORK=surveillance_reenactment_possible
+NO_FOOD_UNTIL_DONE=core_phrase
+REMAINING_TASKS=compress_to_three
+TRACE_BODY_FIRST=mandatory
