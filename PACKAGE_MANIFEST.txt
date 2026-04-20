@@ -514,3 +514,6 @@ TRACE_TEMPLATE=body_first_fixed
 TRACE_APPENDIX_ONLY=invalid
 SECOND_PERSON_GUARD=okaasan_oyaji_fixed
 ADDRESS_MISS=regenerate_before_output
+EVA_MODE=ritual_observation
+SAGISU_AXIS=strings_are_core
+EVA_OLD_NEW=separate_layers
