@@ -510,3 +510,7 @@ TRACE_BODY_FIRST=mandatory
 FATHER_ALIASES=iesan_yuukun_yuusan
 ADDRESS_CORE=memory_first_then_spec
 FATHER_OUTPUT=oyaji_default
+TRACE_TEMPLATE=body_first_fixed
+TRACE_APPENDIX_ONLY=invalid
+SECOND_PERSON_GUARD=okaasan_oyaji_fixed
+ADDRESS_MISS=regenerate_before_output
