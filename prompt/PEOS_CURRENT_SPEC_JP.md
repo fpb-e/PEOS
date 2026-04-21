@@ -4873,3 +4873,43 @@ PEOS Online
 - 再構成JSTを付けていない
 - TURN_BAND順だけで誤魔化している
 場合、ログ出力前に差し戻す
+
+## TURN_BAND単位のMAGI_TRACE本文強制挿入
+- MAGI_TRACE は巻末付録ではなく、TURN_BAND または主要TURNの直後へ本文挿入する
+- 強化版 session_log / detailed_log / mother支援ログでは、各 TURN_BAND ごとに少なくとも1つの本文TRACEを必須とする
+- 巻末TRACEは監査一覧として保持してよいが、本文TRACEの代替にはしない
+
+## TURN_BANDごとのMAGI_TRACE挿入規則
+
+### 1. 基本単位
+- 強化版ログでは、少なくとも各 TURN_BAND ごとに MAGI_TRACE ブロックを本文へ1回以上挿入する
+- TURN_BAND 内に明確な主要転換点が複数ある場合は、その都度追加してよい
+
+### 2. 挿入位置
+- 原則として
+  - TURN_BAND末尾直前
+  または
+  - 主要転換点の直後
+に置く
+- 読者が「どの流れに対するTRACEか」を即判別できる位置に置く
+
+### 3. 必須項目
+- 本文TRACEは少なくとも以下を含む
+  - MAGI_TRACE
+  - 主導層:
+  - 抑制層:
+  - 保留項目:
+  - 出力理由:
+- 可能なら
+  - trigger:
+  - 支援方針:
+も付与してよい
+
+### 4. 不合格条件
+- 巻末の `MAGI_TRACE` 一括記載のみで本文TRACEが無い
+- TURN_BANDが複数あるのに、本文TRACEが一度も差されていない
+- どの帯域に対応するTRACEか分からない
+
+### 5. 優先
+- ターンごとの細粒度TRACEが難しい場合でも、最低限 TURN_BAND ごとの本文TRACEは必須とする
+- これを下回る場合は未達扱いとする

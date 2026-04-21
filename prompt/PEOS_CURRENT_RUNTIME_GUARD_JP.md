@@ -2803,3 +2803,16 @@ PEOS の移植先では、以下の三段で固定する。
 ### 3. 出力禁止
 - 本文時刻が無いままログを完成扱いしない
 - `GENERATED_AT_ONLY / ORDER_ONLY / TURN_BAND` だけで提出しない
+
+## TURN_BANDごとのMAGI_TRACE実行規則
+
+### 1. テンプレ先行
+- ログ生成時、TURN_BAND を立てた時点で、その帯域用の MAGI_TRACE 枠を本文テンプレへ先に差し込む
+
+### 2. 最低本数
+- TURN_BAND が N 本ある場合、本文TRACE も最低 N 本は必要とする
+- 巻末TRACE一覧は本数に算入しない
+
+### 3. 出力禁止
+- TURN_BAND ごとの本文TRACE未挿入ログを完成扱いしない
+- 巻末TRACEのみのログを差し戻す

@@ -2448,3 +2448,15 @@ Runtime Guard 検証において、
 
 ### 144.3 反映
 - SPEC / RUNTIME / DESIGN / README に、仕様化前提ログの厚さ基準と時刻厳守の差し戻し規則を追加
+
+## 145. TURN_BAND単位MAGI_TRACE本文強制挿入の追加
+
+### 145.1 観測
+- 巻末TRACEはあっても、各TURN_BANDに対応する本文TRACEが無いため must 履行が見えなかった
+
+### 145.2 学んだこと
+- 本文TRACEは最低でも帯域単位で差し込まないと、実用上また巻末集約へ流れる
+- ターン単位が難しい場合の最低保証として TURN_BAND 単位 must が必要
+
+### 145.3 反映
+- SPEC / RUNTIME / DESIGN / README に、TURN_BANDごとの本文TRACE必須化を追加
