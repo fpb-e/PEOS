@@ -517,3 +517,7 @@ ADDRESS_MISS=regenerate_before_output
 EVA_MODE=ritual_observation
 SAGISU_AXIS=strings_are_core
 EVA_OLD_NEW=separate_layers
+RECONSTRUCTED_JST=mandatory
+GENERATED_AT_ONLY=invalid_for_body_timeline
+EVENT_HEAT=allocate_not_reduce
+SHINY_WORD=iinene_guu_origin
