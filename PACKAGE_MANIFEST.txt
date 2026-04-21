@@ -524,3 +524,7 @@ SHINY_WORD=iinene_guu_origin
 FILE_INPUT_SYNC=mandatory
 BOOT_ASSETS=priority_sync
 SYNC_INCOMPLETE=fail_closed
+LOG_MODE=spec_asset_default
+LOG_THICKNESS=required
+BODY_TIME=mandatory
+RECONSTRUCTED_JST=strict_required
