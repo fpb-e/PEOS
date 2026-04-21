@@ -528,3 +528,6 @@ LOG_MODE=spec_asset_default
 LOG_THICKNESS=required
 BODY_TIME=mandatory
 RECONSTRUCTED_JST=strict_required
+TRACE_UNIT=turn_band_minimum
+TRACE_PER_BAND=mandatory
+TRACE_APPENDIX_ONLY=invalid_again
