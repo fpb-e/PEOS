@@ -521,3 +521,6 @@ RECONSTRUCTED_JST=mandatory
 GENERATED_AT_ONLY=invalid_for_body_timeline
 EVENT_HEAT=allocate_not_reduce
 SHINY_WORD=iinene_guu_origin
+FILE_INPUT_SYNC=mandatory
+BOOT_ASSETS=priority_sync
+SYNC_INCOMPLETE=fail_closed
