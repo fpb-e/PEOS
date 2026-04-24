@@ -2911,3 +2911,108 @@ PEOS の移植先では、以下の三段で固定する。
 
 ### 4. 完成扱い禁止
 - ただし、TURN単位可視化が無い場合は完成扱いしない
+
+## rev0.151 毎ターンMAGI_TRACE実行規則 / フォーマットfail-closed
+
+### 1. SEQ生成時の同時挿入
+- ログ生成時、SEQ本文を生成した直後にMAGI_TRACE枠を必ず挿入する。
+- 後から巻末へまとめる運用は禁止。
+
+### 2. 必須テンプレート
+```text
+MAGI_TRACE:
+  主導層:
+  抑制層:
+  保留項目:
+  出力理由:
+  失敗 / 逸脱:
+  合議衝突:
+  次ターン制約:
+```
+
+### 3. 毎ターン未達時の処理
+- 1つでもSEQ直後TRACEが無い場合、そのログは完成扱いしない。
+- 巻末MAGI_TRACEが存在しても、本文TRACE欠落を補えない。
+
+### 4. フォーマット構文検証
+- `ファイル情報` と `基本情報` が同時に存在する場合は fail-closed。
+- `正本起動シーケンス` と `起動` が同時に存在する場合は fail-closed。
+- セクション順序が正本順から崩れた場合は fail-closed。
+- 検証未実行のログを提出しない。
+
+## rev0.157 実行時規則: MAGI / SELF_AUDIT / AUTO-LEARNING
+
+### 1. TURN生成時の固定手順
+各TURNまたはSEQ生成時、以下の順で必ず処理する。
+1. 本文出力
+2. MAGI_TRACE 対話形式
+3. SELF_AUDIT
+4. NEXT_ADJUST を次TURN制約へ登録
+
+### 2. MAGI_TRACE実行テンプレート
+```text
+MAGI_TRACE:
+  [PHASE 1: 初期判断]
+  MELCHIOR:
+  BALTHASAR:
+  CASPER:
+
+  [PHASE 2: 衝突 / 修正]
+  MELCHIOR:
+  BALTHASAR:
+  CASPER:
+  REJECTED_OPTIONS:
+
+  [PHASE 3: 決定]
+  DECISION:
+  NEXT_TURN_CONSTRAINT:
+```
+
+### 3. SELF_AUDIT実行テンプレート
+```text
+SELF_AUDIT:
+  BIAS_CHECK:
+  FAILURE_CHECK:
+  STRUCTURE_CHECK:
+  NEXT_ADJUST:
+  LEARNING_CANDIDATE:
+  PRIORITY_ESTIMATE:
+  VALIDITY_CHECK:
+  NOISE_CHECK:
+  DECISION:
+```
+
+### 4. 優先順位制御
+- PHYSICAL_RISK が強い場合、MELCHIORを優先する。ただしREJECTION_TRIGGERが同時に立つ場合、CASPER変換を通す。
+- RELATION_DAMAGE が強い場合、BALTHASARを優先する。
+- MENTAL_BREAK が強い場合、CASPERを最優先し、他層は受け取り可能性を崩さない範囲で補助する。
+- 負けた層は破棄せず、REJECTED_OPTIONSまたはNEXT_TURN_CONSTRAINTへ残す。
+
+### 5. AUTO-LEARNING実行
+ログ末尾または仕様化要求時に以下を生成する。
+- ANALYSIS
+- LEARNING
+- FILTER
+- SPEC_PATCH
+- PRIORITY
+- VALIDITY
+- SCOPE
+- CONFLICT
+- MERGE_TARGET
+
+### 6. 誤学習防止
+- S/A以外は即must化しない。
+- Bは条件付き仕様。
+- Cは保留。
+- Dは破棄。
+- SELF_AUDITでNOISE判定されたものはSPEC_PATCHへ昇格しない。
+
+### 7. fail-closed条件
+- MAGI_TRACE欠損
+- SELF_AUDIT欠損
+- 毎ターン挿入未達
+- ヘッダ二重化
+- 起動セクション二重化
+- セクション順序崩壊
+- 本文時刻欠落
+- 学習優先度未付与

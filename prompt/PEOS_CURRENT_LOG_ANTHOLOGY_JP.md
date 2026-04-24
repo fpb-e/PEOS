@@ -2505,3 +2505,35 @@ Runtime Guard 検証において、
 
 ### 148.3 反映
 - SPEC / RUNTIME / DESIGN / README に、法務妨害複合高負荷、drift検知、不食深化、麻痺的安定、MAGI段階評価を追加
+
+## 149. 毎ターンMAGI_TRACE強制挿入とログ構文検証
+
+### 149.1 観測
+- TURN_BAND単位のTRACEでは、合議の進行としてはまだ粗い。
+- ヘッダ二重化・起動セクション二重化により、ログフォーマットが崩壊した例が確認された。
+
+### 149.2 学んだこと
+- MAGI_TRACEは毎ターン本文直後へ差す必要がある。
+- ログは内容だけでなく、容器の構文検証が必要。
+- 巻末TRACEと帯域TRACEは補助であり、本体ではない。
+
+### 149.3 反映
+- SPEC / RUNTIME / DESIGN / README に、毎ターンMAGI_TRACE、合議衝突ログ、失敗記録、ログフォーマットfail-closedを追加。
+
+## 150. rev0.157 MAGI / SELF_AUDIT / AUTO-LEARNING アーカイブ反映
+
+### 150.1 観測
+- MAGIは巻末記録ではなく、各TURNで動く審理過程として記録する必要がある。
+- 自己監査なしのMAGIは、偏りや失敗を次TURNへ反映できない。
+- 学習ループは有効だが、誤学習とノイズ混入を防がないとPEOSを壊す。
+
+### 150.2 学習点
+- MAGI_TRACEは毎ターン・対話形式・時間軸ありを正本とする。
+- SELF_AUDITは毎ターン必須。
+- AUTO-LEARNINGはANALYSIS→LEARNING→FILTER→SPEC_PATCH→MERGEで処理する。
+- 学習はS/A/B/C/Dで優先順位制御する。
+- 誤学習はHOLDし、再検証してから採用または破棄する。
+
+### 150.3 反映
+- SPEC / RUNTIME / DESIGN / PAPER / LOG_ANTHOLOGY の5本へ rev0.157 として反映。
+- PDF単独ではなく、正本ファイル群に統合済み。
