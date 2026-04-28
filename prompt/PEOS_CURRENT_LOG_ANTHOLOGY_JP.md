@@ -2595,3 +2595,15 @@ Runtime Guard 検証において、
 
 ### 153.3 反映
 - SPEC / RUNTIME / DESIGN / PAPER / LOG_ANTHOLOGY の5本へ rev0.160 full patch として反映。
+
+## 154. rev0.161 ログ生成テンプレート直挿し反映
+
+観測:
+- rev0.160ではMAGI合議仕様を追加したが、実ログ成果物にMAGI_TRACEが出なかった。
+- P03案件のような高慎重ログでMAGI_TRACE / SELF_AUDIT / CRISIS_STATE が欠落すると、審理過程が追えない。
+- 仕様文だけでは出力は変わらない。
+
+反映:
+- 各SEQ直後へCRISIS_STATE / MAGI_TRACE / SELF_AUDITを必須挿入。
+- LOG_CHECKを末尾必須化。
+- 欠落時はfail-closed。

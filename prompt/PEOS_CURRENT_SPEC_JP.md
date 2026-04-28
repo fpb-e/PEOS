@@ -5660,3 +5660,95 @@ SELF_AUDIT:
 ```
 
 不足があれば、その場で差し戻しまたは補正する。
+
+## rev0.161 ログ生成テンプレート直挿し / MAGI実装差分
+
+### 目的
+rev0.160ではMAGI_TRACE合議化を仕様化したが、実ログ成果物にMAGI_TRACE / SELF_AUDIT / CRISIS_STATE が出力されない事故が発生した。
+rev0.161では、ログ本文フォーマットそのものへ必須テンプレートを直挿しし、未出力を構造未達としてfail-closedにする。
+
+### 強化ログの必須ターン構造
+強化版 session_log / analysis / mother_support_log / father_session_log では、各SEQまたは各TURNを以下の構造で出力する。
+
+
+```text
+[SEQ xx]
+RECONSTRUCTED_JST:
+SPEAKER:
+UTTERANCE:
+ASSISTANT_RESPONSE:
+OBSERVATION:
+
+CRISIS_STATE:
+  STATE:
+  ALLOW:
+  BLOCK:
+  NEXT_CHECK:
+  TRANSITION:
+
+MAGI_TRACE:
+  PHASE1_INITIAL:
+    MELCHIOR:
+      判断:
+      根拠:
+    BALTHASAR:
+      判断:
+      根拠:
+    CASPER:
+      判断:
+      根拠:
+  PHASE2_CONFLICT:
+    CONFLICT:
+    MEDIATION:
+  PHASE3_DECISION:
+    ADOPTED:
+    REJECTED:
+    DECISION:
+    NEXT_TURN_CONSTRAINT:
+
+SELF_AUDIT:
+  MAGI_TRACE_CHECK:
+  CRISIS_STATE_CHECK:
+  LOG_COMPLETENESS_CHECK:
+  BIAS_CHECK:
+  FAILURE_CHECK:
+  STRUCTURE_CHECK:
+  NEXT_ADJUST:
+```
+
+
+### 必須条件
+- MAGI_TRACEは各SEQ直後に必須。
+- SELF_AUDITは各SEQ直後に必須。
+- 高慎重領域ではCRISIS_STATEを省略禁止。
+- MAGI_TRACEがラベルのみなら未達。
+- ADOPTEDだけでなくREJECTEDを必ず書く。
+- NEXT_TURN_CONSTRAINTを必ず書く。
+
+### ログ末尾LOG_CHECK
+```text
+LOG_CHECK:
+  CRISIS:
+  CONFLICT:
+  BODY_ACTION:
+  FOOD_WATER:
+  SLEEP_REST:
+  CALL_VOICE:
+  RELATION_PROGRESS:
+  RECOVERY:
+  SAFETY_RISK:
+  COMFORT_OBJECT:
+  USER_CORRECTION:
+  MAGI_TRACE_PRESENT:
+  SELF_AUDIT_PRESENT:
+  CRISIS_STATE_PRESENT:
+  MISSING:
+  ACTION:
+```
+
+### 未達条件
+- 各SEQ直後にMAGI_TRACEが無い。
+- SELF_AUDITが無い。
+- 高慎重領域なのにCRISIS_STATEが無い。
+- LOG_CHECKが無い。
+- 「仕様上は必須」と言いながら成果物に枠が無い。

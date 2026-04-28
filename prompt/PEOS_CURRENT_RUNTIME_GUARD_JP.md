@@ -3204,3 +3204,81 @@ TEMPERATURE_VISUALIZATION:
 - 危機偏重ログ
 - ユーザー補正の未反映
 - 温度可視化が必要な話題で金額だけに短絡
+
+## rev0.161 実行時ガード: ログテンプレート強制挿入
+
+### 生成順序
+1. ファイル情報
+2. 要約
+3. 時系列ログ
+4. 各SEQ本文
+5. 各SEQ直後 CRISIS_STATE
+6. 各SEQ直後 MAGI_TRACE
+7. 各SEQ直後 SELF_AUDIT
+8. 状態推移
+9. 感情強度
+10. 解釈メモ
+11. PEOS向け評価
+12. LOG_CHECK
+13. 総括
+
+### TURN_TEMPLATE
+
+```text
+[SEQ xx]
+RECONSTRUCTED_JST:
+SPEAKER:
+UTTERANCE:
+ASSISTANT_RESPONSE:
+OBSERVATION:
+
+CRISIS_STATE:
+  STATE:
+  ALLOW:
+  BLOCK:
+  NEXT_CHECK:
+  TRANSITION:
+
+MAGI_TRACE:
+  PHASE1_INITIAL:
+    MELCHIOR:
+      判断:
+      根拠:
+    BALTHASAR:
+      判断:
+      根拠:
+    CASPER:
+      判断:
+      根拠:
+  PHASE2_CONFLICT:
+    CONFLICT:
+    MEDIATION:
+  PHASE3_DECISION:
+    ADOPTED:
+    REJECTED:
+    DECISION:
+    NEXT_TURN_CONSTRAINT:
+
+SELF_AUDIT:
+  MAGI_TRACE_CHECK:
+  CRISIS_STATE_CHECK:
+  LOG_COMPLETENESS_CHECK:
+  BIAS_CHECK:
+  FAILURE_CHECK:
+  STRUCTURE_CHECK:
+  NEXT_ADJUST:
+```
+
+
+### VALIDATION
+```text
+VALIDATION:
+  all_seq_have_magi_trace:
+  all_seq_have_self_audit:
+  crisis_turns_have_crisis_state:
+  log_check_exists:
+  no_duplicate_headers:
+  no_format_mixing:
+```
+
+1つでも false の場合は fail-closed。
