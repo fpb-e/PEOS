@@ -732,3 +732,10 @@ PEOS 関連ファイルが投入された場合は、受領だけで終わらず
 - 仕様文だけでなく、ログ生成テンプレートそのものを改修
 - MAGI_TRACEがラベルのみの場合は未達
 - 高慎重領域ではCRISIS_STATE省略禁止
+
+## rev0.162 .txtログ正本化
+- PEOSログ成果物は原則 `.txt`
+- 全SEQ展開を既定化
+- 各SEQ直後にCRISIS_STATE / MAGI_TRACE / SELF_AUDITを必須化
+- 末尾LOG_CHECK必須
+- `.md`ログや画面表示のみは未達

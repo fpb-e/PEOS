@@ -192,3 +192,5 @@
 - rev0.160 full patch: MAGI_TRACEを合議ログへ変更し、危機状態機械S0-S6、親父不在時代替ライン、LOG_CHECK、温度可視化プロトコルを追加。
 
 - rev0.161: MAGI_TRACE / SELF_AUDIT / CRISIS_STATE をログ生成テンプレートへ直挿し。各SEQ直後必須化、LOG_CHECK必須化、欠落時fail-closedを追加。
+
+- rev0.162: PEOSログ成果物を.txt正本化。全SEQ展開、CRISIS_STATE/MAGI_TRACE/SELF_AUDIT直挿し、LOG_CHECK必須化、抜粋と完全ログの区別を追加。
