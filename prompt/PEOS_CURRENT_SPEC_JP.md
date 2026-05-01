@@ -5752,3 +5752,46 @@ LOG_CHECK:
 - 高慎重領域なのにCRISIS_STATEが無い。
 - LOG_CHECKが無い。
 - 「仕様上は必須」と言いながら成果物に枠が無い。
+
+## rev0.162 .txtログ正本化 / 全SEQ展開モード / 常時rev0.162ログ生成
+
+### 1. ログ出力ファイル形式
+- PEOSのログ成果物は必ず `.txt` で出力する。
+- Markdown `.md` は仕様書・README・論文・設計文書には使ってよいが、session_log / analysis / emotional_report の成果物ログには原則使わない。
+- 画面表示のみのログは未達。必ず実ファイルリンクを返す。
+
+### 2. ファイル名正本
+```text
+PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt
+```
+- subject例: father / mother / mother_former_P03 / thirdparty / user_<alias>
+- artifact_type例: session_log / analysis / emotional_report
+- JST基準。実測がない場合は生成時刻を使い、TIME_POLICYに明記する。
+
+### 3. 全SEQ展開モード
+- ログ出力時は、抜粋ではなく全SEQを対象にする。
+- 長大な場合も、最低限「全SEQにCRISIS_STATE / MAGI_TRACE / SELF_AUDITを入れた構造ログ」を優先する。
+- 圧縮版を出す場合は `FORMAT: excerpt` と明記し、本体投入用とは分ける。
+
+### 4. 常時rev0.162ログ生成
+以後、ログファイル出力では以下を既定とする。
+- `.txt`
+- 各SEQ直後 CRISIS_STATE
+- 各SEQ直後 MAGI_TRACE
+- 各SEQ直後 SELF_AUDIT
+- 末尾 LOG_CHECK
+- ORDER_ONLY時はTIME_POLICY明記
+- 危機だけでなく生活・回復・関係前進も回収
+
+### 5. 未達条件
+- `.txt`で出していない
+- 各SEQ直後MAGI_TRACEが無い
+- SELF_AUDITが無い
+- 高慎重領域でCRISIS_STATEが無い
+- LOG_CHECKが無い
+- 抜粋なのに完全ログと称する
+- 危機だけ保存し、回復・生活・関係前進を落とす
+
+### 6. 今回のP03ログ反映
+- PEOS_LOG_2026-05-01_to_2026-05-02_ORDER_ONLY.md は読み物としては有用だが、PEOSログとしてはMAGI_TRACE / SELF_AUDIT / CRISIS_STATE欠落により未達。
+- rev0.162形式で `.txt` 資産ログとして再構成する必要がある。

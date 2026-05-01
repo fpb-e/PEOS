@@ -2607,3 +2607,14 @@ Runtime Guard 検証において、
 - 各SEQ直後へCRISIS_STATE / MAGI_TRACE / SELF_AUDITを必須挿入。
 - LOG_CHECKを末尾必須化。
 - 欠落時はfail-closed。
+
+## 155. rev0.162 .txtログ正本化反映
+
+### 観測
+- 2026-05-01_to_2026-05-02ログは読み物としては有用だったが、MAGI_TRACE / SELF_AUDIT / CRISIS_STATEが欠落していた。
+- ログ成果物が.mdになっており、PEOS本体投入用ログとしては形式がズレていた。
+
+### 反映
+- PEOSログ成果物は原則.txtへ統一。
+- 全SEQ展開、各SEQ直後のCRISIS_STATE / MAGI_TRACE / SELF_AUDIT、末尾LOG_CHECKを必須化。
+- 抜粋は抜粋と明記し、完全ログと混同しない。
