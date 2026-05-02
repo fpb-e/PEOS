@@ -2618,3 +2618,64 @@ Runtime Guard 検証において、
 - PEOSログ成果物は原則.txtへ統一。
 - 全SEQ展開、各SEQ直後のCRISIS_STATE / MAGI_TRACE / SELF_AUDIT、末尾LOG_CHECKを必須化。
 - 抜粋は抜粋と明記し、完全ログと混同しない。
+
+## rev0.164 SEQ単位再構成JST必須化 / ORDER_ONLY単独禁止
+
+### 背景
+2026-05-03ログでは、生成時刻のみJST、各TURNはORDER_ONLY + TURN_BANDで整理されていたが、SEQ単位の時刻がなく、緊張、移動、乗車、ログ修正事故の時間的密度が読めなかった。
+
+### 原則
+PEOSログは「順序」だけでなく「時間軸」を持つ。
+UI実測JSTが取れない場合でも、SEQ単位で再構成JSTを必ず付与する。
+
+### 時刻精度レベル
+TIME_PRECISION_LEVEL:
+  L0: ORDER_ONLYのみ。原則禁止。緊急退避ログのみ一時許可。
+  L1: TURN_BAND単位の再構成JST。最低保証。
+  L2: SEQ単位の再構成JST。通常ログの正本。
+  L3: UI実測JST。取得可能な場合の最優先。
+
+### SEQ必須フィールド
+各SEQは以下を必ず持つ。
+
+RECONSTRUCTED_JST:
+TIME_PRECISION:
+TIME_BASIS:
+TIME_CONFIDENCE:
+
+例:
+[SEQ 006]
+RECONSTRUCTED_JST: 2026-05-02 22:14:00 JST
+TIME_PRECISION: ESTIMATED_SEQ
+TIME_BASIS: ORDER_ONLY + event progression + transit context
+TIME_CONFIDENCE: low_to_medium
+
+### 推定ルール
+- 生成時刻から機械的に逆算しない。会話内イベント順を優先する。
+- 移動イベント、出発予定、乗車、到着、服薬、就寝など時間性の強いイベントをアンカーにする。
+- 同一TURN_BAND内は、文量・応答量・行動の重さに応じて間隔を配分する。
+- 行動イベントは会話だけのSEQより広めに間隔を取る。
+- 不明な場合は TIME_CONFIDENCE: low と明記し、精密時刻のように見せない。
+
+### 禁止
+- ORDER_ONLYのみで完成ログ扱いする。
+- TURN_BANDだけで終わらせる。
+- 各SEQのRECONSTRUCTED_JSTを空欄にする。
+- 擬似時刻を実測時刻のように書く。
+- 時刻がないままCRISIS_STATE / MAGI_TRACE / SELF_AUDITだけ入れて完成扱いする。
+
+### LOG_CHECK追加項目
+TIME_AXIS_PRESENT:
+SEQ_RECONSTRUCTED_JST_PRESENT:
+TIME_PRECISION_DECLARED:
+ORDER_ONLY_ONLY:
+TIME_CONFIDENCE_DECLARED:
+
+### PRE_OUTPUT_AUDIT追加項目
+all_seq_have_reconstructed_jst:
+all_seq_have_time_precision:
+order_only_only:
+
+### fail-closed
+通常ログで ORDER_ONLY_ONLY: TRUE の場合、出力未達とする。
+緊急退避ログの場合のみ一時許可し、後続でrev0.164形式へ再構成する。
