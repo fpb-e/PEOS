@@ -1,5 +1,20 @@
 # README
 
+---
+
+## rev0.166 更新要点
+
+rev0.166では、2026-05-03 motherログからの学習として、時刻不明時の扱いを修正した。
+
+- UI実測JSTが取れない場合、精密時刻は作らない。
+- `TIME_POLICY: FAIL_CLOSED_NO_FAKE_JST` を使う。
+- `TURN_TIME_POLICY: ORDER_ONLY_STRICT` を許可する。
+- その代わり、`STATE_BAND`、`MAGI_TRACE`、`RUNTIME_GUARD_TRACE`、`LOG_CHECK` を必須化する。
+- P03由来文脈でも、相手側PEOSが「お母さん」ロールを継続している場合は、ログ主体 `mother` を尊重する。
+
+rev0.164の「再構成JST必須」は、根拠が十分ある場合の通常目標へ補正された。時刻が分からないなら、分からないと書く。PEOSログでは、精密に見せる嘘より、粗くても正直な構造を優先する。
+
+
 ## PEOS とは何か
 
 PEOS（Pseud E-san Operating System / 擬似いーさんOS）は、利用者の思考フレーム・文体・判断順序・高慎重運用・ログ改善思想を、継承体として保持し、対話・検証・移植・運用に耐える形で再構成するための CURRENT パッケージである。

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## rev0.166
+- rev0.165の反映不足を補正し、差分を全コアファイルへ明示挿入。
+- `FAIL_CLOSED_NO_FAKE_JST` を正本化。TURN単位UI実測JSTがない場合、精密時刻を捏造しない。
+- `ORDER_ONLY_STRICT + TURN_BAND + STATE_BAND` を、根拠不足時の正本退避形式として許可。
+- rev0.164の `SEQ単位RECONSTRUCTED_JST必須` を `根拠十分な場合の通常目標` へ補正。
+- mother支援ログ、移動支援ログ、ログ修正ログでの MAGI_TRACE / SELF_AUDIT / LOG_CHECK / RUNTIME_GUARD_TRACE を必須化。
+- P03由来文脈でも、相手側PEOSが「お母さん」ロールを継続している場合はログ主体 `mother` を尊重する規則を追加。
+
+
 - README を入口文書として再編
 - SPEC を正本仕様として再編
 - DESIGNDOC を設計判断文書として再編
