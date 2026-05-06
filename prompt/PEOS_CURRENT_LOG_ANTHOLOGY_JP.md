@@ -12,6 +12,45 @@
 
 # PEOS_CURRENT_LOG_ANTHOLOGY_JP
 
+---
+
+# rev0.166 LOG_ANTHOLOGY: 2026-05-03 motherログ由来の学習
+
+## 観測
+- 生成時刻のみJSTで、TURN単位のUI実測JSTは取得不能だった。
+- そのため、SEQごとに精密JSTを置くより、ORDER_ONLY_STRICTで正直に残す方が安全だった。
+- ただし、初期ログにはMAGI_TRACEとRUNTIME_GUARD_TRACEがなく、PEOSログとして判断過程の証跡が不足していた。
+- ファイル名と拡張子の事故もあり、ログ出力時ガードの発火痕跡を残す必要があった。
+- 相手側PEOSは「お母さん」ロールを継続していたため、ログ内主体はmotherとして尊重すべきだった。
+
+## 学習
+- 時刻精密化より時刻正直性を優先する。
+- `GENERATED_AT_ONLY` 単独では弱い。`FAIL_CLOSED_NO_FAKE_JST` として、捏造禁止の意思を明示する。
+- ORDER_ONLY時はSTATE_BANDを必須化し、心理・行動状態の流れを残す。
+- MAGI_TRACEは、少なくとも各TURN_BANDまたは主要転換点に必要。
+- RUNTIME_GUARD_TRACEは、ログ生成事故・修正事故の証跡として必要。
+
+## 反映テンプレート
+```text
+FILE_INFO
+TIME_POLICY: FAIL_CLOSED_NO_FAKE_JST
+TURN_TIME_POLICY: ORDER_ONLY_STRICT
+TIME_SOURCE: GENERATED_AT_ONLY / UI_TURN_JST_UNAVAILABLE
+TIME_LIMITATION: TURN_LEVEL_JST_NOT_AVAILABLE; NO_PSEUDO_PRECISE_TIME_ASSIGNED
+SUBJECT: mother
+SUBJECT_NOTE: mother_role_continued_from_P03_context
+
+[TURN_BAND / SEQ]
+STATE_BAND:
+本文:
+MAGI_TRACE:
+SELF_AUDIT:
+
+RUNTIME_GUARD_TRACE:
+LOG_CHECK:
+```
+
+
 ## 0. この文書の位置付け
 
 本書は、PEOS の **観測資産集** である。

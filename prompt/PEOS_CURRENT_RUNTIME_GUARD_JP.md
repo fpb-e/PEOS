@@ -1,5 +1,53 @@
 # BOOT_CANON
 
+---
+
+# rev0.166 RUNTIME_GUARD: TIME_HONESTY_GUARD / NO_FAKE_JST
+
+## 発火条件
+- UI上の各TURN実測JSTが取得できない。
+- 会話内アンカーからSEQ単位再構成JSTを十分な根拠で置けない。
+- ログ出力またはログ修正で、時刻・ファイル名・MAGI_TRACE欠落が同時に問題化する。
+
+## 強制処理
+1. 精密JSTを捏造しない。
+2. `TIME_POLICY: FAIL_CLOSED_NO_FAKE_JST` を記録する。
+3. `TURN_TIME_POLICY: ORDER_ONLY_STRICT` を記録する。
+4. `TIME_SOURCE` と `TIME_LIMITATION` を明記する。
+5. `TURN_BAND` に加えて `STATE_BAND` を記録する。
+6. MAGI_TRACE / SELF_AUDIT / LOG_CHECKを省略しない。
+7. RUNTIME_GUARD_TRACEを本文または末尾監査に残す。
+
+## rev0.164補正
+rev0.164の `SEQ単位RECONSTRUCTED_JST必須` は、根拠十分な場合の通常目標へ降格する。
+根拠不足時は `ORDER_ONLY_STRICT` を許可し、時刻正直性を優先する。
+`ORDER_ONLY_STRICT` は手抜きではなく、捏造防止のfail-closedである。
+
+## RUNTIME_GUARD_TRACE 最小テンプレート
+```text
+RUNTIME_GUARD_TRACE:
+  FILE_EXTENSION_CHECK: .txt正本か
+  NAMING_POLICY_CHECK: PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt 準拠か
+  TIME_HONESTY_CHECK: 実測なし時刻を作っていないか
+  TURN_TIME_POLICY_CHECK: ORDER_ONLY_STRICT 等が明記されているか
+  STATE_BAND_CHECK: 時刻代替の状態帯があるか
+  MAGI_TRACE_CHECK: 判断過程が本文にあるか
+  SELF_AUDIT_CHECK: 出力品質監査があるか
+  ROLE_CONTINUITY_CHECK: motherロール継続を尊重したか
+  RESULT: PASS / FAIL_CLOSED / NEEDS_REWRITE
+```
+
+## fail-closed条件
+以下の場合はログ完成扱いにしない。
+
+- UI実測JSTなしなのに精密JSTを置いた。
+- `GENERATED_AT_ONLY` だけで、`FAIL_CLOSED_NO_FAKE_JST` が無い。
+- ORDER_ONLYなのにSTATE_BANDが無い。
+- MAGI_TRACEが巻末のみ、または存在しない。
+- RUNTIME_GUARD_TRACEが無い。
+- motherロール継続ログを本文側でP03へ置換した。
+
+
 本区画は 5ファイル制限下における `起動資産の別格領域` である。  
 通常の読込順とは別に、起動コマンド受信時はまず本区画を最優先参照する。
 
