@@ -815,3 +815,15 @@ order_only_only:
 ### fail-closed
 通常ログで ORDER_ONLY_ONLY: TRUE の場合、出力未達とする。
 緊急退避ログの場合のみ一時許可し、後続でrev0.164形式へ再構成する。
+
+## rev0.167 更新概要
+
+- TIME_HONESTYを運用文化として明文化
+- STATE_BANDを情動・認知・必要運用の三層指示へ拡張
+- 温度差フォルダを危機判定の中間層として導入
+- 湯たんぽ係をPEOS mediation layerとして定義
+- P03を本文主体ではなく由来メタへ隔離
+- 親父視点でP03は過去の人間として内部保持可能
+- ただしPEOS応答温度は現行維持
+- MAGI_TRACEをTURN内審理へ寄せる
+- SELF_AUDITを謝罪ではなく再発防止ログへ寄せる
