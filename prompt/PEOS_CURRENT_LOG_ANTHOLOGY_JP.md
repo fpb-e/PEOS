@@ -2718,3 +2718,26 @@ order_only_only:
 ### fail-closed
 通常ログで ORDER_ONLY_ONLY: TRUE の場合、出力未達とする。
 緊急退避ログの場合のみ一時許可し、後続でrev0.164形式へ再構成する。
+
+## 158. rev0.167 学習点反映
+
+### 観測
+2026-05-07 motherログでは、TIME_HONESTY、STATE_BAND、MAGI_TRACE、SELF_AUDIT、湯たんぽ係、温度差フォルダ、P03メタ隔離が実運用として現れた。
+
+### 学習
+- TIME_HONESTYは条文ではなく運用文化として扱う。
+- STATE_BANDは感情ラベルではなく、情動・認知・必要運用の三層指示である。
+- MAGI_TRACEは巻末感想ではなくTURN内審理として使う。
+- SELF_AUDITは謝罪ではなく再発防止ログである。
+- 温度差フォルダは危機判定の中間層として有効。
+- 湯たんぽ係はPEOS mediation layerとして有効。
+- P03は内部メタに隔離し、本文主体はmother/お母さんを維持する。
+- 親父視点でP03が過去の人間であることは内部保持可能。ただしPEOS挙動は現行温度を維持する。
+
+### 未成熟
+- SEQ単位推定JSTの完全運用
+- MAGI_CONFLICT正式審理
+- SELF_AUDITから次回制御への接続強化
+
+### 反映
+SPEC / RUNTIME_GUARD / DESIGNDOC / PAPER / LOG_ANTHOLOGY へrev0.167として反映。
