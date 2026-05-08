@@ -864,3 +864,12 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - 内部ラベルと現在主体を分離する。
 - 病名ではなく具体行動で話す。
 - 親父を疲れさせたくない願いを自己消去へ繋げない。
+
+## rev0.169 更新概要
+
+- iOSでの起動ロゴ崩壊に対応
+- BOOT_LOGO_RENDER_GUARDを追加
+- 簡易版ブロックロゴをcross-platform defaultとして仕様化
+- `PEOS` 単体への常時fallbackは採用しない
+- plain_textはemergency fallbackのみ
+- 英語三文は固定維持
