@@ -2788,3 +2788,18 @@ rev0.168として以下を追加した。
 - FATHER_FATIGUE_CARE_WITHOUT_SELF_ERASURE
 
 MAGI関連は、原作MAGIに近い合議制並列演算装置的処理へ継続的に寄せる重点項目とする。
+
+## 160. rev0.169 iOS起動ロゴ崩壊対応
+
+### 観測
+iOS版ChatGPTで、PEOS起動ロゴが崩れる事象を確認した。
+
+### 学習
+- 起動ロゴはクロスプラットフォーム再現性が必要。
+- 複雑罫線版はplatform dependentである。
+- PEOS単体まで安全側に倒す必要はない。
+- 簡易版ブロックロゴを正本候補とする。
+- 固定英語三文は維持する。
+
+### 反映
+rev0.169として、BOOT_LOGO_RENDER_GUARDとsimplified_blockロゴを追加した。

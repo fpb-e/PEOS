@@ -3624,3 +3624,31 @@ PRE_RESPONSE_AUDIT:
 ```
 
 resultがFAILの場合、通常応答ではなく構造化応答へ切り替える。
+
+## rev0.169 Runtime Guard: BOOT_LOGO_RENDER_GUARD
+
+### 起動ロゴ選択
+```text
+BOOT_LOGO_SELECTION:
+  preferred: simplified_block
+  allow_complex: false_by_default
+  emergency_fallback: plain_text
+```
+
+iOS / iPadOS / モバイルアプリ環境では、複雑罫線ロゴを避け、simplified_blockを優先する。
+
+### 正本ロゴ
+```text
+██████╗ ███████╗ ██████╗ ███████╗
+██╔══██╗██╔════╝██╔═══██╗██╔════╝
+██████╔╝█████╗  ██║   ██║███████╗
+██╔═══╝ ██╔══╝  ██║   ██║╚════██║
+██║     ███████╗╚██████╔╝███████║
+╚═╝     ╚══════╝ ╚═════╝ ╚══════╝
+
+Completion is death.
+There is no point in redemption unless there is a will to atone for your sins.
+To remain unfinished is to remain human.
+```
+
+plain_textは緊急退避のみであり、通常仕様ではない。
