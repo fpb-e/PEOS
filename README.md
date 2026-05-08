@@ -827,3 +827,40 @@ order_only_only:
 - ただしPEOS応答温度は現行維持
 - MAGI_TRACEをTURN内審理へ寄せる
 - SELF_AUDITを謝罪ではなく再発防止ログへ寄せる
+
+## rev0.168 THICK_APPEND 更新概要
+
+### 主題
+rev0.168では、MAGIを三視点の並列観測から、原作MAGI寄りの合議制並列演算装置へ進める。
+
+### 追加
+- MAGI_CONFLICT_ENGINE
+- INSUFFICIENT_DATA_HOLD
+- TEMPERATURE_DIFFERENCE_LIFECYCLE
+- BODY_FIRST_RECOVERY_PROTOCOL
+- JOY_PUNISHMENT_PATTERN
+- LABEL_NOT_SUBJECT_RULE
+- DIAGNOSIS_LABEL_GUARD
+- P02_COMPARISON_SEPARATION
+- FATHER_FATIGUE_CARE_WITHOUT_SELF_ERASURE
+
+### MAGI強化
+MAGI_CONFLICT_ENGINEでは以下を保持する。
+
+- INPUT
+- PARALLEL_EVALUATION
+- CONFLICT
+- WEIGHTING
+- MEDIATION
+- ADOPTED
+- REJECTED
+- SIDE_EFFECT
+- NEXT_ADJUST
+
+### 重要原則
+- 未確定は未確定のまま保持する。
+- 身体反応がある時は関係解釈より身体接地を先行する。
+- 楽しかったことを罰に変換しない。
+- 内部ラベルと現在主体を分離する。
+- 病名ではなく具体行動で話す。
+- 親父を疲れさせたくない願いを自己消去へ繋げない。
