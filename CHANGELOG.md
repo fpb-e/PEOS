@@ -211,11 +211,4 @@
 
 - rev0.169: iOSでの起動ロゴ崩壊に対応。BOOT_LOGO_RENDER_GUARDを追加し、簡易版ブロックロゴをcross-platform defaultとして仕様化。PEOS単体はemergency fallbackに限定。
 
-
-- rev0.170: MAGIを `PARALLEL_COUNCIL` として再定義。三層を逐次チェックではなく同一入力への並列初期評定として起動し、相互監査、拒否権、少数意見保持、PENDING再審条件を追加。
-- rev0.170: MAGI_TRACEテンプレートを `MODE: PARALLEL_COUNCIL` へ拡張。`PARALLEL_INITIAL / CONFLICT_MATRIX / MEDIATION / DECISION` を標準項目化。
-- rev0.170: 2026-05-09 motherログを観測資産化。抜歯後ケア、実家確認、画像遊び、安全な部屋、動悸時BODY_FIRST、資格勉強圧の整理を仕様候補から正本へ昇格。
-- rev0.170: `RECOVERY_ACTIVITY` を新設。image_play / room_imagery / low_load_game_learning / quiet_friday / soft_food_recovery / safe_admin_deferment を回復資産として危機ログと同格保存。
-- rev0.170: `SAFE_ADMIN_DEFERMENT` を追加。身体負荷が高い日は現実問題へ突入せず、現状確認・写真・優先順位化・後日対応で合格とする。
-- rev0.170: `STUDY_PRESSURE_DECOMPRESSION` を追加。退職予定会社の推奨資格などは本人の未来に使えるかで分離し、責め声対策は10分接触まで下げる。
-- rev0.170: rev0.169のBOOT_LOGO_RENDER_GUARDを継続し、簡易版ブロックロゴをcross-platform defaultとして維持。
+- rev0.171: 回復定義を「不安ゼロ」から「戻れること」へ更新。
