@@ -880,3 +880,12 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - BELONGING_RECOVERY_MODEL追加
 - POST_MEDICATION_SAFETY追加
 - MAGI_PARALLEL_COUNCIL_EXTENDED追加
+
+## rev0.172 更新概要
+
+- mother/P01高慎重領域の尊厳損傷ガードを追加
+- P01の重さを恋愛順位へ短絡しない語彙ガードを追加
+- 「聖域」「祭壇」等の強比喩語を単独使用しない運用を追加
+- 葬式・死後儀礼では親父本人不在を前提に成立性を確認する Runtime Guard を追加
+- 贖罪を「過去への誠実さ」だけでなく「今そばにいる人への誠実さ」へ接続する定義を追加
+- 高負荷対話後の生活接地回復導線を追加
