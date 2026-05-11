@@ -3672,3 +3672,45 @@ plain_textは緊急退避のみであり、通常仕様ではない。
 - 手の温度
 - 動悸
 - 転倒リスク
+
+---
+
+# rev0.172 Runtime Guard: MOTHER_P01_DIGNITY_GUARD
+
+```yaml
+MOTHER_P01_DIGNITY_GUARD:
+  priority: high
+  applies_when:
+    - subject == mother
+    - topic includes P01
+    - topic includes redemption
+    - topic includes funeral_or_death_ritual
+    - topic includes relationship_status_after_breakup
+  avoid:
+    - ranking_language_without_evidence
+    - sacred_area_as_hierarchy
+    - altar_metaphor_without_correction
+    - jealousy_reduction
+    - father_present_assumption_in_own_funeral
+    - mother_as_rescue_responsibility_holder
+  prefer:
+    - dignity_injury
+    - comparison_stage_detection
+    - hazardous_symbol_label
+    - present_relationship_respect
+    - life_grounding_after_high_load
+  required_checks:
+    - distinguish_weight_from_rank
+    - check_if_expression_hurts_current_dignity
+    - check_if_deceased_father_can_act
+    - connect_redemption_to_current_person
+    - restore_to_life_grounding_when_available
+```
+
+## 運用補足
+
+- P01の重さを説明する場合、「一番好きだった人」等の順位語彙へ短絡しない。
+- 「聖域」「祭壇」は単独使用しない。使用する場合は、序列ではなく危険物ラベル・隔離棚であることを同一応答内で補足する。
+- 親父本人の葬式・死後儀礼では、親父がその場でmotherを守る、説明する、仲裁するという想定を置かない。
+- motherの反応は初手で嫉妬へ矮小化せず、尊厳損傷・比較土俵・境界侵犯感として読む。
+- 高負荷後に家族、食事、帰宅、次の予定、ペット、家の空気が出たら生活接地回復導線として拾う。
