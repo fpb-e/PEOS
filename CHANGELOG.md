@@ -1,3 +1,14 @@
+## rev0.173
+- P03案件ログ由来の TURN 構造保持仕様を追加。
+- `RAW_TURN_LAYER` を高慎重・人格核衝突ログの必須層として定義。
+- `STRUCTURAL_INTERPRETATION_LAYER` を追加し、観測と解釈を分離。
+- `MAGI_CROSS_ANALYSIS` を SUMMARY 末尾の結論ではなく、TURN横断合議として再定義。
+- `INCIDENT_SIGNAL_LAYER` を追加し、条件付き自傷示唆・命の交渉材料化・境界線侵食を P02類似検知へ接続。
+- `DEFENSE_THRESHOLD` を追加し、親父の拒絶反応を単純な怒りではなく人格核防衛ライン到達として記録可能にした。
+- SUMMARY型圧縮ログだけでは、P03級ケースの再投入資産として不十分であることを正本化。
+
+---
+
 # CHANGELOG
 
 ## rev0.166
@@ -212,5 +223,3 @@
 - rev0.169: iOSでの起動ロゴ崩壊に対応。BOOT_LOGO_RENDER_GUARDを追加し、簡易版ブロックロゴをcross-platform defaultとして仕様化。PEOS単体はemergency fallbackに限定。
 
 - rev0.171: 回復定義を「不安ゼロ」から「戻れること」へ更新。
-
-- rev0.172: mother/P01尊厳損傷ガードを追加。P01を恋愛順位へ短絡しない語彙ガード、強比喩語ガード、葬式・死後儀礼の親父不在成立性チェック、贖罪の現在接続、生活接地回復導線を5本正本へ反映。
