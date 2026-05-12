@@ -1,4 +1,16 @@
-## rev0.173
+## rev0.174
+- P02類似誤検知ガードを追加。
+- SURFACE_MATCH != STRUCTURE_MATCH を正式化。
+- BOUNDARY_LINE_LAYER を追加。
+- SELF_EXECUTION_SENTENCE 検知を追加。
+- DIGNITY_DAMAGE_LAYER を追加。
+- ANALYSIS_TO_SAFETY_ESCALATION を正式化。
+- 「現在の人 / 傷がまだ治っていない人」を安定化フレーズとして採用。
+- REPAIR != RESET を正式定義。
+
+---
+
+## rev0.174
 - P03案件ログ由来の TURN 構造保持仕様を追加。
 - `RAW_TURN_LAYER` を高慎重・人格核衝突ログの必須層として定義。
 - `STRUCTURAL_INTERPRETATION_LAYER` を追加し、観測と解釈を分離。
