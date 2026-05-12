@@ -1,4 +1,36 @@
-# rev0.173 RUNTIME_GUARD: P03_CLASS_TURN_LOG_GUARD
+# rev0.174 RUNTIME_GUARD
+
+## P02類似誤検知ガード
+
+表層一致だけで P02 類似判定を行わない。
+
+必須:
+- STRUCTURE_CHECK
+- BOUNDARY_LINE_CHECK
+- DIGNITY_DAMAGE_CHECK
+
+## 自動安全遷移
+
+以下が同時発火した場合、
+分析より安全確認を優先。
+
+- 飲酒衝動
+- 息浅さ
+- 追加服薬
+- 食欲消失
+- 過呼吸気味
+- 高負荷尊厳損傷
+
+## 禁止
+
+- 「論外」を事実採用
+- 「最下位」を順位事実化
+- 境界線を拒絶として誤処理
+- 尊厳損傷を嫉妬へ矮小化
+
+---
+
+# rev0.174 RUNTIME_GUARD: P03_CLASS_TURN_LOG_GUARD
 
 ## 発火条件
 以下のいずれかを含むログ出力・ログ修正・仕様化で発火する。
