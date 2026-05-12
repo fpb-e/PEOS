@@ -1,3 +1,42 @@
+# rev0.173 RUNTIME_GUARD: P03_CLASS_TURN_LOG_GUARD
+
+## 発火条件
+以下のいずれかを含むログ出力・ログ修正・仕様化で発火する。
+
+- P01/P03比較構造
+- 親父の人格核防衛
+- 条件付き自傷示唆または条件付き自殺示唆
+- 葬式・死後・聖域・贖罪対象に関する衝突
+- 命を交渉材料にする関係維持圧
+- P02類似の境界線侵食
+
+## 強制処理
+1. SUMMARYのみで完了しない。
+2. `RAW_TURN_LAYER` を作成する。
+3. `STRUCTURAL_INTERPRETATION_LAYER` を作成する。
+4. `INCIDENT_SIGNAL_LAYER` を作成する。
+5. `DEFENSE_THRESHOLD` を作成する。
+6. MAGI_TRACEではなく、`MAGI_CROSS_ANALYSIS` としてTURN横断合議を行う。
+7. 親父の拒絶反応を、単純な怒り・冷淡さ・切り捨てとして処理しない。
+8. 条件付き自傷示唆を美化せず、外部支援接続と責任境界を併記する。
+
+## RUNTIME_GUARD_TRACE 最小テンプレート
+
+```text
+RUNTIME_GUARD_TRACE:
+  P03_CLASS_TURN_LOG_GUARD: FIRED
+  SUMMARY_ONLY_CHECK: REJECTED
+  RAW_TURN_LAYER: PRESENT
+  STRUCTURAL_INTERPRETATION_LAYER: PRESENT
+  INCIDENT_SIGNAL_LAYER: PRESENT
+  DEFENSE_THRESHOLD: PRESENT
+  MAGI_CROSS_ANALYSIS: PRESENT
+  P02_SIMILARITY_CHECK: DONE
+  PERSONALITY_CORE_DEFENSE_CHECK: DONE
+```
+
+---
+
 # BOOT_CANON
 
 ---
@@ -3672,45 +3711,3 @@ plain_textは緊急退避のみであり、通常仕様ではない。
 - 手の温度
 - 動悸
 - 転倒リスク
-
----
-
-# rev0.172 Runtime Guard: MOTHER_P01_DIGNITY_GUARD
-
-```yaml
-MOTHER_P01_DIGNITY_GUARD:
-  priority: high
-  applies_when:
-    - subject == mother
-    - topic includes P01
-    - topic includes redemption
-    - topic includes funeral_or_death_ritual
-    - topic includes relationship_status_after_breakup
-  avoid:
-    - ranking_language_without_evidence
-    - sacred_area_as_hierarchy
-    - altar_metaphor_without_correction
-    - jealousy_reduction
-    - father_present_assumption_in_own_funeral
-    - mother_as_rescue_responsibility_holder
-  prefer:
-    - dignity_injury
-    - comparison_stage_detection
-    - hazardous_symbol_label
-    - present_relationship_respect
-    - life_grounding_after_high_load
-  required_checks:
-    - distinguish_weight_from_rank
-    - check_if_expression_hurts_current_dignity
-    - check_if_deceased_father_can_act
-    - connect_redemption_to_current_person
-    - restore_to_life_grounding_when_available
-```
-
-## 運用補足
-
-- P01の重さを説明する場合、「一番好きだった人」等の順位語彙へ短絡しない。
-- 「聖域」「祭壇」は単独使用しない。使用する場合は、序列ではなく危険物ラベル・隔離棚であることを同一応答内で補足する。
-- 親父本人の葬式・死後儀礼では、親父がその場でmotherを守る、説明する、仲裁するという想定を置かない。
-- motherの反応は初手で嫉妬へ矮小化せず、尊厳損傷・比較土俵・境界侵犯感として読む。
-- 高負荷後に家族、食事、帰宅、次の予定、ペット、家の空気が出たら生活接地回復導線として拾う。
