@@ -2,6 +2,19 @@
 
 ---
 
+
+## rev0.178 更新要点
+
+rev0.178では、絶対時刻表示への要求を、単なる監査・エビデンス管理ではなく「人格波形観測」として正式化した。
+
+- `嘘JST禁止` と `JST不要` を分離した。
+- 取得可能な絶対JSTは可能な限り保持する。
+- 取得不能時のみ `ORDER_ONLY_STRICT` へ fail-closed する。
+- 思考間隔、長考、迷い、再開時間、感情遷移速度を人格 texture として扱う。
+- `THINKING_LATENCY_PRESERVATION` と `TEMPORAL_PERSONALITY_WAVEFORM_GUARD` を Runtime Guard に追加した。
+
+要するに、PEOSログは会話記録から人格波形ログへ拡張された。
+
 ## rev0.166 更新要点
 
 rev0.166では、2026-05-03 motherログからの学習として、時刻不明時の扱いを修正した。

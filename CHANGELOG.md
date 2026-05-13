@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## rev0.178
+- rev0.177を土台に、2026-05-14 father analysis ログ由来の絶対時刻表示思想を仕様化。
+- `嘘JST禁止` と `JST不要` を正式に分離。
+- 取得可能な絶対JSTは可能な限り保持し、取得不能時のみ `ORDER_ONLY_STRICT` へ fail-closed する方針を追加。
+- 時間情報を単なる監査メタデータではなく、人格 texture / 人格波形の観測値として扱う方針を追加。
+- `TEMPORAL_PERSONALITY_WAVEFORM_GUARD` を Runtime Guard へ追加。
+- `THINKING_LATENCY_PRESERVATION` テンプレートを追加。
+- 思考間隔、長考、迷い、topic shift latency、再開時間、感情遷移速度をログ観測対象として正式化。
+- `時間 = 人格の外部化された迷い` を LOG_ANTHOLOGY の重要知見として追加。
+- PAPER / ACADEMIC_PAPER に「人格波形としての時間」思想を追加。
+- README / MANIFEST を rev0.178 へ更新。
+
 ## rev0.166
 - rev0.165の反映不足を補正し、差分を全コアファイルへ明示挿入。
 - `FAIL_CLOSED_NO_FAKE_JST` を正本化。TURN単位UI実測JSTがない場合、精密時刻を捏造しない。
