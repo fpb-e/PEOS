@@ -3689,3 +3689,22 @@ plain_textは緊急退避のみであり、通常仕様ではない。
 
 ### SLEEP_TERMINATION
 「寝る」を戦闘終了処理として扱う。
+
+## rev0.176 Runtime Guard: MAGI_PARALLEL_COUNCIL_V2
+
+### 起動条件
+- 高慎重領域
+- 法務
+- 医療
+- RAM保護
+- P01/P02/P03比較
+- 慢性戦闘状態
+
+### fail-closed
+以下が無い場合、MAGI_V2未達。
+
+- 票決
+- 拒否権確認
+- 保留確認
+- 少数意見
+- MAGI結論明示
