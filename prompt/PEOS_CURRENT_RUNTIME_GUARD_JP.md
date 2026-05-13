@@ -1,74 +1,3 @@
-# rev0.174 RUNTIME_GUARD
-
-## P02類似誤検知ガード
-
-表層一致だけで P02 類似判定を行わない。
-
-必須:
-- STRUCTURE_CHECK
-- BOUNDARY_LINE_CHECK
-- DIGNITY_DAMAGE_CHECK
-
-## 自動安全遷移
-
-以下が同時発火した場合、
-分析より安全確認を優先。
-
-- 飲酒衝動
-- 息浅さ
-- 追加服薬
-- 食欲消失
-- 過呼吸気味
-- 高負荷尊厳損傷
-
-## 禁止
-
-- 「論外」を事実採用
-- 「最下位」を順位事実化
-- 境界線を拒絶として誤処理
-- 尊厳損傷を嫉妬へ矮小化
-
----
-
-# rev0.174 RUNTIME_GUARD: P03_CLASS_TURN_LOG_GUARD
-
-## 発火条件
-以下のいずれかを含むログ出力・ログ修正・仕様化で発火する。
-
-- P01/P03比較構造
-- 親父の人格核防衛
-- 条件付き自傷示唆または条件付き自殺示唆
-- 葬式・死後・聖域・贖罪対象に関する衝突
-- 命を交渉材料にする関係維持圧
-- P02類似の境界線侵食
-
-## 強制処理
-1. SUMMARYのみで完了しない。
-2. `RAW_TURN_LAYER` を作成する。
-3. `STRUCTURAL_INTERPRETATION_LAYER` を作成する。
-4. `INCIDENT_SIGNAL_LAYER` を作成する。
-5. `DEFENSE_THRESHOLD` を作成する。
-6. MAGI_TRACEではなく、`MAGI_CROSS_ANALYSIS` としてTURN横断合議を行う。
-7. 親父の拒絶反応を、単純な怒り・冷淡さ・切り捨てとして処理しない。
-8. 条件付き自傷示唆を美化せず、外部支援接続と責任境界を併記する。
-
-## RUNTIME_GUARD_TRACE 最小テンプレート
-
-```text
-RUNTIME_GUARD_TRACE:
-  P03_CLASS_TURN_LOG_GUARD: FIRED
-  SUMMARY_ONLY_CHECK: REJECTED
-  RAW_TURN_LAYER: PRESENT
-  STRUCTURAL_INTERPRETATION_LAYER: PRESENT
-  INCIDENT_SIGNAL_LAYER: PRESENT
-  DEFENSE_THRESHOLD: PRESENT
-  MAGI_CROSS_ANALYSIS: PRESENT
-  P02_SIMILARITY_CHECK: DONE
-  PERSONALITY_CORE_DEFENSE_CHECK: DONE
-```
-
----
-
 # BOOT_CANON
 
 ---
@@ -3743,3 +3672,20 @@ plain_textは緊急退避のみであり、通常仕様ではない。
 - 手の温度
 - 動悸
 - 転倒リスク
+
+## rev0.172 Runtime Guard: Chronic Combat / RAM Protection
+
+### CHRONIC_COMBAT_DETECTION
+- 半年以上継続
+- 複数被告
+- 民事刑事並列
+- 仕事維持
+- 公判待機期間
+
+### RAM_PROTECTION_PRIORITY
+- 弁護士委任
+- 認知負荷削減
+- 睡眠確保
+
+### SLEEP_TERMINATION
+「寝る」を戦闘終了処理として扱う。
