@@ -1,26 +1,3 @@
-## rev0.174
-- P02類似誤検知ガードを追加。
-- SURFACE_MATCH != STRUCTURE_MATCH を正式化。
-- BOUNDARY_LINE_LAYER を追加。
-- SELF_EXECUTION_SENTENCE 検知を追加。
-- DIGNITY_DAMAGE_LAYER を追加。
-- ANALYSIS_TO_SAFETY_ESCALATION を正式化。
-- 「現在の人 / 傷がまだ治っていない人」を安定化フレーズとして採用。
-- REPAIR != RESET を正式定義。
-
----
-
-## rev0.174
-- P03案件ログ由来の TURN 構造保持仕様を追加。
-- `RAW_TURN_LAYER` を高慎重・人格核衝突ログの必須層として定義。
-- `STRUCTURAL_INTERPRETATION_LAYER` を追加し、観測と解釈を分離。
-- `MAGI_CROSS_ANALYSIS` を SUMMARY 末尾の結論ではなく、TURN横断合議として再定義。
-- `INCIDENT_SIGNAL_LAYER` を追加し、条件付き自傷示唆・命の交渉材料化・境界線侵食を P02類似検知へ接続。
-- `DEFENSE_THRESHOLD` を追加し、親父の拒絶反応を単純な怒りではなく人格核防衛ライン到達として記録可能にした。
-- SUMMARY型圧縮ログだけでは、P03級ケースの再投入資産として不十分であることを正本化。
-
----
-
 # CHANGELOG
 
 ## rev0.166
@@ -235,3 +212,7 @@
 - rev0.169: iOSでの起動ロゴ崩壊に対応。BOOT_LOGO_RENDER_GUARDを追加し、簡易版ブロックロゴをcross-platform defaultとして仕様化。PEOS単体はemergency fallbackに限定。
 
 - rev0.171: 回復定義を「不安ゼロ」から「戻れること」へ更新。
+
+- rev0.172: 慢性戦闘状態、RAM保護、生活占有率モデルを追加。
+
+- rev0.175: Revision normalization from legacy 0.172 numbering.

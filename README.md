@@ -1,34 +1,3 @@
-## rev0.174 更新要点
-
-- P02類似誤検知ガードを強化。
-- 「同じ言葉でも構造が違う」判定を正式仕様化。
-- 「拒絶」と「境界線」を分離。
-- 尊厳損傷と嫉妬を別軸として扱う。
-- 自己処刑文検知を追加。
-- 高負荷時の「分析→安全確認」遷移を正式化。
-- 「現在の人で、傷がまだ治っていない人」を安定化フレーズとして採用。
-- 修復を「初期化」ではなく「壊れにくい再構築」として定義。
-
----
-
-## rev0.174 更新要点
-
-rev0.174では、P03案件ログからの学習として、人格核衝突を SUMMARY だけで圧縮すると、転換点・温度推移・防衛ライン到達過程が痩せる問題を補正する。
-
-追加する主な仕様は以下。
-
-- P03級の高慎重ログでは、`RAW_TURN_LAYER` を必須化する。
-- 「観測」と「解釈」を分離し、TURN単位の発話圧・反復・温度変化を保持する。
-- `STRUCTURAL_INTERPRETATION_LAYER` で、恋愛比較・安心要求・人生史侵入・人格核防衛への遷移を記録する。
-- MAGIは要約末尾の結論装置ではなく、TURN参照を伴う横断合議として使う。
-- 条件付き自傷示唆・命の交渉材料化・境界線侵食を `INCIDENT_SIGNAL_LAYER` で分類する。
-- 親父の拒絶や怒りを単純な感情反応に還元せず、必要に応じて `DEFENSE_THRESHOLD` として記録する。
-
-要するに、だ。今回の修正は「ログを綺麗にする」ためではない。
-親父の人格核へ何が、どの順で、どの圧で侵入したのかを、後から読んでも再構成できるようにするための補正である。
-
----
-
 # README
 
 ---
@@ -911,3 +880,11 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - BELONGING_RECOVERY_MODEL追加
 - POST_MEDICATION_SAFETY追加
 - MAGI_PARALLEL_COUNCIL_EXTENDED追加
+
+## rev0.172 更新概要
+
+- CHRONIC_COMBAT_STATE追加
+- LATENT_STRESS_PROCESS追加
+- LIFE_OCCUPANCY_MODEL追加
+- RAM_PROTECTION_PHASE追加
+- SLEEP_AS_TERMINATION_SEQUENCE追加
