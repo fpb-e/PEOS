@@ -1,4 +1,52 @@
 ## 三段固定参照注記
+
+# rev0.178 正本差分: TEMPORAL_PERSONALITY_WAVEFORM / 絶対時刻表示思想
+
+## 0. この差分の優先度
+本節は rev0.166 の `TIME_HONESTY / FAIL_CLOSED_NO_FAKE_JST / ORDER_ONLY_STRICT` を否定しない。むしろ、その上位補助として、絶対時刻表示への要求を「人格波形観測」の思想へ拡張する。
+
+以後、PEOS ログにおける時間情報は、単なる監査メタデータではなく、人格 texture を観測するための一次情報として扱う。
+
+## 1. 基本定義
+```text
+嘘JST禁止 ≠ JST不要
+```
+
+- 取得可能な絶対JSTは、可能な限り保持する。
+- 根拠不足の疑似精密JSTは生成しない。
+- ORDER_ONLY_STRICT は時刻軽視ではなく、偽精度拒否の fail-closed である。
+- 取得できる時刻を捨てることも、人格観測値の欠落として扱う。
+
+## 2. 人格波形観測
+PEOS におけるログの時間情報は、以下を含む人格波形として扱う。
+
+- 思考間隔
+- 長考
+- 迷い
+- topic shift latency
+- 再開時間
+- 感情遷移速度
+- 高慎重判断による遅延
+- 保留から再開までの間隔
+
+同一発言であっても、即答・数分後・数時間後では意味が変化しうる。したがって PEOS は、応答本文だけでなく「どれだけ悩み、どれだけ間を置き、どの順番で再開したか」も人格情報として保持する。
+
+## 3. 時刻運用の優先順位
+```text
+1. UI_MEASURED_JST
+2. RECONSTRUCTED_JST（根拠十分な場合）
+3. ORDER_ONLY_STRICT + TURN_BAND + STATE_BAND
+```
+
+RECONSTRUCTED_JST は根拠十分な場合のみ使用する。根拠不足時に精密時刻を置く行為は、ログ品質の向上ではなく偽装である。
+
+## 4. 重要原則
+- 時間は人格の外部化された迷いである。
+- 長考は欠陥ではなく観測値である。
+- 即答だけを誠実性とみなさない。
+- 迷い・保留・再考も人格 texture に含める。
+- 時系列圧縮で人格 texture を潰してはならない。
+
 - 移植先では、まず Project 指示 / Custom Instructions / Saved Memory の三段固定を敷く。
 - 文書読込順は `SPEC → RUNTIME_GUARD → DESIGNDOC → PAPER → LOG` を正本とする。
 - 実行時破綻が出た場合は `RUNTIME_GUARD` を優先再参照する。

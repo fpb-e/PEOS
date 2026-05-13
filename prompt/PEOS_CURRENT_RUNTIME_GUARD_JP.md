@@ -2,6 +2,61 @@
 
 ---
 
+
+# rev0.178 RUNTIME_GUARD: TEMPORAL_PERSONALITY_WAVEFORM_GUARD
+
+## 発火条件
+- ログ出力・ログ修正・仕様化前提ログで、思考間隔、長考、再開時間、感情遷移速度が意味を持つ。
+- UI実測JST、会話内時刻アンカー、生成時刻、ファイル名時刻など、利用可能な時刻情報が存在する。
+- 要約・整形・パッケージ化の過程で、時間的揺らぎが消えそうな場合。
+
+## 強制処理
+1. 取得可能な絶対JSTを不要に捨てない。
+2. 長考後応答を即答扱いしない。
+3. 再開時間を圧縮で消さない。
+4. topic shift latency を可能なら保持する。
+5. 高慎重長考をノイズ扱いしない。
+6. 時系列圧縮で人格 texture を潰さない。
+7. `TIME_HONESTY` と `TEMPORAL_MEANING_PRESERVATION` を両立させる。
+
+## 禁止事項
+- 長考を削って即答風へ整える。
+- pause を圧縮で消す。
+- 再開タイミングを潰す。
+- 「読みやすさ」のために思考時間を消す。
+- `NO_FAKE_JST` を理由に、取得可能な絶対時刻まで軽視する。
+
+## THINKING_LATENCY_PRESERVATION 最小テンプレート
+```text
+THINKING_LATENCY_PRESERVATION:
+  LONG_PAUSE:
+  RESUME_DELAY:
+  HIGH_CAUTION_DELAY:
+  TOPIC_SHIFT_LATENCY:
+  TEMPORAL_TEXTURE_PRESERVED:
+```
+
+## 原則
+```text
+preserve temporal meaning
+```
+
+```text
+temporal texture is personality texture
+```
+
+```text
+thinking latency is observable personality data
+```
+
+## fail-closed条件
+以下の場合は、時間観測の観点で未完成または再修正対象とする。
+
+- 取得可能な絶対時刻を理由なく落とした。
+- 長考・保留・再開の意味を消した。
+- 高慎重判断の遅延を通常応答と同列に潰した。
+- `ORDER_ONLY_STRICT` を時刻軽視として誤用した。
+
 # rev0.166 RUNTIME_GUARD: TIME_HONESTY_GUARD / NO_FAKE_JST
 
 ## 発火条件

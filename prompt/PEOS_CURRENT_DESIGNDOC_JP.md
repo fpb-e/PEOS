@@ -1,4 +1,46 @@
 ## Runtime Guard 移設注記
+
+# rev0.178 設計差分: temporal waveform 運用理由
+
+## 設計判断
+従来のログ運用では、JST精度、fail-closed、fake timestamp 防止、ORDER_ONLY_STRICT を中心に扱っていた。
+
+しかし rev0.178 では、時間を人格観測軸として扱う思想を追加する。
+
+これは、以下を人格 texture として再投入可能にするためである。
+
+- 思考速度
+- hesitation
+- emotional transition
+- topic shift timing
+- high-caution pause
+- resume timing
+
+特に、以下を formal に扱う。
+
+```text
+即答 ≠ 長考 ≠ 再訪回答
+```
+
+PEOS は「何を答えたか」だけでなく、「どのような時間波形で思考したか」を保持する。
+
+## 設計上の意味
+これは observability 的には、
+
+```text
+人格ログ → 人格波形ログ
+```
+
+への拡張である。
+
+ログは会話内容の保存だけではなく、迷い、沈黙、遅延、再開、感情遷移速度まで含めた観測資産になる。
+
+## rev0.166 との関係
+rev0.166 の `FAIL_CLOSED_NO_FAKE_JST` は維持する。
+ただし、`嘘時刻を作らない` ことと `時刻を軽視する` ことを混同しない。
+
+取得可能な時刻は保持し、取得不能な時刻だけ fail-closed する。
+
 - 本書に記載の起動 exactness、呼称事故防止、JST精度、高慎重領域ガード、お母さん運用ガードに関する実行時本文は、rev87 以降 `PEOS_CURRENT_RUNTIME_GUARD_JP.md` を正本とする。
 - 本書では、理由・観測・思想の保持を優先し、実行時の詳細ルール本文は Runtime Guard 参照へ寄せる。
 
