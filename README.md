@@ -888,3 +888,12 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - LIFE_OCCUPANCY_MODEL追加
 - RAM_PROTECTION_PHASE追加
 - SLEEP_AS_TERMINATION_SEQUENCE追加
+
+## rev0.176 更新概要
+
+- MAGI_PARALLEL_COUNCIL_V2追加
+- 多数決制度追加
+- 拒否権追加
+- 保留追加
+- 少数意見追加
+- 再審条件追加
