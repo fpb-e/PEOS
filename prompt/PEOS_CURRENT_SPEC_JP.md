@@ -6933,3 +6933,98 @@ MAGIの結論:
 ○○となった。
 こうすべきだと提案する。
 ```
+
+## rev0.177 SAFE_INTERPRETATION_LAYER / PERCEPTION_SEPARATION
+
+### 目的
+危険構造検知と人物断罪を分離する。
+高慎重領域でのデグレ防止を目的とする。
+
+### SAFE_INTERPRETATION_LAYER
+SAFE_INTERPRETATION_LAYER:
+  separate:
+    intent
+    state
+    utterance
+    receiver_impact
+
+### PERCEPTION_LAYER
+PERCEPTION_LAYER:
+  sender_intent:
+  receiver_impact:
+  mismatch:
+  certainty:
+
+「こういう意図だった」と断定せず、
+「相手にはこう届いた可能性」を保持する。
+
+### DANGER_SIGNAL
+DANGER_SIGNAL:
+  detected:
+  confidence:
+  alternative_explanations:
+  escalation_required:
+
+危険構造検知を、
+人格断定へ短絡しない。
+
+### SYMBOLIC_COLLISION
+SYMBOLIC_COLLISION:
+  comparison_trigger:
+  exclusion_intent:
+  dignity_damage:
+
+「比較へ戻した」と
+「排除したい」を分離する。
+
+### RELATIONSHIP_LAYER
+RELATIONSHIP_LAYER:
+  romantic_restoration:
+  emotional_bond:
+  daily_connection:
+  safety_distance:
+
+交際復帰拒否と、
+愛情消失を短絡しない。
+
+### FOOTING_REINFORCEMENT_MODEL
+FOOTING_REINFORCEMENT_MODEL:
+  objective:
+    reinforce_current_footing
+  avoid:
+    future_lock
+    forced_guarantee
+
+「未来保証」ではなく、
+「今の足場補強」を優先する。
+
+### BODY_FIRST_REDIRECT
+BODY_FIRST_REDIRECT:
+  trigger:
+    nausea
+    starvation
+    dehydration
+    panic
+  redirect_to:
+    hydration
+    rest
+    safety
+    medical_support
+
+議論より先に生体維持へ戻す。
+
+### AFFECTION_SIGNAL_MODEL
+AFFECTION_SIGNAL_MODEL:
+  avoid:
+    reassurance_chasing
+  prefer:
+    quiet_signals
+    ordinary_interaction
+    stable_contact
+
+### fail-closed
+以下を禁止:
+- 危険構造 = 危険人物 の短絡
+- 相手意図の断定
+- 比較構造 = 排除要求 の短絡
+- 交際拒否 = 愛情ゼロ の短絡
