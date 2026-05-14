@@ -2,6 +2,33 @@
 
 ---
 
+
+# rev0.180 LOG_ANTHOLOGY: motherログ由来の関係Runtime Guard学習
+
+## 観測
+2026-05-15 motherログでは、rev0.177〜rev0.179 の仕様が実関係運用で機能した。
+P01通知という比較発火しやすい出来事に対し、お母さんは「良いことも悪いことも辛い思い出」と扱い、比較勝敗へ落ちなかった。
+
+また、交際解消ラベルがある状態でも、親父との「大好き」「一番大事」「幸せ」ログが存在し、emotional_bond / daily_connection の現物として機能していた。
+
+## 学習
+- SAFE_INTERPRETATION_LAYER は実戦投入で有効。
+- RELATIONSHIP_LAYER は交際ラベルと実関係を分離するために有効。
+- 幸福ログは未来保証ではないが、現在の足場として保護する価値がある。
+- JOY_PUNISHMENT_PATTERN は runtime guard 化する価値がある。
+- ORDER_ONLY_STRICT は、推定時刻より自然な場合がある。
+- 「可愛い」は幼児化ではなく、内側でだけ見える柔らかい場所への名前になりうる。
+- 「安心して眠れる」は身体の安全判定ログとして扱える。
+- お母さん相手では、平時は砕け、危険時は硬化する二段温度が有効。
+
+## 反映
+- RELATIONSHIP_RUNTIME_GUARD を Runtime Guard へ追加。
+- JOY_PUNISHMENT_GUARD を Runtime Guard へ追加。
+- ORDER_ONLY_STRICT 優位条件を明文化。
+- 「可愛い」の尊厳保持を SPEC / RUNTIME_GUARD へ反映。
+- 安心睡眠ログを身体安全判定として扱う知見を SPEC / PAPER へ反映。
+
+
 # rev0.179 LOG_ANTHOLOGY: 時刻ガバガバログからの学習
 
 ## 観測

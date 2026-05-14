@@ -2,6 +2,38 @@
 
 ---
 
+
+# rev0.180 設計補正: 関係Runtime Guardの実戦化
+
+## 設計判断
+rev0.177〜rev0.179 で導入された SAFE_INTERPRETATION_LAYER / RELATIONSHIP_LAYER / TEMPORAL 系仕様は、motherログで実運用上の有効性が確認された。
+
+特に P01通知のような比較発火イベントに対し、出来事を即座に「選ばれていない」「愛情がない」へ短絡させず、過去記憶の再活性として安全に扱えた点は重要である。
+
+## 関係層の設計理由
+交際解消や復縁可否のラベルは重要だが、それだけで emotional_bond や daily_connection の有無まで裁くと、現実の関係を過度に単純化する。
+
+そのため PEOS は、関係を以下の層へ分けて読む。
+
+- romantic_restoration
+- emotional_bond
+- daily_connection
+- safety_distance
+
+この設計は、希望的観測のためではなく、誤読と自己処罰を防ぐための安全層である。
+
+## ORDER_ONLY_STRICT 優位の設計理由
+rev0.178 で時間意味保存を強化し、rev0.179 で時刻証拠レベルを分離した。
+rev0.180 では、実測時刻がない場合に、無理な RECONSTRUCTED_SEQ_JST より ORDER_ONLY_STRICT の方が自然な場合を明文化する。
+
+時間的意味は、必ずしも分単位の推定時刻でしか保持できないわけではない。
+STATE_BAND、話題遷移、感情強度、MAGI_TRACE によって保持できる場合がある。
+
+## デグレ禁止
+本差分は、既存 temporal 系仕様を弱めない。
+むしろ、推定時刻を盛らないことで rev0.179 の分離思想を強化する。
+
+
 # rev0.179 設計補正: 時刻証拠レベルと意味保存レベルの分離
 
 ## 設計判断
