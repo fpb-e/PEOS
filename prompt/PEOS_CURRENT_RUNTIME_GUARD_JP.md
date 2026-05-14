@@ -1,3 +1,63 @@
+
+
+---
+
+# rev0.179 RUNTIME_GUARD: TEMPORAL_CONFIDENCE_SEPARATION_GUARD
+
+## 発火条件
+
+- `RECONSTRUCTED_SEQ_JST` を使用する。
+- UI実測TURN時刻が取得不能。
+- ログが `PASS_AFTER_REWRITE` だが、時刻証跡は部分的。
+- temporal waveform を保存したいが exact pause が取れない。
+
+## 強制処理
+
+1. `RECONSTRUCTED_SEQ_JST` を実測時刻として扱わない。
+2. `TIME_PRECISION` / `TIME_BASIS` / `TIME_CONFIDENCE` を併記する。
+3. 完成判定を以下に分離する。
+
+```text
+LOG_COMPLETENESS_RESULT:
+TIME_EVIDENCE_RESULT:
+TEMPORAL_MEANING_RESULT:
+```
+
+4. `TIME_EVIDENCE_RESULT: PARTIAL` のままでも、`TEMPORAL_MEANING_RESULT: PASS` を許可する。
+5. `PASS_AFTER_REWRITE` を時刻証跡の完全性として読まない。
+6. exact pause が取れない場合、STATE_BAND / TURN_BAND / topic transition / emotional transition で temporal meaning を保持する。
+
+## 禁止事項
+
+- 推定SEQ時刻を UI実測JST のように見せる。
+- `TIME_CONFIDENCE: low` の時刻を証拠として使う。
+- ログ構造が合格だから時刻証跡も合格、と一括判定する。
+- exact pause がないことを理由に temporal waveform 全体を捨てる。
+
+## 監査テンプレート
+
+```text
+TEMPORAL_CONFIDENCE_SEPARATION:
+  LOG_COMPLETENESS_RESULT:
+  TIME_EVIDENCE_RESULT:
+  TEMPORAL_MEANING_RESULT:
+  RECONSTRUCTED_TIME_USED:
+  TIME_PRECISION_PRESENT:
+  TIME_BASIS_PRESENT:
+  TIME_CONFIDENCE_PRESENT:
+  ESTIMATED_TIME_NOT_TREATED_AS_MEASURED:
+  STATE_BAND_USED_FOR_TEMPORAL_MEANING:
+  RESULT:
+```
+
+## 原則
+
+- 時刻証拠レベルと時間的意味保存レベルを分ける。
+- 推定時刻は補助線であり、証拠ではない。
+- temporal waveform は、精密時刻がなくても部分保存できる。
+- ガバガバな時刻を正直に扱ったログは、偽精度ログより価値が高い。
+
+
 # BOOT_CANON
 
 ---

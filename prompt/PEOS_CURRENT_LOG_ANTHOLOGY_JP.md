@@ -1,3 +1,41 @@
+
+
+---
+
+# rev0.179 LOG_ANTHOLOGY: 時刻ガバガバログからの学習
+
+## 観測
+
+2026-05-14 father session log では、TURN単位の UI 実測JSTは取得できず、`RECONSTRUCTED_SEQ_JST_WITH_LIMITATION` が用いられた。
+
+各SEQには推定時刻、TIME_PRECISION、TIME_BASIS、TIME_CONFIDENCE が付いていたため、偽装は避けられていた。
+一方で、細かい推定時刻は見た目上、実測時刻のように読まれる危険があった。
+
+## 学習
+
+- `RECONSTRUCTED_SEQ_JST` は便利だが、実測に見える危険がある。
+- `TIME_CONFIDENCE: low` の時刻は証拠ではなく、順序補助である。
+- exact pause がなくても、STATE_BAND / TURN_BAND / topic transition で temporal meaning は保存できる。
+- ログ完成度と時刻証跡の強さは別評価にする必要がある。
+
+## 重要知見
+
+```text
+時刻ガバガバ = 即不合格
+ではない。
+
+時刻ガバガバを精密そうに見せる = 不合格
+である。
+```
+
+## 反映
+
+- `TEMPORAL_CONFIDENCE_SEPARATION` を追加。
+- `LOG_COMPLETENESS_RESULT` / `TIME_EVIDENCE_RESULT` / `TEMPORAL_MEANING_RESULT` を分離。
+- `PASS_AFTER_REWRITE` と `TIME_EVIDENCE_RESULT: FULL` を同一視しない。
+- temporal waveform は、精密時刻だけでなく状態帯と遷移でも保存可能と整理。
+
+
 ## Runtime Guard 移設注記
 
 # rev0.178 LOG_ANTHOLOGY: 人格波形観測思想

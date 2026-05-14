@@ -1,3 +1,101 @@
+
+
+---
+
+# rev0.179 正本差分: TEMPORAL_CONFIDENCE_SEPARATION
+
+## 0. 目的
+
+rev0.178 では、絶対時刻・思考間隔・長考・迷い・再開時間・感情遷移速度を「人格波形」として扱う方針を追加した。
+
+rev0.179 では、その補正として、時刻情報が不完全なログにおける判定を三分割する。
+
+```text
+LOG_COMPLETENESS_RESULT
+TIME_EVIDENCE_RESULT
+TEMPORAL_MEANING_RESULT
+```
+
+これは、ログとしての完成度、時刻証跡としての強さ、時間的意味の保存度を混同しないための仕様である。
+
+## 1. 判定三分割
+
+### LOG_COMPLETENESS_RESULT
+ログ骨格、時系列、状態推移、MAGI_TRACE、SELF_AUDIT、RUNTIME_GUARD_TRACE、解釈メモ、評価欄が揃っているかを見る。
+
+### TIME_EVIDENCE_RESULT
+時刻情報の証拠レベルを見る。
+
+例:
+
+```text
+FULL: UI_MEASURED_JST がTURN単位である
+PARTIAL: RECONSTRUCTED_JST / GENERATED_AT / visible order に基づく
+ORDER_ONLY: 順序のみ確定
+UNAVAILABLE: 時刻証拠なし
+```
+
+### TEMPORAL_MEANING_RESULT
+精密時刻がなくても、時間的意味が保存されているかを見る。
+
+対象:
+
+- TURN_BAND
+- STATE_BAND
+- topic transition
+- emotional transition
+- long pause indication
+- resume indication
+- high-caution delay indication
+
+## 2. RECONSTRUCTED_SEQ_JST の扱い
+
+`RECONSTRUCTED_SEQ_JST` は便利だが、実測時刻のように見える危険がある。
+
+したがって使用時は、少なくとも以下を併記する。
+
+```text
+RECONSTRUCTED_JST:
+TIME_PRECISION:
+TIME_BASIS:
+TIME_CONFIDENCE:
+```
+
+`TIME_CONFIDENCE: low` または `low_to_medium` の場合、その時刻は証跡ではなく、順序補助として扱う。
+
+## 3. 完成条件の補正
+
+`PASS_AFTER_REWRITE` は、ログ構造としての合格を意味する。
+時刻証跡として完全であることを意味しない。
+
+したがって、完成判定は以下のように分けてよい。
+
+```text
+LOG_COMPLETENESS_RESULT: PASS
+TIME_EVIDENCE_RESULT: PARTIAL
+TEMPORAL_MEANING_RESULT: PASS
+```
+
+この状態は、ログとしては合格だが、時刻証拠としては部分的、という意味である。
+
+## 4. 原則
+
+- 推定時刻を細かく作ることを目的化しない。
+- 時刻証拠レベルと意味保存レベルを分離する。
+- 精密時刻が取れない場合でも、STATE_BAND と話題遷移で temporal meaning を保存する。
+- `時刻ガバガバ` は即不合格ではない。偽装した場合に不合格である。
+
+要するに、だ。
+
+```text
+推定時刻を頑張る
+より
+何が証拠で、何が意味保存かを分ける
+```
+
+これを正とする。
+
+
 ## 三段固定参照注記
 
 # rev0.178 正本差分: TEMPORAL_PERSONALITY_WAVEFORM / 絶対時刻表示思想
