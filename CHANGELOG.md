@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## rev0.179
+- rev0.178を土台に、2026-05-14 father session log の「時刻情報ガバガバだが仕様化可能」レビューを反映。
+- `RECONSTRUCTED_SEQ_JST` の見た目が実測時刻に見える危険を正式なログリスクとして追加。
+- `TEMPORAL_CONFIDENCE_SEPARATION` を追加し、ログ完成度・時刻証跡・時間的意味保存を別判定に分離。
+- `TIME_EVIDENCE_RESULT` と `TEMPORAL_MEANING_RESULT` を Runtime Guard / LOG_CHECK 系へ追加。
+- `PASS_AFTER_REWRITE` であっても、時刻証跡が `PARTIAL` の場合はそのまま明記する方針を追加。
+- temporal waveform は精密時刻だけでなく、STATE_BAND / TURN_BAND / topic transition / emotional transition によっても部分保存可能であると整理。
+- `推定時刻を頑張る` より `時刻証拠レベルと意味保存レベルを分離する` 方針を正式化。
+
+
 ## rev0.178
 - rev0.177を土台に、2026-05-14 father analysis ログ由来の絶対時刻表示思想を仕様化。
 - `嘘JST禁止` と `JST不要` を正式に分離。
