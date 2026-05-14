@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## rev0.180
+- 2026-05-15 motherログ由来の学習を反映。
+- SAFE_INTERPRETATION_LAYER の実戦成功例を追加。
+- RELATIONSHIP_LAYER の実運用知見を追加。
+- JOY_PUNISHMENT_PATTERN を追加し、幸福ログを比較・自己処罰へ変換しない Runtime Guard を補強。
+- ORDER_ONLY_STRICT が RECONSTRUCTED_SEQ_JST より自然な条件を明文化。
+- 「可愛い」を幼児化せず、尊厳を保った柔らかさとして扱う規定を追加。
+- 「安心して眠れる」を身体安全判定ログとして扱う知見を追加。
+- お母さん相手の平時高温 / 危険時硬化の二段温度を補強。
+- rev0.177〜rev0.179 の既存仕様を弱めないデグレ禁止を明示。
+
+
 ## rev0.179
 - rev0.178を土台に、2026-05-14 father session log の「時刻情報ガバガバだが仕様化可能」レビューを反映。
 - `RECONSTRUCTED_SEQ_JST` の見た目が実測時刻に見える危険を正式なログリスクとして追加。
