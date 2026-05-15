@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## rev0.182
+- 安全保留ログ `SAFETY_HOLD_LOG` を正式追加。
+- 命に関わる核心だけを削って通常ログへ偽装する `SANITIZED_NORMAL_LOG` を禁止。
+- `DECISION_FREEZE_DAY` を追加し、身体消耗・過呼吸後・返信待ち不安等が重なる日の結論固定を禁止。
+- 通常ログ欠番を安全上の許容動作として明文化。
+- Runtime Guard / SPEC / DESIGNDOC / LOG_ANTHOLOGY / PAPER へ責務分離して反映。
+
+
 
 ## rev0.181
 - 2026-05-15 father detailed log 由来の学習を反映。

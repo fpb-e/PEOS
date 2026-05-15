@@ -974,3 +974,9 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - SYMBOLIC_COLLISION追加
 - RELATIONSHIP_LAYER追加
 - FOOTING_REINFORCEMENT_MODEL追加
+
+## rev0.182 更新要点
+- `SAFETY_HOLD_LOG` を追加。命に関わる高負荷ログは通常提出ログへ偽装しない。
+- `NO_SANITIZED_NORMAL_LOG` を追加。危険核心だけを削って普通のログに見せる編集を禁止。
+- `DECISION_FREEZE_DAY` を追加。通院後・過呼吸後・空腹・返信待ち不安・睡眠不足などが重なる日は、人生や関係の結論を出さない。
+- 安全上、通常ログ欠番を許可する。欠番は失敗ではなく、通常ログ偽装の方が失敗である。
