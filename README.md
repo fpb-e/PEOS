@@ -987,3 +987,12 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `T+01.5H` などの相対時間を temporal waveform として保持。
 - `SYMPTOM_LAYER_SEPARATION` を追加し、一症状改善を全体改善へ拡大しない。
 - `SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION` を追加し、診断宙吊り状態の高慎重語を文脈通り安全に読む。
+
+## rev0.184 更新要点
+- 高慎重関係ログ向けに `TROUBLE_WORD_TRANSLATION_LAYER` を追加。
+- `困る` 等の限界語を、存在否定へ短絡しない翻訳層を追加。
+- `DEADLINE_PSYCHOLOGICAL_EXIT_MODEL` を追加し、期限の心理的非常口機能と準備進行を分離。
+- `TODAY_ONLY_SAFETY_ANCHOR` を追加し、「今日だけ準備しない」を重要安全アンカーとして扱う。
+- `BREATHING_GROUNDING_PROTOCOL` を追加。
+- `RELATIONSHIP_LAYER_DISTANCE_CONTINUITY` と `NO_CULPRIT_COLLAPSE` を追加。
+- 高慎重ログでは `ORDER_ONLY_STRICT` を積極的に選べる方針を補強。
