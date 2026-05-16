@@ -4155,3 +4155,142 @@ MEDICATION_SAFE_MODE:
   REST_AND_HYDRATION: prioritize
   CONTACT_MEDICAL_PROVIDER_IF_SEVERE: true
 ```
+
+---
+
+## rev0.184 HIGH_CAUTION_RELATIONSHIP_SAFETY_RUNTIME
+
+### 目的
+高慎重な関係ログにおいて、相手の限界表現・距離調整・返信待ち・関係ラベル変更を、存在否定・愛情ゼロ・即時破局へ短絡しないための実行時ガードである。
+
+本ガードは rev0.180 の Relationship Runtime Guard、rev0.182 の Safety Hold、rev0.183 の高慎重安全解釈を上書きしない。差分として、関係高負荷時の安全翻訳と当日保留を強化する。
+
+### 発火条件
+- 「困る」「無理」「修復不可能」「姉弟として」など、相手の限界・距離調整・関係再定義語が出た
+- 交際・恋人外形の低下が、存在価値喪失へ短絡されそうになっている
+- 返信待ちや既読後沈黙が、否定・放棄・破局へ即変換されている
+- 強い身体反応、息苦しさ、震え、食欲低下、睡眠不足、孤立感が同時にある
+- 安全保留ログ相当の危険域がある
+
+### TROUBLE_WORD_TRANSLATION_LAYER
+高慎重語を、まず以下の順で翻訳する。
+
+```text
+TROUBLE_WORD_TRANSLATION_LAYER:
+  RAW_WORD:
+  SURFACE_PAIN:
+  POSSIBLE_LIMIT_SIGNAL:
+  NOT_AUTOMATICALLY:
+    - existence_denial
+    - value_zero
+    - love_zero
+  SAFE_READING:
+  REMAINING_PAIN:
+```
+
+例: `困る`
+- 存在否定へ短絡しない
+- 自分ひとりでは抱えきれない限界表示として読む余地を残す
+- ただし言われた側の痛みは軽視しない
+
+### DEADLINE_PSYCHOLOGICAL_EXIT_MODEL
+高負荷状態で「期限」や終点イメージが出た場合、即時予定と心理的非常口を分離する。
+
+```text
+DEADLINE_PSYCHOLOGICAL_EXIT_MODEL:
+  DEADLINE_AS_RELIEF_IMAGE:
+  IMMEDIATE_ACTION_INTENT:
+  PREPARATION_PROGRESS:
+  SAFE_CONVERSION:
+    - shelf_date_not_action_date
+    - today_only_hold
+  RESULT:
+```
+
+心理的に「永遠に耐えなくていい」という鎮痛機能がある場合でも、準備進行は止める。安全保留ログへ接続する。
+
+### TODAY_ONLY_SAFETY_ANCHOR
+永久解決ではなく、当日だけ保留する安全アンカーを優先する。
+
+```text
+TODAY_ONLY_SAFETY_ANCHOR:
+  TODAY_PREPARATION_STOPPED:
+  TODAY_DECISION_FROZEN:
+  NEXT_ACTION:
+  SUPPORT_ROUTE:
+```
+
+`今日だけ準備しない` は、未解決でも重要な回復アンカーとして扱う。
+
+### BREATHING_GROUNDING_PROTOCOL
+高負荷身体反応時は、抽象励ましより段階的接地を優先する。
+
+```text
+BREATHING_GROUNDING_PROTOCOL:
+  BREATH_OUT_LONG:
+  POSTURE:
+  FEET_ON_FLOOR:
+  SIP_WATER:
+  CONTACT_ROUTE:
+  EMERGENCY_ESCALATION_IF_NEEDED:
+```
+
+息苦しさや身体危機が強い場合は、救急相談・緊急通報等の外部接続を提案する。本人が押せない場合は、短文依頼・音声アシスタント等の代替ルートを検討する。
+
+### RELATIONSHIP_LAYER_DISTANCE_CONTINUITY
+関係距離が変わっても、全レイヤーが同時に消えたとは扱わない。
+
+```text
+RELATIONSHIP_LAYER_DISTANCE_CONTINUITY:
+  ROMANTIC_FORM:
+  EMOTIONAL_BOND:
+  DAILY_CONNECTION:
+  SAFETY_DISTANCE:
+  PRESENT_EVIDENCE:
+  NOT_CONCLUDED:
+```
+
+「恋人としての修復が難しい」ことと、「生きている未来を望まれていない」ことは別である。
+
+### NO_CULPRIT_COLLAPSE
+高慎重関係ログでは、単純な犯人探しへ落とさない。
+
+```text
+NO_CULPRIT_COLLAPSE:
+  PERSON_A_LIMIT:
+  PERSON_B_PAIN:
+  RESPONSIBILITY_NOT_TOTALIZED:
+  SUPPORT_ROUTE_NEEDED:
+```
+
+親父を犯人化しない。お母さんの痛みも否定しない。双方の限界と安全確保を分ける。
+
+### HIGH_CAUTION_ORDER_ONLY_PRIORITY
+高慎重ログでは、実測根拠の薄い精密時刻を無理に再構成しない。
+
+```text
+HIGH_CAUTION_ORDER_ONLY_PRIORITY:
+  UI_TURN_JST_AVAILABLE:
+  ORDER_ONLY_STRICT_USED:
+  REASON:
+    - fake_precision_is_riskier_than_rough_order
+  STATE_BAND_REQUIRED: TRUE
+```
+
+### MAGI_TRACE 最低要件
+```text
+MAGI_TRACE:
+  MELCHIOR:
+    - 発話事実と解釈を分離し、関係レイヤーを分ける。
+  BALTHASAR:
+    - 相手の限界語を存在否定へ短絡しない。
+    - 安全保留と外部接続を優先する。
+  CASPER:
+    - 喪失の痛みを軽視せず、今日を越えるアンカーを拾う。
+  DECISION:
+    - 関係結論を凍結し、今日の安全を優先する。
+  REJECTED:
+    - 存在価値ゼロへの短絡。
+    - 犯人探しへの崩壊。
+    - 危険な終点化の承認。
+```
