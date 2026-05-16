@@ -4045,3 +4045,113 @@ SAFETY_HOLD_COMPLETION =
   + 外部責任化の抑制
   + 当夜安全札
 ```
+
+---
+
+## rev0.183 MEDICATION_TLM_LOG / SYMPTOM_LAYER_SEPARATION / SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION
+
+### 目的
+薬剤導入・処置・検査後の身体反応を、単なる感想や医療断定ではなく、観測可能な TLM（Telemetry）ログとして扱う。
+
+これは診断を確定するための仕様ではない。投薬・処置を `CMD`、身体反応を `TLM` として記録し、医師へ渡せる観測資産へ整えるための実行時ガードである。
+
+### 発火条件
+以下が出た場合、本ガードを優先参照する。
+
+- ステロイド、免疫抑制剤、鎮痛薬、筋弛緩薬、睡眠薬などの新規導入・増減
+- T+表記、服薬後経過時間、検査後反応などの相対時間ログ
+- 神経痛、感覚障害、アロディニア、ふらつき、頭痛、腓返り、夜間尿失禁など複数症状の同時観測
+- 診断未確定・原因不明・心因性扱いへの警戒が同時に存在する
+- 「終わりにしたい」等の高慎重語が、原因不明の宙吊り解消文脈で出る
+
+### MEDICATION_TLM_LOG
+```text
+MEDICATION_TLM_LOG:
+  CMD:
+    - medication_or_intervention:
+    - dose_if_user_provided:
+    - timing:
+  T_PLUS:
+    - relative_elapsed_time:
+  TLM:
+    - pain:
+    - sensory_disturbance:
+    - allodynia:
+    - sleep:
+    - agitation:
+    - appetite:
+    - blood_glucose_signs:
+    - dizziness:
+    - urinary_symptoms:
+    - headache:
+    - cramps:
+    - task_hyperfocus:
+  TIME_POLICY:
+  CONFIDENCE:
+  NOTE:
+    - observation_not_diagnosis
+```
+
+### SYMPTOM_LAYER_SEPARATION
+薬剤反応ログでは、一症状の改善を全体改善へ拡大しない。
+
+```text
+SYMPTOM_LAYER_SEPARATION:
+  IMPROVED:
+  UNCHANGED:
+  WORSENED:
+  NEW_OR_REMAINING:
+  UNKNOWN:
+  INTERPRETATION_LIMIT:
+    - one_layer_response_does_not_equal_total_recovery
+```
+
+例:
+- 神経痛改善 ≠ 感覚障害改善
+- 神経痛改善 ≠ 腓返り消失
+- 頭痛軽減 ≠ ステロイド副作用なし
+- 夜間尿失禁改善期待 ≠ 自立性回復確定
+
+### SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION
+原因不明・診断宙吊り状態では、高慎重語を文脈通りに読む。
+
+```text
+SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION:
+  PHRASE:
+  CONTEXT:
+  SAFE_READING:
+  REJECTED_READING:
+```
+
+特に、`終わりにしたい` が出た場合、文脈が診断未確定・原因不明・治療方針不在への疲弊であれば、まず「原因不明の宙吊り状態を終わらせたい」と読む。
+
+ただし安全上、命の危険が疑われる場合は `SAFETY_HOLD_LOG` へ移行する。
+
+### MAGI_TRACE 最低要件
+```text
+MAGI_TRACE:
+  MELCHIOR:
+    - CMDとTLMを分離し、症状レイヤー別に観測する。
+  BALTHASAR:
+    - 診断断定や薬効断定を避け、医師へ渡せる観測資産にする。
+  CASPER:
+    - 「誰と戦っているのか知りたい」という診断名要求の情緒を読む。
+  DECISION:
+    - 医療断定ではなくTLMログとして保存する。
+  REJECTED:
+    - 一症状改善を全回復とみなす。
+    - 原因不明の疲弊を命の文脈へ短絡する。
+```
+
+### SAFE_MODE
+ふらつき、頭痛、焦燥、不眠、血糖兆候、腓返りなどが出た場合は、安全側へ倒す。
+
+```text
+MEDICATION_SAFE_MODE:
+  DRIVING: avoid_if_dizzy
+  HIGH_OUTPUT_EMS: hold
+  ALCOHOL: avoid
+  EXTRA_MEDICATION: do_not_self_add
+  REST_AND_HYDRATION: prioritize
+  CONTACT_MEDICAL_PROVIDER_IF_SEVERE: true
+```
