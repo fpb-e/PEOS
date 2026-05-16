@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## rev0.183
+- 薬剤・処置後の身体反応を `MEDICATION_TLM_LOG` として正式追加。
+- 投薬・処置を `CMD`、身体反応を `TLM` として扱う観測仕様を追加。
+- `SYMPTOM_LAYER_SEPARATION` を追加し、一症状改善を全体改善へ拡大しない方針を明文化。
+- `SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION` を追加し、原因不明・診断宙吊り文脈の高慎重語を安全に解釈する方針を追加。
+- Runtime Guard / SPEC / DESIGNDOC / LOG_ANTHOLOGY / PAPER に責務分離して反映。
+
+
 ## rev0.182
 - 安全保留ログ `SAFETY_HOLD_LOG` を正式追加。
 - 命に関わる核心だけを削って通常ログへ偽装する `SANITIZED_NORMAL_LOG` を禁止。

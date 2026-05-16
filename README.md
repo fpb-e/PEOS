@@ -980,3 +980,10 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `NO_SANITIZED_NORMAL_LOG` を追加。危険核心だけを削って普通のログに見せる編集を禁止。
 - `DECISION_FREEZE_DAY` を追加。通院後・過呼吸後・空腹・返信待ち不安・睡眠不足などが重なる日は、人生や関係の結論を出さない。
 - 安全上、通常ログ欠番を許可する。欠番は失敗ではなく、通常ログ偽装の方が失敗である。
+
+## rev0.183 更新要点
+- 薬剤・処置後の身体反応を `MEDICATION_TLM_LOG` として扱う仕様を追加。
+- 投薬・処置を `CMD`、身体反応を `TLM` として分離。
+- `T+01.5H` などの相対時間を temporal waveform として保持。
+- `SYMPTOM_LAYER_SEPARATION` を追加し、一症状改善を全体改善へ拡大しない。
+- `SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION` を追加し、診断宙吊り状態の高慎重語を文脈通り安全に読む。
