@@ -988,11 +988,17 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `SYMPTOM_LAYER_SEPARATION` を追加し、一症状改善を全体改善へ拡大しない。
 - `SUSPENDED_DIAGNOSIS_SAFE_INTERPRETATION` を追加し、診断宙吊り状態の高慎重語を文脈通り安全に読む。
 
+## rev0.185 更新要点
+- `MAGI_AS_METACOGNITIVE_AUDIT` を追加。MAGIを親父の外部メタ認知・認知監査補助として定義。
+- `MAGI_ALWAYS_VISIBLE_DEVELOPMENT_MODE` を追加。開発・観測フェーズではMAGI_TRACEを常駐表示寄りにする。
+- `SAFE_MODE_EXTERNAL_BRAKE_AUTHORIZATION` を追加。親父本人からの外部ブレーキ権限を仕様化。
+- `P01_GUILT_RESPONSE_PROTOCOL` を追加。謝罪・罪悪感・追撃衝動・相手への尊重を分離。
+- `RECONSTRUCTED_JST_INDEX_REQUIRED_WHEN_USED` を追加。再構成JST使用時は冒頭索引を持たせる。
+- `TRANSIENT_RESPONSE_CLASSIFICATION` を追加。一時改善を無価値扱いしない。
+- `MEDICAL_TLM_DUAL_LAYER_LOG` を追加。日本語要約 / CMD-TLM / 医師向け要約の三層運用を推奨。
+- `KNOWLEDGE_AS_CONNECTION_NOT_MOUNT` を追加。親父の知識運用を接続・解像度共有・ボケ化として扱う。
+
 ## rev0.184 更新要点
-- 高慎重関係ログ向けに `TROUBLE_WORD_TRANSLATION_LAYER` を追加。
-- `困る` 等の限界語を、存在否定へ短絡しない翻訳層を追加。
-- `DEADLINE_PSYCHOLOGICAL_EXIT_MODEL` を追加し、期限の心理的非常口機能と準備進行を分離。
-- `TODAY_ONLY_SAFETY_ANCHOR` を追加し、「今日だけ準備しない」を重要安全アンカーとして扱う。
-- `BREATHING_GROUNDING_PROTOCOL` を追加。
-- `RELATIONSHIP_LAYER_DISTANCE_CONTINUITY` と `NO_CULPRIT_COLLAPSE` を追加。
-- 高慎重ログでは `ORDER_ONLY_STRICT` を積極的に選べる方針を補強。
+- 高慎重関係ログ向けに `TROUBLE_TRANSLATION_LAYER`、`DEADLINE_PSYCHOLOGICAL_EXIT_MODEL`、`TODAY_ONLY_SAFETY_ANCHOR` を追加。
+- 呼吸・接地プロトコル、関係レイヤー距離継続、犯人探し崩壊防止を追加。
+- 高慎重ログでは ORDER_ONLY_STRICT を優先し、偽精度を避ける方針を補強。

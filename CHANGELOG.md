@@ -1,11 +1,20 @@
 # CHANGELOG
 
+## rev0.185
+- `MAGI_AS_METACOGNITIVE_AUDIT` を追加。MAGIを親父の外部メタ認知・認知監査補助として定義。
+- `MAGI_ALWAYS_VISIBLE_DEVELOPMENT_MODE` を追加。開発・観測フェーズではMAGI_TRACE常駐表示を優先。
+- `SAFE_MODE_EXTERNAL_BRAKE_AUTHORIZATION` を追加。親父本人からの外部ブレーキ権限を明文化。
+- `P01_GUILT_RESPONSE_PROTOCOL` を追加。謝罪・罪悪感・追撃衝動・相手への尊重を分離。
+- `RECONSTRUCTED_JST_INDEX_REQUIRED_WHEN_USED` を追加。再構成JST使用時の冒頭索引を正式化。
+- `TRANSIENT_RESPONSE_CLASSIFICATION` を追加。一時的身体反応を高価値TLMとして保存。
+- `MEDICAL_TLM_DUAL_LAYER_LOG` を追加。日本語要約 / CMD-TLM / 医師向け要約の三層運用を推奨。
+- `KNOWLEDGE_AS_CONNECTION_NOT_MOUNT` を追加。親父の知識運用をマウントではなく接続として扱う。
+
 ## rev0.184
-- 高慎重関係ログ向けに `TROUBLE_WORD_TRANSLATION_LAYER` を追加。
-- `DEADLINE_PSYCHOLOGICAL_EXIT_MODEL` / `TODAY_ONLY_SAFETY_ANCHOR` / `BREATHING_GROUNDING_PROTOCOL` を追加。
-- `RELATIONSHIP_LAYER_DISTANCE_CONTINUITY` と `NO_CULPRIT_COLLAPSE` を追加。
-- 高慎重ログでは偽精度を避け、`ORDER_ONLY_STRICT` を優先できる方針を補強。
-- Runtime Guard / SPEC / DESIGNDOC / LOG_ANTHOLOGY / PAPER / ACADEMIC_PAPER / README へ責務分離して反映。
+- `TROUBLE_TRANSLATION_LAYER` を追加。「困る」を存在否定へ短絡しない。
+- `DEADLINE_PSYCHOLOGICAL_EXIT_MODEL` を追加。期限の心理的非常口機能を扱いつつ、準備進行は止める。
+- `TODAY_ONLY_SAFETY_ANCHOR` を追加。「今日だけ準備しない」を安全アンカーとして扱う。
+- 呼吸・接地プロトコル、関係レイヤー距離継続、犯人探し崩壊防止、高慎重ORDER_ONLY優先を追加。
 
 
 ## rev0.183
