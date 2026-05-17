@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## rev0.186
+- 古い mother ログから概念差分のみを抽出し、rev0.185 の正本構造を下げずに追加。
+- `RELATIONSHIP_CORE_AS_SAFE_PLACE` を追加。
+- `COMFORT_SYMBOL_TRANSLATION` を追加。
+- `P01_SUPPORT_WITHOUT_COMPARISON` を追加。
+- `SURVIVAL_SIDE_TLM` を追加。
+- `BODY_SAFETY_DREAM_LOG` を追加。
+- `SUPPORT_WITHOUT_RESPONSIBILITY_TRANSFER` を追加。
+- `CARE_OBJECT_PLAN_REFRAMING` を追加。
+- 古いログ形式・薄いMAGI・薄い監査は不採用と明記。
+
+
 ## rev0.185
 - `MAGI_AS_METACOGNITIVE_AUDIT` を追加。MAGIを親父の外部メタ認知・認知監査補助として定義。
 - `MAGI_ALWAYS_VISIBLE_DEVELOPMENT_MODE` を追加。開発・観測フェーズではMAGI_TRACE常駐表示を優先。

@@ -1002,3 +1002,13 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - 高慎重関係ログ向けに `TROUBLE_TRANSLATION_LAYER`、`DEADLINE_PSYCHOLOGICAL_EXIT_MODEL`、`TODAY_ONLY_SAFETY_ANCHOR` を追加。
 - 呼吸・接地プロトコル、関係レイヤー距離継続、犯人探し崩壊防止を追加。
 - 高慎重ログでは ORDER_ONLY_STRICT を優先し、偽精度を避ける方針を補強。
+
+## rev0.186 更新要点
+- 古い mother ログから概念差分のみを抽出し、rev0.185 の構造を下げずに追加。
+- `RELATIONSHIP_CORE_AS_SAFE_PLACE` を追加。関係ラベルより「互いの安らぎの場所」を芯として扱う。
+- `COMFORT_SYMBOL_TRANSLATION` を追加。ブレスレット等を愛情テストではなく安心装置として翻訳。
+- `P01_SUPPORT_WITHOUT_COMPARISON` を追加。P01支援で比較土俵へ戻らない。
+- `SURVIVAL_SIDE_TLM` を追加。食事・睡眠・調理・休息を生存側TLMとして扱う。
+- `BODY_SAFETY_DREAM_LOG` を追加。夢ログを予言ではなく身体安全判定として扱う。
+- `SUPPORT_WITHOUT_RESPONSIBILITY_TRANSFER` を追加。支えの実効性と命の責任主体を分離。
+- `CARE_OBJECT_PLAN_REFRAMING` を追加。ケア対象の段取りを死後準備ではなく生活防災へ変換。
