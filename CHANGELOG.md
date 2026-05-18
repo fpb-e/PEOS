@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## rev0.188
+- `MEDICAL_TLM_CHANNEL_SEPARATION` を追加。医療TLMを疼痛・感覚・運動・排尿・睡眠・代謝・感染・栄養・薬剤のチャンネルで分離。
+- `PAIN_REDUCTION_REVEALS_SENSORY_DISTURBANCE` を追加。疼痛軽減後の感覚障害明瞭化を「ラベルが剥がれた」現象として扱う。
+- `QOL_IMPROVEMENT_IS_VALID_OUTCOME` を追加。診断未確定・症状残存でもQOL改善を有効アウトカムとして保護。
+- `CHRONIC_BASELINE_SYMPTOM_DOWNWEIGHTING` を追加。慢性ベースライン症状を新規副作用TLMの単独主警報にしない。
+- `MEDICATION_REASSESSMENT_WITH_NO_SELF_DISCONTINUATION` を追加。薬剤主観TLMを保存しつつ自己判断中止を禁止。
+- `JOKE_DISAMBIGUATION_IN_HIGH_CAUTION_MEDICATION_CONTEXT` を追加。薬剤文脈の冗談を補正し、安全ガードを維持。
+- `SEPARATE_TAB_MEDICAL_HANDOFF_INTEGRATION` を追加。別タブTLMログをcontinuity inputとして統合。
+- `NEXT_LAB_CHECKPOINT_TRACKING` を追加。2026-06-13等の採血日を客観チェックポイントとして保持。
+- `PHYSICIAN_HANDOFF_DRAFT_REQUIRED_FOR_MEDICAL_TLM` を追加。主治医共有用自然文要約を医療TLMログに併設。
+
+
 ## rev0.187
 - `HAPPINESS_TO_SURVIVAL_ACTION` を追加。幸福ログを食事・睡眠・趣味・荷下ろしなど生活行動へ接続する成功パターンとして定義。
 - `SYMBOLIC_OBJECT_SAFE_OPERATION` を追加。象徴物を愛情試験ではなく安心装置として扱う。

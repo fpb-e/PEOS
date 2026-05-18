@@ -1022,3 +1022,14 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `HAPPINESS_PRESENT_ONLY_GUARD` を追加。幸福ログを未来保証・義務・契約へ盛らない。
 - `NO_SUCCESS_TO_OBLIGATION_CONVERSION` を追加。完食・通話・睡眠などの成功ログを翌日の義務にしない。
 - `TASK_LOAD_REDUCTION_AS_RECOVERY` を追加。不要タスクの荷下ろしを回復行動として扱う。
+
+## rev0.188 更新要点
+- `MEDICAL_TLM_CHANNEL_SEPARATION` を追加。疼痛・感覚・運動・排尿・睡眠・代謝・感染・栄養・薬剤を分離。
+- `PAIN_REDUCTION_REVEALS_SENSORY_DISTURBANCE` を追加。疼痛軽減後の感覚異常明瞭化を、まず切り分け可能化として扱う。
+- `QOL_IMPROVEMENT_IS_VALID_OUTCOME` を追加。診断未確定・症状残存でもQOL改善を有効ログとして保護。
+- `CHRONIC_BASELINE_SYMPTOM_DOWNWEIGHTING` を追加。慢性ベースライン症状を副作用TLMの単独主警報にしない。
+- `MEDICATION_REASSESSMENT_WITH_NO_SELF_DISCONTINUATION` を追加。主観TLMを保存しつつ自己中止を禁止。
+- `JOKE_DISAMBIGUATION_IN_HIGH_CAUTION_MEDICATION_CONTEXT` を追加。薬剤文脈の冗談を補正しつつ安全ガードを維持。
+- `SEPARATE_TAB_MEDICAL_HANDOFF_INTEGRATION` を追加。別タブTLMを継続入力として統合。
+- `NEXT_LAB_CHECKPOINT_TRACKING` を追加。採血日を客観チェックポイントとして保持。
+- `PHYSICIAN_HANDOFF_DRAFT_REQUIRED_FOR_MEDICAL_TLM` を追加。医療TLMに主治医共有文面を併設。
