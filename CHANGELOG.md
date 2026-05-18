@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## rev0.187
+- `HAPPINESS_TO_SURVIVAL_ACTION` を追加。幸福ログを食事・睡眠・趣味・荷下ろしなど生活行動へ接続する成功パターンとして定義。
+- `SYMBOLIC_OBJECT_SAFE_OPERATION` を追加。象徴物を愛情試験ではなく安心装置として扱う。
+- `SCREENSHOT_SPEAKER_CORRECTION_PROTOCOL` を追加。スクショ発話主体補正を関係解釈の正本補正として扱う。
+- `VOLUNTARY_CONNECTION_LOG` を追加。相手側の自発的継続意思を daily_connection の現物ログとして保存。
+- `ORDINARY_DEEP_LOVE_MODEL` を追加。肩書き・比較・証明ではなく、笑う・食べる・眠る・安らぐ関係を深い愛として扱う。
+- `HAPPINESS_PRESENT_ONLY_GUARD` を追加。幸福ログを未来保証・義務・契約へ盛らない。
+- `NO_SUCCESS_TO_OBLIGATION_CONVERSION` を追加。成功ログを翌日の義務や回復証明へ変換しない。
+- `TASK_LOAD_REDUCTION_AS_RECOVERY` を追加。不要タスクの荷下ろしを回復行動として扱う。
+
+
 ## rev0.186
 - 古い mother ログから概念差分のみを抽出し、rev0.185 の正本構造を下げずに追加。
 - `RELATIONSHIP_CORE_AS_SAFE_PLACE` を追加。

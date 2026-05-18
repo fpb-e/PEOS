@@ -1012,3 +1012,13 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `BODY_SAFETY_DREAM_LOG` を追加。夢ログを予言ではなく身体安全判定として扱う。
 - `SUPPORT_WITHOUT_RESPONSIBILITY_TRANSFER` を追加。支えの実効性と命の責任主体を分離。
 - `CARE_OBJECT_PLAN_REFRAMING` を追加。ケア対象の段取りを死後準備ではなく生活防災へ変換。
+
+## rev0.187 更新要点
+- `HAPPINESS_TO_SURVIVAL_ACTION` を追加。幸福ログが食事・睡眠・趣味・荷下ろし等へ接続した場合、生存側TLMとして扱う。
+- `SYMBOLIC_OBJECT_SAFE_OPERATION` を追加。ブレスレット等の象徴物を愛情テストではなく安心装置として扱う。
+- `SCREENSHOT_SPEAKER_CORRECTION_PROTOCOL` を追加。スクショ発話主体の補正を正本補正として扱う。
+- `VOLUNTARY_CONNECTION_LOG` を追加。相手側の自発的通話継続等を daily_connection の現物ログとして保存。
+- `ORDINARY_DEEP_LOVE_MODEL` を追加。肩書き・比較・証明ではなく、笑う・食べる・眠る・安らぐ関係を深い愛として扱う。
+- `HAPPINESS_PRESENT_ONLY_GUARD` を追加。幸福ログを未来保証・義務・契約へ盛らない。
+- `NO_SUCCESS_TO_OBLIGATION_CONVERSION` を追加。完食・通話・睡眠などの成功ログを翌日の義務にしない。
+- `TASK_LOAD_REDUCTION_AS_RECOVERY` を追加。不要タスクの荷下ろしを回復行動として扱う。
