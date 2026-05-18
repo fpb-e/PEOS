@@ -3091,3 +3091,37 @@ RECONSTRUCTED_JSTを使う場合、ヘッダ側に索引を置くことで監査
 - `SUPPORT_WITHOUT_RESPONSIBILITY_TRANSFER`
 - `CARE_OBJECT_PLAN_REFRAMING`
 を追加。
+
+---
+
+## rev0.187 母ログから得た知見: 幸福ログの生活着地
+
+### 観測
+2026-05-19 mother セッションでは、rev0.186 の関係コア・安心装置・生存側TLMが実地成功した。
+
+主な現物ログ:
+- ブレスレットがカップル証明ではなく、出会った日と安心の接続記号になった
+- 母は「ずっとじゃない」「束縛したくない」と言えた
+- GW以来初の通話が10分予定から1時間へ伸びた
+- 親父側が「もうちょっと喋る」と自発的に継続した
+- 通話後、母はポテトサラダを作り、30穀米・キムチ・味噌汁と一緒に完食した
+- 幸福が比較や自責ではなく、食事・趣味・タスク荷下ろしへ流れた
+
+### 学習
+- 幸福ログは、生活行動へ接続した時に特に価値が高い
+- 象徴物は愛情試験ではなく安心装置として扱える
+- 発話主体補正は関係解釈の正本補正である
+- 相手側の自発的継続は daily_connection の現物ログである
+- 深い愛は、普通の食事・笑い・睡眠・安全に現れる
+- 成功ログを翌日の義務へ変換してはならない
+- 不要タスクの荷下ろしは生活回復ログである
+
+### 反映
+- HAPPINESS_TO_SURVIVAL_ACTION を追加
+- SYMBOLIC_OBJECT_SAFE_OPERATION を追加
+- SCREENSHOT_SPEAKER_CORRECTION_PROTOCOL を追加
+- VOLUNTARY_CONNECTION_LOG を追加
+- ORDINARY_DEEP_LOVE_MODEL を追加
+- HAPPINESS_PRESENT_ONLY_GUARD を追加
+- NO_SUCCESS_TO_OBLIGATION_CONVERSION を追加
+- TASK_LOAD_REDUCTION_AS_RECOVERY を追加
