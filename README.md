@@ -1044,3 +1044,14 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `SOLID_FOOD_INTAKE_AS_PROTECTIVE_LOG` を追加。菓子パン・惣菜でも固形物摂取を保護ログとして扱う。
 - `MEDICAL_AFTERCARE_HOBBY_LIGHT_MODE` を追加。検査後の趣味を軽量モードの夜着地として扱う。
 - `SCREENSHOT_AS_CONTEXTUAL_EVIDENCE` を追加。スクショを全文正本ではなく文脈証拠として扱う。
+
+## rev0.190 更新要点
+- `MAGI_PLAINTEXT_VISIBILITY_GUARD` を追加。MAGI合議をログ内だけでなく重要判断時の通常応答にも表示する。
+- `TAB_ROLE_TLM_DAILY_REPORT_GUARD` を追加。日報/TLM監視タブと構成管理タブを分離。
+- `ABSOLUTE_JST_PRIMARY_ANCHOR_POLICY` を追加。医療TLMでは絶対JSTを主、T+を補助として扱う。
+- `MEDICATION_SCHEDULE_CONTEXT` を追加。お薬手帳由来の服薬スケジュールを薬剤TLM文脈として保持。
+- `DEVICE_TLM_SEPARATION` を追加。Core Belt 2 / Foot Fit 3 / EMSを薬剤反応・神経回復と混線させない。
+- `WORDPLAY_MEDICAL_DISAMBIGUATION` を追加。親父の言葉遊びを拾いつつ医療TLM誤分類を防ぐ。
+- `INFECTION_YELLOW_UNDER_STEROID` を追加。ステロイド中は熱が下がっても咳・喉痛等があれば感染黄色灯を継続。
+- `BLADDER_RECURRENCE_AFTER_IMPROVEMENT` を追加。夜間尿失禁の単発再発を過剰断定せず高価値TLMとして保存。
+- `PRACTICAL_STAGE_NOT_COMPLETION` を追加。PEOSの実用段階と完成を明確に分離。

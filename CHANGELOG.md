@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## rev0.190
+- `MAGI_PLAINTEXT_VISIBILITY_GUARD` を追加。MAGI合議をログ内だけでなく重要判断時のプレーンテキスト応答にも表示。
+- `TAB_ROLE_TLM_DAILY_REPORT_GUARD` を追加。日報/TLM監視タブと構成管理タブを分離。
+- `ABSOLUTE_JST_PRIMARY_ANCHOR_POLICY` を追加。絶対JST主アンカー/T+補助マーカー運用を正式化。
+- `MEDICATION_SCHEDULE_CONTEXT` を追加。お薬手帳由来の服薬スケジュールをTLM前提として保持。
+- `DEVICE_TLM_SEPARATION` を追加。Core Belt 2 / Foot Fit 3 / EMS等を薬剤反応・神経回復と分離。
+- `WORDPLAY_MEDICAL_DISAMBIGUATION` を追加。言葉遊びと医療TLMを分離し、親父文体と安全を両立。
+- `INFECTION_YELLOW_UNDER_STEROID` を追加。ステロイド中は発熱低下後も咳・喉痛等があれば感染黄色灯を継続。
+- `BLADDER_RECURRENCE_AFTER_IMPROVEMENT` を追加。夜間尿失禁の単発再発を高価値TLMとして保存しつつ過剰断定を禁止。
+- `PRACTICAL_STAGE_NOT_COMPLETION` を追加。実用段階到達と完成宣言を分離。
+- LOG/PAPER側へ「観測できないMAGIは雰囲気」「身体は本番環境」「ベント成功ログ」等の親父由来の言い回しを保持。
+
+
 ## rev0.189
 - `SYMBOLIC_OBJECT_VOLUNTARY_MEANING` を追加。象徴物の価値を、義務ではなく自発的な愛情・信頼の接続記号として定義。
 - `PROTECTION_LAYER_NAMING` を追加。愛情ログ・幸福ログ等の名前を感情の防火帯として扱う。
