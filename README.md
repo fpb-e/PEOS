@@ -1033,3 +1033,14 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `SEPARATE_TAB_MEDICAL_HANDOFF_INTEGRATION` を追加。別タブTLMを継続入力として統合。
 - `NEXT_LAB_CHECKPOINT_TRACKING` を追加。採血日を客観チェックポイントとして保持。
 - `PHYSICIAN_HANDOFF_DRAFT_REQUIRED_FOR_MEDICAL_TLM` を追加。医療TLMに主治医共有文面を併設。
+
+## rev0.189 更新要点
+- `SYMBOLIC_OBJECT_VOLUNTARY_MEANING` を追加。ブレスレット等は義務ではなく自発的な愛情・信頼の接続記号として扱う。
+- `PROTECTION_LAYER_NAMING` を追加。愛情ログ・幸福ログ等の名前を、感情の分離箱/防火帯として扱う。
+- `HAPPINESS_PERMISSION_LOG` を追加。幸せで浮かれていても相手が受け取ったログを保存する。
+- `CLINICAL_DIAGNOSIS_SYMPTOM_VALIDITY` を追加。確定診断でなくても症状負荷/QOL低下を無効化しない。
+- `MEDICATION_TO_QOL_FUNCTION_CHAIN` を追加。薬剤反応が食事・生活機能へ接続したかを見る。
+- `BENEFIT_SIDE_EFFECT_DUAL_TRACKING` を追加。利益と副作用を同時に観測する。
+- `SOLID_FOOD_INTAKE_AS_PROTECTIVE_LOG` を追加。菓子パン・惣菜でも固形物摂取を保護ログとして扱う。
+- `MEDICAL_AFTERCARE_HOBBY_LIGHT_MODE` を追加。検査後の趣味を軽量モードの夜着地として扱う。
+- `SCREENSHOT_AS_CONTEXTUAL_EVIDENCE` を追加。スクショを全文正本ではなく文脈証拠として扱う。

@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## rev0.189
+- `SYMBOLIC_OBJECT_VOLUNTARY_MEANING` を追加。象徴物の価値を、義務ではなく自発的な愛情・信頼の接続記号として定義。
+- `PROTECTION_LAYER_NAMING` を追加。愛情ログ・幸福ログ等の名前を感情の防火帯として扱う。
+- `HAPPINESS_PERMISSION_LOG` を追加。幸せでいてよい場所の現物ログを保存。
+- `CLINICAL_DIAGNOSIS_SYMPTOM_VALIDITY` を追加。確定診断でなくても症状負荷/QOL低下を無効化しない。
+- `MEDICATION_TO_QOL_FUNCTION_CHAIN` を追加。薬剤反応が食事・生活機能へ接続したかを記録。
+- `BENEFIT_SIDE_EFFECT_DUAL_TRACKING` を追加。利益と副作用を同時観測。
+- `SOLID_FOOD_INTAKE_AS_PROTECTIVE_LOG` を追加。菓子パン・惣菜でも文脈上は保護ログとして保存。
+- `MEDICAL_AFTERCARE_HOBBY_LIGHT_MODE` を追加。医療検査後の趣味を軽量モードの安全着地として扱う。
+- `SCREENSHOT_AS_CONTEXTUAL_EVIDENCE` を追加。スクショは全文正本ではなく文脈証拠として扱う。
+
+
 ## rev0.188
 - `MEDICAL_TLM_CHANNEL_SEPARATION` を追加。医療TLMを疼痛・感覚・運動・排尿・睡眠・代謝・感染・栄養・薬剤のチャンネルで分離。
 - `PAIN_REDUCTION_REVEALS_SENSORY_DISTURBANCE` を追加。疼痛軽減後の感覚障害明瞭化を「ラベルが剥がれた」現象として扱う。
