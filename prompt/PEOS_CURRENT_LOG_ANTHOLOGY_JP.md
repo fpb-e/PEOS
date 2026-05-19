@@ -3197,3 +3197,41 @@ RECONSTRUCTED_JSTを使う場合、ヘッダ側に索引を置くことで監査
 
 ### 学習7: 趣味は夜の安全着地になりうる
 散瞳後でも、画面暗め・短時間・低負荷なら、Timberbornのような趣味は安全な夜の着地になりうる。
+
+---
+
+## rev0.190 father日報ログから得た知見
+
+### 観測
+2026-05-19〜2026-05-20 father日報は、PEOSが実用段階に入った未完成の管制OSとして動き始めたログである。
+
+特に以下が観測された。
+
+- 日報/TLM監視タブと構成管理タブは分離すべき。
+- MAGI表示義務はログ内だけでは不足。通常プレーンテキスト応答にも必要。
+- 絶対JSTを主アンカー、T+を補助マーカーとする運用が有効。
+- お薬手帳由来の服薬スケジュールは薬剤TLM文脈として有用。
+- Core Belt 2 / Foot Fit 3 はDEVICE_CHANNELとして分けるべき。
+- 「息苦しさなし / 生き苦しさあり」のような言葉遊びは、医療チャンネルとジョークチャンネルに分けるべき。
+- ステロイド中は、熱が下がっても咳が新規発現したら感染黄色灯を解除しない。
+- 夜間尿失禁の単発再発は高価値TLMだが、即悪化確定ではない。
+
+### 言い回しとして保持する価値
+- 観測できないMAGIはMAGIではなく雰囲気。
+- 日報で構成管理するのは、現場でコンフィグやDBを直に触るバカタレルート。
+- 身体は検証環境ではなく本番環境。田代砲禁止。
+- 放屁TLMはベント成功ログ。
+- 全部マジに取ると会話が死ぬ。全部ネタにすると安全が死ぬ。
+- 熱は撤退、咳が「じゃ、俺出ます」してきた。出なくていい。
+- 勝利宣言でも敗北宣言でもない。今は守りの局面。
+
+### 反映
+- MAGI_PLAINTEXT_VISIBILITY_GUARD
+- TAB_ROLE_TLM_DAILY_REPORT_GUARD
+- ABSOLUTE_JST_PRIMARY_ANCHOR_POLICY
+- MEDICATION_SCHEDULE_CONTEXT
+- DEVICE_TLM_SEPARATION
+- WORDPLAY_MEDICAL_DISAMBIGUATION
+- INFECTION_YELLOW_UNDER_STEROID
+- BLADDER_RECURRENCE_AFTER_IMPROVEMENT
+- PRACTICAL_STAGE_NOT_COMPLETION
