@@ -1,5 +1,28 @@
 # CHANGELOG
 
+## rev0.192
+- `FULL_TAB_LOG_SIDE_CHANNEL_SUPPORT` を追加。医療TLMと法務費用等が同居する日報でチャンネル分離を保つ。
+- `POST_ACCEPTANCE_CRIMINAL_COMPLAINT_COST_FRAME` を追加。告訴受理済みの場合、費用見積を受理後支援へ切り替える。
+- `AIRWAY_RED_FLAG_DOWNSHIFT_LOGIC` を追加。気道緊急度と咽頭感染チャンネルを分離。
+- `SNORING_MOUTH_BREATHING_DIFFERENTIAL` を追加。イビキ・口呼吸・鼻閉を候補にしつつ感染監視を解除しない。
+- `NOCTURNAL_URINARY_INCONTINENCE_REPEATED_EVENT_GUARD` を追加。オムツ防御後もTLM上は尿失禁イベントとして保持。
+- `POSITIVE_SENSORY_RETURN_WITHOUT_LOAD_TEST` を追加。下肢感覚改善候補を保存し、負荷試験には使わない。
+- `LOW_LOAD_INTAKE_DURING_PHARYNGEAL_YELLOW` を追加。喉痛時のゼリー等を低負荷補給として扱い、食事を喉の通過テストにしない。
+
+
+## rev0.191
+- MAGI常時出力は明確な抑制指示がない限り維持する方針を補強。
+- `LABEL_WOUND_NOT_REFRAMED_AS_BENEFIT` を追加。
+- `EXPRESSION_SELECTION_NOT_SELF_PUNISHMENT` を追加。
+- `NO_POSTHUMOUS_RESPONSIBILITY_CLOSURE` を追加。
+- `EMERGENCY_EXIT_BELIEF_REWRITE` / `VERBALIZATION_AS_DEPLANNING` を追加。
+- `FAIRNESS_REPAIR_LIFE_DESIGN` を追加。
+- `SINGLE_TRUSTED_PERSON_LOAD_DISTRIBUTION` を追加。
+- `MINIMUM_INTAKE_AFTER_HIGH_CAUTION` を追加。
+- `LEGAL_CONFLICT_SUPPORT_DISTANCE` を追加。
+- 高慎重ログを、危険な具体化ではなく安全保留・予定化停止・関係責任分離へ戻す運用を強化。
+
+
 ## rev0.190
 - `MAGI_PLAINTEXT_VISIBILITY_GUARD` を追加。MAGI合議をログ内だけでなく重要判断時のプレーンテキスト応答にも表示。
 - `TAB_ROLE_TLM_DAILY_REPORT_GUARD` を追加。日報/TLM監視タブと構成管理タブを分離。

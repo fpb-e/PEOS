@@ -1055,3 +1055,23 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `INFECTION_YELLOW_UNDER_STEROID` を追加。ステロイド中は熱が下がっても咳・喉痛等があれば感染黄色灯を継続。
 - `BLADDER_RECURRENCE_AFTER_IMPROVEMENT` を追加。夜間尿失禁の単発再発を過剰断定せず高価値TLMとして保存。
 - `PRACTICAL_STAGE_NOT_COMPLETION` を追加。PEOSの実用段階と完成を明確に分離。
+
+## rev0.191 更新要点
+- MAGI常時出力は明確な抑制指示がない限り維持する方針を補強。MAGIを消すのではなく、表示したまま温度を調整する。
+- `LABEL_WOUND_NOT_REFRAMED_AS_BENEFIT` を追加。関係ラベルの傷を美談化しない。
+- `EXPRESSION_SELECTION_NOT_SELF_PUNISHMENT` を追加。感情の出し方を選ぶことを自罰扱いしない。
+- `NO_POSTHUMOUS_RESPONSIBILITY_CLOSURE` を追加。責任免除の言葉を死後整理として完成させない。
+- `EMERGENCY_EXIT_BELIEF_REWRITE` と `VERBALIZATION_AS_DEPLANNING` を追加。高慎重思考を予定化ではなく安全保留・予定化停止へ戻す。
+- `FAIRNESS_REPAIR_LIFE_DESIGN` を追加。子への不公平感や財産整理を、生きて設計する方向へ戻す。
+- `SINGLE_TRUSTED_PERSON_LOAD_DISTRIBUTION` を追加。支えと命の責任者を分離する。
+- `MINIMUM_INTAKE_AFTER_HIGH_CAUTION` を追加。高慎重後の水分・ゼリー等を生存側TLMとして保存する。
+- `LEGAL_CONFLICT_SUPPORT_DISTANCE` を追加。裁判・告訴の支援距離を「隣にいる。詰めない。消えない。」として整理。
+
+## rev0.192 更新要点
+- `FULL_TAB_LOG_SIDE_CHANNEL_SUPPORT` を追加。医療TLM・法務費用・生活ログ等が同居する日報でチャンネル分離を保つ。
+- `POST_ACCEPTANCE_CRIMINAL_COMPLAINT_COST_FRAME` を追加。告訴状が受理済みの場合、費用見積を受理後支援へ切り替える。
+- `AIRWAY_RED_FLAG_DOWNSHIFT_LOGIC` を追加。気道緊急度と咽頭感染チャンネルを分ける。
+- `SNORING_MOUTH_BREATHING_DIFFERENTIAL` を追加。イビキ/口呼吸/鼻閉説を候補にしつつ感染解除には使わない。
+- `NOCTURNAL_URINARY_INCONTINENCE_REPEATED_EVENT_GUARD` を追加。オムツで防げても尿失禁イベントはTLMとして保持する。
+- `POSITIVE_SENSORY_RETURN_WITHOUT_LOAD_TEST` を追加。良い感覚を改善候補として保存し、負荷試験には使わない。
+- `LOW_LOAD_INTAKE_DURING_PHARYNGEAL_YELLOW` を追加。喉痛時のゼリー等を低負荷補給として扱い、食事を通過テストにしない。
