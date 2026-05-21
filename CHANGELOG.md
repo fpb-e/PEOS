@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## rev0.193
+- `JOY_LOG_AS_PROMISE_SEED` を追加。幸福ログを「未来を育てる材料 / 約束の芽」として扱う。
+- `USER_CORRECTION_AS_SPEC_REFINEMENT` を追加。ユーザー補正を仕様語義改善入力として扱う。
+- `HAPPINESS_AND_WOUND_COEXISTENCE` を追加。ラベル変更の傷と現在の幸福ログを両立保持。
+- `SHARED_MEMORY_ARTIFACT_HAPPINESS_LOG` を追加。思い出画像等の共有と親父の肯定反応を幸福ログとして保存。
+- `MOUNJARO_APPETITE_TLM` を追加。マンジャロ後の食欲低下を薬剤TLMとして扱う。
+- `NO_WEIGHT_SCALE_DURING_LOW_APPETITE_ANXIETY` を追加。食欲低下・体重不安時に体重計を裁判官にしない。
+- `HOBBY_PROGRESS_AS_RECOVERY_TLM` を追加。趣味進捗を回復側TLMとして扱う。
+- `EMERGENCY_EXIT_BELIEF_WITH_DOOR_CLOSED` を追加。非常口概念を全否定せず、実行・予定化に進ませない。
+- `CHILDREN_LOVE_AS_LIVING_ANCHOR` を追加。子どもへの愛を脅しではなく生きる錨として扱う。
+- `SAFETY_SHIFT_TOWARD_LIVING` を追加。「死なない方向で考えてみる」を安全側遷移として保存。
+
+
 ## rev0.192
 - `FULL_TAB_LOG_SIDE_CHANNEL_SUPPORT` を追加。医療TLMと法務費用等が同居する日報でチャンネル分離を保つ。
 - `POST_ACCEPTANCE_CRIMINAL_COMPLAINT_COST_FRAME` を追加。告訴受理済みの場合、費用見積を受理後支援へ切り替える。

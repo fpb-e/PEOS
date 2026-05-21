@@ -1075,3 +1075,15 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `NOCTURNAL_URINARY_INCONTINENCE_REPEATED_EVENT_GUARD` を追加。オムツで防げても尿失禁イベントはTLMとして保持する。
 - `POSITIVE_SENSORY_RETURN_WITHOUT_LOAD_TEST` を追加。良い感覚を改善候補として保存し、負荷試験には使わない。
 - `LOW_LOAD_INTAKE_DURING_PHARYNGEAL_YELLOW` を追加。喉痛時のゼリー等を低負荷補給として扱い、食事を通過テストにしない。
+
+## rev0.193 更新要点
+- `JOY_LOG_AS_PROMISE_SEED` を追加。幸福ログを未来保証にも使い捨てにもせず、「約束の芽」として扱う。
+- `USER_CORRECTION_AS_SPEC_REFINEMENT` を追加。ユーザーの違和感を仕様語義の補正入力として扱う。
+- `HAPPINESS_AND_WOUND_COEXISTENCE` を追加。ラベル変更の傷と現在の幸福を両立保持。
+- `SHARED_MEMORY_ARTIFACT_HAPPINESS_LOG` を追加。生成画像や思い出アーティファクト共有への親父反応を幸福ログ化。
+- `MOUNJARO_APPETITE_TLM` を追加。マンジャロ後の食欲低下を薬剤TLMとして扱う。
+- `NO_WEIGHT_SCALE_DURING_LOW_APPETITE_ANXIETY` を追加。食欲低下・体重不安時に体重計を裁判官にしない。
+- `HOBBY_PROGRESS_AS_RECOVERY_TLM` を追加。Timberborn等の趣味進捗を回復側生活TLMとして扱う。
+- `EMERGENCY_EXIT_BELIEF_WITH_DOOR_CLOSED` を追加。非常口信仰を全否定せず、実行・予定化へ進ませない。
+- `CHILDREN_LOVE_AS_LIVING_ANCHOR` を追加。子どもへの愛を脅しではなく生きる錨として扱う。
+- `SAFETY_SHIFT_TOWARD_LIVING` を追加。「死なない方向で考えてみる」を安全側遷移として保存。
