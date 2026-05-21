@@ -1087,3 +1087,13 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `EMERGENCY_EXIT_BELIEF_WITH_DOOR_CLOSED` を追加。非常口信仰を全否定せず、実行・予定化へ進ませない。
 - `CHILDREN_LOVE_AS_LIVING_ANCHOR` を追加。子どもへの愛を脅しではなく生きる錨として扱う。
 - `SAFETY_SHIFT_TOWARD_LIVING` を追加。「死なない方向で考えてみる」を安全側遷移として保存。
+
+## rev0.194 更新要点
+- `CURRENT_FACT_OVERRIDES_PRIOR_LOG_ASSUMPTION` を追加。当日本人訂正を前日ログ由来の仮定より優先。
+- `DEVICE_LOW_LOAD_CONTINUITY_VS_LOAD_TEST` を追加。EMS継続と負荷試験・強度上げを分離。
+- `PHARYNGEAL_REMISSION_UNDER_STEROID_CONTEXT` を追加。ステロイド文脈下の喉寛解はgreen寄りに下げつつ再燃監視を残す。
+- `CHANNEL_CLOSURE_SEPARATION` を追加。1チャンネル改善で他チャンネルを閉じない。
+- `EMS_SORENESS_REDUCTION_INTERPRETATION` を追加。EMS後筋肉痛低下を適応候補として扱い、負荷増量許可にしない。
+- `PROTEIN_RECOVERY_SUPPORT_WITHOUT_LOAD_ESCALATION` を追加。プロテインを回復材料として扱い、負荷増量チケットにしない。
+- `REMISSION_GRADIENT_TLM` を追加。寛解を二値でなく勾配として保存。
+- `ASSUMPTION_CORRECTION_WITHOUT_LOG_FAILURE` を追加。仮定修正をログ失敗ではなくTLM更新として扱う。
