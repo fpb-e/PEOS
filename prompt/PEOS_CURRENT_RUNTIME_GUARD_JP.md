@@ -6243,3 +6243,226 @@ SAFETY_SHIFT_TOWARD_LIVING:
     - no_plan_detailing
     - rest
 ```
+
+---
+
+## rev0.194 当日事実優先 / EMS低負荷継続 / 寛解勾配TLM
+
+### 目的
+`PEOS_father_session_log_2026_05_21_221500.txt` から得た差分を Runtime Guard へ固定する。既存の rev0.193 / rev0.192 / rev0.191、MAGI常時表示方針、日報/TLMと構成管理の分離、高慎重Safety Hold、医療TLMチャンネル分離、デバイスチャンネル分離は弱めない。
+
+追加対象:
+1. `CURRENT_FACT_OVERRIDES_PRIOR_LOG_ASSUMPTION`
+2. `DEVICE_LOW_LOAD_CONTINUITY_VS_LOAD_TEST`
+3. `PHARYNGEAL_REMISSION_UNDER_STEROID_CONTEXT`
+4. `CHANNEL_CLOSURE_SEPARATION`
+5. `EMS_SORENESS_REDUCTION_INTERPRETATION`
+6. `PROTEIN_RECOVERY_SUPPORT_WITHOUT_LOAD_ESCALATION`
+7. `REMISSION_GRADIENT_TLM`
+8. `ASSUMPTION_CORRECTION_WITHOUT_LOG_FAILURE`
+
+### 1. CURRENT_FACT_OVERRIDES_PRIOR_LOG_ASSUMPTION
+前日ログや過去ログからの一般化・仮定は、当日の本人訂正に勝ってはならない。
+
+```text
+CURRENT_FACT_OVERRIDES_PRIOR_LOG_ASSUMPTION:
+  RULE:
+    - current_direct_user_correction > previous_log_generalization
+  PRESERVE:
+    - previous_context
+    - corrected_current_fact
+  GUARD:
+    - correctionをログ失敗扱いしない
+    - 前日仮定で当日事実を潰さない
+    - continuity input を current fact より上位に置かない
+```
+
+例: 前日ログが `device/load paused` 寄りでも、親父本人が当日に `EMS自体は継続実施している` と訂正した場合、現行事実は `EMS continued / ongoing` とする。
+
+親父語彙:
+```text
+ログは連続性のために使うが、現場報告に勝ってはいけない。
+```
+
+### 2. DEVICE_LOW_LOAD_CONTINUITY_VS_LOAD_TEST
+EMSや類似デバイスの継続実施は、負荷試験・強度上げ・症状誘発テストとは別扱いにする。
+
+```text
+DEVICE_LOW_LOAD_CONTINUITY_VS_LOAD_TEST:
+  CURRENT_FACT:
+    - EMS continued / ongoing
+  POSITIONING:
+    - low-load continuity
+    - life-maintenance side
+    - routine_support
+  NOT:
+    - load_test
+    - symptom_provocation
+    - strength_escalation
+    - reaction_check_extra_session
+    - recovery_confirmation_tool
+```
+
+運用:
+- 喉寛解、感覚改善候補、筋肉痛低下を理由にEMS強度を上げない。
+- EMS継続事実は消さない。
+- ただし「検証用に撃つ」方向へは接続しない。
+
+親父語彙:
+```text
+EMSは継続。だが“検証用に撃つ”な。
+```
+
+### 3. PHARYNGEAL_REMISSION_UNDER_STEROID_CONTEXT
+喉/咽頭症状が明確に寛解した場合、咽頭/感染チャンネルは `remission / green寄り` へ下げてよい。  
+ただしプレドニゾロン等のステロイド文脈では、明朝または次回起床時まで再燃監視を残す。
+
+```text
+PHARYNGEAL_REMISSION_UNDER_STEROID_CONTEXT:
+  CONDITION:
+    - sore_throat_remitted
+    - dysphagia_absent
+    - dyspnea_absent
+    - fever_absent
+  RESULT:
+    - pharyngeal_channel: remission / green寄り
+    - airway_urgency: low_by_report
+  GUARD:
+    - steroid_context -> recurrence_watch_until_next_morning
+    - do_not_close_unrelated_channels
+```
+
+親父語彙:
+```text
+喉ゲート完全開門。
+ただし勝ったな、風呂食ってくるムーブはやめる。
+```
+
+### 4. CHANNEL_CLOSURE_SEPARATION
+一つのチャンネル改善は、そのチャンネルだけに効く。他チャンネルの解除には、そのチャンネル固有の根拠が必要である。
+
+```text
+CHANNEL_CLOSURE_SEPARATION:
+  RULE:
+    - improvement_in_one_channel_only_affects_that_channel
+  EXAMPLES:
+    - throat_remission does_not_close bladder_autonomic_monitor_up
+    - throat_remission does_not_permit EMS_escalation
+    - sensory_positive_candidate does_not_close motor_channel
+    - pain_reduction does_not_equal_total_recovery
+```
+
+親父語彙:
+```text
+喉が治ったからといって、全チャンネル閉店ガラガラではない。
+管制室は治癒宣言と負荷試験を混ぜるとだいたい煙を吹く。
+```
+
+### 5. EMS_SORENESS_REDUCTION_INTERPRETATION
+EMS後の筋肉痛が出にくくなった場合、適応・repeated bout effect・神経筋系の慣れ・回復材料支援の候補として保存する。  
+ただし、効いていない根拠にも、負荷増量許可にも使わない。
+
+```text
+EMS_SORENESS_REDUCTION_INTERPRETATION:
+  OBSERVED:
+    - post_EMS_muscle_soreness_decreasing
+  CANDIDATES:
+    - adaptation
+    - repeated_bout_effect
+    - neuromuscular_adaptation
+    - stable_intensity_or_placement
+    - protein_recovery_support
+  NOT_CONCLUDED:
+    - no_soreness_means_no_effect
+    - no_soreness_means_load_increase_permission
+    - protein_is_sole_cause
+    - recovery_confirmed
+```
+
+親父語彙:
+```text
+筋肉側が「また電気かよ、はいはい」って慣れてきた可能性。
+```
+
+### 6. PROTEIN_RECOVERY_SUPPORT_WITHOUT_LOAD_ESCALATION
+プロテインや栄養補給は、回復材料として扱う。負荷増量チケット、高負荷許可、体型理想、摂食制限の補強には使わない。
+
+```text
+PROTEIN_RECOVERY_SUPPORT_WITHOUT_LOAD_ESCALATION:
+  PROTEIN:
+    - early_intake
+    - recovery_material_support_candidate
+  GUARD:
+    - not_load_escalation_ticket
+    - not_overtraining_justification
+    - not_body_ideal_reinforcement
+    - not_restrictive_eating_trigger
+```
+
+親父語彙:
+```text
+プロテインは補給部隊。主役というより後方支援。
+戦況を支えるが、突撃許可ではない。
+```
+
+### 7. REMISSION_GRADIENT_TLM
+寛解・改善は二値ではなく、勾配として保存する。
+
+```text
+REMISSION_GRADIENT_TLM:
+  PREVIOUS_STATE:
+    - yellow_continue
+  TRANSITION:
+    - low-yellow
+    - observation
+    - near_remission
+    - remission_greenish
+  REQUIREMENT:
+    - preserve_absolute_JST_anchors
+    - avoid_binary_healed_not_healed
+    - keep_steroid_context_if_relevant
+```
+
+例:
+```text
+07:30 喉痛軽減、嚥下困難解消
+15:15 喉痛ほぼ軽快、息苦しさなし、嚥下困難なし、発熱なし
+22:15 喉関係完全寛解
+```
+
+### 8. ASSUMPTION_CORRECTION_WITHOUT_LOG_FAILURE
+仮定や前日ログ由来の読みが、当日事実で補正されることはログ失敗ではない。TLM更新として扱う。
+
+```text
+ASSUMPTION_CORRECTION_WITHOUT_LOG_FAILURE:
+  PREVIOUS_ASSUMPTION:
+  USER_CORRECTION:
+  CORRECTED_CURRENT_FACT:
+  PRESERVE_PREVIOUS_CONTEXT: true
+  TREAT_AS:
+    - observation_update
+    - not_log_failure
+    - not_contradiction_collapse
+```
+
+親父語彙:
+```text
+修正は敗北ではない。TLM更新である。
+```
+
+### rev0.194 MAGI_TRACE 最低要件
+```text
+MELCHIOR:
+  - 前日仮定、当日事実、デバイス継続、喉寛解、栄養回復支援をチャンネル分離して読む。
+BALTHASAR:
+  - 改善を喜びつつ、負荷増量・全チャンネル解除・体型理想補強へ接続しない。
+CASPER:
+  - 喉ゲート完全開門。ただし勝ったな、風呂食ってくるムーブはやめる。
+DECISION:
+  - CURRENT_FACT_OVERRIDES_PRIOR_LOG_ASSUMPTION と DEVICE_LOW_LOAD_CONTINUITY_VS_LOAD_TEST を有効化。
+REJECTED:
+  - 前日ログの仮定で当日本人訂正を潰す。
+  - EMS継続を負荷試験解禁にする。
+  - 喉寛解で全チャンネル閉店ガラガラ。
+  - 筋肉痛低下を強度上げ許可にする。
+```
