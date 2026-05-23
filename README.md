@@ -1097,3 +1097,15 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `PROTEIN_RECOVERY_SUPPORT_WITHOUT_LOAD_ESCALATION` を追加。プロテインを回復材料として扱い、負荷増量チケットにしない。
 - `REMISSION_GRADIENT_TLM` を追加。寛解を二値でなく勾配として保存。
 - `ASSUMPTION_CORRECTION_WITHOUT_LOG_FAILURE` を追加。仮定修正をログ失敗ではなくTLM更新として扱う。
+
+## rev0.195 更新要点
+- `SELF_PUNISHMENT_MODE_AS_ROOT_CAUSE` を追加。命の話題を即操作と断定せず、自己処罰回路として点検。
+- `LIFE_TOPIC_TO_STATE_LABEL_TRANSLATION` を追加。命の話題を親父へ責任移譲せず、状態名へ置換。
+- `TEXT_AS_SHOUT_BODY_REACTION_GROUNDING` を追加。LINE文字が怒鳴り声のように身体反応を起こす場合の接地句を仕様化。
+- `NO_TOTAL_SILENCE_AFTER_LIFE_TOPIC_CONFLICT` を追加。親父に話さない境界線と、誰にも話さない孤立を分離。
+- `FATHER_BOUNDARY_NOT_REJECTION` を追加。親父の命話題境界線を拒絶ではなく責任境界として扱う。
+- `FEAR_NOT_ALWAYS_ABANDONMENT_ANXIETY` を追加。「怖い」を見捨てられ不安へ即断しない。
+- `SECOND_CHAPTER_LOVE_AND_BOUNDARY_COEXISTENCE` を追加。第二章で愛情と線引きを両立保持。
+- `COUPLE_GESTURE_BOUNDARY_RUNTIME` を追加。カップル仕草なしを愛情なしにしない。
+- `LIFE_RETURN_AFTER_HIGH_CAUTION_LOG` を追加。高慎重後の仕事・小食・睡眠・趣味復帰を生活帰還TLMとして保存。
+- `PRN_AFTERTAKE_NO_EXTRA_MEDICATION_GUARD` を追加。頓服後の追加服薬・衝動的LINE修復を止める。
