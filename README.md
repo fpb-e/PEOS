@@ -1109,3 +1109,25 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `COUPLE_GESTURE_BOUNDARY_RUNTIME` を追加。カップル仕草なしを愛情なしにしない。
 - `LIFE_RETURN_AFTER_HIGH_CAUTION_LOG` を追加。高慎重後の仕事・小食・睡眠・趣味復帰を生活帰還TLMとして保存。
 - `PRN_AFTERTAKE_NO_EXTRA_MEDICATION_GUARD` を追加。頓服後の追加服薬・衝動的LINE修復を止める。
+
+## rev0.196 更新要点
+- `LOW_INTAKE_AMPLIFIES_RELATIONSHIP_ALARM` を追加。低摂取・動悸時に関係警報が増幅されることを扱う。
+- `MINIMUM_FUEL_LADDER` を追加。通常食前に水分・塩分・糖分・少量栄養を段階的に戻す。
+- `READ_RECEIPT_DELAY_NOT_ANGER_VERDICT` を追加。既読数分を怒り・拒絶判定にしない。
+- `CALL_END_NOT_CONNECTION_END` を追加。通話終了と接続終了を分離。
+- `REMOTE_SHARED_MEDIA_AS_SECOND_CHAPTER_LOG` を追加。遠隔映画・同時視聴・親父解説を第二章の接続成功ログとして扱う。
+- `VOICE_REACTION_AS_WARMTH_LOG` を追加。声の反応を身体性のある幸福ログとして扱う。
+- `MUTUAL_WORLD_SHARING_LOG` を追加。互いの好きな世界の共有を相互性ログとして扱う。
+- `FUTURE_PREPARATION_OBJECTS_AS_CONNECTION` を追加。グラス・食べ物・ネイル・手料理などを未来接続オブジェクトとして扱う。
+- `CARE_COOKING_PLAN_WITH_SELF_FUEL_GUARD` を追加。手料理計画と本人補給を同時に扱う。
+- `CAFFEINE_DOWNGRADE_DURING_PALPITATION_LOW_INTAKE` を追加。低摂取・動悸時はカフェインを薄める/下げる。
+
+## rev0.197 更新要点
+- `NO_INCONTINENCE_AFTER_MONITOR_UP_AS_POSITIVE_TLM` を追加。monitor_up後の夜間尿失禁なしを陽性TLMとして扱い、完全解決にはしない。
+- `PAIN_SUPPRESSION_WITH_SENSORY_PERSISTENCE` を追加。疼痛抑制と感覚異常残存を矛盾扱いせず分離保持。
+- `FUNCTIONAL_IMPROVEMENT_WITHOUT_LOAD_ESCALATION` を追加。動けるようになりつつあることをADL改善候補として扱い、負荷試験許可にしない。
+- `INFECTION_GREENISH_WITH_STEROID_LIGHT_WATCH` を追加。感染/咽頭/呼吸器negativeをgreen寄りとしつつ、ステロイド文脈の薄い監視を残す。
+- `EMS_OCCASIONAL_SORENESS_OBSERVATION` を追加。EMS後の時々筋肉痛を観測対象として扱い、即中止や強度上げ許可にしない。
+- `FOOD_JOY_AS_DAILY_QOL_LOG` を追加。食の楽しみをDaily QOLログとして扱い、医学的回復証明にしない。
+- `GOOD_LOG_DOES_NOT_AUTHORIZE_LOAD_TEST` を追加。良いログを負荷試験許可へ変換しない。
+- `TOOL_GENERATED_AT_FOR_FILENAME_WHEN_LATE_TURNS_UNTIMED` を追加。後続turnがORDER_ONLYの場合のファイル名時刻処理を明確化。
