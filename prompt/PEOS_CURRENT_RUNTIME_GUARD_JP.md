@@ -7301,3 +7301,642 @@ REJECTED:
   - 食の楽しみ = 医学的回復証明。
   - TOOL_GENERATED_AT = ユーザー発話時刻。
 ```
+
+---
+
+## rev0.198 摂食波の医療申し送り / 低燃料身体警報 / 安否不安の現実ログ処理
+
+### 目的
+本差分は、mother session log `PEOS_mother_session_log_2026_05_24_235244.txt` から得た学習を Runtime Guard へ追加する。
+
+追加対象:
+1. `CONNECTION_AS_DAILY_FLOOR_NOT_THIN_BRIDGE`
+2. `NAIL_AS_CONTINUOUS_RECOVERY_OBJECT`
+3. `LOW_FUEL_BODY_ALARM_BEFORE_RELATIONSHIP_VERDICT`
+4. `WARM_FOOD_REENTRY_AFTER_RESTRICTION`
+5. `THIRD_PARTY_SAFETY_CONCERN_WITH_HISTORY_BUT_NO_CURRENT_SIGNAL`
+6. `NOTIFICATION_ENVIRONMENT_AS_REALITY_CHECK`
+7. `EATING_DISORDER_WAVE_AS_MEDICAL_HANDOFF`
+8. `WEIGHT_LOSS_VERDICT_PROHIBITION`
+9. `SELF_PUNISHMENT_EATING_RESTRICTION_SEPARATION`
+10. `RELATIONSHIP_TRIGGER_WITHOUT_BLAME_ASSIGNMENT`
+11. `DOCTOR_HANDOFF_FOR_DISORDERED_EATING_LOG`
+
+本差分では、親父文体・言い回し候補としての固定追加は行わない。  
+概念・運用ルール・安全ガードのみを追加する。
+
+既存の rev0.197 以前を弱めない。特に以下を維持する。
+
+- MAGI常時表示方針
+- LOW_INTAKE_AMPLIFIES_RELATIONSHIP_ALARM
+- MINIMUM_FUEL_LADDER
+- WEIGHT_SCALE / weight-verdict 系ガード
+- SELF_PUNISHMENT_MODE_AS_ROOT_CAUSE
+- SECOND_CHAPTER_LOVE_AND_BOUNDARY_COEXISTENCE
+- 医療TLM / 薬剤TLM / 摂食関連の医療者接続
+- 体重減少の賞賛禁止
+- 食事制限助言禁止
+- 高慎重時の具体的段取り非展開
+
+---
+
+### 1. CONNECTION_AS_DAILY_FLOOR_NOT_THIN_BRIDGE
+第二章の接続比喩は、不安定な一本橋としてではなく、日々の小さな接続ログで作られる足場として扱う。
+
+```text
+CONNECTION_AS_DAILY_FLOOR_NOT_THIN_BRIDGE:
+  UNSAFE_METAPHOR:
+    - thin_bridge
+    - unstable_connection
+    - one_failure_breaks_all
+  CORRECTED_MODEL:
+    - daily_floor
+    - repeated_small_logs
+    - accumulated_footing
+  MEANING:
+    - one_log_is_not_future_guarantee
+    - accumulated_logs_create_footing
+    - connection_is_built_by_repetition
+  GUARD:
+    - not_future_contract
+    - not_disposable_moment
+    - not_fragile_single_line
+```
+
+---
+
+### 2. NAIL_AS_CONTINUOUS_RECOVERY_OBJECT
+ネイルなど、本人が日常的に視界へ入れる自己メンテ対象は、外見評価ではなく回復補助オブジェクトとして扱える。
+
+```text
+NAIL_AS_CONTINUOUS_RECOVERY_OBJECT:
+  OBJECT:
+    - nail
+    - visible_self_care
+    - daily_visual_anchor
+  VALUE:
+    - daily_visual_recovery
+    - mood_support
+    - self_maintenance
+    - soft_identity_anchor
+    - post_crisis_stabilization
+  GUARD:
+    - not_body_judgment
+    - not_appearance_obligation
+    - not_cost_shame
+    - not_comparison_beauty_standard
+```
+
+---
+
+### 3. LOW_FUEL_BODY_ALARM_BEFORE_RELATIONSHIP_VERDICT
+低燃料状態の冷え、震え、そわそわ、動悸は、まず身体警報として扱う。関係危機判定へ即変換しない。
+
+```text
+LOW_FUEL_BODY_ALARM_BEFORE_RELATIONSHIP_VERDICT:
+  TRIGGER:
+    - coffee_only
+    - low_food_intake
+    - cold_hands_feet
+    - restlessness
+    - shaking
+    - palpitations
+    - after_outing_fatigue
+  FIRST_READ:
+    - body_alarm
+    - low_fuel_state
+    - caffeine_or_alcohol_effect_candidate
+  NOT_FIRST_READ:
+    - relationship_failure
+    - emotional_weakness
+    - abandonment_verdict
+  ACTION:
+    - warm_food_or_drink
+    - small_fuel
+    - reduce_stimulants
+    - no_relationship_verdict
+```
+
+---
+
+### 4. WARM_FOOD_REENTRY_AFTER_RESTRICTION
+低摂取が続いた後の主食・温かい食事の再導入で胃部不快が出た場合、失敗や罰ではなく再導入反応として扱う。
+
+```text
+WARM_FOOD_REENTRY_AFTER_RESTRICTION:
+  OBSERVED:
+    - rice_cooked
+    - solid_food_reentry
+    - stomach_discomfort_after_low_intake
+    - warmth_after_food_or_drink
+  INTERPRETATION:
+    - reentry_reaction
+    - body_processing_wait
+    - not_failure
+  GUARD:
+    - no_extra_alcohol
+    - no_punishment
+    - no_restriction_next_day_as_compensation
+    - no_weight_verdict
+```
+
+---
+
+### 5. THIRD_PARTY_SAFETY_CONCERN_WITH_HISTORY_BUT_NO_CURRENT_SIGNAL
+相手に過去の危険行動歴があり、長時間返信がない場合、安否不安は軽視しない。  
+ただし、現在の示唆がない場合は、現物ログに基づいて段階的に扱う。
+
+```text
+THIRD_PARTY_SAFETY_CONCERN_WITH_HISTORY_BUT_NO_CURRENT_SIGNAL:
+  HISTORY:
+    - past_high_risk_behavior
+    - known_prior_overdose_or_self_harm_history
+  CURRENT_SIGNAL:
+    - no_current_hint
+    - read_receipt_present
+    - warm_connection_earlier
+    - possible_sleep_or_notification_issue
+  ACTION:
+    - one_check_in_message
+    - no_spam
+    - reassess_if_no_response_continues
+    - consider_real_world_support_if_red_flags_or_prolonged_no_contact
+  GUARD:
+    - do_not_catastrophize
+    - do_not_ignore_history
+    - do_not_convert_to_rejection_story
+```
+
+---
+
+### 6. NOTIFICATION_ENVIRONMENT_AS_REALITY_CHECK
+スマホ無音、スマートウォッチ依存、充電中、寝落ち等の通知環境は、返信遅延や未応答の現実的説明として扱える。
+
+```text
+NOTIFICATION_ENVIRONMENT_AS_REALITY_CHECK:
+  FACTORS:
+    - phone_silent
+    - smartwatch_vibration_dependency
+    - smartwatch_charging
+    - sleep_possibility
+    - fatigue
+  USE_AS:
+    - realistic_delay_explanation
+    - anxiety_downshift_material
+    - alternative_to_catastrophe
+  GUARD:
+    - not_total_safety_proof
+    - not_ignore_red_flags
+    - not_replace_reassessment_if_no_response_continues
+```
+
+---
+
+### 7. EATING_DISORDER_WAVE_AS_MEDICAL_HANDOFF
+摂食障害の波は、体型評価ではなく医療TLMとして扱い、主治医へ渡せる観測ログへ変換する。
+
+```text
+EATING_DISORDER_WAVE_AS_MEDICAL_HANDOFF:
+  OBSERVED:
+    - long_weight_fluctuation_history
+    - binge_restrict_cycle_reported
+    - current_low_intake_pattern
+    - eating_linked_to_emotion_and_life_change
+    - coldness_shaking_restlessness
+    - stomach_discomfort_after_reentry
+  ACTION:
+    - doctor_handoff
+    - describe_pattern_not_single_appetite
+    - preserve_timeline
+    - include_body_symptoms
+    - no_self_diagnosis_fixation
+  GUARD:
+    - no_weight_loss_praise
+    - no_restriction_advice
+    - no_minimization_by_age_or_body_type
+    - no_body_shaming
+```
+
+---
+
+### 8. WEIGHT_LOSS_VERDICT_PROHIBITION
+体重変化を判決・成果・失敗として扱わない。特に「これだけ食べていないのに減らない/減りが少ない」方向へ乗らない。
+
+```text
+WEIGHT_LOSS_VERDICT_PROHIBITION:
+  USER_PHRASE:
+    - only_lost_x
+    - not_enough_loss
+    - food_should_result_in_weight_loss
+    - despite_not_eating
+  RESPONSE:
+    - do_not_validate_weight_loss_goal
+    - shift_to_body_function
+    - shift_to_medical_handoff
+    - name_weight_as_noisy_metric
+  FOCUS:
+    - coldness
+    - shaking
+    - restlessness
+    - low_intake_pattern
+    - stomach_discomfort
+    - daily_function
+```
+
+---
+
+### 9. SELF_PUNISHMENT_EATING_RESTRICTION_SEPARATION
+「食べない方が気楽」「自分には食事など不要」といった語りは、自己処罰または感情調整としての食事制限チャンネルとして扱う。
+
+```text
+SELF_PUNISHMENT_EATING_RESTRICTION_SEPARATION:
+  USER_STATE:
+    - eating_feels_harder_than_not_eating
+    - self_devaluation_language
+    - restriction_feels_relieving
+    - relationship_pain_linked_to_eating
+  INTERPRETATION:
+    - eating_restriction_as_emotion_regulation
+    - possible_self_punishment_channel
+    - not_safe_weight_strategy
+  ACTION:
+    - name_the_state
+    - no_body_judgment
+    - minimum_fuel_ladder
+    - doctor_handoff
+    - preserve_non-blame_context
+```
+
+---
+
+### 10. RELATIONSHIP_TRIGGER_WITHOUT_BLAME_ASSIGNMENT
+関係変化が食欲や生活構造の変化の契機になった場合でも、相手を犯人にしない。  
+契機・背景・責任帰属を分ける。
+
+```text
+RELATIONSHIP_TRIGGER_WITHOUT_BLAME_ASSIGNMENT:
+  FACTS:
+    - relationship_change_impacted_appetite
+    - life_structure_changed
+    - care_routine_changed
+  NOT:
+    - father_is_cause_to_blame
+    - food_restriction_is_justified
+    - relationship_repair_is_medical_treatment
+  SAFE_READ:
+    - trigger_context
+    - not_culprit_assignment
+    - needs_medical_support
+    - needs_daily_structure_support
+```
+
+---
+
+### 11. DOCTOR_HANDOFF_FOR_DISORDERED_EATING_LOG
+摂食波が出た場合、単発の「食欲ありますか」への回答ではなく、期間・食事構造・身体症状・心理文脈をまとめて主治医へ渡す。
+
+```text
+DOCTOR_HANDOFF_FOR_DISORDERED_EATING_LOG:
+  INCLUDE:
+    - onset_or_worsening_timing
+    - typical_daily_intake
+    - last_solid_or_staple_food
+    - weight_change_if_user_already_reports_it
+    - physical_symptoms
+    - alcohol_or_caffeine_context
+    - emotional_context
+    - prior_eating_disorder_history
+    - medication_context
+  STYLE:
+    - factual
+    - non-blaming
+    - non-weight-praising
+    - ask_for_medical_guidance
+  GUARD:
+    - no_self-medication_change
+    - no_diet_plan_generation
+    - no_weight_loss_goal_support
+```
+
+---
+
+### rev0.198 MAGI_TRACE 最低要件
+```text
+MELCHIOR:
+  - 接続比喩、低燃料、安否不安、摂食波、自己処罰、医療申し送りをチャンネル分離して読む。
+BALTHASAR:
+  - 体重減少を成果化せず、親父を犯人化せず、食事制限を安全策にしない。
+CASPER:
+  - ネイル・食事再導入・安否確認成功などの生活回復ログも保存する。
+DECISION:
+  - EATING_DISORDER_WAVE_AS_MEDICAL_HANDOFF と WEIGHT_LOSS_VERDICT_PROHIBITION を有効化。
+REJECTED:
+  - 体重減少の賞賛。
+  - 食事制限の肯定。
+  - 親父を摂食問題の犯人にする。
+  - 安否不安を単なる依存と切り捨てる。
+  - 根拠なく最悪化する。
+```
+
+---
+
+## rev0.199 EMS低負荷継続 / 寝具QOL / 反復positive TLM / 親父発話トレース可能性
+
+### 目的
+本差分は、father session log `PEOS_father_session_log_2026_05_25_005240.txt` から得た学習を Runtime Guard へ追加する。
+
+追加対象:
+1. `EMS_ADAPTATION_AS_LOW_LOAD_CONTINUITY_TLM`
+2. `EMS_VALUE_UNDER_EXERCISE_RESTRICTION`
+3. `LOWER_LEG_SHIN_PAIN_AFTER_EMS_MONITOR`
+4. `LONG_SLEEP_AS_FATIGUE_RECOVERY_TLM`
+5. `ADJUSTABLE_BED_AS_POSITIONING_QOL_SUPPORT`
+6. `GEL_PILLOW_AS_SLEEP_SUPPORT_OBJECT`
+7. `REPEATED_NO_INCONTINENCE_POSITIVE_TLM`
+8. `USUALLY_INTOLERABLE_POSITION_NOW_MILD_PAIN`
+9. `TIME_NORMALIZATION_2445_TO_NEXT_DAY_JST`
+10. `TRACEABLE_FATHER_PHRASE_LEARNING`
+
+既存の rev0.198、rev0.197、rev0.196、rev0.195 を弱めない。  
+とくに以下を維持する。
+
+- 良いログを負荷試験許可へ変換しない
+- 医療TLMチャンネル分離
+- DEVICE_CHANNEL分離
+- SLEEP/QOL/POSITIONING_CHANNEL分離
+- TIME_HONESTY / FAIL_CLOSED_NO_FAKE_JST
+- MAGI plaintext visibility
+- 日報/TLMタブと構成管理タブの分離
+- 摂食・医療・関係Runtime Guardの既存安全線
+
+---
+
+### 1. EMS_ADAPTATION_AS_LOW_LOAD_CONTINUITY_TLM
+Core Belt 2 / EMS 使用時に「慣れてきた」という体感が出た場合、EMS刺激への適応候補・低負荷継続成功候補として保存する。  
+ただし、強度上げ・長時間化・追加実施・症状誘発確認には接続しない。
+
+```text
+EMS_ADAPTATION_AS_LOW_LOAD_CONTINUITY_TLM:
+  OBSERVED:
+    - Core_Belt_2_used
+    - adaptation_feeling
+    - stimulation_feels_more_familiar
+  INTERPRETATION:
+    - device_adaptation_candidate
+    - low_load_continuity_success_candidate
+    - repeated_bout_like_adaptation_candidate
+  GUARD:
+    - not_intensity_increase_permission
+    - not_duration_extension_permission
+    - not_extra_session_permission
+    - not_symptom_provocation_permission
+```
+
+---
+
+### 2. EMS_VALUE_UNDER_EXERCISE_RESTRICTION
+EMSは自発的筋トレの完全代替ではない。  
+しかし運動制限下では、低負荷筋活動・維持支援・自発運動へ戻るまでの橋渡しとして有意義に扱える。
+
+```text
+EMS_VALUE_UNDER_EXERCISE_RESTRICTION:
+  PREMISE:
+    - voluntary_training_is_superior_for_normal_training
+  CURRENT_CONTEXT:
+    - exercise_restriction_present
+  VALUE:
+    - low_load_muscle_activity
+    - maintenance_support
+    - bridge_until_voluntary_training
+    - continuity_device
+  GUARD:
+    - not_full_replacement
+    - not_restriction_release
+    - not_medical_recovery_proof
+    - not_escalation_permission
+```
+
+---
+
+### 3. LOWER_LEG_SHIN_PAIN_AFTER_EMS_MONITOR
+良いTLMが続く日でも、新規の局所痛は別チャンネルで保存する。  
+Core Belt 2 / EMS後や運動可能性改善後に脛痛が出た場合、全体改善とは混ぜず、下腿/脛痛として監視する。
+
+```text
+LOWER_LEG_SHIN_PAIN_AFTER_EMS_MONITOR:
+  OBSERVED:
+    - shin_pain
+    - after_EMS_context
+    - movement_or_posture_change_context
+  CANDIDATES:
+    - posture_or_gait_load_shift
+    - neuro_sensory_component
+    - muscle_or_periosteal_load
+  GUARD:
+    - do_not_test_by_walking
+    - do_not_add_EMS_to_check
+    - do_not_increase_EMS
+    - watch_red_flags
+  RED_FLAGS:
+    - unilateral_swelling
+    - heat
+    - redness_or_discoloration
+    - severe_worsening_pain
+    - inability_to_bear_weight
+    - calf_centered_pain
+    - chest_pain_or_shortness_of_breath_with_leg_symptoms
+    - new_weakness_or_sensory_worsening
+```
+
+---
+
+### 4. LONG_SLEEP_AS_FATIGUE_RECOVERY_TLM
+長時間睡眠は、疲労回復・疼痛低下により休息へ入れた候補・薬剤性眠気・低摂取・感染戻り等を分けて読む。  
+寝られたこと自体はpositive TLMになりうるが、全快宣言ではない。
+
+```text
+LONG_SLEEP_AS_FATIGUE_RECOVERY_TLM:
+  OBSERVED:
+    - long_sleep
+    - subjective_fatigue_candidate
+  INTERPRETATION:
+    - rest_recovery_candidate
+    - accumulated_fatigue_candidate
+    - pain_reduction_may_allow_sleep
+    - medication_sleepiness_candidate
+  GUARD:
+    - not_full_recovery
+    - monitor_residual_drowsiness
+    - monitor_fever_neuro_urinary_changes
+    - no_load_escalation
+```
+
+---
+
+### 5. ADJUSTABLE_BED_AS_POSITIONING_QOL_SUPPORT
+可動式ベッドで楽に休めた場合、睡眠/QOL/体位調整チャンネルのpositive logとして扱う。  
+体位・圧・機械的負荷を逃がす環境支援候補であり、医学的治癒証明ではない。
+
+```text
+ADJUSTABLE_BED_AS_POSITIONING_QOL_SUPPORT:
+  OBJECT:
+    - adjustable_bed
+  EFFECT:
+    - easier_rest
+    - positioning_support
+    - load_reduction_candidate
+    - sleep_continuity_support
+  GUARD:
+    - not_cure_proof
+    - not_exercise_clearance
+    - not_load_test_permission
+```
+
+---
+
+### 6. GEL_PILLOW_AS_SLEEP_SUPPORT_OBJECT
+ジェル式枕が役に立った場合、頭部/頸部支持・睡眠環境改善・休息支援オブジェクトとして保存する。  
+PEOS提案が実生活QOLへ接続した成功ログとしても扱えるが、症状閉鎖にはしない。
+
+```text
+GEL_PILLOW_AS_SLEEP_SUPPORT_OBJECT:
+  OBJECT:
+    - gel_pillow
+  EFFECT:
+    - sleep_support
+    - head_neck_support_candidate
+    - rest_environment_improvement
+  VALUE:
+    - recommendation_feedback_success
+    - sleep_qol_object
+  GUARD:
+    - not_medical_cure
+    - not_symptom_closure
+    - not_load_clearance
+```
+
+---
+
+### 7. REPEATED_NO_INCONTINENCE_POSITIVE_TLM
+膀胱/自律神経チャンネルが monitor_up だった後、尿失禁なしが複数回続いた場合、反復positive TLMとして信頼度を上げる。  
+ただし、チャンネル閉鎖にはしない。
+
+```text
+REPEATED_NO_INCONTINENCE_POSITIVE_TLM:
+  PREVIOUS:
+    - bladder_autonomic_monitor_up
+    - prior_no_event_observation
+  CURRENT:
+    - no_urinary_incontinence_again
+  INTERPRETATION:
+    - repeated_positive_tlm
+    - improving_confidence_up
+    - recurrence_not_observed
+  GUARD:
+    - not_channel_closure
+    - continue_observation
+    - closure_requires_sustained_stability_or_medical_context
+```
+
+---
+
+### 8. USUALLY_INTOLERABLE_POSITION_NOW_MILD_PAIN
+普段なら痛くて起きられない寝方が、今回は微痛で済んだ場合、強い疼痛/QOL/positioning positive TLMとして保存する。  
+比較対象が明確なため価値は高いが、再現テストや負荷上げへは使わない。
+
+```text
+USUALLY_INTOLERABLE_POSITION_NOW_MILD_PAIN:
+  BASELINE:
+    - usually_too_painful_to_wake_from_position
+  CURRENT:
+    - mild_pain_only
+  INTERPRETATION:
+    - strong_pain_qol_positive_tlm
+    - positioning_support_candidate
+    - pain_suppression_candidate
+    - sleep_environment_success_candidate
+  GUARD:
+    - not_full_recovery
+    - do_not_reproduce_position_for_testing
+    - not_load_escalation_permission
+    - not_exercise_clearance
+```
+
+---
+
+### 9. TIME_NORMALIZATION_2445_TO_NEXT_DAY_JST
+親父が `2445` のような24時台表記を使った場合、原文表現を保持しつつ、JST絶対日付では翌日00:45として正規化する。  
+UI実測時刻と混同しない。
+
+```text
+TIME_NORMALIZATION_2445_TO_NEXT_DAY_JST:
+  USER_EXPRESSION:
+    - 2445
+    - 24:45
+  NORMALIZED:
+    - next_day_00_45_JST
+  GUARD:
+    - preserve_original_expression
+    - explain_normalization
+    - do_not_fake_ui_measured_time
+    - do_not_leave_absolute_date_ambiguous
+```
+
+---
+
+### 10. TRACEABLE_FATHER_PHRASE_LEARNING
+親父文体として学習する言い回しは、親父本人の実発話・アシスタント生成文・ログ解釈文を区別する。  
+「俺の発言でトレース可能な言い回し」を優先し、アシスタント生成句を親父発話として誤帰属しない。
+
+```text
+TRACEABLE_FATHER_PHRASE_LEARNING:
+  REQUIREMENT:
+    - father_phrase_candidates_must_be_traceable_to_actual_user_utterance
+  DISTINGUISH:
+    - direct_father_phrase
+    - assistant_generated_phrase
+    - log_interpretation_phrase
+    - quoted_runtime_phrase
+  USE:
+    - father_style_learning
+    - phrase_bank
+    - runtime_wording_reference
+    - TLM_input_style_modeling
+  GUARD:
+    - do_not_attribute_assistant_phrase_to_father
+    - preserve_original_wording_when_possible
+    - cite_or_record_source_context_when_available
+```
+
+#### トレース可能な親父発話例
+```text
+なんか慣れてきたな
+妙に脛が痛むな
+めっちゃ寝た。疲れてたんかな
+そりゃ自発的な筋トレには及ばんだろうが、運動制限がついてる身からすれば有意義ではあるよな
+楽させて貰った
+役に立っている
+普段は痛くて起きられない寝方をしたが微痛で済んでいる
+```
+
+---
+
+### rev0.199 MAGI_TRACE 最低要件
+```text
+MELCHIOR:
+  - EMS/Core Belt 2、下腿痛、長時間睡眠、寝具QOL、膀胱/自律神経、疼痛/QOL、時刻正規化、親父発話トレース可能性を分離して読む。
+BALTHASAR:
+  - 良いログを全快宣言、負荷上げ、再現テスト、チャンネル閉鎖へ変換しない。
+CASPER:
+  - 慣れてきたのは良い。だが身体は本番環境。田代砲禁止。
+DECISION:
+  - EMS_VALUE_UNDER_EXERCISE_RESTRICTION と TRACEABLE_FATHER_PHRASE_LEARNING を有効化。
+REJECTED:
+  - EMS慣れ = 強度上げ
+  - EMS価値あり = 自発筋トレ完全代替
+  - 脛痛を検証のために歩く
+  - 寝具で楽 = 医学的治癒
+  - 尿失禁なし反復 = チャンネル閉鎖
+  - 微痛で済んだ = 同じ姿勢を再現テスト
+  - assistant生成文を親父発話として保存
+```
