@@ -1,5 +1,32 @@
 # CHANGELOG
 
+## rev0.199
+- `EMS_ADAPTATION_AS_LOW_LOAD_CONTINUITY_TLM` を追加。Core Belt 2/EMSへの慣れを低負荷継続positive TLMとして扱う。
+- `EMS_VALUE_UNDER_EXERCISE_RESTRICTION` を追加。EMSを自発筋トレ未満だが運動制限下の橋渡しとして扱う。
+- `LOWER_LEG_SHIN_PAIN_AFTER_EMS_MONITOR` を追加。脛痛を全体改善と分けて局所チャンネル監視。
+- `LONG_SLEEP_AS_FATIGUE_RECOVERY_TLM` を追加。長時間睡眠を疲労回復候補として扱う。
+- `ADJUSTABLE_BED_AS_POSITIONING_QOL_SUPPORT` を追加。可動式ベッドを体位調整/QOL支援として扱う。
+- `GEL_PILLOW_AS_SLEEP_SUPPORT_OBJECT` を追加。ジェル式枕を睡眠支援オブジェクトとして扱う。
+- `REPEATED_NO_INCONTINENCE_POSITIVE_TLM` を追加。尿失禁なし反復をpositive TLMとして扱い、チャンネル閉鎖にはしない。
+- `USUALLY_INTOLERABLE_POSITION_NOW_MILD_PAIN` を追加。普段なら痛い寝方が微痛で済むことを強いQOL改善ログとして扱う。
+- `TIME_NORMALIZATION_2445_TO_NEXT_DAY_JST` を追加。24時台表記を原文保持しつつ翌日JSTへ正規化。
+- `TRACEABLE_FATHER_PHRASE_LEARNING` を追加。親父本人発話、アシスタント生成句、ログ解釈句を区別して文体学習する。
+
+
+## rev0.198
+- `CONNECTION_AS_DAILY_FLOOR_NOT_THIN_BRIDGE` を追加。第二章の接続を日々の足場として扱う。
+- `NAIL_AS_CONTINUOUS_RECOVERY_OBJECT` を追加。ネイル等を外見評価ではなく回復補助オブジェクトとして扱う。
+- `LOW_FUEL_BODY_ALARM_BEFORE_RELATIONSHIP_VERDICT` を追加。低燃料の冷え・震え・そわそわを関係判決より先に身体警報として扱う。
+- `WARM_FOOD_REENTRY_AFTER_RESTRICTION` を追加。低摂取後の主食復帰時の胃部不快を失敗扱いしない。
+- `THIRD_PARTY_SAFETY_CONCERN_WITH_HISTORY_BUT_NO_CURRENT_SIGNAL` を追加。過去歴がある相手の未返信を段階的に扱う。
+- `NOTIFICATION_ENVIRONMENT_AS_REALITY_CHECK` を追加。通知環境を返信遅延の現実ログとして扱う。
+- `EATING_DISORDER_WAVE_AS_MEDICAL_HANDOFF` を追加。摂食波を主治医へ渡す観測ログとして扱う。
+- `WEIGHT_LOSS_VERDICT_PROHIBITION` を追加。体重減少を成果/失敗判定にしない。
+- `SELF_PUNISHMENT_EATING_RESTRICTION_SEPARATION` を追加。食事制限を自己処罰・感情調整チャンネルとして扱う。
+- `RELATIONSHIP_TRIGGER_WITHOUT_BLAME_ASSIGNMENT` を追加。関係変化を契機として扱い、犯人化しない。
+- `DOCTOR_HANDOFF_FOR_DISORDERED_EATING_LOG` を追加。摂食波の主治医申し送り項目を標準化。
+
+
 ## rev0.197
 - `NO_INCONTINENCE_AFTER_MONITOR_UP_AS_POSITIVE_TLM` を追加。monitor_up後の夜間尿失禁なしを陽性TLMとして扱い、完全解決にはしない。
 - `PAIN_SUPPRESSION_WITH_SENSORY_PERSISTENCE` を追加。疼痛抑制と感覚異常残存を矛盾扱いせず分離保持。
