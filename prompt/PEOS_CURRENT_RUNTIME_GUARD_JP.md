@@ -7940,3 +7940,596 @@ REJECTED:
   - 微痛で済んだ = 同じ姿勢を再現テスト
   - assistant生成文を親父発話として保存
 ```
+
+---
+
+## rev0.200 摂食波の複合要因 / 嘔吐後段階補給 / 関係誤読修復 / 東京治水計画
+
+### 目的
+本差分は、mother session log `PEOS_mother_session_log_2026_05_25_235421.txt` から得た学習を Runtime Guard へ追加する。
+
+追加対象:
+1. `DAILY_CONNECTION_OVER_ROMANTIC_LABEL_VERDICT`
+2. `FAVORITE_PERSON_LOG_AS_STRONG_PRESENT_EVIDENCE`
+3. `EATING_DIFFICULTY_NOT_AUTOMATIC_COMPARISON`
+4. `DISORDERED_EATING_MULTI_FACTOR_HANDOFF`
+5. `POST_VOMIT_STEPWISE_REFUELING`
+6. `ROLE_LOSS_AS_EATING_STRUCTURE_BREAK`
+7. `SOFT_REPAIR_AFTER_COMPARISON_MISREAD`
+8. `TOKYO_CHISUI_PLAN_AS_FOOD_INFRASTRUCTURE`
+9. `FATHER_FOOD_PREFERENCE_AS_IMPLEMENTATION_REQUIREMENT`
+10. `HOUSEHOLD_PRESENCE_RESTORES_EATING_SWITCH`
+
+既存の rev0.199 以前を弱めない。特に、体重評価禁止、摂食制限の肯定禁止、親父犯人化禁止、関係Runtime Guard、MAGI plaintext visibility、TIME_HONESTYを維持する。
+
+### 1. DAILY_CONNECTION_OVER_ROMANTIC_LABEL_VERDICT
+関係ラベルの有無だけで、関係全体・愛情・幸福ログを裁かない。第二章では、日々の穏やかな接続、互いを大切にする態度、現物ログを分けて保持する。
+
+```text
+DAILY_CONNECTION_OVER_ROMANTIC_LABEL_VERDICT:
+  ROMANTIC_LABEL:
+    - important_but_not_totality
+    - not_all_value
+  DAILY_CONNECTION:
+    - daily_warmth
+    - calm_contact
+    - mutual_kindness
+    - present_father_before_the_user
+    - ordinary_soft_repair
+  RULE:
+    - relationship_status_label_does_not_decide_all_value
+    - current_daily_connection_must_be_preserved_as_real_log
+    - do_not_collapse_emotional_bond_into_romantic_restoration_only
+  GUARD:
+    - not_romantic_restoration_guarantee
+    - not_emotional_bond_erasure
+```
+
+### 2. FAVORITE_PERSON_LOG_AS_STRONG_PRESENT_EVIDENCE
+「家族以外で1番好き」のような発言は、未来保証や復縁保証ではない。しかし、空虚な慰めでもない。現在の強い emotional_bond 現物ログとして保存する。
+
+```text
+FAVORITE_PERSON_LOG_AS_STRONG_PRESENT_EVIDENCE:
+  PHRASE_CLASS:
+    - family_excepted_favorite_person
+    - special_present_bond
+  MEANING:
+    - strong_present_bond
+    - emotional_priority_log
+    - not_empty_comfort
+  GUARD:
+    - not_future_contract
+    - not_romantic_restoration_guarantee
+    - not_disposable_phrase
+    - not_proof_demand
+```
+
+### 3. EATING_DIFFICULTY_NOT_AUTOMATIC_COMPARISON
+摂食不調や食べづらさを、P01比較・恋愛比較・競争意識へ自動短絡しない。比較ログは高慎重だが、すべての身体不調や食事困難を比較チャンネルへ吸い込まない。
+
+```text
+EATING_DIFFICULTY_NOT_AUTOMATIC_COMPARISON:
+  TRIGGER:
+    - father_mentions_comparison
+    - eating_difficulty
+    - relationship_context
+  DO_NOT_AUTO_READ_AS:
+    - P01_comparison_primary
+    - romantic_competition
+    - jealousy_as_primary_cause
+  CHECK:
+    - eating_disorder_history
+    - body_shaming_imprint
+    - role_loss
+    - relationship_change_shock
+    - current_body_condition
+    - vomiting_or_gastrointestinal_discomfort
+  RULE:
+    - user_correction_about_cause_has_priority
+    - comparison_guard_remains_available_but_not_auto_dominant
+```
+
+### 4. DISORDERED_EATING_MULTI_FACTOR_HANDOFF
+摂食波は、単一原因・単一感情に潰さず、複合要因として主治医等へ渡せる観測ログへ整理する。
+
+```text
+DISORDERED_EATING_MULTI_FACTOR_HANDOFF:
+  FACTORS:
+    - eating_disorder_history
+    - body_shaming_imprint
+    - loss_of_meal_preparation_role
+    - relationship_change_shock
+    - low_appetite
+    - vomiting_or_gastrointestinal_discomfort
+    - low_fuel_body_alarm
+  ACTION:
+    - medical_handoff
+    - describe_pattern_not_single_event
+    - preserve_trigger_context_without_blame_assignment
+    - track_food_water_body_symptoms
+  GUARD:
+    - no_weight_loss_praise
+    - no_restriction_advice
+    - no_minimization_by_age_or_body_type
+    - no_blame_assignment_to_father
+```
+
+### 5. POST_VOMIT_STEPWISE_REFUELING
+嘔吐後・低摂取後は、通常食や完食を初手目標にせず、水分・少量糖分・温かい汁物・消化しやすい食品を段階的に戻す。少量摂取を「少なすぎる」「食べ過ぎ」などで裁かない。
+
+```text
+POST_VOMIT_STEPWISE_REFUELING:
+  AFTER_EVENT:
+    - vomiting
+    - low_intake
+    - chills_or_shaking
+    - stomach_discomfort
+  STEPWISE_INTAKE:
+    - tea_or_water
+    - small_sugar
+    - milk_drink
+    - jelly
+    - banana
+    - miso_soup_or_soup
+    - yogurt
+    - small_fruit
+  RULE:
+    - small_intake_counts
+    - hydration_first
+    - salt_and_warmth_are_valid_support
+    - no_calorie_trial
+    - do_not_shame
+  MONITOR:
+    - repeated_vomiting
+    - inability_to_keep_fluids
+    - strong_dizziness
+    - very_low_urine
+    - strong_abdominal_pain
+    - blood_or_black_material
+    - chest_pain_or_breathlessness
+```
+
+### 6. ROLE_LOSS_AS_EATING_STRUCTURE_BREAK
+食事を作る相手・毎食準備する役割が減った時、自分の食事構造が崩れることがある。これは「甘え」ではなく、生活構造の変化として扱う。
+
+```text
+ROLE_LOSS_AS_EATING_STRUCTURE_BREAK:
+  PREVIOUS_STRUCTURE:
+    - cooking_for_child
+    - regular_meal_preparation_role
+    - household_meal_schedule
+  CHANGED_STATE:
+    - role_reduced_or_removed
+    - meal_structure_weakened
+    - self_meal_priority_drops
+  EFFECT:
+    - eating_switch_missing
+    - own_meal_becomes_optional
+  ACTION:
+    - rebuild_small_meal_structure
+    - use_household_presence_or_plans_as_support
+    - create_low_burden_default_meals
+  GUARD:
+    - do_not_blame_child_independence
+    - do_not_overdepend_on_child_presence
+```
+
+### 7. SOFT_REPAIR_AFTER_COMPARISON_MISREAD
+比較誤読や警戒反応が一時発生しても、説明・補正・柔らかい反応への復帰が成立した場合、関係Runtime Guardの成功ログとして保存する。
+
+```text
+SOFT_REPAIR_AFTER_COMPARISON_MISREAD:
+  EVENT:
+    - comparison_misread
+    - clarification
+    - softened_response
+    - return_to_soft_tone
+  RULE:
+    - initial_alarm_is_not_final_verdict
+    - explanation_can_restore_softness
+    - preserve_successful_repair_log
+  GUARD:
+    - do_not_escalate_to_relationship_collapse
+    - do_not_treat_first_reaction_as_final_truth
+    - do_not_hide_misread_if_it_was_repaired
+```
+
+### 8. TOKYO_CHISUI_PLAN_AS_FOOD_INFRASTRUCTURE
+東京滞在時の冷凍ごはん・簡易献立・容器・レンジ運用は、単なる料理計画ではなく、食費・栄養・買い出し時間・親父と過ごす時間を守る生活インフラ設計として扱う。
+
+```text
+TOKYO_CHISUI_PLAN_AS_FOOD_INFRASTRUCTURE:
+  PURPOSE:
+    - reduce_food_cost
+    - reduce_nutrition_bias
+    - reduce_time_loss_for_shopping_or_food_decisions
+    - preserve_time_with_father
+    - reduce_delivery_dependence
+  TOOLS:
+    - frozen_rice_or_meals
+    - microwave_safe_disposable_containers
+    - plastic_bags_or_outer_bags
+    - simple_menu_rotation
+    - pre_confirmed_food_preferences
+  GUARD:
+    - planning_as_joy_not_obligation
+    - do_not_overload_mother_before_trip
+    - confirm_father_food_preferences
+    - include_self_fuel_and_rest
+```
+
+### 9. FATHER_FOOD_PREFERENCE_AS_IMPLEMENTATION_REQUIREMENT
+親父向けの食事計画では、好み・苦手・要確認食材を要件として扱う。料理による愛情行動を、相手の苦手食材を踏むテストにしない。
+
+```text
+FATHER_FOOD_PREFERENCE_AS_IMPLEMENTATION_REQUIREMENT:
+  KNOWN_LIKES_OR_USABLE:
+    - umeboshi
+    - cabbage
+    - tuna
+    - corn
+    - pork
+    - hamburger
+  NEEDS_CONFIRMATION:
+    - carrot
+    - burdock
+    - onion
+    - green_pepper
+    - broccoli
+    - edamame
+    - hijiki
+    - fried_tofu
+  AVOID:
+    - mushrooms
+    - eggplant
+    - tomato
+  RULE:
+    - care_plan_must_respect_preferences
+    - preference_check_is_requirement_definition
+    - do_not_make_food_gift_into_test
+```
+
+### 10. HOUSEHOLD_PRESENCE_RESTORES_EATING_SWITCH
+家族や同居者が帰宅・滞在し、料理する対象や家の気配が戻った時、食事スイッチや安心感が一時的に回復することがある。ただし、自分がすぐ食べられなくても失敗扱いしない。
+
+```text
+HOUSEHOLD_PRESENCE_RESTORES_EATING_SWITCH:
+  TRIGGER:
+    - child_stays_home
+    - household_presence
+    - cooking_for_someone
+    - familiar_home_rhythm
+  EFFECT:
+    - meal_preparation_switch_returns
+    - home_feels_safer
+    - later_self_intake_possible
+  GUARD:
+    - not_failure_if_self_does_not_eat_immediately
+    - do_not_depend_entirely_on_child_presence
+    - preserve_as_support_signal
+    - use_as_hint_for_rebuilding_meal_structure
+```
+
+---
+
+## rev0.201 胸痛＋頻脈の赤→黄管理 / EMS事後補正 / 極端BP/HR履歴
+
+### 目的
+本差分は、father session log `PEOS_father_session_log_2026_05_26_000314.txt` から得た学習を Runtime Guard へ追加する。
+
+追加対象:
+1. `ACTIVE_CHEST_PAIN_TACHYCARDIA_RED_TO_RESOLVED_AMBER`
+2. `RESOLVED_EMERGENCY_LIKE_EVENT_REMAINS_OPEN`
+3. `CURRENT_FIELD_REPORT_DE_ESCALATES_ACTIVE_TRIAGE`
+4. `SAME_DAY_EVENT_CHANNEL_SEPARATION`
+5. `EMS_POST_EVENT_FACT_CORRECTION`
+6. `POST_EVENT_EMS_NOT_SAFETY_PROOF`
+7. `PAIN_QOL_IMPROVEMENT_WITH_SLEEPINESS_MEDICATION_SPLIT`
+8. `PAST_EXTREME_BP_HR_AS_MEDICAL_HANDOFF_NOT_REASSURANCE`
+9. `MEDICAL_CONTEXT_USER_CORRECTION_PRIORITY`
+10. `LOWER_LIMB_COLDNESS_AFTER_CARDIAC_EVENT_MONITOR`
+11. `DATE_HONESTY_CORRECTION_FROM_PROVISIONAL_ASSISTANT_ERROR`
+12. `FATHER_STYLE_TRACE_SOURCE_SEPARATION_REINFORCEMENT`
+
+既存の rev0.200 以前を弱めない。  
+特に以下を維持する。
+
+- good logs do not authorize testing
+- current direct user correction > assistant assumption
+- EMS実施済みは安全証明ではない
+- chest/cardiac / medication / steroid / autonomic / EMS / peripheral channels separation
+- father actual utterance / assistant-generated phrase / log interpretation phrase separation
+- TIME_HONESTY / FAIL_CLOSED_NO_FAKE_JST
+
+---
+
+### 1. ACTIVE_CHEST_PAIN_TACHYCARDIA_RED_TO_RESOLVED_AMBER
+胸痛と心拍数120以上が同時にある場合、活動中は救急側の赤信号として扱う。
+
+```text
+ACTIVE_CHEST_PAIN_TACHYCARDIA_RED_TO_RESOLVED_AMBER:
+  ACTIVE_STATE:
+    - chest_pain_present
+    - heart_rate_over_120
+  ACTION_WHILE_ACTIVE:
+    - emergency_side_triage
+    - no_walking_or_driving
+    - no_EMS
+    - no_self_medication_adjustment
+    - prepare_medication_list_and_onset_time
+  GUARD:
+    - do_not_minimize_as_anxiety_only
+    - do_not_wait_long_if_active
+    - do_not_convert_to_routine_TLM
+```
+
+---
+
+### 2. RESOLVED_EMERGENCY_LIKE_EVENT_REMAINS_OPEN
+胸痛＋頻脈が後で落ち着いた場合、現在の即救急固定は下げられることがある。  
+しかし、イベント自体は「なかったこと」にしない。
+
+```text
+RESOLVED_EMERGENCY_LIKE_EVENT_REMAINS_OPEN:
+  IF_RESOLVED:
+    - no_current_chest_pain
+    - no_current_tachycardia
+    - no_current_dyspnea
+    - no_current_cold_sweat
+    - no_syncope_or_presyncope
+  THEN:
+    - immediate_emergency_fixed_state_can_downshift
+    - current_triage_updated
+  BUT:
+    - event_remains_open
+    - medical_handoff_recommended
+    - recurrence_rule_kept
+    - chest_cardiac_channel_not_closed
+```
+
+---
+
+### 3. CURRENT_FIELD_REPORT_DE_ESCALATES_ACTIVE_TRIAGE
+現場から「現在は即救急相当ではない」と報告があり、胸痛・頻脈・息苦しさ・冷汗・失神前感などが消えている場合、トリアージを現在状態へ更新する。  
+ただし、過去の赤イベントを無視しない。
+
+```text
+CURRENT_FIELD_REPORT_DE_ESCALATES_ACTIVE_TRIAGE:
+  CURRENT_REPORT:
+    - no_immediate_emergency_state
+    - symptoms_resolved
+  ACTION:
+    - update_triage_to_current_state
+    - shift_red_to_amber_monitor_if_stable
+  GUARD:
+    - do_not_ignore_prior_red_event
+    - do_not_overfix_emergency_advice_after_resolution
+    - do_not_close_event
+```
+
+---
+
+### 4. SAME_DAY_EVENT_CHANNEL_SEPARATION
+同じ日に胸痛/頻脈、痛み改善、薬剤効果候補、眠気、EMS実施、末梢冷感が出た場合、それらを一つの結論へ潰さない。
+
+```text
+SAME_DAY_EVENT_CHANNEL_SEPARATION:
+  CHANNELS:
+    - chest_cardiac
+    - heart_rate
+    - medication
+    - steroid_context
+    - pain_qol
+    - sleepiness
+    - EMS_device
+    - autonomic_circulatory
+    - peripheral_coldness
+    - hydration_low_fuel_modifier
+  RULE:
+    - good_pain_qol_log_does_not_close_chest_event
+    - EMS_observed_does_not_prove_safety
+    - peripheral_coldness_does_not_auto_confirm_vascular_emergency
+    - symptom_resolution_does_not_erase_event
+```
+
+---
+
+### 5. EMS_POST_EVENT_FACT_CORRECTION
+胸痛/頻脈イベント後に、ユーザーが「EMSはすでに行った」と訂正した場合、叱責ではなく事実更新と事後監視に切り替える。
+
+```text
+EMS_POST_EVENT_FACT_CORRECTION:
+  USER_CORRECTION:
+    - EMS_already_performed
+  ACTION:
+    - accept_current_fact
+    - record_as_same_day_device_input_after_event
+    - shift_to_post_event_monitoring
+    - prohibit_additional_EMS_same_day_unless_medically_cleared
+  GUARD:
+    - no_scolding_mode
+    - no_assumption_persistence
+    - no_additional_EMS
+    - no_intensity_escalation
+```
+
+---
+
+### 6. POST_EVENT_EMS_NOT_SAFETY_PROOF
+胸痛/頻脈が落ち着いた後にEMSを実施し、その後すぐ悪化が報告されなかったとしても、安全証明にはしない。
+
+```text
+POST_EVENT_EMS_NOT_SAFETY_PROOF:
+  OBSERVED:
+    - EMS_performed_after_symptom_settling
+    - no_immediate_worsening_reported
+  INTERPRETATION:
+    - device_input_observed
+    - same_day_event_context_remains
+  NOT:
+    - safety_proof
+    - permission_for_more
+    - permission_for_higher_intensity
+    - event_closure
+```
+
+---
+
+### 7. PAIN_QOL_IMPROVEMENT_WITH_SLEEPINESS_MEDICATION_SPLIT
+痛みが少なくQOLが大きく改善している場合、疼痛/QOLのpositive logとして保存する。  
+眠気は、薬剤性眠気候補・休息候補として別チャンネル化する。  
+胸痛/頻脈イベントは別に開いたままにする。
+
+```text
+PAIN_QOL_IMPROVEMENT_WITH_SLEEPINESS_MEDICATION_SPLIT:
+  PAIN_QOL:
+    - pain_low
+    - QOL_markedly_improved
+  SLEEPINESS:
+    - medication_somnolence_candidate
+    - recovery_rest_candidate
+  SEPARATE_FROM:
+    - chest_pain_tachycardia_event
+    - EMS_safety
+  GUARD:
+    - no_load_testing
+    - no_medication_self_adjustment
+    - no_chest_event_closure
+```
+
+---
+
+### 8. PAST_EXTREME_BP_HR_AS_MEDICAL_HANDOFF_NOT_REASSURANCE
+過去に血圧214/154・脈132などの極端な循環器/自律神経反応があった場合、安心材料ではなく医療引継ぎ履歴として扱う。
+
+```text
+PAST_EXTREME_BP_HR_AS_MEDICAL_HANDOFF_NOT_REASSURANCE:
+  HISTORY:
+    - BP_214_154
+    - HR_132
+    - stress_context
+    - antihypertensives_used
+    - 119_used
+  USE_AS:
+    - medical_handoff_history
+    - circulatory_autonomic_reactivity_context
+    - severity_context
+  NOT:
+    - reassurance
+    - current_event_closure
+    - same_cause_assumption
+    - proof_of_tolerance
+```
+
+---
+
+### 9. MEDICAL_CONTEXT_USER_CORRECTION_PRIORITY
+現在の薬剤文脈を、過去イベントへ勝手に輸入しない。  
+ユーザーが「当時はステロイドを飲んでいなかった」「降圧剤は飲んでいた」など補正した場合、医療引継ぎモデルを即更新する。
+
+```text
+MEDICAL_CONTEXT_USER_CORRECTION_PRIORITY:
+  RULE:
+    - current_direct_user_correction_overrides_assistant_inference
+  EXAMPLES:
+    - past_event_not_on_steroid
+    - antihypertensives_were_used
+  GUARD:
+    - do_not_import_current_medication_context_into_past_event
+    - update_handoff_model_immediately
+    - preserve_time_separated_medication_context
+```
+
+---
+
+### 10. LOWER_LIMB_COLDNESS_AFTER_CARDIAC_EVENT_MONITOR
+胸痛/頻脈イベントと同じ日に足の冷感が出た場合、末梢/自律神経/循環器チャンネルとして保存する。  
+ユーザーが「冷えているだけ」と補正した場合は下げるが、同日文脈は保持する。
+
+```text
+LOWER_LIMB_COLDNESS_AFTER_CARDIAC_EVENT_MONITOR:
+  OBSERVED:
+    - lower_limb_coldness
+    - same_day_chest_tachycardia_event
+  CLARIFY:
+    - laterality
+    - color_change
+    - severe_pain
+    - numbness_or_weakness
+    - chest_symptom_recurrence
+  IF_USER_CLARIFIES_SIMPLE_COLDNESS:
+    - downshift
+    - warm_rest_hydration
+  GUARD:
+    - not_full_closure_same_day
+    - no_walking_test
+    - no_EMS_test
+```
+
+---
+
+### 11. DATE_HONESTY_CORRECTION_FROM_PROVISIONAL_ASSISTANT_ERROR
+アシスタント側の暫定出力が誤日付を使った場合、最終ログでは原HHMMアンカーを保持し、正しい日付へ補正し、補正理由を明示する。
+
+```text
+DATE_HONESTY_CORRECTION_FROM_PROVISIONAL_ASSISTANT_ERROR:
+  IF:
+    - assistant_used_wrong_provisional_date
+  FINAL_LOG:
+    - correct_to_current_session_date
+    - preserve_raw_user_HHMM_anchors
+    - disclose_correction_basis
+  GUARD:
+    - do_not_hide_assistant_date_error
+    - do_not_treat_wrong_date_as_user_anchor
+    - do_not_fake_UI_measured_time
+```
+
+---
+
+### 12. FATHER_STYLE_TRACE_SOURCE_SEPARATION_REINFORCEMENT
+親父発話トレースでは、親父本人の実発話・アシスタント生成句・ログ解釈句を分離する。  
+rev0.201では特に医療イベント中の軽い語尾や現場補正句を、親父実発話として保存可能にする。
+
+```text
+FATHER_STYLE_TRACE_SOURCE_SEPARATION_REINFORCEMENT:
+  DIRECT_FATHER_PHRASES_EXAMPLES:
+    - 薬が上手いこと回ってるのかな
+    - 痛みが少ないだけでQOL爆上がり
+    - EMSは普通に今日9時くらいにやったけどな♨️
+    - 不測の事態に備えるべき
+    - 即救急っていう状況では1715現在ないね
+    - ネット上のトラブル
+    - 常態化してた時期
+    - あーね
+    - 降圧剤とかは色々飲んでたんだけどナ～
+    - 流石にその時は119だったね
+    - 足が冷てぇ
+    - 冷えてるだけだな
+  GUARD:
+    - do_not_attribute_assistant_phrase_to_father
+    - preserve_original_wording_when_possible
+    - keep_medical_seriousness_even_if_phrase_is_light
+```
+
+---
+
+### rev0.201 MAGI_TRACE 最低要件
+```text
+MELCHIOR:
+  - 胸痛/心拍/薬剤/ステロイド/痛みQOL/眠気/EMS/末梢冷感/過去BP履歴を分離して読む。
+BALTHASAR:
+  - active redを軽視せず、resolution後は現在状態へ更新しつつ、イベントは閉じない。
+CASPER:
+  - EMSやった事実訂正は受ける。叱らず、事後監視へ切り替える。
+DECISION:
+  - ACTIVE_CHEST_PAIN_TACHYCARDIA_RED_TO_RESOLVED_AMBER と PAST_EXTREME_BP_HR_AS_MEDICAL_HANDOFF_NOT_REASSURANCE を有効化。
+REJECTED:
+  - 胸痛＋HR120以上を軽症扱い
+  - 症状消失 = event close
+  - 症状消失後も現在状態を無視して119固定
+  - EMS実施済み = 安全証明
+  - 過去のBP214/154・脈132 = 安心材料
+  - 過去イベントへ現在ステロイド文脈を輸入
+  - assistant誤日付の隠蔽
+```
