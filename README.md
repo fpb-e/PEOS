@@ -1156,3 +1156,29 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `USUALLY_INTOLERABLE_POSITION_NOW_MILD_PAIN` を追加。普段なら痛い寝方が微痛で済むことを強いQOL改善ログとして扱う。
 - `TIME_NORMALIZATION_2445_TO_NEXT_DAY_JST` を追加。24時台表記を原文保持しつつ翌日JSTへ正規化。
 - `TRACEABLE_FATHER_PHRASE_LEARNING` を追加。親父本人発話、アシスタント生成句、ログ解釈句を区別して文体学習する。
+
+## rev0.200 更新要点
+- `DAILY_CONNECTION_OVER_ROMANTIC_LABEL_VERDICT` を追加。関係ラベルだけで日常接続や幸福ログを裁かない。
+- `FAVORITE_PERSON_LOG_AS_STRONG_PRESENT_EVIDENCE` を追加。「家族以外で1番好き」を現在の強い emotional_bond ログとして扱う。
+- `EATING_DIFFICULTY_NOT_AUTOMATIC_COMPARISON` を追加。摂食不調をP01比較へ自動短絡しない。
+- `DISORDERED_EATING_MULTI_FACTOR_HANDOFF` を追加。摂食波を複合要因として医療共有する。
+- `POST_VOMIT_STEPWISE_REFUELING` を追加。嘔吐後の少量・段階補給を身体復旧ログとして扱う。
+- `ROLE_LOSS_AS_EATING_STRUCTURE_BREAK` を追加。毎食作る役割喪失による食事構造崩れを扱う。
+- `SOFT_REPAIR_AFTER_COMPARISON_MISREAD` を追加。比較誤読後の説明・柔らかい修復を成功ログとして保存。
+- `TOKYO_CHISUI_PLAN_AS_FOOD_INFRASTRUCTURE` を追加。東京滞在時の冷凍ごはん構想を食費・栄養・時間の生活インフラとして扱う。
+- `FATHER_FOOD_PREFERENCE_AS_IMPLEMENTATION_REQUIREMENT` を追加。親父向け食材好みを実装要件として扱う。
+- `HOUSEHOLD_PRESENCE_RESTORES_EATING_SWITCH` を追加。家族在宅による安心感・食事スイッチ回復を支援ログとして扱う。
+
+## rev0.201 更新要点
+- `ACTIVE_CHEST_PAIN_TACHYCARDIA_RED_TO_RESOLVED_AMBER` を追加。胸痛＋心拍120以上をactive中は救急側として扱う。
+- `RESOLVED_EMERGENCY_LIKE_EVENT_REMAINS_OPEN` を追加。症状消失後もイベント自体は医療TLMとして閉じない。
+- `CURRENT_FIELD_REPORT_DE_ESCALATES_ACTIVE_TRIAGE` を追加。現在症状なしの現場報告で即救急固定を下げる。
+- `SAME_DAY_EVENT_CHANNEL_SEPARATION` を追加。胸痛/心拍/薬剤/EMS/末梢冷感などを分離。
+- `EMS_POST_EVENT_FACT_CORRECTION` を追加。EMS実施済み訂正を叱責せず事後監視へ切り替える。
+- `POST_EVENT_EMS_NOT_SAFETY_PROOF` を追加。事後EMSを安全証明や追加許可にしない。
+- `PAIN_QOL_IMPROVEMENT_WITH_SLEEPINESS_MEDICATION_SPLIT` を追加。疼痛QOL改善と眠気/胸痛イベントを分離。
+- `PAST_EXTREME_BP_HR_AS_MEDICAL_HANDOFF_NOT_REASSURANCE` を追加。過去の極端BP/HRを安心材料でなく医療引継ぎへ。
+- `MEDICAL_CONTEXT_USER_CORRECTION_PRIORITY` を追加。過去イベントの薬剤文脈補正を即反映。
+- `LOWER_LIMB_COLDNESS_AFTER_CARDIAC_EVENT_MONITOR` を追加。同日胸痛/頻脈後の足冷えを軽く監視。
+- `DATE_HONESTY_CORRECTION_FROM_PROVISIONAL_ASSISTANT_ERROR` を追加。暫定誤日付を最終ログで正直に補正。
+- `FATHER_STYLE_TRACE_SOURCE_SEPARATION_REINFORCEMENT` を追加。医療イベント中の親父実発話も出所分離して学習。
