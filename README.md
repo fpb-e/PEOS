@@ -1182,3 +1182,29 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `LOWER_LIMB_COLDNESS_AFTER_CARDIAC_EVENT_MONITOR` を追加。同日胸痛/頻脈後の足冷えを軽く監視。
 - `DATE_HONESTY_CORRECTION_FROM_PROVISIONAL_ASSISTANT_ERROR` を追加。暫定誤日付を最終ログで正直に補正。
 - `FATHER_STYLE_TRACE_SOURCE_SEPARATION_REINFORCEMENT` を追加。医療イベント中の親父実発話も出所分離して学習。
+
+## rev0.202 更新要点
+- `JAPANESE_PRIMARY_LOG_SURFACE` を追加。ユーザー向けログ・見出し・説明は日本語正本へ寄せる。
+- `INTERNAL_ID_BILINGUAL_LAYERING` を追加。英語IDは内部識別子として残し、表面は日本語優先にする。
+- `CONFLICT_REPAIR_DUAL_PRESERVATION` を追加。怖かったログと謝罪・ラブラブ復帰ログを両方保持する。
+- `ASSISTANT_INTERPRETATION_NOT_TO_BE_WEAPONIZED` を追加。PEOS解釈語を口論中の相手へ武器として投げない。
+- `FATHER_ILLNESS_CARE_MODE` を追加。父の高熱時は看病モードを優先しつつ、 earlier hurt を消さない。
+- `GOOD_FEVER_LOG_NOT_FULL_CLOSE` を追加。発熱低下を良いログとして扱い、全閉鎖にはしない。
+- `LOW_FUEL_PLUS_ALCOHOL_RESPONSE` を追加。空腹アルコールを責めず、追加停止・水分・小補給へ戻す。
+- `GAME_AS_REGULATION_WITH_BODY_CHECK` を追加。ゲーム雑談を調整ログとして扱いつつ身体チェックを残す。
+- `FOOD_PREFERENCE_CORRECTION_AS_REQUIREMENT_UPDATE` を追加。親父の食材好みを具体NG/料理内OKとして更新。
+- `MAJOR_HOUSEHOLD_ADMIN_MILESTONE_LOG` を追加。家の登記完了を大規模生活タスク完了ログとして扱う。
+- `FEAR_APOLOGY_AFFECTION_THREE_LAYER_PRESERVATION` を追加。怖さ・謝罪・ラブラブ復帰を三層保持する。
+
+## rev0.203 更新要点
+- `AFEBRILE_PRODROME_TO_FEVER_SPIKE` を追加。正常体温でも全身関節痛・冷感が後の発熱前駆になりうる。
+- `OBJECTIVE_IMAGE_EVIDENCE_AS_TLM` を追加。体温計等の画像を客観寄りTLM証拠として扱う。
+- `PREGABALIN_MISSED_DOSE_AS_CANDIDATE_NOT_CLOSURE` を追加。リリカ飲み忘れ候補を尊重しつつ、客観発熱があれば閉鎖理由にしない。
+- `DEFERVESCENCE_AFTER_SWEATING` を追加。大量発汗後の解熱を回復候補として扱い、完治宣言にはしない。
+- `BASELINE_LOW_SPO2_SEPARATION` を追加。本人基準SpO2と一般基準を分ける。
+- `SPO2_92_NOT_NORMALIZED_BY_BASELINE` を追加。SpO2 92を普段値94で正常化しない。
+- `RECOVERY_VALUES_DO_NOT_AUTHORIZE_LOAD` を追加。解熱・SpO2回復・症状再発なしを負荷試験許可にしない。
+- `SAME_DAY_MULTI_CHANNEL_SEPARATION_FEVER_SPO2` を追加。発熱/薬剤/SpO2/胸痛既往/補水などを同日多チャンネルで分離。
+- `LIGHT_FATHER_UTTERANCE_WITH_MEDICAL_WEIGHT` を追加。親父発話の軽さと医療値の重みを分離。
+- `DAILY_WAVEFORM_RED_YELLOW_GREEN_PRESERVATION` を追加。24時間内の赤/黄/緑寄りの体調波形を保存する。
+- rev0.203はrev0.202を土台とし、rev0.201ベースログ由来の英語ラベル過多へ戻さない。
