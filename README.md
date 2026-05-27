@@ -1208,3 +1208,16 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `LIGHT_FATHER_UTTERANCE_WITH_MEDICAL_WEIGHT` を追加。親父発話の軽さと医療値の重みを分離。
 - `DAILY_WAVEFORM_RED_YELLOW_GREEN_PRESERVATION` を追加。24時間内の赤/黄/緑寄りの体調波形を保存する。
 - rev0.203はrev0.202を土台とし、rev0.201ベースログ由来の英語ラベル過多へ戻さない。
+
+## rev0.204 更新要点
+- `SYMPTOMATIC_HYPOTENSION_NOT_CLOSED_BY_LOW_FUEL` を追加。89/55＋ふらつき/目眩を低燃料だけで閉じない。
+- `PERSONAL_BASELINE_DELTA_BP_TLM` を追加。普段120/90前後からの差分を血圧TLMとして重視。
+- `HYPOTENSION_MINIMUM_REFUEL_LADDER` を追加。安静・水分・塩分・少量糖分・固形物復帰を段階化。
+- `ALONE_WORKING_FALL_RISK_PRIORITY` を追加。一人勤務中の低血圧では転倒リスクを業務より優先。
+- `LONG_TERM_MEDICATION_NOT_SUDDEN_SOLE_CAUSE` を追加。長期服薬薬剤を急な単独犯にしない。
+- `PHYSICIAN_INSTRUCTION_SUPREMACY` を追加。医師指示をアシスタント助言より上位に置く。
+- `MEDICATION_SPECIFIC_PHYSICIAN_INSTRUCTION_CONFIRMATION` を追加。医師指示は薬名単位で確認。
+- `SOLID_FOOD_REENTRY_AS_RECOVERY_LOG` を追加。お好み焼き等の固形物復帰を回復ログとして保存。
+- `MEDICAL_AND_JOY_LOG_DUAL_PRESERVATION` を追加。医療ログと幸福ログを互いに消さず同時保持。
+- `AFFECTIONATE_JOY_AS_PRESENT_EVIDENCE` を追加。甘々幸福ログを未来保証ではなく現在の現物ログとして扱う。
+- `JAPANESE_PRIMARY_LOG_SURFACE_STAGE2` を追加。読み物ログ表面の英語IDをさらに日本語へ寄せる。

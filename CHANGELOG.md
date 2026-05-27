@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## rev0.204
+- `SYMPTOMATIC_HYPOTENSION_NOT_CLOSED_BY_LOW_FUEL` を追加。89/55＋ふらつき/目眩を低燃料だけで閉じない。
+- `PERSONAL_BASELINE_DELTA_BP_TLM` を追加。普段120/90前後からの差分を血圧TLMとして重視。
+- `HYPOTENSION_MINIMUM_REFUEL_LADDER` を追加。安静・水分・塩分・少量糖分・固形物復帰を段階化。
+- `ALONE_WORKING_FALL_RISK_PRIORITY` を追加。一人勤務中の低血圧では転倒リスクを業務より優先。
+- `LONG_TERM_MEDICATION_NOT_SUDDEN_SOLE_CAUSE` を追加。長期服薬薬剤を急な単独犯にしない。
+- `PHYSICIAN_INSTRUCTION_SUPREMACY` を追加。医師指示をアシスタント助言より上位に置く。
+- `MEDICATION_SPECIFIC_PHYSICIAN_INSTRUCTION_CONFIRMATION` を追加。医師指示は薬名単位で確認。
+- `SOLID_FOOD_REENTRY_AS_RECOVERY_LOG` を追加。お好み焼き等の固形物復帰を回復ログとして保存。
+- `MEDICAL_AND_JOY_LOG_DUAL_PRESERVATION` を追加。医療ログと幸福ログを互いに消さず同時保持。
+- `AFFECTIONATE_JOY_AS_PRESENT_EVIDENCE` を追加。甘々幸福ログを未来保証ではなく現在の現物ログとして扱う。
+- `JAPANESE_PRIMARY_LOG_SURFACE_STAGE2` を追加。読み物ログ表面の英語IDをさらに日本語へ寄せる。
+
+
 ## rev0.203
 - `AFEBRILE_PRODROME_TO_FEVER_SPIKE` を追加。正常体温でも全身関節痛・冷感が後の発熱前駆になりうる。
 - `OBJECTIVE_IMAGE_EVIDENCE_AS_TLM` を追加。体温計等の画像を客観寄りTLM証拠として扱う。
