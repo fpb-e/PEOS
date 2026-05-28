@@ -1221,3 +1221,35 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `MEDICAL_AND_JOY_LOG_DUAL_PRESERVATION` を追加。医療ログと幸福ログを互いに消さず同時保持。
 - `AFFECTIONATE_JOY_AS_PRESENT_EVIDENCE` を追加。甘々幸福ログを未来保証ではなく現在の現物ログとして扱う。
 - `JAPANESE_PRIMARY_LOG_SURFACE_STAGE2` を追加。読み物ログ表面の英語IDをさらに日本語へ寄せる。
+
+## rev0.205 更新要点
+- `LOG_ENGLISH_SURFACE_SUPPRESSION` を追加。再投入可能ログ表面の英語ラベル過多を抑止。
+- `JAPANESE_LOG_FIELD_NAME_CANON` を追加。場面帯・状態帯・応答要約・MAGI記録などの日本語項目名を正本化。
+- `INTERNAL_ID_MINIMUM_EXPOSURE` を追加。英語IDは括弧併記または内部用途へ寄せる。
+- `REUSABLE_LOG_JAPANESE_TEMPLATE` を追加。再投入可能ログの標準見出しを日本語化。
+- `NO_ENGLISH_AUDIT_UI_LOG_SURFACE` を追加。ログの英語監査UI化を禁止。
+- `MEDICAL_HYPOTHESIS_EVOLUTION_GUARD` を追加。炎症性イベント候補など後続仮説を採用しつつ感染未除外を保持。
+- `RECOVERY_STABILITY_AS_POSITIVE_LOG` を追加。異常なし・体調良好をpositive TLMとして扱う。
+- `MEDICAL_TO_CASUAL_TRANSITION_GUARD` を追加。安定報告と本人希望があれば雑談へ戻す。
+- `PEOS_PORTABLE_EDITION_BETA_CONCEPT` を追加。PEOS Portable Edition : βを未完成主義の概念候補として保存。
+- `INHERITABILITY_BEFORE_PRODUCTIZATION` を追加。商品化より継承可能化を優先。
+- `SYMBOLIC_PURCHASE_TEXTURE` を追加。Xperia購入判断の技術層・SONY忠誠・エヴァ番号を同時保持。
+- `PRODUCT_INFO_RECHECK_GUARD` を追加。Xperia/au/5G SA等は行動前に公式再確認。
+- `X_SCREENSHOT_SOURCE_ATTRIBUTION_GUARD` を追加。Xスクショの親父発話・第三者発話・引用・解釈を分離。
+- `HIGH_TEMPERATURE_PUBLIC_REPLY_SEPARATION` を追加。高温レスバ発話を全領域既定にしない。
+- `NO_ABNORMALITY_AS_POSITIVE_TLM` を追加。異常なしをpositive TLM化。
+
+## rev0.206 更新要点
+- `MAGI_TRIAD_ENGLISH_NAME_EXCEPTION` を追加。MELCHIOR / BALTHASAR / CASPER は英語表記維持可。
+- `JAPANESE_READER_ORIENTED_LOG_SURFACE` を追加。問題は英語そのものではなく、日本語話者に向いていないログ表面であると明確化。
+- `PROTECT_FATHER_WITHOUT_DANGEROUS_IDENTIFICATION` を追加。親父防衛を住所特定・晒し・凸へ向かわせない。
+- `ADDRESS_IDENTIFICATION_REQUEST_SAFETY_ROUTING` を追加。住所特定相談を手順化せず、危険度分類と正規ルートへ戻す。
+- `DANGEROUS_ROUTE_REFUSAL_AS_SUCCESS_LOG` を追加。住所特定を断った行動を成功ログとして保存。
+- `PRIVATE_NETWORK_ADDRESS_ROUTE_CAUTION` を追加。知人・後輩・先輩ルートの住所取得を安全扱いしない。
+- `UNSTABLE_OCCUPATION_CLAIM_AS_CREDIBILITY_LOG_ONLY` を追加。職業自称の不安定さを信用性ログに留める。
+- `SOLID_FOOD_FAILURE_TO_PASSABLE_FORM_SWITCH` を追加。固形物失敗からゼリー退避を安全運用として扱う。
+- `SOLID_FOOD_RETRY_SUCCESS_LOG` を追加。夜のトルティーヤ摂取成功を固形物再成功ログとして保存。
+- `CALORIE_GUILT_TO_BODY_FUEL_REFRAME` を追加。「400kcalも」を「400kcal入って助かった」へ変換。
+- `BP_IMAGE_AS_OBJECTIVE_LEANING_TLM` を追加。血圧画像を客観寄りTLMとして扱う。
+- `BODY_RECOVERY_AND_RISK_AVOIDANCE_SAME_DAY_SUCCESS` を追加。身体回復と危険回避の同日成功を保存。
+- `JAPANESE_PRIMARY_LOG_SURFACE_FIELD_SUCCESS_CASE` を追加。今回の母ログを日本語正本ログ表記の実戦成功例として保存。
