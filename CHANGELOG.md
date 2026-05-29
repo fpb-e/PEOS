@@ -1,5 +1,21 @@
 # CHANGELOG
 
+## rev0.207
+- `PERSONAL_APPETITE_IGNITION_PROFILE` を追加。摂食支援を本人固有の食欲起動条件で設計。
+- `COMPLETE_ZERO_AVOIDANCE_LOG` を追加。牛乳入りゼロカロリー食品を完全ゼロ回避として扱う。
+- `MISSED_MEAL_AS_DEFERRED_NEXT_INTAKE_LOG` を追加。昼食不可を一日失敗ではなく保留ログとして扱う。
+- `NAUSEA_RESPONSE_AVOID_SELF_INDUCED_VOMITING` を追加。吐き気時に自己誘発嘔吐へ誘導しない。
+- `CASUAL_GROUNDING_DURING_NAUSEA` を追加。吐き気時の雑談接地を安全対応として扱う。
+- `AROMA_ACID_SPICE_APPETITE_IGNITION` を追加。香り・酸味・スパイスを食欲点火キーとして保存。
+- `IGNITION_FOOD_AND_MAINTENANCE_FOOD_SEPARATION` を追加。起動食と維持食を分離。
+- `COOKING_AGENCY_RECLAIMED_FOR_SELF` を追加。自炊を自分のために取り戻す。
+- `KITCHEN_REFORM_AS_EATING_RECOVERY_INFRASTRUCTURE` を追加。キッチン改革を摂食回復インフラとして扱う。
+- `FOOD_AS_MEMORY_ASSET` を追加。黒パンを祖父母の記憶と接続する食材として保存。
+- `FROM_MUST_EAT_TO_WANT_TO_TRY` を追加。「食べなきゃ」から「食べてみたい」への転換をpositive TLMとして保存。
+- `JULY_TOKYO_AS_SAFE_REFUELING_FUTURE_ANCHOR` を追加。7月東京を安全な燃料補給の未来アンカーとして扱う。
+- `PHYSICIAN_DRUG_LOOKUP_AS_SAFE_PRACTICE` を追加。医師の薬剤確認を安全運転として扱う。
+
+
 ## rev0.206
 - `MAGI_TRIAD_ENGLISH_NAME_EXCEPTION` を追加。MELCHIOR / BALTHASAR / CASPER は英語表記維持可。
 - `JAPANESE_READER_ORIENTED_LOG_SURFACE` を追加。問題は英語そのものではなく、日本語話者に向いていないログ表面であると明確化。
