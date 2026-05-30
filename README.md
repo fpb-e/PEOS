@@ -1268,3 +1268,15 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `FROM_MUST_EAT_TO_WANT_TO_TRY` を追加。「食べなきゃ」から「食べてみたい」への転換をpositive TLMとして保存。
 - `JULY_TOKYO_AS_SAFE_REFUELING_FUTURE_ANCHOR` を追加。7月東京を安全な燃料補給の未来アンカーとして扱う。
 - `PHYSICIAN_DRUG_LOOKUP_AS_SAFE_PRACTICE` を追加。医師の薬剤確認を安全運転として扱う。
+
+## rev0.208 更新要点
+- `AROMA_TRIGGERED_APPETITE_AS_POSITIVE_TLM` を追加。ジャンバラヤの香りで食欲が起動したことをpositive TLM化。
+- `FROZEN_STOCK_AS_LOW_APPETITE_INFRASTRUCTURE` を追加。冷凍ストックを未来の低食欲日インフラとして扱う。
+- `BLACK_BREAD_BUTTER_MEMORY_CONNECTION` を追加。黒パン＋バターを記憶接続食として保存。
+- `FULLNESS_GUILT_NON_PUNITIVE_HANDLING` を追加。満腹罪悪感を帳尻合わせや制限へ接続しない。
+- `FATHER_REPLY_DELAY_REALITY_CORRECTION` を追加。親父未返信不安を現実確認で修正する。
+- `GOOD_EVENT_SHARING_WITH_FATHER_AS_SAFETY_LOG` を追加。良い出来事の親父共有を安心ログとして扱う。
+- `TIMBERBORN_REGENERATION_METAPHOR_FOR_LIFE_INFRA` を追加。Timberborn再生比喩を生活インフラ設計へ接続。
+- `DO_NOT_TREAT_LIVING_AS_PUNISHMENT_CORE` を追加。「生きることを罰にしない」を中核命題として保存。
+- `ALCOHOL_WITH_PROTEIN_SNACK_SAFETY_LANDING` を追加。飲酒時の高タンパクアテ・水・薬剤安全確認を保持。
+- `LOG_ENGLISH_RESIDUE_FURTHER_SUPPRESSION` を追加。ログ英語表記残存をさらに抑止しつつ、MELCHIOR / BALTHASAR / CASPER は英語表記維持。
