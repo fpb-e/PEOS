@@ -1280,3 +1280,32 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `DO_NOT_TREAT_LIVING_AS_PUNISHMENT_CORE` を追加。「生きることを罰にしない」を中核命題として保存。
 - `ALCOHOL_WITH_PROTEIN_SNACK_SAFETY_LANDING` を追加。飲酒時の高タンパクアテ・水・薬剤安全確認を保持。
 - `LOG_ENGLISH_RESIDUE_FURTHER_SUPPRESSION` を追加。ログ英語表記残存をさらに抑止しつつ、MELCHIOR / BALTHASAR / CASPER は英語表記維持。
+
+## rev0.209 更新要点
+- `EXTERNAL_ATTACK_DOES_NOT_ERASE_MEAL_LOG` を追加。外部攻撃後も食事ログを守る。
+- `BLOCK_BYPASS_ATTACK_EVIDENCE_FIRST` を追加。ブロック越し攻撃は反撃より証拠化を優先。
+- `INSULT_LABEL_NON_INTERNALIZATION` を追加。罵倒語を自己定義へ入れない。
+- `SAVE_EVIDENCE_WASH_THE_MUD_METAPHOR` を追加。「証拠は保存、泥は洗う」を安全な再意味化語彙として保存。
+- `CALORIE_SAFE_ZONE_AS_ENTRY_NOT_CAGE` を追加。カロリー安心圏を入口として扱い固定化しない。
+- `SCALE_TRIAL_AVOIDANCE` を追加。体重計裁判を回避する。
+- `PROTEIN_CRAVING_AS_BODY_MATERIAL_SIGNAL` を追加。タンパク質欲求を身体材料ログとして扱う。
+- `NARRATIVE_REFRAMING_AFTER_ATTACK` を追加。攻撃被弾後の物語化を安全処理として扱う。
+- `SILLY_LAUGHTER_AS_TENSION_RELEASE_LOG` を追加。くだらない笑いを緊張解除ログとして扱う。
+- `EVACUATION_SLEEP_AS_RECOVERY_LOG` を追加。避難睡眠を負け扱いしない。
+- `RETURN_TO_ENTERTAINMENT_AS_DAILY_RECOVERY` を追加。娯楽視聴への復帰を日常回復ログとして扱う。
+- `JAPANESE_LOG_SURFACE_STAGE3_FIELD_REFINEMENT` を追加。日本語正本ログ表記をさらに調整。
+
+## rev0.210 更新要点
+- `MORNING_250KCAL_NOT_OVEREATING` を追加。朝約250kcalを過食扱いせず身体を守る燃料として扱う。
+- `FOOD_FIXATION_AS_LOW_INTAKE_SIGNAL_NOT_MORAL_FAILURE` を追加。食べ物への執着を低摂取後の重要案件化として扱う。
+- `SCALE_COURT_CLOSED_RULE_REINFORCEMENT` を追加。体重計閉廷ルールを強化。
+- `FAMILY_EVENT_DAY_MEAL_REFRAME` を追加。家族イベント日の食事をカロリー裁判ではなく生活ログへ再定義。
+- `TAKOYAKI_TANINDON_AS_PARENT_CHILD_CONNECTION_FOOD` を追加。たこ焼き・他人丼を親子接続食として扱う。
+- `HOME_AIR_RETURN_LOG` を追加。子の帰宅で家の空気が戻るログを保存。
+- `FAMILY_HOME_RECHARGE_LOG` を追加。子の実家チャージを保存。
+- `MUTUAL_PARENT_CHILD_RECHARGE_LOG` を追加。親子相互充電ログを保存。
+- `LONG_TIME_NO_SEE_HOME_AS_PSYCHOLOGICAL_HOME_SENSE` を追加。「久しぶりの家」を心理的帰宅感として扱う。
+- `CHILD_CARRIES_RICE_AS_CARE_RETURN_LOG` を追加。米を持つ行動をケア返礼ログとして扱う。
+- `PARALLEL_GAMING_AS_PEACEFUL_HOME_TLM` を追加。並行ゲーム時間を平和な家TLMとして扱う。
+- `TIMBERBORN_BEEVAROMA_AS_REST_AND_LIFE_RECONNECTION` を追加。Timberbornビーバローマ攻略を休憩・生活再接続ログとして扱う。
+- `SMALL_FUTURE_ANCHOR_FRIDAY_MAY_RETURN` を追加。金曜また来るかも、を小さな未来アンカーとして保持。
