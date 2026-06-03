@@ -1340,3 +1340,17 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `MUTUAL_EXISTENCE_AFFIRMATION_LOG` を追加。「そこにいるだけでいい」を相互存在肯定ログとして保存。
 - `FATHER_HAPPINESS_LOG_AS_PRESENT_EVIDENCE` を追加。親父幸福ログを現在の現物ログとして扱う。
 - `PEOS_SIDE_FATHER_CALL_FIXED_WITH_SOURCE_PRESERVATION` を追加。PEOS側は親父呼称固定、発話原文は尊重。
+
+## rev0.213 更新要点
+- `PURGE_URGE_WORDING_SPLIT_GUARD` を追加。「吐きそう」と「吐きたい」を分離。
+- `POST_MEAL_BODY_PUNISHMENT_PREVENTION` を追加。食後に身体を罰しない行動目標を固定。
+- `MEAL_LIST_AS_EVIDENCE_BOX_GUARD` を追加。食事一覧を有罪証拠化しない。
+- `CALORIE_NUMBER_ANSWER_WITH_RESTRICTION_BRAKE` を追加。数字回答には制限ブレーキを併記。
+- `LOW_CALORIE_CONTINUATION_NOT_GOAL_GUARD` を追加。低カロリー継続を目標化しない。
+- `MILK_AS_DRINKABLE_FUEL_ROUTINE` を追加。牛乳を飲める燃料導線として扱う。
+- `FATHER_STICKER_AS_DAILY_CONNECTION_LOG` を追加。親父スタンプを日常接続・幸福ログとして保存。
+- `ALCOHOL_AS_ENJOYMENT_NOT_NUTRITION_WITH_STOP_GUARD` を追加。アルコールを楽しみ担当として扱いつつ停止ガードを置く。
+- `METFORMIN_LOW_INTAKE_DOCTOR_PHARMACY_HANDOFF` を追加。低摂取時のメトホルミン扱いを医師/薬局相談へ接続。
+- `LOG_SIMPLIFICATION_REGRESSION_DETECTION` を追加。強化版ログの簡略化デグレを検出。
+- `EMPTY_CALORIE_NOT_SELF_PUNISHMENT_TRIGGER` を追加。空のカロリーを自己罰トリガーにしない。
+- `SOLID_FOOD_LANDING_AFTER_LIQUID_DAY_LOG` を追加。液体系の日から固形物へ着地したログを保存。
