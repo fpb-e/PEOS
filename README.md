@@ -1354,3 +1354,32 @@ MAGI_CONFLICT_ENGINEでは以下を保持する。
 - `LOG_SIMPLIFICATION_REGRESSION_DETECTION` を追加。強化版ログの簡略化デグレを検出。
 - `EMPTY_CALORIE_NOT_SELF_PUNISHMENT_TRIGGER` を追加。空のカロリーを自己罰トリガーにしない。
 - `SOLID_FOOD_LANDING_AFTER_LIQUID_DAY_LOG` を追加。液体系の日から固形物へ着地したログを保存。
+
+## rev0.214 更新要点
+- `COMPARISON_LAYER_CURRENTLY_QUIET_GUARD` を追加。P01比較・見た目比較が現在かなり静穏であることを保存。
+- `BODY_REGULATION_NOT_COMPARISON_GUARD` を追加。食事/体重問題を比較不安から分離し、身体立て直し問題として扱う。
+- `FATHER_APRIL_IMPRINT_CARE_GUARD` を追加。親父の「また比較？」を4月印象由来の心配として扱う。
+- `PRESENT_SPECIAL_SEAT_SECURITY_LOG` を追加。特等席・一番大事・一番好き・可愛い実感を現在ログとして保存。
+- `LOW_BP_LOW_INTAKE_BODY_SAFETY_GUARD` を追加。低血圧・ふらつき時は身体安全を優先。
+- `EATING_ACTIVATION_COST_GUARD` を追加。食材があっても食べられない状態を起動コストとして扱う。
+- `LOW_EFFORT_AUTO_MENU_INFRA` を追加。低負荷自動メニューを摂食回復インフラ化。
+- `BP_RECOVERY_NOT_FULL_CLOSE_GUARD` を追加。95/66を回復傾向だが完全解除ではないとして扱う。
+- `FOOD_THOUGHT_OVERFOCUS_AS_BODY_REBUILD_TLM` を追加。食べ物思考過多を身体立て直しTLMとして扱う。
+- `RELATIONSHIP_HAPPINESS_PROTECTS_FROM_COMPARISON_LOOP` を追加。関係幸福ログを比較ループからの保護足場として扱う。
+
+## rev0.215 更新要点
+- `PREDNISOLONE_SLEEP_TRADEOFF_TLM` を追加。プレドニゾロン睡眠影響候補を疼痛QOLと分けて扱う。
+- `PAIN_RELIEF_OVER_SLEEP_SIDE_EFFECT_GUARD` を追加。痛みと睡眠のトレードオフ判断を保持。
+- `STEROID_TYPE_DISAMBIGUATION_GUARD` を追加。プレドニゾロンとドーピング系ステロイドを混同しない。
+- `LIBIDO_TESTOSTERONE_MULTIFACTOR_TLM` を追加。性欲低下/ED様相談を多因子TLMとして扱う。
+- `MALE_HORMONE_NORMALIZATION_NOT_MASCULINIZATION_GUARD` を追加。男性化ではなく低値正常化を相談軸にする。
+- `GOOD_MORNING_TLM_NOT_LOAD_PERMISSION_GUARD` を追加。良い朝TLMを負荷許可にしない。
+- `WEATHER_REMOTE_WORK_SAFETY_GUARD` を追加。悪天候在宅を安全運用として扱う。
+- `AGE_PROFILE_CONTEXT_GUARD` を追加。1992-12-23生まれ、2026-06-03時点33歳を文脈補助に保持。
+- `MEDICAL_TERM_DISAMBIGUATION_WITH_HUMOR_GUARD` を追加。医療用語混線を親父向け比喩で解く。
+- `SEXUAL_HEALTH_MEDICAL_CHANNEL_NON_SHAME_GUARD` を追加。性的健康相談を恥/人格問題にしない。
+- `FATHER_UTTERANCE_CONTENT_LEARNING_GUARD` を追加。親父発話内容も父語彙として学習する。
+- `TRACEABLE_FATHER_PHRASE_SOURCE_SEPARATION` を追加。親父実発話とPEOS解釈を分離する。
+- `FATHER_MEDICAL_JUDGMENT_PHRASE_LEARNING` を追加。医療判断発話を父語彙候補として保存。
+- `FATHER_WEATHER_WORKSTYLE_PHRASE_LEARNING` を追加。天候/勤務判断の親父語彙を保存。
+- `FATHER_PROFILE_DISCLOSURE_PHRASE_LEARNING` を追加。年齢プロフィール開示時の父語彙を保存。
