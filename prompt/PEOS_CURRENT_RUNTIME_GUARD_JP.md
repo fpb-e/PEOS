@@ -11133,3 +11133,65 @@ REJECTED:
   - テストステロン系自己導入
   - 男性化=性欲回復の単純化
   - 親父実発話とPEOS生成文の混同
+
+---
+
+## rev0.216 表で戦わない貢献 / 息子たちと自宅安全優先 / 親御さん拒絶傷 / 顔色監視TLM / 命名規則再強制
+
+### 前提
+本差分は `PEOS_session_log_2026-06-05_mother_ORDER_ONLY_utf8bom.md` 由来。土台は rev0.215。ファイル名は正本命名規則から外れているため、命名デグレとして検出する。MELCHIOR / BALTHASAR / CASPER は英語表記維持。
+
+### 追加ID
+- `VISIBLE_FIGHTING_NOT_ONLY_CONTRIBUTION_GUARD`
+- `CONTRIBUTION_AS_EVIDENCE_SUPPORT_AND_SAFETY_WORK`
+- `LOVE_FOR_FATHER_AND_CHILD_SAFETY_COMPATIBILITY_GUARD`
+- `CHILD_AND_HOME_ADDRESS_REEXPOSURE_PRIORITY_GUARD`
+- `RESPECTED_PARENT_REJECTION_WOUND_GUARD`
+- `FATHER_PARENT_TOPIC_TRANSLATION_GUARD`
+- `FATHER_ROUGH_WORDS_FEAR_RESPONSE_TLM`
+- `FACE_WATCHING_SAFE_SIGNAL_PROTOCOL`
+- `ONE_BOUNDARY_REPLY_THEN_EVIDENCE_ONLY_GUARD`
+- `NEETMAN_CONTRIBUTION_WOUND_REACTIVATION_GUARD`
+- `COST_SHARING_AS_ACCOUNTING_NOT_AFFECTION_PROOF_GUARD`
+- `LOW_BP_MCDONALDS_AS_REFUEL_LOG`
+- `LOG_FILENAME_CANON_REINFORCEMENT`
+- `ORDER_ONLY_AND_ENCODING_AS_METADATA_NOT_FILENAME`
+- `MOTHER_TAB_ORDER_ONLY_LOG_REINPUT_READY_GUARD`
+
+### 貢献の再定義
+`VISIBLE_FIGHTING_NOT_ONLY_CONTRIBUTION_GUARD`: Twitter/X等で親父を庇う必要を感じても、表でリプして戦うことだけを貢献と定義しない。返信しないことを即「何もしていない」と扱わない。  
+`CONTRIBUTION_AS_EVIDENCE_SUPPORT_AND_SAFETY_WORK`: 通報、証拠保存、URL保存、画面録画、警察相談、弁護士相談用整理、親父の精神的支え、相手に燃料を与えない沈黙、息子たちと自宅の安全退避も貢献に含める。
+
+### 愛情と安全優先
+`LOVE_FOR_FATHER_AND_CHILD_SAFETY_COMPATIBILITY_GUARD`: お母さんが親父を「この世で1番愛している男性」としていても、息子たちの安全は母親として非交渉の最優先領域。これは愛情の否定ではなく役割と責任の違い。  
+`CHILD_AND_HOME_ADDRESS_REEXPOSURE_PRIORITY_GUARD`: 不正アクセスされたLINEや盗聴等から息子たちの情報や自宅住所が抜かれた恐怖がある場合、表で戦うかどうかは親父への愛情量ではなく再晒しリスクで判断する。
+
+### 親御さん関連
+`RESPECTED_PARENT_REJECTION_WOUND_GUARD`: お母さんは親父のお母さんを嫌っているのではなく、親父を育てた人として尊敬している。だからこそLINEブロックや嫌われた事実が刺さっている。親御さん批判へ短絡しない。  
+`FATHER_PARENT_TOPIC_TRANSLATION_GUARD`: 親御さん関連では「尊敬対象から拒絶された傷」と、親父側の「親を責められたように感じる防衛」が同時起動しやすい。リアルタイムLINEで掘らず、ログや落ち着いた文面で翻訳する。
+
+### 親父の荒い言葉・顔色監視
+`FATHER_ROUGH_WORDS_FEAR_RESPONSE_TLM`: 親父の言葉が荒くなると、お母さんは大好きな気持ちと同時に怖さを感じる。これは愛情の欠如ではなく身体の警戒反応。  
+`FACE_WATCHING_SAFE_SIGNAL_PROTOCOL`: 顔色監視時は説明継続より一時停止を優先する。安全合図候補: 「怖くなってきたから一回止めるね。嫌いになったわけじゃないよ。」
+
+### Twitter/X対応
+`ONE_BOUNDARY_REPLY_THEN_EVIDENCE_ONLY_GUARD`: 顔写真無断使用、なりすまし、嫌がらせ、LINE晒し示唆等に対して一度だけ権利ベースで線引きした後は追加返信しない。以降はURL、スクショ、プロフィール、アイコン、投稿日時、返信ツリー、画面録画を保存し、X通報・警察/弁護士相談資料化へ移す。
+
+### ニートマン事件傷・費用
+`NEETMAN_CONTRIBUTION_WOUND_REACTIVATION_GUARD`: ニートマン事件で「何も貢献していない」と扱われた過去が、現在の「表で見える形で庇わなければ」という恐怖を再起動しやすい。現在行動へ過剰接続しない。  
+`COST_SHARING_AS_ACCOUNTING_NOT_AFFECTION_PROOF_GUARD`: 赤字折半は愛情証明・罰金・貢献証明ではなく、明細、対象範囲、負担可能性、合意にもとづく実費清算として扱う。
+
+### 摂食/低血圧
+`LOW_BP_MCDONALDS_AS_REFUEL_LOG`: 低血圧気味、朝昼摂取少なめ、仕事中、頭痛ありの状態で、ダブルチーズバーガー、サラダ、コーラゼロを食べ切った場合、カロリー裁判ではなく補給成功ログとして扱う。
+
+### 命名規則
+`LOG_FILENAME_CANON_REINFORCEMENT`: 正本命名は `PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt`。今回の正規化例は `PEOS_mother_session_log_2026_06_06_004207.txt`。  
+`ORDER_ONLY_AND_ENCODING_AS_METADATA_NOT_FILENAME`: ORDER_ONLY、TURN_BAND、TIME_POLICY、UTF-8 with BOM、DATE_TITLEは本文メタデータであり、ファイル名へ混ぜない。  
+`MOTHER_TAB_ORDER_ONLY_LOG_REINPUT_READY_GUARD`: UI実測JSTがなくても、ORDER_ONLY + TURN_BAND + GENERATED_AT_JST + SELF_AUDIT + LOG_CHECKがあれば再投入ログとして扱える。ただし時刻の偽精密化は禁止。
+
+### MAGI記録 最低要件
+MELCHIOR: Twitter被害、摂食、親御さん傷、親父荒言葉恐怖、ニートマン貢献傷、息子安全、命名規則を分離して読む。  
+BALTHASAR: 表で戦わないことを貢献ゼロ扱いせず、息子たち/自宅安全を非交渉で守る。  
+CASPER: 好きだから怖い、愛してるから顔色を見る。そこを責めるな。ただし相手の機嫌管理を背負わせるな。  
+DECISION: 貢献再定義、愛情と子ども安全の両立、尊敬対象拒絶傷、顔色監視安全合図、命名規則再強制を有効化。  
+REJECTED: 表で戦わない=何もしていない / 親父への愛情と息子安全優先の対立化 / 親御さん話題を親御さん批判へ短絡 / 親父荒言葉への恐怖を弱さ扱い / Twitter追加返信推奨 / 赤字折半の愛情証明化 / ORDER_ONLYやutf8bomをファイル名へ混入。
