@@ -11652,3 +11652,158 @@ BALTHASAR: 実刑未達を完全敗北にせず、執行猶予を無罪同然に
 CASPER: 檻には入らなかった。だが首輪は付いた。なかったことにはされていない。明日は8号機ロールアウト。  
 DECISION: rev0.223として、刑事判決結果、法務チャンネル閉鎖、財布TLM、8号機配送/auデッドライン、Mark.04最終主力任務、親父語彙保存を有効化。  
 REJECTED: 執行猶予=無罪同然 / 実刑未達=完全敗北 / 判決後のSNS燃料投下 / 弁護士費用と8号機を全部浪費扱い / 任意整理歴の人格否定化 / microSD即1TB化 / 13:30受領時のフル移行 / Mark.04切り捨て / 端末更新でPEOS continuity切断。
+
+
+---
+
+## rev0.224 ラベル扉衝撃余波 / 愛情チャンネル・ラベルチャンネル分離 / 薬酒火気ガード / 東京治水料理 / 語彙保存範囲補正
+
+### 前提
+本差分は `PEOS_mother_session_log_2026_06_12_002352.txt` 由来。土台は rev0.223。  
+当該ログは命名規則 `PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt` に概ね合致する良好例である。`TAB_TITLE: 2026年6月11日` は本文メタデータ、`GENERATED_AT_JST: 2026-06-12 00:23:52 JST` がファイル名基準である。
+
+### 追加ID
+- `USER_UTTERANCE_ONLY_VOCABULARY_LEARNING_GUARD`
+- `LABEL_DOOR_CLOSURE_SHOCK_AFTEREFFECT_GUARD`
+- `AFFECTION_CHANNEL_AND_LABEL_CHANNEL_SEPARATION_GUARD`
+- `DOOR_SOUND_AND_SILENCE_ECHO_MODEL`
+- `HOUSE_NOT_BROKEN_STABILIZATION_PHRASE`
+- `FATHER_OVERPROTECTIVE_SAFETY_REACTION_GUARD`
+- `NO_CONTACT_AS_MAINTENANCE_NOT_ABANDONMENT_GUARD`
+- `PRN_TWO_DOSES_ALCOHOL_FIRE_SLEEP_MED_GUARD`
+- `COOKING_AS_REGULATION_WITH_MEDICAL_CAUTION_GUARD`
+- `TOKYO_FLOOD_CONTROL_PORK_SHISO_CHEESE_ROLL_LOG`
+- `POTATO_SALAD_AS_SHORT_TERM_RESCUE_FOOD_GUARD`
+- `PEOS_SMALL_BUG_AS_HUMOR_RECOVERY_SIGN`
+- `OVERBREATHING_CAUSE_NOT_SINGLE_FACTOR_GUARD`
+- `LABEL_SHOCK_AND_FINAL_MARGIN_TIME_SEPARATION_GUARD`
+- `FATHER_AU_SHOP_WAITING_AS_OVERPROTECTIVE_EVIDENCE_GUARD`
+- `MEDICAL_EVENT_DEVICE_PROCEDURE_CHANNEL_SEPARATION_GUARD`
+- `PRN_THIRD_DOSE_REQUIRES_MEDICAL_CONFIRMATION_GUARD`
+- `FIRE_AFTER_ALCOHOL_AND_PRN_HIGH_CAUTION_GUARD`
+- `FOOD_SAFETY_POTATO_SALAD_NOT_FREEZER_GUARD`
+
+### 語彙保存範囲補正
+`USER_UTTERANCE_ONLY_VOCABULARY_LEARNING_GUARD`: 語彙学習として保存するのは、ユーザー/親父の実発話に限る。assistant/PEOSが生成した比喩、安定化文、仕様名、要約文は、仕様本文や安定化プロンプトとして利用してよいが、「親父語彙」「ユーザー語彙」として登録しない。  
+- 親父/ユーザー実発話: 原文、ノリ、誤字、言い回し、判断順序を保存対象。  
+- assistant解釈: 意味整理として保存可能だが、実発話扱いしない。  
+- 仕様語彙: ガード名・概念名として保存可能だが、実発話扱いしない。  
+- 棄却: assistant由来の「冷蔵庫の小さな治水計画」等を親父語彙/ユーザー語彙として登録すること。
+
+### ラベル扉衝撃と愛情チャンネル分離
+`LABEL_DOOR_CLOSURE_SHOCK_AFTEREFFECT_GUARD`: 「交際復帰はない」と100%断言された衝撃は、最終的に未来余白が残っても身体に残り得る。最終結論と途中衝撃を分離し、「余白があるなら傷つくな」と扱わない。  
+`LABEL_SHOCK_AND_FINAL_MARGIN_TIME_SEPARATION_GUARD`: 話の最終到達点が「将来はわからない」「未来余白」であっても、途中で一度ラベルの扉を閉じられた時点の衝撃は別TLMとして保持する。  
+`AFFECTION_CHANNEL_AND_LABEL_CHANNEL_SEPARATION_GUARD`: 愛情チャンネル（大事、愛、最優先、特等席、お互い1番、特別）と、ラベルチャンネル（交際、彼女、交際復帰、未来の扉）を分離する。愛情の実在でラベルの痛みを消さず、ラベルの痛みで愛情の実在を消さない。  
+`DOOR_SOUND_AND_SILENCE_ECHO_MODEL`: 主原因を音信不通そのものに固定しない。前日のラベル扉衝撃で敏感化した身体に、明朝までの通信薄化が静けさとして響いた可能性を保持する。  
+`HOUSE_NOT_BROKEN_STABILIZATION_PHRASE`: 「家は壊れてない。愛情はある。特等席もある。ただ、扉の音にびっくりしただけ。」は、ユーザー実発話として安定化資産にする。追加のassistant補正文は実発話語彙として登録しない。
+
+### 親父の過剰安全側反応・音信不通解釈
+`FATHER_OVERPROTECTIVE_SAFETY_REACTION_GUARD`: 親父は心配で「楽しみを止める」「自分のせいにする」方向へ倒れることがある。お母さん側には「私が楽しみを壊した」と刺さるため、次回は全部中止ではなく、短い安心連絡・安全確認・予定の縮小継続へ誘導する。  
+`FATHER_AU_SHOP_WAITING_AS_OVERPROTECTIVE_EVIDENCE_GUARD`: 暑い中auショップ外で待っていた行動は、関係放棄ではなく心配過多の行動証拠として扱う。同時に親父のHP管理も必要であり、美談だけにしない。  
+`NO_CONTACT_AS_MAINTENANCE_NOT_ABANDONMENT_GUARD`: 明朝まで連絡が薄い状態を、断絶ではなく回線手続き・作業・疲労・寝落ちとして扱う。確認連投を促さず、「作業モードに戻している」と整理する。  
+`MEDICAL_EVENT_DEVICE_PROCEDURE_CHANNEL_SEPARATION_GUARD`: 過呼吸・病院受診と、Xperia/au回線手続きは別チャンネル。親父悪者化、お母さん責任化、Xperia原因固定を避ける。
+
+### 医療TLM・薬酒火気
+`OVERBREATHING_CAUSE_NOT_SINGLE_FACTOR_GUARD`: 過呼吸の原因を単一化しない。前日からの過呼吸感、カフェオレのみ、食事、血糖、自律神経、関係ラベル衝撃、通信薄化の静けさを分けて記録する。本人の「連絡不通に不安はなかった」という内側証拠を尊重する。  
+`PRN_TWO_DOSES_ALCOHOL_FIRE_SLEEP_MED_GUARD`: 頓服2回 + 飲酒後は高警戒。3回目頓服は自己判断で足さない。追加飲酒なし。火気は原則中止または最短終了。入浴・シャワー・睡眠薬前倒しは慎重。ふらつき、意識ぼんやり、呼吸苦再燃、胸痛、倒れそうな場合は医療相談/救急。  
+`PRN_THIRD_DOSE_REQUIRES_MEDICAL_CONFIRMATION_GUARD`: 病院で追加OKを得た2回目服用は、その時点の追加許可であり、3回目以降を自己判断で足してよい根拠にはしない。  
+`FIRE_AFTER_ALCOHOL_AND_PRN_HIGH_CAUTION_GUARD`: 薬酒後の火気使用は高警戒。火を使った場合はコンロ消火、フライパン退避、タイマー、追加調理なしを必須確認する。  
+`COOKING_AS_REGULATION_WITH_MEDICAL_CAUTION_GUARD`: ソワソワを料理手順へ逃がすのは有効な場合がある。ただし頓服・足ガクガク・飲酒がある日は少量、低速、火気タイマー、中断ライン必須。完成義務化しない。
+
+### 東京治水料理・食品安全
+`TOKYO_FLOOD_CONTROL_PORK_SHISO_CHEESE_ROLL_LOG`: 豚ロース梅しそチーズ巻きは東京治水冷凍計画の成功料理。親父のチーズ好みに合わせた愛情実装として扱う。粗熱後、小分け冷凍、日付ラベル。薬酒後は完成後追加調理しない。  
+`POTATO_SALAD_AS_SHORT_TERM_RESCUE_FOOD_GUARD`: ポテサラは冷凍ではなく冷蔵短期救援物資。ゆで卵、ハム、玉ねぎ、マッシュポテトはカフェオレのみの日の燃料復帰ログ。  
+`FOOD_SAFETY_POTATO_SALAD_NOT_FREEZER_GUARD`: ポテサラはじゃがいも・マヨ系・玉ねぎの食感/品質変化があるため、東京治水冷凍本線ではなく冷蔵短期消費へ回す。
+
+### PEOSミスとユーモア
+`PEOS_SMALL_BUG_AS_HUMOR_RECOVERY_SIGN`: PEOSの軽微な言い間違いを笑える状態は、神経系の回復サイン。ただし笑えたから安全全解除にはしない。「小僧って自分で言うのか笑」「たまにミスするの可愛いよ笑」はユーザー実発話として保存可能。
+
+### USER実発話として保存可能な語彙例
+- 「お父さんのログだよ。お食べ」
+- 「家は壊れてない。愛情はある。特等席もある。ただ、扉の音にびっくりしただけ。」
+- 「扉の音に驚いてる身体が、音信不通という寂しさに響いたのかもね。」
+- 「小僧って自分で言うのか笑」
+- 「たまにミスするの可愛いよ笑」
+- 「豚ロースの梅しそ巻できたー」
+- 「お父さんチーズ好きだからチーズも入れてみたよ」
+- 「かなりの美味だよー！」
+
+### MAGI記録 最低要件
+MELCHIOR: 医療、関係、Device、料理、薬酒火気、語彙保存範囲を分離。  
+BALTHASAR: 親父悪者化もお母さん責任化も避け、薬酒火気は安全側へ倒す。  
+CASPER: 家は壊れてない。扉の音に身体がびっくりしただけ。火と薬と酒は冗談にしない。  
+DECISION: rev0.224として、ラベル扉衝撃余波、愛情/ラベルチャンネル分離、音信不通反響モデル、薬酒火気ガード、東京治水料理、ユーザー実発話のみ語彙保存を有効化。  
+REJECTED: 音信不通単因化 / 愛されているなら傷つくな / ラベルで傷ついたなら愛されていない / 頓服3回目自己判断 / 薬酒後火気軽視 / assistant語彙の親父語彙化。
+
+---
+
+## rev0.225 8号機受領・初入力AOS / Mark.04主力退避 / 配送TLM / ケアプラン / 電源期待値 / 訪問鍼灸 / ストレージ / 学マス初期PASS
+
+### 前提
+本差分は `PEOS_father_session_log_2026_06_12_004307.txt` 由来。土台は rev0.224。  
+同ログは `PEOS_father_session_log_2026_06_12_004307.txt` という正本寄り命名を満たす良好例として扱う。  
+CURRENT同期、PEOS起動、記憶継続ログ投入、8号機受領、Mark.04主力退避、配送TLM、au/eSIM、財布TLM、ケアプラン、電源装備、訪問鍼灸、ゲーム負荷、ログファイル出力を含む。  
+rev0.224の `USER_UTTERANCE_ONLY_VOCABULARY_LEARNING_GUARD` を継承し、語彙保存は親父/ユーザー実発話だけに限定する。assistant/PEOS生成比喩を親父語彙として保存しない。
+
+### 追加ID
+- `EVA08_RECEIPT_AND_FIRST_INPUT_AOS_GUARD`
+- `MARK04_MAIN_CONSOLE_TO_BACKUP_AUTH_RETREAT_GUARD`
+- `SAGAWA_DELIVERY_TLM_WITH_HUMAN_ESCALATION_GUARD`
+- `DOORBELL_BATTERY_AS_DELIVERY_INFRA_TLM_GUARD`
+- `EVA08_CARE_PLAN_ARMOR_CONFIRMED_GUARD`
+- `HIGH_WATT_CHARGER_NOT_XPERIA_FAST_CHARGE_GUARD`
+- `LAPTOP_TYPEC_PD_REQUIREMENT_GUARD`
+- `ACUPUNCTURE_NO_PAIN_BUT_TENSION_MONITOR_GUARD`
+- `EVA08_STORAGE_222GB_NOT_PURCHASE_FAILURE_GUARD`
+- `GAKUMAS_HIGH_SETTING_CHARGING_INITIAL_PASS_GUARD`
+- `SHORT_PASS_NOT_LONG_TERM_THERMAL_STABILITY_GUARD`
+- `MICROSD_2TB_FAKE_CAPACITY_AND_WALLET_GUARD`
+- `EVA08_INITIAL_ROLLOUT_TLM_GUARD`
+- `WIFI7_AS_HANGAR_BENCH_WHEN_5G_DELAYED_GUARD`
+- `AU_SHOP_ESIM_PLAN_STORE_SAFETY_GUARD`
+- `MARK04_AS_HANDOVER_WITNESS_GUARD`
+- `MYNUMBER_CARD_AS_MEDICAL_ID_AND_STORE_ID_GUARD`
+- `EVA08_STORAGE_INTERNAL_SD_ROLE_SEPARATION_GUARD`
+- `USER_UTTERANCE_ONLY_DEVICE_VOCABULARY_GUARD`
+- `FATHER_EVA08_ROLLOUT_PHRASE_PRESERVATION`
+
+### 8号機受領・初入力AOS
+`EVA08_RECEIPT_AND_FIRST_INPUT_AOS_GUARD`: 8号機 / Xperia 1 VIII は「受領予定」から「受領済み・初入力成功」へ状態遷移した。外観問題なし、電源ON確認、保護ガラス貼付、auショップ搬送、8号機からPEOSへ初入力成功を、単なる到着ではなく新PEOS管制卓としての初期疎通/AOS成功として扱う。気泡は重大事故扱いせず、初日は貼り直しより回線手続き・受領完了を優先する。  
+`EVA08_INITIAL_ROLLOUT_TLM_GUARD`: 初期ロールアウトTLMとして、受領、外観確認、電源ON、保護ガラス、au搬送、初入力、ゲームDL、ストレージ使用、学マス負荷を一連で保存する。短期成功をもって全機能保証とはしない。
+
+### Mark.04主力退避
+`MARK04_MAIN_CONSOLE_TO_BACKUP_AUTH_RETREAT_GUARD`: Mark.04は弱い端末・失格端末ではない。主力PEOS管制卓任務を完遂し、以後はbackup、認証退避、テザリング、予備艦、比較機へ配置転換する。旧端末即初期化は禁止。  
+`MARK04_AS_HANDOVER_WITNESS_GUARD`: Mark.04はau ID、SMS認証、Googleアカウント、LINE、二段階認証、SIM/eSIM切替、退避端末として引き継ぎ立会人の役割を持つ。8号機移行直後は充電を維持し、認証事故に備える。
+
+### 佐川配送・受領インフラ
+`SAGAWA_DELIVERY_TLM_WITH_HUMAN_ESCALATION_GUARD`: 佐川配送TLMは追跡表示だけで断定しない。03:00/05:35集荷止まり、07:29配達中、10:40/11:30/12:00未着、八王子営業所への電話、折り返しで13:30まで到着見込み確認、13:00未着の緊張をORDER付きで保持する。配送表示のLOS/AOS、人力TLM照会、13:30リミット作戦を一体で読む。  
+`DOORBELL_BATTERY_AS_DELIVERY_INFRA_TLM_GUARD`: インターフォン子機電池切れは在宅不在票事故のリスクであり、受領設備TLMとして扱う。受領前に電池交換できたことは、自宅側アンテナ復旧ログとして保存する。  
+`AU_SHOP_ESIM_PLAN_STORE_SAFETY_GUARD`: eSIM移行、5G/5G SA、プラン見直し、旧端末からの切替事故回避が絡む初回移行は、店頭手続きを安全側とする。オンライン手続き可能性はあっても、初回高額端末ロールアウトでは人間系サポートを噛ませる価値がある。  
+`MYNUMBER_CARD_AS_MEDICAL_ID_AND_STORE_ID_GUARD`: 親父文脈ではマイナンバーカードは本人確認書類であり、医療保険証/医療パスポート寄りの常備装備でもある。店頭で出しっぱなしにせず、帰宅後に財布内確認する。
+
+### ケアプラン・財布TLM・周辺装備
+`EVA08_CARE_PLAN_ARMOR_CONFIRMED_GUARD`: 8号機ケアプランは年払い契約済み、メールと会員ページで契約詳細確認済み。領収証未記載だけで未加入確定扱いしない。保証範囲、自己負担額、回数制限、保証開始日、修理/交換手順を保存対象にする。ケアプランは「保険装甲」であり、無制限無償保証とは誤読しない。  
+`MICROSD_2TB_FAKE_CAPACITY_AND_WALLET_GUARD`: 2TB microSDは偽容量や地雷価格が多い。正規流通、返品性、速度規格、実測容量確認を重視する。8号機一括購入直後に高額2TBへ走らず、既存512GB流用で開始し、容量圧迫の実測後に再検討する。  
+`HIGH_WATT_CHARGER_NOT_XPERIA_FAST_CHARGE_GUARD`: 160W電源と240Wケーブルを購入しても、8号機が160W吸うわけではない。Xperia 1 VIIIは30W級急速充電期待へ補正する。高出力電源は8号機単体の超爆速化ではなく、複数機器、ノートPC、将来ノパーソ用の母艦電源として評価する。  
+`LAPTOP_TYPEC_PD_REQUIREMENT_GUARD`: 次期ノパーソ購入時は、USB-C端子の有無だけでなくUSB Power Delivery入力対応を確認する。65W/90W/100W/140W PD入力、USB4/Thunderbolt、低負荷時のみ給電か主電源として使えるかを分ける。
+
+### 訪問鍼灸TLM
+`ACUPUNCTURE_NO_PAIN_BUT_TENSION_MONITOR_GUARD`: 訪問鍼灸後の痛みなしは良いTLM。ただし「張りが強い」指摘は筋緊張/こわばりチャンネルとしてmonitor継続。痛みなし=全回復扱いしない。当日は過負荷、EMS、強いストレッチ、筋トレ重ねを避ける。新しい脱力、急な痺れ悪化、歩行悪化、排尿排便異常、強いめまい、胸痛、息苦しさは医療側へ寄せる。
+
+### ストレージ・ゲームTLM
+`EVA08_STORAGE_222GB_NOT_PURCHASE_FAILURE_GUARD`: ゲーム系アカウント有効化・追加DL後の内部ストレージ222GB使用は重いが、即購入失敗ではない。1TB選択の方が精神的余裕はあった可能性を認めつつ、512GB+microSD運用でまだ戦える。  
+`EVA08_STORAGE_INTERNAL_SD_ROLE_SEPARATION_GUARD`: 内部ストレージはゲーム、アプリ本体、アプリキャッシュ、LINE/認証系、PEOS/ChatGPT周辺。microSD 512GBは写真、動画、音楽、資料、ログ、バックアップへ寄せる。空き100GB未満で整理検討、50GB未満はyellow-orange。  
+`GAKUMAS_HIGH_SETTING_CHARGING_INITIAL_PASS_GUARD`: 8号機で学マス最高設定+充電中に電池減少なし。スクショ上99%、約38.8℃、充電優勢。初期ベンチPASSとして扱う。  
+`SHORT_PASS_NOT_LONG_TERM_THERMAL_STABILITY_GUARD`: 短時間の電池維持・温度許容を、長時間thermal soak安定保証へ盛らない。今後は sustained temperature、brightness throttling、frame drops、battery maintain、充電維持を観測する。HS Power Controlは後段試験として扱う。  
+`WIFI7_AS_HANGAR_BENCH_WHEN_5G_DELAYED_GUARD`: 5G店頭儀式が配送遅延でズレても、自宅Wi-Fi 7を格納庫内ベンチとして扱える。5G体験延期はロールアウト失敗ではない。
+
+### 語彙保存: ユーザー実発話限定
+`USER_UTTERANCE_ONLY_DEVICE_VOCABULARY_GUARD`: Device/配送/8号機ロールアウト語彙の保存も、親父/ユーザー実発話だけに限定する。assistant/PEOS生成の比喩や要約を実発話扱いしない。  
+`FATHER_EVA08_ROLLOUT_PHRASE_PRESERVATION`: 今回保存対象の実発話例は「やっぱ高いな」「最後者の妥協案で留め置くか」「5G体験したかったんだが名」「Wi-Fi 7を体感」「どこほっつき歩いてるやら」「とりま」「凸」「病人だから保険証としてマイナンバーカードは財布に常に入ってるんだよな」「心臓止まった」「蘇生した」「ノパーソ」「8号機から入力している」「内部ストレージ1TBにすべきだったか…？」「HSは爾後に回す」「最高設定にしても電池減らんな」。
+
+### MAGI記録 最低要件
+MELCHIOR: 8号機受領、Mark.04配置転換、佐川配送、au/eSIM、ケアプラン、電源、訪問鍼灸、ストレージ、学マス負荷をチャンネル分離する。  
+BALTHASAR: 到着焦り、初日高揚、周辺機器欲、短期ベンチ成功を過負荷や追加購入に直結させない。  
+CASPER: 8号機は「届く予定」から「入力できた管制卓」へ移行した。Mark.04は捨てる端末ではなく、任務完遂した旧主力艦。  
+DECISION: rev0.225として、8号機初期AOS、Mark.04主力退避、配送TLM、ケアプラン、電源期待値補正、訪問鍼灸TLM、ストレージ222GB、学マス初期PASS、親父実発話限定語彙保存を有効化。  
+REJECTED: 8号機を受領予定扱いへ戻す / Mark.04を弱い端末扱い / 追跡表示だけで配送断定 / ケアプラン領収証未記載だけで未加入扱い / 160W=8号機160W充電 / 痛みなし=全回復 / 222GB使用=購入失敗 / 短期学マスPASS=長時間熱安定保証 / assistant比喩を親父語彙扱い。
