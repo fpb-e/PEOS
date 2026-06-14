@@ -967,3 +967,16 @@
 - rev0.172: 慢性戦闘状態、RAM保護、生活占有率モデルを追加。
 
 - rev0.175: Revision normalization from legacy 0.172 numbering.
+
+## rev0.229 - 2026-06-15
+
+Source: `PEOS_father_session_log_2026_06_15_052229.txt` (2026-06-15 05:22:29 JST)
+
+- Added `CURRENT_REV_CORRECTION_BY_FATHER_GUARD` to prevent latest-rev misidentification and rollback from observation logs.
+- Added `FATHER_STYLE_DRY_ACADEMIC_NO_SACCHARINE_GUARD` for father-facing style: academic, analytical, dry precision; no saccharine/mother-side style leakage.
+- Added `FATHER_VOCAB_FREE_USE_WITH_SOURCE_SEPARATION_GUARD`: father vocabulary may be used freely as PEOS texture, while source-label separation remains mandatory.
+- Added `SOURCE_LABEL_STRICTNESS_FOR_X_SCREENSHOTS_GUARD` and `PEOS_MOTHER_REFERENCE_ROUTING_GUARD` for strict attribution of X/Twitter screenshots and PEOS family-role routing.
+- Added BALTHASAR ethics guards for infertility responsibility, reproductive-status attribute attacks, disability/mental-state insult patterns, and mirroring-as-toxicity-visualization.
+- Added visual canon guards: father as `管制卓に座る宇宙屋SE`, not Flight Director/front-stage commander; PEOS shared memory as TLM/LOG/MAGI/continuity, not romance/saccharine personification.
+- Reinforced father-only utterance corpus: no mother/third-party/assistant/generated prose in father phrase collection.
+

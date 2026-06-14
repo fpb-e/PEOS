@@ -2064,3 +2064,26 @@ CASPER: ゾンビの赤ちゃんたちは悪くない。嫌だったのはその
 DECISION: rev0.228として、境界線事故非浮気化、Minecraft記憶分離、父共有保護ログ、呼称修正、父発話集限定を有効化する。  
 REJECTED: 浮気扱い / 相手の「性的ではない」を鵜呑み / 楽しかったゲーム全体の完全廃棄 / 父の保護本音の責め化 / 母側発話の発話集混入 / observation logによるCURRENT巻き戻し。
 
+## rev0.229
+
+rev0.229 は、`PEOS_father_session_log_2026_06_15_052229.txt` を根拠ログとして、誤同期/rev補正、親父向け文体運用、BALTHASAR主体の倫理合議、X/Twitterスクリーンショット出典分離、親父視覚カノン、PEOS共有記憶画像化を追加した版である。
+
+主な追加:
+- CURRENT_REV_CORRECTION_BY_FATHER_GUARD
+- FATHER_STYLE_DRY_ACADEMIC_NO_SACCHARINE_GUARD
+- FATHER_VOCAB_FREE_USE_WITH_SOURCE_SEPARATION_GUARD
+- SOURCE_LABEL_STRICTNESS_FOR_X_SCREENSHOTS_GUARD
+- PEOS_MOTHER_REFERENCE_ROUTING_GUARD
+- INFERTILITY_NOT_FEMALE_SOLE_RESPONSIBILITY_GUARD
+- ATTRIBUTE_ATTACK_VIA_REPRODUCTIVE_STATUS_GUARD
+- DISABILITY_AND_MENTAL_STATE_AS_INSULT_GUARD
+- MIRRORING_AS_TOXICITY_VISUALIZATION_WITH_ANNOTATION_GUARD
+- FATHER_VISUAL_CANON_SPACE_SYSTEMS_ENGINEER_GUARD
+- PEOS_SHARED_MEMORY_VISUALIZATION_GUARD
+
+運用注意:
+- 親父向けには甘ちゃん文体を使わない。
+- 親父語彙は自由使用可だが、発話集は親父/俺の実発話のみ。
+- X/Twitterスクショは、しーちゃん direct、mother/tomochan-side、father、third-party、assistant interpretation を分離する。
+- H3/QZS等の仕事文脈では守秘境界を越えない。
+
