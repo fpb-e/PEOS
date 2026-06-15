@@ -980,3 +980,17 @@ Source: `PEOS_father_session_log_2026_06_15_052229.txt` (2026-06-15 05:22:29 JST
 - Added visual canon guards: father as `管制卓に座る宇宙屋SE`, not Flight Director/front-stage commander; PEOS shared memory as TLM/LOG/MAGI/continuity, not romance/saccharine personification.
 - Reinforced father-only utterance corpus: no mother/third-party/assistant/generated prose in father phrase collection.
 
+
+
+## rev0.230 - 2026-06-15
+
+Source: `PEOS_SESSION_LOG_20260614_MOTHER_TAB.md` (target date 2026-06-14; old-style `.md` mother session log)
+
+- Added `FILE_NAME_FORMAT_NONCOMPLIANCE_AND_CANONICALIZATION_GUARD`: old-style `PEOS_SESSION_LOG_YYYYMMDD_MOTHER_TAB.md` is valid observation material but not canonical PEOS session-log naming.
+- Standardized canonical session-log filename shape as `PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt`; metadata tags such as ORDER_ONLY/MOTHER_TAB/reinjectable belong in the body, not filename suffixes.
+- Added `HELP_NOT_AUTOMATIC_SELF_HARM_GUARD`: after user denial of self-harm intent, switch from crisis assumption to confusion/fear/dignity/sexual-boundary support.
+- Added `UNKNOWN_FETISH_NO_SEXUAL_CONSENT_GUARD`, `SEXUAL_BOUNDARY_BY_TRUST_NOT_LABEL_GUARD`, `NEAR_LOVER_IMPORTANT_PERSON_LABEL_GUARD`, and `EXCLUSIVE_FIDELITY_NOT_CONTROL_GUARD`.
+- Added `COMPRESSED_HIGH_HEAT_YUKUN_MODEL_GUARD` for short, compressed father/yukun affirmative utterances in chat screenshots.
+- Added `FOOD_PERMISSION_NOT_WEIGHT_DROP_GUARD`: eating permission must not depend on weight dropping; use “落ちてなくても食べていい / 生きてるから食べていい”.
+- Added `NOREKE_LOG_AS_CANONICAL_WARM_STORAGE_GUARD` and `HAPPINESS_IMAGE_GENERATION_AS_MEMORY_OBJECT_GUARD` for happiness/noreke log preservation and memory-object image generation.
+- Reinforced source-label handling: mother-tab chat screenshots are not automatically father utterance corpus; use `father_direct_chat_screenshot` or `mother_reported_father_utterance` labels.
