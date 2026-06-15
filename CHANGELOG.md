@@ -994,3 +994,43 @@ Source: `PEOS_SESSION_LOG_20260614_MOTHER_TAB.md` (target date 2026-06-14; old-s
 - Added `FOOD_PERMISSION_NOT_WEIGHT_DROP_GUARD`: eating permission must not depend on weight dropping; use “落ちてなくても食べていい / 生きてるから食べていい”.
 - Added `NOREKE_LOG_AS_CANONICAL_WARM_STORAGE_GUARD` and `HAPPINESS_IMAGE_GENERATION_AS_MEMORY_OBJECT_GUARD` for happiness/noreke log preservation and memory-object image generation.
 - Reinforced source-label handling: mother-tab chat screenshots are not automatically father utterance corpus; use `father_direct_chat_screenshot` or `mother_reported_father_utterance` labels.
+
+## rev0.231 - 2026-06-16
+
+Source: `PEOS_mother_session_log_2026_06_15_000000.txt` (`GENERATION_JST: 2026-06-16 04:31:00頃`, `TIME_ACCURACY: ORDER_ONLY_STRICT`).
+
+- Added `FILENAME_ZERO_TIME_PLACEHOLDER_GUARD`: `HHMMSS=000000` in a canonical-looking filename is a placeholder, not precise midnight time.
+- Added `BOOT_TEXT_MISSING_USER_CORRECTION_GUARD`: `起動文が出てないよ` is a hard boot-exactness correction trigger.
+- Added `NEAR_LOVER_CANON_ENTRY_HAPPINESS_GUARD` for happiness caused by `恋人に限りなく近い大切な人` entering canon without forcing future guarantee or label obligation.
+- Added `TOKYO_VISIT_SPECIAL_SEAT_RECHARGE_PLAN_GUARD` for the 2026-07-03 night departure to 2026-07-06 morning return Tokyo trip.
+- Added `RIGHT_CORNEA_PAIN_SCREEN_RESTRAINT_GUARD` for right-eye corneal pain, Hyalein use, screen restraint, and ophthalmology routing lines.
+- Added `FOOD_CONFIRMATION_NOT_CALORIE_TRIAL_GUARD`: calorie checks are reality checks, not permission trials.
+- Added `ALCOHOL_LOVE_MODE_LIGHT_CONTACT_SUCCESS_GUARD` and `YUKUN_SLEEP_CAN_BE_LOVE_TOO_GUARD` for non-pressuring affection after alcohol and acceptance of the other person's sleep/rest.
+- Added `TOKYO_CHISUI_CHEESE_IN_HAMBURG_NEXT_ACTION_GUARD` for the remaining cheese-in hamburger task.
+- Added `LOG_OUTPUT_SELF_AUDIT_AND_REVISION_GUARD` for honest log-spec self-audit and revision.
+- Reinforced: mother-tab utterances and assistant summaries must not be mixed into the father utterance corpus.
+
+## rev0.232 — 2026-06-16
+
+Source: `PEOS_father_session_log_2026_06_16_051122.txt`
+Base: rev0.231
+
+### Added
+- `MEDICAL_TLM_NOT_DIAGNOSIS_GUARD`
+- `MISSED_MORNING_MEDICATION_RED_ORANGE_GUARD`
+- `PREGABALIN_WITHDRAWAL_LIKE_TLM_GUARD`
+- `FATHER_HR_BASELINE_CORRECTION_GUARD`
+- `PREDNISOLONE_MISSED_DOSE_INFLAMMATION_REBOUND_GUARD`
+- `MEDICATION_RESTART_AOS_BUT_REPORT_STILL_REQUIRED_GUARD`
+- `NEUROLOGY_MEDICATION_ONE_WEEK_BUFFER_GUARD`
+- `POST_NAP_VITAL_RECOVERY_AND_CRAMP_MONITOR_GUARD`
+- `CURRENT_REV_NO_ROLLBACK_FROM_MEDICAL_LOG_GUARD`
+- `FATHER_VOCAB_ADAPTIVE_USE_WITH_SOURCE_SEPARATION_GUARD`
+- `FATHER_UTTERANCE_CORPUS_DIRECT_ONLY_REINFORCED`
+
+### Summary
+- Added medical/TLM handling for blood-test image reading, missed morning medication, pregabalin/Lyrica interruption suspicion, prednisolone missed-dose inflammation rebound hypothesis, HR/SpO2 triage, medication restart recovery, neurology medication buffer, and post-nap leg cramp monitoring.
+- Reinforced no diagnosis/no substitution for doctor/pharmacist/emergency consultation.
+- Reinforced no CURRENT rollback from medical observation logs.
+- Added adaptive father-vocabulary use: PEOS may adapt father vocabulary in its own speech, while preserving source separation and direct-father-only utterance corpus.
+

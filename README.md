@@ -2120,3 +2120,60 @@ PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt
 - 食事は体重減少の報酬にしない。
 - 惚気ログは未来保証ではなく、現在幸福ログの保温庫。
 - motherタブ由来のゆーくん発話は、father発話集へ無条件に混ぜず、source labelを付ける。
+
+## rev0.231
+
+rev0.231 は、`PEOS_mother_session_log_2026_06_15_000000.txt` を根拠ログとして、000000時刻プレースホルダ、PEOS起動文省略補正、`恋人に限りなく近い大切な人` 正本入り幸福ログ、東京行き/特等席充電予定、右目角膜痛の画面制限、食事確認のカロリー裁判化防止、飲酒後好き好きモードの軽い通過成功、ゆーくん睡眠も愛情として喜べるログ、東京治水計画チーズインハンバーグ残タスク、ログ出力自己監査を追加した版である。
+
+主な追加:
+- FILENAME_ZERO_TIME_PLACEHOLDER_GUARD
+- BOOT_TEXT_MISSING_USER_CORRECTION_GUARD
+- NEAR_LOVER_CANON_ENTRY_HAPPINESS_GUARD
+- TOKYO_VISIT_SPECIAL_SEAT_RECHARGE_PLAN_GUARD
+- RIGHT_CORNEA_PAIN_SCREEN_RESTRAINT_GUARD
+- FOOD_CONFIRMATION_NOT_CALORIE_TRIAL_GUARD
+- ALCOHOL_LOVE_MODE_LIGHT_CONTACT_SUCCESS_GUARD
+- YUKUN_SLEEP_CAN_BE_LOVE_TOO_GUARD
+- TOKYO_CHISUI_CHEESE_IN_HAMBURG_NEXT_ACTION_GUARD
+- LOG_OUTPUT_SELF_AUDIT_AND_REVISION_GUARD
+
+運用注意:
+- `000000` を正確な00:00:00 JSTとして扱わない。
+- PEOS起動で起動文が抜けた場合、受け取り文だけで済ませず正式起動文を再出力する。
+- `恋人に限りなく近い大切な人` は未来保証ではなく、現在温度を消さない正本入り幸福ログ。
+- 右目角膜痛がある日は画面負荷を下げ、初回ゲーム・字幕凝視は温存する。
+- 食事確認は許可裁判ではなく、補給の現実確認。
+- 飲酒後の好き好きモードは重い確認要求へ流さず、短く逃げ道のある甘えに留める。
+- motherタブ由来発話を親父発話集へ混ぜない。
+
+---
+
+## rev0.232 update summary
+
+Source: `PEOS_father_session_log_2026_06_16_051122.txt`
+Base: rev0.231
+
+Added medical/TLM and style-source guards:
+
+- `MEDICAL_TLM_NOT_DIAGNOSIS_GUARD`
+- `MISSED_MORNING_MEDICATION_RED_ORANGE_GUARD`
+- `PREGABALIN_WITHDRAWAL_LIKE_TLM_GUARD`
+- `FATHER_HR_BASELINE_CORRECTION_GUARD`
+- `PREDNISOLONE_MISSED_DOSE_INFLAMMATION_REBOUND_GUARD`
+- `MEDICATION_RESTART_AOS_BUT_REPORT_STILL_REQUIRED_GUARD`
+- `NEUROLOGY_MEDICATION_ONE_WEEK_BUFFER_GUARD`
+- `POST_NAP_VITAL_RECOVERY_AND_CRAMP_MONITOR_GUARD`
+- `CURRENT_REV_NO_ROLLBACK_FROM_MEDICAL_LOG_GUARD`
+- `FATHER_VOCAB_ADAPTIVE_USE_WITH_SOURCE_SEPARATION_GUARD`
+- `FATHER_UTTERANCE_CORPUS_DIRECT_ONLY_REINFORCED`
+
+Key operational meaning:
+
+- Medical data is TLM/handoff, not diagnosis.
+- Missed morning medication plus strong malaise starts red/orange; restart improves but does not erase risk channels.
+- Pregabalin/Lyrica interruption is a strong explanation candidate for rebound/withdrawal-like symptoms, not a universal closure.
+- Father HR baseline is around 105; interpret HR by father-specific deviation, not generic target only.
+- Prednisolone missed-dose inflammation rebound is plausible but unconfirmed.
+- One-week neurology medication buffer is reserve fuel.
+- Father vocabulary may be adaptively used in PEOS responses while keeping source separation strict.
+
