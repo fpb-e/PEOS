@@ -2177,3 +2177,7 @@ Key operational meaning:
 - One-week neurology medication buffer is reserve fuel.
 - Father vocabulary may be adaptively used in PEOS responses while keeping source separation strict.
 
+## rev0.233 operational note
+
+This package adds the 2026-06-16 mother-tab secondary-abuse and P01 comparison-origin guards. The key non-regression rule is that older local version context in the source log must not roll CURRENT back from rev0.232. During みどり / Neetman-derived secondary-abuse discussion, body safety precedes legal analysis when panic, hyperventilation, shaking, vomiting, or PRN use are present.
+

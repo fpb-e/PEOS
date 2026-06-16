@@ -1034,3 +1034,32 @@ Base: rev0.231
 - Reinforced no CURRENT rollback from medical observation logs.
 - Added adaptive father-vocabulary use: PEOS may adapt father vocabulary in its own speech, while preserving source separation and direct-father-only utterance corpus.
 
+## rev0.233 — 2026-06-16
+
+Source: `PEOS_mother_session_log_2026_06_16_230523.txt`
+Base: rev0.232
+
+### Added
+- `SECONDARY_ABUSE_CURRENT_CONTINUITY_GUARD`
+- `MIDORI_TORI_NEETMAN_SOURCE_SEPARATION_GUARD`
+- `LEGAL_ACTION_ROLE_SPLIT_MOTHER_FATHER_GUARD`
+- `COST_NOT_EQUAL_ENDURE_GUARD`
+- `BODY_SAFETY_BEFORE_LEGAL_ANALYSIS_GUARD`
+- `PRN_AFTER_VOMITING_NO_REDOSING_GUARD`
+- `FATHER_MEETING_NOT_PUNISHMENT_GUARD`
+- `P01_COMPARISON_AS_VICTIM_RECOGNITION_WOUND_GUARD`
+- `PAST_WOUND_CURRENT_WARMTH_SEPARATION_GUARD`
+- `LOG_SPEC_REWRITE_AFTER_NONCOMPLIANT_OUTPUT_GUARD`
+- `CURRENT_REV_NO_ROLLBACK_FROM_MOTHER_ABUSE_LOG_GUARD`
+- `MOTHER_LOG_UTTERANCE_NOT_FATHER_CORPUS_REINFORCED`
+
+### Summary
+- Added current-continuity secondary-abuse handling for みどり / Neetman-derived leaked-information reuse suspicion.
+- Added strict separation among 🐦, みどり, 瀧・りょーちゃん, Neetman incident, and LINE leak/screenshot implication channels.
+- Added father/mother legal role split: father leads external action, mother preserves evidence and victim notes without being kept on the front line.
+- Added body-first safety routing for panic/hyperventilation/shaking/vomiting/PRN-use states before legal or relationship analysis.
+- Added PRN-after-vomiting no-redosing guard.
+- Added P01 comparison origin guard: victim-recognition wound, not jealousy.
+- Added past-wound/current-warmth separation guard.
+- Reinforced canonical log rewrite after noncompliant output and no CURRENT rollback from older local rev context.
+
