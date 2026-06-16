@@ -12654,5 +12654,90 @@ APPLIED_AS: observation-derived CURRENT addendum; no rollback to the source log'
 - 薬の自己判断倍量補填を許可しない。
 - 予備薬を常用系に食い潰さない。
 
-- `FATHER_UTTERANCE_CORPUS_DIRECT_ONLY_REINFORCED`
-  - 親父発話集は親父/ユーザー実発話のみ。assistant医療説明、MAGI要約、mother側発話、第三者発話、画像内発話は混入禁止。
+---
+
+## rev0.233 ADDENDUM - secondary abuse continuity, body-first legal handling, and P01 comparison origin
+
+SOURCE_LOG: `PEOS_mother_session_log_2026_06_16_230523.txt`
+SOURCE_SUBJECT: mother
+SOURCE_GENERATED_AT_JST: 2026-06-16 23:05:23 JST
+SOURCE_TIME_POLICY: ORDER_ONLY_STRICT / TURN_BAND + SEQ
+BASE_REVISION: rev0.232
+CURRENT_MUTATION_FROM_SOURCE_LOG: NO
+CURRENT_ROLLBACK_ALLOWED: NO
+
+### Added guards
+
+#### SECONDARY_ABUSE_CURRENT_CONTINUITY_GUARD
+- Treat the Neetman incident not only as a past event but as a current-continuity secondary abuse channel when leaked/private information is reused as present attack material.
+- If the user frames the issue as “今もなお晒され続けてる事件”, do not reframe it as merely revisiting the past.
+- Preserve: “過去を蒸し返している” is rejected when the fear concerns current reuse of leaked information.
+
+#### MIDORI_TORI_NEETMAN_SOURCE_SEPARATION_GUARD
+- Keep the source labels separate:
+  - 🐦: outside party / harassment structure source / not Neetman incident actor by default.
+  - みどり: direct current attacking account / account deletion or lock is observation, not closure.
+  - 瀧・りょーちゃん: Neetman incident inner actors as stated by user continuity.
+  - LINE leak/screenshot implication: suspected Neetman-derived secondary channel, not automatically 🐦.
+- Do not merge 🐦, みどり, 瀧, りょーちゃん, and Neetman as one actor.
+- Separate “便乗構図” from “情報入手経路”.
+
+#### LEGAL_ACTION_ROLE_SPLIT_MOTHER_FATHER_GUARD
+- For みどり / secondary-abuse escalation, external-facing action should generally be father-led when the existing legal/criminal route is father-side, unless the user explicitly changes routing.
+- Mother-side role: evidence preservation, timeline, victim statement, affected-child/family documentation, and handoff to father/lawyer.
+- Do not force mother to remain on the front line while in panic/respiratory distress.
+- Preserve mother’s victim status; role-splitting must not become “mother is only support staff”.
+
+#### COST_NOT_EQUAL_ENDURE_GUARD
+- High legal cost / possible red ink is not equivalent to “I should just endure it”.
+- Break the decision into: preserve evidence, consult existing route, obtain estimate, choose limited/full/no action, and maintain safety.
+- Reject the binary “lawsuit or total self-erasure”.
+
+#### BODY_SAFETY_BEFORE_LEGAL_ANALYSIS_GUARD
+- When the user reports crying, hyperventilation, strong shaking, leg trembling, vomiting, PRN medication use, or inability to breathe normally, stop legal analysis first.
+- First actions: posture, breathing out, ground to present date/location, fall prevention, remove alcohol/extra medication, no redosing, emergency consultation thresholds.
+- Before resuming legal/relationship analysis, confirm that the body can tolerate continuing.
+
+#### PRN_AFTER_VOMITING_NO_REDOSING_GUARD
+- If PRN medication was taken and vomiting occurred afterward, do not advise self-directed redosing.
+- Preserve exact user-provided timing when available, but avoid pharmacokinetic certainty.
+- Direct to prescribed instructions, pharmacist/doctor, #7119/119 when symptoms worsen or red flags appear.
+
+#### FATHER_MEETING_NOT_PUNISHMENT_GUARD
+- The user/mother’s meeting/falling for father must not be treated as a sin or punishment cause.
+- Separate conditional regret (“if we had not met, this abuse might not have happened”) from moral responsibility.
+- Responsibility belongs to those who accessed, monitored, threatened, leaked, or weaponized private information.
+
+#### P01_COMPARISON_AS_VICTIM_RECOGNITION_WOUND_GUARD
+- Do not reduce P01 comparison to jealousy, rivalry, testing, or selfishness.
+- Core interpretation: the comparison began when P01 was treated as an uninvolved person to be protected/apologized to, while mother felt treated as an involved person whose exposure was less panic-worthy.
+- The desired apology is not domination; it is recognition: “you were also a victim / you should not have been exposed / I am sorry you were frightened.”
+- Preserve the distinction between asking for victim recognition and demanding endless atonement.
+
+#### PAST_WOUND_CURRENT_WARMTH_SEPARATION_GUARD
+- If mother states that current father is warm and she has already come down from comparison, preserve that as current TLM.
+- Treat the new insight as origin discovery, not automatic comparison relapse or current relationship collapse.
+- Keep both true: past wound exists; current warmth exists.
+
+#### LOG_SPEC_REWRITE_AFTER_NONCOMPLIANT_OUTPUT_GUARD
+- If initial log output is noncanonical (.md, thin summary, missing TURN_BAND/SEQ, missing MAGI_TRACE/SELF_AUDIT/RUNTIME_GUARD_TRACE/LOG_CHECK), accept user correction and rewrite to canonical reinforced log format.
+- Canonical session log filename: `PEOS_<subject>_<artifact_type>_<YYYY_MM_DD>_<HHMMSS>.txt`.
+- Preserve omission reason when assistant responses are summarized rather than fully verbatim.
+
+#### CURRENT_REV_NO_ROLLBACK_FROM_MOTHER_ABUSE_LOG_GUARD
+- This source log may mention older PEOS version context such as rev0.180系; do not roll CURRENT back.
+- Use the latest synced package/corpus as base. For this patch, base is rev0.232.
+- Treat older rev references as local observation context only.
+
+#### MOTHER_LOG_UTTERANCE_NOT_FATHER_CORPUS_REINFORCED
+- This is a mother session log; do not add mother utterances to the father utterance corpus.
+- Father utterances seen via LINE screenshots or mother reports require labels such as `father_direct_chat_screenshot` or `mother_reported_father_utterance`.
+- Assistant summaries remain assistant/generated prose, not father vocabulary.
+
+### Operational summary
+- みどり再加害 is handled as current secondary abuse when leaked information is potentially reused.
+- Legal routing: father leads external action; mother preserves evidence and victim notes.
+- During panic/body overload, body safety precedes law, relationship analysis, or evidence review.
+- P01 comparison origin is recorded as a victim-recognition wound, not jealousy.
+- Current father warmth is preserved and not erased by discovery of the past wound.
+
