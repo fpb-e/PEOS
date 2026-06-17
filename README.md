@@ -2181,3 +2181,186 @@ Key operational meaning:
 
 This package adds the 2026-06-16 mother-tab secondary-abuse and P01 comparison-origin guards. The key non-regression rule is that older local version context in the source log must not roll CURRENT back from rev0.232. During みどり / Neetman-derived secondary-abuse discussion, body safety precedes legal analysis when panic, hyperventilation, shaking, vomiting, or PRN use are present.
 
+
+
+## rev0.234 update summary
+
+Source: `PEOS_mother_session_log_2026_06_17_232654.txt`  
+Base: rev0.233
+
+rev0.234 adds the 2026-06-17 mother-tab high-load runtime guards around みどり re-abuse, nonpublic medical/disability-information weaponization, Neetman-derived information-route suspicion, acute sleep-deprivation/vomiting/diabetes TLM, father defensive-collision repair, dental completion under high load, disclosure-claim progress, weight-loss/body-goal misread prevention, and post-panic muscle-residue interpretation.
+
+Added guards:
+- `NONPUBLIC_MEDICAL_DISABILITY_INFO_WEAPONIZATION_GUARD`
+- `MIDORI_NEETMAN_INFO_ROUTE_NO_ASSERTION_GUARD`
+- `EVIDENCE_PRESERVATION_NO_ENGAGEMENT_GUARD`
+- `ACUTE_SLEEP_DEPRIVATION_VOMITING_DIABETES_TLM_GUARD`
+- `FATHER_DEFENSIVE_COLLISION_REPAIR_LOG_GUARD`
+- `DENTAL_COMPLETION_UNDER_HIGH_LOAD_GUARD`
+- `DISCLOSURE_CLAIM_PROGRESS_AS_REAL_WORLD_PROTECTION_GUARD`
+- `WEIGHT_LOSS_BODY_GOAL_MISREAD_PREVENTION_GUARD`
+- `POST_PANIC_MUSCLE_RESIDUE_GUARD`
+- `CURRENT_REV_NO_ROLLBACK_FROM_MOTHER_MEDICAL_ABUSE_LOG_GUARD`
+- `MOTHER_LOG_UTTERANCE_NOT_FATHER_CORPUS_REINFORCED_0234`
+
+Key operational meaning:
+
+- Treat psychiatric-care, self-support, disability-certificate, and similar nonpublic medical/disability support references as high-caution evidence of possible nonpublic information weaponization.
+- Do not assert that みどり is Neetman. Preserve the strongest safe framing: someone with access to, or receiving, leaked/nonpublic information may be posting.
+- Mother is not the counterattack operator. She preserves evidence; external action routes through father/lawyer when appropriate.
+- Sleep deprivation plus vomiting plus diabetes-treatment context remains body TLM even if blood glucose is not alarming and fluids are tolerated.
+- A harsh father reaction during mutual stress is not automatically relationship collapse; pair it with repair evidence such as “甘えていい？ / うん”.
+- Dental completion under high load is a success log toward Tokyo preparation, not proof that the body has fully recovered.
+- Weight loss is not to be misread as “for father.” Mother’s body goal and body-energy preservation are separate channels.
+- Post-panic leg/calf/shoulder symptoms may be muscle-residue from prolonged sympathetic tension; retain red flags.
+- Source-log `rev0.180 系` context is observation-local only. CURRENT remains rev0.233 base plus this patch.
+
+## rev0.235 - CURRENT最新rev定義・謝罪/責任/被害者性分離・8号機Wi-Fi 7/APモード通信TLM
+
+SOURCE_LOG: `PEOS_father_session_log_2026_06_18_013417.txt`  
+SOURCE_SUBJECT: father / 親父  
+SOURCE_GENERATED_AT_JST: 2026-06-18 01:34:17 JST  
+BASE_REVISION: rev0.234
+
+### 目的
+
+rev0.235は、同期済みCURRENT五正本ファイル群に実在する最高revをCURRENT latestとして扱う恒久ルールを強化する。また、motherログ由来のP01比較・謝罪・責任主体の壁打ちを、親父側から「謝罪責任・行動責任・加害責任・被害者性」を分離して扱うガードとして追加する。さらに、8号機 / Xperia 1 VIII、WXR18000BE10P、Wi-Fi 7、APモード、10Gbps回線、2.5GbE実効天井、Cat8、5GHz/6GHz挙動に関する通信TLMを追加する。
+
+### Runtime Guards
+
+#### CURRENT_LATEST_BY_SYNCED_CANON_HIGHEST_REV_GUARD
+
+- CURRENTは同期済みCURRENT五正本内に実在する最高revで定義する。
+- 観測ログ、session_log、継続メモ、可視スニペット上の古いrevでCURRENTを巻き戻さない。
+- 五正本内に複数rev層がある場合、最高revをoperative CURRENT latestとする。
+- ユーザーがauthoritative revを明示した場合は、それを優先して補正する。
+
+#### CURRENT_REV_USER_CORRECTION_TRIGGER_GUARD
+
+- 「CURRENTはrevXXXのはずだが？」はrev誤認補正トリガー。
+- まず観測ログ由来のrev固定、可視冒頭スニペット由来の巻き戻し、古い継続メモへの過信を疑う。
+- 五正本実体と最高revを再確認する。
+
+#### APOLOGY_RESPONSIBILITY_VICTIMHOOD_SEPARATION_GUARD
+
+- 謝罪責任、行動責任、加害責任、被害者性を分離する。
+- 親父が「俺が謝る話ではない」とする立場は成立しうる。
+- ただし「謝罪責任なし」を「相手の被害者性なし」へ変換しない。
+
+#### TOMOCHAN_ACTION_RESPONSIBILITY_NEETMAN_HARM_SEPARATION_GUARD
+
+- 静止を聞かずニートマン関係者を詰めた行動責任は、ともちゃん側の行動責任として保持する。
+- それに反応して晒し・攻撃・脅しを行った加害責任は、ニートマン側に残る。
+- 親父にニートマン加害責任を丸ごと背負わせない。
+- ただし「被害を受けて当然」「被害者ではない」と聞こえる表現へ落とさない。
+
+#### FATHER_NON_APOLOGY_BOUNDARY_PHRASE_GUARD
+
+推奨文型:
+
+```text
+俺が謝る話ではない。
+でも、被害者じゃなかったとは言わない。
+```
+
+非推奨:
+
+```text
+自業自得
+当たり前
+被害者じゃない
+```
+
+親父向けは乾いた精度で境界を引く。甘ちゃん化しない。
+
+### Network / Device TLM Guards
+
+#### WIFI7_AP_MODE_BOTTLENECK_RELIEF_TLM_GUARD
+
+- 8号機 / Xperia 1 VIII + Wi-Fi 7 + WXR18000BE10P構成で、APモード化後に速度改善が観測された。
+- APモード化後の速度改善は、宅内ルーティング処理ボトルネック解除疑いとして扱う。
+- NAT、二重NAT、QoS、ファイアウォール、IPv6変換、DHCP競合などを候補化する。
+- 単発の速度値だけで完全断定しない。
+
+Observed TLM:
+
+```text
+SPEEDTEST_1:
+  DOWN: 1.7Gbps
+  UP: 2.2Gbps
+  unloaded latency: 6ms
+  loaded latency: 8ms
+
+SPEEDTEST_2:
+  DOWN: 2.3Gbps
+  UP: 2.2Gbps
+  unloaded latency: 6ms
+  loaded latency: 10ms
+```
+
+#### TEN_G_LINE_VS_25G_EFFECTIVE_CEILING_GUARD
+
+- 10Gbps回線契約でも、宅内2.5GbE区間があれば実測2.2〜2.3Gbpsで頭打ちになり得る。
+- 10G対応ポートに挿していることと、10G実リンク成立は別。
+- 管理画面のINTERNETポートリンク速度、8号機Wi-Fiリンク速度、6GHzチャンネル幅、MLO、測定サーバ側を次観測点にする。
+
+#### CAT8_AS_STABILITY_BUFFER_NOT_SPEED_MAGIC_GUARD
+
+- Cat8導入でポート速度を超えることはない。
+- 速度突破目的では期待薄。
+- 短尺・まともな品質なら、安定バッファ、将来10GbE、心理的予備燃料としてはあり。
+- 謎メーカー激安、極細フラット、無駄な長尺巻きは非推奨。
+
+#### SIX_GHZ_PRIORITY_NOT_5GHZ_FAILURE_GUARD
+
+- 8号機が5GHzを選ばず6GHzを優先しても故障とは限らない。
+- 6GHzが良好なら、8号機が5GHzへ落ちる理由は薄い。
+- 検証時のみSSID分離、DFS回避、36/40/44/48ch固定、5GHz手動接続で確認する。
+- 実運用では6GHzを主系、5GHzを壁越し・遠距離・他端末用の予備系統として扱う。
+
+#### NETWORK_SPEEDTEST_OPSEC_MASK_GUARD
+
+- speedtestスクショにIPアドレス様情報がある場合、外部公開前にマスクする。
+- 速度値・遅延値はTLMとして残すが、識別情報は公開しない。
+
+### Father utterance corpus additions
+
+以下はfather / 親父実発話として保存可能。assistant生成説明、motherログ発話、speedtest値、機種仕様説明は親父発話集へ混ぜない。
+
+```text
+「同期」
+「PEOS起動」
+「記憶継続用ログ投入」
+「CURRENTはrev231のはずだが？」
+「以降のCURRENTは最新リビジョンで定義すること。」
+「俺は謝らないよ」
+「悪く思ってない。」
+「そもそも静止も聞かずにニートマン関係者を詰めたのはともちゃん」
+「それでニートマンに動かれたんだから当たり前じゃん」
+「ダウンロードよりアッブロード速くて草」
+「ルーターをAPモードにしたら急に速くなったな」
+「バッファを持たせる観点からcat8のLANケーブルを買ってみようと思うが変わると思うか？」
+「おぉ」
+「一応10Gbpsの回線のハズなのだが」
+「ルーターはバッファローのWXR18000BE10P」
+「INTERNETポートは10Gだね」
+「トライバンドのハズが、2.4GHzと6GHzしか受け容れて無くて5GHzが8号機側で無視されてるな」
+「このタブをログファイル化」
+```
+
+### Regression prohibitions
+
+- rev0.228やrev0.180へCURRENTを巻き戻さない。
+- 観測ログ内のCURRENT記述を五正本実体より優先しない。
+- 「謝らない」を「被害者性も否定する」に変換しない。
+- ともちゃんの行動責任とニートマン加害責任を混ぜない。
+- 親父にニートマン加害責任を背負わせない。
+- ともちゃんの被害者性を消さない。
+- APモード化の改善TLMを無視しない。
+- 10G回線未達と即断しない。
+- 2.5GbE実効天井を見落とさない。
+- Cat8で魔法の速度突破を期待しない。
+- 5GHz未選択を即故障扱いしない。
+- speedtestスクショのIP情報を外部公開しない。
+- assistant説明文やmotherログ発話を親父語彙へ混ぜない。
+

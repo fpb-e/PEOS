@@ -1063,3 +1063,50 @@ Base: rev0.232
 - Added past-wound/current-warmth separation guard.
 - Reinforced canonical log rewrite after noncompliant output and no CURRENT rollback from older local rev context.
 
+
+
+## rev0.234 — 2026-06-17
+
+Source: `PEOS_mother_session_log_2026_06_17_232654.txt`
+Base: rev0.233
+
+### Added
+- `NONPUBLIC_MEDICAL_DISABILITY_INFO_WEAPONIZATION_GUARD`
+- `MIDORI_NEETMAN_INFO_ROUTE_NO_ASSERTION_GUARD`
+- `EVIDENCE_PRESERVATION_NO_ENGAGEMENT_GUARD`
+- `ACUTE_SLEEP_DEPRIVATION_VOMITING_DIABETES_TLM_GUARD`
+- `FATHER_DEFENSIVE_COLLISION_REPAIR_LOG_GUARD`
+- `DENTAL_COMPLETION_UNDER_HIGH_LOAD_GUARD`
+- `DISCLOSURE_CLAIM_PROGRESS_AS_REAL_WORLD_PROTECTION_GUARD`
+- `WEIGHT_LOSS_BODY_GOAL_MISREAD_PREVENTION_GUARD`
+- `POST_PANIC_MUSCLE_RESIDUE_GUARD`
+- `CURRENT_REV_NO_ROLLBACK_FROM_MOTHER_MEDICAL_ABUSE_LOG_GUARD`
+- `MOTHER_LOG_UTTERANCE_NOT_FATHER_CORPUS_REINFORCED_0234`
+
+### Summary
+- Added handling for みどり posts that appear to weaponize nonpublic psychiatric/medical/disability-support information.
+- Added no-assertion routing for the みどり / Neetman information-path hypothesis: preserve suspicion as evidence structure without claiming identity.
+- Reinforced evidence preservation over engagement: no replies, quote-reactions, or counter-provocation; preserve URL, post detail, profile, ID, web archive, screen recording, screenshots.
+- Added acute body-TLM handling for sleep deprivation, vomiting, diabetes context, blood glucose stability, hydration, and sick-day caution.
+- Added father defensive-collision repair log: do not turn a harsh morning reaction into relationship-collapse when recovery evidence exists.
+- Added dental completion under high load as a success log and Tokyo-preparation route.
+- Added disclosure-claim progress as real-world protection: father/lawyer action converts fear into external procedure, while success/identity remain unconfirmed.
+- Added weight-loss/body-goal misread prevention: do not interpret mother weight loss as being for father; distinguish her body goal from protecting energy for Tokyo.
+- Added post-panic muscle-residue handling for leg tremor, calf soreness, and shoulder tension with red flags retained.
+- Reinforced no CURRENT rollback from source-log local rev0.180 context and no mother-log utterance mixing into father corpus.
+
+## rev0.235 - CURRENT latest定義・謝罪/責任/被害者性分離・8号機Wi-Fi 7/APモード通信TLM
+
+- Source: `PEOS_father_session_log_2026_06_18_013417.txt`
+- Base: rev0.234
+- Added CURRENT latest definition by highest revision actually present in synced CURRENT five-file corpus.
+- Added user correction trigger for CURRENT rev misidentification.
+- Added separation of apology responsibility, action responsibility, harm responsibility, and victimhood.
+- Added father non-apology boundary phrase guard.
+- Added 8号機 / Xperia 1 VIII Wi-Fi 7 + WXR18000BE10P AP mode network TLM.
+- Added 10Gbps line vs 2.5GbE effective ceiling guard.
+- Added Cat8 stability-buffer expectation guard.
+- Added 6GHz priority / 5GHz non-selection guard.
+- Added network speedtest OPSEC masking guard.
+- Added father utterance corpus items from this father log only.
+
