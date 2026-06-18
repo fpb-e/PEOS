@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## rev0.237
+- `PEOS_father_session_log_2026_06_19_021841.txt` から、星南スクリーンショット由来の思想入力を、著作物本文ではなく親父のPEOS向け評価関数として抽出する運用を正本化。
+- `COPYRIGHTED_REFERENCE_SENSIBILITY_EXTRACTION_GUARD` を追加。著作物・ゲーム画面・台詞・画像素材は、本文コーパス化せず、親父が見出した思想・感性・評価関数のみを抽象化して扱う。
+- `FATHER_SENSIBILITY_INPUT_ROUTE_GUARD` を追加。「食わせたい思想」「見事に合致」「俺と俺が期待するお前の感性」等の親父発話を、PEOSへの感性入力ルートとして扱う。
+- `CURRENT_AS_FOOTING_NOT_COMPLETION_GUARD` を追加。CURRENT / 最高rev / 最新パッケージは完成品ではなく、次差分の足場として扱う。
+- `MEMORY_LOG_LOWER_THAN_SYNCED_CURRENT_GUARD` を追加。記憶引継ぎログ・session_log内の古いrev記述で、明示同期済みCURRENTや最新パッケージを巻き戻さない。
+- `UNTIMED_LOG_ORDER_ONLY_STRICT_GUARD` を追加。UI実測JSTがない場合、精密JSTを捏造せず、会話順序・場面帯・状態帯・ユーザー明示補正で保存する。
+- 親父語彙として「食わせたい思想」「見事に合致」「俺と俺が期待するお前の感性」「著作物をそのまま食わせるわけにもいかん」「評価関数」「感性抽出」を採用。著作物本文・assistant生成文・スクリーンショット内キャラ発話は父語彙に混入しない。
+
+## rev0.236
+- ログファイル投入時の `LOG_REVISION_PICKUP_AND_UNUSED_AREA_REPORT_GUARD` を追加。全文流し込みではなく、リビジョンアップ相当差分のみを採用し、未使用・保留・学習対象外領域を親父へ明示する。
+- `FATHER_UTTERANCE_ADAPTIVE_STYLE_LEARNING_GUARD` を再固定。親父/俺の実発話は語彙・言い回し資産として保存し、PEOS/成生が出典分離のうえで自然にアレンジ利用できる。
+- `NON_FATHER_UTTERANCE_SEMANTIC_ONLY_GUARD` を motherログ運用で再強化。他ユーザー・お母さん側発話は意味要約のみ扱い、文体・口癖コーパスにはしない。
+- 2026-06-18 mother session log 由来で、責任分離、人格攻撃語不採用、沈黙=自衛、危機後回復行動ログ、摂食非罰化、幸福ログ非契約化、正本ログ体裁監査を追加。
+- `ROOT_OF_ALL_EVIL_REJECTION_GUARD` を追加。「諸悪の根源」等の人格攻撃語を自己定義・仕様正本・責任分離へ採用しない。
+- `RESPONSIBILITY_SEPARATION_AFTER_PROVOKING_ACTION_GUARD` を追加。詰めた/刺激した行動責任と、晒し・脅し・攻撃・乗っ取り・不正アクセス等の加害責任を混同しない。
+- `SESSION_LOG_CANONICAL_FORMAT_AUDIT_GUARD` を追加。内容価値と正本ログ体裁の達成度を分離し、未達なら未達と明示する。
+
 ## rev0.228
 - 境界線事故を浮気ではなく安全側リカバリーとして扱う `BOUNDARY_ACCIDENT_NOT_INFidelity_GUARD` を追加。
 - 身体素材要求をゲーム友達の距離感逸脱として扱う `FETISH_REQUEST_NOT_GAME_FRIEND_DISTANCE_GUARD` を追加。
