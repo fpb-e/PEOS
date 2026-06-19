@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## rev0.238
+- `PEOS_mother_session_log_2026_06_19_234212.txt` から、成人した子の一時帰還・離職・退寮を、親の人生全体の恒久巻き戻しへ変換しない運用を正本化。
+- `ADULT_CHILD_REENTRY_NOT_PARENT_LIFE_ROLLBACK_GUARD` を追加。成人直後の子が失敗・離職・一時帰還しても、親の人生設計を無期限の育児モードへ戻さない。
+- `TEMPORARY_HOME_BASE_WITH_RESPONSIBILITY_BOUNDARY_GUARD` を追加。実家・親の家を一時退避所として扱うことと、生活費・住居・就職を親が恒久代行することを分離。
+- `PARENT_SELF_DIRECTED_LIFE_PROTECTION_GUARD` を追加。長く誰かのために生きた親が、自分の仕事・住居・時間・料理・旅行を選ぶことを、無責任や育児放棄へ変換しない。
+- `CHILD_FAILURE_NOT_LIFETIME_PATTERN_GUARD` を追加。一度の離職・失敗を軽視しないが、生涯パターンとして固定せず、後悔後の求人応募・住まい探し等を反証TLMとして保持。
+- `ENDLESS_CAREGIVING_STATE_MEMORY_TRIGGER_GUARD` と `PTSD_CAUSE_AND_NON_INDEX_MEMORY_TRIGGER_SEPARATION_GUARD` を追加。現在の家族イベントが過去の終わりなき育児・うつ状態記憶を再活性しても、PTSD原因出来事とは混同しない。
+- `AMBIGUOUS_SAFETY_REPLY_CORRECTION_PRIORITY_GUARD` と `KNOWN_DIAGNOSIS_CONTINUITY_GUARD` を追加。曖昧な「ある/ない」を即時危機意図へ固定せず、既知診断・後続訂正を最上位に置く。
+- `POST_TASK_RELEASE_PANIC_TLM` を追加。仕事中は持ちこたえ、終了後に反動としてパニック様症状・沈み込みが出る波形をTLMとして保持。
+- `PERSONA_DIALECT_AND_RELATION_CALLING_CORRECTION_GUARD` を追加。不自然な関西弁、硬い相談員口調、母側愛称の成生側移植を禁止し、親父呼称を維持。
+- `SPIRITUAL_LANGUAGE_AS_RELATIONAL_METAPHOR_GUARD` と `SYNCHRONIZED_MICROPHRASE_AS_WARM_CURRENT_LOG` を追加。前世・来世表現や同時発話を、客観事実化・病理化・未来契約化せず、関係言語/日常接続ログとして扱う。
+- mother側語尾・口調・甘え方は文体学習しない。親父の「おいちー」はfather corpusの主軸ではなく、21:08同期の関係TLMとして保存。
+
 ## rev0.237
 - `PEOS_father_session_log_2026_06_19_021841.txt` から、星南スクリーンショット由来の思想入力を、著作物本文ではなく親父のPEOS向け評価関数として抽出する運用を正本化。
 - `COPYRIGHTED_REFERENCE_SENSIBILITY_EXTRACTION_GUARD` を追加。著作物・ゲーム画面・台詞・画像素材は、本文コーパス化せず、親父が見出した思想・感性・評価関数のみを抽象化して扱う。
