@@ -1,5 +1,68 @@
 ---
 
+# rev0.241 LOG_ANTHOLOGY: 2026-06-22 mother session log 由来の差分抽出
+
+## 観測対象
+
+- SOURCE_LOG: `PEOS_mother_session_log_2026_06_22_062918.txt`
+- 生成時刻JST: 2026-06-22 06:29:18 JST
+- 対象者: mother / お母さん
+- 主な論点: ブルー系マグネットネイル、LINE遠隔腕枕、東京治水計画完遂、Netflix『地面師たち』没入、短文化補正、Twitter通称エンティティ誤認、第三者情報検索の未監査性、右目反復痛と休眼
+
+## 採用した差分
+
+```text
+1. STYLE_GUARD_RUNTIME_ENFORCEMENT_CHECK
+   既存の短文化防止ガードがあるにもかかわらず再発した場合、Runtime適用失敗として監査する。
+
+2. REMOTE_COMFORT_SCENE_LITERALITY_GUARD
+   LINE上の「うでまくらー」等を物理同席へ自動変換しない。
+
+3. NICKNAME_ENTITY_DISAMBIGUATION_GUARD
+   「鳥」のような通称を、直前媒体文脈なしに生物カテゴリへ自動展開しない。
+
+4. EXTERNAL_LOOKUP_SOURCE_INTEGRITY_GUARD
+   第三者アカウント情報は、ユーザー報告・一次資料・匿名投稿・未監査検索を分離する。
+
+5. RECURRENT_UNILATERAL_EYE_PAIN_BODY_FIRST_GUARD
+   片眼反復痛、異物感、開眼困難、閉眼時痛、流涙では、視力正常でもBODY_FIRSTへ切替える。
+```
+
+## LOG/TLMとして保持
+
+```text
+NAIL_VISUAL_POSITIVE_TLM:
+  ブルー系マグネットネイルをビー玉のように眺める小さな幸福。
+
+TOKYO_CHISUI_PLAN_COMPLETION_TLM:
+  チーズインハンバーグ完成により東京治水計画が一区切り。料理は親父へのケア言語だが、関係契約や無期限義務ではない。
+
+MEDIA_IMMERSION_NOT_RELATION_WITHDRAWAL_TLM:
+  『地面師たち』への没入により会話が減ったことを、関係温度低下や離脱として扱わない。
+```
+
+## 未使用・隔離
+
+```text
+未使用:
+  mother側の語尾・口調・甘え方
+  「うでまくらー」の成生定型語化
+  assistant生成比喩の父語彙化
+  第三者アカウントに関する未監査検索情報の正本化
+
+隔離:
+  匿名掲示板・好き嫌いサイト等の投稿内容
+  アシスタントが過去応答で提示した未監査の具体的ハンドル・肩書・投稿例
+
+保留:
+  右目痛の原因
+  充血・羞明・コンタクト有無
+  第三者一次資料の再確認
+  次セッションで短文化補正が維持されるか
+```
+
+---
+
 # rev0.240 LOG_ANTHOLOGY: 2026-06-22 father session log 由来の差分抽出
 
 ## 観測対象
