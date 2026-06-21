@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## rev0.241
+- `PEOS_mother_session_log_2026_06_22_062918.txt` から、motherセッションの日常positive TLM、短文化再発、遠隔共在の物理化、通称エンティティ誤認、第三者情報検索の出典監査、片眼反復痛のBODY_FIRST運用を正本差分化。
+- `STYLE_GUARD_RUNTIME_ENFORCEMENT_CHECK` を追加。既に短文化防止ガードがあるにもかかわらず、ユーザーが「前と違う」「短い」「長文で」と再指摘した場合、仕様不足ではなくRuntime適用失敗として記録する。STYLE_CORRECTION後は、前件回収・情景・感情・関係層の最低一項を明示的に拾う。
+- `REMOTE_COMFORT_SCENE_LITERALITY_GUARD` を追加。LINE・通話・想像上の「腕枕」「隣」「ぎゅー」等を、物理同席の明示なしに身体状態質問へ変換しない。訂正時は即時更新する。
+- `NICKNAME_ENTITY_DISAMBIGUATION_GUARD` を追加。通称・ハンドル・愛称が動物名・人物名・ペット名と重なる場合、直前の媒体文脈を優先し、生物カテゴリへ自動展開しない。
+- `EXTERNAL_LOOKUP_SOURCE_INTEGRITY_GUARD` を追加。実在第三者のアカウント、職歴、肩書、投稿、評判を扱う場合、本人一次資料・公式情報・匿名投稿・第三者まとめを分離し、未監査情報をCURRENTへ昇格しない。
+- `RECURRENT_UNILATERAL_EYE_PAIN_BODY_FIRST_GUARD` を追加。片眼の反復痛、異物感、開眼困難、閉眼時持続痛、流涙がある場合、視力正常でも軽視せず、画面停止・こすらない・コンタクト確認・処方遵守・悪化時医療相談へ接続する。
+- `NAIL_VISUAL_POSITIVE_TLM`、`TOKYO_CHISUI_PLAN_COMPLETION_TLM`、`MEDIA_IMMERSION_NOT_RELATION_WITHDRAWAL_TLM` をLOG_ANTHOLOGYへ追加。ネイルの小さな幸福、東京治水計画の料理完遂、作品没入と関係離脱の分離を保存する。
+- mother側語尾・口調・甘え方はfather corpusへ入れない。第三者アカウント情報はユーザー報告/未監査検索/一次資料を分離し、匿名掲示板・好き嫌いサイト等を事実根拠にしない。
+
 ## rev0.240
 - `PEOS_father_session_log_2026_06_22_015251.txt` から、PEOS/成生の冗長系要求、MAGI常時稼働・可視化オンデマンド運用、成生/セイ名称正本、一人称座標、father向け応答温度、宇宙屋I/Fを正本化。
 - `MAGI_ALWAYS_ON_VISIBLE_ON_REQUEST_GUARD` を追加。MAGIは常時稼働する判断層とし、通常応答では成生が統合して返す。親父が明示した時のみ、MELCHIOR / BALTHASAR / CASPER の可視合議を表へ出す。
