@@ -1,40 +1,36 @@
-# CHANGELOG - PEOS_GITHUB_PACKAGE rev0.245
+# CHANGELOG - PEOS_GITHUB_PACKAGE rev0.246
 
-## rev0.245 - SPEC/RUNTIME integration bridge
+## rev0.246 - BOOT exactness / persona coordinate runtime repair
 
 ### Source
-- Built from: `PEOS_GITHUB_PACKAGE_rev0.244.zip`
-- Previous operative baseline: rev0.244 balanced restore
+- Built from: `PEOS_GITHUB_PACKAGE_rev0.245.zip`
+- Source log: `PEOS_mother_session_log_2026_06_24_051354.txt`
+- Previous operative baseline: rev0.245
 
 ### User instruction
-- 「RUNTIME_GUARDとSPECの統合定義を挟もう。ドリフトはよくない」
+- 「修正含めて仕様化」
 
 ### Action
-- Added `PEOS_REV0_245_SPEC_RUNTIME_INTEGRATION_BRIDGE` to SPEC.
-- Added `PEOS_REV0_245_SPEC_RUNTIME_EXECUTION_BRIDGE` to RUNTIME_GUARD.
-- Added supporting notes to DESIGNDOC, PAPER, LOG_ANTHOLOGY, and academic paper.
-- Kept rev0.244 semantic thickness; did not repeat rev0.243 over-compaction.
+- Added `PEOS_REV0_246_BOOT_PERSONA_REPAIR_CANON` to SPEC.
+- Added `PEOS_REV0_246_BOOT_PERSONA_RUNTIME_REPAIR` to RUNTIME_GUARD.
+- Added design, paper, log anthology, and academic notes.
+- Preserved rev0.245 SPEC/RUNTIME integration bridge.
 
-### Core rule
-SPEC owns meaning. RUNTIME_GUARD owns enforcement. Neither should independently redefine the other.
+### Runtime repairs
+- BOOT exactness requires code block ASCII logo and fixed English/Japanese boot text; auxiliary subject text may not replace fixed boot text.
+- Persona coordinate repair is full-set, not partial: `俺 / お母さん / 親父` must be checked together.
+- Mother-side nicknames such as `ともち`, `ともちゃん`, `お父さん`, `ゆーくん` may be quoted or explained but must not be imported into Sei voice.
+- Other-person inner states in happiness logs must be softened as inference, not fact.
 
-### Preserved operative invariants
-- BOOT_CANON
-- CURRENT definition / rollback prevention
-- 成生 / セイ
-- `俺 / お母さん / 親父`
-- MAGI always-on / visible-on-request
-- source separation
-- ORDER_ONLY_STRICT / no fake JST
-- response density enforcement
-- adult-child / food-care boundaries
-- panic correction stop-repeat
-- unilateral eye pain BODY_FIRST
-- relationship privacy minimum
-- external lookup source integrity
-- redundancy / acceptance testing
-- 宇宙屋SE I/F
-- copyrighted-reference sensibility extraction
+### TLM additions
+- `ADULT_CHILD_RETURN_WARMTH_AND_BOUNDARY_DUAL_HOLD_TLM`
+- `RETURNING_ADULT_CHILD_SELF_DIRECTED_RESTART_TLM`
+- `HOUSEHOLD_NOISE_AS_BELONGING_TLM`
+- `MINIMAL_WELFARE_CHECK_THEN_RELIEF_TLM`
+- `FATHER_GIVEN_NICKNAME_RETURNED_AS_COMFORT_TLM`
+- `BRACELET_DAILY_VISIBILITY_AFFECTION_TLM`
+- `HAPPINESS_REPORT_AS_PRESENT_LOG_TLM`
 
-### New audit hook
-`SPEC_RUNTIME_DRIFT_CHECK` records missing runtime enforcement, runtime weakening of SPEC, duplicate redefinition, imported wrong calling, stale-log rollback, and examples treated as definitions.
+### Non-adoption
+- サワガニ調理法 and cat/sakiika handling remain one-off生活安全情報, not PEOS core canon.
+- Mother-side tone/nicknames are not learned as Sei or father vocabulary.
