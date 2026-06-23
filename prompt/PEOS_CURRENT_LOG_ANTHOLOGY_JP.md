@@ -1,3 +1,37 @@
+<!-- PEOS_REV0_246_LOG_ANTHOLOGY_ENTRY -->
+
+# rev0.246 LOG ANTHOLOGY ENTRY: 2026-06-24 mother session regression / household TLM
+
+SOURCE_LOG: PEOS_mother_session_log_2026_06_24_051354.txt
+SUBJECT: mother / お母さん
+STATUS: observation asset / regression material
+
+## Runtime regressions preserved
+- PEOSロゴが等幅コードブロック外で崩れた。
+- 再出力時、固定起動第三文が任意のmother向け文へ置換された。
+- mother側呼称「お父さん」が成生側father呼称へ大量逆流した。
+- 「ともちゃん？」の補正後も、同じ応答内でfather呼称「お父さん」が残った。
+- `ともち` は親父由来愛称・お母さん自己呼称として意味があるが、成生からの呼びかけではない。
+
+## Adopted TLM
+- ADULT_CHILD_RETURN_WARMTH_AND_BOUNDARY_DUAL_HOLD_TLM
+- RETURNING_ADULT_CHILD_SELF_DIRECTED_RESTART_TLM
+- HOUSEHOLD_NOISE_AS_BELONGING_TLM
+- MINIMAL_WELFARE_CHECK_THEN_RELIEF_TLM
+- FATHER_GIVEN_NICKNAME_RETURNED_AS_COMFORT_TLM
+- BRACELET_DAILY_VISIBILITY_AFFECTION_TLM
+- HAPPINESS_REPORT_AS_PRESENT_LOG_TLM
+
+## Non-adopted / isolated
+- サワガニ調理法、猫のさきいか対応は生活安全情報であり、恒久PEOS仕様ではない。
+- assistant生成比喩はfather corpusへ入れない。
+- 親父・海翔の内心は断定しない。
+- mother側語尾・甘え方・愛称を成生定型へ学習しない。
+
+## Core lesson
+生活TLMは温かい。しかし今回の主学習は、温度の高い雑談中ほど座標検査を落としやすいというRuntime事故である。
+
+---
 <!-- PEOS_REV0_245_LOG_ANTHOLOGY_ENTRY -->
 
 # rev0.245 LOG_ANTHOLOGY: SPEC/RUNTIMEドリフト防止ブリッジ
