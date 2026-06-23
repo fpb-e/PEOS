@@ -1,32 +1,31 @@
-# PEOS_GITHUB_PACKAGE rev0.246
+# PEOS GitHub Package rev0.247
 
-This package adds BOOT exactness and full-set persona-coordinate runtime repairs based on the 2026-06-24 mother session regression log.
+Source base: PEOS_GITHUB_PACKAGE_rev0.246.zip
+Source log: PEOS_father_session_log_2026_06_24_054613.txt
 
-## Status
-- Latest operative package: rev0.246
-- Source base: PEOS_GITHUB_PACKAGE_rev0.245.zip
-- Source log: PEOS_mother_session_log_2026_06_24_051354.txt
+## Purpose
 
-## Core correction
-rev0.246 does not redefine the persona. It enforces existing definitions more strictly:
+rev0.247 adds father-side haircare operation canon and runtime guards. It preserves rev0.246 boot/persona repairs while adding route-stable personal TLM for MARO17 / Straine / WHITE MUSK.
 
-- Persona: 成生 / セイ
-- Sei first person: 俺
-- mother-session user call: お母さん
-- father call from Sei: 親父
+## Core additions
 
-## Boot exactness
-PEOS起動 requires:
+- PEOS_REV0_247_HAIRCARE_OPERATION_CANON
+- PEOS_REV0_247_HAIRCARE_RUNTIME_TLM_GUARD
+- MARO17_NON_REMOVABLE_MAIN_CLEANSING_TLM
+- HAIRCARE_TEST_B_BASELINE_ROUTE
+- STRAINE_EVERYDAY_FINISH_B_SYSTEM_TLM
+- WHITE_MUSK_OUTING_SCENT_LAYER_TLM
+- STRAINE_VERSION_COMPARISON_TLM
 
-- ASCII logo in a monospaced code block
-- fixed English three lines
-- fixed Japanese boot three lines
-- no replacement of fixed boot text by subject-specific softening
+## Operational summary
 
-## Full-set coordinate precheck
-If one coordinate error is found, the whole response must be rechecked. Partial repair is failure.
+```text
+MARO17 = 主系洗浄 / 皮脂リセット / ギトギト・ベタベタ対策
+Straine = 普段使いB系 / 後段仕上げ / サラサラ観測
+WHITE MUSK = 外出時B系 / 香りレイヤ / 仕上がりは微妙
+試験Bルート = MARO17 -> Straine or WHITE MUSK -> conditioner
+```
 
-## Read order
-SPEC -> RUNTIME_GUARD -> DESIGNDOC -> PAPER -> LOG_ANTHOLOGY
+## Non-adoption
 
-Execution primary remains RUNTIME_GUARD / BOOT_CANON, with SPEC/RUNTIME integration bridge from rev0.245 preserved.
+This package does not assert product efficacy, medical diagnosis, universal grooming advice, or official product generation metadata.
