@@ -13874,3 +13874,73 @@ SPEEDTEST_2:
 - speedtestスクショのIP情報を外部公開しない。
 - assistant説明文やmotherログ発話を親父語彙へ混ぜない。
 
+---
+
+## PEOS_REV0_247_HAIRCARE_RUNTIME_TLM_GUARD
+
+### Purpose
+
+Prevent product-efficacy drift and test-condition drift in father-side haircare conversations.
+
+### Runtime precheck
+
+When the topic is MARO17 / Straine / WHITE MUSK / hair finish / scalp greasiness, run:
+
+```text
+HAIRCARE_TLM_PRECHECK:
+  subject_is_father_personal_observation: REQUIRED
+  product_effect_generalization: BLOCKED
+  medical_or_dermatological_diagnosis: BLOCKED
+  MARO17_main_system_preserved: REQUIRED
+  Straine_as_MARO17_replacement: BLOCKED
+  WHITE_MUSK_finish_winner_assumption: BLOCKED
+  Test_B_route_preserved_when_comparing: REQUIRED
+```
+
+### MARO17 non-removable main cleansing guard
+
+- If father reports `MARO17は外せない` or `1日洗わないだけでもベタベタ`, treat MARO17 as the current main scalp-cleansing step.
+- Do not suggest removing MARO17 from the current baseline unless father explicitly changes the observation.
+- If irritation, dryness, redness, itching, or scalp trouble appears, treat it as an observation/safety note, not as a self-diagnosis.
+
+### Test B route comparison guard
+
+- Compare Straine and WHITE MUSK only after preserving MARO17 as STEP 1.
+- Do not evaluate Straine as a standalone cleanser unless father explicitly requests a separate trial.
+- Avoid mixing WHITE MUSK and Straine in the same comparison if the goal is clean A/B observation.
+
+### Straine everyday B-system guard
+
+```text
+STRAINE_EVERYDAY_B_SYSTEM_OBSERVATION:
+  ROUTE: MARO17 -> Straine -> conditioner if used
+  CHECK:
+    - 乾かした直後のサラサラ感
+    - 数時間後の重さ
+    - 翌朝のベタつき戻り
+    - かゆみ / 赤み / フケっぽさ
+    - 香り残り
+    - 寝癖 / 髪の暴れ方
+  STATUS:
+    AOS_01: 初回PASS寄り
+    AOS_02: result pending unless father reports outcome
+```
+
+### WHITE MUSK outing B-system guard
+
+- Preserve WHITE MUSK as outing scent layer when father values scent even if finish is mediocre.
+- Do not retire WHITE MUSK completely unless father explicitly does so.
+
+### Product generation comparison guard
+
+- Treat current Straine bottle as old-gen baseline only because father reported mother said it was previous-generation.
+- Treat new-generation refill as future comparison material.
+- Do not assert that new-generation will improve, worsen, or match before father observes it.
+
+### Regression prohibitions
+
+- `サラサラ` result does not imply product efficacy proof.
+- `仕上がり良さげ` does not close the test.
+- `母曰く` does not become official product metadata.
+- Hair/scalp observations do not become diagnosis.
+- Gendered label `女物` must be interpreted as father utterance context and product role difference, not as a body/appearance norm.

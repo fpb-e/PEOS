@@ -5120,3 +5120,12 @@ SPEEDTEST_2:
 - speedtestスクショのIP情報を外部公開しない。
 - assistant説明文やmotherログ発話を親父語彙へ混ぜない。
 
+---
+
+## rev0.247 Philosophical Note: Grooming telemetry as A/B route discipline
+
+PEOS treats mundane grooming not as trivia but as operational telemetry when it affects daily stability, body feel, and self-maintenance. The lesson from this log is route discipline: do not compare outputs when the upstream condition has changed.
+
+MARO17 is the main reset. Straine is the ordinary finish candidate. WHITE MUSK is an outing scent layer. This gives the system a small but useful A/B testing frame: keep the main system stable, vary the downstream layer, observe over time.
+
+This also protects against overclaim. A good first finish is not proof. A family remark about product generation is not official metadata. A personal scalp baseline is not a diagnosis. The system preserves lived telemetry without pretending it is a clinical or commercial truth.

@@ -11723,3 +11723,99 @@ SPEEDTEST_2:
 - speedtestスクショのIP情報を外部公開しない。
 - assistant説明文やmotherログ発話を親父語彙へ混ぜない。
 
+---
+
+## PEOS_REV0_247_HAIRCARE_OPERATION_CANON
+
+### Scope
+
+This revision specifies father-side haircare operation as a personal TLM and evaluation protocol. It does not assert general product efficacy, dermatological diagnosis, or universal grooming rules.
+
+### Haircare role registry
+
+```text
+MAIN_SYSTEM:
+  PRODUCT: MARO17
+  ROLE:
+    - 主系洗浄
+    - 皮脂リセット
+    - ギトギト / ベタベタ対策
+  CANONICAL_STATUS:
+    - 親父の現行運用では外せない
+    - 1日洗わないだけでもベタベタになるというfather TLMを保持
+    - StraineまたはWHITE MUSKの良好結果によって置換しない
+
+EVERYDAY_B_SYSTEM:
+  PRODUCT: Straine
+  ROLE:
+    - 普段使いB系
+    - 後段仕上げ
+    - サラサラ感 / 指通り / まとまりの確認対象
+  CURRENT_STATUS:
+    - 初回AOS: 仕上がり良さげ / 結構サラサラ
+    - 二回目使用済み / 結果待ち
+    - 現ボトルは母情報では1世代前
+    - 切れたら新世代詰め替えを比較対象にする予定
+
+OUTING_B_SYSTEM:
+  PRODUCT: WHITE MUSK shampoo/conditioner
+  ROLE:
+    - 外出時B系
+    - 香りレイヤ
+  CURRENT_STATUS:
+    - 匂いは価値あり
+    - 仕上がりは微妙
+    - 普段使い仕上げ主系としてはStraineに比較される
+```
+
+### Test B baseline route
+
+```text
+HAIRCARE_TEST_B_BASELINE_ROUTE:
+  STEP_1:
+    PRODUCT: MARO17
+    ROLE: 主系洗浄 / 皮脂リセット
+  STEP_2:
+    PRODUCT: Straine or WHITE MUSK
+    ROLE:
+      Straine: 普段使いB系 / 後段仕上げ
+      WHITE MUSK: 外出時B系 / 香り
+  STEP_3:
+    PRODUCT: conditioner
+    ROLE: 指通り / まとまり
+```
+
+### Product-source separation
+
+- `母曰く1世代前` は user-provided family/product TLM として扱い、公式確認済み商品事実へ格上げしない。
+- 商品効能は一般断定しない。
+- 評価は親父の使用後TLMとして、乾燥後、数時間後、翌朝の観測で見る。
+- 頭皮・髪の観測は医療診断ではない。
+
+### Evaluation vocabulary
+
+以下はfather utterance / father-facing operation vocabularyとして採用可能。
+
+```text
+試験Bルート
+主系洗浄
+後段仕上げ
+外出時B系
+普段使いB系
+香りB系
+ギトギト
+ベタベタ
+サラサラ
+旧世代
+新世代詰め替え
+Straine_AOS_01
+Straine_AOS_02
+```
+
+### Non-adoption
+
+- StraineがMARO17を置換できると推定しない。
+- WHITE MUSKを仕上げ性能winnerとして扱わない。
+- MARO17の必要性を他者へ一般化しない。
+- scalp / hair conditionを診断名へ変換しない。
+- 商品レビュー・公式効能・医療助言へ拡張しない。

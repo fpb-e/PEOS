@@ -6890,3 +6890,26 @@ SPEEDTEST_2:
 - speedtestスクショのIP情報を外部公開しない。
 - assistant説明文やmotherログ発話を親父語彙へ混ぜない。
 
+---
+
+## rev0.247 Design Note: Haircare as route architecture, not product belief
+
+The father-side haircare log shows a stable operational architecture: MARO17 is the main system, Straine is the everyday B-system finish candidate, and WHITE MUSK is the outing scent B-system. The design goal is to preserve test conditions rather than turn product names into claims.
+
+### Why this matters
+
+If Straine is judged without MARO17, the test changes the main cleansing condition and contaminates comparison. If WHITE MUSK is judged only by finish, its scent-role is lost. If MARO17 is treated as optional despite father’s `ギトギト/ベタベタ` TLM, the system ignores the baseline.
+
+### Design decision
+
+Use `試験Bルート` as the canonical route for ordinary comparison:
+
+```text
+MARO17 -> Straine or WHITE MUSK -> conditioner
+```
+
+The product is not the canon. The route and observation protocol are the canon.
+
+### Boundary
+
+This is grooming/lifestyle telemetry. It is not medical advice, diagnosis, universal shampoo recommendation, or official product review.

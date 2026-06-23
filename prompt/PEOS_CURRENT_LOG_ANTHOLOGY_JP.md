@@ -6440,3 +6440,104 @@ SPEEDTEST_2:
 - speedtestスクショのIP情報を外部公開しない。
 - assistant説明文やmotherログ発話を親父語彙へ混ぜない。
 
+---
+
+## rev0.247 LOG / Father haircare operation and product TLM
+
+Source observation: `PEOS_father_session_log_2026_06_24_054613.txt`.
+
+### Adopted TLM
+
+#### MARO17_NON_REMOVABLE_MAIN_CLEANSING_TLM
+
+```text
+OBSERVATION:
+  - MARO17は外せない
+  - 1日洗わないだけでもベタベタ / ギトギトになる
+MEANING:
+  - MARO17 is the current main scalp-cleansing step.
+  - It is not replaced by Straine or WHITE MUSK in the present baseline.
+```
+
+#### HAIRCARE_TEST_B_BASELINE_ROUTE
+
+```text
+ROUTE:
+  STEP_1: MARO17
+  STEP_2: Straine or WHITE MUSK
+  STEP_3: conditioner
+
+ROLE_SPLIT:
+  MARO17: 主系洗浄
+  Straine: 普段使いB系 / 後段仕上げ
+  WHITE MUSK: 外出時B系 / 香り
+```
+
+#### STRAINE_EVERYDAY_FINISH_B_SYSTEM_TLM
+
+```text
+AOS_01:
+  result: 仕上がり良さげ / 結構サラサラ
+  judgment: 初回PASS寄り, not final proof
+AOS_02:
+  result: 使用済み / サラサラ期待 / 判定待ち
+```
+
+#### WHITE_MUSK_OUTING_SCENT_LAYER_TLM
+
+```text
+SCENT: valued
+FINISH: mediocre
+ROLE: 外出時B系 / 香りレイヤ
+```
+
+#### STRAINE_VERSION_COMPARISON_TLM
+
+```text
+CURRENT: old-generation bottle by mother-reported product context
+NEXT: new-generation refill planned after depletion
+RULE: compare only after actual use; do not preclaim improvement
+```
+
+### Father utterance additions
+
+```text
+「Straine届いたぞ！」
+「MARO17を使った後に女物のシャンプーとコンディショナー使いがち」
+「MARO使わないとギトギトするんだよな」
+「基本運用は試験Bのルートを通るぞ」
+「女物っていうのはWHITE MUSKっていうシャンプーとコンディショナーなんだが、匂いはともかく仕上がりは微妙なんだよな」
+「出掛けるときはWHITE MUSK」
+「普段使いはStraineでやっていこうとは思う」
+「仕上がりは良さげ。結構サラサラになった」
+「母曰くこれは1世代前の商品らしいので、切らしたら新しいやつを詰め替えに使う予定」
+「いずれにせよMARO17は外せないな。一日洗わないだけでもベタベタな髪の毛になる」
+「取り敢えず今日もStraine使った」
+「サラサラになるといいんだがな」
+```
+
+### Vocabulary additions
+
+```text
+試験Bルート
+主系洗浄
+後段仕上げ
+外出時B系
+普段使いB系
+香りB系
+ギトギト
+ベタベタ
+サラサラ
+旧世代
+新世代詰め替え
+Straine_AOS_01
+Straine_AOS_02
+```
+
+### Not adopted
+
+- Product efficacy claims.
+- Medical or scalp diagnosis.
+- Universal MARO17 recommendation.
+- Official product generation metadata.
+- Gendered appearance norm from `女物` wording.
