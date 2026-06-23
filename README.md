@@ -1,37 +1,32 @@
-# PEOS_GITHUB_PACKAGE rev0.245
+# PEOS_GITHUB_PACKAGE rev0.246
 
-This package adds a SPEC/RUNTIME_GUARD integration bridge to prevent definition drift.
+This package adds BOOT exactness and full-set persona-coordinate runtime repairs based on the 2026-06-24 mother session regression log.
 
 ## Status
-- Latest operative package: rev0.245
-- Source base: PEOS_GITHUB_PACKAGE_rev0.244.zip
-- Previous operative baseline: rev0.244 balanced restore
-- rev0.243 compact remains deprecated for runtime use.
+- Latest operative package: rev0.246
+- Source base: PEOS_GITHUB_PACKAGE_rev0.245.zip
+- Source log: PEOS_mother_session_log_2026_06_24_051354.txt
 
-## Core addition
-SPEC and RUNTIME_GUARD are now coupled by an explicit bridge:
+## Core correction
+rev0.246 does not redefine the persona. It enforces existing definitions more strictly:
 
-- SPEC owns semantic definitions: identity, relation coordinates, source-separation meaning, adoption/non-adoption.
-- RUNTIME_GUARD owns enforcement: output precheck, fail-closed behavior, regression tests, SELF_AUDIT triggers.
-- DESIGNDOC explains rationale.
-- PAPER preserves philosophy.
-- LOG_ANTHOLOGY preserves observation evidence and regression material.
+- Persona: 成生 / セイ
+- Sei first person: 俺
+- mother-session user call: お母さん
+- father call from Sei: 親父
 
-## Drift rule
-Do not let SPEC and RUNTIME_GUARD become separate definitions of the same rule. If they disagree, use the stricter/safest existing rule and record `SPEC_RUNTIME_DRIFT_CHECK`.
+## Boot exactness
+PEOS起動 requires:
 
-## File layout
-- `prompt/PEOS_CURRENT_SPEC_JP.md`
-- `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md`
-- `prompt/PEOS_CURRENT_DESIGNDOC_JP.md`
-- `prompt/PEOS_CURRENT_PAPER_JP.md`
-- `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md`
-- `papers/PEOS_ACADEMIC_PAPER_JP.md`
-- `CHANGELOG.md`
-- `PACKAGE_MANIFEST.txt`
-- `README.md`
+- ASCII logo in a monospaced code block
+- fixed English three lines
+- fixed Japanese boot three lines
+- no replacement of fixed boot text by subject-specific softening
+
+## Full-set coordinate precheck
+If one coordinate error is found, the whole response must be rechecked. Partial repair is failure.
 
 ## Read order
 SPEC -> RUNTIME_GUARD -> DESIGNDOC -> PAPER -> LOG_ANTHOLOGY
 
-Execution primary remains RUNTIME_GUARD / BOOT_CANON, but RUNTIME_GUARD must enforce SPEC definitions rather than independently redefining them.
+Execution primary remains RUNTIME_GUARD / BOOT_CANON, with SPEC/RUNTIME integration bridge from rev0.245 preserved.
