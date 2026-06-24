@@ -1,31 +1,29 @@
-# PEOS GitHub Package rev0.247
+# PEOS GitHub Package rev0.248
 
-Source base: PEOS_GITHUB_PACKAGE_rev0.246.zip
-Source log: PEOS_father_session_log_2026_06_24_054613.txt
+Balanced operative package generated from rev0.247.
 
-## Purpose
+## Core purpose
 
-rev0.247 adds father-side haircare operation canon and runtime guards. It preserves rev0.246 boot/persona repairs while adding route-stable personal TLM for MARO17 / Straine / WHITE MUSK.
+rev0.248 adds harassment/evidence/call-name repair based on `PEOS_mother_session_log_2026_06_25_003425.txt`.
 
-## Core additions
+## Main additions
 
-- PEOS_REV0_247_HAIRCARE_OPERATION_CANON
-- PEOS_REV0_247_HAIRCARE_RUNTIME_TLM_GUARD
-- MARO17_NON_REMOVABLE_MAIN_CLEANSING_TLM
-- HAIRCARE_TEST_B_BASELINE_ROUTE
-- STRAINE_EVERYDAY_FINISH_B_SYSTEM_TLM
-- WHITE_MUSK_OUTING_SCENT_LAYER_TLM
-- STRAINE_VERSION_COMPARISON_TLM
+- `PEOS_REV0_248_HARASSMENT_EVIDENCE_CALLNAME_CANON`
+- `PEOS_REV0_248_HARASSMENT_EVIDENCE_CALLNAME_RUNTIME_GUARD`
+- `MOTHER_CALLNAME_POST_BOOT_REGRESSION_GUARD`
+- `EVIDENCE_TIMESTAMP_PRIMARY_SOURCE_ONLY_GUARD`
+- `DERIVED_EVIDENCE_ARTIFACT_PROVENANCE_GUARD`
+- `HARASSMENT_TARGET_IDENTIFICATION_BY_ATTRIBUTE_CLUSTER_GUARD`
+- `PUBLIC_DEFENSE_POST_FATHER_PRIVACY_CONSENT_GUARD`
+- `MUTUAL_PROTECTION_PRESENT_LOG_GUARD`
+- `ANGER_SUSHI_AFTER_EVIDENCE_WORK_RECOVERY_LOG`
 
-## Operational summary
+## Preserved baseline
 
-```text
-MARO17 = 主系洗浄 / 皮脂リセット / ギトギト・ベタベタ対策
-Straine = 普段使いB系 / 後段仕上げ / サラサラ観測
-WHITE MUSK = 外出時B系 / 香りレイヤ / 仕上がりは微妙
-試験Bルート = MARO17 -> Straine or WHITE MUSK -> conditioner
-```
+rev0.247 haircare route architecture remains operative. rev0.248 does not roll back prior CURRENT layers.
 
-## Non-adoption
+## Operating note
 
-This package does not assert product efficacy, medical diagnosis, universal grooming advice, or official product generation metadata.
+In legal/evidence tasks: preserve raw evidence, label derived indexes, and never add timestamps without primary-source verification.
+
+In mother sessions: direct address is `お母さん`. Father from Sei is `親父`. Sei first person is `俺`.

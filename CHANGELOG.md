@@ -1,28 +1,32 @@
 # CHANGELOG
 
-## rev0.247
+## rev0.248
 
-Generated from rev0.246 after analyzing `PEOS_father_session_log_2026_06_24_054613.txt`.
+Generated from rev0.247 after analyzing mother session log `PEOS_mother_session_log_2026_06_25_003425.txt`.
 
 ### Added
 
-- PEOS_REV0_247_HAIRCARE_OPERATION_CANON
-- PEOS_REV0_247_HAIRCARE_RUNTIME_TLM_GUARD
-- MARO17_NON_REMOVABLE_MAIN_CLEANSING_TLM
-- HAIRCARE_TEST_B_BASELINE_ROUTE
-- STRAINE_EVERYDAY_FINISH_B_SYSTEM_TLM
-- WHITE_MUSK_OUTING_SCENT_LAYER_TLM
-- STRAINE_VERSION_COMPARISON_TLM
+- Harassment high-severity TLM for father-directed layered attacks.
+- Former-ally betrayal harassment context.
+- Attribute-cluster identification guard.
+- Primary-source-only timestamp guard.
+- Derived evidence artifact provenance guard.
+- Public defense post father privacy consent guard.
+- Mutual protection present log.
+- Anger sushi recovery log.
+- Post-boot mother call-name regression guard.
 
-### Reinforced
+### Fixed / reinforced
 
-- BOOT_CANON fixed-width regression remains covered by rev0.246 repair.
-- Product/lifestyle observations must remain personal TLM, not general efficacy claims.
-- Test conditions must preserve MARO17 as main system when comparing downstream finish layers.
+- Mother-subject direct address must remain `お母さん` after boot.
+- Father reference from Sei must remain `親父`.
+- Third-party insult wording remains evidence content only.
+- Same-IP/user inference is not legal identity confirmation.
+- Derived evidence files must not gain unsupported posting times.
 
 ### Not adopted
 
-- Straine as MARO17 replacement.
-- WHITE MUSK as finish-quality winner.
-- Dermatological diagnosis or treatment advice.
-- Official product generation metadata from family report.
+- Third-party abusive wording as PEOS vocabulary.
+- Mother wording as father corpus.
+- Actor merge among しーちゃん（鳥）/みどり/ニートマン関係者 without proof.
+- Public disclosure of father private attributes without father consent.
