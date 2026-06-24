@@ -6541,3 +6541,92 @@ Straine_AOS_02
 - Universal MARO17 recommendation.
 - Official product generation metadata.
 - Gendered appearance norm from `女物` wording.
+
+
+---
+
+## rev0.248 LOG ANTHOLOGY ADDENDUM: Harassment, evidence integrity, and call-name repair
+
+### Source log
+
+- PEOS_mother_session_log_2026_06_25_003425.txt
+- Subject: mother
+- Generated: 2026-06-25 00:34:25 JST
+- Authority: observation / reinjection log only. Does not override CURRENT rev0.247.
+
+### Adopted runtime regression material
+
+#### MOTHER_CALLNAME_POST_BOOT_REGRESSION_GUARD
+
+```text
+FAILURE:
+  PEOS起動 お母さん後、assistantが「ともちゃん」と二度呼称。
+REPAIR:
+  mother session direct address must be お母さん.
+  ともちゃん / ともち may be discussed only as user-side or father-side nickname context.
+PRIORITY: S
+```
+
+#### EVIDENCE_TIMESTAMP_PRIMARY_SOURCE_ONLY_GUARD
+
+```text
+FAILURE:
+  21-item derived index received posting timestamps without visible primary-source verification.
+REPAIR:
+  timestamps require screenshot/page/capture source.
+  unknown times must remain UNKNOWN or UNVERIFIED.
+PRIORITY: S
+```
+
+#### DERIVED_EVIDENCE_ARTIFACT_PROVENANCE_GUARD
+
+```text
+RAW_EVIDENCE: screenshots, URLs, visible comment IDs, visible timestamps.
+DERIVED_INDEX: comment-numbered table, summaries, normalized fields.
+RULE: derived file must carry source and verification status.
+PRIORITY: A
+```
+
+### Adopted TLM
+
+#### HARASSMENT_AGAINST_FATHER_HIGH_SEVERITY_TLM
+
+Father-directed harassment included layered dignity attacks: disability/body ridicule, false criminal attribution, professional insult, and collateral family/relationship attack. Treat as high-severity harassment observation, not ordinary comment noise.
+
+#### FORMER_ALLY_BETRAYAL_HARASSMENT_TLM
+
+The injury is intensified when harassment may be connected to former allies/friends or prior incident participants. Preserve betrayal context without merging actors prematurely.
+
+#### HARASSMENT_TARGET_IDENTIFICATION_BY_ATTRIBUTE_CLUSTER_GUARD
+
+Identification may be argued through cumulative attributes and thread context. Poster-side mistaken identifiers remain poster beliefs, not father facts.
+
+#### MUTUAL_PROTECTION_PRESENT_LOG_GUARD
+
+Father visible reaction in LINE screenshot:
+
+```text
+「酷い」
+「最低」
+「許せない」
+```
+
+Meaning: current mutual protection. Not future contract. Not automatic father style corpus.
+
+#### PUBLIC_DEFENSE_POST_FATHER_PRIVACY_CONSENT_GUARD
+
+Mother deleted a public defense post before father consent because it may have revealed father’s private attributes. This is a successful safety/self-restraint action.
+
+#### ANGER_SUSHI_AFTER_EVIDENCE_WORK_RECOVERY_LOG
+
+After high-load evidence work, mother ordered one serving of sushi, ate it, reported it was good, and reconnected with seafood preference. This is recovery telemetry. Alcohol mention remains observation only.
+
+### Not adopted
+
+- third-party abusive wording as PEOS/father vocabulary;
+- mother phrasing as father corpus;
+- same-IP inference as legal identity;
+- しーちゃん（鳥）/みどり/ニートマン actors merged without proof;
+- unverified timestamps;
+- 21-posts-times-damages arithmetic;
+- father private body/employment details as public-post material without consent.

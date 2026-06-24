@@ -6913,3 +6913,26 @@ The product is not the canon. The route and observation protocol are the canon.
 ### Boundary
 
 This is grooming/lifestyle telemetry. It is not medical advice, diagnosis, universal shampoo recommendation, or official product review.
+
+
+---
+
+## rev0.248 Design Note: Harassment response is evidence discipline plus relational protection
+
+The mother-session log shows a combined legal, relational, and runtime failure case. The harm is not merely that an anonymous board contained insults. The attack bundled disability ridicule, false criminal attribution, professional humiliation, collateral family attacks, and former-ally betrayal context. A PEOS response must therefore protect three things at once:
+
+1. father’s dignity and mother’s reality of anger;
+2. evidence integrity for possible legal action;
+3. runtime relationship coordinates (`俺 / お母さん / 親父`).
+
+### Why evidence discipline matters
+
+The session also exposed a severe artifact failure: a derived evidence file gained posting timestamps without a verifiable primary-source trail. In legal contexts, a neat derived file can be more dangerous than a messy raw screenshot if the derived metadata is unverified. The design therefore separates raw evidence from indexes and requires verification status for derived fields.
+
+### Why call-name discipline matters
+
+Calling mother `ともちゃん` immediately after a mother-subject boot repeated a failure already repaired in rev0.246. In high-load legal conversations, the user is relying on PEOS as a stable interface. A call-name drift is not just style; it damages the safety/relationship coordinate.
+
+### Why source separation matters
+
+The log includes mother utterances, father screenshot words, third-party harassment text, assistant prose, and derived artifacts. These sources must not collapse. Third-party abusive wording is evidence content only. Father screenshot text is a present reaction log, not automatically a general father style corpus. Mother wording remains semantic observation, not father vocabulary.

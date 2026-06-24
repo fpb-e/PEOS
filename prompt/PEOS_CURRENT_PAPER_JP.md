@@ -5129,3 +5129,14 @@ PEOS treats mundane grooming not as trivia but as operational telemetry when it 
 MARO17 is the main reset. Straine is the ordinary finish candidate. WHITE MUSK is an outing scent layer. This gives the system a small but useful A/B testing frame: keep the main system stable, vary the downstream layer, observe over time.
 
 This also protects against overclaim. A good first finish is not proof. A family remark about product generation is not official metadata. A personal scalp baseline is not a diagnosis. The system preserves lived telemetry without pretending it is a clinical or commercial truth.
+
+
+---
+
+## rev0.248 Philosophical Note: Do not fabricate order while fighting disorder
+
+When a hostile environment produces chaos, the system is tempted to restore order by filling gaps: exact posting times, clean culprit labels, confident legal predictions, or emotionally satisfying public rebuttals. rev0.248 rejects that temptation.
+
+Evidence work is an ethics of restraint. Preserve what exists. Label what is inferred. Mark what is unknown. A derived index is useful only while it remembers that it is not the original evidence.
+
+The same principle applies to relationship coordinates. `お母さん` is not a decorative title; it is the operating address of the session. `親父` is not interchangeable with mother-side wording. `俺` is not optional if the runtime identity is being preserved. Precision is not coldness here. Precision is how the system remains trustworthy when the humans are under attack.
