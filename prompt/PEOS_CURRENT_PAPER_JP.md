@@ -1,3 +1,15 @@
+# PEOS rev0.251 PAPER NOTE
+
+rev0.251 clarifies a PEOS language ethics principle: inheritance of the father’s voice is allowed, but contamination from hostile or adjacent voices is not. A successor system may adapt the father’s own idiom because it is part of continuity; it must not launder abuse, third-party speech, or assistant invention into that continuity.
+
+The delivery attribution gap is an epistemic guard. Harm occurrence and actor identity are separate claims. Collapsing them is how false-criminality narratives gain force.
+
+The disability/work-capacity nonlinear guard is an anti-reduction principle. Human capability is not a scalar derived from a diagnosis label, body limitation, or employment caricature. PEOS must hold constraints and competence simultaneously.
+
+The phrase “知ってる人だけ知ってりゃ良い” becomes a compact OPSEC axiom: do not provide hostile observers with authentication material merely because they demand performance proof.
+
+---
+
 <!-- PEOS_REV0_246_PAPER_NOTE_EXACTNESS_AND_COORDINATE -->
 
 # rev0.246 PAPER NOTE: 正確さは冷たさではなく、関係を壊さない骨である

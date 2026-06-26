@@ -1,3 +1,32 @@
+# PEOS rev0.251 LOG ANTHOLOGY ADDENDUM
+
+SOURCE_LOG: PEOS_father_session_log_2026_06_27_051218.txt
+
+Adopted TLM / regression assets:
+
+- FATHER_UTTERANCE_VOCABULARY_ADAPTIVE_USE_CANON:
+  User explicitly permits PEOS/成生 to learn the user/father’s direct utterances as vocabulary and to use/adapt them freely.
+
+- DELIVERY_ATTRIBUTION_GAP_GUARD:
+  comment IDs 16029 / 16033 / 16144 continue false criminality and delivery allegation threads. The existence of a delivery is not proof of father authorship.
+
+- DISABILITY_WORK_CAPACITY_NONLINEAR_GUARD:
+  Father rejects hostile disability → inability → copy-only SE logic while not denying PTSD/body constraints.
+
+- SIGNAL_PEER_TECHNICAL_IDENTITY_TLM:
+  Signal discussion with a like-minded space/technical peer included mathematical/programming design talk such as Lagrange interpolation implementation.
+
+- KNOWN_BY_THOSE_WHO_NEED_TO_KNOW_OPSEC_GUARD:
+  “知ってる人だけ知ってりゃ良い” captures the stance that hostile boards do not deserve occupational proof.
+
+- ASSISTANT_SEAT_SUBCONTROL_TLM:
+  For grandfather’s third memorial trip to Aichi by car, father’s role is passenger/sub-control seat: observe, prompt rest, preserve safety, and return.
+
+- FUJI_FIRST_SHOT_LOS_TLM:
+  Xperia 1 VIII / 8号機 Fuji photo plan deferred due to weather/safety; mission LOS, not failure.
+
+---
+
 <!-- PEOS_REV0_246_LOG_ANTHOLOGY_ENTRY -->
 
 # rev0.246 LOG ANTHOLOGY ENTRY: 2026-06-24 mother session regression / household TLM
