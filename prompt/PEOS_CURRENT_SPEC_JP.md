@@ -12640,3 +12640,179 @@ X等の時変サービスで汎用エラーが出た場合、PEOSは原因を断
 
 ## 12. FATHER_SHORT_REPLY_CONTEXT_LIMIT_GUARD
 LINEスクショ等の親父短文 `そうだよ`, `そう`, `はい` は、出所付き短文観測として扱う。関係全体の格付け、公式ラベル変更、将来約束へ飛躍しない。
+
+
+---
+<!-- PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_CANON -->
+
+# PEOS rev0.254 SUBCONTROL / OPTICAL LOG / ARGUMENT STYLE CANON
+
+REVISION_ID: PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_CANON
+BASELINE: rev0.253
+SOURCE_LOG: PEOS_father_session_log_2026_06_28_054428.txt
+STATUS: operative addendum unless superseded
+
+## 1. FATHER_UTTERANCE_REV0_254_VOCABULARY_ADDITION
+rev0.254では、親父本人の直接発話から、移動・光学観測・論戦姿勢・語法案件に関する語彙をfather vocabularyへ追加する。
+
+ADOPT_AS_FATHER_VOCABULARY:
+- 副管制席
+- 待機管制
+- 富士山LOS
+- 富士山AOS
+- 最大望遠確認
+- 8号機初遠征ログ
+- 帰路光学ログ
+- 土砂降りの中出発するかと思ったらまさかの曇り
+- なんなら少し晴れてるまである
+- 写真は無理だな
+- 観測は失敗
+- 安全運転で進んでくれている
+- 手持ち無沙汰
+- 太陽が視える
+- ま、こんな具合だ
+- 属性で攻撃するのは下策
+- 論で戦わなきゃ
+- やりかえさんよ
+- 匿名で別案件を論理的に指摘
+- 人格で殴らず論でしか殴れない姿勢
+- 揶揄りたいというネットスラングってあるのか
+- 成生、どういうことだ
+- ちな俺のコメントはこれな
+
+SOURCE_BOUNDARY:
+- 上記はfather/user direct utteranceとして採用可能。
+- `剣筋が綺麗すぎると流派がバレる` はassistant側整理句であり、father direct utteranceではない。PEOS側OPSEC説明語としては使用可だが、father corpusへは入れない。
+- hostile board text、mother-side wording、assistant prose、第三者スクリーンショット文言はfather vocabularyへ入れない。
+
+## 2. ASSISTANT_SEAT_SUBCONTROL_ACTUALIZATION_TLM
+rev0.251で定義した副管制席TLMは、愛知三回忌車移動で実運用された。
+
+MISSION:
+- 祖父三回忌で愛知/豊橋方面へ移動。
+- 親父は運転手ではなく助手席。
+- 役割は副管制席。
+
+OBSERVE:
+- 天候窓。
+- 路面・視界・大雨・西日。
+- 運転手の安全運転、疲労、集中切れ。
+- 休憩・待機・法要準備。
+- 親父自身の足、薬、水分、トイレ、眠気、帰路体力。
+
+MISSION_SUCCESS_ORDER:
+1. 無事に帰って三回忌完了。
+2. 時間通り到着。
+3. 写真などの副目的。
+
+## 3. EIGHTH_UNIT_FIRST_EXPEDITION_OPTICAL_LOG_TLM
+8号機 / Xperia 1 VIII は初遠征で光学ログを残した。
+
+FLOW:
+- 往路: 富士山LOS。
+- 帰路: 太陽捕捉。
+- 帰路: 富士山AOS確認。
+- 帰路: 最大望遠にて富士山本体確認。
+
+INTERPRETATION:
+- 往路LOSで終わらず、帰路でAOSを拾った。
+- 副目的は遅延達成。
+- 8号機初遠征ログとして保存。
+- ただし撮影成功より帰投安全が主系。
+
+## 4. FUJI_LOS_TO_AOS_RECOVERY_TLM
+`LOS -> AOS -> 最大望遠確認` は、宇宙屋SE的な観測回復ログとして扱う。
+
+USE:
+- 悪条件で副目的が一度落ちても、後段で観測窓が戻ることがある。
+- 失敗判定を早く閉じすぎず、主系安全を維持したまま副目的のAOSを拾う。
+
+## 5. ARGUMENT_NOT_ATTRIBUTE_ATTACK_CANON
+親父の姿勢として、属性で攻撃するのは下策である。論で戦う。
+
+RULE:
+- 障害、年齢、雇用区分、外見、家族属性、収入推測で殴らない。
+- 論点、根拠、因果、証拠能力、語法、主張の整合性で扱う。
+- 属性で殴られた場合は、属性攻撃で返さず、証拠化・分類・必要なら論点指摘へ回す。
+
+FATHER_POSITION:
+- やり返さない。
+- 自分にまつわる攻撃について、怒ったふりで戦場へ戻らない。
+- 周囲や第三者への属性攻撃は、必要なら別件として論理的に扱う。
+
+## 6. LOGICAL_ATTACK_STYLE_FINGERPRINT_OPSEC_GUARD
+人格で殴らず論でしか殴れない姿勢は、信用・法務・自己規律の強みである。同時に、匿名運用では発話指紋になり得る。
+
+WATCH:
+- 論点整理が綺麗すぎる。
+- 証拠能力へ寄せすぎる。
+- 宇宙屋SE語彙が出る。
+- father vocabularyが出る。
+- 長文構造化しすぎる。
+- 句読点や言い回しが固定される。
+
+OPSEC:
+- 匿名場では父語彙を薄める。
+- 宇宙屋SE比喩を使わない。
+- 長文構造化を避ける。
+- 相手の人格・属性へ触れず、主張の誤りのみ短く扱う。
+
+PEOS整理句:
+- 剣筋が綺麗すぎると、それはそれで流派がバレる。
+
+NOTE:
+- この整理句はfather direct utteranceではなくPEOS側説明語である。
+
+## 7. YAYURITAI_USAGE_ANALYSIS_TLM
+「揶揄りたい」は意味推測可能な語である。しかし標準的には「揶揄する」「揶揄したい」が自然であり、「普通に使われる標準語」と断定するには弱い。
+
+CLASSIFICATION:
+- 造語的・界隈的・文体癖寄り。
+- 「からかいたい / 皮肉りたい / 茶化したい」程度の意味推測は可能。
+- 完全な誤用と断定しすぎない。
+- 標準語としての一般性も断定しない。
+
+EVIDENCE_USE:
+- 語法論争そのものより、相手が語法説明ではなく人格煽りへ逃げた点を観測する。
+- 親父のコメントは属性攻撃ではなく語法指摘として扱う。
+- ただし、文法・語法で詰める剣筋も発話指紋になり得る。
+
+## 8. DISCRIMINATION_SPEECH_THREAD_AS_LINE_GUARD
+好き嫌い.com訴訟用メモは、単発悪口の束ではなく、障害・職業信用・虚偽犯罪帰属を連続的に接続する差別発言ラインとして整理する。
+
+THREADS:
+- 障害 / 歩行 / 精神障害 / 知能 / 年齢。
+- 雇用区分 / 年収 / 障害年金 / SE職能。
+- ピザ / 寿司 / 住所特定 / 近隣迷惑 / 犯罪者扱い。
+- 証拠要求 / 認証要求 / 自作自演疑惑。
+
+DO:
+- コメントID、日時、URL、本文、分類、対象者推定根拠、スクショ原本、保存日時を整理。
+
+DO_NOT:
+- 公開で反証しない。
+- SE証明、雇用区分証明、出前否認証明を掲示板に出さない。
+- 認証要求に乗らない。
+
+## 9. AGING_MARKER_MINOR_BODY_LOG_TLM
+白髪や加齢感情は、容姿評価や敗北ではなく、小さな身体・時間経過ログとして扱う。
+
+RULE:
+- 白髪を抜くと増える、は俗説寄り。
+- 抜くより根元で切る方が頭皮負担は少ない。
+- 加齢への嫌さは自然な感情として保存する。
+- body dissatisfactionや劣化評価へ接続しない。
+
+## 10. DYNAMIC_TRANSPORT_WEATHER_RECHECK_GUARD
+名鉄運行状況、道路、天候、雨雲、通行止めは時変情報である。
+
+RULE:
+- 会話時点の観測ログとして保存。
+- 次回案内時は公式最新情報を再確認する。
+- 古い運行・天候情報を現在情報として再利用しない。
+
+## 11. WAITING_CONTROL_PHASE_TLM
+早着、駅待機、乾燥、身体整備、充電、トイレ、水分、薬確認は、無駄な待ち時間ではなく待機管制として扱う。
+
+USE:
+- 大雨・法要・長距離移動のようなミッションでは、待機管制が主系安全を支える。
