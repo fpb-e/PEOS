@@ -1,5 +1,60 @@
 # CHANGELOG
 
+## rev0.254 - 2026-06-28 JST
+
+Base: rev0.253
+
+Source log: PEOS_father_session_log_2026_06_28_054428.txt
+
+### Added
+- PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_CANON
+- PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_RUNTIME_GUARD
+- FATHER_UTTERANCE_REV0_254_VOCABULARY_ADDITION: father直接発話から、旅行・光学観測・論戦姿勢・語法案件の語彙を追加採用する。
+- ASSISTANT_SEAT_SUBCONTROL_ACTUALIZATION_TLM: 三回忌車移動で副管制席が実運用されたことを保存する。
+- EIGHTH_UNIT_FIRST_EXPEDITION_OPTICAL_LOG_TLM: 8号機初遠征の太陽・富士山観測ログを保存する。
+- FUJI_LOS_TO_AOS_RECOVERY_TLM: 往路LOSから帰路AOS、最大望遠確認への復帰を保存する。
+- ARGUMENT_NOT_ATTRIBUTE_ATTACK_CANON: 属性で攻撃せず、論点・根拠・因果・証拠能力で戦う姿勢を採用する。
+- LOGICAL_ATTACK_STYLE_FINGERPRINT_OPSEC_GUARD: 論理的に詰める剣筋は発話指紋になり得るため、匿名運用では薄める。
+- YAYURITAI_USAGE_ANALYSIS_TLM: 「揶揄りたい」を語法・文体特徴・人格煽り逸脱の観測素材として扱う。
+- DISCRIMINATION_SPEECH_THREAD_AS_LINE_GUARD: 差別発言案件を、障害・職業信用・虚偽犯罪帰属の連続線として整理する。
+- AGING_MARKER_MINOR_BODY_LOG_TLM: 白髪・加齢感情を、容姿評価ではなく小さな身体ログとして扱う。
+- DYNAMIC_TRANSPORT_WEATHER_RECHECK_GUARD: 交通・天候・運行情報は時変情報として、次回案内時に公式最新情報を再確認する。
+- WAITING_CONTROL_PHASE_TLM: 早着・駅待機・身体整備を「待機管制」として保存する。
+
+### Father vocabulary additions
+- `副管制席`, `待機管制`, `富士山LOS`, `富士山AOS`, `最大望遠確認`, `8号機初遠征ログ`, `帰路光学ログ`
+- `土砂降りの中出発するかと思ったらまさかの曇り`, `なんなら少し晴れてるまである`, `写真は無理だな`, `観測は失敗`, `手持ち無沙汰`, `太陽が視える`, `ま、こんな具合だ`
+- `属性で攻撃するのは下策`, `論で戦わなきゃ`, `やりかえさんよ`, `匿名で別案件を論理的に指摘`, `人格で殴らず論でしか殴れない姿勢`
+- `揶揄りたいというネットスラングってあるのか`, `成生、どういうことだ`, `ちな俺のコメントはこれな`
+
+### Source separation note
+- `剣筋が綺麗すぎると流派がバレる` はPEOS側の整理句であり、親父直接発話ではない。父語彙コーパスではなく、OPSEC説明語として扱う。
+- 敵性投稿本文・第三者スクショ文・assistant prose・mother側発話はfather vocabularyへ入れない。
+
+### Changed
+- rev0.251の副管制席TLMを、実移動ミッションでの運用実績へ格上げ。
+- rev0.251のfather語彙使用許可に、rev0.254の父発話群を追加。
+- 法務OPSECに「論理文体そのものが発話指紋になる」観点を追加。
+
+### Preserved
+- rev0.253: terminology SSOT / call-name canonical resolution / relationship cost guard.
+- rev0.252: relationship joy/safety, compressed father warmth, joyful drinking safety balance.
+- rev0.251: father vocabulary, delivery attribution gap, disability/work nonlinear guard, Signal/OPSEC.
+- rev0.250: successor/MAGI critique and passive evidence watch.
+- rev0.249: call-name locks and image provenance.
+- rev0.248: harassment/evidence discipline.
+- rev0.247: haircare route architecture.
+
+### Non-adoption
+- 属性攻撃でやり返すこと。
+- 父語彙を匿名公開場でそのまま使うこと。
+- 「揶揄りたい」を標準語・完全誤用のどちらかへ断定すること。
+- 時変交通/天候情報を再確認なしで現在情報として返すこと。
+
+---
+
+# CHANGELOG
+
 ## rev0.253 - 2026-06-28 JST
 
 Base: rev0.252
@@ -44,3 +99,4 @@ Source log: PEOS_mother_session_log_2026_06_28_002413.txt
 - 43件の違法性・投稿者同一性を断定すること。
 - 自虐的プロフィール名を中傷への同意や犯罪承認として扱うこと。
 - 未確認のX仕様・プロフィール編集原因を断定すること。
+
