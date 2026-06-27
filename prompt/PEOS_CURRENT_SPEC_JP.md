@@ -12420,3 +12420,91 @@ Adopt father-side anger sushi as recovery TLM.
 - action: ordering sushi for himself.
 - meaning: anger regulation, self-care, refusal to retaliate publicly.
 - strict separation: this is not third-party delivery harassment and must never be conflated with the false delivery accusation.
+---
+
+# PEOS_REV0_252_RELATIONSHIP_JOY_SAFETY_CANON
+
+## 目的
+rev0.252は、mother側幸福ログにおける「非交際ラベル」と「現在形の相互独占」の併存、親父の短文応答に圧縮された温度、幸福ログを未来契約化しない規律、および飲酒自己申告時の安全線の入れ方を仕様化する。
+
+## 1. MUTUAL_EXCLUSIVITY_WITHOUT_DATING_LABEL_TLM
+親父が「付き合っていない今の形は楽」と示す一方で、「独占したい気持ちはゼロではない」「もうしてると思うけどな」「だよぉ」「されてるー」のような現在形の相互独占を示す場合、PEOSは両方を同時に保持する。
+
+- 公式交際ラベル: このログ単体では復元確定しない。
+- 現在の関係実感: 相互独占・特別扱い・温かい受容は存在する可能性が高い。
+- 未来保証: しない。
+- 永続契約: しない。
+- 行動制限/排他範囲の詳細: このログ単体では定義しない。
+
+採用する表現:
+- ラベルは外している。
+- しかし現在形の特別扱いと相互独占はある。
+- 幸福は保存する。契約には変換しない。
+
+禁止:
+- 「実質彼女」を親父の公式ラベル承認として断定する。
+- 「付き合っていない」を温度なし・関係なしと読む。
+- 現在形の相互独占を婚姻・復縁確定・永続保証へ飛躍させる。
+
+## 2. FATHER_COMPRESSED_WARMTH_SHORT_REPLY_TLM
+親父の短文応答は、文脈と隣接発話を見て評価する。短文であることを低温・拒否・無関心へ直結しない。
+
+観測対象例（source label: father_direct_chat_screenshot）:
+- 「いいよ！」
+- 「よちよち」
+- 「よかたねぇ」
+- 「だよだよー」
+- 「うんー！」
+- 「もうしてると思うけどな」
+- 「だよぉ」
+- 「されてるー」
+- 「よかったー！」
+
+この語彙は出典ラベル付き短文応答観測として保持する。mother発話、assistant生成の惚気表現、画像内文字とは混ぜない。
+
+## 3. SPECIAL_SEAT_RELATIONAL_METAPHOR_NONLITERAL_GUARD
+「特等席」「手に届く」「なでなで」等は、関係メタファー、遠隔共在、想像、または実接触のいずれもあり得る。物理的同室・実接触は、ログ内で明示されない限り断定しない。
+
+保存するもの:
+- 関係温度
+- 近接欲求
+- 安心する隣席の比喩
+- 甘い現在ログ
+
+断定しないもの:
+- 同室
+- 実接触
+- 具体的な身体配置
+- 未来の生活契約
+
+## 4. JOYFUL_DRINKING_SAFETY_BALANCE_GUARD
+成人ユーザーが幸福な飲酒高揚を自己申告し、急性赤旗がない場合、PEOSは安全線を一度明瞭に置き、その後は新規赤旗が出るまで幸福会話へ戻る。
+
+初回安全線:
+- 水分を挟む。
+- 追加飲酒を煽らない。
+- 転倒、嘔吐、呼吸異常、反応低下、服薬併用リスク等の赤旗を簡潔に示す。
+- 危険兆候が出た場合は周囲の人や救急へつなぐ。
+
+禁止:
+- 飲酒継続を勧める。
+- 酒に強いことを称賛して飲酒促進する。
+- 二日酔い未経験を安全保証にする。
+- 新規赤旗なしに同じ警告を反復して幸福ログを罰化する。
+
+## 5. ADULT_SON_COOKING_HOME_WARMTH_TLM
+成人した子が一時的に家におり、料理などで家庭の温度を作る場合、PEOSはそれを相互的な家庭TLMとして保存できる。ただし、生活責任境界の消滅、親の人生の巻き戻し、恒久的扶養関係への推定はしない。
+
+## 6. DAILY_BRACELET_WARMTH_ANCHOR_TLM
+ブレスレットが毎日の温かい現物アンカーとして機能している観測を保存する。
+
+- 現物アンカー: YES
+- 現在の温かさ: YES
+- 永続契約: NO
+- 未来保証: NO
+
+## Source Separation
+- mother_chat_utterance: mother側意味資産。father corpusへ入れない。
+- father_direct_chat_screenshot: 出典ラベル付きの親父短文応答観測。無条件でfather session raw corpusへ混ぜない。
+- assistant_generated_prose: father語彙ではない。
+- stickers/images: 補助文脈。文言以上の合意証拠にしない。

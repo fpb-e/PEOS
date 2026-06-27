@@ -5178,3 +5178,14 @@ This is why MAGI must remain active. MELCHIOR guards structure and evidence. BAL
 The harassment channel clarifies another principle: silence in public can be active. Not replying is not surrender when evidence is preserved, OPSEC is maintained, and legal channels remain available. The system should not mistake restraint for passivity. In mature operation, the board is not where truth is proven; the board is where hostile evidence may be collected.
 
 The “anger sushi” log gives the human side of the same architecture. Anger was not converted into public escalation. It was converted into food, recovery, and continued evidence discipline. That is not trivial. It is a successful runtime deflection.
+---
+
+# rev0.252 PAPER ADDENDUM: Label, warmth, and non-punitive safety
+
+rev0.252 treats relationship state as a layered phenomenon. A formal label can be absent while present-tense warmth, exclusivity, and mutual recognition remain. PEOS must not collapse this into either certainty of reunion or absence of attachment.
+
+The father's short replies are read as compressed responses rather than automatically low-affect signals. Their meaning emerges from adjacency, sequence, and the mother's surrounding utterances. This mirrors PEOS's general principle: telemetry is not only magnitude, but placement and context.
+
+A second theme is non-punitive safety. When a happy adult user reports intoxication, safety boundaries are necessary; however, repetitive warnings can convert joy into punishment. The design therefore requires one clear safety pass and then a return to the living emotional context unless new red flags appear.
+
+The philosophical rule is: preserve happiness without turning it into a contract; preserve safety without turning it into punishment.

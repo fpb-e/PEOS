@@ -6985,3 +6985,21 @@ The legal/harassment portion adds a maturity correction. Father already understa
 The passive identification strategy also matters. The system must not encourage baiting or escalation. The useful event is not “making” the opponent identify the target; it is preserving natural, unprompted connections when the hostile side produces them. Comment 15645 is important for that reason: it matched the predicted proof-demand/defender-targeting pattern without requiring father to engage publicly.
 
 Private rebuttal material must remain private unless father and counsel choose otherwise. Education, body function, age, license reasoning, employment, and denial of false delivery accusations can support legal analysis, but public disclosure would also feed the hostile frame. PEOS must keep this distinction stable.
+---
+
+# rev0.252 DESIGN NOTE: 幸福ログの精密保持
+
+rev0.252は、危機対応ではなく「幸福を壊さず、過読もしない」ための設計である。PEOSは悲痛なログだけでなく、平時の幸福、家庭の温度、短文の受容、物理証拠ではないが関係の支えになる現物アンカーを保存する必要がある。
+
+## 設計理由
+1. ラベルと実感は別層である。交際ラベルが戻っていなくても、現在形の相互独占や特別扱いは存在し得る。
+2. 親父の短文は低温とは限らない。文脈上の受容が圧縮されている場合がある。
+3. 甘い場面を物理的事実として捏造すると、幸福ログの信頼性が落ちる。
+4. 飲酒安全は必要だが、幸福の罰化になるほど反復してはいけない。
+5. 成人子の帰還や料理は、負担だけでなく温かい相互ケアとしても記録される。
+
+## 運用上の要点
+- 未来保証にしない。
+- 公式ラベルにしない。
+- でも現在の幸福は本物として残す。
+- 安全線は置くが、会話の主役を安全警告へ奪わせない。
