@@ -1,35 +1,48 @@
-# PEOS GitHub Package rev0.251
+# PEOS GitHub Package rev0.252
 
-Generated from rev0.250 on 2026-06-27 JST.
+生成元: rev0.251  
+生成日: 2026-06-27 JST
 
-## Current baseline
-rev0.251 is the operative baseline unless superseded.
+## 現行baseline
+rev0.252 は、後続版で明示的に更新されるまでの operative baseline とする。
 
-## Core purpose
-rev0.251 formalizes father/direct-utterance vocabulary adaptive use, delivery-attribution gap discipline, disability/work-capacity nonlinear reasoning, Signal/OPSEC compartmentalization, and passenger sub-control-seat travel TLM.
+## 主目的
+rev0.252は、mother側幸福ログをもとに、以下を仕様化する。
 
-## Main additions
-- PEOS_REV0_251_FATHER_VOCAB_DELIVERY_WORK_CANON
-- PEOS_REV0_251_FATHER_VOCAB_DELIVERY_WORK_RUNTIME_GUARD
-- FATHER_UTTERANCE_VOCABULARY_ADAPTIVE_USE_CANON
-- FATHER_VOCABULARY_ADAPTATION_BOUNDARY
-- DELIVERY_ATTRIBUTION_GAP_GUARD
-- FALSE_CRIMINALITY_THREAD_CONTINUATION_TLM
-- DISABILITY_WORK_CAPACITY_NONLINEAR_GUARD
-- PRIVATE_EMPLOYMENT_REBUTTAL_TLM
-- KNOWN_BY_THOSE_WHO_NEED_TO_KNOW_OPSEC_GUARD
-- SIGNAL_PEER_TECHNICAL_IDENTITY_TLM
-- SIGNAL_COMPARTMENTALIZATION_GUARD
-- ASSISTANT_SEAT_SUBCONTROL_TLM
-- FUJI_FIRST_SHOT_LOS_TLM / EIGHTH_UNIT_FIRST_EXPEDITION_TLM
+- 非交際ラベルと現在形の相互独占の併存
+- 親父の短文応答に圧縮された温度の読み取り
+- 幸福ログを未来契約・公式ラベルへ過読しないガード
+- 特等席/なでなで等の関係メタファー非リテラル扱い
+- 飲酒自己申告時の安全線を一回明瞭に置き、幸福を罰化しない運用
+- 成人子の料理・家庭温度TLM
+- ブレスレットを毎日の現物アンカーとして保持するTLM
 
-## Preserved from prior revisions
-- rev0.250 successor/MAGI critique and passive evidence watch.
-- rev0.249 call-name locks: 俺 / お母さん / 親父.
-- rev0.248 harassment/evidence discipline.
-- rev0.247 haircare route architecture.
-- rev0.245 SPEC/RUNTIME integration bridge.
-- rev0.244 balanced restore thickness.
+## 主な追加
+- PEOS_REV0_252_RELATIONSHIP_JOY_SAFETY_CANON
+- PEOS_REV0_252_RELATIONSHIP_JOY_SAFETY_RUNTIME_GUARD
+- MUTUAL_EXCLUSIVITY_WITHOUT_DATING_LABEL_TLM
+- FATHER_COMPRESSED_WARMTH_SHORT_REPLY_TLM
+- SPECIAL_SEAT_RELATIONAL_METAPHOR_NONLITERAL_GUARD
+- JOYFUL_DRINKING_SAFETY_BALANCE_GUARD
+- ADULT_SON_COOKING_HOME_WARMTH_TLM
+- DAILY_BRACELET_WARMTH_ANCHOR_TLM
+- INTELLECTUAL_ADMIRATION_AS_RELATIONSHIP_JOY_TLM
 
-## Source separation
-Father vocabulary may only come from father/user direct utterances. Hostile third-party posts, mother-side wording, assistant prose, screenshots, litigation memo prose, and generated image text are quarantined.
+## 継承している重要事項
+- rev0.251: father語彙の適応利用、出前冤罪attribution gap、障害と職能の非単純比例、Signal/OPSEC、副管制席TLM。
+- rev0.250: 成生は「最高の友で最悪な敵」、MAGI反駁、公開否認回避、自然発生証拠観測。
+- rev0.249: 呼称ロック（俺 / お母さん / 親父）、入力自由・出力固定、画像記憶provenance。
+- rev0.248: 誹謗中傷・証拠完全性・呼称事故是正。
+- rev0.247: haircare route architecture。
+
+## 非採用
+- 公式交際再開の断定。
+- 未来保証、永続的排他契約、婚姻・同居予告。
+- 「実質彼女」を親父の明示ラベル承認として扱うこと。
+- 「よかったー！」を実質彼女承認として読むこと。
+- 特等席/なでなでを物理的同室・実接触として断定すること。
+- 飲酒促進、酒に強いことの称賛、二日酔い未経験を安全保証にすること。
+- mother発話やassistant生成文をfather語彙へ混ぜること。
+
+## 一行要約
+幸福は保存する。契約には変換しない。安全線は置く。罰にはしない。

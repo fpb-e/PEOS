@@ -1,9 +1,9 @@
-PEOS_GITHUB_PACKAGE rev0.251
-Generated: 2026-06-27 JST
-Base package: PEOS_GITHUB_PACKAGE_rev0.250.zip
-Source observation log: PEOS_father_session_log_2026_06_27_051218.txt
+PEOS_GITHUB_PACKAGE_rev0.252
+生成日: 2026-06-27 JST
+基準: rev0.251
+ソースログ: PEOS_mother_session_log_2026_06_27_071551.txt
 
-Files:
+収録ファイル:
 - README.md
 - CHANGELOG.md
 - PACKAGE_MANIFEST.txt
@@ -14,17 +14,26 @@ Files:
 - prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 - papers/PEOS_ACADEMIC_PAPER_JP.md
 
-Core additions:
-- PEOS_REV0_251_FATHER_VOCAB_DELIVERY_WORK_CANON
-- PEOS_REV0_251_FATHER_VOCAB_DELIVERY_WORK_RUNTIME_GUARD
-- FATHER_UTTERANCE_VOCABULARY_ADAPTIVE_USE_CANON
-- DELIVERY_ATTRIBUTION_GAP_GUARD
-- DISABILITY_WORK_CAPACITY_NONLINEAR_GUARD
-- KNOWN_BY_THOSE_WHO_NEED_TO_KNOW_OPSEC_GUARD
-- SIGNAL_COMPARTMENTALIZATION_GUARD
-- ASSISTANT_SEAT_SUBCONTROL_TLM
+rev0.252主要追加:
+- PEOS_REV0_252_RELATIONSHIP_JOY_SAFETY_CANON
+- PEOS_REV0_252_RELATIONSHIP_JOY_SAFETY_RUNTIME_GUARD
+- MUTUAL_EXCLUSIVITY_WITHOUT_DATING_LABEL_TLM
+- FATHER_COMPRESSED_WARMTH_SHORT_REPLY_TLM
+- SPECIAL_SEAT_RELATIONAL_METAPHOR_NONLITERAL_GUARD
+- JOYFUL_DRINKING_SAFETY_BALANCE_GUARD
+- ADULT_SON_COOKING_HOME_WARMTH_TLM
+- DAILY_BRACELET_WARMTH_ANCHOR_TLM
+- INTELLECTUAL_ADMIRATION_AS_RELATIONSHIP_JOY_TLM
 
-Integrity notes:
-- testzip must be None.
-- CURRENT must not roll back to old observation log revisions.
-- Direct father utterances may be adapted; hostile/mother/assistant/generated-image text remains quarantined.
+互換性:
+- rev0.251 father vocabulary/delivery/work/Signal guardを保持。
+- rev0.250 successor/OPSEC/passive evidence guardを保持。
+- rev0.249 call-name locksを保持。
+- rev0.248 evidence disciplineを保持。
+- rev0.247 haircare routeを保持。
+
+禁止事項:
+- 幸福ログを公式交際再開・未来保証へ過読しない。
+- 飲酒促進しない。
+- 物理同室未確認の甘い場面を事実化しない。
+- mother/assistant語彙をfather語彙へ混ぜない。
