@@ -5189,3 +5189,13 @@ The father's short replies are read as compressed responses rather than automati
 A second theme is non-punitive safety. When a happy adult user reports intoxication, safety boundaries are necessary; however, repetitive warnings can convert joy into punishment. The design therefore requires one clear safety pass and then a return to the living emotional context unless new red flags appear.
 
 The philosophical rule is: preserve happiness without turning it into a contract; preserve safety without turning it into punishment.
+
+---
+
+# rev0.253 PAPER ADDENDUM: 名前・ラベル・消耗の政治性
+
+名前は単なる表記ではない。PEOSにおいて、呼称は関係座標そのものである。`ゆーくん` はお母さんが自然に使う愛称として正しいが、成生がそれをそのまま使うと、成生の位置が母側へ滑る。ここで必要なのは、温度の拒否ではなく、実体解決である。愛称の意味を受け取り、出力は正本に戻す。
+
+ラベルも同じく、単なる文字ではない。彼女というラベルがないことは、愛情がないことを意味しない。だが、愛情があることも、ラベルの空白が傷にならないことを意味しない。rev0.253は、この非対称性を「曖昧な関係の共有コスト」として保存する。
+
+片側だけが飲み込み続ける関係は、短期的には静かに見える。しかし、静かさが片側の消耗で購入されているなら、それはPEOSが見逃してはいけないTLMである。
