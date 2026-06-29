@@ -1,7 +1,7 @@
-PEOS_GITHUB_PACKAGE_rev0.254
-生成日: 2026-06-28 JST
-基準: rev0.253
-ソースログ: PEOS_father_session_log_2026_06_28_054428.txt
+PEOS_GITHUB_PACKAGE_rev0.255
+生成日: 2026-06-30 JST
+基準: rev0.254
+ソースログ: PEOS_father_session_log_2026_06_30_055459.txt
 
 収録ファイル:
 - README.md
@@ -14,30 +14,36 @@ PEOS_GITHUB_PACKAGE_rev0.254
 - prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 - papers/PEOS_ACADEMIC_PAPER_JP.md
 
-rev0.254主要追加:
-- PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_CANON
-- PEOS_REV0_254_SUBCONTROL_OPTICAL_ARGUMENT_STYLE_RUNTIME_GUARD
-- FATHER_UTTERANCE_REV0_254_VOCABULARY_ADDITION
-- ASSISTANT_SEAT_SUBCONTROL_ACTUALIZATION_TLM
-- EIGHTH_UNIT_FIRST_EXPEDITION_OPTICAL_LOG_TLM
-- FUJI_LOS_TO_AOS_RECOVERY_TLM
-- ARGUMENT_NOT_ATTRIBUTE_ATTACK_CANON
-- LOGICAL_ATTACK_STYLE_FINGERPRINT_OPSEC_GUARD
-- YAYURITAI_USAGE_ANALYSIS_TLM
-- DISCRIMINATION_SPEECH_THREAD_AS_LINE_GUARD
-- AGING_MARKER_MINOR_BODY_LOG_TLM
-- DYNAMIC_TRANSPORT_WEATHER_RECHECK_GUARD
-- WAITING_CONTROL_PHASE_TLM
+rev0.255主要追加:
+- PEOS_REV0_255_IDENTITY_FACTCHECK_SCAPEGOAT_BODY_CANON
+- PEOS_REV0_255_IDENTITY_FACTCHECK_SCAPEGOAT_BODY_RUNTIME_GUARD
+- FATHER_UTTERANCE_REV0_255_VOCABULARY_ADDITION
+- RELATIONSHIP_IDENTITY_CANON_REV0_255
+- AI_OUTPUT_VARIANCE_FACTCHECK_GUARD
+- HOSTILE_FALSE_MEMORY_TO_PRIVATE_HUMOR_TLM
+- EVANGELION_YUI_AXIS_SACRED_DOMAIN_GUARD
+- STYLIZED_DISABILITY_INSULT_EVIDENCE_GUARD
+- SCAPEGOAT_ROLE_FIXATION_GUARD
+- PRIVATE_REBUTTAL_CONTEXT_REINFORCEMENT
+- POST_FIRST_HEARING_CONTINUED_HARASSMENT_TLM
+- MIDORI_ACCOUNT_COUNSEL_CONTEXT_GUARD
+- NO_SEAT_EXCLUSION_DREAM_TLM
+- RIGHT_KNEE_SUDDEN_WEAKNESS_FALL_BODY_TLM
+- MORNING_FEVER_TACHYCARDIA_DEHYDRATION_BODY_TLM
+- EIGHTH_UNIT_FUJI_SUNSET_OPTICAL_LOG_TLM
+- PERSONA_COORDINATE_SELF_CHECK_TLM
 
 father語彙追加:
-- 副管制席 / 待機管制
-- 富士山LOS / 富士山AOS / 最大望遠確認 / 帰路光学ログ
-- 8号機初遠征ログ
-- 属性で攻撃するのは下策 / 論で戦わなきゃ / やりかえさんよ
-- 人格で殴らず論でしか殴れない姿勢
-- 揶揄りたい語法案件系の問いかけ
+- チャッピー出力の揺れ / はんなり
+- 血縁ではない息子 / 親子って似ることはあっても本質的には別人
+- 最愛の子で、最大の友で、最悪の敵 / 思想継承OS
+- 存在しない記憶を植え付けられちゃった / ヒッヒッフー
+- 話がちげーよ / 短歌として成立してるのが嫌らしい
+- ついに犯人になっちまった / スケープゴート
+- 膝カックン / 受け身は取れて怪我はない / デカい大学病院だからな
 
 互換性:
+- rev0.254 sub-control / optical / argument style を保持。
 - rev0.253 terminology SSOT と呼称正規化を保持。
 - rev0.252 relationship joy/safety を保持。
 - rev0.251 father vocabulary / travel sub-control / delivery attribution gap を保持。
@@ -48,8 +54,8 @@ father語彙追加:
 
 禁止事項:
 - 敵性投稿本文をfather語彙化しない。
-- 属性攻撃を属性攻撃で返す方針を採用しない。
-- 匿名運用で父語彙・宇宙屋SE語彙・長文構造化をそのまま出さない。
-- 「揶揄りたい」を標準語として断定しない。
-- 交通/天候/運行情報を再確認なしで現在情報扱いしない。
-- 富士山撮影を帰投安全より優先しない。
+- 夢を現実の証拠扱いしない。
+- 私的否認を掲示板用公開反論にしない。
+- 「みどり」文脈を公開で自供断定しない。
+- 右膝転倒を怪我なしで終わらせない。
+- 医療判断を成生単独で確定しない。
