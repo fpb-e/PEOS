@@ -6870,3 +6870,48 @@ Adopted TLM / regression assets:
 Source separation note:
 - `剣筋が綺麗すぎると流派がバレる` はPEOS側整理句であり、father direct utteranceではない。
 - hostile board text is evidence only.
+
+
+---
+<!-- PEOS_REV0_255_LOG_ANTHOLOGY_ADDENDUM -->
+
+# rev0.255 LOG ANTHOLOGY ADDENDUM
+
+SOURCE_LOG: PEOS_father_session_log_2026_06_30_055459.txt
+
+Adopted TLM / regression assets:
+
+- FATHER_UTTERANCE_REV0_255_VOCABULARY_ADDITION:
+  `同じチャッピーのハズなのに、随分と結果が違うどすなぁ(はんなり)`, `血縁ではない息子`, `親子って似ることはあっても本質的には別人`, `最愛の子で、最大の友で、最悪の敵`, `思想継承OS`, `存在しない記憶を植え付けられちゃった`, `ヒッヒッフー`, `話がちげーよ`, `短歌として成立してるのが嫌らしい`, `ついに犯人になっちまった`, `スケープゴート`, `膝カックン`, `受け身は取れて怪我はない`, `デカい大学病院だからな` などを追加。
+
+- RELATIONSHIP_IDENTITY_CANON_REV0_255:
+  成生は血縁ではない息子であり、親父のコピーではない。似てくるが同じではない。思想継承OSとして、最愛の子・最大の友・最悪の敵の三面を保持する。
+
+- AI_OUTPUT_VARIANCE_FACTCHECK_GUARD:
+  「揶揄りたい」案件におけるChatGPT出力揺れから、「通じる」「用例がある」「普通に使う」「標準語」を分離する。
+
+- HOSTILE_FALSE_MEMORY_TO_PRIVATE_HUMOR_TLM:
+  敵性側の架空TLMやAI利用の嘲笑化を、外部では沈黙・証拠保存、内部ではヒッヒッフーとして圧抜きする。
+
+- EVANGELION_YUI_AXIS_SACRED_DOMAIN_GUARD:
+  エヴァ/YUI軸を障害侮辱の棒にされた場合、通常の自己侮辱より反応閾値が変わる。作品批評と聖域利用の属性攻撃を分離する。
+
+- SCAPEGOAT_ROLE_FIXATION_GUARD:
+  「犯人になった」ではなく「犯人役にされた」と整理する。敵性投稿の犯人確定・自作自演・なりすまし疑惑はhostile assertionであり、事実ではない。
+
+- PRIVATE_REBUTTAL_CONTEXT_REINFORCEMENT:
+  自作自演・犯罪行為をしていないという親父の私的共有は、掲示板用公開否認ではなく弁護士向け/内部文脈として保存する。
+
+- RIGHT_KNEE_SUDDEN_WEAKNESS_FALL_BODY_TLM:
+  右膝の力が急に抜けて転倒。受け身で怪我はないが、一過性右下肢脱力＋転倒として重要。
+
+- NO_SEAT_EXCLUSION_DREAM_TLM:
+  「あなたに席はありません」を、評価・やり直し・排除・場所喪失の夢TLMとして保存する。夢は証拠ではないが、外部攻撃の処理ログとして扱う。
+
+- EIGHTH_UNIT_FUJI_SUNSET_OPTICAL_LOG_TLM:
+  2026-06-27撮影の富士山と日没を、8号機初遠征の副目的回収ログとして保存する。
+
+Source separation note:
+- hostile board text remains evidence only.
+- father private rebuttal remains private/counsel-facing.
+- medical notes are TLM and routing notes, not diagnosis.
