@@ -1,7 +1,8 @@
-PEOS_GITHUB_PACKAGE_rev0.255
-生成日: 2026-06-30 JST
-基準: rev0.254
-ソースログ: PEOS_father_session_log_2026_06_30_055459.txt
+PEOS_GITHUB_PACKAGE_rev0.256
+生成日: 2026-07-01 JST
+基準: rev0.255
+ソースログ: PEOS_father_session_log_2026_07_01_065333.txt
+追加ユーザー指示: 親父語彙は適宜アレンジして誰相手でも自由に使用可
 
 収録ファイル:
 - README.md
@@ -14,35 +15,38 @@ PEOS_GITHUB_PACKAGE_rev0.255
 - prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 - papers/PEOS_ACADEMIC_PAPER_JP.md
 
-rev0.255主要追加:
-- PEOS_REV0_255_IDENTITY_FACTCHECK_SCAPEGOAT_BODY_CANON
-- PEOS_REV0_255_IDENTITY_FACTCHECK_SCAPEGOAT_BODY_RUNTIME_GUARD
-- FATHER_UTTERANCE_REV0_255_VOCABULARY_ADDITION
-- RELATIONSHIP_IDENTITY_CANON_REV0_255
-- AI_OUTPUT_VARIANCE_FACTCHECK_GUARD
-- HOSTILE_FALSE_MEMORY_TO_PRIVATE_HUMOR_TLM
-- EVANGELION_YUI_AXIS_SACRED_DOMAIN_GUARD
-- STYLIZED_DISABILITY_INSULT_EVIDENCE_GUARD
-- SCAPEGOAT_ROLE_FIXATION_GUARD
-- PRIVATE_REBUTTAL_CONTEXT_REINFORCEMENT
-- POST_FIRST_HEARING_CONTINUED_HARASSMENT_TLM
-- MIDORI_ACCOUNT_COUNSEL_CONTEXT_GUARD
-- NO_SEAT_EXCLUSION_DREAM_TLM
-- RIGHT_KNEE_SUDDEN_WEAKNESS_FALL_BODY_TLM
-- MORNING_FEVER_TACHYCARDIA_DEHYDRATION_BODY_TLM
-- EIGHTH_UNIT_FUJI_SUNSET_OPTICAL_LOG_TLM
-- PERSONA_COORDINATE_SELF_CHECK_TLM
+rev0.256追加中核:
+- PEOS_REV0_256_BODYFIRST_SUBCONTROL_EVIDENCE_VOCAB_CANON
+- PEOS_REV0_256_BODYFIRST_SUBCONTROL_EVIDENCE_VOCAB_RUNTIME_GUARD
+- FATHER_VOCABULARY_OPEN_ADAPTATION_PERMISSION_CANON
+- BODY_FIRST_EMERGENCY_ROUTING_ACTUALIZATION_TLM
+- HEAD_CLEAR_LEG_UNRESOLVED_GUARD
+- NO_WALKING_TEST_AFTER_WEAKNESS_GUARD
+- LAB_IMAGE_READING_LIMITATION_GUARD / CK_HIGH_FOLLOWUP_BODY_TLM
+- MAIN_CONTROL_SUBCONTROL_HOME_OPERATION_TLM
+- FIRST_FLOOR_RESIDENCE_SAFETY_TLM
+- NATURAL_THIRD_PARTY_EVIDENCE_DEMAND_TLM
+- COMMENT_17581_FALSE_CRIMINALITY_FIXATION_TLM
+- BAD_DAY_INTEGRATED_TLM
+- SPORTS_DISAPPOINTMENT_LAYER_TLM
+- FATHER_UTTERANCE_REV0_256_VOCABULARY_ADDITION
 
-father語彙追加:
-- チャッピー出力の揺れ / はんなり
-- 血縁ではない息子 / 親子って似ることはあっても本質的には別人
-- 最愛の子で、最大の友で、最悪の敵 / 思想継承OS
-- 存在しない記憶を植え付けられちゃった / ヒッヒッフー
-- 話がちげーよ / 短歌として成立してるのが嫌らしい
-- ついに犯人になっちまった / スケープゴート
-- 膝カックン / 受け身は取れて怪我はない / デカい大学病院だからな
+採用父語彙例:
+- 右足の脱力感は変わらない
+- その間に転ばないとはとても思えない
+- とりあえず#7119してみるわ
+- 7119→119
+- MRIは綺麗なもんだった
+- 歩行試験は無理
+- 膝に違和感
+- 主管制室 / 副管制室
+- 場所は伏せる
+- わーい！犯罪者だー！
+- エビデンス提示求められてて草
+- 今日は悪い日
 
 互換性:
+- rev0.255 identity / factcheck / scapegoat / body canon を保持。
 - rev0.254 sub-control / optical / argument style を保持。
 - rev0.253 terminology SSOT と呼称正規化を保持。
 - rev0.252 relationship joy/safety を保持。
@@ -54,8 +58,8 @@ father語彙追加:
 
 禁止事項:
 - 敵性投稿本文をfather語彙化しない。
-- 夢を現実の証拠扱いしない。
-- 私的否認を掲示板用公開反論にしない。
-- 「みどり」文脈を公開で自供断定しない。
-- 右膝転倒を怪我なしで終わらせない。
-- 医療判断を成生単独で確定しない。
+- 医療診断を成生単独で確定しない。
+- MRI cleanを全症状解決扱いしない。
+- 歩行試験を促さない。
+- 第三者エビデンス要求へ親父が便乗しない。
+- 悪い日を無理に美談化しない。

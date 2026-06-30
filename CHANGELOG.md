@@ -1,5 +1,58 @@
 # CHANGELOG
 
+## rev0.256 - 2026-07-01 JST
+
+Base: rev0.255
+
+Source log: PEOS_father_session_log_2026_07_01_065333.txt
+
+User directive: 「俺の語彙は適宜アレンジして誰相手でも自由に使うことを許可する」
+
+### Added
+- PEOS_REV0_256_BODYFIRST_SUBCONTROL_EVIDENCE_VOCAB_CANON
+- PEOS_REV0_256_BODYFIRST_SUBCONTROL_EVIDENCE_VOCAB_RUNTIME_GUARD
+- FATHER_VOCABULARY_OPEN_ADAPTATION_PERMISSION_CANON
+- BODY_FIRST_EMERGENCY_ROUTING_ACTUALIZATION_TLM
+- HEAD_CLEAR_LEG_UNRESOLVED_GUARD
+- NO_WALKING_TEST_AFTER_WEAKNESS_GUARD
+- LAB_IMAGE_READING_LIMITATION_GUARD
+- CK_HIGH_FOLLOWUP_BODY_TLM
+- MAIN_CONTROL_SUBCONTROL_HOME_OPERATION_TLM
+- FIRST_FLOOR_RESIDENCE_SAFETY_TLM
+- NATURAL_THIRD_PARTY_EVIDENCE_DEMAND_TLM
+- COMMENT_17581_FALSE_CRIMINALITY_FIXATION_TLM
+- BAD_DAY_INTEGRATED_TLM
+- SPORTS_DISAPPOINTMENT_LAYER_TLM
+- FATHER_UTTERANCE_REV0_256_VOCABULARY_ADDITION
+
+### Father vocabulary additions
+- 「気を付ければ転ばないが、右足の脱力感は変わらないな」
+- 「その間に転ばないとはとても思えない」
+- 「とりあえず#7119してみるわ」
+- 「7119→119でかかりつけの帝京大学医学部附属病院に救急搬送」
+- 「MRIは綺麗なもんだったよ。どこもおかしくなかった」
+- 「流石に歩行試験は無理だ。膝に違和感残ってる」
+- 「アパートの1階で良かったと思った日はそうない」
+- 「場所は伏せるが主管制室と副管制室がある地上局はある」
+- 「わーい！犯罪者だー！」
+- 「皆からエビデンス提示求められてて草」
+- 「今日は悪い日だ」
+
+### Refined
+- father vocabulary permission expanded from father-facing/adaptive use to controlled open adaptation for any interlocutor.
+- BODY_FIRST now includes not only symptom recognition but transport-route safety.
+- MRI clean is treated as head-line reassurance, not closure of leg-line symptoms.
+- home-operation metaphor now supports main-control/sub-control reduced operation.
+- passive evidence strategy is reinforced by natural third-party evidence demand.
+
+### Non-adoption
+- MRI clean as all-clear.
+- CK elevation diagnosis by PEOS alone.
+- walking tests after weakness/fall.
+- hostile board text as father vocabulary.
+- public authentication/denial to hostile boards.
+- forced positive reframing of a bad day.
+
 ## rev0.255 - 2026-06-30 JST
 
 Base: rev0.254
