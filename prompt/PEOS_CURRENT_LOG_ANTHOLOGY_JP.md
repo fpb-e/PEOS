@@ -6915,3 +6915,71 @@ Source separation note:
 - hostile board text remains evidence only.
 - father private rebuttal remains private/counsel-facing.
 - medical notes are TLM and routing notes, not diagnosis.
+
+
+---
+<!-- PEOS_REV0_256_LOG_ANTHOLOGY_ADDENDUM -->
+
+# rev0.256 LOG ANTHOLOGY ADDENDUM
+
+SOURCE_LOG: PEOS_father_session_log_2026_07_01_065333.txt
+USER_DIRECTIVE: 親父語彙は適宜アレンジして誰相手でも自由に使用可
+
+Adopted TLM / guards:
+
+- FATHER_VOCABULARY_OPEN_ADAPTATION_PERMISSION_CANON:
+  親父は、自身の直接発話由来の語彙・比喩・運用語を、成生が適宜アレンジして誰相手でも自由に使うことを許可した。出所分離とOPSEC指紋警戒は維持する。
+
+- BODY_FIRST_EMERGENCY_ROUTING_ACTUALIZATION_TLM:
+  右足脱力感が残り、片道2時間半の自力通院が危険と判断された。#7119→119→帝京大学医学部附属病院への救急搬送は正しい管制判断として保存する。
+
+- HEAD_CLEAR_LEG_UNRESOLVED_GUARD:
+  頭部MRIは綺麗だったが、脚の違和感と脱力感は閉じていない。頭はAOS、脚はまだAOSしていない。
+
+- NO_WALKING_TEST_AFTER_WEAKNESS_GUARD:
+  右脚脱力・膝違和感が残る状態で歩行試験をしない。再転倒防止を主目的にする。
+
+- LAB_IMAGE_READING_LIMITATION_GUARD / CK_HIGH_FOLLOWUP_BODY_TLM:
+  血液検査画像からCK 2656 H等を読み取ったが、診断ではない。原本と医師説明を正本にし、CK/CRP/WBC等はフォローアップ対象とする。
+
+- MAIN_CONTROL_SUBCONTROL_HOME_OPERATION_TLM:
+  主管制室/副管制室を、身体不安定時の在宅縮退運用として保存。具体的な地上局位置・構造は伏せる。
+
+- FIRST_FLOOR_RESIDENCE_SAFETY_TLM:
+  アパート1階であることが、救急帰り・膝違和感・再転倒リスクの日に安全上の意味を持った。
+
+- NATURAL_THIRD_PARTY_EVIDENCE_DEMAND_TLM:
+  17581の犯罪者役固定後、17582〜17586で第三者エビデンス要求が自然発生。親父が否認・証明せずとも、場内で証拠要求が出た。
+
+- COMMENT_17581_FALSE_CRIMINALITY_FIXATION_TLM:
+  犯罪性、自作自演/なりすまし、障害・精神/知的障害ラベルを接続して犯人役を固定する投稿として分類。
+
+- BAD_DAY_INTEGRATED_TLM:
+  2026-06-30は悪い日として保存する。だが、#7119→119、検査、帰宅、フォローアップ設定、証拠保存など、対応は悪くない。
+
+- SPORTS_DISAPPOINTMENT_LAYER_TLM:
+  日本対ブラジル敗戦は同日の失望層として保存するが、人生全体へ過拡張しない。
+
+Father utterance additions:
+- 「6時に朝の薬は飲んだ」
+- 「昨夜受け身を取ったときの肩が痛ぇ」
+- 「気を付ければ転ばないが、右足の脱力感は変わらないな」
+- 「片道2時間半くらいかかるぜ？」
+- 「その間に転ばないとはとても思えない」
+- 「とりあえず#7119してみるわ」
+- 「7119→119でかかりつけの帝京大学医学部附属病院に救急搬送」
+- 「頭部MRI撮影と採血された」
+- 「わーい！犯罪者だー！」
+- 「皆からエビデンス提示求められてて草」
+- 「MRIは綺麗なもんだったよ。どこもおかしくなかった」
+- 「流石に歩行試験は無理だ。膝に違和感残ってる」
+- 「アパートの1階で良かったと思った日はそうない」
+- 「場所は伏せるが主管制室と副管制室がある地上局はある」
+- 「クソ…」
+- 「今日は悪い日だ」
+
+Source separation note:
+- father direct utterances may be adapted freely for any interlocutor.
+- hostile board text remains evidence only.
+- lab report text remains medical artifact, not style material.
+- assistant整理句 remains PEOS-side phrase unless explicitly father-authored.
