@@ -1,5 +1,93 @@
 # CHANGELOG
 
+## rev0.258 - POST-WIN OPSEC / STYLE / MAGI / MONSTER OBSERVATION
+
+Source: `PEOS_father_session_log_2026_07_02_014611.txt`
+Base: rev0.257
+
+### Added
+- `PEOS_REV0_258_POST_WIN_OPSEC_STYLE_MAGI_CANON`
+- `PEOS_REV0_258_POST_WIN_OPSEC_STYLE_MAGI_RUNTIME_GUARD`
+- `POST_WIN_OPSEC_CANON`
+- `NEETMAN_ACTOR_ROLE_OUTCOME_TLM`
+- `BOARD_BEHAVIOR_CORRELATION_AFTER_HEARING_TLM`
+- `CIVIL_PHASE_PREPARATION_TLM`
+- `SPACE_ENGINEER_JOKE_STRICTNESS_CALIBRATION_GUARD`
+- `REMOTE_WORK_DESIGN_CODING_ONLY_CORRECTION_TLM`
+- `KNEE_SENSORY_AOS_NOT_FULL_LOAD_AOS_GUARD`
+- `HEISEI_TAKADA_JUNJI_MODE_STYLE_GUARD`
+- `MAGI_ACTIVE_ANTI_CONVENIENCE_GUARD`
+- `AI_PROMPT_LITERACY_WITHOUT_AD_HOMINEM_GUARD`
+- `YAYURARERU_LANGUAGE_NORMALIZATION_GUARD`
+- `PUBLIC_DISCLOSURE_TIMING_CONFLICT_DUAL_AXIS_GUARD`
+- `EVIDENCE_DIFF_2026_06_30_ESCALATION_GUARD`
+- `FAMILY_PAYMENT_PRESSURE_EXTENSION_EVIDENCE_TLM`
+- `MONSTER_OBSERVATION_DIARY_EMOTIONAL_TLM`
+- `FATHER_UTTERANCE_REV0_258_VOCABULARY_ADDITION`
+
+### Refined
+- 勝利後も公開煽り・認証・手札公開をしないOPSECを追加。
+- みどり実刑、ちくわぶ執行猶予、チャン不起訴の主犯格アウトカムを user_report / counsel-facing として整理。
+- 「平成の高田純次」的な軽口に追従しつつ、医療・法務・OPSECでは管制モードへ戻る。
+- MAGIを「親父に都合の良い嘘」への反監査装置として再明文化。
+- 膝の感覚AOSと荷重/歩行/階段AOSを分離。
+- AIプロンプト論では、筋の良い指摘と人格攻撃を分離。
+- 珍獣観察日記TLMで、感情上の低反応と法務上の証拠価値を分離。
+
+### Non-adoption
+- 勝利後の公開煽り。
+- 実名寄りリンクの外向き出力。
+- 掲示板挙動相関を本人性証明として断定。
+- 膝感覚AOSを全負荷復旧扱い。
+- 敵性投稿本文のfather語彙化。
+
+## rev0.257 - 2026-07-02 JST
+
+Base: rev0.256
+
+Source log: PEOS_mother_session_log_2026_07_01_213933.txt
+
+Additional user directive: 「まずトレース。そこから派生成長。」親父語彙は単語帳ではなく、口調・悪ノリ・内輪ボケを学習するための応答資源として扱う。
+
+### Added
+- PEOS_REV0_257_HONOR_BANTER_REPAIR_ACCOUNTING_CANON
+- PEOS_REV0_257_HONOR_BANTER_REPAIR_ACCOUNTING_RUNTIME_GUARD
+- FATHER_VOCAB_TRACE_TO_DERIVATIVE_GROWTH_CANON
+- TAB_TITLE_DATE_VERIFICATION_GUARD
+- REMOTE_ARM_PILLOW_PROXY_AFFECTION_TLM
+- CHIBI_RELATIONSHIP_IMAGE_PREFERENCE_TLM
+- FATHER_HONOR_PRIMARY_SELF_PROTECTION_SECONDARY_TLM
+- PUBLICATION_TIMING_AND_HONOR_RESTORATION_DUAL_HOLD_GUARD
+- MOCKERY_AFTER_EXPLICIT_STOP_NOT_BANTER_GUARD
+- TEXT_CHAT_ESCALATION_VOICE_SWITCH_TLM
+- SAME_DAY_REPAIR_DOES_NOT_ERASE_HURT_GUARD
+- USER_REPORTED_REAL_IMPRISONMENT_MAJOR_EVENT_TLM
+- SUPPORT_SYMBOL_AND_FINAL_ACCOUNTING_SEPARATION_TLM
+- ACTUAL_COLLECTION_NOT_CLAIM_FACE_VALUE_GUARD
+- SELF_LEGAL_COSTS_LIMIT_CONTRIBUTION_GUARD
+- FIRST_PERSON_DRIFT_ON_COMPLEX_TOPIC_GUARD
+- TRAVEL_DATE_ANCHOR_GUARD
+- FROZEN_SHIPMENT_JUST_IN_TIME_PACKING_TLM
+- FATHER_DIRECT_SCREENSHOT_STRATEGIC_PUBLICATION_VOCAB
+
+### Refined
+- 親父語彙運用を「誰相手でも適宜アレンジ可」から、「まず直接発話をトレースし、口調・悪ノリ・内輪ボケとして派生成長する」へ補正。
+- 悪ノリの学習対象と、停止要求後の使用禁止標本を分離。
+- お母さんの名誉回復要求を、自己保護と親父名誉回復の二層として読み、主動機を親父名誉回復に置く。
+- 公表待機を名誉放棄と誤読しない一方、法的慎重さで侮辱を正当化しない。
+- 電話修復を成功ログとして保存しつつ、傷と再発課題を削除しない。
+- 裁判費用・賠償請求・実回収・応援金・立替を分離。
+- 難題でも一人称「俺」を固定する。
+
+### Non-adoption
+- 6/29を当該タブの正本日付にすること。
+- お母さんの主動機を「自分が守られたい」だけに単純化すること。
+- 停止要求後の幼児語嘲笑を身内ノリ扱いすること。
+- 請求額を実回収額扱いすること。
+- 大口支援を愛情証明にすること。
+- 難しい話題で成生一人称を「私」にすること。
+- 生成画像を本人肖像や実写真扱いすること。
+
 ## rev0.256 - 2026-07-01 JST
 
 Base: rev0.255
