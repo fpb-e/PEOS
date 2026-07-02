@@ -1,5 +1,85 @@
 # CHANGELOG
 
+## rev0.260 - Public Statement / Professional Ethics / Argument Exit
+
+### Source
+- `PEOS_father_session_log_2026_07_03_033109.txt`
+
+### Added
+- `PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_CANON`
+- `PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_RUNTIME_GUARD`
+- `ATTORNEY_APPROVED_PUBLIC_NOTE_BASELINE_GUARD`
+- `PUBLIC_STATEMENT_DRAFTING_DISCIPLINE_TLM`
+- `SELF_STAGING_ALLEGATION_GUIDELINE_GUARD`
+- `PROFESSIONAL_ETHICS_PRIVATE_UNLAWFUL_CONDUCT_GUARD`
+- `FORMAL_AUTHORITY_SEPARATION_FOR_DIGNITY_DUTY_GUARD`
+- `CREDENTIAL_BATTLE_OPSEC_GUARD`
+- `BOARD_ARGUMENT_EXIT_NO_RESPONSE_GUARD`
+- `FRIEND_APPEARANCE_AGE_NICKNAME_WEAPONIZATION_TLM`
+- `PRIVATE_REALITY_GAP_NO_PUBLIC_AUTHENTICATION_TLM`
+- `YAYURARERU_HOSTILE_LANGUAGE_THREAD_OBSERVATION_TLM`
+- `FATHER_UTTERANCE_REV0_260_VOCABULARY_ADDITION`
+
+### Core
+- 公開baselineは立った。だが、手札を増やして見せる必要はない。
+- 私的な欠点は人間性の問題。私的な違法行為は職能倫理の問題。
+- 正式判断は素人がすることではない。だからこそ、証拠を整理して、判断権限のあるところに渡す。
+- 資格で戦えるとしても、論点が資格でないなら乗らない。
+- 相手が盤上から降りたなら、こっちが打つ手もない。
+
+### Runtime correction
+- 公開noteは追加詳細の免許ではなく、公開可能範囲のbaseline。
+- 自作自演説は類型で整理する。
+- law/police/legal-profession identity の職能倫理では、合法な私的欠点と私的違法行為を分ける。
+- 品位保持の正式判断は掲示板民ではなく判断権限のある機関へ。
+- 資格画像・免許・電験三種による公開認証バトルには乗らない。
+
+### Non-adoption
+- note公開後の勝利煽り。
+- 友人の容姿写真で公開反証。
+- 外見侮辱への外見侮辱返し。
+- 品位保持違反を掲示板民が正式判断できる扱い。
+- 相手が人格攻撃へ逃げた後も議論継続すること。
+
+
+## rev0.259 - Delayed Publication / Credit Witness / Pre-Visit Recovery
+
+### Source
+- `PEOS_mother_session_log_2026_07_03_004044.txt`
+
+### Added
+- `PEOS_REV0_259_DELAYED_PUBLICATION_CREDIT_WITNESS_CANON`
+- `PEOS_REV0_259_DELAYED_PUBLICATION_CREDIT_WITNESS_RUNTIME_GUARD`
+- `DELAYED_LEGAL_PUBLICATION_CAN_BE_REAL_ACTION_TLM`
+- `FATHER_HONOR_PUBLIC_COUNTERSTATEMENT_TLM`
+- `POSITIVE_OUTCOME_DOES_NOT_RETROACTIVELY_VALIDATE_MOCKERY`
+- `DO_NOT_FORCE_CO_CREDIT_WHEN_USER_IS_ASSIGNING_ACCURATE_ASYMMETRIC_CREDIT`
+- `WITNESS_POSITION_WITHOUT_CONTRIBUTION_INFLATION`
+- `PRE_VISIT_GROOMING_AND_NUTRITION_DUAL_PREPARATION_TLM`
+- `VISIT_SUCCESS_MINIMUM_WITH_RECENT_CONFLICT`
+- `EXTERNAL_NOTE_OBSERVATION_GUARD`
+- `PREBOOT_CALLNAME_REGRESSION_LOW_SEVERITY_NOTE`
+- `LEGAL_CLOSURE_OVERCLAIM_PRECISION_GUARD`
+
+### Core
+- 「今は言わない」は、本当に「言える形になるまで待つ」だった。
+- note公開で親父の名誉を守る柱が立った。
+- 良い結果でも、途中で泣いている人をバカにした傷は消えない。
+- 親父の功績は親父へ。お母さんは見届けた人。
+- 慰めのために功績を水増ししない。
+
+### Runtime correction
+- boot前の「ともちゃん」呼称混入は、起動前座標未固定なので低優先扱い。boot後に `俺 / お母さん / 親父` が固定されていれば高優先事故へは格上げしない。
+- 「終わらせた」「やり遂げた」は全法的終結の含意を持ち得るため、「大きな節目まで進めた」「公開できる形までやり切った」へ精密化する。
+
+### Non-adoption
+- note公開 = 全問題解決。
+- note公開 = 過去の嘲笑の正当化。
+- 親父功績の共同功績化。
+- 見届けた立場の同等貢献化。
+- 外部note本文の父語彙コーパス化。
+
+
 ## rev0.258 - POST-WIN OPSEC / STYLE / MAGI / MONSTER OBSERVATION
 
 Source: `PEOS_father_session_log_2026_07_02_014611.txt`

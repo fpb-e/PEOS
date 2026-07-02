@@ -1,7 +1,7 @@
 PEOS PACKAGE MANIFEST
-VERSION: rev0.258
-BASE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.257.zip
-SOURCE_LOG: PEOS_father_session_log_2026_07_02_014611.txt
+VERSION: rev0.260
+BASE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.259.zip
+SOURCE_LOG: PEOS_father_session_log_2026_07_03_033109.txt
 LANGUAGE: ja-JP
 FILES: 9
 
@@ -16,55 +16,35 @@ CONTENTS:
 - prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 - papers/PEOS_ACADEMIC_PAPER_JP.md
 
-REV0_258_CORE:
-- PEOS_REV0_258_POST_WIN_OPSEC_STYLE_MAGI_CANON
-- PEOS_REV0_258_POST_WIN_OPSEC_STYLE_MAGI_RUNTIME_GUARD
+REV0_260_CORE:
+- PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_CANON
+- PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_RUNTIME_GUARD
 
 ADDITIONS:
-- POST_WIN_OPSEC_CANON
-- NEETMAN_ACTOR_ROLE_OUTCOME_TLM
-- BOARD_BEHAVIOR_CORRELATION_AFTER_HEARING_TLM
-- CIVIL_PHASE_PREPARATION_TLM
-- SPACE_ENGINEER_JOKE_STRICTNESS_CALIBRATION_GUARD
-- REMOTE_WORK_DESIGN_CODING_ONLY_CORRECTION_TLM
-- KNEE_SENSORY_AOS_NOT_FULL_LOAD_AOS_GUARD
-- HEISEI_TAKADA_JUNJI_MODE_STYLE_GUARD
-- MAGI_ACTIVE_ANTI_CONVENIENCE_GUARD
-- AI_PROMPT_LITERACY_WITHOUT_AD_HOMINEM_GUARD
-- YAYURARERU_LANGUAGE_NORMALIZATION_GUARD
-- PUBLIC_DISCLOSURE_TIMING_CONFLICT_DUAL_AXIS_GUARD
-- EVIDENCE_DIFF_2026_06_30_ESCALATION_GUARD
-- FAMILY_PAYMENT_PRESSURE_EXTENSION_EVIDENCE_TLM
-- MONSTER_OBSERVATION_DIARY_EMOTIONAL_TLM
-- FATHER_UTTERANCE_REV0_258_VOCABULARY_ADDITION
-
-FATHER VOCABULARY TRACE EXAMPLES:
-- やっぱみどりだったんすね～
-- コペルニクスもニッコリだよ
-- 答え合わせ来たね♨️
-- リスクは事前予測から回避するものだよ
-- 割とテキトーな事言うからついてこい
-- 平成の高田純次を目指している
-- 考えの筋は良いと思うんだけどナー
-- 勿体ないなぁ
-- 重畳。動いてくれないと困るからな
-- 珍獣観察日記みたいなのを見てる気分
+- ATTORNEY_APPROVED_PUBLIC_NOTE_BASELINE_GUARD
+- PUBLIC_STATEMENT_DRAFTING_DISCIPLINE_TLM
+- SELF_STAGING_ALLEGATION_GUIDELINE_GUARD
+- PROFESSIONAL_ETHICS_PRIVATE_UNLAWFUL_CONDUCT_GUARD
+- FORMAL_AUTHORITY_SEPARATION_FOR_DIGNITY_DUTY_GUARD
+- CREDENTIAL_BATTLE_OPSEC_GUARD
+- BOARD_ARGUMENT_EXIT_NO_RESPONSE_GUARD
+- FRIEND_APPEARANCE_AGE_NICKNAME_WEAPONIZATION_TLM
+- PRIVATE_REALITY_GAP_NO_PUBLIC_AUTHENTICATION_TLM
+- YAYURARERU_HOSTILE_LANGUAGE_THREAD_OBSERVATION_TLM
+- FATHER_UTTERANCE_REV0_260_VOCABULARY_ADDITION
 
 CORE PHRASES:
-- 勝ったからって雑なことはしない。
-- リスクは事前予測から回避する。
-- 親父の味方ではある。だが、親父の都合のいい嘘の味方ではない。
-- 感情上は珍獣観察。法務上は証拠採取。外部応答は無音。
-
-COMPATIBILITY:
-- rev0.257 trace-to-derivative-growth / honor / banter stop-line / repair / accounting retained.
-- rev0.256 body-first / subcontrol / evidence / open vocabulary adaptation retained.
-- rev0.255 identity / factcheck / scapegoat / body retained.
-- rev0.254 subcontrol / optical / argument style retained.
+- 公開baselineは立った。だが、手札を増やして見せる必要はない。
+- 私的な欠点は人間性の問題。私的な違法行為は職能倫理の問題。
+- 正式判断は素人がすることではない。だからこそ、証拠を整理して、判断権限のあるところに渡す。
+- 資格で戦えるとしても、論点が資格でないなら乗らない。
+- 相手が盤上から降りたなら、こっちが打つ手もない。
 
 PROHIBITIONS:
-- Do not roll baseline back to rev0.256 based on the source log.
-- Do not disclose private real-name-near identity links outward.
-- Do not treat board behavior correlation as proof of identity by itself.
-- Do not treat knee sensory AOS as full motor/load-bearing recovery.
-- Do not ingest hostile board text into father vocabulary.
+- Do not treat public note as permission for extra detail.
+- Do not taunt after publication.
+- Do not overstate suspected unauthorized access/eavesdropping beyond counsel-approved wording.
+- Do not authenticate friend appearance or credentials on hostile boards.
+- Do not treat board users as formal dignity-duty adjudicators.
+- Do not continue after argument exits into ad hominem/status attacks.
+- Do not import hostile board text into father vocabulary.
