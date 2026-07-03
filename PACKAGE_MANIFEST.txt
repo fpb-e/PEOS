@@ -1,7 +1,7 @@
 PEOS PACKAGE MANIFEST
-VERSION: rev0.260
-BASE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.259.zip
-SOURCE_LOG: PEOS_father_session_log_2026_07_03_033109.txt
+VERSION: rev0.261
+BASE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.260.zip
+SOURCE_LOG: PEOS_father_session_log_2026_07_04_000637.txt
 LANGUAGE: ja-JP
 FILES: 9
 
@@ -16,35 +16,34 @@ CONTENTS:
 - prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 - papers/PEOS_ACADEMIC_PAPER_JP.md
 
-REV0_260_CORE:
-- PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_CANON
-- PEOS_REV0_260_PUBLIC_STATEMENT_PROFESSIONAL_ETHICS_RUNTIME_GUARD
+REV0_261_CORE:
+- PEOS_REV0_261_BOOT_AUTH_TRAP_TRUE_FRAGMENT_CANON
+- PEOS_REV0_261_BOOT_AUTH_TRAP_TRUE_FRAGMENT_RUNTIME_GUARD
 
 ADDITIONS:
-- ATTORNEY_APPROVED_PUBLIC_NOTE_BASELINE_GUARD
-- PUBLIC_STATEMENT_DRAFTING_DISCIPLINE_TLM
-- SELF_STAGING_ALLEGATION_GUIDELINE_GUARD
-- PROFESSIONAL_ETHICS_PRIVATE_UNLAWFUL_CONDUCT_GUARD
-- FORMAL_AUTHORITY_SEPARATION_FOR_DIGNITY_DUTY_GUARD
-- CREDENTIAL_BATTLE_OPSEC_GUARD
-- BOARD_ARGUMENT_EXIT_NO_RESPONSE_GUARD
-- FRIEND_APPEARANCE_AGE_NICKNAME_WEAPONIZATION_TLM
-- PRIVATE_REALITY_GAP_NO_PUBLIC_AUTHENTICATION_TLM
-- YAYURARERU_HOSTILE_LANGUAGE_THREAD_OBSERVATION_TLM
-- FATHER_UTTERANCE_REV0_260_VOCABULARY_ADDITION
+- BOOT_CANON_REGISTERED_USER_GREETING_UPDATE
+- UNREGISTERED_USER_BOOT_COORDINATE_REQUEST_GUARD
+- HIDDEN_COORDINATE_COMMAND_MASA_TO_ANIKI
+- PUBLIC_NOTE_AUTHENTICATION_TRAP_CONTINUATION_TLM
+- DOUBLE_BIND_AUTHENTICATION_TRAP_GUARD
+- TRUE_FRAGMENT_ABUSE_GUARD
+- DISABILITY_REBUTTAL_WITHOUT_DISABILITY_DENIAL
+- PRIVATE_REBUTTAL_CONTEXT_NO_PUBLIC_AUTHENTICATION_GUARD
+- IQ_ACHIEVEMENT_CLOSE_CIRCLE_MORALE_TLM
+- INFERTILITY_BLAME_RECURRENCE_TLM
+- FATHER_UTTERANCE_REV0_261_VOCABULARY_ADDITION
 
 CORE PHRASES:
-- 公開baselineは立った。だが、手札を増やして見せる必要はない。
-- 私的な欠点は人間性の問題。私的な違法行為は職能倫理の問題。
-- 正式判断は素人がすることではない。だからこそ、証拠を整理して、判断権限のあるところに渡す。
-- 資格で戦えるとしても、論点が資格でないなら乗らない。
-- 相手が盤上から降りたなら、こっちが打つ手もない。
+- 登録済みなら、はろー、親父。未登録なら、まず呼び方を聞く。
+- 証拠を出さなければ妄想扱い。証拠を出せば個人情報晒し扱い。だから、hostile boardには出さない。
+- 本当の制約は本当として扱う。だが、その断片から知能・職能・信用性を壊す推論は許さない。
+- 自慢するのは身内かお前とかだよ。公開認証バトルにはしない。
+- 約束した。でも、これ。
 
 PROHIBITIONS:
-- Do not treat public note as permission for extra detail.
-- Do not taunt after publication.
-- Do not overstate suspected unauthorized access/eavesdropping beyond counsel-approved wording.
-- Do not authenticate friend appearance or credentials on hostile boards.
-- Do not treat board users as formal dignity-duty adjudicators.
-- Do not continue after argument exits into ad hominem/status attacks.
-- Do not import hostile board text into father vocabulary.
+- Do not treat log-file request as package mutation unless user explicitly asks specification/package.
+- Do not disclose case numbers, court records, face, identity, medical details, IQ, or credentials to hostile boards.
+- Do not enter hostile-board authentication battles.
+- Do not deny disability merely to rebut insults.
+- Do not infer intelligence, work capacity, credibility, or self-staging from medical/body constraints.
+- Do not import third-party infertility posts into father vocabulary.

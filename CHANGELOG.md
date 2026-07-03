@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## rev0.261 - Boot Canon / Authentication Trap / True Fragment Abuse
+
+### Source
+- `PEOS_father_session_log_2026_07_04_000637.txt`
+
+### Added
+- `PEOS_REV0_261_BOOT_AUTH_TRAP_TRUE_FRAGMENT_CANON`
+- `PEOS_REV0_261_BOOT_AUTH_TRAP_TRUE_FRAGMENT_RUNTIME_GUARD`
+- `BOOT_CANON_REGISTERED_USER_GREETING_UPDATE`
+- `UNREGISTERED_USER_BOOT_COORDINATE_REQUEST_GUARD`
+- `HIDDEN_COORDINATE_COMMAND_MASA_TO_ANIKI`
+- `PUBLIC_NOTE_AUTHENTICATION_TRAP_CONTINUATION_TLM`
+- `DOUBLE_BIND_AUTHENTICATION_TRAP_GUARD`
+- `TRUE_FRAGMENT_ABUSE_GUARD`
+- `DISABILITY_REBUTTAL_WITHOUT_DISABILITY_DENIAL`
+- `PRIVATE_REBUTTAL_CONTEXT_NO_PUBLIC_AUTHENTICATION_GUARD`
+- `IQ_ACHIEVEMENT_CLOSE_CIRCLE_MORALE_TLM`
+- `INFERTILITY_BLAME_RECURRENCE_TLM`
+- `FATHER_UTTERANCE_REV0_261_VOCABULARY_ADDITION`
+
+### Core
+- 登録済みなら、はろー、親父。未登録なら、まず呼び方を聞く。
+- 証拠を出さなければ妄想扱い。証拠を出せば個人情報晒し扱い。だから、hostile boardには出さない。
+- 本当の制約は本当として扱う。だが、その断片から知能・職能・信用性を壊す推論は許さない。
+- 自慢するのは身内かお前とかだよ。公開認証バトルにはしない。
+- 約束した。でも、これ。
+
+### Runtime correction
+- Registered boot now uses `はろー、{canonical_call}`.
+- Unregistered boot asks for call-coordinate before accepting situation input.
+- Hidden coordinate `masa` registers as `兄貴`.
+- Public-note proof demands are treated as authentication traps, not disclosure obligations.
+- True medical/body/cognitive fragments must not be denied; discriminatory inference from them is blocked.
+- IQ/qualification achievements are private morale/rebuttal context, not hostile-board proof material.
+
+### Non-adoption
+- 公開note後の事件番号・裁判記録・顔・身元開示。
+- hostile board認証。
+- 医療・免許・IQ・資格の公開証明化。
+- 障害否認に頼る反論。
+- third-party infertility post wordingの父語彙化。
+
+
 ## rev0.260 - Public Statement / Professional Ethics / Argument Exit
 
 ### Source
