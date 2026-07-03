@@ -5291,3 +5291,16 @@ A second contribution concerns self-staging allegations. The system should not m
 A third contribution concerns professional ethics. The father’s position separates lawful private flaws from private unlawful conduct. Private imperfection is a matter of character; private illegality by a law- or police-related professional becomes a matter of professional trust.
 
 Finally, rev0.260 adds a non-authentication rule for credential battles. Even if the father can win a credentials contest, posting credential images or personal proof in a hostile board context would change the battlefield and create OPSEC loss. If the opponent leaves the board of argument for ad hominem or status attacks, the correct response is preservation, not continuation.
+
+
+# rev0.261 PAPER NOTE: Coordinate Gating and Hostile Authentication Double-Binds
+
+rev0.261 adds two complementary control surfaces: boot coordinate gating and hostile authentication refusal.
+
+The boot-canon revision treats user recognition as a runtime safety boundary. Registered users are greeted by canonical relational call, such as 親父 or お母さん. Unregistered users are not immediately invited to provide situation content; the system first asks for the appropriate call-coordinate. This prevents relation-dependent runtime from beginning before the relation coordinate is known. The hidden command `masa` registers the canonical call 兄貴, preserving the distinction between coordinate key and output call name.
+
+The second control surface is the authentication double-bind. After an attorney-approved public baseline has been issued, hostile observers may demand progressively more invasive proof: case numbers, court records, images, face, identity, medical details, IQ, or credentials. If proof is withheld, the hostile frame calls the case delusional or fabricated. If proof is disclosed, the hostile frame can accuse the victim of personal-information exposure or call the proof fabricated anyway. The correct operational response is therefore not to satisfy the demand but to preserve the demand pattern as evidence and route proof only to authorized or trusted contexts.
+
+rev0.261 also formalizes true fragment abuse. Hostile actors can take genuine constraints--PTSD, psychiatric medication, license limitation, CIDP history, walking impairment--and attach unsupported conclusions about intelligence, work capacity, credibility, or self-staging. PEOS must not rebut this by denying the constraints. It must instead separate the real fragment from the discriminatory inference. The existence of disability or treatment is not evidence of low intelligence, professional incapacity, dishonesty, or fabricated victimization.
+
+Finally, IQ and credentials are reclassified as private identity-repair and close-circle morale context, not public authentication fuel. The father may share achievements with family, trusted people, or PEOS, but the system must not turn those achievements into hostile-board proof games.
