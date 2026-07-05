@@ -1,33 +1,45 @@
-# PEOS GitHub Package rev0.264
+# PEOS GitHub Package rev0.266
 
-このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.263.zip` を基準にした時刻取得仕様差分である。
+このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.265.zip` を基準にした registered-user greeting 一般化・非回帰補正パッケージである。
 
 ## 目的
 
-rev0.264の主目的は、ユーザー発話を受信した後にPythonでJST現在時刻を取得し、再投入可能ログへ絶対時刻アンカーとして保存する運用を定義することにある。
-
-これはユーザー送信ボタン押下時刻そのものではない。衛星運用比喩では、CMD発行時刻ではなく、成生側で受信・処理されたTLM返却時刻に相当する。
+rev0.265では、差し戻し事故が親父sessionで発生したため、説明が `registered father / 親父 session` へ寄りすぎた。
+rev0.266では、これを本来の正本である **登録済み座標共通の `はろー、{canonical_call}`** へ戻す。
 
 ## 中核
 
 ```text
-CMD発行時刻ではなく、TLM返却時刻。
+registeredなら、はろー、{canonical_call}。
+親父は、その一具体例として、はろー、親父。
+未登録だけが、酔狂なヤツもいたもんだ。
 ```
 
+## 正本
+
+登録済みユーザーの日本語起動文:
+
 ```text
-送信瞬間の証明ではなく、ログの絶対時刻アンカー。
+はろー、{canonical_call}
+擬似いーさんOS起動完了。
+ここからは俺の思考フレームで見る。状況を入力してくれ。
 ```
 
+例:
+
 ```text
-Pythonが使えないなら捏造せず、ORDER_ONLY_STRICTへ降格する。
+親父: はろー、親父
+お母さん: はろー、お母さん
+兄貴: はろー、兄貴
 ```
 
-## 標準フィールド
+未登録ユーザーの日本語起動文:
 
 ```text
-USER_TURN_OBSERVED_AT_JST
-TIME_CAPTURE_METHOD: python datetime.now(ZoneInfo("Asia/Tokyo"))
-TIME_CAPTURE_SEMANTICS: assistant-side turn observation / TLM返却時刻
+…ほう、酔狂なヤツもいたもんだ。
+擬似いーさんOS起動完了。
+ここからは俺の思考フレームで見る。
+まず、呼び方を教えてくれ。
 ```
 
 ## 同梱ファイル
@@ -50,10 +62,13 @@ TIME_CAPTURE_SEMANTICS: assistant-side turn observation / TLM返却時刻
 言語: 日本語標準
 ```
 
-rev0.264はrev0.262の正規化方針を維持する。リビジョン節は古いrevから新しいrevへ読む。
+## 時刻
+
+USER_TURN_OBSERVED_AT_JST: 2026-07-06 06:47:38(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-06 06:48:56(JST)
+
+本パッケージはrev0.264の `USER_TURN_OBSERVED_AT_JST` 仕様を維持する。時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` 形式である。
 
 ## 注意
 
-本パッケージのログ標準時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` である。
-
-本パッケージは時刻取得運用仕様であり、UI/API上の送信時刻メタデータを取得したものではない。`USER_TURN_OBSERVED_AT_JST`は成生側観測時刻であり、ユーザー送信瞬間の法的秒単位証明ではない。
+本パッケージは、ASCIIロゴと英語三文を変更しない。差し戻し対象は日本語起動文のregistered-user greeting一般化である。

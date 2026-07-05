@@ -1,23 +1,26 @@
 PEOS パッケージ目録
-バージョン: rev0.264
-元baseline: rev0.263
+バージョン: rev0.266
+元baseline: rev0.265
 正規化基準: 昇順 / rev0.xxx / 日本語標準
-主題: Python JST観測時刻 / USER_TURN_OBSERVED_AT_JST / CMDではなくTLM返却時刻
+主題: registered-user greeting generalization / はろー、{canonical_call}
+
+USER_TURN_OBSERVED_AT_JST: 2026-07-06 06:47:38(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-06 06:48:56(JST)
 
 同梱ファイルとSHA-256:
-- README.md: 6e967ba5272b4f7adff0d1fad1c0e594e8f3db7930b2e7ef338e6479179a555b
-- CHANGELOG.md: b71a717fa2f1a1d14697b37e2f971c44dbd5e09a0ae9ca94f69921183154d693
-- prompt/PEOS_CURRENT_SPEC_JP.md: ea5bb77a3c79c50f22c322835952ac31e658cc01cce9a92a6a9ca9e03383d5d6
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 2e715e8b3c4a0a8dda49bf12ae23d80d61135bb096b923c032cf3d0b02c3b8f8
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: bd76ccdf676c22e0fd4c0079b3213c2ea3b45dba0c75f41dba659064268adcfc
-- prompt/PEOS_CURRENT_PAPER_JP.md: c7afa48a77a745a2d718e9f6f51dffb2dc0b8da5ecd467e2c2bb3b910d90037f
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: b054b88f3b18b284ff6eb1c2747eba5441202b509d88503f0331033246116e57
-- papers/PEOS_ACADEMIC_PAPER_JP.md: ab344bbe0ea49414b4e1a8eda2c420eb3f8f0603a24b2617d13b29aa14e2e9f7
+- README.md: 7af0eeb3dbb422a37917f83c081c31c70c30dc011526c17663c1e35ce0a29d6e
+- CHANGELOG.md: 46f413c1c305e7fc061279bfb0f5aeac6afcc859138c84e6ad860afddaf7a053
+- prompt/PEOS_CURRENT_SPEC_JP.md: e7e8739533c04c4bae338cb4d214ce7794805c04837dd43e95bc6bfd8ab27297
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: a5adab7135586e990075552ac94c3c9f337fb26202818f0935d96307f489ec1f
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: 3cafab058a95200242182604239cbec105b0851acd575a277beb302327d5e737
+- prompt/PEOS_CURRENT_PAPER_JP.md: e3358848046c209c4d7636198820c6aae00a7557f4a20b45bbb1b92accc399d4
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: b550a94e0906c5a84d450e436e62d4963682b4cc5148a9b683530fcf993f45ff
+- papers/PEOS_ACADEMIC_PAPER_JP.md: 4debe16bd37251ec33c7348281dfa048c6b7d69b6dd3f26e20c2b043101abe09
 
-rev0.264 中核:
-- ユーザー発話処理時にPythonでJST現在時刻を取得し、絶対時刻アンカーとして保存する。
-- 取得値はUSER_TURN_OBSERVED_AT_JSTとして扱う。
-- 表記は YYYY-MM-DD HH:MM:SS(JST) に統一する。
-- これはCMD発行時刻ではなく成生側TLM返却時刻である。
-- Python取得不能時は時刻を捏造せずORDER_ONLY_STRICTへ降格する。
-- 取得時刻をユーザー送信瞬間や法的秒単位証明として過剰主張しない。
+rev0.266 中核:
+- 登録済み座標では日本語起動文の第一行を必ず `はろー、{canonical_call}` とする。
+- `はろー、親父` はfather / 親父 sessionの一具体例であり、規則全体ではない。
+- mother / お母さん sessionでは `はろー、お母さん`、hidden coordinate `masa -> 兄貴` 登録後は `はろー、兄貴`。
+- 旧一般起動文 `…ほう、酔狂なヤツもいたもんだ。` は未登録ユーザー専用として扱う。
+- 起動文は雰囲気一致ではなくexactnessで評価する。
+- rev0.264のUSER_TURN_OBSERVED_AT_JST仕様を維持する。

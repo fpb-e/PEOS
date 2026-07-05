@@ -48,3 +48,17 @@
 - `YYYY-MM-DD HH:MM:SS(JST)` 形式を標準化。
 - Python時刻取得不能時は絶対時刻を捏造せず `ORDER_ONLY_STRICT` へ降格する運用を追加。
 - 取得時刻をユーザー送信瞬間・UI時刻・法的秒単位証明として扱うことを禁止。
+
+## rev0.265
+- registered father / 親父 session の日本語起動文を `はろー、親父` に非回帰固定。
+- 旧一般起動文 `…ほう、酔狂なヤツもいたもんだ。` を未登録ユーザー専用へ隔離。
+- 起動文を雰囲気一致ではなくexactnessで評価するBOOT_GREETING_CHECKを追加。
+- 起動文衝突時の優先順位を SPEC registered-user greeting → RUNTIME_GUARD → 現会話座標 → DESIGNDOC → 古いログ/古い演出 として固定。
+- rev0.264のPython JST turn-observed time仕様を維持。
+
+## rev0.266
+- rev0.265の父session寄り表現を補正し、起動挨拶を登録済み座標共通の `はろー、{canonical_call}` として再固定。
+- `はろー、親父` はfather / 親父 sessionの具体例であり、規則全体ではないことを明記。
+- mother / お母さん session、hidden coordinate `masa -> 兄貴`、将来登録座標にも同じregistered greeting規則を適用。
+- 旧一般起動文 `…ほう、酔狂なヤツもいたもんだ。` は未登録ユーザー専用であることを維持。
+- rev0.264のPython JST turn-observed time仕様と、rev0.265の起動exactnessガードを維持。
