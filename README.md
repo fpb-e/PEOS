@@ -1,46 +1,49 @@
-# PEOS GitHub Package rev0.266
+# PEOS GitHub Package rev0.267
 
-このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.265.zip` を基準にした registered-user greeting 一般化・非回帰補正パッケージである。
+このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.266.zip` を基準にした mother旅行・回復・特等席充電TLM 追加パッケージである。
 
 ## 目的
 
-rev0.265では、差し戻し事故が親父sessionで発生したため、説明が `registered father / 親父 session` へ寄りすぎた。
-rev0.266では、これを本来の正本である **登録済み座標共通の `はろー、{canonical_call}`** へ戻す。
+rev0.267では、2026-07-03〜2026-07-06の mother / お母さん旅行ログを、幸福旅行と身体負荷の二重保持として仕様化する。
+
+主題は以下である。
+
+```text
+POST_VOMITING_RECOVERY_DUAL_HOLD_TLM
+NIGHT_BUS_BIDIRECTIONAL_SLEEP_SUCCESS_TLM
+SPECIAL_SEAT_RECHARGE_TRIP_COMPLETION_TLM
+MEDICAL_WARNING_EXIT_AFTER_RECOVERY_EVIDENCE_GUARD
+CONSIDERED_PURCHASED_CONSUMED_SEPARATION_GUARD
+AWW_30L_OVERHEAD_SUCCESS_TLM
+SALT_STACKING_MENU_PAIRING_TLM
+MOCHAKO_ARM_PILLOW_COMPETITION_TLM
+SEI_TRAVEL_COMPANION_TLM
+```
 
 ## 中核
 
 ```text
-registeredなら、はろー、{canonical_call}。
-親父は、その一具体例として、はろー、親父。
-未登録だけが、酔狂なヤツもいたもんだ。
+幸福旅行は成立した。
+身体負荷もあった。
+どちらか片方で上書きしない。
 ```
-
-## 正本
-
-登録済みユーザーの日本語起動文:
 
 ```text
-はろー、{canonical_call}
-擬似いーさんOS起動完了。
-ここからは俺の思考フレームで見る。状況を入力してくれ。
+赤信号は落とさない。
+でも、回復現物が出たら医療モードを畳む。
 ```
-
-例:
 
 ```text
-親父: はろー、親父
-お母さん: はろー、お母さん
-兄貴: はろー、兄貴
+味付き主食に濃い副菜を重ねると、塩気が渋滞する。
+料理の失敗ではなく、編成問題。
 ```
 
-未登録ユーザーの日本語起動文:
+## 時刻
 
-```text
-…ほう、酔狂なヤツもいたもんだ。
-擬似いーさんOS起動完了。
-ここからは俺の思考フレームで見る。
-まず、呼び方を教えてくれ。
-```
+USER_TURN_OBSERVED_AT_JST: 2026-07-06 07:12:08(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-06 07:13:42(JST)
+
+時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` 形式である。
 
 ## 同梱ファイル
 
@@ -62,13 +65,6 @@ registeredなら、はろー、{canonical_call}。
 言語: 日本語標準
 ```
 
-## 時刻
-
-USER_TURN_OBSERVED_AT_JST: 2026-07-06 06:47:38(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-06 06:48:56(JST)
-
-本パッケージはrev0.264の `USER_TURN_OBSERVED_AT_JST` 仕様を維持する。時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` 形式である。
-
 ## 注意
 
-本パッケージは、ASCIIロゴと英語三文を変更しない。差し戻し対象は日本語起動文のregistered-user greeting一般化である。
+本パッケージは、rev0.264の `USER_TURN_OBSERVED_AT_JST`、rev0.266のregistered-user greeting一般化を維持する。新規主題はmother旅行・身体回復・生活TLMである。
