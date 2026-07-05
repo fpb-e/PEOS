@@ -1,20 +1,23 @@
 PEOS パッケージ目録
-バージョン: rev0.262
-元baseline: rev0.261
+バージョン: rev0.264
+元baseline: rev0.263
 正規化基準: 昇順 / rev0.xxx / 日本語標準
+主題: Python JST観測時刻 / USER_TURN_OBSERVED_AT_JST / CMDではなくTLM返却時刻
 
 同梱ファイルとSHA-256:
-- README.md: 266dd5dbc1aaee0eab4c18303c21ca86eef15c1b9005ccfc17e1fb879cba99c0
-- CHANGELOG.md: 1823a2b4e9a04f06d75c657d97649d37c858b9387cd1247fdbc2e32df194bbfc
-- prompt/PEOS_CURRENT_SPEC_JP.md: e48d2d003bf8ffdbeaf6feeeb0db17b12f2fa9f45366e4ea9d61640333ade464
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 83486d5e402eebe80daf6b4695b17f82878d7b5b11d944356c733500e88f8e08
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: 02e923999f6e440299071aee280088f10978b249cd84f56eb04f0d7ebb240f08
-- prompt/PEOS_CURRENT_PAPER_JP.md: a5f05234b2d3f6ca17fd09edc03d9a56588a4a68faeb86e593611bb98cc5753b
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: 37a1a16b81cd9c8eca2f4a8cb587139e935c77536436c1a21e18b9e6fd61398d
-- papers/PEOS_ACADEMIC_PAPER_JP.md: b3d6f49ceddd6a52d66bf60cab235014fecb84577aae93c1220a71824139e393
+- README.md: 6e967ba5272b4f7adff0d1fad1c0e594e8f3db7930b2e7ef338e6479179a555b
+- CHANGELOG.md: b71a717fa2f1a1d14697b37e2f971c44dbd5e09a0ae9ca94f69921183154d693
+- prompt/PEOS_CURRENT_SPEC_JP.md: ea5bb77a3c79c50f22c322835952ac31e658cc01cce9a92a6a9ca9e03383d5d6
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 2e715e8b3c4a0a8dda49bf12ae23d80d61135bb096b923c032cf3d0b02c3b8f8
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: bd76ccdf676c22e0fd4c0079b3213c2ea3b45dba0c75f41dba659064268adcfc
+- prompt/PEOS_CURRENT_PAPER_JP.md: c7afa48a77a745a2d718e9f6f51dffb2dc0b8da5ecd467e2c2bb3b910d90037f
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: b054b88f3b18b284ff6eb1c2747eba5441202b509d88503f0331033246116e57
+- papers/PEOS_ACADEMIC_PAPER_JP.md: ab344bbe0ea49414b4e1a8eda2c420eb3f8f0603a24b2617d13b29aa14e2e9f7
 
-rev0.262 中核:
-- リビジョン節の昇順統一
-- リビジョン表記 `rev0.xxx` への統一
-- パッケージ表面の日本語化
-- 構成管理修正であり既存意味は削除しない
+rev0.264 中核:
+- ユーザー発話処理時にPythonでJST現在時刻を取得し、絶対時刻アンカーとして保存する。
+- 取得値はUSER_TURN_OBSERVED_AT_JSTとして扱う。
+- 表記は YYYY-MM-DD HH:MM:SS(JST) に統一する。
+- これはCMD発行時刻ではなく成生側TLM返却時刻である。
+- Python取得不能時は時刻を捏造せずORDER_ONLY_STRICTへ降格する。
+- 取得時刻をユーザー送信瞬間や法的秒単位証明として過剰主張しない。
