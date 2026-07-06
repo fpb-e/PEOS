@@ -1,28 +1,31 @@
 PEOS パッケージ目録
-バージョン: rev0.267
-元baseline: rev0.266
+バージョン: rev0.269
+元baseline: rev0.268
 正規化基準: 昇順 / rev0.xxx / 日本語標準
-主題: mother旅行・嘔吐後回復二重保持・特等席充電TLM
+主題: 時刻状態型分離・匿名同一性OPSEC・父語彙レイヤー
 
-USER_TURN_OBSERVED_AT_JST: 2026-07-06 07:12:08(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-06 07:13:42(JST)
+USER_TURN_OBSERVED_AT_JST: 2026-07-07 02:55:10(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-07 02:55:54(JST)
 
 同梱ファイルとSHA-256:
-- README.md: f0ce66a71efb5eda1abc5eb0603135283878a77b0a06756ccae367c1789b0bd7
-- CHANGELOG.md: ca66240e54f5d19dbe2e978691f992cfa054dc2b0dea7c43e823ae0aefe5b9de
-- prompt/PEOS_CURRENT_SPEC_JP.md: 9cefc00f68254f7806284ad08fd40da3dbdf8934e3911f7c8ca714633caf4e78
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 085a493f22acc9918a6aa40d5e07e4ccaea3bdd0913fcc7c8f21d79cc2a4e634
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: 16c8fffbed7a05fe9743bbce72fc9198f479b5fc7a4051d333de94bb7efe5b4c
-- prompt/PEOS_CURRENT_PAPER_JP.md: b4d7e66095a08134ab3216e72c56d4a34a1c2e9e193d026ffcda02f1be28780a
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: 319cd3c38e2251dd61e4f43a192c36a4e38a8325b88f7f88881b8bf119f69576
-- papers/PEOS_ACADEMIC_PAPER_JP.md: 676e7b794a9d9013c2ef665617988b5db9df95a809f66805b9aecf82444185a8
+- CHANGELOG.md: 4fe3934b664b097ca5146502c7f89e3ae5453ad57c368b26066e7dedb9dc0fa2
+- README.md: 138bc02b7549f9803364f7abfa7ab1f5538d45e838b3ece4a01a4d3eba66fa9a
+- papers/PEOS_ACADEMIC_PAPER_JP.md: ac6c6e0848d3133c8bb7c9496cc4126818cd2f194e253e501b3d70d8a8b0ad85
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: 68ed789a8cf37f473e7cf40bf148175ddbce8cdae189d5751968177708464a4b
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: ae5e4b1bacd86d59870b2d4a3b8c3c719a03c27a3cad3d9df06a81b32fd12a6d
+- prompt/PEOS_CURRENT_PAPER_JP.md: afe5167f25b46b23c10c0ff1a754fbb05ca177325f2aa4ac908c8f04d6da2932
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 8da5425d75d8c78b70bd2bbfdaf63991c1fde4ac109205d314e5fe85d1270d34
+- prompt/PEOS_CURRENT_SPEC_JP.md: 4d148e4ba86630b5433e5c2da043013550f18781cca83c1e4277acbfde2a4529
 
-rev0.267 中核:
-- 幸福旅行と身体負荷を相殺せず、同時保持する。
-- 嘔吐2回はYELLOW、完食・帰路乗車・復路6時間睡眠はGREEN回復現物として扱う。
-- 夜行バスは往路約5時間、復路約6時間睡眠が成立した成功実績として保存する。
-- Aww白ボストン30Lは当該夜行バス網棚へ収納できたが、全便保証にはしない。
-- 味付き主食と濃い副菜の塩分スタッキングを献立編成TLMとして扱う。
-- 検討・購入・摂取を分離し、未成立の買物や摂取を補完しない。
-- 回復現物後は医療警告を引き延ばさず、雑談・幸福ログへ戻る。
-- rev0.264のUSER_TURN_OBSERVED_AT_JST仕様とrev0.266のregistered greeting一般化を維持する。
+rev0.269 中核:
+- 時刻は取れる。ただし、取れた時刻・ログ生成時刻・過去復元不能・ORDER_ONLYを型で分ける。
+- 新規ユーザーターンではPythonによるJST取得を試み、取得を試みずORDER_ONLY_STRICTへ落とさない。
+- 過去ログをまとめて処理する時、ログ生成時刻を各過去発話の時刻として流用しない。
+- `USER_TURN_OBSERVED_AT_JST一覧` は主要イベント時刻一覧であり、全発話の完全時刻表ではない。
+- しーちゃん表示X投稿とsuki-kira.com匿名投稿を証拠分類上分ける。
+- 語彙・論法・時系列・攻撃テーマの連続性は保存するが、匿名投稿者同一性は断定しない。
+- 明示的同定「ヨチヨチおじさん = いーさん」等を行動閾値として扱う。
+- 高みの見物は放置ではなく、証拠保存・分類・閾値監視の低燃費運用である。
+- 親父の短命令はCLI的運用コマンドであり、雑な一言ではない。
+- 断定できないことは、OPSEC上の弱点ではなく制御点である。
+- 父語彙コーパスへ入れるのは親父本人の実発話のみ。
