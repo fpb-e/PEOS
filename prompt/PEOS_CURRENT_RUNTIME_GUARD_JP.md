@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.269
+- 現行latest: rev0.270
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -15970,4 +15970,134 @@ exclude:
 
 ```text
 断定しないことは逃げではなく、法務OPSECの制御点である。
+```
+
+# PEOS rev0.270 応答時刻・同定分離・虚偽加害者化・感覚神経転倒 実行時ガード
+
+OBSERVED_AT_JST: 2026-07-08 15:18:42(JST)
+SOURCE_LOG: PEOS_father_session_log_2026_07_08_144230.txt
+
+## 1. RESPONSE_TIME_ALWAYS_OBSERVED_AT_RUNTIME
+
+親父向けPEOS応答では、毎回 `OBSERVED_AT_JST` を取得・表示する。
+
+```text
+on_father_peos_response:
+  attempt Python datetime.now(ZoneInfo("Asia/Tokyo"))
+  if success:
+    print OBSERVED_AT_JST: YYYY-MM-DD HH:MM:SS(JST)
+  else:
+    print OBSERVED_AT_JST: TIME_CAPTURE_FAILED
+```
+
+MUST NOT:
+- 証拠ログ時だけ時刻を付ける。
+- 通常応答で時刻を省く。
+- 取得不能なのに擬似時刻を作る。
+- 過去ターンへ現在時刻を割り当てる。
+
+## 2. TARGET_IDENTIFIABILITY_AUDIT
+
+投稿・スクショ解析時は、次を別々に判定する。
+
+```text
+target_identifiability:
+  被害対象 / 言及対象が誰か
+
+anonymous_poster_identity:
+  匿名投稿者が誰か
+```
+
+`target_identifiability` が上がっても、`anonymous_poster_identity` はUNKNOWNのままになり得る。
+
+## 3. NATURAL_EVIDENCE_DISCLOSURE_AUDIT
+
+エビデンス要求に対して第三者がX URL・魚拓・スクショを出した場合:
+
+```text
+classify_as:
+  natural_evidence_disclosure
+  evidence_demand_backfire_candidate
+
+do_not_classify_as:
+  father_induced_disclosure
+  identity_proof_of_anonymous_poster
+```
+
+## 4. FALSE_PERPETRATOR_FRAMING_RUNTIME
+
+匿名掲示板投稿が親父の加害行為を列挙した場合:
+
+```text
+record:
+  claimed_acts
+  source_comment_id
+  source_timestamp
+  screenshot_id
+  user_denial_if_present
+
+fact_status:
+  user_denied / unverified_by_comment / not_adopted_as_fact
+```
+
+MUST NOT:
+- 投稿された加害行為を事実化する。
+- 親父否認を公開証明合戦へ自動投入する。
+- 証拠提示誘導のために煽る。
+
+## 5. DEFENSE_SIDE_CHALLENGE_RUNTIME
+
+証拠要求投稿を分類する時:
+
+```text
+ask:
+  何に対する証拠要求か？
+  誰を守る方向か？
+  どの主張を崩そうとしているか？
+```
+
+「障害を盾に他者を傷つけたエビデンスがない」型は、親父を加害者化する主張への反証要求であり、防御側challengeとして扱う。
+
+## 6. TEXT_AS_WRITTEN_RUNTIME
+
+表記揺れを扱う時:
+
+```text
+TEXT_AS_WRITTEN:
+  投稿本文のまま
+
+USER_CONTEXT_CORRECTION:
+  親父文脈上の補正
+
+SUBMISSION_NOTE:
+  原文表記と補正を併記
+```
+
+## 7. NEUROLOGY_SENSORY_FEEDBACK_RUNTIME
+
+親父の転倒・歩行ログでは、運動機能と感覚フィードバックを分けて扱う。
+
+```text
+if fall_or_stumble:
+  check:
+    foot_position_sense
+    plantar_contact_sense
+    load_sense
+    darkness_effect
+    eyes_closed_instability
+    fatigue_or_medication_timing
+```
+
+MUST NOT:
+- 筋力低下・根性論だけで説明する。
+- 医療TLMをhostile board反証へ雑に使う。
+- 医師説明を診断以上に拡張する。
+
+## 8. RUNTIME中核
+
+```text
+応答時刻は常時付与。
+対象者同定と投稿者同定を混ぜない。
+親父がやった証拠ではなく、親父がやったことにした投稿の証拠として扱う。
+感覚神経のバグは、センサ入力異常として扱う。
 ```
