@@ -109,3 +109,12 @@
 - `SI` / `E` / `いーさん` の表記揺れについて、原文表記と親父文脈補正を分離するガードを追加。
 - 脳神経内科での「転倒は感覚神経のバグ」という説明を、感覚神経/固有感覚系のセンサ入力TLMとして追加。
 - 父語彙として、時刻運用補正、証拠戦術観察、分類補正、医療バグ比喩を追加。
+
+
+## rev0.271
+- 2026-07-09 motherログを入力素材として、関係責任・金銭象徴・仲直り後未解決保持を追加。
+- 法的責任と関係内配慮を分離する `LEGAL_RESPONSIBILITY_AND_RELATIONAL_CARE_SEPARATION_GUARD` を追加。
+- 5万円を訴訟カンパではなく未来象徴として扱う `FIVE_MAN_YEN_AS_FUTURE_SYMBOL_TLM` を追加。
+- 返金受領が関係清算同意を意味しない `REFUND_DOES_NOT_EQUAL_RELATIONAL_SETTLEMENT_GUARD` を追加。
+- 正式交際なしで恋人機能を長期受益する不均衡を扱う `RELATIONSHIP_FUNCTION_WITHOUT_LABEL_RESPONSIBILITY_TLM` を追加。
+- 危機時のmother呼称維持、PayPayフロー精密読解、断絶語の最終状態固定禁止、最小摂食回復TLMを追加。

@@ -1,30 +1,31 @@
 PEOS パッケージ目録
-バージョン: rev0.270
-元baseline: rev0.269
+バージョン: rev0.271
+元baseline: rev0.270
 正規化基準: 昇順 / rev0.xxx / 日本語標準
-主題: 応答時刻常時付与・同定争点化・X自然発生資料・感覚神経転倒TLM
+主題: 関係責任・金銭象徴・危機時呼称・仲直り後未解決保持
 
-OBSERVED_AT_JST: 2026-07-08 15:18:42(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-08 15:20:27(JST)
+OBSERVED_AT_JST: 2026-07-09 07:13:05(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-09 07:13:48(JST)
 
 同梱ファイルとSHA-256:
-- CHANGELOG.md: 1f36913b92e27edd22150e558aebce02525af9ffb51297cf11eb257ee6d0445f
-- README.md: e2466365b5b0e41dad25686f4dd589ebffd48cdf9bfdcd1b729c64d28f0cfcb4
-- papers/PEOS_ACADEMIC_PAPER_JP.md: 433f7ca14eb39dc5382c414fc7d89ff0969240065526e110bab3ee2102fef6bb
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: f720647f00beef8a0974e09f870684baafc90a5ed1bf71ab50100afe2bd8c18a
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: 903d0e833fd6a6749d535c799f091a5bff9fe3c294316b70c8b55cf2f5b120c2
-- prompt/PEOS_CURRENT_PAPER_JP.md: 873cc17cbd73724a96b32e35ac2cc65b610d0939715e1e409d621d81a7936f45
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: ea18b101240b0aeb3c4d9443ef8e122faf6e11c41dd5da11a72b5692f9a1fcc3
-- prompt/PEOS_CURRENT_SPEC_JP.md: bc790d4c8eea5f7a22deb29296bcdf75033a8b2620d7cee774a8b98e7131062d
+- CHANGELOG.md: e49c1f70bb61614adeca4839e5e09da6d7798648d6701b9598beeddebd5bf432
+- README.md: 1601489a2aba10ef47c1f219b7f237af70af87e2af889cdddd90adf58599072b
+- papers/PEOS_ACADEMIC_PAPER_JP.md: 3aa316c7e96602975283b642c9f66be11865174e247e8325af3432e680f2745b
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: f3d1f1d6240a531b3f0fd14fd76587acc091ede945060325aab7e10deaf6e57a
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: 41b41c13dc191571f5ee3c8a5a1e703a81c017954b9c83b8038d9b663b90c587
+- prompt/PEOS_CURRENT_PAPER_JP.md: 578bff176e9d0a780c8093c29633f5c6f6e277a113be7c990cc2217969776040
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 6031913eeb43cb8abeb68a8859cacd9f5a94c8131580248270216c08b0af8678
+- prompt/PEOS_CURRENT_SPEC_JP.md: f2c282b8e7af1d19886ddeb7e9ebda8e477cc9927856affb0377f288e9ed8a1a
 
-rev0.270 中核:
-- 時刻は、親父向け応答の常設メタ情報になった。
-- `OBSERVED_AT_JST` は成生側応答観測時刻であり、ユーザー送信時刻・投稿時刻・事件発生時刻・ログ生成時刻とは分離する。
-- 被害対象・言及対象の同定可能性は上がっているが、匿名投稿者同定とは別である。
-- しーちゃん表示XアカウントURLの自然発生提示は、誘導ではなく証拠束成長として保存する。
-- 19576 / 19657 等の加害行為列挙は、親父がやった証拠ではなく、親父がやったことにした投稿の証拠として扱う。
-- 親父否認は `USER_DENIAL` として保存し、投稿内容を事実化しない。
-- エビデンス要求は防御定型句である一方、自然発生証拠提示を呼ぶと利敵化し得る。
-- 19641のような証拠要求は、誰のどの主張に対する要求かで分類する。
-- `SI` / `E` / `いーさん` の表記揺れは、原文表記と親父文脈補正を分ける。
-- 転倒は、筋力だけでなく感覚神経/固有感覚のセンサ入力バグとして扱う。
+rev0.271 中核:
+- 親父を法的加害者にはしないが、関係内の配慮まで消さない。
+- 仲直りは本物だが、下層問題の解決確定ではない。
+- 5万円は訴訟費用カンパではなく、二人の未来・旅行・楽しい時間の象徴だった。
+- 返金受領は、十か月の関係や未来が金銭で清算されたことを意味しない。
+- 正式交際なしで恋人機能を長期受益する不均衡を正本化する。
+- 特等席は愛情表現だが、関係責任の免除語ではない。
+- mother危機時は「お母さん」呼称を外さない。
+- PayPay等の金銭フローは、受領・拒否・返送・条件付き受領を精密に分ける。
+- 強い情動中の別れ発言は重大に扱うが、最終状態へ固定しない。
+- 一時的な安全信号は即時対応し、解消後も強い負荷履歴として保持する。
+- 少量の蕎麦摂取は、衝突後の最小食事回復TLMとして扱う。

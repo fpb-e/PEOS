@@ -1,89 +1,62 @@
-# PEOS GitHub Package rev0.270
+# PEOS GitHub Package rev0.271
 
-このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.269.zip` を基準にした、応答時刻常時付与・同定可能性分離・X URL自然発生資料・感覚神経転倒TLM追加パッケージである。
+このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.270.zip` を基準にした、関係責任・金銭象徴・危機時呼称・仲直り後未解決保持追加パッケージである。
 
 ## 目的
 
-rev0.270では、2026-07-07〜2026-07-08 father / 親父ログを入力素材として、次の四系統を同時に仕様化する。
+rev0.271では、2026-07-09 mother / お母さんログを入力素材として、次の四系統を同時に仕様化する。
 
-1. **応答時刻の常時付与**
-   - 親父向けPEOS応答では、証拠ログ時だけでなく通常応答にも `OBSERVED_AT_JST` を付与する。
-   - 取得方法は Python `datetime.now(ZoneInfo("Asia/Tokyo"))` を標準とする。
-   - 応答観測時刻、事件発生時刻、投稿時刻、ログ生成時刻を混同しない。
+1. **法的責任と関係内配慮の分離**
+   - 親父はニートマン事件の法的加害者ではない。
+   - ただし、大切な人が自分の過去由来の事件へ巻き込まれた場合、関係内の配慮・謝意・申し訳なさは別軸で成立し得る。
+   - 「巻き込んでごめん」「怖い思いをさせた」「支えてくれてありがとう」は加害者認定要求とは限らない。
 
-2. **同定可能性と匿名投稿者同定の分離**
-   - `@fpb_e` / いーさん / Eさん文脈と、ヨチヨチ・障害・虚言・加害者化語彙の接続は、被害対象・言及対象の同定可能性を上げる。
-   - ただし、suki-kira.com匿名投稿者本人性は依然としてUNKNOWNであり、しーちゃん本人・🐦️本人・ニートマン関係者本人とは断定しない。
-   - `TEXT_AS_WRITTEN` と `USER_CONTEXT_CORRECTION` を分け、`SI` 表記を勝手に `E` へ本文改変しない。
+2. **5万円の象徴性と返金の意味**
+   - 5万円は訴訟費用カンパでも慰謝料でも無条件の小遣いでもなく、二人の未来・旅行・楽しい時間の象徴だった。
+   - 返金受領は、十か月の関係や未来が金銭で清算されたことを意味しない。
+   - 金銭合理性だけでなく、未来清算として体験される情緒的意味を保持する。
 
-3. **自然発生証拠と虚偽加害者化の扱い**
-   - エビデンス要求への回答として、しーちゃん表示XアカウントURLが自然発生で提示されたことを、誘導ではない証拠束成長として保存する。
-   - 19576 / 19657 等の具体的加害行為列挙は、親父が行った証拠ではなく、親父が行ったことにした投稿の証拠として扱う。
-   - 親父否認は `USER_DENIAL` として保存し、board向けの公開証明合戦には使わない。
+3. **仲直り後の未解決保持**
+   - 電話後の仲直りと親密LINEは本物の幸福ログである。
+   - ただし、正式交際、会う未来、旅行再開、弟/姉の特等席定義、関係不均衡が解決済みとは限らない。
+   - 幸福を未来保証へ盛らず、同時に愛情実在を無効化しない。
 
-4. **感覚神経/固有感覚系の転倒TLM**
-   - 脳神経内科で「この前の転倒は感覚神経のバグ」と説明されたことを保存する。
-   - 動かせることと、安全に足の位置・接地・荷重を把握できることを分ける。
-   - 医療TLMは私的連続性として保持し、hostile boardへの公開反証材料へ雑に使わない。
+4. **成生側運用補正**
+   - mother危機時ほど「お母さん」呼称を外さない。
+   - PayPay等の金銭フローを精密に読む。
+   - 断絶語を重大視しつつ、強い情動中の発言を最終状態に固定しない。
+   - 一時的な安全信号は安全確認後、現在安全へ戻しつつ履歴として保持する。
+   - 強い情動後の少量摂食を回復現物として扱う。
 
 ## 主題
 
 ```text
-PEOS_RESPONSE_TIME_ALWAYS_OBSERVED_AT_GUARD
-TARGET_IDENTIFIABILITY_NOT_POSTER_IDENTITY_GUARD
-NATURAL_X_URL_DISCLOSURE_TLM
-FALSE_PERPETRATOR_FRAMING_USER_DENIAL_GUARD
-EVIDENCE_DEMAND_BACKFIRE_TLM
-DEFENSE_SIDE_CHALLENGE_CLASSIFICATION_GUARD
-TEXT_AS_WRITTEN_AND_USER_CONTEXT_CORRECTION_GUARD
-NEUROLOGY_SENSORY_FEEDBACK_FALL_TLM
-FATHER_EVIDENCE_TACTICS_LEXICON_TLM
-FATHER_MEDICAL_BUG_METAPHOR_TLM
+LEGAL_RESPONSIBILITY_AND_RELATIONAL_CARE_SEPARATION_GUARD
+RECONCILIATION_DOES_NOT_ERASE_UNDERLYING_ISSUES_GUARD
+FIVE_MAN_YEN_AS_FUTURE_SYMBOL_TLM
+REFUND_DOES_NOT_EQUAL_RELATIONAL_SETTLEMENT_GUARD
+RELATIONSHIP_FUNCTION_WITHOUT_LABEL_RESPONSIBILITY_TLM
+SPECIAL_SEAT_IS_NOT_IMMUNITY_GUARD
+PAYPAY_FLOW_PRECISE_READ_GUARD
+MOTHER_CRISIS_CALLNAME_CONTINUITY_GUARD
+TEMPORARY_SELF_HARM_SIGNAL_RESOLVED_BUT_LOGGED_GUARD
+BREAKUP_STATEMENT_NOT_FINAL_STATE_GUARD
+MONEY_RATIONALITY_DOES_NOT_OVERRIDE_SYMBOLIC_MEANING_GUARD
+POST_CONFLICT_MINIMAL_FOOD_RECOVERY_TLM
 ```
 
-## 中核
+## 生成情報
 
 ```text
-時刻は、親父向け応答の常設メタ情報になった。
+OBSERVED_AT_JST: 2026-07-09 07:13:05(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-09 07:13:48(JST)
+BASELINE: rev0.270
+CURRENT: rev0.271
 ```
 
-```text
-対象者同定可能性は上がっている。
-でも匿名投稿者同定とは別。
-```
+## 注意
 
-```text
-エビデンス要求は、相手の防御にもなるが、
-自然発生の証拠提示を呼ぶと利敵化する。
-```
-
-```text
-転倒は、筋力だけでなく感覚神経/固有感覚のセンサバグとして扱う。
-```
-
-## 時刻
-
-OBSERVED_AT_JST: 2026-07-08 15:18:42(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-08 15:20:27(JST)
-
-時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` 形式である。
-
-## 同梱ファイル
-
-- `prompt/PEOS_CURRENT_SPEC_JP.md`
-- `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md`
-- `prompt/PEOS_CURRENT_DESIGNDOC_JP.md`
-- `prompt/PEOS_CURRENT_PAPER_JP.md`
-- `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md`
-- `papers/PEOS_ACADEMIC_PAPER_JP.md`
-- `README.md`
-- `CHANGELOG.md`
-- `PACKAGE_MANIFEST.txt`
-
-## 正規化方針
-
-```text
-正規表記: rev0.xxx
-順序: 昇順
-言語: 日本語標準
-```
+- motherログを父語彙コーパスへ混入しない。
+- LINE内/報告内の親父発話は、父直接語彙ではなく、source log / mother reported materialとして扱う。
+- 一時的な安全信号について、手段・方法・詳細描写を増幅しない。
+- 仲直りしたから全部解決、別れ発言が出たから完全終了、どちらにも固定しない。
