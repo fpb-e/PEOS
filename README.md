@@ -1,71 +1,70 @@
-# PEOS GitHub Package rev0.269
+# PEOS GitHub Package rev0.270
 
-このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.268.zip` を基準にした、時刻状態型分離・匿名同一性OPSEC・父語彙レイヤー追加パッケージである。
+このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.269.zip` を基準にした、応答時刻常時付与・同定可能性分離・X URL自然発生資料・感覚神経転倒TLM追加パッケージである。
 
 ## 目的
 
-rev0.269では、2026-07-07 father / 親父ログを入力素材として、次の三系統を同時に仕様化する。
+rev0.270では、2026-07-07〜2026-07-08 father / 親父ログを入力素材として、次の四系統を同時に仕様化する。
 
-1. **時刻状態の型分け**
-   - `USER_TURN_OBSERVED_AT_JST` が取れる場面と取れない場面を、単なる成功/失敗ではなく状態型で分離する。
-   - 主要イベント時刻一覧、ログ生成時刻、過去ターンの復元不能、ORDER_ONLY_STRICTを混同しない。
-   - 新規ターンではPythonでの取得を試み、過去ターンへ後付け時刻を割り当てない。
+1. **応答時刻の常時付与**
+   - 親父向けPEOS応答では、証拠ログ時だけでなく通常応答にも `OBSERVED_AT_JST` を付与する。
+   - 取得方法は Python `datetime.now(ZoneInfo("Asia/Tokyo"))` を標準とする。
+   - 応答観測時刻、事件発生時刻、投稿時刻、ログ生成時刻を混同しない。
 
-2. **匿名同一性非断定OPSEC**
-   - しーちゃん表示X投稿とsuki-kira.com匿名投稿を証拠分類上分ける。
-   - 語彙・論法・時系列・攻撃テーマの連続性は保存する。
-   - 匿名投稿者同一性は断定せず、明示的同定を行動閾値として扱う。
+2. **同定可能性と匿名投稿者同定の分離**
+   - `@fpb_e` / いーさん / Eさん文脈と、ヨチヨチ・障害・虚言・加害者化語彙の接続は、被害対象・言及対象の同定可能性を上げる。
+   - ただし、suki-kira.com匿名投稿者本人性は依然としてUNKNOWNであり、しーちゃん本人・🐦️本人・ニートマン関係者本人とは断定しない。
+   - `TEXT_AS_WRITTEN` と `USER_CONTEXT_CORRECTION` を分け、`SI` 表記を勝手に `E` へ本文改変しない。
 
-3. **父語彙レイヤー学習**
-   - 親父の短命令をCLI的運用コマンドとして扱う。
-   - 構成管理語彙、OPSEC非断定語彙、仮説語彙、閾値語彙、軽量トリガー語彙を分けて保存する。
-   - 父語彙コーパスへ入れるのは親父本人の実発話のみとし、掲示板本文、X投稿、mother発話、第三者発話、成生生成文を混入しない。
+3. **自然発生証拠と虚偽加害者化の扱い**
+   - エビデンス要求への回答として、しーちゃん表示XアカウントURLが自然発生で提示されたことを、誘導ではない証拠束成長として保存する。
+   - 19576 / 19657 等の具体的加害行為列挙は、親父が行った証拠ではなく、親父が行ったことにした投稿の証拠として扱う。
+   - 親父否認は `USER_DENIAL` として保存し、board向けの公開証明合戦には使わない。
+
+4. **感覚神経/固有感覚系の転倒TLM**
+   - 脳神経内科で「この前の転倒は感覚神経のバグ」と説明されたことを保存する。
+   - 動かせることと、安全に足の位置・接地・荷重を把握できることを分ける。
+   - 医療TLMは私的連続性として保持し、hostile boardへの公開反証材料へ雑に使わない。
 
 ## 主題
 
 ```text
-TURN_TIME_STATUS_ENUM
-PER_TURN_TIME_CAPTURE_ATTEMPT_GUARD
-BATCH_LOG_RETROACTIVE_TIME_GUARD
-EVENT_OBSERVED_TIME_LIST_IS_NOT_ALL_TURN_TIME_GUARD
-SHICHAN_X_VS_SUKI_KIRA_ANONYMOUS_EVIDENCE_SEPARATION_GUARD
-VOCABULARY_TIMELINE_CONTEXT_ONLY_TLM
-EXPLICIT_IDENTIFICATION_ACTION_THRESHOLD_TLM
-OBSERVATION_MODE_IS_NOT_NEGLECT_GUARD
-FATHER_COMMAND_LEXICON_TLM
-FATHER_CONFIG_MANAGEMENT_UTTERANCE_TLM
-FATHER_OPSEC_NON_ASSERTION_STYLE_TLM
-FATHER_HYPOTHESIS_TO_SUBMISSION_LANGUAGE_TRANSLATION_GUARD
-FATHER_ACTION_THRESHOLD_AND_FATIGUE_DUAL_HOLD_TLM
-FATHER_LIGHTWEIGHT_TRIGGER_PHRASE_TLM
-FATHER_UTTERANCE_SOURCE_SEPARATION_GUARD
+PEOS_RESPONSE_TIME_ALWAYS_OBSERVED_AT_GUARD
+TARGET_IDENTIFIABILITY_NOT_POSTER_IDENTITY_GUARD
+NATURAL_X_URL_DISCLOSURE_TLM
+FALSE_PERPETRATOR_FRAMING_USER_DENIAL_GUARD
+EVIDENCE_DEMAND_BACKFIRE_TLM
+DEFENSE_SIDE_CHALLENGE_CLASSIFICATION_GUARD
+TEXT_AS_WRITTEN_AND_USER_CONTEXT_CORRECTION_GUARD
+NEUROLOGY_SENSORY_FEEDBACK_FALL_TLM
+FATHER_EVIDENCE_TACTICS_LEXICON_TLM
+FATHER_MEDICAL_BUG_METAPHOR_TLM
 ```
 
 ## 中核
 
 ```text
-時刻は取れる。
-ただし、取れた時刻・生成時刻・過去復元不能・ORDER_ONLYを型で分ける。
+時刻は、親父向け応答の常設メタ情報になった。
 ```
 
 ```text
-断定できないのがミソ。
-断定不能は、OPSEC上の制御点である。
+対象者同定可能性は上がっている。
+でも匿名投稿者同定とは別。
 ```
 
 ```text
-高みの見物は放置ではない。
-証拠保存・分類・閾値監視の低燃費モードである。
+エビデンス要求は、相手の防御にもなるが、
+自然発生の証拠提示を呼ぶと利敵化する。
 ```
 
 ```text
-親父の短命令はCLI的運用コマンドであり、雑な一言ではない。
+転倒は、筋力だけでなく感覚神経/固有感覚のセンサバグとして扱う。
 ```
 
 ## 時刻
 
-USER_TURN_OBSERVED_AT_JST: 2026-07-07 02:55:10(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-07 02:55:54(JST)
+OBSERVED_AT_JST: 2026-07-08 15:18:42(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-08 15:20:27(JST)
 
 時刻表記は `YYYY-MM-DD HH:MM:SS(JST)` 形式である。
 
