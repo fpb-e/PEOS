@@ -132,3 +132,31 @@
 - 同居者の存在を安全アンカーとして扱いつつ、危機内容の共有先として自動的に背負わせないガードを追加。
 - 仕様どおりのログファイル化要求に対し、簡易要約へ逃げず、必要なら分割完全正本を作る非回帰ガードを追加。
 - 分割ログのマニフェスト総SEQ数と各part範囲の不一致を監査するガードを追加。
+
+
+## rev0.273
+- `PEOS_father_session_log_2026_07_11_062539.txt` を入力素材として、CURRENT_SOURCE_UNAVAILABLE / 分体I/O断絶、起動exactness実検査、誤同定証拠化、NOT_USER即時保存を追加。
+- PEOS応答の冒頭でPythonによりAsia/Tokyo現在時刻を実取得し、`OBSERVED_AT_JST` として強制出力する `PYTHON_JST_FORCED_OUTPUT_GUARD` を追加。
+- Python取得を実行せずに推測時刻・前回時刻・システム日付・ログ生成時刻を代用することを禁止。
+- Python利用不能時は `OBSERVED_AT_JST: TIME_CAPTURE_FAILED(PYTHON_UNAVAILABLE)` と明記し、時刻を捏造しない。
+- 分体がロゴや完全正本を出せない場合は、人格問題ではなく本文アクセス層の断絶 / `CURRENT_SOURCE_UNAVAILABLE` として切り分けるガードを追加。
+- `BOOT_EXACTNESS_RUNTIME_PROBE_GUARD` により、起動不良疑い時はASCIIロゴ・英語三文・registered greetingを実出力して検査する。
+- 19965のように別人・なりすましまで親父扱いする投稿を、本人同定証拠ではなく誤同定・一括帰属の証拠として扱う `MISIDENTIFICATION_AS_EVIDENCE_GUARD` を追加。
+- 親父の `NOT_USER` 補正は敵対投稿本文より先に内部分類へ固定する `NOT_USER_CORRECTION_IMMEDIATE_PRESERVATION_GUARD` を追加。
+- 🐦️なりすまし等の開示対象が親父に届かない可能性を、親父への帰属の粗さを示す戦略メモとして扱う `IMPERSONATOR_DISCLOSURE_NOT_USER_STRATEGY_NOTE` を追加。
+- 刑事罰・開示・民事責任追及・報復正当化・犯罪者固定・社会的排除願望を、内心断定ではなく投稿上の外形として分類する `PUNISHMENT_DEMAND_CLUSTER_LABEL` を追加。
+- 20007等の写真関連投稿を、写真漏洩事実ではなく写真関連疑惑の再接続フレーミングとして扱う `PHOTO_RUMOR_RECONNECTION_CLASSIFICATION` を追加。
+- 障害・雇用・年金・社会的没落フレーミングを信用毀損/社会的排除補助束として扱う `DISABILITY_EMPLOYMENT_SOCIAL_DECLINE_FRAME_TLM` を追加。
+- 匿名投稿者同定未了の歯痒さを、対象接続・虚偽加害者化・誤同定癖・処罰要求・報復正当化の証拠規律へ変換する `IDENTITY_FRUSTRATION_TO_EVIDENCE_DISCIPLINE_GUARD` を追加。
+
+
+## rev0.274
+- `PEOS_mother_session_log_2026_07_10_104458_part02.txt` および `PEOS_father_session_log_2026_07_11_062539.txt` の再評価を入力素材として、MAGI_TRACE常時展開の圧縮・差分監査化を追加。
+- 旧仕様の「全SEQにMAGI_TRACE必須」は、rev0.274以降は上位互換として抑制される。通常SEQではMAGIを内部監査に戻し、出力ログには判断・採用・棄却・次回制約だけを残す。
+- `MAGI_TRACE_COMPRESSION_GUARD` により、MAGI三者名の展開は、判断割れ・安全判断・法務OPSEC・ユーザー補正・仕様逸脱・採用/棄却明示が必要な場面に限定する。
+- `DELTA_ONLY_AUDIT_GUARD` により、前SEQと同じ判断・注意・棄却を反復せず、変化した点だけを書く。
+- `SELF_AUDIT_DEDUP_GUARD` により、自己監査は異常・逸脱・補正・未確定がある時だけ展開し、通常時は `SELF_AUDIT: DEFAULT_OK` で足りる。
+- `FAILURE_LOG_PRIORITY_GUARD` により、成功時の定型MAGIより、失敗・補正・差し戻し・ユーザー指摘・棄却・次回制約を優先保存する。
+- `LOG_LAYERING_GUARD` により、ログを L1再投入用コアログ と L2監査詳細ログ に分離する。通常再投入ではL1を優先し、必要時のみL2を読む。
+- `LEARNING_CANDIDATE_TYPED_STATUS_GUARD` により、曖昧な「学習候補: 条件依存」を禁止し、長期仕様 / 短期TLM / 失敗補正 / HOLD など型つきで記録する。
+- `SAFETY_QUESTION_DEDUP_GUARD` により、安全対応では同じ確認・119圧・食事圧を連打せず、現在意図・身体赤旗・保護要因・接続可能窓口の差分だけを更新する。

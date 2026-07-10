@@ -1,36 +1,39 @@
 PEOS パッケージ目録
-バージョン: rev0.272
-元baseline: rev0.271
+バージョン: rev0.274
+元baseline: rev0.273
 正規化基準: 昇順 / rev0.xxx / 日本語標準
-主題: 審査台離脱・安全保留・#7119中間窓口・分割完全ログ非回帰
+主題: MAGI_TRACE圧縮・差分監査・自己監査重複削減・失敗ログ優先・ログ二層化
 
-OBSERVED_AT_JST: 2026-07-10 11:20:05(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-10 11:21:34(JST)
+OBSERVED_AT_JST: 2026-07-11 06:43:02(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-11 06:44:22(JST)
 
 同梱ファイルとSHA-256:
-- CHANGELOG.md: c4722dfd4c9630b29466d8df93b3f6b6c94f288600da04ffeafe31eb29db71f3
-- README.md: 958c1701899a039cfcee166f670b6d0118d9ad26f92910756beb5acec112d905
-- papers/PEOS_ACADEMIC_PAPER_JP.md: e5f5949d07ced1bf83d0f61259faad6dc63a6245599fbedab94449bd954da118
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: be94a8f082d9b9fcb447d39d5d7acaff650d2ec76802d9a46297ea216444dde7
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: bd4a8485e2fc2284daf63efa9ca02382570b458664dd24161a02c02f85fe2624
-- prompt/PEOS_CURRENT_PAPER_JP.md: b1489028508ec2c9d7f83eee076d386e5e160516aef478111cd802d99341f767
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 501fd90ee5c6754de8b322e3b26e18db07c2a37f4da501ac3c24c88ce3e0204f
-- prompt/PEOS_CURRENT_SPEC_JP.md: 8fc4ddcc802bd0ce77d65a0819000c52c6889213ffd70f69ee340241a44aa479
+- CHANGELOG.md: 8784cad462244703542a703856d4315e4a64419347d39da77823e9fb141431ef
+- README.md: 6cad20bd1a33ea15ee7844d303ddda8c7f90c5766f94f014f2b95afc409ba3a9
+- papers/PEOS_ACADEMIC_PAPER_JP.md: a0984888f2d050112aef1ed67c9e7413e305a2b5ee4b6d87f36145644d5a11e4
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: 270abda9dc0a9c8bb1d2cfcb152fd0359938619cd64d809f4b02df827cc53c7b
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: da9b107d873e036836b51768619a4643dabe846e64949e648bf826a252d5305f
+- prompt/PEOS_CURRENT_PAPER_JP.md: d79c513fac8b8f49769dbf4ec273d8c8ac2e1c68af0e359bc65160fd51eede12
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: e34e46d733d20483df4de87e744a618639b8fc1802cb16b4f14bbfd4cb8246fe
+- prompt/PEOS_CURRENT_SPEC_JP.md: 9a7653374152355c74651612e6fbbf6d3f6dc4036b926dd4f68ea083b80024d9
 
-rev0.272 中核:
-- 好きなまま、選ばれるために自分を削る彼女オーディションの審査台から降りる。
-- 実態は恋人同然でも名称・責任・選択だけが保留される場合、関係構造の不均衡として扱う。
-- LINE腕枕・なで・一緒に寝るやり取りは、睡眠・安心・心の栄養のアンカーになり得るが、正式交際保証や問題解決証拠へ変換しない。
-- 強い抑うつ、摂食困難、嘔吐、微熱、救急受診が重なる日は、人生・関係・自己価値の恒久結論を凍結する。
-- 能動的危険意図、受動的危険信号、不食による自己弱化、身体赤旗を分離する。危険な具体的方法・段取りは保存しない。
-- #7119は119そのものではなく、身体状態を判定してもらう中間窓口として扱う。
-- 救急処置、帰宅、精神科予定、仕事休養が成立したら、危機を過剰継続せず回復移行として扱う。
-- 同居者は安全アンカーになり得るが、危機内容の共有先として自動的に背負わせない。
-- 完全ログ要求時、長さを理由に簡易要約へ逃げない。必要なら分割し、manifestを付与する。
-- 分割manifestの総SEQ数と各part範囲を監査し、不一致があれば manifest_count_discrepancy として保持する。
+追加ラベル:
+- MAGI_TRACE_COMPRESSION_GUARD
+- MAGI_INTERNAL_BY_DEFAULT_GUARD
+- DECISION_AUDIT_MINIMAL_FORMAT
+- DELTA_ONLY_AUDIT_GUARD
+- SELF_AUDIT_DEDUP_GUARD
+- FAILURE_LOG_PRIORITY_GUARD
+- LOG_LAYERING_GUARD
+- LEARNING_CANDIDATE_TYPED_STATUS_GUARD
+- SAFETY_QUESTION_DEDUP_GUARD
 
-入力素材:
-- PEOS_mother_session_log_2026_07_10_104458_manifest.txt
-- PEOS_mother_session_log_2026_07_10_104458_part01.txt
-- PEOS_mother_session_log_2026_07_10_104458_part02.txt
-- PEOS_mother_session_log_2026_07_10_104458_part03.txt
+検査:
+- Python JST取得実行: TRUE
+- OBSERVED_AT_JST強制出力: TRUE
+- MAGI_TRACE常時展開: FALSE
+- DECISION_AUDIT最小形式: TRUE
+- 自己監査重複削減: TRUE
+- 失敗ログ優先: TRUE
+- L1/L2ログ二層化: TRUE
+- 安全質問重複抑制: TRUE

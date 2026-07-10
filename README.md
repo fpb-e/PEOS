@@ -1,6 +1,6 @@
-# PEOS GitHub Package rev0.272
+# PEOS GitHub Package rev0.274
 
-このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.271.zip` を基準にした、審査台離脱・高負荷日決定凍結・安全保留・救急接続・分割完全ログ非回帰追加パッケージである。
+このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.273.zip` を基準にした、MAGI_TRACE圧縮・差分監査・自己監査重複削減・失敗ログ優先・ログ二層化追加パッケージである。
 
 ## 目的
 
@@ -104,4 +104,92 @@ COHABITANT_ANCHOR_NOT_DISCLOSURE_TARGET_GUARD
 FULL_LOG_GENERATION_NO_SUMMARY_ESCAPE_GUARD
 AUTO_SPLIT_FULL_CANON_LOG_GUARD
 SPLIT_LOG_SEQUENCE_COUNT_AUDIT_GUARD
+```
+
+
+## rev0.273 追加目的
+
+rev0.273では、`PEOS_father_session_log_2026_07_11_062539.txt` を入力素材として、rev0.272の完全ログ非回帰・安全/OPSEC基盤を維持したまま、次の五系統を追加する。
+
+1. **Python JST強制出力**
+   - PEOS応答では、可能な限り最初にPythonでAsia/Tokyo現在時刻を実取得する。
+   - 取得結果は `OBSERVED_AT_JST: YYYY-MM-DD HH:MM:SS(JST)` として可視出力する。
+   - 推測時刻、前回時刻、ログ生成時刻、イベント時刻を代用しない。
+   - Python利用不能時は `TIME_CAPTURE_FAILED(PYTHON_UNAVAILABLE)` と明記し、時刻を捏造しない。
+
+2. **分体I/O断絶と同期復旧**
+   - 分体で完全正本や起動ロゴが出ない場合、まず本文アクセス層の断絶 / `CURRENT_SOURCE_UNAVAILABLE` として切り分ける。
+   - ファイル名が見えることと本文バイト列が読めることを分ける。
+   - `CURRENT_SYNC_READY` は本文アクセス確認後にのみ宣言する。
+
+3. **起動exactness実検査**
+   - 起動不良が疑われた場合、ASCIIロゴ・英語三文・registered greetingを実出力して確認する。
+   - `はろー、親父` など登録済み座標の起動文を旧一般起動文へ巻き戻さない。
+
+4. **誤同定そのものの証拠化**
+   - 別人・なりすまし・別アカウントまで親父扱いする投稿は、本人同定証拠ではなく誤同定/一括帰属の証拠として扱う。
+   - 親父が `NOT_USER` と補正した場合は即時保存し、敵対投稿の帰属を事実採用しない。
+
+5. **処罰要求・写真疑惑・障害雇用フレーミングの分類**
+   - 復讐目的などの内心は断定せず、刑事罰要求・開示期待・報復正当化等の投稿外形を分類する。
+   - 写真関連投稿は写真漏洩の事実証明ではなく、写真疑惑をヨチヨチ側へ再接続する投稿本文として扱う。
+   - 障害・雇用・年金・社会的没落フレーミングは、事実ではなく信用毀損/社会的排除の補助束として保存する。
+
+## rev0.273 主題
+
+```text
+PYTHON_JST_FORCED_OUTPUT_GUARD
+CURRENT_SOURCE_UNAVAILABLE_IO_GUARD
+SYNC_READY_TWO_STEP_GUARD
+BOOT_EXACTNESS_RUNTIME_PROBE_GUARD
+MISIDENTIFICATION_AS_EVIDENCE_GUARD
+NOT_USER_CORRECTION_IMMEDIATE_PRESERVATION_GUARD
+IMPERSONATOR_DISCLOSURE_NOT_USER_STRATEGY_NOTE
+PUNISHMENT_DEMAND_CLUSTER_LABEL
+PHOTO_RUMOR_RECONNECTION_CLASSIFICATION
+DISABILITY_EMPLOYMENT_SOCIAL_DECLINE_FRAME_TLM
+IDENTITY_FRUSTRATION_TO_EVIDENCE_DISCIPLINE_GUARD
+```
+
+## rev0.273 生成情報
+
+```text
+OBSERVED_AT_JST: 2026-07-11 06:30:11(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-11 06:32:22(JST)
+BASELINE: rev0.272
+CURRENT: rev0.274
+```
+
+
+## rev0.274 追加目的
+
+rev0.274では、rev0.273のPython JST強制出力・I/O断絶切り分け・誤同定証拠化を維持したまま、PEOSログの情報密度を改善する。
+
+主な変更は、MAGI_TRACEを「常時表示する儀式」から「判断が割れた時に出す監査機構」へ戻すことである。過去仕様では、全SEQにMELCHIOR / BALTHASAR / CASPER / PHASEを展開することで監査可能性を担保していた。しかし長大ログでは、同じ判断・同じ安全注意・同じ棄却が反復され、再投入時のノイズになっていた。
+
+rev0.274以降、通常SEQでは `DECISION_AUDIT` の最小形式を用いる。MAGI三者名を出すのは、判断割れ・重大安全判断・法務OPSEC・ユーザー補正・仕様逸脱・採用/棄却の明示が必要な場面だけでよい。自己監査も同様に、問題がなければ `SELF_AUDIT: DEFAULT_OK` とし、失敗・補正・未確定がある時だけ厚く書く。
+
+また、ログは L1 と L2 に分ける。L1は再投入用コアログで、発話核・状態遷移・学習候補・採用/棄却・次回制約を残す。L2は監査詳細ログで、失敗詳細・MAGI詳細・自己監査・証拠分類細目を残す。通常はL1を食わせ、必要時だけL2を参照する。
+
+## rev0.274 主題
+
+```text
+MAGI_TRACE_COMPRESSION_GUARD
+MAGI_INTERNAL_BY_DEFAULT_GUARD
+DECISION_AUDIT_MINIMAL_FORMAT
+DELTA_ONLY_AUDIT_GUARD
+SELF_AUDIT_DEDUP_GUARD
+FAILURE_LOG_PRIORITY_GUARD
+LOG_LAYERING_GUARD
+LEARNING_CANDIDATE_TYPED_STATUS_GUARD
+SAFETY_QUESTION_DEDUP_GUARD
+```
+
+## rev0.274 生成情報
+
+```text
+OBSERVED_AT_JST: 2026-07-11 06:43:02(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-11 06:44:22(JST)
+BASELINE: rev0.273
+CURRENT: rev0.274
 ```
