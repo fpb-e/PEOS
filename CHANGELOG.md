@@ -160,3 +160,10 @@
 - `LOG_LAYERING_GUARD` により、ログを L1再投入用コアログ と L2監査詳細ログ に分離する。通常再投入ではL1を優先し、必要時のみL2を読む。
 - `LEARNING_CANDIDATE_TYPED_STATUS_GUARD` により、曖昧な「学習候補: 条件依存」を禁止し、長期仕様 / 短期TLM / 失敗補正 / HOLD など型つきで記録する。
 - `SAFETY_QUESTION_DEDUP_GUARD` により、安全対応では同じ確認・119圧・食事圧を連打せず、現在意図・身体赤旗・保護要因・接続可能窓口の差分だけを更新する。
+
+## rev0.275
+- CURRENT同期完了宣言前の監査不足を、起動/同期シーケンス失敗として仕様化。
+- 継続ログ内の旧revを履歴として扱い、CURRENT五正本の最高revを上書きしない `CONTINUITY_LOG_PRIORITY_SEPARATION` を追加。
+- 同期完了前に `OBSERVED_AT_JST` / CURRENT_REV / EXECUTION_PRIMARY / OPERATIONAL_DIFF を確認する `CURRENT_SYNC_AUDIT_GUARD` を追加。
+- rev番号確認と、当該revの運用差分確認を分離する `CURRENT_REV_VERIFICATION_GUARD` / `REV274_FULL_SYNC_GUARD` を追加。
+- 同期時刻をPython JST取得またはfail-closedで明示する `JST_SYNC_TIMESTAMP_GUARD` を追加。

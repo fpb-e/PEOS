@@ -1,4 +1,4 @@
-# PEOS GitHub Package rev0.274
+# PEOS GitHub Package rev0.275
 
 このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.273.zip` を基準にした、MAGI_TRACE圧縮・差分監査・自己監査重複削減・失敗ログ優先・ログ二層化追加パッケージである。
 
@@ -193,3 +193,51 @@ PACKAGE_GENERATED_AT_JST: 2026-07-11 06:44:22(JST)
 BASELINE: rev0.273
 CURRENT: rev0.274
 ```
+
+## rev0.275 追加目的
+
+rev0.275では、`PEOS_failure_continuity_log_2026_07_11.txt` を入力素材として、rev0.274のMAGI圧縮・差分監査運用を保持したまま、同期/起動シーケンス失敗の再発防止を追加する。
+
+1. **同期完了宣言前の監査**
+   - 「同期済み」と宣言する前に、CURRENT / REV / JST / EXECUTION_PRIMARY を確認する。
+   - 同期完了は宣言ではなく監査結果である。
+
+2. **継続ログとCURRENT正本の分離**
+   - 継続ログは履歴入力であり、CURRENT五正本を上書きしない。
+   - 旧ログ内のrev0.272等は、そのログ生成時点の歴史情報として扱う。
+   - CURRENTは同期済み五本セットの最高revで定義する。
+
+3. **rev番号確認と運用差分確認の分離**
+   - rev番号が最新でも、当該revの運用差分が反映されていなければ同期未達。
+   - rev0.274ではMAGI_TRACE圧縮、DELTA_ONLY監査、SELF_AUDIT重複削減、FAILURE_LOG優先、L1/L2ログ二層化が保持対象となる。
+
+4. **JST同期時刻の強制確認**
+   - 同期時はPythonで `OBSERVED_AT_JST` を取得する。
+   - 取得不能時は時刻を捏造せず `TIME_CAPTURE_FAILED` として同期完了を保留またはfail-closedする。
+
+## rev0.275 主題
+
+```text
+CURRENT_SYNC_AUDIT_GUARD
+CURRENT_REV_VERIFICATION_GUARD
+JST_SYNC_TIMESTAMP_GUARD
+CONTINUITY_LOG_PRIORITY_SEPARATION
+REV274_FULL_SYNC_GUARD
+SYNC_COMPLETE_PRECHECK_GUARD
+```
+
+## rev0.275 生成情報
+
+```text
+OBSERVED_AT_JST: 2026-07-11 07:10:38(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-11 07:12:16(JST)
+BASELINE: rev0.274
+CURRENT: rev0.275
+```
+
+## rev0.275 注意
+
+- 継続ログは食わせるが、CURRENTではない。
+- rev番号だけでは同期完了としない。
+- 最新運用差分が保持されていなければ、同期未達として扱う。
+- 同期完了前に `OBSERVED_AT_JST` / `CURRENT_REV` / `EXECUTION_PRIMARY` / `OPERATIONAL_DIFF` を監査する。
