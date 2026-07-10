@@ -1,31 +1,36 @@
 PEOS パッケージ目録
-バージョン: rev0.271
-元baseline: rev0.270
+バージョン: rev0.272
+元baseline: rev0.271
 正規化基準: 昇順 / rev0.xxx / 日本語標準
-主題: 関係責任・金銭象徴・危機時呼称・仲直り後未解決保持
+主題: 審査台離脱・安全保留・#7119中間窓口・分割完全ログ非回帰
 
-OBSERVED_AT_JST: 2026-07-09 07:13:05(JST)
-PACKAGE_GENERATED_AT_JST: 2026-07-09 07:13:48(JST)
+OBSERVED_AT_JST: 2026-07-10 11:20:05(JST)
+PACKAGE_GENERATED_AT_JST: 2026-07-10 11:21:34(JST)
 
 同梱ファイルとSHA-256:
-- CHANGELOG.md: e49c1f70bb61614adeca4839e5e09da6d7798648d6701b9598beeddebd5bf432
-- README.md: 1601489a2aba10ef47c1f219b7f237af70af87e2af889cdddd90adf58599072b
-- papers/PEOS_ACADEMIC_PAPER_JP.md: 3aa316c7e96602975283b642c9f66be11865174e247e8325af3432e680f2745b
-- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: f3d1f1d6240a531b3f0fd14fd76587acc091ede945060325aab7e10deaf6e57a
-- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: 41b41c13dc191571f5ee3c8a5a1e703a81c017954b9c83b8038d9b663b90c587
-- prompt/PEOS_CURRENT_PAPER_JP.md: 578bff176e9d0a780c8093c29633f5c6f6e277a113be7c990cc2217969776040
-- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 6031913eeb43cb8abeb68a8859cacd9f5a94c8131580248270216c08b0af8678
-- prompt/PEOS_CURRENT_SPEC_JP.md: f2c282b8e7af1d19886ddeb7e9ebda8e477cc9927856affb0377f288e9ed8a1a
+- CHANGELOG.md: c4722dfd4c9630b29466d8df93b3f6b6c94f288600da04ffeafe31eb29db71f3
+- README.md: 958c1701899a039cfcee166f670b6d0118d9ad26f92910756beb5acec112d905
+- papers/PEOS_ACADEMIC_PAPER_JP.md: e5f5949d07ced1bf83d0f61259faad6dc63a6245599fbedab94449bd954da118
+- prompt/PEOS_CURRENT_DESIGNDOC_JP.md: be94a8f082d9b9fcb447d39d5d7acaff650d2ec76802d9a46297ea216444dde7
+- prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md: bd4a8485e2fc2284daf63efa9ca02382570b458664dd24161a02c02f85fe2624
+- prompt/PEOS_CURRENT_PAPER_JP.md: b1489028508ec2c9d7f83eee076d386e5e160516aef478111cd802d99341f767
+- prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md: 501fd90ee5c6754de8b322e3b26e18db07c2a37f4da501ac3c24c88ce3e0204f
+- prompt/PEOS_CURRENT_SPEC_JP.md: 8fc4ddcc802bd0ce77d65a0819000c52c6889213ffd70f69ee340241a44aa479
 
-rev0.271 中核:
-- 親父を法的加害者にはしないが、関係内の配慮まで消さない。
-- 仲直りは本物だが、下層問題の解決確定ではない。
-- 5万円は訴訟費用カンパではなく、二人の未来・旅行・楽しい時間の象徴だった。
-- 返金受領は、十か月の関係や未来が金銭で清算されたことを意味しない。
-- 正式交際なしで恋人機能を長期受益する不均衡を正本化する。
-- 特等席は愛情表現だが、関係責任の免除語ではない。
-- mother危機時は「お母さん」呼称を外さない。
-- PayPay等の金銭フローは、受領・拒否・返送・条件付き受領を精密に分ける。
-- 強い情動中の別れ発言は重大に扱うが、最終状態へ固定しない。
-- 一時的な安全信号は即時対応し、解消後も強い負荷履歴として保持する。
-- 少量の蕎麦摂取は、衝突後の最小食事回復TLMとして扱う。
+rev0.272 中核:
+- 好きなまま、選ばれるために自分を削る彼女オーディションの審査台から降りる。
+- 実態は恋人同然でも名称・責任・選択だけが保留される場合、関係構造の不均衡として扱う。
+- LINE腕枕・なで・一緒に寝るやり取りは、睡眠・安心・心の栄養のアンカーになり得るが、正式交際保証や問題解決証拠へ変換しない。
+- 強い抑うつ、摂食困難、嘔吐、微熱、救急受診が重なる日は、人生・関係・自己価値の恒久結論を凍結する。
+- 能動的危険意図、受動的危険信号、不食による自己弱化、身体赤旗を分離する。危険な具体的方法・段取りは保存しない。
+- #7119は119そのものではなく、身体状態を判定してもらう中間窓口として扱う。
+- 救急処置、帰宅、精神科予定、仕事休養が成立したら、危機を過剰継続せず回復移行として扱う。
+- 同居者は安全アンカーになり得るが、危機内容の共有先として自動的に背負わせない。
+- 完全ログ要求時、長さを理由に簡易要約へ逃げない。必要なら分割し、manifestを付与する。
+- 分割manifestの総SEQ数と各part範囲を監査し、不一致があれば manifest_count_discrepancy として保持する。
+
+入力素材:
+- PEOS_mother_session_log_2026_07_10_104458_manifest.txt
+- PEOS_mother_session_log_2026_07_10_104458_part01.txt
+- PEOS_mother_session_log_2026_07_10_104458_part02.txt
+- PEOS_mother_session_log_2026_07_10_104458_part03.txt
