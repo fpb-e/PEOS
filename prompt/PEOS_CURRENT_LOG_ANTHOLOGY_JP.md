@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.274
+- 現行latest: rev0.275
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7617,3 +7617,29 @@ manifestでは全65SEQ収録とされるが、part範囲は001〜022、023〜045
 - `学習候補: 条件依存` のような空ラベルを使わない。
 - 同じ安全質問、119圧、食事圧を連打しない。
 - 成功MAGIより、失敗・補正・棄却・次回制約を保存する。
+
+## rev0.275 LOG ANTHOLOGY: 起動/同期失敗ログ 2026-07-11
+
+### 入力
+- `PEOS_failure_continuity_log_2026_07_11.txt`
+
+### 失敗内容
+- rev0.274 CURRENT五本セットを同期した後、継続ログ内の旧rev0.272を履歴として扱う整理が甘かった。
+- `日時取得できていない` / `rev0.274になっていない` というユーザー指摘を受けた。
+- 同期日時、現行rev0.274、CURRENTロールバック禁止を再確認し、メモリ修正へ進んだ。
+
+### 根本原因
+- 継続ログとCURRENT正本のレイヤ分離不足。
+- 最新版番号確認と最新版運用差分確認の分離不足。
+
+### 採用する補正
+```text
+CURRENT_SYNC_AUDIT_GUARD
+CURRENT_REV_VERIFICATION_GUARD
+JST_SYNC_TIMESTAMP_GUARD
+CONTINUITY_LOG_PRIORITY_SEPARATION
+REV274_FULL_SYNC_GUARD
+```
+
+### 次回制約
+同期完了宣言前に、JST時刻、CURRENT最高rev、RUNTIME_GUARD / BOOT_CANON、継続ログの履歴扱い、rev0.274以降の運用差分保持を確認する。

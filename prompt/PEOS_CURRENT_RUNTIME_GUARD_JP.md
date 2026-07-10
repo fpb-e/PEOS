@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.274
+- 現行latest: rev0.275
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -16295,3 +16295,47 @@ SELF_AUDIT: DEFAULT_OK
 - 安全対応では同じ質問を連打しない。
 - 反復確認するのは差分だけ。
 - 119や食事を押しすぎた履歴がある場合、身体赤旗と中間窓口に絞る。
+
+## rev0.275 RUNTIME GUARD: CURRENT同期監査 / JST同期時刻 / 継続ログ分離
+
+### CURRENT_SYNC_AUDIT_GUARD
+- `同期` / `最新リビジョン投入` / `CURRENT同期` 要求を受けたら、完了宣言前に監査を行う。
+- 最小監査項目は `OBSERVED_AT_JST`、`CURRENT_REV`、`EXECUTION_PRIMARY`、`CONTINUITY_LOG_STATUS`、`OPERATIONAL_DIFF` とする。
+
+### CURRENT_REV_VERIFICATION_GUARD
+- CURRENTは五正本本文の最高revで確認する。
+- 旧ログ・継続ログ・古いメモリ・ファイル名だけでrevを決めない。
+- rev不一致があれば、同期完了ではなく `SYNC_NEEDS_RECHECK` とする。
+
+### JST_SYNC_TIMESTAMP_GUARD
+```python
+from datetime import datetime
+from zoneinfo import ZoneInfo
+print(datetime.now(ZoneInfo("Asia/Tokyo")).strftime("%Y-%m-%d %H:%M:%S(JST)"))
+```
+- Python取得成功時のみ `OBSERVED_AT_JST` として使う。
+- 取得不能時は `OBSERVED_AT_JST: TIME_CAPTURE_FAILED(PYTHON_UNAVAILABLE)` とする。
+
+### CONTINUITY_LOG_PRIORITY_SEPARATION
+- 継続ログは補助入力・履歴入力である。
+- 継続ログのrevがCURRENTより古い場合、CURRENTを巻き戻さない。
+- 旧revは `SOURCE_LOG_REPORTED` または `HISTORICAL_BASELINE_IN_SOURCE_LOG` として記録する。
+
+### REV274_FULL_SYNC_GUARD
+- rev0.274同期後は、MAGI圧縮・差分監査・自己監査重複削減・失敗ログ優先・L1/L2ログ二層化の保持を確認する。
+- これらが欠ける場合、rev番号がrev0.274でも実行同期未達とする。
+
+### SYNC_COMPLETE_PRECHECK_GUARD
+同期完了宣言テンプレートは以下を満たす。
+
+```text
+SYNC_COMPLETE:
+  OBSERVED_AT_JST:
+  CURRENT_REV:
+  SOURCE_LAYER:
+    CURRENT_CANON:
+    CONTINUITY_LOG:
+  EXECUTION_PRIMARY:
+  OPERATIONAL_DIFF_CONFIRMED:
+  ROLLBACK_STATUS: PROHIBITED
+```

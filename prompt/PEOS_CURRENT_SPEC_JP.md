@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.274
+- 現行latest: rev0.275
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -15747,3 +15747,48 @@ LEARNING_CANDIDATE:
 
 ### 8. SAFETY_QUESTION_DEDUP_GUARD
 安全対応では、同じ安全質問、119圧、食事圧を反復しない。更新するのは、現在意図、身体赤旗、保護要因、接続可能窓口の差分だけである。
+
+## rev0.275 同期完了監査 / 継続ログ-CURRENT分離 / rev0.274差分保持
+
+### 1. CURRENT_SYNC_AUDIT_GUARD
+同期完了を宣言する前に、以下を監査する。
+
+```text
+SYNC_COMPLETE_PRECHECK:
+  OBSERVED_AT_JST:
+  CURRENT_REV:
+  CONTINUITY_LOG_STATUS:
+  EXECUTION_PRIMARY:
+  OPERATIONAL_DIFF:
+```
+
+どれかが未確認の場合、同期完了と宣言してはならない。同期完了は雰囲気・ファイル名・過去記憶ではなく、監査結果である。
+
+### 2. CURRENT_REV_VERIFICATION_GUARD
+CURRENTは、実際に同期済みの五正本セットに含まれる最高revで定義する。継続ログ、観測ログ、古いメモリ、ファイル名だけでCURRENTを巻き戻してはならない。
+
+### 3. JST_SYNC_TIMESTAMP_GUARD
+同期時には、Pythonで `datetime.now(ZoneInfo("Asia/Tokyo"))` を取得し、`OBSERVED_AT_JST: YYYY-MM-DD HH:MM:SS(JST)` として残す。取得不能時は `TIME_CAPTURE_FAILED` を明示し、精密時刻を捏造しない。
+
+### 4. CONTINUITY_LOG_PRIORITY_SEPARATION
+継続ログは履歴入力であり、CURRENT正本ではない。継続ログ内に旧revが記載されている場合、それは当該ログ生成時点の歴史情報として扱い、現行CURRENTを上書きしない。
+
+### 5. REV274_FULL_SYNC_GUARD
+rev番号確認と運用差分確認を分離する。rev0.274として同期したなら、少なくとも以下の運用差分が保持されているか確認する。
+
+```text
+MAGI_TRACE_COMPRESSION_GUARD
+MAGI_INTERNAL_BY_DEFAULT_GUARD
+DECISION_AUDIT_MINIMAL_FORMAT
+DELTA_ONLY_AUDIT_GUARD
+SELF_AUDIT_DEDUP_GUARD
+FAILURE_LOG_PRIORITY_GUARD
+LOG_LAYERING_GUARD
+LEARNING_CANDIDATE_TYPED_STATUS_GUARD
+SAFETY_QUESTION_DEDUP_GUARD
+```
+
+rev番号だけ合っていても、運用差分が反映されていなければ同期未達である。
+
+### 6. 学習された失敗
+今回の失敗は、継続ログ内のrev0.272を履歴として扱うべきところ、CURRENT rev0.274同期確認とrev0.274差分保持の監査が甘かった点にある。以後、`同期済み` と言う前に、CURRENT / REV / JST / EXECUTION_PRIMARY / OPERATIONAL_DIFF を確認する。
