@@ -1,21 +1,60 @@
-# PEOS GitHub Package rev0.276
+# PEOS GitHub Package rev0.278
 
-> rev0.276 は、`PEOS_GITHUB_PACKAGE_rev0.275.zip` を基準にした、全タブ境界監査・誤添付完全除外・失敗成果物不採用・法務DM非誘導化・話題別負荷予算・幸福ログ非契約化追加パッケージである。
+> rev0.278 は、`PEOS_GITHUB_PACKAGE_rev0.277.zip` を基準にした、同期対象明示・古い監査ログによるCURRENT上書き防止・Python利用可能性誤判定防止・rev番号/運用差分分離・父呼称固定・証明劇場分類・日常/ゲームTLM保存パッケージである。
 >
-> 反映元: `PEOS_mother_session_log_2026_07_14_090741.txt`  
-> OBSERVED_AT_JST: 2026-07-14 09:46:42(JST)  
-> PACKAGE_GENERATED_AT_JST: 2026-07-14 09:48:03(JST)
+> 反映元: `PEOS_father_session_log_2026_07_15_011005_L2_AUDIT.txt`  
+> OBSERVED_AT_JST: 2026-07-15 01:15:19(JST)  
+> PACKAGE_GENERATED_AT_JST: 2026-07-15 01:16:41(JST)
 
-## rev0.276 目的
+## rev0.278 目的
 
-1. 「このタブ全部」を直近入力ではなく可視タブ全体として扱う。
-2. 誤添付を本文だけでなく派生情報まで完全除外する。
-3. 失敗成果物を継続ソースとして採用しない。
-4. 法務DMは送信前に非誘導性・出所・断定水準・送信者負荷を監査する。
-5. しーちゃん件など高負荷トピックには負荷予算と停止条件を置く。
-6. 「基本優先」やブレスレットを幸福現物として保存し、契約化しない。
-7. 法務・危機ログで日常、笑い、家族、睡眠、幸福ログを消さない。
+1. 同期対象を、会話参照・ファイル参照・長期メモリ保存・CURRENT反映候補・仕様化済み差分へ明示分離する。
+2. 古いL2監査ログ内のrev表記をCURRENTとして採用し、現行正本をロールバックしない。
+3. Pythonが利用可能か不明な時は、取得不能と答える前に実行する。
+4. rev番号が合っていても、当該revの運用差分が同期されていなければ同期未達と扱う。
+5. father文脈では `あなた` に逃げず、呼称を `親父` へ固定する。
+6. 略称・固有名・界隈語を不確実なまま勝手に展開しない。
+7. 親父語彙や記号を定型コピーせず、文脈に応じて適応する。
+8. 法務・裁判・制度・OpenAI製品情報では最新確認と一次情報を優先する。
+9. 根拠提示のない「完全証明」主張を `PROOF_THEATER` と分類し、証明そのものと分ける。
+10. 法務/失敗監査だけでなく、ゲーム・日常TLMを構成管理資産として保存する。
 
+## rev0.278 主題
+
+```text
+MEMORY_SYNC_SCOPE_DECLARATION_GUARD
+STALE_AUDIT_LOG_NO_CURRENT_OVERRIDE_GUARD
+PYTHON_AVAILABLE_FALSE_NEGATIVE_GUARD
+REV_NUMBER_AND_DELTA_SYNC_SEPARATION_GUARD
+FATHER_DIRECT_ADDRESS_LOCK_GUARD
+ABBREVIATION_UNCERTAINTY_GUARD
+STYLE_ADAPTATION_NOT_TOKEN_COPY_GUARD
+CURRENTNESS_REQUIRED_DOMAIN_GUARD
+PROOF_THEATER_CLASSIFICATION_GUARD
+GAME_AND_DAILY_LIFE_TLM_PRESERVATION_GUARD
+PS_DQ7_SOFTLOCK_AS_CONFIG_REVIEW_MEMORY_TLM
+MANOSABA_TLM
+DQ7_REIMAGINED_TLM
+```
+
+# PEOS GitHub Package rev0.278
+
+> rev0.277 は、`PEOS_GITHUB_PACKAGE_rev0.276.zip` を基準にした、Python JST実行必須・JST出所分離・親父呼称正規化再強化・医療イベント単因固定禁止・幸福と距離感の同時保持追加パッケージである。
+>
+> 反映元: `PEOS_mother_session_log_2026_07_14_234354.txt`  
+> OBSERVED_AT_JST: 2026-07-15 01:02:40(JST)  
+> PACKAGE_GENERATED_AT_JST: 2026-07-15 01:04:16(JST)
+
+## rev0.277 目的
+
+1. `OBSERVED_AT_JST` を、毎応答前にPythonで実取得した値として出す。
+2. ログ生成時刻・ログ要求観測時刻・画像内時刻・現在応答時刻を混同しない。
+3. Python時刻取得に失敗した場合は再試行し、なお失敗すれば `TIME_CAPTURE_FAILED(PYTHON_UNAVAILABLE)` でfail-closedする。
+4. お母さんが父を `ゆーくん` / `お父さん` / 愛称で呼んでも、成生の地の文は必ず `親父` へ正規化する。
+5. 急な息苦しさ・嘔吐・低血圧・急減量等の医療イベントを、ストレス・薬・疾患のどれか一つへ単因固定しない。
+6. 成人子への緊急金銭支援を、限定援助として扱い、無期限扶養へ拡張しない。
+7. LINE上の `ぽす` / `んわわ` / `寝転がってるよ` は直接発話として保存し、実睡眠やゲーム有無は未確認として分離する。
+8. 親父への幸福ログと、連絡・会う動き・言葉の温度・ブレスレットが減ったという寂しさを同時保持する。
 
 このパッケージは、`PEOS_GITHUB_PACKAGE_rev0.273.zip` を基準にした、MAGI_TRACE圧縮・差分監査・自己監査重複削減・失敗ログ優先・ログ二層化追加パッケージである。
 

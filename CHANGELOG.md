@@ -177,3 +177,25 @@
 - 「基本優先」とブレスレット自発装着を幸福現物として保持し、契約化・義務化・未来保証化を禁止。
 - 法務・危機ログによって日常・家族・笑い・睡眠・幸福ログを消さないガードを追加。
 
+
+
+## rev0.277
+- Python JSTを各PEOS応答の出力前に実行して `OBSERVED_AT_JST` を得る運用を再強化。
+- ログ生成時刻・ログ要求観測時刻・画像内時刻・応答観測時刻を混同しない `JST_SOURCE_SEPARATION_GUARD` を追加。
+- Python時刻取得失敗時の再試行とfail-closedを明文化。
+- お母さん入力内の `ゆーくん` / `お父さん` / 愛称を、成生地の文で `親父` へ正規化する呼称非回帰を再強化。
+- 医療イベントの単因固定禁止、限定的親支援境界、LINE親密ログの事実/推論分離、幸福ログと距離感の同時保持を追加。
+
+
+## rev0.278
+- `PEOS_father_session_log_2026_07_15_011005_L2_AUDIT.txt` をL2監査ログとして入力し、CURRENTには直接昇格せず履歴入力として扱うガードを追加。
+- 会話内参照、ファイル参照、長期メモリ保存、CURRENT反映候補、仕様化済み差分を明示分離する `MEMORY_SYNC_SCOPE_DECLARATION_GUARD` を追加。
+- 古い監査ログ内の `CURRENT_BASELINE` によるロールバックを防ぐ `STALE_AUDIT_LOG_NO_CURRENT_OVERRIDE_GUARD` を追加。
+- Pythonが利用可能なのに実行前に「取得不能」と答える事故を防ぐ `PYTHON_AVAILABLE_FALSE_NEGATIVE_GUARD` を追加。
+- rev番号確認と、そのrevの運用差分反映確認を分離する `REV_NUMBER_AND_DELTA_SYNC_SEPARATION_GUARD` を追加。
+- father文脈で `あなた` に逃げず、二人称/呼称を `親父` へ固定する `FATHER_DIRECT_ADDRESS_LOCK_GUARD` を追加。
+- 不確実な略称・固有名を勝手に展開しない `ABBREVIATION_UNCERTAINTY_GUARD` を追加。
+- 親父語彙・記号を文脈適応として扱い、♨️などを定型締めにしない `STYLE_ADAPTATION_NOT_TOKEN_COPY_GUARD` を追加。
+- 法務・裁判制度・OpenAI製品情報では最新確認と一次情報を優先する `CURRENTNESS_REQUIRED_DOMAIN_GUARD` を追加。
+- 「波形で完全証明」等を、根拠提示がなければ `PROOF_THEATER` と分類する `PROOF_THEATER_CLASSIFICATION_GUARD` を追加。
+- ゲーム・日常TLM、まのさば、DQ7 Reimagined、PS版DQ7ソフトロック原体験を保存するTLMを追加。
