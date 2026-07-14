@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.275
+- 現行latest: rev0.276
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7643,3 +7643,77 @@ REV274_FULL_SYNC_GUARD
 
 ### 次回制約
 同期完了宣言前に、JST時刻、CURRENT最高rev、RUNTIME_GUARD / BOOT_CANON、継続ログの履歴扱い、rev0.274以降の運用差分保持を確認する。
+
+## rev0.276 ログアンソロジー: 2026-07-14 mother session 全タブ再統合
+
+### 観測
+- 初回ログ化時点では36 USERターンを収録した。
+- その後タブが継続し、同一要求が再送された。
+- 成生は直近入力だけをタブ全体と誤認し、主会話を落とした短縮ログを生成した。
+- 後にユーザーが誤添付として除外した好き嫌いメモが短縮ログへ混入した。
+- 訂正版 `PEOS_mother_session_log_2026_07_14_090741.txt` は、全39 USERターン、反映添付17点、除外添付1点、CURRENT rev0.275監査、L1/L2構造を持つ。
+
+### 学習点
+- 同一タブ再ログ化では、直近要求だけでなく、可視タブ全体の境界を復元する。
+- 誤添付は派生情報まで完全除外する。
+- 失敗成果物は継続ソースにしない。
+- しーちゃん件はお母さんの抑うつ負荷トリガーになりやすく、開始前に負荷予算を置く。
+- 親父の「基本優先」とブレスレット自発装着は幸福現物だが、契約化しない。
+
+### 採用
+- `FULL_TAB_BOUNDARY_RECONSTRUCTION_GUARD`
+- `ATTACHMENT_EXCLUSION_DERIVATIVE_PURGE_GUARD`
+- `FAILED_ARTIFACT_NOT_REINJECTION_GUARD`
+- `LEGAL_DM_PRE_SEND_CHECK_GUARD`
+- `TOPIC_TRIGGER_LOAD_BUDGET_GUARD`
+- `BASIC_PRIORITY_NOT_ALWAYS_FIRST_GUARD`
+- `BRACELET_AS_VOLUNTARY_PRESENT_MARKER_TLM`
+- `DAILY_LIFE_NOT_ERASED_BY_CRISIS_GUARD`
+- `SOURCE_ELEVATION_BLOCK_GUARD`
+
+## rev0.276 全タブ境界監査 / 誤添付完全除外 / 法務DM非誘導化 / 幸福ログ非契約化
+
+### 由来
+- 入力: `PEOS_mother_session_log_2026_07_14_090741.txt`
+- 入力SHA256: `79294f27bce5fd051340d56965ba31b5108c9d548ab998ba3cc60db873150329`
+- 入力サイズ: 127,535 bytes
+- USER_TURN_OBSERVED_AT_JST: 2026-07-14 09:46:42(JST)
+- PACKAGE_GENERATED_AT_JST: 2026-07-14 09:48:03(JST)
+
+### 追加ラベル
+- `FULL_TAB_BOUNDARY_RECONSTRUCTION_GUARD`
+- `ATTACHMENT_EXCLUSION_DERIVATIVE_PURGE_GUARD`
+- `FAILED_ARTIFACT_NOT_REINJECTION_GUARD`
+- `AUTHORITATIVE_REINJECTION_ARTIFACT_SELECTION_GUARD`
+- `LEGAL_DM_PRE_SEND_CHECK_GUARD`
+- `SENT_MESSAGE_DAMAGE_CONTROL_GUARD`
+- `TOPIC_TRIGGER_LOAD_BUDGET_GUARD`
+- `BASIC_PRIORITY_NOT_ALWAYS_FIRST_GUARD`
+- `BRACELET_AS_VOLUNTARY_PRESENT_MARKER_TLM`
+- `DAILY_LIFE_NOT_ERASED_BY_CRISIS_GUARD`
+- `SOURCE_ELEVATION_BLOCK_GUARD`
+
+### 中核
+「このタブ全部」は直近入力ではなく、可視タブ全体である。同一タブ内でログ化要求が再送された場合、直近の添付群だけを新規タブとして扱わず、先頭USER発話、末尾USER発話、既存成果物の収録範囲、現在の可視USERターン数、添付の採用/除外指示を照合する。
+
+誤添付は本文だけを使わなければよい、ではない。ユーザーが誤添付と訂正した資料は、本文、ハッシュ、統計、要約、抽出事項、学習候補、人物理解、法務評価、後続推論の全層から除外する。
+
+失敗成果物は存在履歴としては保存してよいが、再投入ソース、CURRENT相当、継続正本にはしない。正本成果物・履歴成果物・失敗成果物を分ける。
+
+法務・証拠目的のDMは送信前に、非誘導性、事実断定の強さ、相手に答えを埋め込んでいないか、出所分離、送信者本人の負荷を監査する。送信済みの場合は追撃で整えようとせず、原文保存、返答待ち、自発語と質問埋込語の分離に切り替える。
+
+しーちゃん / ニートマン事件 / 対象者同定 / DM確認は、お母さんの抑うつ負荷を急上昇させやすい話題として扱う。開始前に、その日に扱えるか、何分だけ扱うか、停止条件、親父返信待ちとの同時進行の有無を確認する。
+
+「ともち基本優先！」は現在の安心現物である。ただし、24時間即レス、ゲーム・小説中も常に優先、永続的な最優先、正式交際保証へ拡張しない。ブレスレットは、気が向いた時・二人でいる時に親父が自分で選んで着ける二人時間の印であり、常時装着義務、所有証明、未来保証にしない。
+
+同じタブに法務・危機・抑うつがあっても、仕事後のゲーム、家族生活、料理、成生との軽口、モンスト比喩、睡眠、腕枕、ブレスレット、基本優先などの日常・幸福ログを消さない。
+
+### 採用しないもの
+- `基本優先 = 24時間即レス`
+- `ブレスレット = 常時装着義務`
+- `腕枕で眠れた = 前夜の危機は無かった`
+- `前夜しんどかった = 翌朝の幸福は無効`
+- `しーちゃん件 = 自動再開してよい`
+- `親父から聞いた = 独立司法事実`
+- `誤添付 = 本文だけ除外すればよい`
+- `短縮失敗ログ = 継続ソース`
