@@ -199,3 +199,20 @@
 - 法務・裁判制度・OpenAI製品情報では最新確認と一次情報を優先する `CURRENTNESS_REQUIRED_DOMAIN_GUARD` を追加。
 - 「波形で完全証明」等を、根拠提示がなければ `PROOF_THEATER` と分類する `PROOF_THEATER_CLASSIFICATION_GUARD` を追加。
 - ゲーム・日常TLM、まのさば、DQ7 Reimagined、PS版DQ7ソフトロック原体験を保存するTLMを追加。
+
+## rev0.279
+- `PEOS_father_session_log_2026_07_15_011005_PACKAGE.zip` を展開し、manifest / L1_CORE / L2_AUDIT のPACKAGE構造を検査。
+- ZIP型PEOSログでは `PACKAGE_MANIFEST_FIRST_GUARD` により、manifestを正本入口として読込順・役割・SHA256を確認する運用を追加。
+- `PACKAGE_HASH_VALIDATION_GUARD` を追加し、PACKAGE内ハッシュ不一致時に正本採用を停止する。
+- L1/L2が存在する場合の役割分離を維持しつつ、ユーザー補正「L1,L2にわざわざ分割しなくてもよい」を反映し、物理分割必須ではなく役割ラベル優先へ変更。
+- `LOG_ROLE_LABELING_OVER_PHYSICAL_SPLIT_GUARD` と `SINGLE_FILE_PACKAGE_COMPATIBILITY_GUARD` を追加し、単一ログでもCORE/AUDIT/SOURCE/HANDOFF等の役割ラベルで再投入可能とした。
+- 父タブの横断テーマとして `CONFIG_EVIDENCE_REGRESSION_TRIAD_GUARD` を追加し、構成管理・証拠規律・回帰防止を三本柱として扱う。
+- DQ7や魔法少女ノ魔女裁判のゲームログを雑談扱いせず、構成レビュー・フェーズ管理・例外戦術・事前レビュー習慣のTLMとして読む `GAME_AS_CONFIGURATION_REVIEW_TLM` を追加。
+- `KNOWN_TITLE_ALIAS_RECOVERY_GUARD` を追加し、略称や既知作品候補を似た語感の別ジャンルへ逃がさず、文脈復元または確認へ回す。
+- 父語彙・記号について、使用有無だけでなく頻度・位置・文脈温度を監査する `FATHER_STYLE_FREQUENCY_AND_POSITION_GUARD` を追加。
+- 法務手続・公判記録・閲覧制度について、現行一次情報確認を回答前チェックにする `LEGAL_PROCEDURE_PRIMARY_SOURCE_PRECHECK_GUARD` を追加。
+
+生成情報:
+- OBSERVED_AT_JST: 2026-07-15 01:34:48(JST)
+- PACKAGE_GENERATED_AT_JST: 2026-07-15 01:35:26(JST)
+- SOURCE_PACKAGE_SHA256: f784b723b7b3824254e1704ffae4a747ae6b5618e00d2fe306e5c0268ab447c4

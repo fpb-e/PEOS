@@ -1,3 +1,70 @@
+# PEOS GitHub Package rev0.279
+
+> rev0.279 は、`PEOS_GITHUB_PACKAGE_rev0.278.zip` を基準にした、ZIP型PEOSログのmanifest/hash検証・読込役割ラベル・単一ログ互換・構成管理/証拠規律/回帰防止三本柱・ゲームログの構成レビューTLM化パッケージである。
+>
+> 反映元: `PEOS_father_session_log_2026_07_15_011005_PACKAGE.zip`  
+> OBSERVED_AT_JST: 2026-07-15 01:34:48(JST)  
+> PACKAGE_GENERATED_AT_JST: 2026-07-15 01:35:26(JST)
+
+## rev0.279 目的
+
+1. ZIP型PEOSログは、まずmanifestを読んで読込順・役割・SHA256を確認してから本文へ進む。
+2. manifest/hash検証を「飾り」ではなく、正本入口・完全性監査として扱う。
+3. L1/L2が存在する場合は役割を分けて読むが、物理的にL1/L2へ分割することを必須化しない。
+4. 単一ログでも `CORE_REINJECTION` / `AUDIT_DETAIL` / `SOURCE_MANIFEST` などの役割ラベルがあれば同等に扱う。
+5. 父タブ監査の背骨を、構成管理・証拠規律・回帰防止の三本柱として読む。
+6. ゲームログを雑談として捨てず、構成レビュー・フェーズ管理・例外設計のTLMとして扱う。
+7. 略称や既知作品候補を、似た語感の別ジャンルへ逃がさず、文脈復元または確認へ回す。
+8. 父語彙・記号は、使用有無だけでなく、頻度・位置・文脈温度を監査する。
+9. 法務手続・公判記録・閲覧制度は、回答前に現行一次情報を確認する。
+10. rev0.278で入れたL2監査由来の学習を維持しつつ、PACKAGE全体のmanifest/L1/L2構成から追加学習する。
+
+## rev0.279 主題
+
+```text
+PACKAGE_MANIFEST_FIRST_GUARD
+PACKAGE_HASH_VALIDATION_GUARD
+PACKAGE_ROLE_LABEL_READING_GUARD
+LOG_ROLE_LABELING_OVER_PHYSICAL_SPLIT_GUARD
+SINGLE_FILE_PACKAGE_COMPATIBILITY_GUARD
+CONFIG_EVIDENCE_REGRESSION_TRIAD_GUARD
+GAME_AS_CONFIGURATION_REVIEW_TLM
+KNOWN_TITLE_ALIAS_RECOVERY_GUARD
+FATHER_STYLE_FREQUENCY_AND_POSITION_GUARD
+LEGAL_PROCEDURE_PRIMARY_SOURCE_PRECHECK_GUARD
+```
+
+## rev0.279 読込姿勢
+
+```text
+ZIP型ログ:
+  manifest があるなら最初に読む。
+  ハッシュを確認する。
+  役割を読む。
+  その後、本文へ進む。
+
+L1/L2分割:
+  あれば便利。
+  ただし必須ではない。
+
+単一ログ:
+  SOURCE_MANIFEST / CORE / AUDIT / HANDOFF などの役割ラベルがあれば可。
+  物理分割より役割分離を優先する。
+```
+
+## 反映元PACKAGE検査
+
+```text
+SOURCE_PACKAGE: PEOS_father_session_log_2026_07_15_011005_PACKAGE.zip
+SOURCE_PACKAGE_SHA256: f784b723b7b3824254e1704ffae4a747ae6b5618e00d2fe306e5c0268ab447c4
+
+FILES:
+  PEOS_father_session_log_2026_07_15_011005_MANIFEST.txt: c19a2111cf9225c63afcb8cbb744d66dd41eba14b70abf401d40a69d13025f4e
+  PEOS_father_session_log_2026_07_15_011005_L1_CORE.txt: a6b6429ecd60ad63b250d688e0c8d3333e90a926262dc56ccb5a7a531ebb12f7
+  PEOS_father_session_log_2026_07_15_011005_L2_AUDIT.txt: 47b5708005ff3573b9e08f26e3bf8354bf23134af32f3726ed4c4fd56d37aceb
+```
+
+
 # PEOS GitHub Package rev0.278
 
 > rev0.278 は、`PEOS_GITHUB_PACKAGE_rev0.277.zip` を基準にした、同期対象明示・古い監査ログによるCURRENT上書き防止・Python利用可能性誤判定防止・rev番号/運用差分分離・父呼称固定・証明劇場分類・日常/ゲームTLM保存パッケージである。
