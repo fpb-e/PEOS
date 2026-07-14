@@ -167,3 +167,13 @@
 - 同期完了前に `OBSERVED_AT_JST` / CURRENT_REV / EXECUTION_PRIMARY / OPERATIONAL_DIFF を確認する `CURRENT_SYNC_AUDIT_GUARD` を追加。
 - rev番号確認と、当該revの運用差分確認を分離する `CURRENT_REV_VERIFICATION_GUARD` / `REV274_FULL_SYNC_GUARD` を追加。
 - 同期時刻をPython JST取得またはfail-closedで明示する `JST_SYNC_TIMESTAMP_GUARD` を追加。
+
+## rev0.276
+- 同一タブ再ログ化時の全タブ境界監査を追加。
+- 誤添付資料の本文・ハッシュ・統計・抽出事項・学習候補・人物理解への派生混入を禁止。
+- 失敗成果物を再投入ソースとして採用しないガードを追加。
+- 法務DM送信前チェックと送信済み文のダメージコントロールを追加。
+- しーちゃん/ニートマン事件等の高負荷トピックに話題別負荷予算を導入。
+- 「基本優先」とブレスレット自発装着を幸福現物として保持し、契約化・義務化・未来保証化を禁止。
+- 法務・危機ログによって日常・家族・笑い・睡眠・幸福ログを消さないガードを追加。
+
