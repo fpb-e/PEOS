@@ -217,24 +217,30 @@
 - PACKAGE_GENERATED_AT_JST: 2026-07-15 01:35:26(JST)
 - SOURCE_PACKAGE_SHA256: f784b723b7b3824254e1704ffae4a747ae6b5618e00d2fe306e5c0268ab447c4
 
+## rev0.280（REJECTED / TOMBSTONED）
+- `PEOS_father_session_log_2026_07_17_164802.txt` 由来の版固定・現地観測優先・ゲームPM・監査圧縮候補をパッケージ化したが、ユーザー指摘により正本採用を撤回。
+- S級実行事故: per-turn Python JST未実行、時刻仕様説明ターンでの自己適用欠落、current-time UI値のPython偽装、分精度値への無根拠秒追加、起動ロゴ/英語三文欠落。
+- `PEOS_GITHUB_PACKAGE_rev0.280.zip` は監査用失敗成果物として墓標化し、CURRENT・再発行土台・同番上書きに使用しない。
+- INVALID_TIME_TOMBSTONE: `2026-07-18 00:10:50(JST)`。Python未実行かつ取得元は分精度のみのため再利用禁止。
 
-
-## rev0.280
-- `PEOS_father_session_log_2026_07_17_164802.txt` を単一ファイル父セッションログとして分析し、ログ内 `CURRENT_BASELINE: rev0.278` は履歴値として保持。現行baseline rev0.279をロールバックしない。
-- 作品・製品・制度情報を回答する前に媒体・版・エディション・現在地点を固定する `VERSION_PINNED_DOMAIN_GUARD` を追加。
-- 親父の実プレイ画面・現地確認を同一版の一次観測として優先する `USER_PRIMARY_OBSERVATION_PRIORITY_GUARD` を追加。
-- 親父の直接読書記憶は高信頼TLMとして扱う一方、原文逐語・版面・引用根拠へ自動昇格させない `DIRECT_READING_MEMORY_NOT_VERBATIM_SOURCE_GUARD` を追加。
-- DQ7 Reimagined職業育成を、構成管理ではなく要件定義・依存関係・マイルストーン・変更要求・リスク・スケジュールを扱う `GAMEPLAY_PROJECT_MANAGEMENT_TLM` として再定義。
-- キャラ別変更要求を混線させない `ENTITY_SCOPED_REQUIREMENT_LEDGER_GUARD` を追加。
-- 敵耐久、敗北率、戦闘時間、手動介入率、消耗、状態異常事故を分離する `DIFFICULTY_TELEMETRY_GUARD` を追加。
-- システム削除が救済・後日談・因果回収等の物語効果へ与える影響を監査する `MECHANIC_REMOVAL_NARRATIVE_EFFECT_GUARD` を追加。
-- ゲーム版事実、小説版事実、親父の解釈、成生の拡張を分離する `CROSS_MEDIA_INTERPRETATION_LAYER_GUARD` を追加。
-- 体調注意と活動進捗を別トラックで保持する `BODY_AND_ACTIVITY_DUAL_TRACK_GUARD` を追加。
-- 通常SEQへ `S0_NONE` や同文MAGIを反復しない `NON_CRISIS_BLOCK_SUPPRESSION_GUARD` / `MAGI_BOILERPLATE_REPETITION_GUARD` / `SEQ_AUDIT_DELTA_ONLY_GUARD` を追加。
-- rev0.274以降のMAGI圧縮・DELTA_ONLYを再強化し、古い毎SEQ監査テンプレートより新しい圧縮規則を実行優先とする。
-- 五正本および学術ノート冒頭の `現行latest` メタを rev0.280 へ更新し、本文最高revとの不一致を解消。
+## rev0.281
+- 正本土台をrev0.279へ戻し、rev0.280失敗ZIPを土台に使わず修正版を新revisionとして生成。
+- rev0.280で抽出した有効な版固定・現地観測・PM・難度テレメトリ・クロスメディア分離・非危機監査圧縮候補をrev0.281で再採用。
+- 新規ターン受信直後、本文解釈・検索・ファイル読解・時刻仕様説明より先にPython JST取得を試行する `PER_TURN_TIME_CAPTURE_PREAMBLE_GUARD` を追加。
+- 実際に呼んだ取得手段と出典を偽らない `TOOL_PROVENANCE_TRUTH_GUARD` を追加。
+- 分精度値へ秒を追加しない `TIME_PRECISION_NO_UPCAST_GUARD` / `NO_UNOBSERVED_SECONDS_GUARD` を追加。
+- 過去ターンの観測値が失われている場合、generic UNAVAILABLEではなく `PAST_TURN_UNRECOVERABLE` と型付けする `PAST_TURN_TIME_TYPE_COMPLETENESS_GUARD` を追加。
+- 起動トリガーではASCIIロゴ・英語三文・registered greeting・起動完了文を不可分出力とする `BOOT_ATOMIC_OUTPUT_GUARD` を追加。
+- 時刻事故やPython仕様を説明するターン自身も同じ規則に従う `TIME_AUDIT_SELF_APPLICATION_GUARD` を追加。
+- 無根拠値を訂正後も再利用させない `INVALID_TIME_VALUE_TOMBSTONE_GUARD` を追加。
+- ファイル読取、会話内ロード、長期メモリ、CURRENT mutationを真偽表で分ける `SYNC_SCOPE_TRUTH_TABLE_GUARD` を追加。
+- reject済みrevisionをCURRENT・baseline・再発行物へ戻さない `REJECTED_REVISION_TOMBSTONE_GUARD` を追加。
+- 五正本と学術ノートの `現行latest` をrev0.281へ統一。
 
 生成情報:
-- OBSERVED_AT_JST: 2026-07-17 23:50:12(JST)
-- PACKAGE_GENERATED_AT_JST: 2026-07-17 23:56:25(JST)
-- SOURCE_LOG_SHA256: 6ac858da4baa33189b06ce41a58e3db0712e6c5af34b6755527adfa49090a2fe
+- USER_TURN_OBSERVED_AT_JST: 2026-07-18 00:19:55(JST)
+- SOURCE_SPEC_INPUT_LOG_SHA256: 259a437ace8a87a6039dc6ba56ba0182e820cb04b398ecd08a7cc02333e105dd
+- BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.279.zip
+- BASELINE_PACKAGE_SHA256: a3248615933d43cfe2cfec65f8e6522bc08f5ad27e729757a69678a969aed5e8
+- REJECTED_PACKAGE_SHA256: d377861cf455619ca1fdcafae911f1fc025de639ceb22b5e9283cb50cf8699a0
+

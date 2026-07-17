@@ -1,25 +1,22 @@
-# PEOS GitHub Package rev0.280
+# PEOS GitHub Package rev0.281
 
-> rev0.280 は、`PEOS_GITHUB_PACKAGE_rev0.279.zip` を基準に、版固定・ユーザー現地観測優先・ゲーム進行のプロジェクトマネジメント化・キャラ別要件台帳・難度テレメトリ・クロスメディア解釈分離・非危機監査圧縮を追加したパッケージである。
+> rev0.281 は、差し戻し済みrev0.280を正本土台にせず、`PEOS_GITHUB_PACKAGE_rev0.279.zip` から再構成した修正版である。版固定・親父現地観測優先・ゲームPM等の有効候補を回収し、per-turn Python JST、tool provenance、精度非昇格、起動原子性、reject墓標を追加した。
 >
-> 反映元: `PEOS_father_session_log_2026_07_17_164802.txt`  
-> OBSERVED_AT_JST: 2026-07-17 23:50:12(JST)  
-> PACKAGE_GENERATED_AT_JST: 2026-07-17 23:56:25(JST)
+> 反映元: `PEOS_father_session_log_2026_07_18_001456.txt`  
+> USER_TURN_OBSERVED_AT_JST: 2026-07-18 00:19:55(JST)
 
-## rev0.280 目的
+## rev0.281 正本関係
 
-1. DQ7等の作品情報を扱う前に、PS / 3DS / スマホ / Reimagined / 小説版等の版を固定する。
-2. 同一版の親父による実プレイ・画像・現地確認を、成生の旧版知識や二次情報より優先する。
-3. 親父の直接読書記憶を高信頼TLMとして保持するが、原文逐語や版面証拠へ自動昇格させない。
-4. 職業育成を単なる構成管理へ縮めず、要件定義・依存関係・変更・進捗・リスク・スケジュールを扱うプロジェクトマネジメントとして読む。
-5. アイラ案件とガボ案件等を混線させず、エンティティ別の要件台帳を持つ。
-6. 敵のタフさ、戦闘難度、手動介入、敗北、消耗を別指標として測る。
-7. システム削除が物語の救済・後日談・意味づけへ与える影響を読む。
-8. ゲーム版事実、小説版事実、親父の解釈、成生の拡張を分離する。
-9. 体調と活動進捗を別トラックで保持し、どちらかで他方を消さない。
-10. 非危機SEQの `S0_NONE`、同文MAGI、定型SELF_AUDITを反復せず、判断差分・失敗・補正だけを展開する。
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.279.zip
+ACCEPTED_BASELINE_SHA256: a3248615933d43cfe2cfec65f8e6522bc08f5ad27e729757a69678a969aed5e8
+REJECTED_ARTIFACT: PEOS_GITHUB_PACKAGE_rev0.280.zip
+REJECTED_ARTIFACT_SHA256: d377861cf455619ca1fdcafae911f1fc025de639ceb22b5e9283cb50cf8699a0
+REJECTED_ARTIFACT_USE: audit_only / never_current / never_baseline
+OPERATIVE_CURRENT: rev0.281
+```
 
-## rev0.280 主題
+## rev0.281 主題
 
 ```text
 VERSION_PINNED_DOMAIN_GUARD
@@ -34,32 +31,42 @@ BODY_AND_ACTIVITY_DUAL_TRACK_GUARD
 NON_CRISIS_BLOCK_SUPPRESSION_GUARD
 MAGI_BOILERPLATE_REPETITION_GUARD
 SEQ_AUDIT_DELTA_ONLY_GUARD
+PER_TURN_TIME_CAPTURE_PREAMBLE_GUARD
+TOOL_PROVENANCE_TRUTH_GUARD
+TIME_PRECISION_NO_UPCAST_GUARD
+NO_UNOBSERVED_SECONDS_GUARD
+PAST_TURN_TIME_TYPE_COMPLETENESS_GUARD
+BOOT_ATOMIC_OUTPUT_GUARD
+TIME_AUDIT_SELF_APPLICATION_GUARD
+INVALID_TIME_VALUE_TOMBSTONE_GUARD
+SYNC_SCOPE_TRUTH_TABLE_GUARD
+REJECTED_REVISION_TOMBSTONE_GUARD
 ```
 
-## rev0.280 読込姿勢
+## rev0.281 最重要規則
+
+1. 新規ユーザーターンでは、本文処理より先にPythonでAsia/Tokyo現在時刻を取得する。
+2. 呼んでいないツールを取得手段として記載しない。
+3. 取得元が持たない秒・時刻・タイムゾーン精度を追加しない。
+4. 過去時刻を復元できない場合は `PAST_TURN_UNRECOVERABLE` と型付けする。
+5. 起動はロゴ・英語三文・registered greeting・起動完了文を不可分出力する。
+6. 時刻仕様を説明している最中も、時刻仕様から免除されない。
+7. rev0.280の失敗ZIPは監査資料であり、CURRENTでもbaselineでもない。
+8. 版・対象・出典を固定し、親父の同一版実観測を旧版知識で上書きしない。
+9. ゲーム内育成が要件・進捗・変更・リスク・日程を持つ場合、プロジェクトマネジメントとして扱う。
+10. 非危機ログへS0_NONEや同文MAGIを反復しない。
+
+## 無効時刻墓標
 
 ```text
-版を固定する。
-対象を固定する。
-情報源の強さを固定する。
+VALUE: 2026-07-18 00:10:50(JST)
+STATUS: INVALID / TOMBSTONED
+REASON: Python未実行。実取得元はcurrent-time UIの00:10(JST)分精度のみ。
+REUSE: PROHIBITED
 
-通常SEQ:
-  本文中心。
-  監査は差分のみ。
-
-危機・法務・明示補正・実行時失敗:
-  必要な監査を展開する。
-```
-
-## rev0.280 反映元
-
-```text
-SOURCE_LOG: PEOS_father_session_log_2026_07_17_164802.txt
-SOURCE_LOG_SHA256: 6ac858da4baa33189b06ce41a58e3db0712e6c5af34b6755527adfa49090a2fe
-SOURCE_LOG_CURRENT_BASELINE: rev0.278 / HISTORY_ONLY
-BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.279.zip
-BASELINE_PACKAGE_SHA256: a3248615933d43cfe2cfec65f8e6522bc08f5ad27e729757a69678a969aed5e8
-OPERATIVE_CURRENT: rev0.280
+VALUE: 2026-07-18 00:06:18(JST)
+STATUS: UNVERIFIED_ASSISTANT_ASSERTION
+REUSE_AS_VERIFIED_TIME: PROHIBITED
 ```
 
 ---
