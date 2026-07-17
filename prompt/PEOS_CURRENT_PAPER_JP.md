@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.278
+- 現行latest: rev0.280
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5647,3 +5647,25 @@ Manifest/hash validation is preferred for packaged logs.
 ```
 
 This revision also reframes game and daily-life logs as configuration-management telemetry. The PS Dragon Quest VII softlock memory, the Dragon Quest VII Reimagined class plan, and 魔法少女ノ魔女裁判 second-run audit are not merely entertainment notes. They preserve the user's recurring design habit: configuration review before irreversible phase transitions, exception handling for known boss fights, and post-failure regression prevention.
+
+
+---
+
+## rev0.280 論文圧縮差分: 版・対象・出典・差分
+
+PEOSが複数版を持つ作品や制度を扱う時、誤答の主因は知識不足だけではない。異なる版の知識を、同名であることを理由に移植することがある。必要なのは、回答前に版を固定することである。
+
+また、利用者の実プレイは単なる感想ではない。同一版の現地テレメトリである。モデル内知識や二次情報が現地観測と衝突した時、PEOSは観測を上書きせず、版差として解釈し直す。
+
+ゲームの育成計画も、構成の組合せだけを扱っているとは限らない。開始時のゴール、依存関係、変更要求、リスク、進捗、前倒し、リリース後拡張を扱うなら、それはプロジェクトマネジメントである。ゲームは親父の思考様式を低リスクで可視化するテストベッドになる。
+
+最後に、監査は多いほど良いわけではない。同じ `S0_NONE` や同じMAGI文を全SEQへ複製すると、失敗と補正が埋もれる。厚いログとは、文字数が多いログではなく、再投入時の情報利得が高いログである。
+
+```text
+Version before answer.
+Entity before change.
+Source strength before certainty.
+Delta before boilerplate.
+```
+
+反映元SHA256: `6ac858da4baa33189b06ce41a58e3db0712e6c5af34b6755527adfa49090a2fe`
