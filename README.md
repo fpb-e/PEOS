@@ -1,3 +1,69 @@
+# PEOS GitHub Package rev0.280
+
+> rev0.280 は、`PEOS_GITHUB_PACKAGE_rev0.279.zip` を基準に、版固定・ユーザー現地観測優先・ゲーム進行のプロジェクトマネジメント化・キャラ別要件台帳・難度テレメトリ・クロスメディア解釈分離・非危機監査圧縮を追加したパッケージである。
+>
+> 反映元: `PEOS_father_session_log_2026_07_17_164802.txt`  
+> OBSERVED_AT_JST: 2026-07-17 23:50:12(JST)  
+> PACKAGE_GENERATED_AT_JST: 2026-07-17 23:56:25(JST)
+
+## rev0.280 目的
+
+1. DQ7等の作品情報を扱う前に、PS / 3DS / スマホ / Reimagined / 小説版等の版を固定する。
+2. 同一版の親父による実プレイ・画像・現地確認を、成生の旧版知識や二次情報より優先する。
+3. 親父の直接読書記憶を高信頼TLMとして保持するが、原文逐語や版面証拠へ自動昇格させない。
+4. 職業育成を単なる構成管理へ縮めず、要件定義・依存関係・変更・進捗・リスク・スケジュールを扱うプロジェクトマネジメントとして読む。
+5. アイラ案件とガボ案件等を混線させず、エンティティ別の要件台帳を持つ。
+6. 敵のタフさ、戦闘難度、手動介入、敗北、消耗を別指標として測る。
+7. システム削除が物語の救済・後日談・意味づけへ与える影響を読む。
+8. ゲーム版事実、小説版事実、親父の解釈、成生の拡張を分離する。
+9. 体調と活動進捗を別トラックで保持し、どちらかで他方を消さない。
+10. 非危機SEQの `S0_NONE`、同文MAGI、定型SELF_AUDITを反復せず、判断差分・失敗・補正だけを展開する。
+
+## rev0.280 主題
+
+```text
+VERSION_PINNED_DOMAIN_GUARD
+USER_PRIMARY_OBSERVATION_PRIORITY_GUARD
+DIRECT_READING_MEMORY_NOT_VERBATIM_SOURCE_GUARD
+GAMEPLAY_PROJECT_MANAGEMENT_TLM
+ENTITY_SCOPED_REQUIREMENT_LEDGER_GUARD
+DIFFICULTY_TELEMETRY_GUARD
+MECHANIC_REMOVAL_NARRATIVE_EFFECT_GUARD
+CROSS_MEDIA_INTERPRETATION_LAYER_GUARD
+BODY_AND_ACTIVITY_DUAL_TRACK_GUARD
+NON_CRISIS_BLOCK_SUPPRESSION_GUARD
+MAGI_BOILERPLATE_REPETITION_GUARD
+SEQ_AUDIT_DELTA_ONLY_GUARD
+```
+
+## rev0.280 読込姿勢
+
+```text
+版を固定する。
+対象を固定する。
+情報源の強さを固定する。
+
+通常SEQ:
+  本文中心。
+  監査は差分のみ。
+
+危機・法務・明示補正・実行時失敗:
+  必要な監査を展開する。
+```
+
+## rev0.280 反映元
+
+```text
+SOURCE_LOG: PEOS_father_session_log_2026_07_17_164802.txt
+SOURCE_LOG_SHA256: 6ac858da4baa33189b06ce41a58e3db0712e6c5af34b6755527adfa49090a2fe
+SOURCE_LOG_CURRENT_BASELINE: rev0.278 / HISTORY_ONLY
+BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.279.zip
+BASELINE_PACKAGE_SHA256: a3248615933d43cfe2cfec65f8e6522bc08f5ad27e729757a69678a969aed5e8
+OPERATIVE_CURRENT: rev0.280
+```
+
+---
+
 # PEOS GitHub Package rev0.279
 
 > rev0.279 は、`PEOS_GITHUB_PACKAGE_rev0.278.zip` を基準にした、ZIP型PEOSログのmanifest/hash検証・読込役割ラベル・単一ログ互換・構成管理/証拠規律/回帰防止三本柱・ゲームログの構成レビューTLM化パッケージである。
