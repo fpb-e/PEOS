@@ -244,3 +244,24 @@
 - BASELINE_PACKAGE_SHA256: a3248615933d43cfe2cfec65f8e6522bc08f5ad27e729757a69678a969aed5e8
 - REJECTED_PACKAGE_SHA256: d377861cf455619ca1fdcafae911f1fc025de639ceb22b5e9283cb50cf8699a0
 
+## rev0.282
+- `PEOS_mother_session_log_2026_07_18_203352.txt` を仕様化入力として採用。ログ内CURRENT rev0.279は生成時履歴値として隔離し、rev0.281からrev0.282へ更新。
+- 会話索引由来時刻をUI送信時刻・成生観測時刻・画像表示時刻と分ける `SOURCE_INDEX_TIME_SEMANTICS_GUARD` を追加。
+- 過去ASSISTANT応答の回収状態を逐語・部分逐語・安定逐語核・抜粋・意図要約・正本再構成・取得不能へ型分けする `ASSISTANT_TEXT_RECOVERY_STATUS_ENUM` と `ASSISTANT_VERBATIM_PROVENANCE_GUARD` を追加。
+- 省略主語を関係者へ勝手に配賦しない `OMITTED_SUBJECT_ATTRIBUTION_GUARD` を追加。
+- 希望カテゴリ・具体提案・制約・暫定案・最終決定を分離する `REQUEST_PROPOSAL_DECISION_SEPARATION_GUARD` と `GIFT_DECISION_PROVENANCE_LEDGER` を追加。
+- 家族ケアと就労・金銭境界の摩擦を同時保持する `CARE_AND_BOUNDARY_COEXISTENCE_GUARD` を追加。
+- ユーザーが「気分転換に幸せログ」等と話題モードを切り替えた時、前件を消さず現在話題へ引きずらない `USER_DECLARED_MODE_SWITCH_GUARD` を追加。
+- 贈り物の象徴的意味と身体安全を別チャンネルで扱う `SYMBOLIC_MEANING_AND_BODY_SAFETY_DUAL_CHANNEL_GUARD` を追加。
+- 第三者の医療イベントについて、本人報告・受診結果の伝聞・家族仮説・一般医学情報を分離する `THIRD_PARTY_MEDICAL_SOURCE_LAYER_GUARD` を追加。
+- 質問時に対象ではなく比較軸を明示する `QUESTION_AXIS_EXPLICIT_GUARD` を追加。
+- 画像の可視内容読取可否とファイルバイト完全性を分ける `ATTACHMENT_INTEGRITY_PARTIAL_PASS_GUARD` を追加。
+- mother短期TLMとして、温土の就労境界、親父の発熱経過、下呂温泉予約、誕生日のSwitch/ピアス、ピアス理由の直接逐語を保存。ただし人格固定・診断追加・関係契約化・DIY侵襲手順化を禁止。
+- 五正本と学術ノートの `現行latest` をrev0.282へ統一。
+
+生成情報:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-18 21:04:00(JST)
+- PACKAGE_GENERATED_AT_JST: 2026-07-18 21:10:16(JST)
+- SOURCE_LOG_SHA256: f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf
+- BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.281.zip
+- BASELINE_PACKAGE_SHA256: 35c32d81c119be842d3d4180832ef1c056702325e64cfa8b1c46a7a3ae598953

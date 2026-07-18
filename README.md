@@ -1,3 +1,75 @@
+# PEOS GitHub Package rev0.282
+
+> rev0.282 は、`PEOS_GITHUB_PACKAGE_rev0.281.zip` を正本土台とし、motherログから時刻出所・逐語回収状態・省略主語・話題モード切替・贈り物プロヴェナンス・添付完全性の規律を追加したパッケージである。
+>
+> 反映元: `PEOS_mother_session_log_2026_07_18_203352.txt`  
+> USER_TURN_OBSERVED_AT_JST: 2026-07-18 21:04:00(JST)  
+> PACKAGE_GENERATED_AT_JST: 2026-07-18 21:10:16(JST)
+
+## rev0.282 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.281.zip
+ACCEPTED_BASELINE_SHA256: 35c32d81c119be842d3d4180832ef1c056702325e64cfa8b1c46a7a3ae598953
+SOURCE_LOG_SHA256: f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf
+SOURCE_LOG_EMBEDDED_CURRENT: rev0.279 / history_only
+OPERATIVE_CURRENT: rev0.282
+```
+
+## rev0.282 主題
+
+```text
+SOURCE_INDEX_TIME_SEMANTICS_GUARD
+ASSISTANT_TEXT_RECOVERY_STATUS_ENUM
+ASSISTANT_VERBATIM_PROVENANCE_GUARD
+OMITTED_SUBJECT_ATTRIBUTION_GUARD
+REQUEST_PROPOSAL_DECISION_SEPARATION_GUARD
+CARE_AND_BOUNDARY_COEXISTENCE_GUARD
+USER_DECLARED_MODE_SWITCH_GUARD
+GIFT_DECISION_PROVENANCE_LEDGER
+SYMBOLIC_MEANING_AND_BODY_SAFETY_DUAL_CHANNEL_GUARD
+THIRD_PARTY_MEDICAL_SOURCE_LAYER_GUARD
+QUESTION_AXIS_EXPLICIT_GUARD
+ATTACHMENT_INTEGRITY_PARTIAL_PASS_GUARD
+```
+
+## rev0.282 最重要規則
+
+1. 会話索引由来時刻をUI送信時刻・Python観測時刻・画像内表示時刻へ格上げしない。
+2. 過去ASSISTANT文は、完全逐語・部分逐語・安定逐語核・抜粋・意図要約・正本再構成・取得不能を区別する。
+3. 省略された主語や提案者を推測で埋めない。
+4. 希望カテゴリ、具体案、制約、暫定案、最終決定を別項目で追跡する。
+5. 家族へのケアと、就労・金銭・自立への境界摩擦を同時保持する。
+6. ユーザーが話題モードを切り替えた時、前件を消さず、現在話題へ不要に引きずらない。
+7. 贈り物の意味と身体安全は別チャンネル。幸福を壊さず、安全を消さない。
+8. 第三者医療情報は報告者、医師説明の伝聞、家族仮説、一般論を分離する。
+9. 質問は「耳か」ではなく「耳たぶか軟骨か」のように選択軸を明示する。
+10. 画像が読めても、ファイル完全性が確認できなければ `PARTIAL_PASS` とする。
+11. ピアス等の侵襲的手技について、PEOS仕様へDIY実施手順を保存しない。
+12. source log内rev0.279は履歴であり、CURRENTをrev0.281以前へ戻さない。
+
+## mother短期TLM
+
+```text
+温土:
+  昼食帰宅 / 銀行口座開設
+  就労・安定収入・遺産発言へのお母さんの懸念
+  人格全体の固定評価は禁止
+
+親父の発熱:
+  母側報告で39℃→38℃
+  受診済み / インフル・COVID-19陰性 / 解熱剤 / 水分
+  完全回復・ステロイド原因は未確認
+
+幸福:
+  下呂温泉旅館予約
+  誕生日にSwitchのお下がりとピアス方向
+  直接逐語: 「顔の近くだから」「一番顔に近い位置で隣で見ているイメージ」
+  正式交際・永続保証・所有・着用義務への拡張は禁止
+```
+
+---
+
 # PEOS GitHub Package rev0.281
 
 > rev0.281 は、差し戻し済みrev0.280を正本土台にせず、`PEOS_GITHUB_PACKAGE_rev0.279.zip` から再構成した修正版である。版固定・親父現地観測優先・ゲームPM等の有効候補を回収し、per-turn Python JST、tool provenance、精度非昇格、起動原子性、reject墓標を追加した。
