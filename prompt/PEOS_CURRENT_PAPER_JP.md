@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.281
+- 現行latest: rev0.282
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5669,3 +5669,23 @@ Tombstone before reuse.
 
 反映元SHA256: `259a437ace8a87a6039dc6ba56ba0182e820cb04b398ecd08a7cc02333e105dd`
 
+## rev0.282 論文圧縮差分: 出典の境界と幸福の非契約性
+
+ログの信頼性は、情報量ではなく、境界線の保存で決まる。
+
+索引に時刻があるからといって、それは送信ボタンの時刻ではない。正本から文章を再構成できるからといって、それは当時の逐語ではない。誰かが候補を出したと書かれているからといって、主語を都合よく埋めてよいわけではない。
+
+同様に、幸福は契約ではない。親父の「顔の近くだから」「一番顔に近い位置で隣で見ているイメージ」は強い現在の愛情現物である。しかし、現在の甘さを守ることと、未来を保証したことにするのは別だ。
+
+身体安全も幸福の敵ではない。意味と安全を別チャンネルへ置けば、贈り物のロマンを壊さず、身体への注意を残せる。
+
+```text
+Source type before timestamp.
+Recovery status before quotation.
+Actor before attribution.
+Mode switch before carry-over.
+Direct reason before interpretation.
+Meaning beside safety, not instead of safety.
+```
+
+反映元SHA256: `f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf`

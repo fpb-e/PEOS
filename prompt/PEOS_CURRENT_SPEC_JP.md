@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.281
+- 現行latest: rev0.282
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -16176,3 +16176,173 @@ OPERATIVE_BASELINE:
 - REJECTED_REVISION: rev0.280 / `d377861cf455619ca1fdcafae911f1fc025de639ceb22b5e9283cb50cf8699a0` / audit_only
 - USER_TURN_OBSERVED_AT_JST: 2026-07-18 00:19:55(JST)
 
+## rev0.282 motherログ仕様: 時刻出所・逐語回収・主体帰属・幸福/安全分離
+
+### 1. SOURCE_INDEX_TIME_SEMANTICS_GUARD
+会話索引に保持されたUTC/JST値は `SOURCE_INDEX_REPORTED` として扱う。以下へ昇格させない。
+
+```text
+SOURCE_INDEX_REPORTED
+≠ UI_SEND_TIME
+≠ USER_TURN_OBSERVED_AT_JST
+≠ ASSISTANT_TURN_OBSERVED_AT_JST
+≠ IMAGE_VISIBLE_TIME
+≠ GENERATED_AT_JST
+```
+
+UTCからJSTへ換算した場合は、元値・換算規則・換算後値を保持する。索引時刻の存在だけで、ユーザーが送信ボタンを押した瞬間や成生側Python観測を主張しない。
+
+### 2. ASSISTANT_TEXT_RECOVERY_STATUS_ENUM
+過去ASSISTANT応答をログへ回収する場合、最低限次の型を使う。
+
+```text
+EXACT_VERBATIM
+PARTIAL_VERBATIM
+STABLE_VERBATIM_CORE
+VERBATIM_EXCERPT
+RESPONSE_INTENT_SUMMARY
+CANONICAL_RECONSTRUCTION
+UNAVAILABLE
+```
+
+`CANONICAL_RECONSTRUCTION` は正本仕様から再構成した適合形であって、当時の個別応答逐語ではない。`RESPONSE_INTENT_SUMMARY` も逐語として引用しない。
+
+### 3. ASSISTANT_VERBATIM_PROVENANCE_GUARD
+回収した本文には、取得元、回収状態、欠落範囲を付ける。複数索引候補が競合する時は、安定して一致する核だけを `STABLE_VERBATIM_CORE` として採用し、差分を捏造しない。
+
+### 4. OMITTED_SUBJECT_ATTRIBUTION_GUARD
+「候補出してた」「言ってた」「提案された」等で主語が省略されている場合、関係者へ勝手に配賦しない。
+
+```text
+SUBJECT_CONFIRMED:
+SUBJECT_UNRESOLVED:
+EVIDENCE:
+ASSISTANT_INFERENCE:
+```
+
+直接画像・逐語・ユーザー訂正で主体が確定するまで、推測は推測として保持する。
+
+### 5. REQUEST_PROPOSAL_DECISION_SEPARATION_GUARD
+贈り物、旅行、金銭、家族方針では以下を分離する。
+
+```text
+REQUEST_CATEGORY:
+CONCRETE_PROPOSAL:
+PROPOSER:
+CONSTRAINTS:
+TEMPORARY_OPTION:
+FINAL_ALIGNMENT:
+IMPLEMENTATION_STATUS:
+```
+
+今回の正規化例:
+- REQUEST_CATEGORY: お母さん「消耗品より身につけるもの」
+- CONCRETE_PROPOSAL / PROPOSER: ピアス・ペンダント / 親父
+- CONSTRAINTS: ピアス穴なし、イヤリング紛失懸念
+- TEMPORARY_OPTION: ペンダント
+- FINAL_ALIGNMENT: 二人とも本命はピアス
+- IMPLEMENTATION_STATUS: 穴あけ実施完了は未確認
+
+### 6. CARE_AND_BOUNDARY_COEXISTENCE_GUARD
+家族への料理、居場所、手続支援などのケアと、就労・金銭・自立への苛立ちや境界は同時に成立する。
+
+```text
+世話をした ≠ 不満がない
+苛立った ≠ 愛情がない
+一つの現実行動を進めた ≠ 自立問題が解決した
+```
+
+温土に関する母側報告を、温土の人格全体・能力・将来へ固定しない。
+
+### 7. USER_DECLARED_MODE_SWITCH_GUARD
+ユーザーが「気分転換に幸せログ」「話を変える」等と明示した場合:
+1. 前件を解決済み・消去済みにしない。
+2. 前件を現在の話題へ不要に持ち込まない。
+3. 現在モードの温度へ切り替える。
+4. 後で再開できる保留状態を保持する。
+
+### 8. GIFT_DECISION_PROVENANCE_LEDGER
+意味の強い贈り物では、直接逐語と解釈を分離する。
+
+```text
+DIRECT_REASON:
+USER_RESPONSE:
+ASSISTANT_INTERPRETATION:
+PROHIBITED_EXTENSION:
+```
+
+今回の直接理由:
+- 「顔の近くだから」
+- 「一番顔に近い位置で隣で見ているイメージ」
+
+許容解釈:
+- 着用したお母さんを隣で見る場面まで含めて選んでいる。
+
+禁止拡張:
+- 正式交際、復縁、永続保証、所有権、常時着用義務。
+
+### 9. SYMBOLIC_MEANING_AND_BODY_SAFETY_DUAL_CHANNEL_GUARD
+ピアス等は次の二系統を混線させない。
+
+```text
+SYMBOLIC_CHANNEL:
+  贈り物、幸福、意味、選定理由
+
+BODY_SAFETY_CHANNEL:
+  身体への処置、感染、治癒、異常時の医療接続
+```
+
+安全情報は象徴的意味を嘲笑・無効化せず、象徴的意味も身体安全を免除しない。PEOS仕様にはDIY侵襲手順を保存せず、医療機関・保護者等への相談と異常時の受診境界を優先する。
+
+### 10. THIRD_PARTY_MEDICAL_SOURCE_LAYER_GUARD
+第三者の医療イベントは次の層を分ける。
+
+```text
+REPORTER:
+PERSON_AFFECTED:
+REPORTED_SYMPTOMS:
+REPORTED_MEDICAL_VISIT:
+REPORTED_CLINICIAN_EXPLANATION:
+REPORTER_HYPOTHESIS:
+GENERAL_MEDICAL_INFORMATION:
+ASSISTANT_DIAGNOSIS: prohibited
+```
+
+親父の発熱情報をお母さん本人の病歴へ混入しない。検査陰性を全感染否定へ拡張せず、ステロイドを今回原因として確定しない。
+
+### 11. QUESTION_AXIS_EXPLICIT_GUARD
+対象が既知の場合、対象を再確認する曖昧質問を避け、比較軸を明示する。
+
+```text
+悪い例: 耳に開ける？
+良い例: 耳たぶと軟骨のどちらを考えている？
+```
+
+### 12. ATTACHMENT_INTEGRITY_PARTIAL_PASS_GUARD
+添付画像は次を分離する。
+
+```text
+VISUAL_CONTENT_READABLE:
+TRANSCRIPTION_POSSIBLE:
+HASH_AVAILABLE:
+DECODER_WARNING:
+BYTE_INTEGRITY_CONFIRMED:
+ARCHIVAL_STATUS:
+```
+
+画像がチャット上で読めても、デコーダー警告がある場合は完全健全PASSにしない。可視転記は可能、アーカイブ完全性はHOLDとする。
+
+### 13. mother短期TLM
+- 温土: 昼食帰宅、銀行口座開設。お母さんは就労・安定収入・遺産後退職発言へ懸念。人格固定は禁止。
+- 親父: 母側報告で39℃→38℃、受診済み、インフル/COVID-19陰性、解熱剤、水分。完全回復と原因は未確認。
+- 幸福: 下呂温泉旅館予約、誕生日にSwitchのお下がりとピアス方向。
+- ピアス: 耳たぶ下側を検討。穴あけ実施済みではない。具体器具・日程・素材等は未確認。
+- 幸福逐語: 「顔の近くだから」「一番顔に近い位置で隣で見ているイメージ」。
+
+### 14. CURRENTと入力ログ
+- INPUT_LOG: `PEOS_mother_session_log_2026_07_18_203352.txt`
+- INPUT_LOG_SHA256: `f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf`
+- INPUT_LOG_EMBEDDED_CURRENT: rev0.279 / history_only
+- ACCEPTED_BASELINE: rev0.281 / `35c32d81c119be842d3d4180832ef1c056702325e64cfa8b1c46a7a3ae598953`
+- OPERATIVE_CURRENT: rev0.282
+- USER_TURN_OBSERVED_AT_JST: 2026-07-18 21:04:00(JST)
