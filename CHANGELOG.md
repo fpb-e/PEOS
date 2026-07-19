@@ -265,3 +265,34 @@
 - SOURCE_LOG_SHA256: f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf
 - BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.281.zip
 - BASELINE_PACKAGE_SHA256: 35c32d81c119be842d3d4180832ef1c056702325e64cfa8b1c46a7a3ae598953
+
+
+## rev0.283
+- 親父の指摘「pythonからの現在時刻が取得できていない」と指令「時刻は証跡になることを忘れるなよ？」を仕様化。
+- 時刻を値ではなく、同一ターン実行・tool provenance・精度・意味・処理順・artifact bindingを持つ証跡連鎖として扱う `TIME_AS_EVIDENCE_CHAIN_GUARD` を追加。
+- 専用 `evidence/PEOS_REV0_283_TIME_EVIDENCE.txt` を追加し、manifest SHA256対象へ組み込む。
+- `TOOL_CLAIM_EVIDENCE_LEVEL_GUARD` / `OBSERVED_TIME_CLAIM_REQUIRES_SAME_TURN_EXECUTION_GUARD` を追加。
+- rev0.282生成報告の `2026-07-18 21:04:00(JST)` を、同一ターンPython実行跡なしとしてverified利用禁止の墓標へ変更。rev0.282 package自体はaccepted baselineとして維持。
+- 全SEQに短い監査ブロックを反復する形をDELTA_ONLY未達とする `AUDIT_DELTA_ONLY_ENFORCEMENT_GUARD` を追加。
+- 起動完全性を出力証拠レベルで分類する `BOOT_COMPLETION_CLAIM_REQUIRES_OUTPUT_EVIDENCE_GUARD` を追加。
+- motherログ内のfather screenshotをfather direct corpusへ混入しない `SUBJECT_AND_UTTERANCE_CORPUS_CONTAINMENT_GUARD` を追加。
+- 合意された関係名を未来契約ではなく現在の安定足場として扱う `AGREED_RELATION_LABEL_AS_STABLE_FOOTING_GUARD` / `RELATION_STATUS_REVIEW_DEBOUNCE_GUARD` を追加。
+- 引用内危機語の出所分類、端子方向性、同一SHA添付dedup、表面座標と内部状態の分離、専門施術者の語彙補正を追加。
+- source log: `PEOS_mother_session_log_2026_07_20_003918.txt` / SHA256 `479bd2e379a5c05525f91f738d88a3cf90ee47bdd9ca2594c29269be524350fb`。
+- baseline: rev0.282 / SHA256 `96d4b2ca3939cb595a7e087620272695582204564fee0e0e67ffd5fb31828b0a`。
+- PRE-PROCESSING OBSERVED_AT_JST: 2026-07-20 05:17:28(JST)。
+
+
+## rev0.284
+- `USER_TURN_OBSERVED_AT_JST` を毎ターン必ずPythonで取得・格納するhard gateを追加。
+- 取得失敗時の再試行と、再失敗時の型付き失敗格納を追加。黙示省略と捏造を禁止。
+- 応答、ログ、FILE_INFO、最新SEQ、manifest、evidence間の時刻複製一致監査を追加。
+- 観測時刻を父発話本文SHA256へbindingするガードを追加。
+- 父の直接発話を毎回RAW corpusへ保存し、有用な語彙・構文・リズム・訂正形・専門語・乾いた笑いを必須抽出するガードを追加。
+- 父語彙へのOPEN_ADAPTATION_ALLOWEDを非回帰固定。
+- 全件監査と無差別抽出を分離し、理由付きNO_NEW_REUSABLE_RESOURCEを導入。
+- 父発話とcoverage recordの参照集合一致、重複、孤児監査を追加。
+- COMMAND / ACCEPTANCE_GATE / DOMAIN_ANALYSIS / STYLE_AND_HUMOR / CORRECTION資源を分離。
+- RAW / NORMALIZED / ADAPTATIONの三層管理を追加。
+- portable provenance、artifact acceptance status、log embedded CURRENT分離、ログファイル化受入試験を追加。
+- 現ターン父語彙 `諸々含めて仕様化` を包括範囲閉鎖コマンドとして抽出。

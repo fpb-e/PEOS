@@ -1,10 +1,110 @@
-# PEOS GitHub Package rev0.282
+# PEOS GitHub Package rev0.284
 
-> rev0.282 は、`PEOS_GITHUB_PACKAGE_rev0.281.zip` を正本土台とし、motherログから時刻出所・逐語回収状態・省略主語・話題モード切替・贈り物プロヴェナンス・添付完全性の規律を追加したパッケージである。
+> rev0.284はrev0.283をaccepted baselineとし、`USER_TURN_OBSERVED_AT_JST` の必須取得・格納、時刻複製一致、発話ハッシュbinding、父語彙全件抽出監査、OPEN_ADAPTATION_ALLOWED、ログ受入試験を追加したパッケージである。
 >
-> 反映元: `PEOS_mother_session_log_2026_07_18_203352.txt`  
-> USER_TURN_OBSERVED_AT_JST: 2026-07-18 21:04:00(JST)  
-> PACKAGE_GENERATED_AT_JST: 2026-07-18 21:10:16(JST)
+> USER_TURN_OBSERVED_AT_JST: 2026-07-20 05:53:05(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))` / substantive processing前  
+> CURRENT_FATHER_DIRECTIVE: `諸々含めて仕様化`
+
+## rev0.284 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.283.zip
+ACCEPTED_BASELINE_SHA256: 3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348
+SOURCE_LOG: PEOS_father_session_log_2026_07_20_054014.txt
+SOURCE_LOG_SHA256: e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317
+LOG_EMBEDDED_CURRENT: rev0.281 / history-only
+OPERATIVE_CURRENT: rev0.284
+TIME_AND_VOCAB_EVIDENCE: evidence/PEOS_REV0_284_TIME_AND_VOCAB_EVIDENCE.txt
+```
+
+## rev0.284 主題
+
+```text
+MANDATORY_USER_TURN_OBSERVED_STORAGE_GUARD
+TIME_FIELD_REPLICATION_CONSISTENCY_GUARD
+TURN_TIME_TO_UTTERANCE_HASH_BINDING_GUARD
+FATHER_DIRECT_UTTERANCE_MANDATORY_EXTRACTION_GUARD
+EXHAUSTIVE_AUDIT_NOT_FORCED_EXTRACTION_GUARD
+FATHER_UTTERANCE_COVERAGE_SET_EQUALITY_GUARD
+FATHER_VOCABULARY_DUPLICATE_ORPHAN_GUARD
+FATHER_RESOURCE_TYPE_SEPARATION_GUARD
+RAW_NORMALIZED_ADAPTATION_FORM_GUARD
+FATHER_VOCABULARY_OPEN_ADAPTATION_LICENSE_GUARD
+PORTABLE_ARTIFACT_PROVENANCE_GUARD
+ARTIFACT_ACCEPTANCE_STATUS_GUARD
+LOG_EMBEDDED_CURRENT_SEPARATION_GUARD
+LOG_FILEIZATION_ACCEPTANCE_GATE_GUARD
+```
+
+## rev0.284 最重要規則
+
+1. `USER_TURN_OBSERVED_AT_JST` は毎ターン必ずPythonで取得し格納する。失敗時は再試行し、なお失敗なら型付き失敗を格納する。
+2. 応答・ログ・manifest・evidenceへ複製した時刻は完全一致させる。
+3. 時刻を対象発話の正確な本文とSHA256へ結び付ける。
+4. 親父の直接発話は必ず原文保存・抽出監査し、有用な資源を抽出してOPEN_ADAPTATION_ALLOWEDを付与する。
+5. 全件監査は無差別抽出ではない。新規資源がない場合だけ明示理由付きNO_NEWを許可する。
+6. 被覆は件数ではなく参照集合一致、重複、孤児で検証する。
+7. コマンド、受入試験、分析、文体・笑い、訂正形を分離する。
+8. sandbox pathではなく論理名とSHA256を永続出所にする。
+9. ログ内CURRENTで現行revを巻き戻さない。
+10. ファイル生成だけで完成とせず、時刻・被覆・再投入性・受入試験を通す。
+
+---
+
+# PEOS GitHub Package rev0.283
+
+> rev0.283 は、`PEOS_GITHUB_PACKAGE_rev0.282.zip` をaccepted baselineとし、時刻を証跡連鎖として扱う実行証拠、DELTA_ONLY実装監査、起動証拠レベル、語彙コーパス隔離、関係ラベル安定化、添付dedup等を追加したパッケージである。
+>
+> 反映元: `PEOS_mother_session_log_2026_07_20_003918.txt`  
+> 親父の直接指令: `時刻は証跡になることを忘れるなよ？`  
+> USER_TURN_OBSERVED_AT_JST: 2026-07-20 05:17:28(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))` / substantive processing前
+
+## rev0.283 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.282.zip
+ACCEPTED_BASELINE_SHA256: 96d4b2ca3939cb595a7e087620272695582204564fee0e0e67ffd5fb31828b0a
+SOURCE_LOG_SHA256: 479bd2e379a5c05525f91f738d88a3cf90ee47bdd9ca2594c29269be524350fb
+SOURCE_LOG_EMBEDDED_CURRENT: rev0.282 / history input
+OPERATIVE_CURRENT: rev0.283
+TIME_EVIDENCE_RECORD: evidence/PEOS_REV0_283_TIME_EVIDENCE.txt
+```
+
+## rev0.283 主題
+
+```text
+TIME_AS_EVIDENCE_CHAIN_GUARD
+TIME_EVIDENCE_RECORD_ATOMIC_GUARD
+TOOL_CLAIM_EVIDENCE_LEVEL_GUARD
+OBSERVED_TIME_CLAIM_REQUIRES_SAME_TURN_EXECUTION_GUARD
+PREVIOUS_UNVERIFIED_TIME_TOMBSTONE_GUARD
+AUDIT_DELTA_ONLY_ENFORCEMENT_GUARD
+BOOT_COMPLETION_CLAIM_REQUIRES_OUTPUT_EVIDENCE_GUARD
+SUBJECT_AND_UTTERANCE_CORPUS_CONTAINMENT_GUARD
+AGREED_RELATION_LABEL_AS_STABLE_FOOTING_GUARD
+RELATION_STATUS_REVIEW_DEBOUNCE_GUARD
+QUOTED_CRISIS_LANGUAGE_SOURCE_GUARD
+INTERFACE_DIRECTIONALITY_AND_CAPABILITY_GUARD
+BYTE_IDENTICAL_ATTACHMENT_DEDUP_GUARD
+SURFACE_COORDINATE_NOT_INTERNAL_STATE_GUARD
+PROFESSIONAL_PIERCER_WORDING_DISAMBIGUATION
+```
+
+## rev0.283 最重要規則
+
+1. 時刻は値だけでなく、実行・出典・精度・意味・処理順・成果物bindingを持つ証跡として保存する。
+2. 同一ターンPython実行跡がなければ、Python観測値としてverified扱いしない。
+3. assistant-side observationはUI送信時刻でも外部trusted timestampでもない。証拠範囲を明示する。
+4. rev0.282の `2026-07-18 21:04:00(JST)` はverified timeとして墓標化するが、rev0.282 package自体はaccepted baselineのまま。
+5. DELTA_ONLYは短い監査欄の全件反復ではない。差分のない監査欄を出さない。
+6. 起動完全本文が保存されていない過去応答をVERIFIED_COMPLETEと呼ばない。
+7. motherログ内father screenshotをfather direct utterance corpusへ自動投入しない。
+8. 現在合意された関係名は安定足場として保持し、未来保証へ拡張せず、軽微な揺れで再審査しない。
+9. 端子形状とinput/output、同一SHA添付の出所と転記、表面位置と内部状態を分離する。
+
+## rev0.282 履歴
 
 ## rev0.282 正本関係
 
