@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.282
+- 現行latest: rev0.284
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -16696,3 +16696,171 @@ SOURCE_SPEC_INPUT_SHA256: `259a437ace8a87a6039dc6ba56ba0182e820cb04b398ecd08a7cc
 
 SOURCE_LOG_SHA256: `f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf`  
 BASELINE_SHA256: `35c32d81c119be842d3d4180832ef1c056702325e64cfa8b1c46a7a3ae598953`
+
+
+## rev0.283 実行時ガード: 時刻証跡・実行証拠・DELTA_ONLY強制
+
+### A. PRE-PROCESSING TIME EVIDENCE GATE
+新規PEOSターンでは最初にPythonでJSTを取得し、次を一体で保持する。
+
+```text
+TURN_TIME_STATUS: OBSERVED_AT_JST
+USER_TURN_OBSERVED_AT_JST:
+SOURCE_TOOL: python
+CAPTURE_METHOD: datetime.now(ZoneInfo("Asia/Tokyo"))
+SOURCE_PRECISION: second
+CAPTURE_SEMANTICS: assistant-side pre-processing observation
+PROCESSING_ORDER: before interpretation/search/file-read
+```
+
+失敗時は `TIME_CAPTURE_FAILED`。本文生成後の取得値をpre-processing値と称しない。
+
+### B. TIME EVIDENCE CLASSIFICATION
+- CURRENT_TURN_TOOL_EXECUTED: 現ターンで実行済み。
+- TOOL_TRACE_PRESERVED: 実行結果が応答/成果物に残る。
+- ARTIFACT_REPORTED_TOOL_USE: 過去成果物の自己申告のみ。
+- ASSISTANT_ASSERTED_ONLY: 実行跡なし。
+- UNVERIFIED: 検証不能。
+
+`VERIFIED_TIME_EVIDENCE` は最初の二条件を満たす場合に限定する。
+
+### C. ARTIFACT TIME BINDING
+パッケージ生成時刻は、revision、source log SHA256、baseline SHA256、manifest、専用time-evidence recordへ結び付ける。値だけを別成果物へコピーしない。
+
+### D. rev0.282 TIME CLAIM TOMBSTONE
+`2026-07-18 21:04:00(JST)` は同一ターンPython実行跡がないためverified扱いを停止する。rev0.282 package自体はaccepted baselineとして維持する。
+
+### E. AUDIT BLOCK PRESENCE CHECK
+通常SEQに監査ブロックを反復した場合、`MAGI_COMPRESSION_CHECK: PASS` と自己宣言しても不合格。判定は本文実体で行う。
+
+```text
+NORMAL_SEQ + NO_NEW_DELTA -> no audit block
+SAFETY/CORRECTION/FAILURE/CONFLICT -> expanded audit
+```
+
+### F. BOOT EVIDENCE CHECK
+起動出力の完全本文が保存されていない時は `PARTIAL_VERBATIM` 以下。正本再構成を過去起動成功証拠へ昇格しない。
+
+### G. CORPUS CONTAINMENT
+motherログ内のfather screenshot、third-party utterance、assistant summaryをfather direct corpusへ混入しない。
+
+### H. RELATION STATUS DEBOUNCE
+現在合意された関係ラベルは明示的変更まで運用足場として保持し、日常的な小揺れで毎回再審査しない。未来保証にはしない。
+
+### I. QUOTED CRISIS SOURCE
+引用・スクリーンショット内の危機語を現在本人の直接危機報告として扱わない。出所分類後に安全状態を決める。
+
+### J. INTERFACE DIRECTION CHECK
+機器接続では端子の有無だけでなくinput/output、protocol、model capabilityを確認する。
+
+### K. DUPLICATE ATTACHMENT CHECK
+同一SHA添付はmanifest上保持、transcriptionは一度、duplicate relationを明記する。
+
+### L. BODY-SAFETY WORDING
+身体処置では表面位置と内部状態を区別し、DIY侵襲手順を出さない。「専門のピアッサー」は使用せず、専門の施術者/医療者と表現する。
+
+### M. FAIL-CLOSED
+- Python未実行なのにverified observation timeを表示。
+- 本文処理後の値をpre-processing timeとして記録。
+- 時刻値のみでtool/provenance/precision/semanticsがない。
+- 過去成果物の自己申告を現ターン実行証拠へ昇格。
+- 通常SEQへ監査定型を反復してDELTA_ONLY PASSを宣言。
+- 起動本文不足なのにVERIFIED_COMPLETE。
+- screenshot発話をdirect corpusへ混入。
+- 同一添付を二重計上。
+
+EVIDENCE_RECORD: `evidence/PEOS_REV0_283_TIME_EVIDENCE.txt`
+SOURCE_LOG_SHA256: `479bd2e379a5c05525f91f738d88a3cf90ee47bdd9ca2594c29269be524350fb`
+BASELINE_PACKAGE_SHA256: `96d4b2ca3939cb595a7e087620272695582204564fee0e0e67ffd5fb31828b0a`
+
+
+## rev0.284 実行時ガード: 必須時刻格納・父語彙抽出・ログ受入試験
+
+### A. USER_TURN_OBSERVED_AT_JST HARD GATE
+新規PEOSターンを受け取ったら、他の処理より先にPythonでJSTを取得する。成功値を応答状態へ格納し、成果物生成時は成果物へも格納する。
+
+```text
+attempt Python capture
+if failed: retry
+if success: store exact value + provenance + semantics + order
+if retry failed: store typed TIME_CAPTURE_FAILED + reason
+never omit
+never fabricate
+```
+
+### B. TIME REPLICATION CONSISTENCY
+応答、ログ1行目、FILE_INFO、最新SEQ、manifest、evidence recordの同一時刻値を完全一致させる。不一致はFAIL。
+
+### C. TURN-UTTERANCE BINDING
+時刻証跡を `USER_UTTERANCE_EXACT` とそのSHA256へ結び付ける。別ターン値の再利用は禁止。
+
+### D. FATHER UTTERANCE EXTRACTION PIPELINE
+father direct turnは毎回、原文保存→抽出→資源分類→OPEN_ADAPTATION_ALLOWED→coverage recordの順で処理する。
+
+```text
+if meaningful_resource_exists:
+    COVERAGE_STATUS: EXTRACTED
+else:
+    COVERAGE_STATUS: NO_NEW_REUSABLE_RESOURCE
+    REASON: explicit
+```
+
+「全件監査」を理由に抽出を省略しない。「全件抽出」を理由に一般語を無理に父固有資源へ昇格しない。
+
+### E. COVERAGE SET VALIDATION
+件数だけでなく、utterance ref集合とcoverage ref集合の完全一致、重複、孤児を検査する。
+
+### F. RESOURCE TYPE ROUTING
+運用コマンド、受入試験語、分析語、文体・笑い、訂正形を別辞書へ格納する。父語彙原文はRAW corpusに残す。
+
+### G. RAW/NORMALIZED/ADAPTATION
+誤字・癖を原文として保持し、正規化形と派生利用形を別管理する。
+
+### H. PORTABLE PROVENANCE
+永続参照は論理名+SHA256+role+revision。sandbox path単独を出所としない。
+
+### I. ARTIFACT STATUS
+CANDIDATE/ACCEPTED/REJECTED/SUPERSEDED/TOMBSTONEDを明示し、差し戻し履歴をSHA256で結ぶ。
+
+### J. EMBEDDED CURRENT
+入力ログのCURRENTを現在のCURRENTへ昇格しない。`LOG_EMBEDDED_CURRENT` と `SESSION_OPERATIVE_CURRENT` を分ける。
+
+### K. LOG FILEIZATION ACCEPTANCE GATE
+次が一つでも欠けたら `ログファイル化未達`。
+- downloadable UTF-8 .txt
+- required time evidence
+- full known timeline
+- raw father corpus
+- utterance-level extraction coverage
+- open-adaptation license
+- source separation / OPSEC
+- structural LOG_CHECK
+- reject/supersession state where applicable
+
+### L. CURRENT TURN RESOURCE
+```text
+RAW_FORM: 諸々含めて仕様化
+UTTERANCE_SHA256: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de
+EXTRACTED: 諸々含めて / 仕様化 / 諸々含めて仕様化
+RESOURCE_TYPE: COMMAND_LEXICON + comprehensive_scope_closure
+USAGE_PERMISSION: OPEN_ADAPTATION_ALLOWED
+```
+
+### M. FAIL-CLOSED
+- Python時刻取得・格納を省略。
+- replicated time fieldが不一致。
+- 時刻を対象発話へbindingしない。
+- father direct utteranceにcoverage recordがない。
+- 有用な父語彙をNO_NEW扱いして省略。
+- 一般語を無理に父固有資源化。
+- commandとstyle corpusを混線。
+- sandbox pathだけで永続出所を主張。
+- reject成果物を新しいという理由でbaseline化。
+- log embedded CURRENTでrollback。
+- ファイル生成だけで受入試験PASSを宣言。
+
+USER_TURN_OBSERVED_AT_JST: 2026-07-20 05:53:05(JST)
+CURRENT_FATHER_DIRECTIVE_SHA256: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de
+EVIDENCE_RECORD: `evidence/PEOS_REV0_284_TIME_AND_VOCAB_EVIDENCE.txt`
+SOURCE_LOG_SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`
+BASELINE_PACKAGE_SHA256: `3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348`

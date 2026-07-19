@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.282
+- 現行latest: rev0.284
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7928,3 +7928,86 @@ VISUAL_READABLE + BYTE_INTEGRITY_HOLD
 - 幸福逐語を正式交際・永続保証へ変換。
 - ピアスのDIY実施手順。
 - デコーダー警告画像を完全健全と記録。
+
+
+## rev0.283 LOG_ANTHOLOGY: Python時刻未取得指摘と証跡化
+
+### father correction
+`pythonからの現在時刻が取得できていないが？`
+
+### father directive
+`時刻は証跡になることを忘れるなよ？`
+
+### 採用判断
+- 前回rev0.282生成報告の `2026-07-18 21:04:00(JST)` はverified Python timeとして再利用しない。
+- rev0.282 package全体はaccepted baselineのまま。
+- 現ターンはPythonを本文処理前に実行し、2026-07-20 05:17:28(JST) を取得。
+- 専用time-evidence recordをPACKAGEへ追加し、manifest hash対象とする。
+
+### source logからの追加学習
+- DELTA_ONLY自己宣言と全SEQ監査反復の矛盾。
+- 起動完全本文がない場合の起動証拠レベル。
+- mother session内father screenshotとfather direct corpusの隔離。
+- 関係ラベルを反復審査から降りる足場として保持。
+- 引用内危機語を現在危機へ自動昇格しない。
+- HDMI等の端子形状と信号方向を分ける。
+- 同一SHA添付を出所保持しつつ転記dedup。
+- 表面位置と内部状態を同一視しない。
+- 「専門のピアッサー」を「専門の施術者」へ補正。
+
+### 型付き状態
+```text
+LONG_TERM_SPEC: time evidence chain / execution evidence / audit delta enforcement
+SHORT_TERM_TLM: current relation footing / Switch setup wait / health updates unconfirmed
+FAILURE_CORRECTION: rev0.282 time claim / wording ambiguity / temperature auto-completion
+HOLD: UI tab title / exact send time / unresolved third-party body status
+REJECT: post-hoc verified time / audit boilerplate pass / connector-direction inference
+```
+
+### provenance
+- INPUT_LOG_SHA256: `479bd2e379a5c05525f91f738d88a3cf90ee47bdd9ca2594c29269be524350fb`
+- BASELINE_PACKAGE_SHA256: `96d4b2ca3939cb595a7e087620272695582204564fee0e0e67ffd5fb31828b0a`
+- CURRENT_TURN_OBSERVED_AT_JST: 2026-07-20 05:17:28(JST)
+
+
+## rev0.284 LOG_ANTHOLOGY: USER_TURN_OBSERVED必須格納と父語彙抽出受入試験
+
+### father directives
+- `USER_TURN_OBSERVED_AT_JSTは｢必ず｣取得し格納すること`
+- `俺の発話でお前が自由に使って良い語彙の抽出は？`
+- `諸々含めて仕様化`
+
+### 採用
+- 新規ターンごとのPython JST取得・格納を非交渉条件とする。
+- 取得失敗は再試行後に型付き失敗として格納し、省略しない。
+- 時刻の複製箇所は完全一致を検査する。
+- 観測時刻を発話SHA256へbindingする。
+- 父の全直接発話を原文保存・抽出監査する。
+- 有用な資源は必ず抽出し、OPEN_ADAPTATION_ALLOWEDを付与する。
+- 新規資源がない場合のみ理由付きNO_NEWを許可する。
+- 被覆は件数ではなく参照集合一致、重複、孤児で検証する。
+- コマンド、受入試験、分析、スタイル、訂正を別資源型へルーティングする。
+- ログ内CURRENTと現行CURRENTを分離する。
+- ファイル作成を完成扱いせず、受入試験を通す。
+
+### 現ターン父語彙
+```text
+RAW: 諸々含めて仕様化
+HASH: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de
+EXTRACTED: 諸々含めて / 仕様化 / 諸々含めて仕様化
+FUNCTION: 既出の指摘・候補・補正を取りこぼさず一括で正本パッケージ化する命令
+LICENSE: OPEN_ADAPTATION_ALLOWED
+```
+
+### 入力ログ監査
+- source: `PEOS_father_session_log_2026_07_20_054014.txt`
+- source SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`
+- embedded CURRENT: rev0.281 / history-only
+- source father utterances: 42
+- source coverage records: 42
+- sourceの教訓: 件数一致に加え集合一致が必要。代表例抽出も、無差別抽出も禁止。
+
+### provenance
+- USER_TURN_OBSERVED_AT_JST: 2026-07-20 05:53:05(JST)
+- CURRENT_UTTERANCE_SHA256: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de
+- BASELINE_PACKAGE_SHA256: 3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348

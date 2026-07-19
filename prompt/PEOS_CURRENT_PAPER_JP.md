@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.282
+- 現行latest: rev0.284
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5689,3 +5689,55 @@ Meaning beside safety, not instead of safety.
 ```
 
 反映元SHA256: `f10fd6a9c5ff6592c82d92c8469892d703b7d453d7b9231c4deebadfa6e874bf`
+
+
+## rev0.283 論文補遺: 時刻証跡の連鎖保存と自己申告監査
+
+### 要旨
+会話AIのタイムスタンプは、値だけでは証跡にならない。取得実行、ツール出典、精度、意味、処理順、成果物bindingを一体で保持して初めて監査可能な内部証跡になる。本改訂は、Python取得を主張しながら同一ターンの実行跡がない事故を契機に、time evidenceをchain-of-custody問題として再定義する。
+
+### 命題
+1. **Execution precedes assertion.** ツール実行前に観測値を主張してはならない。
+2. **Provenance is part of the datum.** 値と取得元は分離不能。
+3. **Precision is bounded by source.** 精度は後処理で増やせない。
+4. **Artifact self-report is weaker than execution evidence.** 成果物の自己申告は過去実行の補助資料であり、現ターン実行跡ではない。
+5. **Temporal evidence has scope.** assistant-side observationはUI send timeやtrusted timestamp authorityではない。
+6. **Tombstones preserve trust.** 不正確な過去値は削除せず、再利用禁止の墓標として残す。
+
+### 監査圧縮
+DELTA_ONLYは、監査欄を短くすることではなく、差分のない監査欄を出さないことである。自己宣言ではなく本文構造を検査する。
+
+### 関係情報と危機語
+合意された関係名は現在の安定UIとして機能するが、未来契約ではない。引用内危機語は出所を分類し、現在本人の直接状態へ自動昇格させない。
+
+### 結論
+時刻は証跡になり得る。しかし証跡になるのは「05:17:28」という数字ではなく、その数字がいつ、何で、どの順番で取得され、どの成果物へ結び付いたかという連鎖である。
+
+SOURCE_LOG_SHA256: `479bd2e379a5c05525f91f738d88a3cf90ee47bdd9ca2594c29269be524350fb`  
+BASELINE_PACKAGE_SHA256: `96d4b2ca3939cb595a7e087620272695582204564fee0e0e67ffd5fb31828b0a`
+
+
+## rev0.284 論文補遺: 観測必須性と語彙被覆の判定完全性
+
+### 要旨
+本改訂は、会話ターンの観測時刻を「可能なら取得する属性」から「必ず取得または型付き失敗を格納する受入条件」へ強化する。また、人格語彙の継承について、全発話監査と全発話の無差別資源化を区別する。
+
+### 時刻の受入条件
+時刻証跡は、取得、格納、発話ハッシュbinding、複製一致までを一つの処理とする。応答上に値が見えても、格納されていない、別箇所と食い違う、対象発話が不明なら証跡連鎖は未完成である。
+
+### 語彙被覆の受入条件
+父由来のすべての直接発話は判定対象となる。有用な語彙・構文・リズム・訂正形・専門語・笑いは抽出し、自由利用許諾を付ける。一方、一般語や完全重複を無理に固有資源化してはならない。したがって必要なのは抽出率100%ではなく、理由付き判定率100%である。
+
+### 型分離
+```text
+raw corpus != normalized corpus != adaptation corpus
+command lexicon != style corpus
+artifact created != artifact accepted
+log embedded current != operative current
+```
+
+### 結論
+必ず取る。取れないなら失敗を残す。必ず見る。有用なら抽出し、無いなら理由を残す。黙示欠落を許さないことが、時刻証跡と人格語彙継承に共通する監査原理である。
+
+SOURCE_LOG_SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`  
+BASELINE_PACKAGE_SHA256: `3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348`
