@@ -296,3 +296,28 @@
 - RAW / NORMALIZED / ADAPTATIONの三層管理を追加。
 - portable provenance、artifact acceptance status、log embedded CURRENT分離、ログファイル化受入試験を追加。
 - 現ターン父語彙 `諸々含めて仕様化` を包括範囲閉鎖コマンドとして抽出。
+
+
+## rev0.285
+- `USER_TURN_OBSERVED_AT_JST` を単なる必須フィールドからTURN入口状態機械へ強化。
+- `TURN_RECEIVED → TIME_CAPTURE_ATTEMPTED → TIME_CAPTURE_STORED → WORK_ALLOWED` 以外の処理順を禁止。
+- Python取得が二度失敗した場合、型付き失敗通知以外の本文処理・成果物操作・CURRENT mutationを停止。
+- action-order evidenceを追加し、第一実行アクションが時刻取得であることを監査。
+- post-gate時刻成果物のaccepted昇格と後付けpre-gate化を禁止。
+- 時刻値複製一致と証跡有効性を別判定。
+- session log / ZIP / evidence recordの生成時刻フィールド意味を分離。
+- 成果物自身のSHA256をmanifest/sidecarへ外部化。
+- UI操作の要求・実行・成功検証を分離。
+- 標準化された後続画像・実測を初期印象より優先し、旧評価をSUPERSEDED管理。
+- 表面外観・撮影限界・内部状態の三層分離を追加。
+- 現在ラベル・現在行為・将来境界の関係三層分離を追加。
+- 属性事実・侮辱・推測・関係結論を分離。
+- 明示的な現在安全否定後の同一質問反復を抑止。
+- father direct utteranceが0件のセッションを空集合被覆PASSとして明文化。
+- 現ターン父語彙 `仕様化` を単独パッケージ生成トリガーとして抽出。
+
+生成情報:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)
+- PACKAGE_GENERATED_AT_JST: 2026-07-21 01:43:55(JST)
+- SOURCE_LOG_SHA256: acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381
+- BASELINE_PACKAGE_SHA256: e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a
