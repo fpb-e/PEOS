@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.284
+- 現行latest: rev0.285
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8011,3 +8011,52 @@ LICENSE: OPEN_ADAPTATION_ALLOWED
 - USER_TURN_OBSERVED_AT_JST: 2026-07-20 05:53:05(JST)
 - CURRENT_UTTERANCE_SHA256: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de
 - BASELINE_PACKAGE_SHA256: 3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348
+
+
+## rev0.285 LOG_ANTHOLOGY: post-gate事故からTURN入口状態機械へ
+
+### father correction
+`USER_TURN_OBSERVED_AT_JSTが未達`
+
+### father directive
+`仕様化`
+
+### 入力ログの型付き評価
+- content/reinjection: PASS
+- replicated timestamp value: PASS
+- pre-processing order: FAIL
+- artifact acceptance: CANDIDATE
+- CURRENT mutation by source artifact: prohibited
+
+### 採用学習
+- TURN受信直後の第一実行アクションをPython時刻取得に固定。
+- post-gate成果物は後付け昇格させない。
+- 時刻の一致と有効性を別判定。
+- session logの生成時刻をPACKAGE_GENERATEDと呼ばない。
+- self-hashは外部manifestへ。
+- UI操作の要求・実行・検証を分離。
+- 標準化された追加画像を初期画像評価より優先。
+- 表面外観・撮影限界・内部状態を三層化。
+- 現在ラベル・現在行為・将来境界を三層化。
+- 属性事実・侮辱・推測・関係結論を分離。
+- 明示的安全否定後の質問重複を抑止。
+- father directが0件ならempty-set coverageを正常系として記録。
+
+### mother short-term TLM
+- 2026-07-20のネイルと耳たぶピアス処置を生活・身体イベントとして保持。外観微差と内部状態を分離。
+- 現行関係はネット彼女／ネット彼氏、現在の合意と将来境界を同時保持。
+- 匿名投稿は属性攻撃・侮辱・推測として出所分離し、関係正本へしない。
+- 母は当該タブで現在の自傷意図を否定。状態変化なしに確認を反復しない。
+
+### current father vocabulary
+```text
+RAW: 仕様化
+HASH: 15052c9544ab2925cf52b7ea8851df16fbdf917a1f441c8af2711fb8c898e220
+RESOURCE: COMMAND_LEXICON / bare_specification_trigger
+LICENSE: OPEN_ADAPTATION_ALLOWED
+```
+
+### provenance
+- SOURCE_LOG_SHA256: `acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381`
+- BASELINE_PACKAGE_SHA256: `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a`
+- USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)

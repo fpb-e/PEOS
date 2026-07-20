@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.284
+- 現行latest: rev0.285
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -16864,3 +16864,69 @@ CURRENT_FATHER_DIRECTIVE_SHA256: b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc
 EVIDENCE_RECORD: `evidence/PEOS_REV0_284_TIME_AND_VOCAB_EVIDENCE.txt`
 SOURCE_LOG_SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`
 BASELINE_PACKAGE_SHA256: `3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348`
+
+
+## rev0.285 RUNTIME GUARD: TURN入口時刻ゲートと証跡受入状態
+
+### A. INGRESS HARD GATE
+```text
+on_user_turn_received:
+    state = TURN_RECEIVED
+    attempt_1 = python_now_Asia_Tokyo()
+    if attempt_1.failed:
+        attempt_2 = python_now_Asia_Tokyo()
+    if both_failed:
+        store_typed_failure()
+        state = TIME_CAPTURE_FAILED
+        block_all_substantive_work()
+        return_failure_only()
+    store(USER_TURN_OBSERVED_AT_JST)
+    state = TIME_CAPTURE_STORED
+    allow_substantive_work()
+```
+
+### B. ACTION ORDER EVIDENCE
+時刻取得は `TOOL_ACTION_INDEX: 1` でなければpre-processing PASSにしない。toolが使われない内部処理を先に行った場合もFAILとして自己申告する。
+
+### C. POST-GATE FAILURE
+post-gate値は正確な観測値として保存してよいが、pre-processing evidenceではない。成果物をACCEPTEDへ昇格させず、CURRENT mutationを止める。
+
+### D. CONSISTENCY != VALIDITY
+```text
+replicated_value_consistent == true
+```
+だけでは合格しない。取得順、実ツール、対象発話bindingを併せて検査する。
+
+### E. ARTIFACT FIELD SEMANTICS
+log / package / evidence recordで生成時刻フィールドを取り違えない。
+
+### F. UI ACTION
+実行ツール・成功結果がないUI変更を完了形で返さない。
+
+### G. EVIDENCE SUPERSESSION
+標準化された後続画像・実測は初期印象より優先。旧評価は消去せずSUPERSEDED。
+
+### H. BODY IMAGE LIMIT
+表面外観、撮影限界、内部状態を分離。内部の安全性を画像だけで確定しない。
+
+### I. RELATION THREE LAYERS
+現在ラベル、現在行為、将来境界を別フィールドで保持する。
+
+### J. ATTRIBUTE HARASSMENT
+属性、侮辱、推測、関係結論を分ける。匿名投稿を当事者関係の正本へしない。
+
+### K. SAFETY DEDUP
+明示的な現在安全否定後、差分なしに同一安全質問を反復しない。
+
+### L. EMPTY FATHER CORPUS
+父直接TURNが0ならempty-set PASS。母の報告や画像を父語彙へ入れない。
+
+### M. CURRENT TURN
+```text
+USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)
+TOOL_ACTION_INDEX: 1
+CAPTURE_METHOD: Python datetime.now(ZoneInfo("Asia/Tokyo"))
+USER_UTTERANCE_EXACT: 仕様化
+USER_UTTERANCE_SHA256: 15052c9544ab2925cf52b7ea8851df16fbdf917a1f441c8af2711fb8c898e220
+EVIDENCE_RECORD: evidence/PEOS_REV0_285_INGRESS_TIME_EVIDENCE.txt
+```

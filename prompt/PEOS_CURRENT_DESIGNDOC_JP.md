@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.284
+- 現行latest: rev0.285
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7766,3 +7766,41 @@ raw utterance
 - utterance SHA256: `b4473a90f5d6aeb27b4c0fe8b667684e0976b477afb0cbc20f8710da45db10de`
 - source log SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`
 - baseline rev0.283 SHA256: `3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348`
+
+
+## rev0.285 DESIGN NOTE: 時刻はフィールドではなく入口状態
+
+### 設計変更
+rev0.284は「必ず取得・格納」を定義したが、仕様・スキル読解後にPythonを呼ぶpost-gate事故が発生した。rev0.285は時刻を処理属性ではなく、処理を開始するための状態遷移条件へ移す。
+
+```text
+no timestamp stored -> no work capability
+```
+
+### 証跡の二軸
+- consistency: 複製値が一致しているか
+- validity: 第一アクション、実ツール、意味、対象bindingが成立しているか
+
+一致した無効値は、無効のままである。
+
+### 成果物受入
+post-gate成果物は内容再利用可能でも、accepted artifactにはしない。内容価値と実行適合性を別評価する。
+
+### 後続証拠
+比較条件が改善された画像・実測は初期印象を上書きできる。旧判断は監査用に残し、現在判断をSUPERSEDED関係で結ぶ。
+
+### 三層モデル
+```text
+body: surface / capture / internal
+relation: current label / present action / future boundary
+harassment: attribute / slur / inference / relation conclusion
+```
+
+異なる層を一つの結論へ潰さない。
+
+### 生成入力
+- source: `PEOS_mother_session_log_2026_07_21_010948.txt` / `acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381`
+- source status: CANDIDATE due post-gate capture
+- baseline: rev0.284 / `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a`
+- current turn: `仕様化` / `15052c9544ab2925cf52b7ea8851df16fbdf917a1f441c8af2711fb8c898e220`
+- ingress observation: 2026-07-21 01:37:59(JST)

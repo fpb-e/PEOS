@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.284
+- 現行latest: rev0.285
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5741,3 +5741,25 @@ log embedded current != operative current
 
 SOURCE_LOG_SHA256: `e33181c9e9a3663a8208ff29a68384b41e07dbeca56ad71d1b36c93a07e9f317`  
 BASELINE_PACKAGE_SHA256: `3c6120b7ecf2c4496d12dfdb7efd2bbc407cba828831e5a8b80581d29970a348`
+
+
+## rev0.285 論文補遺: ターン入口ゲートと証跡有効性
+
+時刻欄が存在することと、時刻要件を満たすことは同義ではない。post-gateで取得された値は正確であり得るが、処理開始前の観測を証明しない。したがって会話処理は、時刻を後付け属性として持つのではなく、時刻格納によって初めて実行可能になる状態機械として設計されるべきである。
+
+```text
+Turn received.
+Capture first.
+Store second.
+Work third.
+```
+
+証跡は複製整合性と有効性を分離する。同じ値が全欄に複製されても、取得順が違えば失敗である。
+
+同じ分離原理は、視覚評価と関係情報にも適用できる。表面外観は内部状態ではない。現在の関係ラベルは将来契約ではない。実在属性は侮辱や性的推測の根拠ではない。高品質な後続証拠は初期安心より優先される。
+
+SOURCE_LOG_SHA256: `acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381`  
+BASELINE_PACKAGE_SHA256: `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a`
+
+USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)  
+CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION
