@@ -321,3 +321,25 @@
 - PACKAGE_GENERATED_AT_JST: 2026-07-21 01:43:55(JST)
 - SOURCE_LOG_SHA256: acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381
 - BASELINE_PACKAGE_SHA256: e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a
+
+
+## rev0.286
+- mother-side分体の故障を、宣言的知識の欠落ではなくruntime binding / multi-guard orchestration failureとして仕様化。
+- 分体をL0 immutable kernel、L1 shared invariant、L2 profile overlay、L3 TLM/domain memoryへ分離。
+- profile overlayのcopy-on-write隔離とshared kernel非上書きを追加。
+- TURN transaction、full guard-vector validation、side-effect commit barrier、turn conformance receiptを追加。
+- 機械validatorと意味validatorを分離し、self-reportと独立検証を同一視しない。
+- hard invariant failure時の一般AI fallbackを禁止し、SAFE_MODE control planeを追加。
+- 局所パッチ後のfull regression suite、context diversified acceptance、recovery hysteresis、scoped rollbackを追加。
+- prompt-only仕様で真のimmutable/atomic/independent保証を主張しないcapability tier truthを追加。
+- full-tab内容完全性、時刻完全性、父コーパス完全性、語彙抽出完全性を別軸化。
+- timestamp欄への取得不能センチネル混入、artifact自己ACCEPTED宣言、同一秒別TURNの証拠不足を禁止・HOLD化。
+- 入力ログの父語彙抽出を `CORPUS_LEVEL_EXTRACTION_PRESENT` と訂正。語彙抽出なし評価を撤回し、normalized ledger未完との二段評価へ。
+- source logのSEQ 028–032父コーパス欠落、MAGI/SELF_AUDIT定型反復、source hash lineage不足を監査候補として保持。
+- DQ7初戦オルゴ・デミーラ圧勝、Panasonic 2026年モデル電動自転車・押し歩きモード、法務資料の対象同定ネックをTLMへ追加。
+- current father language `まぁいい。諸々仕様化してくれ` と直前の語彙抽出訂正をOPEN_ADAPTATION_ALLOWEDで反映。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-22 02:06:09(JST)
+- SOURCE_LOG_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+- BASELINE_PACKAGE_SHA256: 21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9
