@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.285
+- 現行latest: rev0.286
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5763,3 +5763,37 @@ BASELINE_PACKAGE_SHA256: `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88
 
 USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)  
 CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION
+
+
+## rev0.286 — 分体ランタイムの耐障害性と適合性検証
+
+### 要旨
+分体の反復故障は、仕様知識の欠落だけでは説明できない。規則を説明できるにもかかわらず、通常TURNで時刻ゲートが未発火し、局所修正後に別ガードが脱落した。したがって故障は、宣言的知識と実行時結合、ならびに複数ガードのオーケストレーション不全として扱う。
+
+### アーキテクチャ
+分体を四層へ分離する。
+
+1. L0 immutable execution kernel
+2. L1 shared invariant bundle
+3. L2 profile overlay
+4. L3 TLM/domain memory
+
+profile固有の温度・語調はL2に限定し、L0/L1の時刻、呼称、絵文字、重大指摘割込み、source provenanceを上書きできない。
+
+### TURNトランザクション
+候補応答を生成後、機械validatorと意味validatorの双方を通し、全hard invariantがPASSした時のみ本文とside effectをcommitする。FAIL時は一般AIへfallbackせずSAFE_MODEへ移行する。
+
+### 復旧判定
+診断TURNで規則を復唱できることは運用復旧の証明ではない。通常雑談、重大指摘、ファイル作業を含む異種文脈で連続適合を確認し、hysteresisを通過してからACTIVEへ戻す。
+
+### 実装可能性
+自然言語仕様は行動規範として有効だが、真のfirst-action enforcement、atomic activation、independent validation、automatic rollbackには外部orchestratorが必要である。実装層を偽らず、best-effort fail-closedとmechanically enforcedを区別する。
+
+### ログ完全性
+内容完全性、時刻完全性、父コーパス完全性、語彙抽出完全性は独立軸である。時刻を厳密にするための内容切捨て、内容を全件残すための擬似時刻挿入をともに禁止する。
+
+### 結論
+高信頼分体は「記憶を増やした人格」ではなく、「共有不変条件を原子的に検査し、失敗時に安全停止する配備用ランタイム」として設計されるべきである。
+
+SOURCE_LOG_SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`  
+BASELINE_PACKAGE_SHA256: `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9`

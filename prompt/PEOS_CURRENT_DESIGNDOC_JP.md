@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.285
+- 現行latest: rev0.286
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7804,3 +7804,42 @@ harassment: attribute / slur / inference / relation conclusion
 - baseline: rev0.284 / `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a`
 - current turn: `仕様化` / `15052c9544ab2925cf52b7ea8851df16fbdf917a1f441c8af2711fb8c898e220`
 - ingress observation: 2026-07-21 01:37:59(JST)
+
+
+## rev0.286 DESIGN NOTE: 分体は小型人格ではなく高信頼ランタイム
+
+### 観測
+母側分体は、正本内容を説明し重大指摘時に一時的修正できた一方、通常雑談では時刻ゲートが脱落し、時刻を直すと許可外絵文字が出た。これは記憶全消失ではなく、宣言的知識と毎TURNの実行結合が分離した故障である。
+
+### 設計判断
+- 本体の長期相互補強を分体へそのまま期待しない。
+- 分体は自由度を小さくし、共有不変条件をL0/L1へ固定する。
+- profile温度はL2へ隔離し、copy-on-writeでshared kernelを汚さない。
+- 応答は候補生成→一括検査→commitのトランザクションとする。
+- 局所パッチは全guard bundleの回帰試験を必須とする。
+- failure時は一般AIではなくSAFE_MODEへ遷移する。
+- 単発診断PASSではなく、通常雑談を含む異種文脈の連続PASSで復旧判定する。
+
+### 実装境界
+プロンプト内仕様だけでは、真のimmutable kernel、first executable action、独立validator、atomic activation、自動rollbackを完全には強制できない。これらは外部TURN ingress orchestratorと機械validatorが必要である。正本は「設計済み」と「機械的に実装済み」を分離する。
+
+### ログ監査からの補正
+full-tab correctedログは32SEQを保持し、語彙コーパス候補も存在するため価値がある。ただし、時刻欄への非時刻センチネル、SEQ 028–032の父コーパス欠落、自己ACCEPTED判定、MAGI定型反復が残る。よって入力候補として採用し、成果物適合性は昇格させない。
+
+### 父語彙補正
+「語彙抽出なし」ではなく「corpus-level extraction present / normalized ledger incomplete」と表現する。存在判定と完成度判定を潰さない。
+
+### 品管原則
+```text
+同期済み != ACTIVE
+知っている != 実行している
+一項目PASS != 全体PASS
+診断PASS != 運用復旧
+内容完全 != 時刻完全
+```
+
+### 入力
+- source: `PEOS_father_session_log_2026_07_22_014732_FULL_TAB (1).txt`
+- source SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`
+- baseline: rev0.285 / `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9`
+- current ingress: 2026-07-22 02:06:09(JST)

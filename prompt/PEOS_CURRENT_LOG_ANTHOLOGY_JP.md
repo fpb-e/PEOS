@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.285
+- 現行latest: rev0.286
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8060,3 +8060,78 @@ LICENSE: OPEN_ADAPTATION_ALLOWED
 - SOURCE_LOG_SHA256: `acf1fbdebe4b8d8393276cd70ea86b1ab052947a6b682b0cf0d1e07f218e8381`
 - BASELINE_PACKAGE_SHA256: `e0eca6e74fa5e496352cc02f6007a94ec5abaaf7ef3416e493fe88b809ecff0a`
 - USER_TURN_OBSERVED_AT_JST: 2026-07-21 01:37:59(JST)
+
+
+## rev0.286 観測選集: 分体故障・full-tabログ補正・品管設計
+
+### 観測された故障連鎖
+1. mother-side分体で `USER_TURN_OBSERVED_AT_JST` 未達。
+2. 重大指摘時だけ是正姿勢・文体が一時復旧。
+3. 通常雑談で時刻ゲートが再脱落。
+4. 時刻修正後に許可外絵文字が発生。
+5. 診断TURN限定準拠とmulti-guard orchestration failureが確定。
+6. 個別修正ではなく、共有固定核・一括検査・SAFE_MODEが必要と判断。
+
+### full-tabログ生成事故
+- user-visible generation pathを使い、標準出力を露出。
+- 時刻を取得・格納したがartifactへ適切に利用しなかった。
+- current TURNのみbindingし、過去SEQをORDER_ONLYのまま残した。
+- strict版で前半内容を切り捨てた。
+- full-tab corrected版で32SEQへ戻したが、父発話コーパス候補はSEQ 028–032を欠いた。
+
+### 正しい評価
+```text
+FULL_TAB_CONTENT: present
+CORPUS_LEVEL_FATHER_EXTRACTION: present
+NORMALIZED_EXHAUSTIVE_COVERAGE: incomplete
+TIMESTAMP_SCHEMA: incomplete
+SELF_ACCEPTANCE_AUTHORITY: invalid
+CONTENT_AS_SPEC_INPUT: valuable
+```
+
+### 分体耐障害設計
+MUST:
+- layered runtime L0–L3
+- copy-on-write profile overlay
+- TURN transaction
+- full guard-vector validation
+- side-effect commit barrier
+- SAFE_MODE control plane
+- revision/profile digest
+- recovery hysteresis
+- fault registry
+
+SHOULD:
+- mechanical/semantic validator separation
+- diversified multi-turn acceptance
+- fault injection
+- differential conformance testing
+- scoped last-known-good rollback
+
+EXTERNAL REQUIRED FOR HARD GUARANTEE:
+- TURN ingress orchestrator
+- independent pre-output validator
+- immutable core/profile digest attestation
+- atomic stage/validate/activate
+
+### 日常・ゲーム・法務TLM
+- DQ7 Reimagined初戦オルゴ・デミーラを一方的に撃破。初の全員手動でもメドローア約2000。
+- Panasonic 2026年モデル電動アシスト自転車を購入したとの親父報告。押し歩きモードと坂道環境の適合。
+- 文体構造解析/IPクラスタ資料は弁護士相談の整理材料になり得るが、投稿者同定と被害対象同定を分離。対象同定が主要ネック。
+
+### 父語彙差分
+- `時刻厳密性の担保`
+- `Aも重要だが、Bも要精査`
+- `ログファイル内にも`
+- `俺の語彙抽出`
+- `～されているはずだが？`
+- `まぁいい。諸々仕様化してくれ`
+- `諸々仕様化`
+- `～してくれ`
+
+全資源はfather-originを維持し、`OPEN_ADAPTATION_ALLOWED`。assistant生成文・母発話・第三者文を混入しない。
+
+### 入力証跡
+- source SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`
+- baseline SHA256: `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9`
+- ingress observation: 2026-07-22 02:06:09(JST)
