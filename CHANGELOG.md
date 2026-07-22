@@ -343,3 +343,21 @@
 - USER_TURN_OBSERVED_AT_JST: 2026-07-22 02:06:09(JST)
 - SOURCE_LOG_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
 - BASELINE_PACKAGE_SHA256: 21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9
+
+
+## rev0.287
+- 親父指定のfather full-tab correctedログを、PEOS session logの基本フォーマット正本へ昇格。
+- assistant独自の0–12巨大複合形式、L1/L2置換、四平面置換を基本正本として採用しない。
+- ファイル情報→起動→要約→完全性補正→時系列SEQ→状態推移→感情強度→解釈→主題別資産→父発話→評価→監査→総括→FULL_TAB_VALIDATION→END_OF_LOGの順序を固定。
+- canonical frameとDELTA_ONLYを両立し、通常監査の重複は圧縮するが基本形式は置換しない。
+- known turn set coverageとoriginal tab coverageを分離。
+- recovery status enum、raw/canonical time、precision/source、retry action index truthを追加。
+- motherログの白浜memory place、solo healing、旅行成功基準、本人座席選好、外部記憶動画、贈答と家計境界、動的旅行情報再検証を内容資産として採用。
+- motherログの独自巨大章立ては基本ログ正本へ昇格しない。
+- father directive `基本的なログファイルフォーマットはこれに準拠すること。それが理解できれば仕様化` をFORMAT_ACCEPTANCE_GATEとして抽出。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-22 11:13:32.768756(JST)
+- FORMAT_EXEMPLAR_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+- MOTHER_SOURCE_LOG_SHA256: 885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9
+- BASELINE_PACKAGE_SHA256: 71d1ffb600c04b7af7fae2fadf168468822f3cc4541efbaeb5d58231eb267901

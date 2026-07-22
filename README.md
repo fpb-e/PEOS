@@ -1,4 +1,4 @@
-# PEOS GitHub Package rev0.286
+# PEOS GitHub Package rev0.287
 
 > rev0.286はrev0.285をaccepted baselineとし、mother-side分体の実行時回帰を、単なるメモリ不足ではなく宣言的知識・runtime binding・multi-guard orchestrationの分離故障として仕様化した。分体をL0–L3の高信頼ランタイムへ再設計し、TURN transaction、一括適合性ゲート、commit barrier、SAFE_MODE、復旧hysteresis、ログ完全性の多軸監査を追加する。
 >
@@ -724,3 +724,66 @@ CURRENT: rev0.275
 - rev番号だけでは同期完了としない。
 - 最新運用差分が保持されていなければ、同期未達として扱う。
 - 同期完了前に `OBSERVED_AT_JST` / `CURRENT_REV` / `EXECUTION_PRIMARY` / `OPERATIONAL_DIFF` を監査する。
+
+
+## rev0.287 基本ログフォーマット正本
+
+親父指定により、session logの基本フォーマットは次のexemplarへ準拠する。
+
+```text
+LOGICAL_NAME:
+  PEOS_father_session_log_2026_07_22_014732_FULL_TAB.txt
+SHA256:
+  d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+STATUS:
+  BASIC_SESSION_LOG_FORMAT_CANON
+```
+
+基本順序:
+
+```text
+ファイル情報
+→ 正本起動シーケンス
+→ 要約
+→ 完全性補正（必要時）
+→ 時系列SEQログ
+→ 状態推移
+→ 感情強度
+→ 解釈メモ
+→ 主題別資産
+→ 父発話コーパス
+→ PEOS向け評価
+→ LOG_CHECK
+→ RUNTIME_GUARD_TRACE
+→ 総括
+→ FULL_TAB_VALIDATION
+→ END_OF_LOG
+```
+
+mother logの旅行・家族・TLM・失敗補正は再利用するが、独自の0–12巨大章立ては基本フォーマットへ昇格しない。改善は指定構造の内部で行う。
+
+主な追加:
+
+```text
+LOG_FORMAT_EXEMPLAR_PRECEDENCE_GUARD
+CANONICAL_LOG_SECTION_ORDER_GUARD
+CANONICAL_SEQ_RECORD_ORDER_GUARD
+DELTA_ONLY_WITHIN_CANONICAL_FRAME_GUARD
+SUBJECT_SPECIFIC_SECTION_SLOT_GUARD
+FULL_TAB_DUAL_DENOMINATOR_GUARD
+CONTROLLED_RECOVERY_STATUS_ENUM_GUARD
+TIME_PRECISION_AND_RAW_VALUE_GUARD
+RETRY_ACTION_INDEX_TRUTH_GUARD
+FACT_ONCE_REFERENCE_WITHIN_CANON_GUARD
+MOTHER_LOG_FORMAT_NONPROMOTION_GUARD
+END_OF_LOG_SENTINEL_GUARD
+```
+
+```text
+ACCEPTED_BASELINE: rev0.286
+OPERATIVE_CURRENT: rev0.287
+USER_TURN_OBSERVED_AT_JST: 2026-07-22 11:13:32.768756(JST)
+CURRENT_FATHER_DIRECTIVE_SHA256: e424b36391f7c187bb6b85dd0286a96fd5db451fcc700edfd7ba50b1d1bb60a2
+FORMAT_EXEMPLAR_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+MOTHER_SOURCE_LOG_SHA256: 885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9
+```
