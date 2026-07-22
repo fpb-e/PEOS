@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.286
+- 現行latest: rev0.287
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1728,3 +1728,25 @@ BASELINE_PACKAGE_SHA256: `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a
 
 USER_TURN_OBSERVED_AT_JST: 2026-07-22 02:06:09(JST)  
 CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION
+
+
+## rev0.287 Academic Addendum: User-Designated Log Schemas and Structural Fidelity
+
+### Abstract
+This revision formalizes a user-designated father full-tab session log as the canonical basic rendering schema. The change corrects an assistant tendency to replace the established structure with an independently optimized monolithic or multi-plane format.
+
+### Canonical structure
+The basic log preserves file information, canonical boot context, summary, conditional completeness correction, chronological SEQ records, state transitions, emotional intensity, interpretation notes, subject-specific assets, father utterance corpus, PEOS evaluation, runtime audit, final validation, and an `END_OF_LOG` sentinel.
+
+### Improvement without replacement
+Known defects in the exemplar—such as unavailable-value sentinels inside timestamp fields or overly repetitive audit payloads—are corrected through typed fields and validators. They do not justify replacing the user-designated section order.
+
+### Content/rendering separation
+The mother travel log provides valuable memory-place, solo-healing, preference, family, gift, and external-memory TLM. Its content is reusable, while its expanded top-level rendering is not promoted to the canonical basic format.
+
+### Conclusion
+Structural fidelity is an acceptance requirement. Optimization must occur inside the designated schema, not by silently substituting a new schema.
+
+FORMAT_EXEMPLAR_SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`  
+MOTHER_SOURCE_SHA256: `885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9`  
+BASELINE_SHA256: `71d1ffb600c04b7af7fae2fadf168468822f3cc4541efbaeb5d58231eb267901`
