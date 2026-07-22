@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.286
+- 現行latest: rev0.287
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17099,3 +17099,129 @@ USER_TURN_OBSERVED_AT_JST: 2026-07-22 02:06:09(JST)
 CURRENT_FATHER_DIRECTIVE_SHA256: 2276fe5129556d6221e02130b333bfc19924be189d78fd46dcbc9cf6f596294e
 SOURCE_LOG_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
 BASELINE_PACKAGE_SHA256: 21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9
+
+
+## rev0.287 RUNTIME GUARD: 基本ログフォーマットexemplar適合性
+
+### A. LOG_FORMAT_EXEMPLAR_PRECEDENCE_GUARD
+session log生成時、基本章立ては親父指定exemplarへ準拠する。アシスタント独自の再設計案は正本を上書きしない。
+
+```text
+FORMAT_CANON:
+  PEOS_father_session_log_2026_07_22_014732_FULL_TAB.txt
+FORMAT_SHA256:
+  d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+```
+
+### B. CANONICAL_LOG_SECTION_ORDER_GUARD
+生成前に以下の順序を検査する。
+
+```text
+FILE_INFO
+BOOT_SEQUENCE
+SUMMARY
+COMPLETENESS_CORRECTION? 
+CHRONOLOGICAL_SEQ_LOG
+STATE_TRANSITIONS
+EMOTION_INTENSITY
+INTERPRETATION_NOTES
+SUBJECT_SPECIFIC_ASSETS
+FATHER_UTTERANCE_CORPUS
+PEOS_EVALUATION
+LOG_CHECK
+RUNTIME_GUARD_TRACE
+FINAL_SUMMARY
+FULL_TAB_VALIDATION
+END_OF_LOG
+```
+
+必須節欠落、監査節の前倒し、`END_OF_LOG`欠落はfail-closed。
+
+### C. CANONICAL_SEQ_RECORD_ORDER_GUARD
+各SEQは時刻証跡→話者→発話→応答要約→観測→差分監査の順とする。
+
+取得不能時:
+
+```text
+USER_TURN_OBSERVED_AT_JST:
+  omit or null
+
+TURN_TIME_STATUS:
+  PAST_TURN_UNRECOVERABLE
+
+UNRECOVERABLE_REASON:
+  explicit
+```
+
+非時刻文字列を時刻値欄へ格納しない。
+
+### D. DELTA_ONLY_WITHIN_CANONICAL_FRAME_GUARD
+- canonical section/field orderは保持する。
+- S0・衝突なし・補正なしの定型MAGI/SELF_AUDIT長文は反復しない。
+- 重大指摘、危機、法務、補正、仕様逸脱、採否衝突、障害発生時は同じslotを展開する。
+- DELTA_ONLYを理由に別形式へ作り替えない。
+
+### E. SUBJECT_SPECIFIC_SECTION_SLOT_GUARD
+TLM、旅行、法務、分体設計、故障コード等は、時系列ログ後・監査前の主題別slotへ配置する。基本セクションを破壊して独自トップレベル形式にしない。
+
+### F. FULL_TAB_DUAL_DENOMINATOR_GUARD
+```text
+KNOWN_TURN_SET_COVERAGE:
+ORIGINAL_TAB_TURN_COUNT:
+ORIGINAL_TAB_COVERAGE:
+```
+
+を分離する。原タブ総数が不明なら `UNKNOWN` とし、既知集合PASSをfull original tab PASSへ昇格しない。
+
+### G. CONTROLLED_RECOVERY_STATUS_ENUM_GUARD
+回収状態は以下に正規化する。
+
+```text
+EXACT_VERBATIM
+PARTIAL_VERBATIM
+SEMANTIC_RECOVERY
+RESPONSE_CORE_SUMMARY
+SOURCE_MARKER_ONLY
+UNAVAILABLE
+```
+
+source種別は別欄へ出す。
+
+### H. TIME_PRECISION_AND_RAW_VALUE_GUARD
+異なる時計・精度を混ぜない。
+
+```text
+RAW_TIME_VALUE:
+CANONICAL_DISPLAY_JST:
+TIME_SOURCE:
+SOURCE_PRECISION:
+EVIDENCE_STATUS:
+```
+
+9桁小数等のraw文字列は保存できるが、Python microsecond取得と同一視しない。
+
+### I. RETRY_ACTION_INDEX_TRUTH_GUARD
+時刻取得初回失敗→即時再試行の場合、成功した値を `TOOL_ACTION_INDEX: 1` と偽らない。
+
+```text
+FIRST_ACTION_CLASS: TIME_CAPTURE_ATTEMPT
+CAPTURE_ATTEMPTS:
+SUCCESSFUL_CAPTURE_ACTION_INDEX:
+```
+
+を保持する。
+
+### J. FACT_ONCE_REFERENCE_WITHIN_CANON_GUARD
+同一事実の再記述は可能な限りsource SEQ参照へ置換する。ただし基本フォーマットの章立ては維持する。TLMや総括がSEQを参照できるようにする。
+
+### K. ARTIFACT_ACCEPTANCE_AUTHORITY_GUARD
+成果物自身はacceptedを確定できない。`CANDIDATE`、`PASS_WITH_LIMIT` 等を自己評価できるが、最終acceptedは外部検証または親父の受入による。
+
+### L. MOTHER_LOG_FORMAT_NONPROMOTION_GUARD
+mother source logの内容は採用可能だが、その独自巨大章立てをsession logの基本フォーマットへ昇格しない。次回mother logも指定exemplarの基本順に合わせる。
+
+### M. FATHER_VOCABULARY_COVERAGE_IN_CANON_GUARD
+father directがある場合、`【父発話コーパス候補】`へ全件反映する。修正前発話は意味履歴として残し、後続補正を語彙正本にする。全件抽出台帳は同節または主題別slotに置く。
+
+### N. END_OF_LOG_SENTINEL_GUARD
+session logの物理終端は `END_OF_LOG` とする。`EOF`、`END_NOTE` 等の追加終端表記で正本終端を曖昧化しない。

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.286
+- 現行latest: rev0.287
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17223,3 +17223,141 @@ USAGE_PERMISSION:
 - USER_TURN_OBSERVED_AT_JST: 2026-07-22 02:06:09(JST)
 - CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION
 - OPERATIVE_CURRENT: rev0.286
+
+
+## rev0.287 基本ログファイルフォーマット正本 / exemplar準拠
+
+### 1. 正本指定
+親父が指定した `PEOS_father_session_log_2026_07_22_014732_FULL_TAB.txt` の構造を、PEOS session logの基本フォーマット正本とする。
+
+これは当該成果物の時刻値・自己判定・個別不備を無条件に正当化する指定ではない。採用対象は**基本的な章立て、SEQ中心構造、全体監査の配置、終端形式**である。既知の不備は後続ガードで補正する。
+
+```text
+FORMAT_EXEMPLAR_LOGICAL_NAME:
+  PEOS_father_session_log_2026_07_22_014732_FULL_TAB.txt
+
+FORMAT_EXEMPLAR_SHA256:
+  d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
+
+STATUS:
+  BASIC_SESSION_LOG_FORMAT_CANON
+```
+
+### 2. 正本セクション順序
+基本ログは次の順序へ準拠する。
+
+```text
+1. 【ファイル情報】
+2. 【正本起動シーケンス】
+3. 【要約】
+4. 【完全性補正】                 # 必要時
+5. 【時系列ログ】
+6. 【状態推移】
+7. 【感情強度】
+8. 【解釈メモ】
+9. 【主題別仕様案 / TLM / 故障コード】 # セッション内容に応じる
+10. 【父発話コーパス候補】        # father directが0件でも空集合を明示
+11. 【PEOS向け評価】
+12. 【LOG_CHECK】
+13. 【RUNTIME_GUARD_TRACE】
+14. 【総括】
+15. 【FULL_TAB_VALIDATION】
+16. END_OF_LOG
+```
+
+主題別セクションは内容に応じて名称を変えられるが、時系列ログより前へ出さず、LOG_CHECK以降の監査順を崩さない。
+
+### 3. SEQ基本形
+各SEQは次の並びを基本とする。
+
+```text
+[SEQ nnn]
+USER_TURN_OBSERVED_AT_JST: <exact value when evidenced>
+TURN_TIME_STATUS:
+CAPTURE_STATUS:
+TIME_SOURCE:
+SPEAKER:
+UTTERANCE:
+ASSISTANT_RESPONSE_SUMMARY:
+OBSERVATION:
+CRISIS_STATE:       # 差分時は展開
+MAGI_TRACE:         # 差分時は展開
+SELF_AUDIT:         # 差分時は展開
+```
+
+取得不能時は時刻値欄へ自然言語センチネルを入れず、`TURN_TIME_STATUS` と `UNRECOVERABLE_REASON` で型分離する。exact値が存在するSEQでは値・source・precision・bindingを保持する。
+
+### 4. exemplar準拠とDELTA_ONLYの両立
+基本フォーマットはexemplarへ準拠する。一方、通常S0の全SEQへ同一MAGI/SELF_AUDIT長文を複製する必要はない。
+
+```text
+CANONICAL_FRAME:
+  preserve
+
+DEFAULT_AUDIT_PAYLOAD:
+  suppress or single-line typed default
+
+DECISION / FAILURE / CORRECTION DELTA:
+  expand in canonical slot
+```
+
+フォーマット準拠を理由に監査ノイズを増やさず、DELTA_ONLYを理由に基本セクションを別形式へ置換しない。
+
+### 5. 代替フォーマットへの勝手な再設計禁止
+アシスタントが読みやすさや機械可読性を理由に、親父指定の基本フォーマットを別の0–12番号制、L1/L2巨大複合形式、四平面形式へ置換してはならない。
+
+改善は以下に限定する。
+
+- 指定フォーマット内での型追加
+- 誤った値の補正
+- source referenceの追加
+- 重複監査の圧縮
+- validation強化
+- subject-specific sectionの追加
+
+```text
+FORMAT_CONFORMANCE_OVER_ASSISTANT_REFACTOR:
+  true
+```
+
+### 6. 内容資産と体裁の分離
+`PEOS_mother_session_log_2026_07_22_003725.txt` の旅行・家族・TLM・失敗補正は学習可能である。一方、その0–12巨大複合章立ては基本ログ正本へ昇格しない。
+
+```text
+MOTHER_LOG_CONTENT_REUSE:
+  allowed_with_source_and_time_limits
+
+MOTHER_LOG_TOP_LEVEL_FORMAT_AS_CANON:
+  rejected
+
+TARGET_RENDERING:
+  father full-tab exemplar compatible
+```
+
+### 7. 完全性の独立軸
+次を別々に検査する。
+
+```text
+FULL_TAB_CONTENT_COVERAGE
+KNOWN_TURN_SET_COVERAGE
+ORIGINAL_TAB_SCOPE_STATUS
+TIMESTAMP_COVERAGE
+FATHER_CORPUS_COVERAGE
+VOCABULARY_EXTRACTION_COVERAGE
+SOURCE_PROVENANCE
+SILENT_GENERATION
+```
+
+`44 of 44 known` は既知集合の被覆であり、原タブ総数不明時の完全逐語証明ではない。
+
+### 8. 父語彙
+この指定発話から以下を抽出する。
+
+```text
+基本的なログファイルフォーマット
+これに準拠すること
+それが理解できれば仕様化
+Xが理解できれば仕様化
+```
+
+`COMMAND_LEXICON / FORMAT_ACCEPTANCE_GATE / OPEN_ADAPTATION_ALLOWED` とする。

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.286
+- 現行latest: rev0.287
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -7843,3 +7843,64 @@ full-tab correctedログは32SEQを保持し、語彙コーパス候補も存在
 - source SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`
 - baseline: rev0.285 / `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9`
 - current ingress: 2026-07-22 02:06:09(JST)
+
+
+## rev0.287 DESIGN NOTE: 基本ログフォーマットは指定exemplarへ戻す
+
+### 背景
+mother session logの体裁監査で、重複削減や機械可読性を優先した別形式を提案した。しかし親父は、基本ログファイルフォーマットをfather full-tab correctedログへ準拠させるよう指定した。
+
+この指定により、設計上の優先順位は次となる。
+
+```text
+親父指定の基本フォーマット
+> アシスタントの独自リファクタ案
+```
+
+### 採用する骨格
+- ファイル情報
+- 正本起動シーケンス
+- 要約
+- 必要時の完全性補正
+- SEQ時系列ログ
+- 状態推移
+- 感情強度
+- 解釈メモ
+- 主題別資産
+- 父発話コーパス
+- PEOS向け評価
+- LOG_CHECK
+- RUNTIME_GUARD_TRACE
+- 総括
+- FULL_TAB_VALIDATION
+- END_OF_LOG
+
+### 改善の入れ方
+フォーマットを置換せず、その内部で次を改善する。
+
+- exact time / unavailable statusの型分離
+- known set / original scopeの分離
+- recovery status enum
+- raw time / canonical displayの分離
+- DEFAULT_OK反復の圧縮
+- TLMからsource SEQへの参照
+- self-acceptance禁止
+- father corpus完全被覆
+
+### mother logから採用する内容
+- 白浜を家族の唯一の安らぎと両親との断絶の双方を持つmemory placeとして保持。
+- ひとり旅を孤立ではなく癒やしの主導権として扱う。
+- 旅行成功を観光数で測らない。
+- 本人の座席選好をgeneric推奨より優先。
+- 旅動画を外部記憶として扱う。
+- 家電贈答の意味と家計防衛を同時保持。
+- 動的旅行情報を再検証する。
+
+### mother logから採用しないもの
+- 0–12の巨大トップレベル章立てを基本正本にすること。
+- 同じ事実を要約・TLM・HANDOFF・最終要約へ無制限再記述すること。
+- `44 of 44 known` をoriginal full-tab保証とすること。
+- post-gate時刻を入口証跡へ昇格すること。
+
+### 結論
+構造改善とは、正本フォーマットを捨てることではない。指定された骨格を保ったまま、型・証跡・被覆・監査密度を正すことである。

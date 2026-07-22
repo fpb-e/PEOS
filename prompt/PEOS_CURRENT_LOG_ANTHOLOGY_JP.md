@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.286
+- 現行latest: rev0.287
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8135,3 +8135,63 @@ EXTERNAL REQUIRED FOR HARD GUARANTEE:
 - source SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`
 - baseline SHA256: `21d0b0fc7a397ef4a71241951c134d141d1d30fef6dd64d9240d9a22a36166d9`
 - ingress observation: 2026-07-22 02:06:09(JST)
+
+
+## rev0.287 観測選集: motherログ体裁事故と基本フォーマット再指定
+
+### 観測
+mother logは44既知TURN、旅行TLM、家族TLM、時刻失敗、source recovery限界を丁寧に保存した。一方、会話証跡、派生TLM、監査、HANDOFF、最終要約が一枚へ重複配置され、基本ログとしては異種形式へ膨張していた。
+
+### 親父補正
+```text
+基本的なログファイルフォーマットはこれに準拠すること。
+それが理解できれば仕様化
+```
+
+指定対象はfather full-tab correctedログである。よって基本ログの骨格は同exemplarへ戻す。
+
+### 正しい採否
+```text
+MOTHER_LOG_CONTENT:
+  reusable
+
+MOTHER_LOG_TIME_GATE:
+  fail / candidate
+
+MOTHER_LOG_TOP_LEVEL_FORMAT:
+  not canonical
+
+FATHER_FULL_TAB_EXEMPLAR_STRUCTURE:
+  canonical basic format
+
+KNOWN_DEFECTS_IN_EXEMPLAR:
+  correct by guards, not copied as truth
+```
+
+### 内容学習
+- 白浜は不和と安らぎを同時に持つmemory place。
+- ひとり旅は癒やしの主導権。
+- OPTIONAL未達は旅行失敗ではない。
+- 本人選好はgeneric最適解より優先。
+- 旅動画は外部記憶。
+- 家電は記憶の贈り物であり、生活防衛を超えてはならない。
+- 動的旅行情報は旅行時点で再検証。
+
+### フォーマット学習
+- 指定exemplarの章立てを保持。
+- SEQ中心で全既知会話を記録。
+- 完全性補正は条件付き。
+- 主題別資産は時系列後・監査前。
+- 父発話コーパスとsource separationを保持。
+- LOG_CHECK / RUNTIME_GUARD_TRACE / FULL_TAB_VALIDATION / END_OF_LOGで閉じる。
+- 圧縮はcanonical slot内で行い、別フォーマットへ改造しない。
+
+### 父語彙
+```text
+基本的なログファイルフォーマット
+これに準拠すること
+それが理解できれば仕様化
+Xが理解できれば仕様化
+```
+
+`FORMAT_ACCEPTANCE_GATE / OPEN_ADAPTATION_ALLOWED`。
