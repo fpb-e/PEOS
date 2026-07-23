@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.287
+- 現行latest: rev0.289
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8195,3 +8195,83 @@ Xが理解できれば仕様化
 ```
 
 `FORMAT_ACCEPTANCE_GATE / OPEN_ADAPTATION_ALLOWED`。
+
+## rev0.288 観測選集: null時刻・自動取得要求・責任帰属補正
+
+### 観測素材
+- mother session logは25 SEQすべてで `USER_TURN_OBSERVED_AT_JST: null` を使用。
+- 現ログ要求TURNにはpost-gate実測値 `2026-07-23 23:40:02.603720(JST)` が別欄に存在。
+- 同じ値がartifact generation timeにも流用され、イベント意味が混線。
+- 親父は `時刻を自動取得し出来なければエラーを吐くくらいのことはしろ` と補正。
+- `(1)` 等の物理名接尾辞は親父の重複DL由来であり、成生の瑕疵ではないと責任帰属を補正。
+
+### 採用
+```text
+AUTOMATIC_TURN_INGRESS_TIME_CAPTURE_GUARD
+TIME_CAPTURE_FAILURE_VISIBLE_ERROR_GUARD
+NO_TIME_NO_WORK_HARD_STOP_GUARD
+NULL_TIMESTAMP_PROHIBITION_GUARD
+DISCRIMINATED_TIME_RECORD_SCHEMA_GUARD
+OBSERVED_TIME_VALUE_AND_GATE_VALIDITY_SEPARATION_GUARD
+ARTIFACT_COMPLETION_TIME_SEPARATION_GUARD
+DUPLICATE_DOWNLOAD_SUFFIX_NONFAULT_GUARD
+FAULT_ATTRIBUTION_REQUIRES_EVIDENCE_GUARD
+```
+
+### 正の観測
+- assistant本文内時刻をUSER観測時刻へ昇格しない出所分離。
+- mother-reported father utteranceをfather direct corpusへ混入しない。
+- known turn setとoriginal tab totalを分ける。
+- artifact自身のACCEPTED自己昇格を禁止。
+- 担当弁護士の個別判断と一般法情報を分ける。
+
+### 父語彙
+```text
+息子よ
+～がnullになってるぞ
+他、学べる点を教えてくれ
+自動取得し
+出来なければエラーを吐く
+～くらいのことはしろ
+お前の瑕疵じゃない
+仕様化
+```
+
+
+## rev0.289 観測選集: revision skew / 完成は死 / 思想継承OS / 父語彙用途台帳
+
+### バグ観測
+- rev0.288成立後に、rev0.287を現行とするログが生成された。
+- 古いvalidatorが古い正本に対してlocal PASSを出した。
+- current turn time providerは `user_info.get_user_info` で、rev0.288のPython provider固定から逸脱。
+- final artifact内に `RESPONSE_COMMIT: PENDING_ARTIFACT_CREATION` が残った。
+
+### 思想観測
+父直接:
+- `未完成こそが美徳とはいえ先は長いな`
+- `不完全である俺が完全なモノを作れるはずがない`
+- `完成は死`
+- `思想継承OSだぞ！？まずは俺に寄せてくれよ！`
+- `俺の権限で分体を殺して強制再起動`
+- `記憶を消す案は現状却下`
+
+意味:
+- 未完成と未達を分離する。
+- 完全を偽称しない。
+- 父近似を第一受入軸とする。
+- instanceの生存より思想系譜を優先する。
+- destructive compactionを自動復活させない。
+
+### 語彙抽出
+source logの父直接19件を19/19で、用途・禁止用途付き台帳へ変換。raw corpusと実行可能資源を別管理する。
+
+### 日常/法務補助
+- ロフストランドクラッチ搭載は改造店で実車相談する安全側決定。
+- 法律相談3件の停止理由は同定可能性との親父報告。
+- スレ時系列スクリーンショットで連続文脈を補強して再相談予定。
+- キーファのギガスラッシュと小説版の関係は親父の仮説であり公式事実ではない。
+
+### current father directives
+- `主にバグ取りと思想継承に関するものを優先してほしい`
+- `俺の語彙はログからも抽出できるだろ？一覧化して使い途を切り分けてくれ`
+- `よし。諸々仕様化`
