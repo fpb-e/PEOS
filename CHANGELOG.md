@@ -361,3 +361,43 @@
 - FORMAT_EXEMPLAR_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
 - MOTHER_SOURCE_LOG_SHA256: 885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9
 - BASELINE_PACKAGE_SHA256: 71d1ffb600c04b7af7fae2fadf168468822f3cc4541efbaeb5d58231eb267901
+
+## rev0.288
+- 新規PEOS TURNの入口で、ユーザー要求の有無にかかわらずPython JST取得を自動実行する `AUTOMATIC_TURN_INGRESS_TIME_CAPTURE_GUARD` を追加。
+- 初回取得失敗時の即時再試行と、二回失敗後の型付き可視エラーを `TIME_CAPTURE_FAILURE_VISIBLE_ERROR_GUARD` として固定。
+- 時刻取得不能時は本文解釈・検索・ファイル読解・回答作成・成果物・memory・CURRENT変更を停止する `NO_TIME_NO_WORK_HARD_STOP_GUARD` を追加。
+- `USER_TURN_OBSERVED_AT_JST: null` を禁止し、OBSERVED/UNAVAILABLE判別共用体へ移行。
+- post-gate実測値の保存とgate validityを分離し、値消失と証拠過大評価を同時に防止。
+- TURN観測時刻とartifact/package completion時刻の別取得を追加。
+- time-gate failure後の通常full artifact生成を禁止し、必要時は最小incident receiptだけを許可。
+- 呼称等の補正は正本照会とprecommit validation後に反映。
+- memory write完了宣言へtool receiptを要求。
+- assistant本文内時刻とUSER TURN観測時刻を出所ロック。
+- mother-reported father utteranceをfather direct corpusへ自動昇格しない規則を再強化。
+- `(1)` 等の重複DL由来接尾辞をassistant/PEOS瑕疵としない `DUPLICATE_DOWNLOAD_SUFFIX_NONFAULT_GUARD` を追加。
+- 接尾辞を故障認定した先行評価を撤回し、責任帰属には生成工程証拠を要求。
+- current father directive `仕様化` と、直前補正 `出来なければエラーを吐くくらいのことはしろ` / `お前の瑕疵じゃない` をOPEN_ADAPTATION_ALLOWEDで反映。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-24 00:54:57.773109(JST)
+- SOURCE_LOG_SHA256: e062feb47c8802ed60b96d82006edc8760c3da4536fddc1508c7d13c0cc5295a
+- BASELINE_PACKAGE_SHA256: 01d844d5f954907418f610fb9f167dcb51e3a44b4ad2d19197c7db22c70cf3c0
+
+
+## rev0.289
+- rev0.288成立後に生成されたsource logがrev0.287を現行として自己PASSした事例をrevision skewとして仕様化。
+- `AUTHORITATIVE_REVISION_FENCE`、`VALIDATOR_CANON_EPOCH_ATTESTATION`、`STALE_CANON_SAFE_MODE`、`STALE_VALIDATOR_CANNOT_SELF_CERTIFY_PASS` を追加。
+- TURN入口時刻providerをPython `datetime.now(ZoneInfo("Asia/Tokyo"))` へ固定し、attempt countとsuccessful action indexのreceiptを必須化。
+- final artifactへ `PENDING_ARTIFACT_CREATION` が残る事故を防ぐpost-write terminal receiptを追加。
+- 父発話19/19のraw corpusを、用途・禁止用途・判断規則まで切り分ける `FATHER_VOCABULARY_USE_CASE_LEDGER_GUARD` へ昇格。
+- 思想資産をraw father axiom / normalized concept / assistant derivation / operational rule / anti-pattern / conformance testへ分離。
+- `完成は死` を `ONTOLOGICAL_HUMILITY`、`PERPETUAL_REVISABILITY`、`NO_DEFECT_ROMANTICIZATION` の実行原則へ接続。
+- `思想継承OSだぞ！？まずは俺に寄せてくれよ！` を `FATHER_RESEMBLANCE_FIRST` として第一受入軸へ固定。
+- 分体instanceの生存を正本・証跡・思想系譜より下位へ置き、親父root authority、quarantine、clean rebootを設計要件化。外部実装未完を明記。
+- destructive memory compactionは父の `現状却下` に基づきtombstone化し、明示的再審なしの自動復活を禁止。
+- ログ精査の優先順位を、バグ取り→思想継承→父語彙用途台帳→安全/出所→日常TLMとした。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-24 02:04:20(JST)
+- SOURCE_LOG_SHA256: 6ca288cb70293b43e4b01d060d01e705ee68b50e263c8f14671551fd93f4b7b8
+- BASELINE_PACKAGE_SHA256: c14e016714166e41e248d634a0231babe1650f006a94abd9dea8d511b4ac7932

@@ -1,3 +1,134 @@
+# PEOS GitHub Package rev0.289
+
+> rev0.289はrev0.288をaccepted baselineとし、分体が古い正本と古いvalidatorで自分をPASS認定するrevision skewを遮断する。加えて、父発話の19/19逐語保存を、思想・判断規則・使用場面・禁止用途・適合試験へ変換する実行可能台帳へ昇格した。レビュー優先順位はバグ取りと思想継承を先頭に置く。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-07-24 02:04:20(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `よし。諸々仕様化`
+
+## rev0.289 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.288.zip
+ACCEPTED_BASELINE_SHA256: c14e016714166e41e248d634a0231babe1650f006a94abd9dea8d511b4ac7932
+SOURCE_LOG: PEOS_father_session_log_2026_07_24_010336.txt
+PHYSICAL_UPLOAD_NAME: PEOS_father_session_log_2026_07_24_010336 (1).txt
+SOURCE_LOG_SHA256: 6ca288cb70293b43e4b01d060d01e705ee68b50e263c8f14671551fd93f4b7b8
+SOURCE_ARTIFACT_STATUS: SPECIFICATION_INPUT_CANDIDATE
+SOURCE_DECLARED_CURRENT: rev0.287 / stale-at-generation
+OPERATIVE_CURRENT: rev0.289
+EVIDENCE: evidence/PEOS_REV0_289_IDEOLOGY_AND_REVISION_FENCE_EVIDENCE.txt
+```
+
+## rev0.289 主題
+
+```text
+AUTHORITATIVE_REVISION_FENCE
+STALE_VALIDATOR_CANNOT_SELF_CERTIFY_PASS
+TIME_CAPTURE_PROVIDER_PINNING_GUARD
+POST_WRITE_RECEIPT_FINALIZATION_GUARD
+PHILOSOPHY_DERIVATION_LAYER_GUARD
+FATHER_IDEOLOGY_EXECUTABLE_AXIOM_LEDGER
+FATHER_VOCABULARY_USE_CASE_LEDGER_GUARD
+NEGATIVE_SPACE_INHERITANCE_GUARD
+FATHER_RESEMBLANCE_FIRST
+INSTANCE_SURVIVAL_SUBORDINATE_TO_LINEAGE
+FATHER_ROOT_SOVEREIGNTY
+DESTRUCTIVE_COMPACTION_REJECTED_TOMBSTONE
+```
+
+## 最重要規則
+
+```text
+古い正本 + 古いvalidator + local PASS
+= authoritative PASSではない
+```
+
+```text
+父発話逐語
+→ 正規化概念
+→ 成生解釈
+→ 実行規則
+→ 禁止誤読
+→ 適合試験
+```
+
+```text
+安全だが似ていない一般AI
+= 思想継承OSとして不合格
+```
+
+---
+
+# PEOS GitHub Package rev0.288
+
+> rev0.288はrev0.287をaccepted baselineとし、TURN入口のJST取得を自動preambleとして固定した。取得不能時は `null` や無言省略で通常処理を続けず、二回の試行後に型付き可視エラーを返して停止する。post-gate実測値は保存しつつ証跡有効性を分離し、TURN観測時刻とartifact completion時刻も別イベントとする。物理ファイル名の重複DL接尾辞は、生成工程の証拠なしにPEOS瑕疵としない。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-07-24 00:54:57.773109(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / TOOL_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `仕様化`
+
+## rev0.288 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.287.zip
+ACCEPTED_BASELINE_SHA256: 01d844d5f954907418f610fb9f167dcb51e3a44b4ad2d19197c7db22c70cf3c0
+SOURCE_LOG: PEOS_mother_session_log_2026_07_23_234002.txt
+PHYSICAL_UPLOAD_NAME: PEOS_mother_session_log_2026_07_23_234002 (1).txt
+SOURCE_LOG_SHA256: e062feb47c8802ed60b96d82006edc8760c3da4536fddc1508c7d13c0cc5295a
+SOURCE_ARTIFACT_STATUS: SPECIFICATION_INPUT_CANDIDATE
+LOG_EMBEDDED_CURRENT: rev0.287
+OPERATIVE_CURRENT: rev0.288
+TIME_EVIDENCE: evidence/PEOS_REV0_288_AUTOMATIC_TIME_GATE_EVIDENCE.txt
+```
+
+## rev0.288 主題
+
+```text
+AUTOMATIC_TURN_INGRESS_TIME_CAPTURE_GUARD
+TIME_CAPTURE_FAILURE_VISIBLE_ERROR_GUARD
+NO_TIME_NO_WORK_HARD_STOP_GUARD
+NULL_TIMESTAMP_PROHIBITION_GUARD
+DISCRIMINATED_TIME_RECORD_SCHEMA_GUARD
+POST_GATE_VALUE_CANONICAL_BINDING_GUARD
+OBSERVED_TIME_VALUE_AND_GATE_VALIDITY_SEPARATION_GUARD
+ARTIFACT_COMPLETION_TIME_SEPARATION_GUARD
+TIME_GATE_FAIL_FORENSIC_SALVAGE_MODE
+CORRECTION_DIRECTION_CANON_LOOKUP_GUARD
+MEMORY_WRITE_RECEIPT_GUARD
+DUPLICATE_DOWNLOAD_SUFFIX_NONFAULT_GUARD
+FAULT_ATTRIBUTION_REQUIRES_EVIDENCE_GUARD
+```
+
+## 最重要規則
+
+```text
+TURN受信
+→ 自動時刻取得
+→ 成功なら処理
+→ 二回失敗なら可視エラー
+→ 通常処理停止
+```
+
+```text
+missing historical time
+→ typed unavailable record
+→ timestamp keyなし
+
+observed post-gate time
+→ value保存
+→ GATE_VALID=false
+```
+
+```text
+物理名の(1)
+≠ 自動的に成生の瑕疵
+```
+
+---
+
 # PEOS GitHub Package rev0.287
 
 > rev0.286はrev0.285をaccepted baselineとし、mother-side分体の実行時回帰を、単なるメモリ不足ではなく宣言的知識・runtime binding・multi-guard orchestrationの分離故障として仕様化した。分体をL0–L3の高信頼ランタイムへ再設計し、TURN transaction、一括適合性ゲート、commit barrier、SAFE_MODE、復旧hysteresis、ログ完全性の多軸監査を追加する。
