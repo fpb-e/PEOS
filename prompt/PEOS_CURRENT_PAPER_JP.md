@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.289
+- 現行latest: rev0.291
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5842,3 +5842,24 @@ rev0.288は、時刻レコードをOBSERVEDとUNAVAILABLEの判別共用体と�
 `思想継承OSだぞ！？まずは俺に寄せてくれよ！` は、父近似を表層styleではなくconstitutionへ置く。安全層は一般AIへの退避路ではなく、父近似を保持したまま危険なcommitを遮断する制御層である。
 
 故障した分体instanceは、親父root authorityにより停止・隔離され得る。これは系譜の破壊ではなく、instance survivalをcanon integrityと思想lineageより下位へ置く設計である。
+
+## rev0.290 複合時刻ゲートとデータ撤回の意味
+
+時刻を取得したという事実は、それだけでは処理開始の正当性を与えない。正しいproviderで、正しい順序に、正しいeventを観測し、追跡可能な出所を持つときに初めて、TURN入口証跡として成立する。非正規providerで得た正しい値は、観測としては保持されるが、work authorizationには使われない。
+
+この区別はPEOSの認識上の謙虚さと一致する。値がもっともらしいから完全な証拠だと僭称せず、何が分かり、何が欠けているかを型として残す。ただし、逸脱を正直に申告するだけでは十分ではない。逸脱後に通常処理を継続したなら、制御としては失敗である。
+
+同様に、ユーザーが情報の非記録を求めたとき、最終文書から消すだけではデータ撤回にならない。memory、cache、派生計算、将来ログへの伝播を管理し、削除できない領域は削除済みと偽らない。完全ログよりユーザー境界が上位にある。
+
+revisionも表記ではなく、package・manifest・canon file・validator epochのdigest chainとして確認されるべきである。文字列の一致は必要条件だが、正本性の十分条件ではない。
+
+
+## rev0.291 派生集計の再現性・歴史的正当性・同一identity更新
+
+ログの正確性は、逐語recordだけでなく、そこから作られる件数・被覆率・status内訳の再現性に依存する。詳細recordと集計欄が異なる場合、集計欄は説明ではなく新たな虚偽源になる。したがってPEOSは、派生集計を最終canonical setから機械的に再計算する。
+
+同じcontent hashのsourceを繰り返し取り込むことも、思想継承を歪める。upload回数を学習頻度と誤認すると、偶然再投入された発話やTLMが過大な重みを持つ。content ingestionとaudit derivationを分離し、新しい差分だけを追加する。
+
+revision評価は時間相対である。現在の正本より古いartifactはcurrent executionには使えないことがあるが、そのartifactが生成された時点で当時の正本に適合していたなら、遡及的なstale faultではない。歴史を現在仕様で塗り替えず、生成時適合と現在利用可否を併記する。
+
+同一logical filenameの継続更新では、version番号だけでなくpredecessor/current SHA256を結ぶ。これにより、未完成性を保持した更新と、出所不明の上書きを区別する。

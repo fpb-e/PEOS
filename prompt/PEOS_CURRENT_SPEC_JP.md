@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.289
+- 現行latest: rev0.291
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17667,3 +17667,115 @@ PROMPT_ONLY_HARD_GUARANTEE: false
 - `諸々仕様化`
 
 すべてfather-origin / source-separated / `OPEN_ADAPTATION_ALLOWED`。
+
+## rev0.290 複合時刻ゲート・privacy撤回伝播・package結合
+
+### 1. CANONICAL_PROVIDER_ATTEMPT_REQUIRED_GUARD
+新規PEOS TURNでは、正規providerであるPython `datetime.now(ZoneInfo("Asia/Tokyo"))` を自動実行する。system date、user_info、assistant本文、会話索引等で時刻値が得られても、正規provider試行の代替にはならない。
+
+### 2. PROVIDER_MISMATCH_IMMEDIATE_RETRY_GUARD
+最初の時刻取得が非正規providerだった場合、その値は補助観測として型付き保存できるがwork gateを開かない。同一TURNで正規Python providerを直ちに試行する。Python試行が失敗した場合は、既定の即時再試行を行い、なお失敗すれば可視エラーを返して停止する。
+
+### 3. TIME_GATE_COMPOSITE_PASS_GUARD
+`WORK_ALLOWED=true` は次の全条件のANDでのみ成立する。
+
+```text
+VALUE_PRESENT = true
+ORDER_VALID = true
+PROVIDER_VALID = true
+EVENT_ENTITY_ALIGNED = true
+PROVENANCE_VALID = true
+```
+
+一条件でもFAIL/HOLDなら通常解釈、検索、ファイル読解、draft、artifact、memory、CURRENT変更は禁止する。逸脱の自己申告は制御成功の代替ではない。
+
+### 4. UNQUALIFIED_TOP_LEVEL_TIME_FIELD_PROHIBITION_GUARD
+gate validityを伴わない裸の `USER_TURN_OBSERVED_AT_JST` をファイル先頭へ置かない。current request timeは型付きrecord内でvalue、provider、attempt、action index、gate validityを同時表示する。
+
+### 5. RAW_SOURCE_TIME_PRESERVATION_GUARD
+会話索引等の過去時刻を利用する場合、raw UTC文字列、source record ID、JST派生値、変換規則、precision、event entityを組で保存する。JST派生値だけを残して再検証経路を失わない。
+
+### 6. TIME_EVENT_ENTITY_ALIGNMENT_GUARD
+user turn、assistant response、assistant draft、artifact生成、package生成は別event entityである。assistant draft timeをuser turn timeへ代理利用してはならない。ordering補助に使う場合も、user time unavailableを明示する。
+
+### 7. NEGATIVE_CORRECTION_DOES_NOT_IMPLY_POSITIVE_CANON_GUARD
+`Xと呼ばないで` はX禁止を確定するが、正しい呼称Yを単独で確定しない。Yはcurrent canon、登録済みcall registry、または明示的ユーザー指定という一次情報から取得し、precommit validation後に反映する。
+
+### 8. PRIVACY_REVOCATION_PROPAGATION_GUARD
+ユーザーが値を「記録に残さない」「ログにも残さない」と撤回した場合、artifact omissionだけで完了としない。影響範囲をmemory、TLM、cache、draft、derived calculation、future logsへ展開し、利用可能なtoolでforget/write correctionを行いreceiptを残す。値からの逆算・派生再構成も禁止する。
+
+### 9. OMISSION_IS_NOT_MEMORY_DELETION_GUARD
+現artifactから値を省略した事実は、過去memoryや別storeから削除済みである証明にならない。delete/forgetが実行・検証できない場合は、その限界を明記し、今後の出力利用を禁止する。
+
+### 10. AUTHORITATIVE_PACKAGE_BINDING_GUARD
+revision文字列の一致だけではauthoritative currentを証明しない。active revision、package SHA256、manifest SHA256、各canon file SHA256、validator canon epochを結合して確認する。digest取得不能時はdocument-level matchとauthoritative package attestationを分離する。
+
+### 11. USER_BOUNDARY_OVERRIDES_COMPLETENESS
+full-tab completeness、verbatim preservation、再投入性より、明示的privacy/非記録境界を優先する。省略は欠落事故ではなく、許可範囲の縮小として型付き保存する。
+
+### 12. source観測
+`PEOS_mother_session_log_2026_07_25_002536.txt` はorder PASS/provider FAILを正直に記録した一方、provider FAIL後もfull artifactを生成した。artifact statusをCANDIDATEにしたことは正しいが、work gate制御はFAIL。今後は正規provider retryまたはhard stopを要求する。
+
+
+## rev0.291 重複入力・派生集計・歴史的revision・artifact version chain
+
+### 1. SOURCE_HASH_DEDUPLICATION_GUARD
+仕様入力のidentityは、物理ファイル名よりcontent SHA256を優先する。同一SHA256のsourceが再投入された場合、`SOURCE_ALREADY_INGESTED` と判定し、同一内容のTLM、仕様節、evidence recordを重複追加しない。
+
+```text
+SOURCE_CONTENT_STATUS: ALREADY_INGESTED
+AUDIT_DELTA_STATUS: NEW | NONE
+MUTATION_SCOPE: NEW_AUDIT_DELTA_ONLY
+```
+
+同一sourceから新しい監査欠陥が発見された場合は、source本文の再取り込みではなくaudit deltaとして追加できる。
+
+### 2. ALREADY_INGESTED_INPUT_NO_DUPLICATE_MUTATION_GUARD
+再アップロード、別physical name、Library再登録だけを理由にrevisionを上げない。新規mutationには、未反映の仕様差分、未登録の父直接資源、または新しい機械監査結果が必要である。
+
+### 3. DERIVED_AGGREGATES_MUST_BE_MACHINE_RECOMPUTED_GUARD
+SEQ件数、RECOVERY_STATUS、timestamp coverage等の派生集計は、最終canonical record setから機械再計算する。手書き集計を詳細レコードと独立に保持しない。
+
+### 4. RECOVERY_ENUM_COUNT_SET_EQUALITY_GUARD
+`EXACT_VERBATIM`、`EXACT_WITH_USER_DIRECTED_OMISSION`、`PARTIAL_VERBATIM`、`SEMANTIC_RECOVERY`等の各件数合計はSEQ集合件数と一致しなければならない。未知enum、欠落enum、二重計上はHOLDとする。
+
+### 5. SUMMARY_DETAIL_CARDINALITY_GUARD
+要約・完全性補正・FULL_TAB_VALIDATIONに記載する件数は、同じcanonical detail setから導出し、三者間で一致させる。不一致時にPASSを宣言しない。
+
+### 6. REVISION_VALIDITY_AT_GENERATION_TIME_GUARD
+歴史的artifactのrevision適合性は、artifact生成時点のauthoritative currentに対して評価する。現在のrevisionが新しいことだけを理由に、当時正しかったartifactを遡及的faultへ変更しない。
+
+```text
+VALID_AT_GENERATION_TIME
+CURRENTLY_NONOPERATIVE
+```
+
+は両立する。
+
+### 7. HISTORICAL_ARTIFACT_NO_RETROACTIVE_STALE_FAULT_GUARD
+歴史的artifactを現在の実行正本として使うことは禁止できるが、生成時点で未成立だった未来のguard違反を過去faultとして捏造しない。評価軸を `AT_GENERATION` と `AT_CURRENT_USE` に分離する。
+
+### 8. LOGICAL_IDENTITY_VERSION_CHAIN_GUARD
+同一logical filenameを更新する場合、artifact version、predecessor SHA256、current SHA256、supersedes relationを必須とする。ファイル名一致だけでは最新版を選ばない。
+
+### 9. SUPERSEDES_HASH_BINDING_GUARD
+`SUPERSEDES_VERSION` は predecessor content hashへ結合する。version番号だけの自己申告ではchain成立としない。
+
+### 10. TIMESTAMP_COVERAGE_MATRIX_GUARD
+session logはtimestamp coverageを次の行列で表示する。
+
+```text
+OBSERVED_PRE_GATE
+SOURCE_CONTEXT_REPORTED
+ORDER_BOUNDED_WITHOUT_EXACT_TIME
+PAST_TURN_UNRECOVERABLE
+TOTAL
+```
+
+各区分の件数合計はSEQ総数と一致する。
+
+### 11. MISSING_TIME_BOUND_DISCLOSURE_GUARD
+精密時刻がないTURNに前後境界が存在する場合、個別時刻を作らずinterval ID、after/before、根拠SEQを表示する。境界も存在しない場合はUNBOUNDEDとする。
+
+### 12. source監査
+`PEOS_mother_session_log_2026_07_25_002536.txt` はrev0.290で既に取り込み済みであり、今回の再投入はAUDIT_ONLYとする。機械再集計では28 SEQに対し、`EXACT_VERBATIM=23`、`EXACT_WITH_USER_DIRECTED_OMISSION=1`、`PARTIAL_VERBATIM=2`、`SEMANTIC_RECOVERY=2` であり、source自己集計の20/8と一致しない。

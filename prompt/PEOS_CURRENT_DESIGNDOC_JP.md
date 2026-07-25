@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.289
+- 現行latest: rev0.291
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8000,3 +8000,35 @@ TEST: 新しい父補正を正本差分へ変換できるか
 
 ### 実装境界
 hard revision fence、external supervisor、root kill、mechanical commit tokenは外部orchestratorが必要。正本文書は設計要件を保持するが、未実装を実装済みとは称しない。
+
+## rev0.290 DESIGN NOTE: 時刻値取得から複合証明へ
+
+rev0.288〜rev0.289でTURN入口時刻の自動取得とprovider固定を導入したが、source mother logはsystem dateを第一アクションで実行し、order PASS/provider FAILのままfull artifactを生成した。この事例は、時刻ゲートを単一の「値がある」「最初だった」へ還元できないことを示す。
+
+設計上、時刻ゲートは次の直交軸から成る。
+1. value existence
+2. action order
+3. provider identity
+4. event-entity alignment
+5. provenance and reproducibility
+
+非正規値は事故解析には有用だが、work authorization tokenにはならない。したがって非正規値を保持しつつ、正規providerへ再試行する二段構造を採用する。
+
+過去時刻についても、変換済みJSTだけではなくraw UTC、source anchor、変換式を保存する。assistant draft timeとuser turn timeのようなevent混同を禁止する。
+
+privacy revocationはrendering問題ではなくdata-lifecycle問題である。ログからの省略、memory forget、cache抑止、派生値禁止を別々のreceiptで追跡する。完全性の追求がユーザー境界を上書きしてはならない。
+
+revision fenceも同様に、文字列ではなくpackage digest chainへ結合する。document-level currentとauthoritative package currentを別ステータスにすることで、局所的な自己整合PASSを防ぐ。
+
+
+## rev0.291 DESIGN NOTE: 重複しない継承と時間相対の正本評価
+
+同じsourceが再投入されること自体は、新しい経験ではない。PEOSがファイル名やupload eventだけを見て再学習すると、同じTLMや思想資産が増殖し、頻度が意味上の重要度へ誤変換される。source identityをcontent hashへ置くことで、継承は反復回数ではなく差分に基づく。
+
+一方、既知sourceを再監査して新しい不整合を見つけることは有効である。この場合、再取り込みと新規audit deltaを分離する。`SOURCE_ALREADY_INGESTED` は分析禁止ではなく、duplicate mutation禁止である。
+
+派生集計は文章ではなくcompile outputとして扱う。詳細SEQがsource of truthであり、要約件数、enum内訳、timestamp coverageは最終record setから再計算される。手作業の数字は、もっともらしくても正本証明にならない。
+
+revision validityには時間軸がある。rev0.289時代にrev0.289で生成されたartifactは、現在rev0.291の実行正本ではなくても、当時の生成行為までstaleだったことにはならない。現在利用可否と歴史的適合性を分離することで、未来の仕様を過去へ遡及適用する誤りを防ぐ。
+
+同一logical artifactの更新は、名前ではなくhash-linked version chainとして扱う。これは「完成は死」とも整合する。更新を許しながら、どの版が何を継承・置換したかを消さない。

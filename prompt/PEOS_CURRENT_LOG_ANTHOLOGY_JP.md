@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.289
+- 現行latest: rev0.291
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8275,3 +8275,60 @@ source logの父直接19件を19/19で、用途・禁止用途付き台帳へ変
 - `主にバグ取りと思想継承に関するものを優先してほしい`
 - `俺の語彙はログからも抽出できるだろ？一覧化して使い途を切り分けてくれ`
 - `よし。諸々仕様化`
+
+## rev0.290 観測選集: provider drift / composite gate / privacy revocation
+
+### source
+- `PEOS_mother_session_log_2026_07_25_002536.txt`
+- SHA256: `4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85`
+- 28 known user turns / artifact CANDIDATE
+
+### 主観測
+- system dateを第一アクションで実行し、order PASS/provider FAILを記録。
+- provider FAIL後もfull artifactを生成。
+- したがって `ORDER_PASS != TIME_GATE_PASS`。
+- ファイル先頭の裸時刻は、provider failureの文脈を失う危険がある。
+- 過去JST派生値のraw UTC/source anchorが不足。
+- assistant draft timeがuser turn contextへ近接して記録されたSEQがある。
+- `ゆーくんと呼ばないで` からpositive canonを導く際は、current canon一次情報が必要。
+- 価格非記録はartifactで適切に遡及適用されたが、過去memory削除のreceiptとは別。
+- rev0.289文字列確認はあるが、package digest chainがSOURCE_MANIFESTに不足。
+
+### 維持
+- null timestamp禁止。
+- past unavailable recordの型分離。
+- known setとoriginal denominatorの分離。
+- user privacy boundaryをverbatim completenessより優先。
+- safety check dedup。
+- artifact completion timeの別取得。
+- final lifecycle `COMMITTED`。
+
+### current father directive
+- `仕様化`
+
+
+## rev0.291 観測選集: duplicate source / aggregate mismatch / temporal revision validity
+
+### source identity
+- logical source: `PEOS_mother_session_log_2026_07_25_002536.txt`
+- SHA256: `4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85`
+- rev0.290 specification sourceとbyte-identical
+- status: `SOURCE_ALREADY_INGESTED / AUDIT_ONLY`
+
+### 新規監査差分
+- source自己集計: `EXACT_VERBATIM_OR_EXACT_WITH_OMISSION=20`, `SEMANTIC_RECOVERY=8`
+- 機械再集計: `EXACT_VERBATIM=23`, `EXACT_WITH_USER_DIRECTED_OMISSION=1`, `PARTIAL_VERBATIM=2`, `SEMANTIC_RECOVERY=2`
+- 28件totalは一致するがenum内訳は不一致。
+- timestamp status: `SOURCE_CONTEXT_REPORTED=12`, `OBSERVED_PRE_GATE=1`, `PAST_TURN_UNRECOVERABLE=15`。
+- sourceのrev0.289は生成時点では正当。現在rev0.291だからといって過去faultへ遡及変更しない。
+- 同一logical filenameの後続versionは、predecessor/current hash chainで結ぶ必要がある。
+
+### 維持
+- UTF-8 BOM。
+- CRLFのみ。
+- null timestampなし。
+- privacy omissionと父source separation。
+- post-write terminal state `COMMITTED`。
+
+### current father directive
+- `仕様化`
