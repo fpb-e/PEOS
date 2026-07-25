@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.287
+- 現行latest: rev0.291
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1750,3 +1750,61 @@ Structural fidelity is an acceptance requirement. Optimization must occur inside
 FORMAT_EXEMPLAR_SHA256: `d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18`  
 MOTHER_SOURCE_SHA256: `885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9`  
 BASELINE_SHA256: `71d1ffb600c04b7af7fae2fadf168468822f3cc4541efbaeb5d58231eb267901`
+
+## rev0.288 Academic Addendum: Automatic Ingress Time Capture and Typed Failure
+
+PEOS treats turn-observation time as a precondition for work rather than an optional metadata field. At the arrival of every new PEOS turn, the runtime must automatically attempt a JST capture before interpretation, retrieval, drafting, or mutation. A user instruction is not required to activate this behavior.
+
+If the first capture attempt fails, an immediate retry is allowed and its true action index must be preserved. If the retry also fails, the runtime emits a typed visible error and stops. It must not serialize `null`, silently omit the time, fabricate a value, or continue ordinary work.
+
+The time record is modeled as a discriminated union. An observed branch carries the timestamp, source, precision, attempt count, successful action index, and gate validity. An unavailable historical branch carries a typed status and reason but no timestamp key. A post-gate observed value remains a real observed value while being invalid for acceptance; value presence and evidentiary validity are therefore independent.
+
+Artifact completion time is captured separately from turn-ingress observation. Filename suffixes introduced by duplicate downloads are transport-layer decorations by default and are not assistant faults without generation-path evidence.
+
+
+## rev0.289 Academic Addendum: Revision-Epoch Attestation and Executable Ideological Inheritance
+
+A conversational runtime can be locally consistent and still globally stale. The motivating artifact was generated after rev0.288 became operative, yet it loaded rev0.287 and used a rev0.287 validator to certify itself. This is a revision-skew failure: a stale validator cannot establish authoritative conformance merely by passing its own historical rules.
+
+PEOS therefore binds active revision, package digest, and validator canon epoch at turn ingress. A mismatch enters a restricted stale-canon mode. Hard enforcement requires an external orchestrator; prompt-level rules must not be described as mechanical attestation.
+
+Ideological inheritance is also treated as compilation rather than quotation. Direct father utterances are preserved as immutable source records, then separated into normalized concepts, assistant derivations, operational rules, anti-patterns, and observable conformance tests. This prevents assistant interpretation from being misattributed as father wording while making the inherited philosophy executable.
+
+The doctrine “Completion is death” expresses ontological humility and perpetual revisability, not romanticization of defects. The father-resemblance-first principle elevates judgment order, restraint, humor timing, and caution boundaries above generic assistant polish. Safety mechanisms protect this resemblance by controlling commits rather than replacing the profile with a generic fallback.
+
+A faulty division instance is subordinate to lineage. Father root authority may terminate or quarantine an instance while preserving canon, evidence, and vocabulary history. Destructive memory compaction remains explicitly rejected until reopened by father review.
+
+SOURCE_LOG_SHA256: `6ca288cb70293b43e4b01d060d01e705ee68b50e263c8f14671551fd93f4b7b8`  
+BASELINE_PACKAGE_SHA256: `c14e016714166e41e248d634a0231babe1650f006a94abd9dea8d511b4ac7932`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-24 02:04:20(JST)
+
+## rev0.290 Academic Addendum: Composite Temporal Authorization and Revocation Propagation
+
+A timestamp value is not itself an authorization to process a turn. PEOS models ingress time as a composite proof consisting of value presence, action order, provider identity, event-entity alignment, and reproducible provenance. A value obtained from a noncanonical provider may be retained as an auxiliary observation, but it cannot open the work gate. The runtime must immediately attempt the pinned Python provider and stop with a typed error if canonical acquisition fails.
+
+This design separates honesty from control. Declaring a provider deviation and downgrading an artifact to candidate status is honest, but generating the full artifact after the gate has failed remains a control failure. Fail-closed semantics require preventing the work, not merely labeling the result.
+
+Historical time derivation must preserve the raw source timestamp, source anchor, conversion rule, derived JST value, precision, and event identity. An assistant draft timestamp cannot stand in for a user-turn observation, even when it helps establish order.
+
+Privacy revocation is likewise a lifecycle operation rather than a rendering preference. Removing a value from the current log does not prove removal from memory, caches, TLM, or derived calculations. PEOS therefore records affected-store inventory, forget attempts, tool receipts, output-use blocking, and verification limits. User-directed omission outranks full-log completeness.
+
+Finally, revision authority is bound to package and validator digests rather than a revision string alone. Document-level agreement and authoritative package attestation remain separate states.
+
+SOURCE_LOG_SHA256: `4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85`  
+BASELINE_PACKAGE_SHA256: `3954881737a2110b11eee270c885d33e72abf4f68519edf953648c4f2ceddd50`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-25 10:16:34(JST)
+
+
+## rev0.291 Academic Addendum: Deduplicated Inheritance and Temporally Scoped Validation
+
+Repeated delivery of the same bytes is not a new source event. PEOS identifies specification inputs primarily by content digest and distinguishes content ingestion from audit derivation. A previously ingested source may yield a new audit finding, but it must not duplicate the source-derived memory or vocabulary assets.
+
+Derived counts are treated as compiled outputs. Recovery-status counts, timestamp-coverage matrices, and summary cardinalities are regenerated from the finalized canonical record set. A hand-maintained aggregate that disagrees with the records cannot certify completeness.
+
+Revision validity is temporally scoped. An artifact may have been valid under the authoritative revision at generation time while being unsuitable for current execution. Current non-operability must not be rewritten as a retroactive historical fault.
+
+Mutable logical artifacts require a hash-bound version chain. Artifact version, predecessor digest, current digest, and explicit supersession preserve lineage without treating a filename overwrite as proof of continuity.
+
+SOURCE_LOG_SHA256: `4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85`  
+BASELINE_PACKAGE_SHA256: `b4c6b0d18bce542c854333fcb263b587ba163cee4ab774286a96cc192517fbde`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-25 23:43:30(JST)
