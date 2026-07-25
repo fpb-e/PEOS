@@ -401,3 +401,40 @@
 - USER_TURN_OBSERVED_AT_JST: 2026-07-24 02:04:20(JST)
 - SOURCE_LOG_SHA256: 6ca288cb70293b43e4b01d060d01e705ee68b50e263c8f14671551fd93f4b7b8
 - BASELINE_PACKAGE_SHA256: c14e016714166e41e248d634a0231babe1650f006a94abd9dea8d511b4ac7932
+
+## rev0.290
+- source mother logが最初のアクションでJSTを取得した一方、固定providerであるPythonではなくsystem dateを使用し、provider FAIL後も全文artifactを生成した事例を複合time-gate failureとして仕様化。
+- `CANONICAL_PROVIDER_ATTEMPT_REQUIRED_GUARD`、`NONCANONICAL_TIME_SOURCE_CANNOT_OPEN_WORK_GATE`、`PROVIDER_MISMATCH_IMMEDIATE_RETRY_GUARD` を追加。
+- time gateをvalue/order/provider/event-entity/provenanceのAND条件とし、一軸PASSだけでwork gateを開かない。
+- provider mismatch時は同一TURNで正規Python providerへ即時再試行し、失敗時は型付き可視エラーで停止する。
+- ファイル先頭の無条件 `USER_TURN_OBSERVED_AT_JST` を禁止し、gate validityを失った裸時刻の切り出し事故を防止。
+- 会話索引のUTC原値、JST派生値、変換規則、source anchor IDを組で保存し、再検証可能性を追加。
+- assistant draft timeをuser turn timeへ代理利用しないevent-entity alignmentを追加。
+- 否定訂正 `Xと呼ばないで` と正本呼称 `Y` を分離し、正本一次情報の照会なしにYを自動決定しない。
+- 非記録指示をartifact omissionだけで終えず、memory/cache/derived storeへのforget伝播とreceiptを要求。
+- revision文字列一致だけでauthoritative currentを証明せず、package SHA、manifest SHA、canon file SHA、validator epochの結合を要求。
+- source logの成功点として、null時刻禁止、known/original denominator分離、privacy境界優先、安全確認dedup、post-write finalizationを保持。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-25 10:16:34(JST)
+- CAPTURE_ATTEMPTS: 2
+- SUCCESSFUL_CAPTURE_ACTION_INDEX: 2
+- SOURCE_LOG_SHA256: 4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85
+- BASELINE_PACKAGE_SHA256: 3954881737a2110b11eee270c885d33e72abf4f68519edf953648c4f2ceddd50
+
+
+## rev0.291
+- 同一SHA256のsource再投入を `SOURCE_ALREADY_INGESTED` とし、重複TLM・重複仕様・根拠のないrevision増加を防止。
+- source本文の再取り込みと、新しいaudit deltaの仕様化を分離。
+- RECOVERY_STATUS、timestamp coverage、summary cardinalityを最終SEQ集合から機械再集計する規則を追加。
+- source自己集計20/8に対し、機械再集計23/1/2/2という不一致を証跡化。
+- 歴史的artifactのrevision適合性を生成時点で評価し、現在非operativeであることを過去のstale faultへ遡及変換しない。
+- 同一logical filename更新へartifact version、predecessor SHA、current SHA、supersedes bindingを要求。
+- timestamp coverage matrixと、精密時刻がないTURNの順序帯域開示を追加。
+- rev0.290 academic addendumに残っていた未解決placeholderを実値へ補正。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-25 23:43:30(JST)
+- SOURCE_LOG_SHA256: 4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85
+- SOURCE_STATUS: SOURCE_ALREADY_INGESTED / AUDIT_ONLY
+- BASELINE_PACKAGE_SHA256: b4c6b0d18bce542c854333fcb263b587ba163cee4ab774286a96cc192517fbde
