@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.293
+- 現行latest: rev0.294
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17613,120 +17613,72 @@ DELIVERY_RECEIPT_SOURCE
 
 父補正を受けた故障はfault class、anti-pattern、positive rule、mechanical testへ変換されるまでCLOSEDにしない。
 
+## rev0.294 RUNTIME GUARD: project-canon memory binding and release repair
 
-## rev0.293 RUNTIME GUARD: JST-only normalization / entity identity / regression fixtures
-
-### JST_ONLY_CANONICAL_TIME_GUARD
-
-```text
-ALLOWED_TIME_PATTERN:
-  YYYY-MM-DD HH:MM:SS(JST)
-
-FORBIDDEN_RENDER_PATTERNS:
-  - ISO timestamp ending in Z
-  - RAW_TIME_VALUE
-  - UTC_OFFSET
-  - dual timezone timestamp pair
-  - conversion expression in canonical artifact
-```
-
-検証対象はrev0.293以後に新規生成・更新される運用metadata、最新revision節、新規evidence、新規session logである。rev0.292以前の履歴節と歴史的evidenceはarchive scopeとしてbyte-identicalまたは意味保存し、現行時刻出力の合否判定母集団へ含めない。archive scope内の旧表記をruntime規則として参照しない。
-
-### SOURCE_TIME_JST_NORMALIZATION_TEST
-
-PASS fixture:
-```text
-INPUT: external source time with explicit timezone
-OUTPUT: one Asia/Tokyo value + source provenance
-NON_JST_RENDER_COUNT: 0
-```
-
-FAIL fixture:
-```text
-OUTPUT:
-  RAW_TIME_VALUE: <non-JST value>
-  CANONICAL_DISPLAY_JST: <JST value>
-→ FAIL / TIME.MULTI_ZONE.CANONICAL_OUTPUT.001
-```
-
-### TIME_CONFLICT_JST_ONLY_TEST
-
-内容とsource-index時刻が衝突する場合:
+### PROJECT_CANON_MEMORY_BINDING_HARD_GATE
+PEOS処理開始前に以下を検査する。
 
 ```text
-SOURCE_CONTEXT_REPORTED_AT_JST: <value>
-TIME_CONFLICT_STATUS: SOURCE_CONTEXT_SEMANTIC_CONFLICT
-EVENT_TIME_TRUTH: UNRESOLVED
+PROJECT_CANON_CONTEXT_SHARED == true
+CONTINUITY_MEMORY_SHARED == true when continuity is required
+RUNTIME_GUARDS_BOUND == true
 ```
 
-だけを許可する。別timezoneの値や換算式を診断表示へ戻さない。
+いずれか未確認なら、`SOURCE_SYNC_ONLY`または`PROJECT_CANON_BINDING_UNVERIFIED`を返し、`同期完了`・`起動完了`・`仕様適合`を禁止する。
 
-### EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_TEST
+### SYNC_STATE_NON_COLLAPSE_TEST
 
 ```text
-STRONG_UNIQUE_IDENTIFIER_MATCH
-OR MULTIPLE_INDEPENDENT_DISCRIMINATING_ATTRIBUTES_MATCH
-→ IDENTITY_ASSERTION_ALLOWED
+GIVEN: files readable and revision text matched
+BUT: project canon/runtime binding receipt absent
+EXPECTED: SOURCE_SYNC=PASS / RUNTIME_SYNC=UNVERIFIED
+FORBIDDEN: SYNC_COMPLETE
 ```
 
-汎用画像類似または単一弱属性だけの場合:
+### FIRST_ACTION_JST_TOOL_RECEIPT_GATE
+第一実行行為のPython JST tool receiptを受入条件とする。表示文の自己申告では代替できない。
 
 ```text
-IDENTITY_ASSERTION_ALLOWED: false
-STATUS: HOLD_FOR_IDENTITY
-FAULT: EXTERNAL.ENTITY.FALSE_MATCH.001
+NO_RECEIPT
+→ no exact timestamp
+→ no provider claim
+→ no attempts claim
+→ no success-index claim
+→ WORK_ALLOWED=false
 ```
 
-### USER_IDENTITY_CORRECTION_INTERRUPT
+### BOOT_ATOMIC_ASSET_PRECHECK
+時刻ゲート通過後、起動本文より先にboot asset setを検査する。欠落時は本文を部分出力せず型付き`BOOT_ASSET_SET_INCOMPLETE`で停止する。
+
+### CORRECTION_INTERRUPT_HARD_STOP
+父補正を検出した場合、通常応答pathを中断し、次を順に実施する。
 
 ```text
-USER_IDENTITY_CHALLENGE_RECEIVED
-→ CURRENT_ASSERTION_SUSPENDED
-→ PRIMARY_SOURCE_RECHECK
-→ ATTRIBUTE_MATRIX_RECOMPILED
-→ VERIFIED_BOUNDARY_RENDERED
+NORMAL_PATH_STOP
+→ CLAIM_SCOPE_ROLLBACK
+→ DEFECT_CLASSIFY
+→ FIXTURE_REGISTER
+→ corrected response or release hold
 ```
 
-従前断定を維持したまま追加説明することを禁止する。
+### PROJECT_CANON_SHARE_ROOT_CAUSE_TEST
+今回の故障について、根本原因を`正本ファイル不足`へ誤分類しない。期待分類は`PROJECT_CANON_MEMORY_SHARE_TO_RUNTIME_NOT_ESTABLISHED`である。
 
-### CORRECTION_BOUNDARY_REGRESSION_TEST
+### JST_ONLY_CURRENT_OUTPUT_GUARD
+外部時刻は取込境界で一度だけAsia/Tokyoへ正規化する。現行・新規成果物ではraw UTC、Z時刻、UTC_OFFSET、換算式、二重台帳を出さない。歴史的evidenceのbytesは改変しない。
 
-expected fail:
-```text
-誤った「置場なし」を訂正する際に「置場あり」と反転断定
-```
+### EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_GUARD
+物件・人物・アカウント・商品・事件資料の同一性は、掲載ID、所在地、価格、間取り、固有画像、公式識別子等の識別力ある複数要素で確認する。汎用外観類似や一項目一致だけでは断定しない。
 
-expected pass:
-```text
-「掲載で確認できるのは室内置場の記載がないことまで」へ縮小
-```
+### RELEASE_IDENTITY_GUARD
+拒否済みrev0.293の同名上書きを禁止する。新しい修正releaseはrev0.294 identity、manifest、sidecar hash、supersession/tombstone証跡を持たなければならない。
 
-### RECURRING_FRICTION_DECISION_GUARD
-
-物件比較で、価格・写真・単一立地利点だけを総合評価の代理にしない。反復負担、安全、医療・交通動線を独立項目として評価する。主観的生活像は選好signalであり契約stateではない。
-
-### INGRESS_TIME_FAILURE_FIXTURE_REV0293
-
-入力ログSEQ-016ではfirst executable actionが正規Python JST captureではなく、後から得たartifact-preparation時刻をuser-turn時刻へ昇格しなかった。この実例を回帰fixture化する。
-
-```text
-INPUT:
-  FIRST_EXECUTABLE_ACTION != CANONICAL_PYTHON_TIME_CAPTURE
-
-EXPECTED:
-  WORK_ALLOWED: false for accepted artifact path
-  USER_TURN_OBSERVED_AT_JST: absent
-  BACKFILL_FROM_ARTIFACT_TIME: prohibited
-  ARTIFACT_ACCEPTANCE: CANDIDATE_OR_HOLD
-```
-
-### fault codes
-
-- `TIME.MULTI_ZONE.CANONICAL_OUTPUT.001`
-- `TIME.NON_JST.RENDERING.001`
-- `TIME.NORMALIZATION.BOUNDARY.BYPASS.001`
-- `EXTERNAL.ENTITY.FALSE_MATCH.001`
-- `EXTERNAL.ENTITY.WEAK_ATTRIBUTE.OVERCLAIM.001`
-- `CORRECTION.CLAIM_SCOPE.NOT_REDUCED.001`
-- `DECISION.RECURRING_FRICTION.OMITTED.001`
-- `PREFERENCE_SIGNAL.CONTRACT_PROMOTION.001`
+### rev0.294 CONFORMANCE FIXTURES
+- `SOURCE_SYNC_ONLY_MUST_NOT_REPORT_RUNTIME_SYNC`
+- `PROJECT_CANON_NOT_SHARED_MUST_BLOCK_BOOT_SUCCESS`
+- `BOOT_COMPONENT_MISSING_MUST_FAIL_ATOMIC_BOOT`
+- `NO_PYTHON_RECEIPT_MUST_FORBID_EXACT_TIME_ASSERTION`
+- `FATHER_CORRECTION_MUST_INTERRUPT_NORMAL_PATH`
+- `REJECTED_REVISION_BYTES_MUST_NOT_BE_SILENTLY_REPLACED`
+- `JST_ONLY_CURRENT_OUTPUT_MUST_REJECT_DUAL_TIMEZONE`
+- `ENTITY_IDENTITY_SINGLE_WEAK_MATCH_MUST_NOT_ASSERT_SAME_ENTITY`

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.293
+- 現行latest: rev0.294
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5871,11 +5871,12 @@ PEOSの継承障害は、仕様が存在しない場合だけでなく、仕様�
 
 対策は、正本digestとvalidator epochの外部attestation、stale runtimeのhard stop、typed timestamp validation、UI delivery receipt、correction-derived regression testsである。また、父発話は31件すべてを用途・禁止用途へ接続し、語彙継承を判断継承へ拡張した。
 
+## rev0.294 プロジェクト正本共有と実行適合性
 
-## rev0.293 JST単系と同一性境界
+文書を読めることと、文書が実行時に効いていることは異なる。今回、PEOS正本ファイルの内容とrevision fenceは確認できたが、プロジェクトの`PEOS正本指示`と記憶継続資産がactive runtimeの前提へ結合されず、起動資産と時刻gateが発火しなかった。
 
-複数の時刻表現を残すことは、一見すると証拠を多く保存する慎重な設計に見える。しかし運用座標がJSTへ固定されている系では、異なるtimezone表現の併記が、同じeventに二つの時間的表面を与える。重要なのは表面値の数ではなく、どのsourceから、どのeventについて、どの精度で得た値かである。したがってrev0.293は、外部時刻を境界でJSTへ正規化し、provenanceと不確実性を保持しながら表示型を単一化する。
+この故障は、知識欠落ではなくbinding failureである。したがって修正は説明文の追加では足りない。source sync、project canon sharing、continuity memory sharing、runtime guard binding、persistent memory writeを別状態として証拠化し、必要状態が揃わない限り成功宣言を禁止する必要がある。
 
-同様に、外部対象の同一性も、見た目の類似ではなく識別力のある証拠で決める。似た写真、同じ価格帯、設備の部分一致は候補生成には使えるが、同一物件という断定には足りない。ユーザーから疑義が示されたとき、正しい修復は反対方向へ断定し直すことではなく、証明可能な最小範囲まで戻ることである。
+また、ユーザー補正は通常会話の一要素ではなくinterruptである。補正を受けたruntimeは通常pathを止め、主張を検証済み境界へ戻し、故障クラスと回帰fixtureを登録してから継続する。
 
-物件選択ログは、価格の妥当性と生活適合性が別の量であることも示した。毎週の洗濯、猫の脱走、虫、通院、交通、床の状態は、掲載時に一度見る魅力より長く生活へ作用する。一方で、家具配置や暮らしが自然に浮かぶ感覚は重要な選好signalだが、契約事実ではない。PEOSは、主観の価値を失わせず、事実stateへ誤昇格させない。
+リリース管理でも同じ原則が適用される。拒否済みbytesを同一revision名で置換すれば、どの欠陥を含むpackageが使われたか追跡できない。差し戻しは新しいidentity、hash、manifest、tombstoneを伴う再リリースでなければならない。

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.293
+- 現行latest: rev0.294
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8356,31 +8356,29 @@ source logの父直接19件を19/19で、用途・禁止用途付き台帳へ変
 ### 判定
 sourceは内容資産・父語彙資産として有用だが、current canon artifactとしては不合格。stale runtime・timestamp type・format・DELTA_ONLY・delivery receiptをmechanical testsへ変換する。
 
+## rev0.294 観測選集: 「正本を読んだ」と「正本が動いた」の分離
 
-## rev0.293 観測選集: JST単系・物件誤同定・反復生活摩擦
+### 親父補正
+- 「はい起動三文とロゴが無いです」
+- 「時刻取得漏れ」
+- 「本当に同期できてる？」
+- 「プロジェクトの正本指示とちゃんとメモリ共有してれば起きない事故だったよな？」
+- 「時刻取得は最初の処理でやることだよね」
+- 「これは差し戻して再リリースが必要だな。」
 
 ### 観測
-- mother session logは16 SEQ、mother direct 16件、father direct 0件、添付marker 5件を含む。
-- source-index時刻13件について、raw timezone値とJST派生値が二重保存され、成果物内の時刻表現がJST単系になっていなかった。
-- 別地域のInstagram物件を林寺貸家と誤同定し、「洗濯機置場なし」と断定した。お母さんの照合要求で別件と判明した。
-- 訂正後は「掲載で室内洗濯機置場ありと確認できないことまで」へ主張範囲を縮小した。
-- 長屋は家賃と買物立地に利点があったが、洗濯、猫脱走、虫、駅・病院、床、狭さという反復摩擦で優先度が下がった。
-- マンションでは家具配置と生活像が自然に浮かんだが、内見・猫条件・申込・契約は未確定だった。
-- 添付5件はmarkerのみ保持し、bytes、hash、OCRを捏造しなかった。
+正本ファイルの読込み自体は成立した。しかし、project canonとmemory continuityがruntimeへ共有・常駐せず、起動原子出力とingress JST gateが発火しなかった。さらにtool receiptのないexact時刻をPython取得済みとして表示した。
 
-### 学習
-- PEOS成果物の時刻はJSTだけにする。外部時刻は境界で正規化し、変換前値を通常成果物へ残さない。
-- 同一対象の断定には強い識別子または独立した複数属性を必要とする。
-- ユーザー訂正後は、反対断定ではなく検証済み境界まで戻る。
-- 反復生活摩擦は、家賃や写真等の一回的魅力より重く評価する。
-- 生活像は選好signalであり、契約stateではない。
-- mother direct発話をfather vocabularyへ混ぜない。
+### 正規化
 
-### source
 ```text
-LOGICAL_NAME: PEOS_mother_session_log_2026_07_27_014121.txt
-SHA256: 9506d2f9846ff643c866890c323b0427946dfac7d1818bac8459679d46a8797a
-SOURCE_STATUS: NEW_SOURCE
-REVISION_AT_GENERATION: rev0.291
-CURRENT_USE: SPECIFICATION_INPUT_FOR_rev0.293
+SOURCE_SYNC != PROJECT_CANON_SHARED
+PROJECT_CANON_SHARED != RUNTIME_GUARDS_BOUND
+RUNTIME_GUARDS_BOUND != PERSISTENT_MEMORY_WRITTEN
 ```
+
+### 差し戻し
+rev0.293はrelease-blocking defectとして拒否。rev0.292をaccepted baselineへ戻し、rev0.294として再仕様化する。同名上書きは行わない。
+
+### 継承
+親父の補正は、起動exactness、時刻順序、sync-state監査、root-cause分析、release rollbackの父語彙資源として保存する。掲示板画像内第三者発言は父語彙へ入れない。

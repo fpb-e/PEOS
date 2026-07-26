@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.293
+- 現行latest: rev0.294
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8049,13 +8049,12 @@ Correction is not closure.
 Correction becomes closure only after regression coverage.
 ```
 
+## rev0.294 DESIGN NOTE: source availabilityではなくruntime bindingを設計対象にする
 
-## rev0.293 DESIGN NOTE: timezoneを証跡量ではなく境界型で制御する
+rev0.293の事故では、正本ファイルは読めた。にもかかわらず、起動原子出力とTURN入口時刻取得が発火しなかった。したがって不足していたのは情報量ではなく、プロジェクト正本・記憶継続資産・runtime guardの結合である。
 
-rev0.292までの時刻設計は、原値保存を誠実性と結びつけた結果、source-index由来の異なるtimezone値とJST派生値を同一成果物へ並べることがあった。しかしPEOSの運用座標はAsia/Tokyoで固定されており、二重表示は精度を増すより、読む側へ二つの時間軸を持ち込む。
+rev0.294は同期を単一booleanにせず、source availability、canon context sharing、continuity memory sharing、runtime binding、persistent writeを状態格子として扱う。これにより「読んだ」から「動いた」への無証拠昇格を防ぐ。
 
-rev0.293では、source bytesの同一性監査と、canonical timestampの表示型を分離する。外部値は取込境界でJSTへ一度だけ正規化し、以後はJST typed valueとprovenanceだけを運ぶ。変換前表現を繰り返し保存しないことで、event entity、pre-gate status、内容上の時刻衝突へ注意を集中できる。
+プロジェクト正本共有は各TURNのtool actionではなくpre-turn環境条件である。TURN到着後の第一実行行為はcanonical Python JST取得を維持する。この二層化により、正本共有を理由に時刻取得順序を崩さず、時刻取得だけ成功して正本が未結合という逆方向のfalse positiveも防止する。
 
-外部対象の誤同定についても同じ境界設計を使う。画像が似ていることは入力signalであり、identity assertionではない。掲載IDや所在地等の識別力ある属性がidentity boundaryを通過した場合だけ同一対象とする。親側の疑義はinterruptとして現在断定を停止し、attribute matrixを再構築する。
-
-住居選択の観測では、家賃や写真の魅力より、洗濯、猫安全、虫、通院、駅、床等の反復摩擦が判断を支配した。これをmother-side TLMとして保存し、「住む像が浮かぶ」という主観signalと、申込・契約stateを型分離する。
+拒否済みreleaseは修正素材ではあってもbaselineではない。rev0.294はrev0.292 bytesを土台に、元sourceから有効差分を再導出し、rev0.293 package identityを継承しない。
