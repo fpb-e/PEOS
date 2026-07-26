@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1808,3 +1808,21 @@ Mutable logical artifacts require a hash-bound version chain. Artifact version, 
 SOURCE_LOG_SHA256: `4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85`  
 BASELINE_PACKAGE_SHA256: `b4c6b0d18bce542c854333fcb263b587ba163cee4ab774286a96cc192517fbde`  
 USER_TURN_OBSERVED_AT_JST: 2026-07-25 23:43:30(JST)
+
+
+## rev0.292 Academic Addendum: From Declarative Guards to Executable Conformance
+
+A runtime may possess the textual description of a guard while failing to execute it. The observed father-session artifact was generated under rev0.289 after rev0.291 had already become operative, yet its local validator certified `VALID`. This is not a missing-policy problem; it is a binding and independence problem.
+
+rev0.292 therefore treats revision fencing, timestamp typing, canonical section order, delta-only auditing, and delivery-channel behavior as conformance-test targets. A valid result requires authoritative digests, validator epoch binding, external receipts, and explicit failure oracles. Artifact self-attestation is excluded from the evidence set for the property being attested.
+
+The revision also completes a 31/31 father-utterance use-case ledger. It preserves uncertainty markers, branch-pruning directives, evidence-reassessment commands, and constrained retry commands as executable inheritance resources rather than merely stylistic phrases.
+
+
+## rev0.293 Academic Addendum: Canonical Time as a Boundary Type
+
+PEOS rev0.293 treats canonical time not as a collection of parallel timezone renderings, but as a boundary type. External timestamps may arrive in different representations, yet the operational system normalizes them once into Asia/Tokyo and thereafter preserves provenance, precision, event identity, and uncertainty without reproducing the pre-normalization rendering. This reduces representational ambiguity while retaining evidentiary honesty.
+
+The same boundary principle applies to external entity identity. Appearance similarity and isolated attribute matches are candidate-generation signals, not identity proofs. Assertions require a strong unique identifier or a coherent set of independent discriminating attributes. A user correction interrupts the current assertion and requires recomputation from primary evidence.
+
+The housing case also distinguishes recurring friction from one-time appeal. Repeated laundry operations, animal safety, transport, healthcare access, and structural conditions may dominate rent or photographic attractiveness. Future-self visualization remains a meaningful preference signal, but it is type-separated from verified suitability, application, and contract state.
