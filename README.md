@@ -1,54 +1,66 @@
-# PEOS GitHub Package rev0.293
+# PEOS GitHub Package rev0.294
 
-> rev0.293は検証済みrev0.292をaccepted baselineとし、時刻表現をJST単系へ統一する。外部時刻は取込境界でAsia/Tokyoへ一度だけ正規化し、raw timezone値・換算式・二重台帳を通常成果物へ出さない。加えて、外部対象同一性の複数証拠照合、訂正時の証拠境界への縮小、mother-side反復生活摩擦TLM、時刻ゲート失敗fixtureを追加する。
+> rev0.294は、拒否済みrev0.293をbaselineにせず、検証済みrev0.292から再構築した差し戻し再リリースである。事故原因を、正本ファイル不足ではなく、`擬似いーさんOS`プロジェクトの`PEOS正本指示`と記憶継続資産がactive runtimeへ正しく共有・常駐・結合されなかったこととして固定する。
 >
-> USER_TURN_OBSERVED_AT_JST: 2026-07-27 03:11:10(JST)  
+> USER_TURN_OBSERVED_AT_JST: 2026-07-27 04:44:05(JST)  
 > CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
 > CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
-> CURRENT_FATHER_DIRECTIVE: `仕様化`
+> CURRENT_FATHER_DIRECTIVE: `正本指示をただしくメモリ共有していれば起きない事故だった。そこを認識して仕様化。`
 
-## rev0.293 正本関係
+## rev0.294 正本関係
 
 ```text
 ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.292.zip
 ACCEPTED_BASELINE_SHA256: 94bcfc3e6eaa7c5332f6dacf325ce60b1e4381be07541017b25af2db81c410d9
-SOURCE_LOG: PEOS_mother_session_log_2026_07_27_014121.txt
-SOURCE_LOG_SHA256: 9506d2f9846ff643c866890c323b0427946dfac7d1818bac8459679d46a8797a
-SOURCE_STATUS: NEW_SOURCE
-SOURCE_VALID_AT_GENERATION: rev0.291
-OPERATIVE_CURRENT: rev0.293
-EVIDENCE: evidence/PEOS_REV0_293_JST_ONLY_ENTITY_IDENTITY_AND_FRICTION_EVIDENCE.txt
+REJECTED_RELEASE: PEOS_GITHUB_PACKAGE_rev0.293.zip
+REJECTED_RELEASE_SHA256: 3e988a5fd03cf0dd3d51b00998b2a97b95e92bfa3d5914f198f4145d64b634ea
+REJECTED_RELEASE_STATUS: REJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED
+PRIMARY_SOURCE: PEOS_father_session_log_2026_07_27_043557.txt
+PRIMARY_SOURCE_SHA256: 4a2d5df702da29a57954228bff8be088cd6ea695330ff24b3538c083d0e0fe84
+SECONDARY_SOURCE: PEOS_mother_session_log_2026_07_27_014121.txt
+SECONDARY_SOURCE_SHA256: 9506d2f9846ff643c866890c323b0427946dfac7d1818bac8459679d46a8797a
+OPERATIVE_CURRENT: rev0.294
+EVIDENCE: evidence/PEOS_REV0_294_PROJECT_CANON_MEMORY_RUNTIME_REPAIR_EVIDENCE.txt
 ```
 
-## rev0.293 主題
+## rev0.294 主題
 
 ```text
-JST_ONLY_CANONICAL_TIME_GUARD
-SOURCE_TIME_JST_NORMALIZATION_TEST
-TIME_CONFLICT_JST_ONLY_TEST
-EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_TEST
-USER_IDENTITY_CORRECTION_INTERRUPT
-CORRECTION_BOUNDARY_REGRESSION_TEST
+PROJECT_CANON_MEMORY_SHARE_ROOT_CAUSE_CANON
+SYNC_STATE_LATTICE
+PROJECT_CANON_MEMORY_BINDING_HARD_GATE
+FIRST_ACTION_JST_TOOL_RECEIPT_GATE
+BOOT_ATOMIC_ASSET_PRECHECK
+CORRECTION_INTERRUPT_HARD_STOP
+RELEASE_IDENTITY_GUARD
+JST_ONLY_CURRENT_OUTPUT_GUARD
+EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_GUARD
 RECURRING_FRICTION_DECISION_GUARD
 FUTURE_SELF_VISUALIZATION_TYPE_GUARD
-INGRESS_TIME_FAILURE_FIXTURE_REV0293
 ```
 
 ## 最重要規則
 
 ```text
-PEOSの解釈済み時刻はJSTだけ
-外部時刻の原表現はcanonical artifactへ再注入しない
+正本ファイルが読める
+≠ 正本と記憶がruntimeへ共有・結合されている
 ```
 
 ```text
-見た目が似ている
-≠ 同一対象である
+正しいproject canon / memory share
+→ 起動guardと時刻guardが発火
+→ 今回事故は防止される
+```
+
+```text
+rev0.293は拒否済み
+→ 同名上書き禁止
+→ rev0.292からrev0.294として再リリース
 ```
 
 ---
 
-## PEOS GitHub Package rev0.292（継承履歴）
+# PEOS GitHub Package rev0.292
 
 > rev0.292はrev0.291をaccepted baselineとし、正本guardが文書上存在してもruntimeで発火しなかった回帰を、guard追加ではなくcanary・hard-stop・外部receiptを伴うconformance testへ変換する。加えて、timestamp fieldの型検査、assistant時刻代理の拒否、canonical section order、DELTA_ONLY監査密度、delivery-channel証拠境界、父発話31/31用途台帳を追加する。
 >

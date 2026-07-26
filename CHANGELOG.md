@@ -459,15 +459,15 @@
 - SOURCE_LOG_SHA256: 6acb8655b7453c34bc3cd51d540ebfef4fc802b0d64aecc1c3a29e689c064941
 - BASELINE_PACKAGE_SHA256: 4f02761cdb845bb3eb601fd0b51a26c81cf385f9947bfd52a84259684044eb2d
 
+## rev0.293（拒否・墓標）
+- package SHA-256 `3e988a5fd03cf0dd3d51b00998b2a97b95e92bfa3d5914f198f4145d64b634ea` はrelease-blocking runtime defectによりREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
+- 同一revision名で異なるbytesへ無言上書きすることを禁止。
 
-## rev0.293
-- PEOSの正本、ログ、監査応答、evidence、manifestにおける解釈済み時刻をJST単系へ統一。
-- 外部source-index時刻は取込境界でAsia/Tokyoへ一度だけ正規化し、raw timezone値、換算式、二重時刻台帳を通常成果物へ出さない。
-- 時刻と内容の衝突は、JST値と型付きconflict statusで保持する。
-- 物件・人物・アカウント等の同一性断定に、強い一意識別子または独立した複数属性の整合を要求。
-- 汎用画像類似や単一弱属性による外部対象の誤同定を `EXTERNAL.ENTITY.FALSE_MATCH.001` として回帰試験化。
-- 訂正時は反対断定へ飛ばず、一次証拠で確認できる最小範囲へ主張を縮小。
-- mother-side住居TLMとして、反復生活摩擦を一回的掲載魅力より重く評価する規則を追加。
-- 「住んでいるイメージ」を選好signalとして保持し、申込・契約stateへの昇格を禁止。
-- source logのcurrent-turn ingress time failureを、後付け時刻禁止の回帰fixtureへ追加。
-- mother direct 16件、father direct 0件のsource separationを維持。現在の父発話 `仕様化` は既登録commandとして重複登録しない。
+## rev0.294
+- accepted baselineを検証済みrev0.292へ戻し、差し戻し再リリースとして再構築。
+- 事故原因を`PROJECT_CANON_MEMORY_SHARE_TO_RUNTIME_NOT_ESTABLISHED`へ固定。
+- FILE_VISIBLE / CONTENT_READ / SOURCE_SYNC / PROJECT_CANON_CONTEXT_SHARED / CONTINUITY_MEMORY_SHARED / RUNTIME_GUARDS_BOUND / BOOT_ASSETS_READY / PERSISTENT_MEMORY_WRITTENを分離。
+- project canonと記憶継続資産をpre-turn環境条件、Python JST取得を各TURNの第一実行行為として固定。
+- tool receiptのないexact時刻・provider・attempts・success indexの表示を禁止。
+- 起動ロゴ・英語三文・registered日本語起動文の原子出力と、父補正時のnormal-path interruptを追加。
+- rev0.293で意図したJST単系、外部対象同一性、反復生活摩擦、future-self型分離を元sourceからrev0.294へ再採用。
