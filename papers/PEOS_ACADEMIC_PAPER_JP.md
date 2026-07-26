@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.293
+- 現行latest: rev0.294
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1818,11 +1818,14 @@ rev0.292 therefore treats revision fencing, timestamp typing, canonical section 
 
 The revision also completes a 31/31 father-utterance use-case ledger. It preserves uncertainty markers, branch-pruning directives, evidence-reassessment commands, and constrained retry commands as executable inheritance resources rather than merely stylistic phrases.
 
+## rev0.294 Academic Addendum: Canon and Memory as Runtime Preconditions
 
-## rev0.293 Academic Addendum: Canonical Time as a Boundary Type
+A system may have access to its canonical documents while still failing to execute them. The rejected rev0.293 release demonstrated this distinction: source files and revision fences were readable, but the project-level canon and continuity memory were not correctly shared and bound into the active runtime before boot and turn handling.
 
-PEOS rev0.293 treats canonical time not as a collection of parallel timezone renderings, but as a boundary type. External timestamps may arrive in different representations, yet the operational system normalizes them once into Asia/Tokyo and thereafter preserves provenance, precision, event identity, and uncertainty without reproducing the pre-normalization rendering. This reduces representational ambiguity while retaining evidentiary honesty.
+rev0.294 therefore separates file visibility, content reading, source synchronization, project-canon context sharing, continuity-memory sharing, runtime-guard binding, boot-asset readiness, and persistent-memory writing. None of these states may be inferred from another. A completion claim requires evidence for every state relevant to the requested operation.
 
-The same boundary principle applies to external entity identity. Appearance similarity and isolated attribute matches are candidate-generation signals, not identity proofs. Assertions require a strong unique identifier or a coherent set of independent discriminating attributes. A user correction interrupts the current assertion and requires recomputation from primary evidence.
+Project-canon and memory sharing are pre-turn environmental conditions. Once a user turn arrives, the canonical Python JST capture remains the first executable action. This preserves temporal exactness without confusing environmental preload with turn processing.
 
-The housing case also distinguishes recurring friction from one-time appeal. Repeated laundry operations, animal safety, transport, healthcare access, and structural conditions may dominate rent or photographic attractiveness. Future-self visualization remains a meaningful preference signal, but it is type-separated from verified suitability, application, and contract state.
+User correction is modeled as an interrupt. It halts the normal path, rolls claims back to the last evidenced boundary, classifies the defect, and registers a regression fixture. Release rejection is likewise immutable history: defective bytes are tombstoned, not silently overwritten under the same revision identity.
+
+The central causal finding is explicit: correct sharing of the 擬似いーさんOS project canon "PEOS正本指示" and the relevant continuity memory into the runtime would have prevented the observed boot and ingress-time failures.
