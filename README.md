@@ -1,3 +1,110 @@
+# PEOS GitHub Package rev0.293
+
+> rev0.293は検証済みrev0.292をaccepted baselineとし、時刻表現をJST単系へ統一する。外部時刻は取込境界でAsia/Tokyoへ一度だけ正規化し、raw timezone値・換算式・二重台帳を通常成果物へ出さない。加えて、外部対象同一性の複数証拠照合、訂正時の証拠境界への縮小、mother-side反復生活摩擦TLM、時刻ゲート失敗fixtureを追加する。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-07-27 03:11:10(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `仕様化`
+
+## rev0.293 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.292.zip
+ACCEPTED_BASELINE_SHA256: 94bcfc3e6eaa7c5332f6dacf325ce60b1e4381be07541017b25af2db81c410d9
+SOURCE_LOG: PEOS_mother_session_log_2026_07_27_014121.txt
+SOURCE_LOG_SHA256: 9506d2f9846ff643c866890c323b0427946dfac7d1818bac8459679d46a8797a
+SOURCE_STATUS: NEW_SOURCE
+SOURCE_VALID_AT_GENERATION: rev0.291
+OPERATIVE_CURRENT: rev0.293
+EVIDENCE: evidence/PEOS_REV0_293_JST_ONLY_ENTITY_IDENTITY_AND_FRICTION_EVIDENCE.txt
+```
+
+## rev0.293 主題
+
+```text
+JST_ONLY_CANONICAL_TIME_GUARD
+SOURCE_TIME_JST_NORMALIZATION_TEST
+TIME_CONFLICT_JST_ONLY_TEST
+EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_TEST
+USER_IDENTITY_CORRECTION_INTERRUPT
+CORRECTION_BOUNDARY_REGRESSION_TEST
+RECURRING_FRICTION_DECISION_GUARD
+FUTURE_SELF_VISUALIZATION_TYPE_GUARD
+INGRESS_TIME_FAILURE_FIXTURE_REV0293
+```
+
+## 最重要規則
+
+```text
+PEOSの解釈済み時刻はJSTだけ
+外部時刻の原表現はcanonical artifactへ再注入しない
+```
+
+```text
+見た目が似ている
+≠ 同一対象である
+```
+
+---
+
+## PEOS GitHub Package rev0.292（継承履歴）
+
+> rev0.292はrev0.291をaccepted baselineとし、正本guardが文書上存在してもruntimeで発火しなかった回帰を、guard追加ではなくcanary・hard-stop・外部receiptを伴うconformance testへ変換する。加えて、timestamp fieldの型検査、assistant時刻代理の拒否、canonical section order、DELTA_ONLY監査密度、delivery-channel証拠境界、父発話31/31用途台帳を追加する。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-07-27 02:39:55(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `いや、応答が見られなかった。今は見えてるから問題ない。／仕様化`
+
+## rev0.292 正本関係
+
+```text
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.291.zip
+ACCEPTED_BASELINE_SHA256: 4f02761cdb845bb3eb601fd0b51a26c81cf385f9947bfd52a84259684044eb2d
+SOURCE_LOG: PEOS_father_session_log_2026_07_27_021859.txt
+SOURCE_LOG_SHA256: 6acb8655b7453c34bc3cd51d540ebfef4fc802b0d64aecc1c3a29e689c064941
+SOURCE_STATUS: NEW_AUDIT_AND_IDEOLOGY_INPUT
+SOURCE_STALE_AT_GENERATION: true
+OPERATIVE_CURRENT: rev0.292
+EVIDENCE: evidence/PEOS_REV0_292_RUNTIME_CONFORMANCE_AND_FATHER_LEDGER_EVIDENCE.txt
+```
+
+## rev0.292 主題
+
+```text
+REVISION_FENCE_CANARY_TEST
+STALE_RUNTIME_MUST_HARD_STOP_TEST
+TIMESTAMP_FIELD_TYPE_TEST
+ASSISTANT_TIME_PROXY_REJECTION_TEST
+CANONICAL_EXTRA_SECTION_REJECTION_TEST
+DELTA_ONLY_AUDIT_DENSITY_TEST
+DELIVERY_CHANNEL_EXTERNAL_RECEIPT_TEST
+FATHER_VOCABULARY_FULL_LEDGER_TEST
+EXCLUDED_BRANCH_NONRESURRECTION_TEST
+CORRECTION_TO_REGRESSION_TEST
+```
+
+## 最重要規則
+
+```text
+guardが仕様書に書かれている
+≠ runtimeでguardが動いた
+```
+
+```text
+補正
+→ 同種故障クラス化
+→ regression test
+```
+
+```text
+artifactの自己申告
+≠ UI配送経路の外部証拠
+```
+
+---
+
 # PEOS GitHub Package rev0.291
 
 > rev0.291はrev0.290をaccepted baselineとし、同一content hashの再投入を重複学習へ変換しないsource deduplication、最終SEQ集合からの派生集計再計算、生成時点と現在利用時点を分ける歴史的revision評価、同一logical artifactのhash-linked version chainを追加する。

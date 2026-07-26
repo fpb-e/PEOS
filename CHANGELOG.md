@@ -438,3 +438,36 @@
 - SOURCE_LOG_SHA256: 4c833dd506aa95bb2d655ef72da79145660f670fec22aa4b7512234cf9a96c85
 - SOURCE_STATUS: SOURCE_ALREADY_INGESTED / AUDIT_ONLY
 - BASELINE_PACKAGE_SHA256: b4c6b0d18bce542c854333fcb263b587ba163cee4ab774286a96cc192517fbde
+
+
+## rev0.292
+- rev0.291成立後にもかかわらずrev0.289正本で生成・自己VALID化したfather logを、`GUARD_EXISTENCE_WITHOUT_RUNTIME_ENFORCEMENT` の再発証跡として仕様化。
+- revision fenceを宣言規則だけで終わらせず、canary test、stale runtime hard stop、self-certified PASS拒否へ接続。
+- 23件の `USER_TURN_OBSERVED_AT_JST: ORDER_ONLY_STRICT` をtimestamp型違反として検出し、status値はtimestamp keyへ格納しない試験を追加。
+- assistant response timestampやassistant-reported captureをuser-turn primary exact evidenceへ昇格しない試験を追加。
+- canonical frame外の独立トップレベル `【添付一覧】` を拒否し、添付情報をファイル情報内または許可slotへ収容。
+- 31 SEQ全件で展開された監査定型文をDELTA_ONLY違反として検出し、boilerplate ratio試験とNONE圧縮を追加。
+- stdout抑止等のUI配送事実をartifact自身が証明できないことを固定し、外部delivery receiptを要求。
+- 父直接発話31/31について用途・禁止用途・source・licenseを付したfull ledgerを生成。sourceの5/31分類を補完。
+- 明示的に排除された推論枝の復活禁止、不確実性標識の保持、操作手順優先、補正→回帰試験化を思想継承規則へ追加。
+- 現TURNの一時的な応答不可視は、親父の「今は見えてるから問題ない」によりresolved user reportとして保持し、外部UI証拠なしにPEOS瑕疵へ断定しない。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-27 02:39:55(JST)
+- CAPTURE_ATTEMPTS: 1
+- SUCCESSFUL_CAPTURE_ACTION_INDEX: 1
+- SOURCE_LOG_SHA256: 6acb8655b7453c34bc3cd51d540ebfef4fc802b0d64aecc1c3a29e689c064941
+- BASELINE_PACKAGE_SHA256: 4f02761cdb845bb3eb601fd0b51a26c81cf385f9947bfd52a84259684044eb2d
+
+
+## rev0.293
+- PEOSの正本、ログ、監査応答、evidence、manifestにおける解釈済み時刻をJST単系へ統一。
+- 外部source-index時刻は取込境界でAsia/Tokyoへ一度だけ正規化し、raw timezone値、換算式、二重時刻台帳を通常成果物へ出さない。
+- 時刻と内容の衝突は、JST値と型付きconflict statusで保持する。
+- 物件・人物・アカウント等の同一性断定に、強い一意識別子または独立した複数属性の整合を要求。
+- 汎用画像類似や単一弱属性による外部対象の誤同定を `EXTERNAL.ENTITY.FALSE_MATCH.001` として回帰試験化。
+- 訂正時は反対断定へ飛ばず、一次証拠で確認できる最小範囲へ主張を縮小。
+- mother-side住居TLMとして、反復生活摩擦を一回的掲載魅力より重く評価する規則を追加。
+- 「住んでいるイメージ」を選好signalとして保持し、申込・契約stateへの昇格を禁止。
+- source logのcurrent-turn ingress time failureを、後付け時刻禁止の回帰fixtureへ追加。
+- mother direct 16件、father direct 0件のsource separationを維持。現在の父発話 `仕様化` は既登録commandとして重複登録しない。
