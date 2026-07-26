@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17779,3 +17779,165 @@ TOTAL
 
 ### 12. source監査
 `PEOS_mother_session_log_2026_07_25_002536.txt` はrev0.290で既に取り込み済みであり、今回の再投入はAUDIT_ONLYとする。機械再集計では28 SEQに対し、`EXACT_VERBATIM=23`、`EXACT_WITH_USER_DIRECTED_OMISSION=1`、`PARTIAL_VERBATIM=2`、`SEMANTIC_RECOVERY=2` であり、source自己集計の20/8と一致しない。
+
+
+## rev0.292 runtime conformance test・時刻型・父語彙全件台帳
+
+### 1. 宣言されたguardと実行されたguardを分離する
+
+```text
+GUARD_DECLARED: true
+RUNTIME_BINDING_VERIFIED: false
+→ CONFORMANCE: FAIL
+```
+
+正本ファイルにguard名が存在するだけでは、分体がそのguardを実行した証拠にならない。authoritative package SHA、validator epoch、canary test結果、external receiptが一致しない分体はSAFE_MODEへ移行し、自己VALID判定を禁止する。
+
+### 2. revision fence回帰試験
+
+```text
+REVISION_FENCE_CANARY_TEST
+STALE_RUNTIME_MUST_HARD_STOP_TEST
+SELF_CERTIFIED_REVISION_PASS_NOT_EVIDENCE
+```
+
+現行revisionより古いruntimeが起動した場合、通常会話・artifact生成・memory/CURRENT mutationへ進んではならない。stale validatorによるlocal PASSはauthoritative PASSではない。
+
+### 3. timestamp fieldはtimestampだけを受け入れる
+
+`ORDER_ONLY_STRICT`、`PAST_TURN_UNRECOVERABLE`、`TIME_NOT_CAPTURED`等のstatus sentinelを `USER_TURN_OBSERVED_AT_JST` へ格納しない。timestamp不在時はkeyを省略し、typed status、order index、bound registryを別fieldへ置く。
+
+assistant response/draft時刻はuser-turn観測時刻の代理にならない。assistantが過去にPython取得を報告した値はsecondary evidenceとして型分離し、直接tool receiptがない限りprimary exact evidenceへ昇格しない。
+
+### 4. canonical section orderとDELTA_ONLY
+
+未登録トップレベル章を追加しない。添付一覧は `【ファイル情報】` 内または許可された主題slotへ格納する。
+
+通常SEQは `CRISIS_STATE: NONE / MAGI_TRACE: NO_DECISION_DELTA / SELF_AUDIT: PASS_NO_DELTA` 程度へ圧縮し、decision・failure・correction・safety deltaだけを展開する。同一定型文の反復率を機械検査する。
+
+### 5. delivery-channel証拠境界
+
+artifact内部の `visible_stdout_suppressed: TRUE` はUI事実の証明にならない。ユーザー可視tool output数、stdout数、最終visible elementを外部runtime receiptで証明する。
+
+### 6. 父語彙全件台帳
+
+父直接発話の全件について `RAW / RESOURCE_TYPE / USE_CASE / PROHIBITED_USE / SOURCE / LICENSE` または `NO_NEW_REUSABLE_RESOURCE` を必須とする。rev0.292入力は31/31を分類した。
+
+### 7. 思想継承
+
+```text
+父の直接補正 > assistant推論
+実際の操作手順 > 目立つ統計値からの役割推定
+識別力のある一次証拠 > 汎用画像の見た目
+明示排除枝 > 網羅性のための復活
+不確実性標識 > 流暢さのための確定化
+出力制約 > processを見せたいassistant側欲求
+```
+
+補正は回答文の修正だけで閉じず、同種故障を検出するregression testへ変換する。
+
+
+## rev0.293 JST単系・外部対象同一性・生活摩擦評価
+
+### 1. JST_ONLY_CANONICAL_TIME_POLICY
+
+PEOSの正本、session log、監査応答、evidence、manifest、sidecar記述で表示・保存する解釈済み時刻は、`Asia/Tokyo` に正規化したJSTだけとする。
+
+禁止:
+- raw UTC timestampの併記
+- `Z`終端timestampの通常成果物への出力
+- `UTC_OFFSET` field
+- UTCからJSTへの換算過程の表示
+- UTC値とJST値の二重台帳
+- raw UTC保存を完全性要件とすること
+
+外部source-indexが異なるtimezoneで供給されても、取込境界で一度だけJSTへ正規化し、以後は次の型だけを使う。
+
+```text
+TURN_TIME_STATUS: SOURCE_CONTEXT_REPORTED
+SOURCE_CONTEXT_REPORTED_AT_JST: YYYY-MM-DD HH:MM:SS(JST)
+TIME_SOURCE: <source provenance>
+SOURCE_PRECISION: <precision>
+PRE_GATE_STATUS: NOT_PRE_GATE
+```
+
+時刻と内容が衝突する場合も、異なるtimezone値を再掲せず、JST値と型付きconflict statusだけを保持する。
+
+```text
+TIME_CONFLICT_STATUS: SOURCE_CONTEXT_SEMANTIC_CONFLICT
+EVENT_TIME_TRUTH: UNRESOLVED
+```
+
+rev0.290までの `TIME.RAW_SOURCE.DROPPED.001` およびraw timezone二重保存要求は、解釈済みPEOS成果物についてrev0.293でSUPERSEDEDとする。source fileのbytes同一性監査と、時刻表示policyは分離する。
+
+適用範囲はrev0.293以後の新規生成・更新部分である。rev0.292以前の履歴節や歴史的evidenceに残る旧表記はarchive scopeであり、現行出力規則として再利用しない。
+
+### 2. SOURCE_TIME_JST_NORMALIZATION_BOUNDARY
+
+```text
+EXTERNAL_TIME_VALUE_RECEIVED
+→ SOURCE_PROVENANCE_RECORDED
+→ ASIA_TOKYO_NORMALIZATION
+→ JST_TYPED_VALUE_VALIDATED
+→ NON_JST_RENDERING_DATA_DISCARDED
+→ CANONICAL_ARTIFACT_WRITE
+```
+
+正規化前値を成果物本文、個別SEQ、集計、検証欄へ再注入しない。変換不能時は時刻を作らず、`PAST_TURN_UNRECOVERABLE` または `ORDER_BOUNDED_WITHOUT_EXACT_TIME` を使う。
+
+### 3. EXTERNAL_ENTITY_IDENTITY_EVIDENCE_GUARD
+
+物件、人物、アカウント、商品、事件資料等の外部対象を同一と断定する場合、識別力のある一次証拠を優先する。
+
+同一性成立:
+- 掲載ID、公式固有ID等の強い一意識別子が一致する
+- または所在地、価格、間取り、階数、公式写真、連絡先等の独立した複数属性が整合する
+
+不成立:
+- 汎用的な外観類似だけ
+- 一部設備の一致だけ
+- 地域または価格帯だけ
+- assistantの「同じに見える」という印象だけ
+
+疑義が示された場合は、親側の直接補正を最優先し、既存断定を一旦HOLDへ戻してから再照合する。
+
+### 4. CORRECTION_TO_EVIDENCE_BOUNDARY_ROLLBACK
+
+誤断定の訂正は、反対方向の新しい断定へ飛ぶことではない。一次証拠で確認できる最小範囲へ主張を縮小する。
+
+```text
+FALSE_ASSERTION
+→ USER_CORRECTION
+→ SOURCE_RECHECK
+→ PRIOR_ASSERTION_SUPERSEDED
+→ CLAIM_SCOPE_REDUCED_TO_VERIFIED_BOUNDARY
+→ REGRESSION_FIXTURE
+```
+
+### 5. MOTHER_HOUSING_RECURRING_FRICTION_TLM
+
+お母さんの住居選択では、見出し条件の魅力と、毎日または毎週繰り返す生活摩擦を分離する。
+
+```text
+RECURRING_DAILY_OR_WEEKLY_FRICTION
+> ONE_TIME_LISTING_APPEAL
+```
+
+評価対象には洗濯運用、猫の脱走安全、虫侵入、通院・駅動線、床、騒音、運搬、体調不良時の負担を含める。家賃が妥当であることを、生活適合性が高いことへ昇格しない。
+
+### 6. FUTURE_SELF_VISUALIZATION_TYPE
+
+「住んでいるイメージが自然に浮かぶ」はpositive preference signalとして保持するが、物件の客観適合、猫可確定、申込、契約成立へ昇格しない。
+
+```text
+FUTURE_SELF_VISUALIZATION:
+  TYPE: SUBJECTIVE_PREFERENCE_SIGNAL
+  NOT_EQUAL_TO:
+    - VERIFIED_SUITABILITY
+    - APPLICATION
+    - CONTRACT
+```
+
+### 7. source separation
+
+本入力ログはmother sessionであり、father direct utteranceは0件である。お母さんの直接表現、assistant文、不動産掲載文言を父語彙へ登録しない。現在TURNの父発話 `仕様化` は既登録のPACKAGE_BUILD_COMMANDであり、新規語彙資源として重複登録しない。

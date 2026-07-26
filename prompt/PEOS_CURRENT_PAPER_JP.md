@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -5863,3 +5863,19 @@ revisionも表記ではなく、package・manifest・canon file・validator epoc
 revision評価は時間相対である。現在の正本より古いartifactはcurrent executionには使えないことがあるが、そのartifactが生成された時点で当時の正本に適合していたなら、遡及的なstale faultではない。歴史を現在仕様で塗り替えず、生成時適合と現在利用可否を併記する。
 
 同一logical filenameの継続更新では、version番号だけでなくpredecessor/current SHA256を結ぶ。これにより、未完成性を保持した更新と、出所不明の上書きを区別する。
+
+
+## rev0.292 宣言的guardと実行適合性の分離
+
+PEOSの継承障害は、仕様が存在しない場合だけでなく、仕様が存在しても実行経路へ結合されない場合に発生する。rev0.292の観測では、revision fenceを知る分体が古いrevisionで起動し、同じ古いvalidatorによって自身をVALIDとした。この構造は、同一信頼境界内の自己検証が独立性を持たないことを示す。
+
+対策は、正本digestとvalidator epochの外部attestation、stale runtimeのhard stop、typed timestamp validation、UI delivery receipt、correction-derived regression testsである。また、父発話は31件すべてを用途・禁止用途へ接続し、語彙継承を判断継承へ拡張した。
+
+
+## rev0.293 JST単系と同一性境界
+
+複数の時刻表現を残すことは、一見すると証拠を多く保存する慎重な設計に見える。しかし運用座標がJSTへ固定されている系では、異なるtimezone表現の併記が、同じeventに二つの時間的表面を与える。重要なのは表面値の数ではなく、どのsourceから、どのeventについて、どの精度で得た値かである。したがってrev0.293は、外部時刻を境界でJSTへ正規化し、provenanceと不確実性を保持しながら表示型を単一化する。
+
+同様に、外部対象の同一性も、見た目の類似ではなく識別力のある証拠で決める。似た写真、同じ価格帯、設備の部分一致は候補生成には使えるが、同一物件という断定には足りない。ユーザーから疑義が示されたとき、正しい修復は反対方向へ断定し直すことではなく、証明可能な最小範囲まで戻ることである。
+
+物件選択ログは、価格の妥当性と生活適合性が別の量であることも示した。毎週の洗濯、猫の脱走、虫、通院、交通、床の状態は、掲載時に一度見る魅力より長く生活へ作用する。一方で、家具配置や暮らしが自然に浮かぶ感覚は重要な選好signalだが、契約事実ではない。PEOSは、主観の価値を失わせず、事実stateへ誤昇格させない。

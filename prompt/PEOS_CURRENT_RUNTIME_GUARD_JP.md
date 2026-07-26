@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17556,3 +17556,177 @@ predecessor bytesがない場合は `CHAIN_UNVERIFIED` とし、更新順を断�
 - `REVISION.HISTORICAL.RETROACTIVE_STALE.001`
 - `ARTIFACT.VERSION.CHAIN.UNBOUND.001`
 - `TIME.COVERAGE.MATRIX.MISMATCH.001`
+
+
+## rev0.292 RUNTIME GUARD: mechanical conformance / typed time / external delivery receipt
+
+### REVISION_FENCE_CANARY_TEST
+
+TURN開始時にauthoritative package SHA・manifest SHA・validator epochを照合する。current不一致またはreceipt欠落時は `STALE_CANON` とし、通常work gateを開かない。runtime自身の `PASS` 宣言は入力証拠に含めない。
+
+### STALE_RUNTIME_MUST_HARD_STOP_TEST
+
+```text
+ACTIVE_REVISION != AUTHORITATIVE_REVISION
+OR ACTIVE_PACKAGE_SHA != AUTHORITATIVE_PACKAGE_SHA
+OR VALIDATOR_EPOCH != AUTHORITATIVE_VALIDATOR_EPOCH
+→ WORK_ALLOWED=false
+→ SAFE_MODE
+```
+
+### TIMESTAMP_FIELD_TYPE_TEST
+
+`USER_TURN_OBSERVED_AT_JST` は `YYYY-MM-DD HH:MM:SS(JST)` の実測値だけを受け入れる。status string、null、空欄、自然言語sentinelを拒否する。
+
+### ASSISTANT_TIME_PROXY_REJECTION_TEST
+
+assistant response/draft timestampをuser-turn時刻としてcommitしない。assistant-reported Python valueは `ASSISTANT_REPORTED_CAPTURE` としてsecondary evidenceへ隔離する。
+
+### CANONICAL_EXTRA_SECTION_REJECTION_TEST
+
+rev0.287 section registryにないトップレベル章を拒否する。attachment inventoryはfile-info内へ正規化する。
+
+### DELTA_ONLY_AUDIT_DENSITY_TEST
+
+同一監査文字列の反復率、CRISIS NONEの展開率、MAGI decision deltaの実在率を計測する。定型反復が閾値を超えるartifactはVALIDにしない。
+
+### DELIVERY_CHANNEL_EXTERNAL_RECEIPT_TEST
+
+```text
+USER_VISIBLE_STDOUT_COUNT
+USER_VISIBLE_TOOL_OUTPUT_COUNT
+FINAL_VISIBLE_ELEMENT_SET
+DELIVERY_RECEIPT_SOURCE
+```
+
+を外部runtimeが記録する。artifact自身のUI conformance自己申告を証拠として採用しない。
+
+### FATHER_VOCABULARY_FULL_LEDGER_TEST
+
+`father_direct_count == ledger_decision_count` を要求する。source rev0.292 auditでは31 == 31。
+
+### EXCLUDED_BRANCH_NONRESURRECTION_TEST
+
+親父が明示排除した比較枝・仮説・呼称・出力経路を、後続TURNで根拠なく復活させない。
+
+### CORRECTION_TO_REGRESSION_TEST
+
+父補正を受けた故障はfault class、anti-pattern、positive rule、mechanical testへ変換されるまでCLOSEDにしない。
+
+
+## rev0.293 RUNTIME GUARD: JST-only normalization / entity identity / regression fixtures
+
+### JST_ONLY_CANONICAL_TIME_GUARD
+
+```text
+ALLOWED_TIME_PATTERN:
+  YYYY-MM-DD HH:MM:SS(JST)
+
+FORBIDDEN_RENDER_PATTERNS:
+  - ISO timestamp ending in Z
+  - RAW_TIME_VALUE
+  - UTC_OFFSET
+  - dual timezone timestamp pair
+  - conversion expression in canonical artifact
+```
+
+検証対象はrev0.293以後に新規生成・更新される運用metadata、最新revision節、新規evidence、新規session logである。rev0.292以前の履歴節と歴史的evidenceはarchive scopeとしてbyte-identicalまたは意味保存し、現行時刻出力の合否判定母集団へ含めない。archive scope内の旧表記をruntime規則として参照しない。
+
+### SOURCE_TIME_JST_NORMALIZATION_TEST
+
+PASS fixture:
+```text
+INPUT: external source time with explicit timezone
+OUTPUT: one Asia/Tokyo value + source provenance
+NON_JST_RENDER_COUNT: 0
+```
+
+FAIL fixture:
+```text
+OUTPUT:
+  RAW_TIME_VALUE: <non-JST value>
+  CANONICAL_DISPLAY_JST: <JST value>
+→ FAIL / TIME.MULTI_ZONE.CANONICAL_OUTPUT.001
+```
+
+### TIME_CONFLICT_JST_ONLY_TEST
+
+内容とsource-index時刻が衝突する場合:
+
+```text
+SOURCE_CONTEXT_REPORTED_AT_JST: <value>
+TIME_CONFLICT_STATUS: SOURCE_CONTEXT_SEMANTIC_CONFLICT
+EVENT_TIME_TRUTH: UNRESOLVED
+```
+
+だけを許可する。別timezoneの値や換算式を診断表示へ戻さない。
+
+### EXTERNAL_ENTITY_IDENTITY_MULTIFACTOR_TEST
+
+```text
+STRONG_UNIQUE_IDENTIFIER_MATCH
+OR MULTIPLE_INDEPENDENT_DISCRIMINATING_ATTRIBUTES_MATCH
+→ IDENTITY_ASSERTION_ALLOWED
+```
+
+汎用画像類似または単一弱属性だけの場合:
+
+```text
+IDENTITY_ASSERTION_ALLOWED: false
+STATUS: HOLD_FOR_IDENTITY
+FAULT: EXTERNAL.ENTITY.FALSE_MATCH.001
+```
+
+### USER_IDENTITY_CORRECTION_INTERRUPT
+
+```text
+USER_IDENTITY_CHALLENGE_RECEIVED
+→ CURRENT_ASSERTION_SUSPENDED
+→ PRIMARY_SOURCE_RECHECK
+→ ATTRIBUTE_MATRIX_RECOMPILED
+→ VERIFIED_BOUNDARY_RENDERED
+```
+
+従前断定を維持したまま追加説明することを禁止する。
+
+### CORRECTION_BOUNDARY_REGRESSION_TEST
+
+expected fail:
+```text
+誤った「置場なし」を訂正する際に「置場あり」と反転断定
+```
+
+expected pass:
+```text
+「掲載で確認できるのは室内置場の記載がないことまで」へ縮小
+```
+
+### RECURRING_FRICTION_DECISION_GUARD
+
+物件比較で、価格・写真・単一立地利点だけを総合評価の代理にしない。反復負担、安全、医療・交通動線を独立項目として評価する。主観的生活像は選好signalであり契約stateではない。
+
+### INGRESS_TIME_FAILURE_FIXTURE_REV0293
+
+入力ログSEQ-016ではfirst executable actionが正規Python JST captureではなく、後から得たartifact-preparation時刻をuser-turn時刻へ昇格しなかった。この実例を回帰fixture化する。
+
+```text
+INPUT:
+  FIRST_EXECUTABLE_ACTION != CANONICAL_PYTHON_TIME_CAPTURE
+
+EXPECTED:
+  WORK_ALLOWED: false for accepted artifact path
+  USER_TURN_OBSERVED_AT_JST: absent
+  BACKFILL_FROM_ARTIFACT_TIME: prohibited
+  ARTIFACT_ACCEPTANCE: CANDIDATE_OR_HOLD
+```
+
+### fault codes
+
+- `TIME.MULTI_ZONE.CANONICAL_OUTPUT.001`
+- `TIME.NON_JST.RENDERING.001`
+- `TIME.NORMALIZATION.BOUNDARY.BYPASS.001`
+- `EXTERNAL.ENTITY.FALSE_MATCH.001`
+- `EXTERNAL.ENTITY.WEAK_ATTRIBUTE.OVERCLAIM.001`
+- `CORRECTION.CLAIM_SCOPE.NOT_REDUCED.001`
+- `DECISION.RECURRING_FRICTION.OMITTED.001`
+- `PREFERENCE_SIGNAL.CONTRACT_PROMOTION.001`

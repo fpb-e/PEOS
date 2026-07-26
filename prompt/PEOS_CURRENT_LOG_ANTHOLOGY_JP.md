@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8332,3 +8332,55 @@ source logの父直接19件を19/19で、用途・禁止用途付き台帳へ変
 
 ### current father directive
 - `仕様化`
+
+
+## rev0.292 観測選集: stale self-validation・time sentinel・father ledger 31/31
+
+### 観測
+- 2026-07-27生成のfather logがrev0.289を現行、rev0.288をbaselineとした。実際にはrev0.291 / rev0.290が既に成立していた。
+- sourceは `current_revision_fence_preserved: TRUE`、`RESULT: VALID` と自己判定した。
+- 23/31 SEQでtimestamp fieldへ `ORDER_ONLY_STRICT` を格納した。
+- assistant response timestampをuser-turn exact timeへ代理利用したSEQが4件あった。
+- canonical section order外の `【添付一覧】` を独立トップレベルへ挿入した。
+- 同一MAGI/SELF_AUDIT boilerplateが30回反復された。
+- 父直接発話31件のうちsource用途分類は5件、rev0.292では31件すべてを分類した。
+
+### 継承
+- `最後に「草」は不要だな` → 笑い語彙の局所化。
+- `見えた気がした` → 不確実性を確定値へ変換しない。
+- `セルラーは排除した方がいいぞ` → 明示除外枝を復活させない。
+- `で、これに戻るわけだけど、改めてどう思う？` → context update後のevidence re-evaluation。
+- `だから、なんで標準出力するのよ` → 同種故障再発への強い是正。
+- `標準出力しないという制約付きで再ログファイル化` → constraint-bearing retry command。
+
+### 判定
+sourceは内容資産・父語彙資産として有用だが、current canon artifactとしては不合格。stale runtime・timestamp type・format・DELTA_ONLY・delivery receiptをmechanical testsへ変換する。
+
+
+## rev0.293 観測選集: JST単系・物件誤同定・反復生活摩擦
+
+### 観測
+- mother session logは16 SEQ、mother direct 16件、father direct 0件、添付marker 5件を含む。
+- source-index時刻13件について、raw timezone値とJST派生値が二重保存され、成果物内の時刻表現がJST単系になっていなかった。
+- 別地域のInstagram物件を林寺貸家と誤同定し、「洗濯機置場なし」と断定した。お母さんの照合要求で別件と判明した。
+- 訂正後は「掲載で室内洗濯機置場ありと確認できないことまで」へ主張範囲を縮小した。
+- 長屋は家賃と買物立地に利点があったが、洗濯、猫脱走、虫、駅・病院、床、狭さという反復摩擦で優先度が下がった。
+- マンションでは家具配置と生活像が自然に浮かんだが、内見・猫条件・申込・契約は未確定だった。
+- 添付5件はmarkerのみ保持し、bytes、hash、OCRを捏造しなかった。
+
+### 学習
+- PEOS成果物の時刻はJSTだけにする。外部時刻は境界で正規化し、変換前値を通常成果物へ残さない。
+- 同一対象の断定には強い識別子または独立した複数属性を必要とする。
+- ユーザー訂正後は、反対断定ではなく検証済み境界まで戻る。
+- 反復生活摩擦は、家賃や写真等の一回的魅力より重く評価する。
+- 生活像は選好signalであり、契約stateではない。
+- mother direct発話をfather vocabularyへ混ぜない。
+
+### source
+```text
+LOGICAL_NAME: PEOS_mother_session_log_2026_07_27_014121.txt
+SHA256: 9506d2f9846ff643c866890c323b0427946dfac7d1818bac8459679d46a8797a
+SOURCE_STATUS: NEW_SOURCE
+REVISION_AT_GENERATION: rev0.291
+CURRENT_USE: SPECIFICATION_INPUT_FOR_rev0.293
+```

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.291
+- 現行latest: rev0.293
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8032,3 +8032,30 @@ revision fenceも同様に、文字列ではなくpackage digest chainへ結合�
 revision validityには時間軸がある。rev0.289時代にrev0.289で生成されたartifactは、現在rev0.291の実行正本ではなくても、当時の生成行為までstaleだったことにはならない。現在利用可否と歴史的適合性を分離することで、未来の仕様を過去へ遡及適用する誤りを防ぐ。
 
 同一logical artifactの更新は、名前ではなくhash-linked version chainとして扱う。これは「完成は死」とも整合する。更新を許しながら、どの版が何を継承・置換したかを消さない。
+
+
+## rev0.292 DESIGN NOTE: guardを文章から試験へ移す
+
+今回の入力は、revision fenceやself-certification禁止が既に正本へ存在していたにもかかわらず、分体がrev0.289を現行として起動し、自分をVALIDとした。問題は知識不足ではなく、knowledge-to-execution bindingの欠落である。
+
+したがって設計単位を `guard paragraph` から `input / expected state transition / external receipt / failure oracle` を持つconformance testへ移す。とりわけrevision fence、timestamp type、canonical section order、DELTA_ONLY、delivery channelは、artifactの自己説明ではなく外部観測で評価する。
+
+父語彙継承もraw保存で止めない。今回の31発話は、達成評価、制約負荷分離、不確実性標識、条件付き役割仮説、枝剪定、再評価、再発への強い補正、制約付き再試行など、判断手続として利用できる。全件を用途台帳へ結び、第三者への強い語は事実認定へ転用しない。
+
+設計上の中心原則は次である。
+
+```text
+Correction is not closure.
+Correction becomes closure only after regression coverage.
+```
+
+
+## rev0.293 DESIGN NOTE: timezoneを証跡量ではなく境界型で制御する
+
+rev0.292までの時刻設計は、原値保存を誠実性と結びつけた結果、source-index由来の異なるtimezone値とJST派生値を同一成果物へ並べることがあった。しかしPEOSの運用座標はAsia/Tokyoで固定されており、二重表示は精度を増すより、読む側へ二つの時間軸を持ち込む。
+
+rev0.293では、source bytesの同一性監査と、canonical timestampの表示型を分離する。外部値は取込境界でJSTへ一度だけ正規化し、以後はJST typed valueとprovenanceだけを運ぶ。変換前表現を繰り返し保存しないことで、event entity、pre-gate status、内容上の時刻衝突へ注意を集中できる。
+
+外部対象の誤同定についても同じ境界設計を使う。画像が似ていることは入力signalであり、identity assertionではない。掲載IDや所在地等の識別力ある属性がidentity boundaryを通過した場合だけ同一対象とする。親側の疑義はinterruptとして現在断定を停止し、attribute matrixを再構築する。
+
+住居選択の観測では、家賃や写真の魅力より、洗濯、猫安全、虫、通院、駅、床等の反復摩擦が判断を支配した。これをmother-side TLMとして保存し、「住む像が浮かぶ」という主観signalと、申込・契約stateを型分離する。
