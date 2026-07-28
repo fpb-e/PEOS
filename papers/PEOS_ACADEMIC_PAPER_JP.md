@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## 補遺 rev0.166: 観測ログにおける非捏造原則
 
@@ -1829,3 +1857,17 @@ Project-canon and memory sharing are pre-turn environmental conditions. Once a u
 User correction is modeled as an interrupt. It halts the normal path, rolls claims back to the last evidenced boundary, classifies the defect, and registers a regression fixture. Release rejection is likewise immutable history: defective bytes are tombstoned, not silently overwritten under the same revision identity.
 
 The central causal finding is explicit: correct sharing of the 擬似いーさんOS project canon "PEOS正本指示" and the relevant continuity memory into the runtime would have prevented the observed boot and ingress-time failures.
+
+## rev0.295 Academic Addendum: Exclusive Python Receipts for Turn-Time Authorization
+
+The canonical PEOS turn timestamp is no longer modeled as a priority list among UI measurements, reconstructed values, indexes, or artifact clocks. It is bound exclusively to an actual Python execution of `datetime.now(ZoneInfo("Asia/Tokyo"))` performed as the first executable action after turn arrival. Other clocks may exist as historical observations, but they are neither fallback providers nor explanations for the absence of canonical ingress evidence.
+
+Receipt binding is symmetric. A successful timestamp, a failed attempt count, a provider label, and a successful action index all require actual tool receipts. If no call occurred, the state is `NOT_ATTEMPTED`; the runtime may not claim that Python failed twice.
+
+The revision also distinguishes honesty from conformance. Disclosing that a hard gate failed does not convert a completed artifact into a conforming one. Content preservation may pass while runtime conformance fails, in which case operative acceptance is blocked and the artifact remains audit-only.
+
+The same non-compression principle applies to continuity retrieval versus runtime memory sharing, visible boot text versus boot conformance, user property choice versus contract execution, operational plans versus permission and safety validation, nourishment versus symptom resolution, and generated moodboards versus measurement assets.
+
+SOURCE_LOG_SHA256: `0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75`  
+BASELINE_PACKAGE_SHA256: `d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-28 10:54:18(JST)

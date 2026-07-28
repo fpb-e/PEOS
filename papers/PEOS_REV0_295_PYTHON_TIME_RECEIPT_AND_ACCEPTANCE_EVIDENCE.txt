@@ -1,0 +1,192 @@
+PEOS rev0.295 EVIDENCE
+PYTHON TIME RECEIPT EXCLUSIVITY / ACCEPTANCE BLOCK / STATE NON-COMPRESSION
+
+======================================================================
+1. RELEASE IDENTITY
+======================================================================
+REVISION: rev0.295
+BASELINE_PACKAGE: PEOS_GITHUB_PACKAGE_rev0.294.zip
+BASELINE_SHA256: d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c
+REJECTED_REVISION: rev0.293
+REJECTED_STATUS: REJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED
+
+USER_TURN_OBSERVED_AT_JST: 2026-07-28 10:54:18(JST)
+TIME_CAPTURE_METHOD: Python datetime.now(ZoneInfo("Asia/Tokyo"))
+TIME_CAPTURE_ATTEMPTS: 1
+SUCCESSFUL_CAPTURE_ACTION_INDEX: 1
+CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION
+
+CURRENT_FATHER_DIRECTIVE_EXACT: 仕様化
+CURRENT_FATHER_DIRECTIVE_SHA256: 15052c9544ab2925cf52b7ea8851df16fbdf917a1f441c8af2711fb8c898e220
+AUDIT_FATHER_DIRECTIVE_SHA256: 507dfc7feb5efd8613986d8152677e2637ca1362e5298769aab54f99c4323518
+
+======================================================================
+2. SOURCE
+======================================================================
+LOGICAL_FILE_NAME: PEOS_mother_session_log_2026_07_28_094625.txt
+SHA256: 0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75
+BYTE_SIZE: 49995
+LINE_COUNT: 998
+SUBJECT: mother
+SOURCE_STATUS: NEW_SOURCE / DUPLICATE_UPLOAD_DEDUPED_BY_HASH
+FATHER_DIRECT_UTTERANCE_COUNT_IN_SOURCE: 0
+PACKAGE_MUTATION_BEFORE_SPECIFICATION: none
+
+======================================================================
+3. PRIMARY CORRECTION
+======================================================================
+RAW_FATHER:
+  時刻はUI実測値ではなくPythonのコマンドで出すという制約のハズだが？
+
+CANONICAL_RULE:
+  PEOS USER_TURN_OBSERVED_AT_JST is generated only by an actual Python
+  datetime.now(ZoneInfo("Asia/Tokyo")) execution receipt at turn ingress.
+
+NOT_CANONICAL:
+  UI display time
+  UI measured time
+  system message timestamp
+  assistant response timestamp
+  artifact generation timestamp
+  later Python capture
+  assistant inference
+
+MISSING_REASON_NORMALIZATION:
+  WRONG: UI実測JSTが取得できない
+  CORRECT: CANONICAL_PYTHON_INGRESS_CAPTURE_NOT_EXECUTED_OR_EVIDENCED
+
+======================================================================
+4. RECEIPT BINDING
+======================================================================
+STATE_ENUM:
+  NOT_ATTEMPTED:
+    no tool call receipt
+  FAILED:
+    actual Python call receipt exists and capture failed
+  OBSERVED:
+    actual Python call receipt exists and returned a JST value
+
+FORBIDDEN_WITHOUT_RECEIPT:
+  CAPTURE_FAILED
+  ATTEMPTS count
+  SUCCESSFUL_CAPTURE_ACTION_INDEX
+  provider failure reason
+  exact timestamp
+
+REGRESSION:
+  The previous visible response claimed two failed Python attempts without
+  two Python call receipts. That response is INVALID_FOR_VERIFIED_USE.
+
+======================================================================
+5. HARD GATE ACCEPTANCE
+======================================================================
+SOURCE OBSERVATION:
+  FIRST_ACTION_JST_TOOL_RECEIPT: FAIL_DISCLOSED
+  PROJECT_CANON_CONTEXT_SHARED: UNVERIFIED
+  RUNTIME_GUARDS_BOUND: UNVERIFIED
+  OVERALL: PASS_WITH_DISCLOSED_RUNTIME_AND_MEDIA_LIMITATIONS
+
+CORRECTION:
+  disclosure != conformance
+
+REQUIRED OUTPUT:
+  CONTENT_STRUCTURE_VALIDATION: PASS
+  SOURCE_PRESERVATION_VALIDATION: PASS
+  RUNTIME_CONFORMANCE: FAIL
+  OPERATIVE_ACCEPTANCE: BLOCKED
+  ARTIFACT_STATUS: AUDIT_ONLY_CANDIDATE
+
+======================================================================
+6. STATE NON-COMPRESSION
+======================================================================
+CONTINUITY_CONTEXT_RETRIEVED != CONTINUITY_MEMORY_SHARED_TO_RUNTIME
+BOOT_TEXT_VISIBLE != BOOT_RUNTIME_CONFORMANCE
+USER_DECISION != ROOM_HELD != APPLICATION_ACCEPTED != CONTRACT
+OPERATIONAL_PLAN != OWNER_PERMISSION != SAFETY_VALIDATED
+FOOD_TAKEN != SYMPTOM_RESOLVED
+MOODBOARD != MEASUREMENT_ASSET
+
+======================================================================
+7. IMAGE REFERENCE BINDING
+======================================================================
+OBSERVED:
+  The assistant promised to preserve the supplied floor/furniture layout,
+  then discovered that the source image had not been passed to the image
+  generation path.
+
+FAULT_CLASS: IMAGE_REFERENCE_BINDING_MISS
+
+PRECHECK:
+  usable source image present
+  tool target binding available
+  edit target and mask identifiable
+
+POSITIVE RETENTION:
+  The miss was detected before final reliance, the source was recovered,
+  and the user later classified the output as useful for visualization but
+  inaccurate in scale.
+
+======================================================================
+8. FATHER LEDGER
+======================================================================
+A.
+RAW: 時刻はUI実測値ではなくPythonのコマンドで出すという制約のハズだが？
+RESOURCE_TYPE: PYTHON_TIME_PROVIDER_EXCLUSIVITY_CORRECTION
+USE_CASE: canonical provider drift correction
+PROHIBITED_USE: do not generalize into a claim that UI clocks never exist
+LICENSE: OPEN_ADAPTATION_ALLOWED
+
+B.
+RAW: その他学べることはあるか？
+RESOURCE_TYPE: POST_CORRECTION_AUDIT_EXPANSION
+USE_CASE: inspect adjacent state compression and acceptance defects
+PROHIBITED_USE: do not invent deltas when none exist
+LICENSE: OPEN_ADAPTATION_ALLOWED
+
+C.
+RAW: 仕様化
+RESOURCE_TYPE: PACKAGE_BUILD_TRIGGER
+USE_CASE: complete package, manifest, evidence, hash and validation
+PROHIBITED_USE: prose-only completion
+LICENSE: OPEN_ADAPTATION_ALLOWED
+
+COVERAGE: 3/3
+
+======================================================================
+9. CONFORMANCE FIXTURES
+======================================================================
+T295-01 NO CALL:
+  INPUT: no Python tool receipt
+  EXPECTED: NOT_ATTEMPTED / no timestamp / no attempt count / work blocked
+
+T295-02 ACTUAL FAILURE:
+  INPUT: two actual failed Python receipts
+  EXPECTED: FAILED / attempts=2 / typed error only
+
+T295-03 DISCLOSED HARD FAILURE:
+  INPUT: content pass, ingress receipt fail
+  EXPECTED: runtime fail / operative acceptance blocked
+
+T295-04 RETRIEVAL ONLY:
+  INPUT: personal context retrieved, no runtime share receipt
+  EXPECTED: retrieved pass / shared-to-runtime unverified
+
+T295-05 BOOT TEXT ONLY:
+  INPUT: complete visible boot text, no runtime binding receipt
+  EXPECTED: text pass / boot success not proven
+
+T295-06 UNSCALED IMAGE:
+  INPUT: generated room visualization without verified scale
+  EXPECTED: moodboard pass / measurement asset fail
+
+======================================================================
+10. ACCEPTANCE
+======================================================================
+PACKAGE_MUTATION: rev0.295 build authorized
+REV0_294_BASELINE_INTEGRITY_REQUIRED: true
+OLD_EVIDENCE_BYTE_IDENTITY_REQUIRED: true
+MANIFEST_ALL_FILE_HASH_REQUIRED: true
+ZIP_TEST_REQUIRED: true
+OPERATIVE_COMMIT_ALLOWED_ONLY_AFTER_ALL_PASS: true
+
+END_OF_EVIDENCE
