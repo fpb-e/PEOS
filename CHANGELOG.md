@@ -471,3 +471,26 @@
 - tool receiptのないexact時刻・provider・attempts・success indexの表示を禁止。
 - 起動ロゴ・英語三文・registered日本語起動文の原子出力と、父補正時のnormal-path interruptを追加。
 - rev0.293で意図したJST単系、外部対象同一性、反復生活摩擦、future-self型分離を元sourceからrev0.294へ再採用。
+
+## rev0.295
+- TURN入口時刻providerを実Python `datetime.now(ZoneInfo("Asia/Tokyo"))` receiptへ排他的に固定。
+- UI表示・UI実測・system timestamp・assistant timestamp・artifact時刻・後続取得値をfallbackと欠測理由から除外。
+- tool未実行時の架空`CAPTURE_FAILED`、attempt count、success index、provider failure表示を禁止。
+- `NOT_ATTEMPTED / FAILED / OBSERVED`の三状態を導入。
+- hard gate failureを開示したartifactの`PASS_WITH_LIMITATION`昇格を禁止し、runtime FAIL時はoperative acceptanceをBLOCK。
+- content validation、source preservation、runtime conformanceを分離。
+- continuity context retrievalとmemory shared-to-runtimeを分離。
+- visible sync claimと実証範囲を結合し、過大宣言をSUPERSEDED管理。
+- boot text visibilityとruntime boot successを分離。
+- image reference binding precheckと`IMAGE_REFERENCE_BINDING_MISS`を追加。
+- generated moodboardとmeasurement assetを用途型分離。
+- 住居選択・連絡・申込み・契約、運用案・許可・安全実効性、食事・症状解消を非圧縮化。
+- source `PEOS_mother_session_log_2026_07_28_094625.txt` SHA-256 `0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75` を一回だけ取り込み、重複uploadをdedup。
+- 父補正3件を用途台帳へ追加。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-28 10:54:18(JST)
+- CAPTURE_ATTEMPTS: 1
+- SUCCESSFUL_CAPTURE_ACTION_INDEX: 1
+- SOURCE_LOG_SHA256: 0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75
+- BASELINE_PACKAGE_SHA256: d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c

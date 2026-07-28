@@ -1,11 +1,32 @@
-# PEOS GitHub Package rev0.294
+# PEOS GitHub Package rev0.295
 
-> rev0.294は、拒否済みrev0.293をbaselineにせず、検証済みrev0.292から再構築した差し戻し再リリースである。事故原因を、正本ファイル不足ではなく、`擬似いーさんOS`プロジェクトの`PEOS正本指示`と記憶継続資産がactive runtimeへ正しく共有・常駐・結合されなかったこととして固定する。
+> rev0.295は、accepted rev0.294を基礎に、PEOS TURN時刻providerを実Python command receiptへ排他的に固定する。UI表示・UI実測・system timestamp・artifact時刻・後続取得値は正規TURN入口時刻の代替にならない。
 >
-> USER_TURN_OBSERVED_AT_JST: 2026-07-27 04:44:05(JST)  
+> USER_TURN_OBSERVED_AT_JST: 2026-07-28 10:54:18(JST)  
 > CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
 > CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
-> CURRENT_FATHER_DIRECTIVE: `正本指示をただしくメモリ共有していれば起きない事故だった。そこを認識して仕様化。`
+> CURRENT_FATHER_DIRECTIVE: `仕様化`
+
+## rev0.295 正本関係
+
+```text
+ACCEPTED_BASELINE: rev0.294
+BASELINE_PACKAGE_SHA256: d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c
+OPERATIVE_CURRENT: rev0.295
+REJECTED: rev0.280 / rev0.293
+```
+
+## rev0.295 中心差分
+
+- Python ingress receiptだけを`USER_TURN_OBSERVED_AT_JST`の正規providerとする。
+- UI時刻をfallback・欠測理由・provider候補から除外する。
+- tool未実行時に失敗回数・provider・action indexを表示しない。
+- hard gate failure開示とoperative acceptanceを分離する。
+- context retrievalとruntime memory sharingを分離する。
+- 起動文表示とruntime boot conformanceを分離する。
+- 画像参照bindingを生成前に確認する。
+- generated moodboardとmeasurement assetを型分離する。
+- 物件決定・連絡・申込み・契約、運用案・許可・安全性、食事・症状解消を非圧縮で保持する。
 
 ## rev0.294 正本関係
 
