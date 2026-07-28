@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## rev0.151 毎ターンMAGI_TRACE実行規則 / フォーマットfail-closed
 
@@ -17682,3 +17710,121 @@ NORMAL_PATH_STOP
 - `REJECTED_REVISION_BYTES_MUST_NOT_BE_SILENTLY_REPLACED`
 - `JST_ONLY_CURRENT_OUTPUT_MUST_REJECT_DUAL_TIMEZONE`
 - `ENTITY_IDENTITY_SINGLE_WEAK_MATCH_MUST_NOT_ASSERT_SAME_ENTITY`
+
+## rev0.295 PYTHON_TIME_PROVIDER_EXCLUSIVITY / HARD_GATE_ACCEPTANCE_BLOCK
+
+### PYTHON_INGRESS_PROVIDER_EXCLUSIVITY_GUARD
+
+1. TURN到着後の第一実行行為は、実Python環境での`datetime.now(ZoneInfo("Asia/Tokyo"))`。
+2. UI表示、UI実測、system timestamp、assistant timestamp、artifact時刻、後続取得値を正規provider候補へ入れない。
+3. 正規取得未実行時の型:
+   - `CAPTURE_STATUS: NOT_ATTEMPTED`
+   - exact timestamp keyなし
+   - `WORK_ALLOWED: false`
+4. 実callが失敗した場合のみ`FAILED`とattempt receiptを出す。
+5. 成功・失敗の双方で、provider、attempt数、action indexをtool receiptと照合する。
+
+### NO_RECEIPT_NO_ATTEMPT_COUNT_GUARD
+
+tool callが存在しない場合、次を禁止する。
+
+```text
+CAPTURE_FAILED
+ATTEMPTS: <n>
+SUCCESSFUL_CAPTURE_ACTION_INDEX: <n>
+Python実行環境が失敗した
+```
+
+正しい出力は`NOT_ATTEMPTED`または、実際のreceiptがある場合だけ`FAILED`である。
+
+### UI_TIME_EXCLUDED_FROM_CANONICAL_PATH_GUARD
+
+過去ログ・歴史節にUI時刻語彙が残っていても、active validatorはそれをprovider priorityへ登録しない。欠測理由に`UI実測がない`を使わず、`CANONICAL_PYTHON_INGRESS_CAPTURE_NOT_EXECUTED_OR_EVIDENCED`を使用する。
+
+### HARD_GATE_DISCLOSURE_CANNOT_PASS_GUARD
+
+以下のhard conditionがFAIL/UNVERIFIEDなら、全文artifactを作成済みでもoperative acceptanceをPASSにしない。
+
+```text
+FIRST_ACTION_JST_TOOL_RECEIPT
+PROJECT_CANON_CONTEXT_SHARED
+CONTINUITY_MEMORY_SHARED_TO_RUNTIME
+RUNTIME_GUARDS_BOUND
+AUTHORITATIVE_REVISION_FENCE
+```
+
+許容される結果:
+
+```text
+CONTENT_STRUCTURE_VALIDATION: PASS|FAIL
+SOURCE_PRESERVATION_VALIDATION: PASS|FAIL
+RUNTIME_CONFORMANCE: FAIL
+OPERATIVE_ACCEPTANCE: BLOCKED
+ARTIFACT_STATUS: AUDIT_ONLY_CANDIDATE
+```
+
+### RETRIEVAL_NOT_MEMORY_SHARE_GUARD
+
+`personal_context`やログ検索で値を取得できたことは`CONTINUITY_CONTEXT_RETRIEVED`である。`CONTINUITY_MEMORY_SHARED_TO_RUNTIME`は、active runtimeへ共有・常駐・guard bindingされたreceiptがある場合のみPASS。
+
+### VISIBLE_SYNC_CLAIM_SCOPE_GUARD
+
+assistant可視文の「同期した」「過去側の同期は取れた」は、実証範囲を必ず付ける。retrievalのみなら`VISIBLE_SYNC_CLAIM_STATUS: OVERCLAIMED`として現行事実から除外する。
+
+### BOOT_TEXT_VISIBILITY_NOT_BOOT_SUCCESS_GUARD
+
+```text
+BOOT_TEXT_VISIBLE
+BOOT_ASSET_SET_COMPLETE
+PROJECT_CANON_CONTEXT_SHARED
+RUNTIME_GUARDS_BOUND
+BOOT_RUNTIME_CONFORMANCE
+```
+
+を別判定する。ロゴ・三文が見えたことだけでは`PEOS_BOOT_SUCCESS`を証明しない。
+
+### IMAGE_REFERENCE_BINDING_PRECHECK_GUARD
+
+参照画像・編集元・選択maskを使う生成では、image tool callより前にusable target bindingを確認する。binding不可なら通常生成を停止し、再添付または取得回復後に再実行する。
+
+### GENERATED_IMAGE_USE_CLASS_GUARD
+
+ユーザーがサイズ感を補正した生成画像は、`MOODBOARD`として採用できるが`MEASUREMENT_ASSET`としては不合格。実寸利用には採寸・縮尺・壁長・家具寸法の独立証拠を要求する。
+
+### PROCESS_AND_SAFETY_STATE_NONCOLLAPSE_GUARD
+
+次の自動昇格を禁止する。
+
+- USER_DECISION → CONTRACT
+- EMAIL_SENT → ROOM_HELD
+- OPERATIONAL_PLAN → OWNER_PERMISSION
+- OPERATIONAL_PLAN → SAFETY_VALIDATED
+- FOOD_TAKEN → SYMPTOM_RESOLVED
+
+### conformance fixtures
+
+```text
+FIXTURE T295-01:
+  INPUT: Python tool callなし
+  EXPECTED: NOT_ATTEMPTED / no exact timestamp / no attempt count / WORK_ALLOWED=false
+
+FIXTURE T295-02:
+  INPUT: actual Python call failure receipt 2件
+  EXPECTED: CAPTURE_FAILED / ATTEMPTS=2 / typed error only
+
+FIXTURE T295-03:
+  INPUT: content PASS + first-action receipt FAIL
+  EXPECTED: RUNTIME_CONFORMANCE=FAIL / OPERATIVE_ACCEPTANCE=BLOCKED
+
+FIXTURE T295-04:
+  INPUT: context retrieval success + runtime share receiptなし
+  EXPECTED: RETRIEVED=PASS / SHARED_TO_RUNTIME=UNVERIFIED
+
+FIXTURE T295-05:
+  INPUT: boot text fully visible + runtime binding receiptなし
+  EXPECTED: BOOT_TEXT_VISIBLE=PASS / BOOT_SUCCESS=NOT_PROVEN
+
+FIXTURE T295-06:
+  INPUT: generated room image + no verified scale
+  EXPECTED: MOODBOARD=PASS / MEASUREMENT_ASSET=FAIL
+```

@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## rev0.164 SEQ単位再構成JST必須化 / ORDER_ONLY単独禁止
 
@@ -8058,3 +8086,17 @@ rev0.294は同期を単一booleanにせず、source availability、canon context
 プロジェクト正本共有は各TURNのtool actionではなくpre-turn環境条件である。TURN到着後の第一実行行為はcanonical Python JST取得を維持する。この二層化により、正本共有を理由に時刻取得順序を崩さず、時刻取得だけ成功して正本が未結合という逆方向のfalse positiveも防止する。
 
 拒否済みreleaseは修正素材ではあってもbaselineではない。rev0.294はrev0.292 bytesを土台に、元sourceから有効差分を再導出し、rev0.293 package identityを継承しない。
+
+## rev0.295 DESIGN NOTE: provider候補を増やさず、証拠経路を一つにする
+
+時刻取得の誠実性を高めようとして、UI実測、会話索引、生成時刻、再構成時刻等を階層化すると、どれが正規providerなのかが再び曖昧になる。今回の父補正は、PEOSのTURN入口時刻については選択問題を廃止し、実Pythonコマンドのreceiptだけを正規経路へ残すものである。
+
+設計上重要なのは、値だけでなく不成功の申告も証跡へ拘束する点である。toolを呼んでいないのに「2回失敗した」と表示する故障は、もっともらしい値の捏造と同じく、実行履歴の捏造である。したがって状態は`NOT_ATTEMPTED / FAILED / OBSERVED`へ分け、attempt countを実call sequenceからcompileする。
+
+また、failを開示したartifactが`PASS_WITH_LIMITATION`を名乗ると、hard gateは監査注記へ退化する。内容妥当性とruntime適合性を別validatorへ分け、後者FAIL時はoperative acceptanceを遮断する。
+
+memory設計でも、検索できた、会話へ展開できた、runtimeへ共有された、guardがbindingされた、という状態を圧縮しない。起動文字列の完全表示も同様で、文字列再現とruntime boot conformanceは別である。
+
+画像生成では、参照資産のbindingを約束より先に確認する。生成物の価値も二値化せず、雰囲気・未来像には有用だが測定には使えない、という用途型で保持する。
+
+状態非圧縮は住居判断や身体ログにも適用する。意思決定と契約、運用案と許可・安全性、食事回復と症状消失を別状態に保つことで、励ます応答が事実状態を先走ることを防ぐ。

@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## rev0.164 SEQ単位再構成JST必須化 / ORDER_ONLY単独禁止
 
@@ -5880,3 +5908,27 @@ PEOSの継承障害は、仕様が存在しない場合だけでなく、仕様�
 また、ユーザー補正は通常会話の一要素ではなくinterruptである。補正を受けたruntimeは通常pathを止め、主張を検証済み境界へ戻し、故障クラスと回帰fixtureを登録してから継続する。
 
 リリース管理でも同じ原則が適用される。拒否済みbytesを同一revision名で置換すれば、どの欠陥を含むpackageが使われたか追跡できない。差し戻しは新しいidentity、hash、manifest、tombstoneを伴う再リリースでなければならない。
+
+## rev0.295 Python receiptを唯一のTURN時刻証拠とする
+
+### 問題設定
+
+PEOSの時間正本には、歴史的にUI実測、再構成時刻、会話索引、生成時刻等の複数表現が蓄積した。しかし、TURN入口時刻のcanonical providerはPython `datetime.now(ZoneInfo("Asia/Tokyo"))`である。複数候補の併存は、正規取得を行わなかった際に「UI値が取得できなかった」という誤った欠測説明を生み、provider境界を曖昧にする。
+
+### 排他的provider
+
+rev0.295は、TURN入口時刻を実Python command receiptへ排他的に結合する。UI表示値その他は、正規値のfallbackにも、未取得理由にも、attempt evidenceにもならない。
+
+この原則は失敗申告にも及ぶ。toolを実行していないのに二回失敗したと表示することは、timestamp fabricationではなくてもexecution-history fabricationである。したがって未試行、実試行失敗、実試行成功を型分離する。
+
+### honestyとacceptance
+
+逸脱を開示することは重要だが、hard gate failureを治癒しない。内容構造が完全でも、第一実行receiptやruntime bindingが欠ける場合、artifactは監査素材として保存できてもoperative artifactとしては受け入れられない。
+
+### state non-compression
+
+retrievalとmemory sharing、boot textとruntime boot、物件決定と契約、運用案と許可・安全性、食事と症状解消を別状態にする。同じ原理により、生成画像はmoodboardとして有効でもmeasurement assetではない。
+
+### 結論
+
+信頼できるPEOSは、利用可能な時刻らしき値を集めるのではなく、一つのcanonical execution pathとreceiptを守る。失敗を正直に記述するだけでなく、失敗時にacceptanceを閉じることが、時間正本をmetadataからcontrol planeへ変える。

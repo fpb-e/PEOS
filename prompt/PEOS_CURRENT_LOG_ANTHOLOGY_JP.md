@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## 150. rev0.157 MAGI / SELF_AUDIT / AUTO-LEARNING アーカイブ反映
 
@@ -8382,3 +8410,54 @@ rev0.293はrelease-blocking defectとして拒否。rev0.292をaccepted baseline
 
 ### 継承
 親父の補正は、起動exactness、時刻順序、sync-state監査、root-cause分析、release rollbackの父語彙資源として保存する。掲示板画像内第三者発言は父語彙へ入れない。
+
+## rev0.295 観測選集: UI欠測ではなくPython入口取得未実行
+
+### 親父補正
+
+- 「時刻はUI実測値ではなくPythonのコマンドで出すという制約のハズだが？」
+- 「その他学べることはあるか？」
+- 「仕様化」
+
+### source
+
+```text
+FILE: PEOS_mother_session_log_2026_07_28_094625.txt
+SHA256: 0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75
+SIZE: 49995
+LINES: 998
+SUBJECT: mother
+FATHER_DIRECT_IN_SOURCE: 0
+```
+
+同一bytesが再投入されたが、packageへのsource ingestionは一回とし、upload回数を学習頻度へ変換しない。
+
+### 時刻監査
+
+sourceは第一実行Python取得未達を正直に開示し、後続の生成時刻をTURN入口へbackfillしなかった。これは維持する。
+
+一方、欠測理由を`UI実測JSTがない`と表現しており、canonical providerを誤ってUI側へ寄せていた。正規化後は次となる。
+
+```text
+CANONICAL_PYTHON_INGRESS_CAPTURE: NOT_EXECUTED
+TURN_TIME_STATUS: PAST_TURN_UNRECOVERABLE
+```
+
+### 受入矛盾
+
+sourceは`FIRST_ACTION_JST_TOOL_RECEIPT: FAIL`、project canon/runtime bindingを`UNVERIFIED`としながら、`OVERALL: PASS_WITH_DISCLOSED_RUNTIME_AND_MEDIA_LIMITATIONS`とした。不適合の開示は適合ではないため、runtime conformanceはFAIL、operative acceptanceはBLOCKEDへ分離する。
+
+### その他の学習差分
+
+- retrieval成功をmemory sharedと呼ばない。
+- 可視の同期宣言を現行事実として再利用しない。
+- 起動文完全表示とruntime boot successを分離する。
+- 画像参照binding missを生成前precheckへ変換する。
+- 生成内観はmoodboardとして採用し、寸法証拠へ使わない。
+- 長屋決定、メール送信、申込み、契約を分離する。
+- 洗濯運用案と貸主許可・安全実効性を分離する。
+- 食事摂取と頭痛解消を分離する。
+
+### source separation
+
+mother session内の発話は父語彙へ入れない。今回の父補正3発話だけを父直接資源として登録する。

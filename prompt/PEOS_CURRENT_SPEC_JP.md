@@ -1,11 +1,39 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.294
+- 現行latest: rev0.295
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
 - 互換方針: 過去ログ由来の内容は削除せず、正規化して再配置する。意味変更ではなく構成管理修正である。
+
+<!-- PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+## rev0.295 ACTIVE OVERRIDE: Python実行証跡だけを正規TURN時刻源とする
+
+この節は、これ以前のrevisionに残るUI実測・再構成時刻・表示時刻を正規TURN時刻源候補とする規則を、現行運用について明示的に上書きする。旧記述は歴史的経緯としてのみ保持し、rev0.295以後のwork gateを開かない。
+
+```text
+CANONICAL_TURN_TIME_PROVIDER:
+  actual Python command execution
+  datetime.now(ZoneInfo("Asia/Tokyo"))
+
+EXCLUDED_FROM_CANONICAL_TURN_TIME_PATH:
+  UI表示時刻
+  UI実測値
+  system message timestamp
+  assistant response timestamp
+  artifact生成時刻
+  後続取得値
+  assistant推定
+```
+
+第一実行行為として上記Pythonコマンドが実行・証跡化されなかった場合、正しい理由は「正規Python入口取得が未実行または未証明」である。UI時刻の有無を欠測理由・代替provider・fallbackとして記録しない。
+
+`CAPTURE_ATTEMPTS`、`SUCCESSFUL_CAPTURE_ACTION_INDEX`、失敗理由は、実際のtool receiptからのみ生成する。toolを呼んでいない場合は`NOT_ATTEMPTED`であり、架空の`CAPTURE_FAILED`回数を表示しない。
+
+hard gate failureを開示しても適合にはならない。内容構造が正しくてもruntime conformanceがFAILなら、operative acceptanceはBLOCKEDとする。
+<!-- /PEOS_REV0_295_ACTIVE_TEMPORAL_OVERRIDE -->
+
 
 ## rev0.151 毎ターンMAGI_TRACE強制挿入 / ログフォーマット単一化
 
@@ -17925,3 +17953,118 @@ RESOURCE: RELEASE_ROLLBACK_DIRECTIVE
 ```
 
 第三者画像内発言とassistant生成文は父語彙へ入れない。
+
+## rev0.295 Python時刻provider排他・receipt双方向拘束・受入状態非圧縮
+
+### 1. Python provider排他
+
+PEOSの`USER_TURN_OBSERVED_AT_JST`は、TURN到着後の第一実行行為として実際に実行された次のPythonコマンドだけから生成する。
+
+```python
+datetime.now(ZoneInfo("Asia/Tokyo"))
+```
+
+UI、system metadata、assistant表示、artifact生成時刻、会話索引、後続取得値は、正規TURN入口時刻の代替にならない。過去TURNにPython入口証跡がない場合は、timestamp keyを作らず`PAST_TURN_UNRECOVERABLE`とし、理由を`CANONICAL_PYTHON_INGRESS_CAPTURE_NOT_EXECUTED_OR_EVIDENCED`へ正規化する。
+
+### 2. receipt双方向拘束
+
+成功値だけでなく、失敗回数・provider・attempt count・successful action indexもtool receiptへ拘束する。
+
+```text
+NOT_ATTEMPTED:
+  tool callなし
+
+FAILED:
+  actual Python call receiptあり / value取得失敗
+
+OBSERVED:
+  actual Python call receiptあり / value取得成功
+```
+
+tool callがないのに`ATTEMPTS: 2`、`Python取得失敗`、`SUCCESS_INDEX`等を生成することを禁止する。
+
+### 3. validation三分離
+
+```text
+CONTENT_STRUCTURE_VALIDATION
+SOURCE_PRESERVATION_VALIDATION
+RUNTIME_CONFORMANCE
+```
+
+を別軸とする。`FIRST_ACTION_JST_TOOL_RECEIPT: FAIL`、`PROJECT_CANON_CONTEXT_SHARED: UNVERIFIED`、`RUNTIME_GUARDS_BOUND: UNVERIFIED`のいずれかが当該操作のhard preconditionである場合、`OVERALL: PASS_WITH_LIMITATION`へ昇格してはならない。
+
+```text
+OPERATIVE_ACCEPTANCE: BLOCKED
+ARTIFACT_STATUS: AUDIT_ONLY_CANDIDATE
+```
+
+を使用する。不適合の正直な開示は、適合の代替ではない。
+
+### 4. memory・sync・bootの状態非圧縮
+
+```text
+CONTINUITY_CONTEXT_RETRIEVED
+CONTINUITY_MEMORY_SHARED_TO_RUNTIME
+VISIBLE_SYNC_CLAIM
+BOOT_TEXT_VISIBLE
+BOOT_RUNTIME_CONFORMANCE
+```
+
+を分離する。retrieval成功をmemory sharedと呼ばない。起動文字列が表示されたことをruntime guard発火済みと呼ばない。過去assistantの「同期は取れた」は、実証範囲がretrievalまでなら`OVERCLAIMED / SUPERSEDED`へ訂正リンクする。
+
+### 5. 画像参照bindingと用途型
+
+画像生成・編集で参照元や選択maskを使用すると約束する前に、toolへ実際にbinding可能かを確認する。binding未成立なら通常生成を開始せず、`IMAGE_REFERENCE_BINDING_MISS`として回復する。
+
+生成内観は用途を分離する。
+
+```text
+MOODBOARD / FUTURE_VISUALIZATION:
+  配色・雰囲気・生活像に使用可
+
+MEASUREMENT_ASSET:
+  実寸・家具寸法・通路幅・購入判断に使用
+```
+
+縮尺証拠がない生成画像をmeasurement assetへ昇格しない。
+
+### 6. 状態機械の追加分離
+
+- 物件を選ぶ意思
+- 不動産会社への連絡
+- 空室確保
+- 申込み受理
+- 審査
+- 契約
+- 入居
+
+を別状態とする。運用案の成立、技術的実現性、貸主許可、安全実効性も別状態とする。食事摂取等の回復行動を、先行症状の消失へ自動昇格しない。
+
+### 7. 父補正資源
+
+```text
+RAW:
+  時刻はUI実測値ではなくPythonのコマンドで出すという制約のハズだが？
+RESOURCE:
+  PYTHON_TIME_PROVIDER_EXCLUSIVITY_CORRECTION
+USE:
+  正規時刻providerをPython実行証跡へ戻す
+PROHIBITED_USE:
+  UI時刻の存在を否定する一般論へ拡張せず、PEOS正規TURN時刻経路の限定として用いる
+
+RAW:
+  その他学べることはあるか？
+RESOURCE:
+  POST_CORRECTION_AUDIT_EXPANSION
+USE:
+  単一補正に閉じず、周辺の状態圧縮・受入矛盾・資産bindingを監査する
+
+RAW:
+  仕様化
+RESOURCE:
+  PACKAGE_BUILD_TRIGGER
+USE:
+  rev0.295完全ZIP・manifest・evidence・sidecar生成を開始する
+```
+
+SOURCE_LOG_SHA256: `0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75`
