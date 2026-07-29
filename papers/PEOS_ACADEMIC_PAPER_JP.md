@@ -1871,3 +1871,22 @@ The same non-compression principle applies to continuity retrieval versus runtim
 SOURCE_LOG_SHA256: `0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75`  
 BASELINE_PACKAGE_SHA256: `d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c`  
 USER_TURN_OBSERVED_AT_JST: 2026-07-28 10:54:18(JST)
+
+
+## rev0.296 Academic Addendum: Commit-Time Receipt Verification and Audit-Density Validation
+
+The rev0.295 policy correctly restricted canonical turn timing to a Python ingress receipt, yet a later response still emitted a timestamp without executing that provider. This recurrence shows that a rule can be present, understood, and even previously demonstrated while still failing at the point of execution. rev0.296 therefore introduces commit-time receipt verification: immediately before a timestamped response is emitted, the runtime must verify that a same-turn Python ingress receipt exists and is bound to the current user event.
+
+Historical display clocks are treated as metadata, not members of the canonical provider graph. A lineage validator rejects active policies that reintroduce UI-observed times as canonical sources or fallbacks, while preserving quoted historical observations as explicitly noncanonical records.
+
+The same evidence principle is applied to audit density. MAGI and self-audit conformance is determined from actual decision deltas rather than self-declared PASS labels. Routine per-sequence repetition without a material delta is a regression because it increases apparent audit volume while reducing information density.
+
+Canonicality is also decomposed from textual completeness. A session log may completely cover its known source scope yet remain unbound to the authoritative package, runtime guards, or external acceptance authority. Self-titling cannot supply missing authority evidence.
+
+SOURCE_LOG_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`  
+BASELINE_PACKAGE_SHA256: `ca0b4faf1d53eb539adff78888f001fd2c9245497761b6de2af53f15c8cd981a`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)
+
+
+## rev0.298 Academic Addendum: Coverage Completeness in User-Origin Language Learning
+A language-learning subsystem can appear compliant while losing user-origin source material if only salient utterances are evaluated. rev0.298 defines acceptance as set equality between authoritative father-direct references and coverage-ledger references. Every direct utterance receives exactly one decision: new resource, already registered, or no new reusable resource with a reason. Recovered summaries, assistant prose, third-party screenshot text, and attachment markers are excluded from user-origin language learning.
