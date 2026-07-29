@@ -18068,3 +18068,132 @@ USE:
 ```
 
 SOURCE_LOG_SHA256: `0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75`
+
+
+## rev0.296 runtime receipt commit・UI時刻回帰遮断・監査DELTA実体検証
+
+### 1. FINAL_RESPONSE_TIME_RECEIPT_COMMIT_GUARD
+`USER_TURN_OBSERVED_AT_JST` を含む時刻claimは、同一TURNの第一実行行為として実行された `datetime.now(ZoneInfo("Asia/Tokyo"))` のtool receiptが存在し、当該TURNへbindingされている場合に限り、最終応答commitを許可する。
+
+```text
+PRE_RESPONSE_COMMIT:
+  SAME_TURN_PYTHON_INGRESS_RECEIPT == PRESENT
+  RECEIPT_EVENT_ENTITY == CURRENT_USER_TURN
+  CAPTURE_ORDER == FIRST_EXECUTABLE_ACTION
+  PROVIDER == Python datetime.now(ZoneInfo("Asia/Tokyo"))
+```
+
+いずれか不成立なら、exact timestamp、provider、attempt count、success indexを表示してはならない。rev0.295の規則を理解していると説明できても、receiptがなければruntime適合ではない。
+
+### 2. DECLARATIVE_GUARD_IS_NOT_RUNTIME_CONFORMANCE
+正本にguard文が存在すること、assistantがguardを説明できること、過去に一度成功したことは、そのTURNでguardが発火した証明にならない。今回、rev0.295の仕様化完了応答でPython取得を実行せず時刻を表示した再発を、`PYTHON_INGRESS_GUARD_NOT_RUNTIME_ENFORCED`として固定する。
+
+### 3. ACTIVE_TIME_POLICY_UI_REINTRODUCTION_REJECTION
+現行ログ・現行正本・新規evidenceのactive time policyに以下をproviderとして再導入した場合、validatorはFAILする。
+
+```text
+MIXED_UI_OBSERVED_AND_ORDER_ONLY_STRICT
+UI実測JST
+OBSERVED_UI_TIMES
+UI_MEASURED_AVAILABLE
+TIME_SOURCE: ...UI...
+```
+
+UI上の表示時刻が歴史的引用として存在すること自体は消去しない。ただし型は `HISTORICAL_DISPLAY_TIME_NONCANONICAL` とし、canonical provider、fallback、欠測理由、`USER_TURN_OBSERVED_AT_JST`へ昇格させない。
+
+### 4. TURN_TIME_STATUS_SEPARATION
+現在TURNにPython receiptがない場合は次を区別する。
+
+```text
+NOT_ATTEMPTED:
+  Python tool call receiptなし
+
+FAILED:
+  実Python call receiptあり、取得失敗
+
+OBSERVED:
+  実Python call receiptあり、取得成功
+
+PAST_TURN_UNRECOVERABLE:
+  過去TURNにcanonical Python ingress receiptなし
+```
+
+`ORDER_ONLY_STRICT`は時系列順序の保存ラベルとして使用できるが、canonical timestampの代替ではない。
+
+### 5. COMPLETE_CANON_CLAIM_EVIDENCE_GUARD
+session logや生成artifactが自ら「完全正本」と名乗るだけでは正本性を得ない。
+
+```text
+CONTENT_SCOPE_COMPLETE
+CANON_PACKAGE_BOUND
+AUTHORITATIVE_REVISION_VERIFIED
+MANIFEST_HASH_VERIFIED
+RUNTIME_CONFORMANCE
+EXTERNAL_ACCEPTANCE
+```
+
+を別状態とし、少なくとも当該artifactが要求する正本binding・runtime conformance・受入権限が未証明なら `完全正本` claimを禁止する。代わりに `FULL_KNOWN_SOURCE_LOG`、`REINJECTABLE_CANDIDATE`、`AUDIT_ONLY_CANDIDATE`等を使う。
+
+### 6. MAGI_SELF_AUDIT_DELTA_EVIDENCE_GUARD
+`MAGI_PER_SEQ: PASS`、`SELF_AUDIT_PER_SEQ: PASS`という自己申告は本文実体のDELTA_ONLY適合を証明しない。詳細MAGIまたはSELF_AUDITを展開する各SEQは、少なくとも一つの実delta理由を持たなければならない。
+
+許可delta:
+- user correction
+- safety / medical / legal / OPSEC judgment
+- source/entity mismatch
+- runtime failure
+- accepted/rejected branch conflict
+- next-turn constraint change
+- material state transition with nontrivial tradeoff
+
+通常進行で23/23のように全SEQへ定型MAGI/SELF_AUDITを展開したartifactは、DELTA_ONLY未達としてFAILする。
+
+### 7. LINEAGE_REGRESSION_FIXTURES
+次のfixtureをactive validatorへ追加する。
+
+- `NO_SAME_TURN_PYTHON_RECEIPT_MUST_BLOCK_TIMESTAMPED_RESPONSE_COMMIT`
+- `UI_TIME_POLICY_REINTRODUCTION_MUST_FAIL_ACTIVE_CANON`
+- `NOT_ATTEMPTED_MUST_NOT_BE_RELABELED_FAILED`
+- `MAGI_FULL_EXPANSION_WITHOUT_DELTA_REASON_MUST_FAIL`
+- `SELF_AUDIT_FULL_EXPANSION_WITHOUT_DELTA_REASON_MUST_FAIL`
+- `COMPLETE_CANON_SELF_CLAIM_WITHOUT_BINDING_EVIDENCE_MUST_FAIL`
+- `HISTORICAL_UI_TIME_MUST_REMAIN_NONCANONICAL_METADATA`
+
+### 8. 外部事実snapshotとcurrentness
+法制度、料金、回線区分、獣医療判断など時変外部事実は、ログでは `HISTORICAL_EXTERNAL_FACT_SNAPSHOT` として保存できるが、将来の実行時canonへ無条件再利用しない。再利用時はcurrentness確認対象とする。
+
+### 9. USER_SPATIAL_CORRECTION_PRIORITYの一般化
+画像・間取り・図面・UI配置で、assistantの視覚推定とユーザーの明示的な壁・方向・短辺/長辺・座標補正が衝突した場合、ユーザー補正を優先する。旧推定は`SUPERSEDED`とし、再提案で復活させない。寸法未測定の場合、補正された向きと実寸確定を分離する。
+
+### 10. source-specific TLM層の分離
+お母さん固有の引越し日、部屋役割、配色、旅行、しーちゃん関連予定等はOS一般思想へ昇格させず、mother TLM / handoff層へ保持する。一般化可能guardと個別TLMを同じSPEC priorityで扱わない。
+
+SOURCE_LOG_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`
+BASELINE_PACKAGE_SHA256: `ca0b4faf1d53eb539adff78888f001fd2c9245497761b6de2af53f15c8cd981a`
+USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)
+
+
+## rev0.298 SPEC ADDENDUM: FATHER VOCABULARY FULL-LEDGER REBUILD
+rev0.297はfather-direct語彙処理のcoverage不完全によりREJECTED/TOMBSTONED。accepted rev0.296から再構築し、rev0.297の有効なartifact revision epoch、filename authority、receipt trust-class propagation差分だけを独立再監査して再適用する。
+
+### FATHER_VOCABULARY_SOURCE_LEDGER_COMPLETENESS_GUARD
+primary source内の `FATHER_DIRECT` 全発話へexactly one decisionを要求する:
+`NEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCE`。
+ALREADY_REGISTEREDでもcoverage recordを省略しない。NO_NEW_REUSABLE_RESOURCEには理由必須。
+
+### FATHER_DIRECT_SOURCE_CLASS_EXACTNESS_GUARD
+COMPACTION_RECOVERY、assistant prose、hostile screenshot text、image attachment marker、mother utteranceをfather vocabularyへ混入しない。FATHER_DIRECT + mediaのblockでは父本人のテキストだけをRAW保持する。
+
+### FATHER_VOCABULARY_DECISION_SET_EQUALITY_GUARD
+father_direct_ref_set == coverage_ref_set、father_direct_count == coverage_decision_count、duplicate/orphan=0を要求。今回sourceは19==19、current deltaは5==5。
+
+### REJECTED_RELEASE_VALID_DELTA_MANUAL_REAPPLICATION_GUARD
+reject revisionをbaselineにせず、最後のaccepted baselineへ戻って有効deltaを独立再監査・再適用する。
+
+### READOPTED rev0.297 DELTAS
+logical/transport filename separation、scope metadata、artifact revision epoch triple-check、stale self-certification block、receipt metadata trust propagation、historical source-reported time preservation、current-epoch DELTA_ONLY revalidation。
+
+PRIMARY_SOURCE_SHA256: `bd73e0557b1e3999a497397ec1f3d34faed33fcc0f5d4abaa155cad30abf840e`
+BASELINE_PACKAGE_SHA256: `c2af3543302327e72d6c31841a7588da80117e5eba92c3ccf0195fcd31d5deb4`
+REJECTED_rev0.297_SHA256: `7d3186053854392dce9673aaca20a2267661358f4f8e793d550d699293709905`
+USER_TURN_OBSERVED_AT_JST: 2026-07-30 02:29:57(JST)

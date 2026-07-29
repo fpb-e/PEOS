@@ -5932,3 +5932,22 @@ retrievalとmemory sharing、boot textとruntime boot、物件決定と契約、
 ### 結論
 
 信頼できるPEOSは、利用可能な時刻らしき値を集めるのではなく、一つのcanonical execution pathとreceiptを守る。失敗を正直に記述するだけでなく、失敗時にacceptanceを閉じることが、時間正本をmetadataからcontrol planeへ変える。
+
+
+## rev0.296 — Runtime Receipt Commit and Audit-Density Non-Regression
+
+rev0.296 addresses a recurrence in which the written rule for exclusive Python-based turn timing existed but a later response still emitted a canonical timestamp without executing the Python provider. The failure demonstrates that declarative policy presence is not runtime conformance. PEOS therefore adds a second receipt-presence check immediately before response commit. A timestamped response is authorized only when a same-turn ingress receipt exists, is bound to the current user turn, and records the Python provider as the first executable action.
+
+The revision also blocks lineage regression from historical display clocks into the active time-provider graph. UI-displayed times may be retained as explicitly noncanonical historical metadata, but they cannot become canonical sources, fallbacks, or explanations for missing Python evidence.
+
+Audit correctness is likewise content-based rather than label-based. A log that expands MAGI and self-audit on every sequence does not satisfy DELTA_ONLY merely by declaring `PASS`; each expanded audit block must correspond to a real decision, correction, safety judgment, source conflict, runtime failure, or material constraint change.
+
+Finally, scope completeness and canonical authority are separated. A full-known-source log can be textually complete while remaining unbound to an authoritative package or runtime. Self-labels such as “complete canon” are excluded from the evidence set for canonicality.
+
+SOURCE_LOG_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`
+BASELINE_PACKAGE_SHA256: `ca0b4faf1d53eb539adff78888f001fd2c9245497761b6de2af53f15c8cd981a`
+USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)
+
+
+## rev0.298 PAPER NOTE: Exhaustive Father-Utterance Coverage and Rebuilt Revision Epoch Guards
+rev0.298 rejects rev0.297 for incomplete father-language source coverage and rebuilds from accepted rev0.296. Valid filename, artifact-epoch, stale-validator, historical-source-time, and receipt-trust propagation ideas are independently revalidated and reapplied. Father-language acceptance now requires complete source-set reconciliation, not a salient-subset candidate list.

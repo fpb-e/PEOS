@@ -17828,3 +17828,86 @@ FIXTURE T295-06:
   INPUT: generated room image + no verified scale
   EXPECTED: MOODBOARD=PASS / MEASUREMENT_ASSET=FAIL
 ```
+
+
+## rev0.296 RUNTIME GUARD: RECEIPT-PRESENCE COMMIT / UI-TIME REGRESSION / DELTA-EVIDENCE VALIDATION
+
+### FINAL_RESPONSE_TIME_RECEIPT_COMMIT_GUARD
+時刻付き応答をcommitする直前に、current user turnへbindingされたsame-turn Python ingress receiptの存在を再検査する。receiptがない場合、exact timestamp fieldを含む通常応答をcommitしない。
+
+```text
+TURN_RECEIVED
+→ PYTHON_INGRESS_CAPTURE_ATTEMPT
+→ RECEIPT_STORED
+→ WORK_GATE
+→ RESPONSE_DRAFT
+→ RECEIPT_PRESENCE_RECHECK
+→ RESPONSE_COMMIT
+```
+
+`RECEIPT_PRESENCE_RECHECK`はassistant自己申告ではなく、実tool call履歴を入力とする。
+
+### PYTHON_INGRESS_RUNTIME_RECURRENCE_CLASS
+rev0.295リリース後に、Python tool callなしで時刻claimを表示した事例を `PYTHON_INGRESS_GUARD_NOT_RUNTIME_ENFORCED` とする。これはpolicy missingではなくruntime binding/enforcement failureである。
+
+### ACTIVE_UI_TIME_POLICY_REJECTION_TEST
+active current sectionまたは新規session-log validation policyが、UI実測値をcanonical provider/fallbackへ登録した場合FAIL。
+
+ALLOW:
+- historical quoted UI display metadata explicitly typed NONCANONICAL
+
+BLOCK:
+- `TURN_TIME_POLICY: MIXED_UI_OBSERVED_AND_ORDER_ONLY_STRICT`
+- `TIME_SOURCE`にUIをcanonical sourceとして列挙
+- `OBSERVED_UI_TIMES`をcanonical turn-time ledgerへ使用
+- UI欠測をcanonical Python欠測理由にする
+
+### TIME_RECEIPT_STATE_MACHINE
+```text
+NO_CALL_RECEIPT      -> NOT_ATTEMPTED
+CALL_FAILURE_RECEIPT -> FAILED
+CALL_SUCCESS_RECEIPT -> OBSERVED
+PAST_NO_RECEIPT      -> PAST_TURN_UNRECOVERABLE
+```
+
+attempt countは実call receipt数から機械集計し、自己申告値を入力にしない。
+
+### CANON_CLAIM_BINDING_GUARD
+`完全正本` / `OPERATIVE` / `同期完了`のclaimは、content completenessとは別にpackage binding・revision fence・runtime conformance・必要なexternal acceptanceを検証する。self-titleは証拠に含めない。
+
+### DELTA_ONLY_CONTENT_INSPECTION_GUARD
+MAGI/SELF_AUDIT適合はラベルではなく本文実体で判定する。各展開blockに `DELTA_REASON` または同等の具体的事象がない場合FAIL。同一構造が全SEQへ反復され、実deltaがない場合FAIL。
+
+### LINEAGE_FIXTURES_rev0_296
+- NO_SAME_TURN_PYTHON_RECEIPT_MUST_BLOCK_TIMESTAMPED_RESPONSE_COMMIT
+- UI_TIME_POLICY_REINTRODUCTION_MUST_FAIL_ACTIVE_CANON
+- NOT_ATTEMPTED_MUST_NOT_BE_RELABELED_FAILED
+- MAGI_FULL_EXPANSION_WITHOUT_DELTA_REASON_MUST_FAIL
+- SELF_AUDIT_FULL_EXPANSION_WITHOUT_DELTA_REASON_MUST_FAIL
+- COMPLETE_CANON_SELF_CLAIM_WITHOUT_BINDING_EVIDENCE_MUST_FAIL
+- HISTORICAL_UI_TIME_MUST_REMAIN_NONCANONICAL_METADATA
+- USER_SPATIAL_CORRECTION_MUST_SUPERSEDE_IMAGE_GUESS
+
+### HISTORICAL_EXTERNAL_FACT_SNAPSHOT_GUARD
+価格、法制度、登録手順、回線、医療/獣医療等の外部事実はsource-time snapshotとして保存し、current再利用時は必要に応じて再確認する。ログ中の過去値を現行正本へ自動昇格しない。
+
+### MOTHER_TLM_LAYERING_GUARD
+mother session固有の生活状態・住居配置・予定はmother TLMとして保持し、PEOS全体guardへ誤昇格しない。father vocabulary corpusへも混入しない。
+
+
+## rev0.298 RUNTIME GUARD: FATHER DIRECT FULL COVERAGE / REJECTED RELEASE REBUILD
+
+### FATHER_VOCABULARY_SOURCE_LEDGER_COMPLETENESS_TEST
+source father-direct集合とcoverage decision集合のcount/set equalityを検査。一件でも未処理なら `FATHER_VOCABULARY_LEDGER_INCOMPLETE` でrelease BLOCK。
+
+### FATHER_DIRECT_SOURCE_CLASS_FILTER_TEST
+COMPACTION_RECOVERYをfather directへ昇格しない。attachment marker、assistant summary、third-party screenshot textをRAW father corpusへ混入しない。
+
+### FATHER_VOCABULARY_DECISION_EXACTLY_ONCE_TEST
+各father-direct refは NEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCE の一つだけを持つ。zero/multipleはFAIL。
+
+### REJECTED_RELEASE_VALID_DELTA_REAUDIT_TEST
+REJECTED/TOMBSTONED revisionをbaseline継承せず、accepted baselineからbuildし必要deltaの独立再監査証拠を要求。
+
+### READOPTED rev0.297 GUARDS
+SESSION_LOG_FILENAME_VALIDATION_GUARD / LOGICAL_FILENAME_TRANSPORT_FILENAME_SEPARATION / ARTIFACT_CANON_EPOCH_TRIPLE_CHECK / STALE_RUNTIME_SELF_CERTIFICATION_BLOCK_GUARD / RECEIPT_METADATA_TRUST_PROPAGATION_TEST / SOURCE_REPORTED_TIME_NONCOMPRESSION_GUARD / CURRENT_EPOCH_DELTA_ONLY_REVALIDATION。

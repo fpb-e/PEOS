@@ -8100,3 +8100,22 @@ memory設計でも、検索できた、会話へ展開できた、runtimeへ共�
 画像生成では、参照資産のbindingを約束より先に確認する。生成物の価値も二値化せず、雰囲気・未来像には有用だが測定には使えない、という用途型で保持する。
 
 状態非圧縮は住居判断や身体ログにも適用する。意思決定と契約、運用案と許可・安全性、食事回復と症状消失を別状態に保つことで、励ます応答が事実状態を先走ることを防ぐ。
+
+
+## rev0.296 DESIGN NOTE: 宣言的guardからresponse-commit時receipt検証へ
+
+rev0.295はPython receipt排他を仕様化したが、その直後の仕様化完了応答でPythonを実行せず時刻を表示する再発が起きた。ここから、入口guardの記述だけでは不十分であり、最終応答commit直前にもsame-turn receipt存在検査が必要だと分かった。
+
+また、mother session logが `MIXED_UI_OBSERVED_AND_ORDER_ONLY_STRICT` を時刻方針として再導入した。これは歴史データ保持とcanonical providerを混同したlineage regressionである。rev0.296ではUI表示時刻の存在自体は歴史metadataとして許容しつつ、active provider graphへ復帰させることを禁止する。
+
+監査についても、`MAGI_PER_SEQ: PASS`のようなラベルではなく、各展開blockに実際のdecision/failure/correction deltaがあるかを本文から検証する。監査の可視量ではなく情報密度を適合条件にする。
+
+さらに、session logの`完全正本`という自己名称と、package/runtime binding evidenceを分離する。完全性はscope property、正本性はauthority/binding propertyであり、両者は同一ではない。
+
+画像・間取りの空間推定では、ユーザーの明示補正をassistantの視覚推定より上位に置き、旧推定の再出現を防ぐ。個別のmother housing stateはTLM層へ残し、一般guardへ過剰一般化しない。
+
+SOURCE_LOG_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`
+
+
+## rev0.298 DESIGN NOTE: 語彙吸収は抜粋ではなく集合被覆
+父語彙学習では目立つ訂正文だけを候補化しても不十分。source内father-direct全集合を先に確定し、その全件へ NEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCE をexactly onceで付ける。乾いた譲歩、語義補正、短い帰属補正、内輪呼称、呆れ表現も落とさない。一方、`22091も見て`のような狭い参照命令はRAW保存しつつNO_NEW_REUSABLE_RESOURCEとしてよい。

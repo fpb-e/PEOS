@@ -8461,3 +8461,41 @@ sourceは`FIRST_ACTION_JST_TOOL_RECEIPT: FAIL`、project canon/runtime binding�
 ### source separation
 
 mother session内の発話は父語彙へ入れない。今回の父補正3発話だけを父直接資源として登録する。
+
+
+## rev0.296 LOG ANTHOLOGY ADDENDUM — mother session 2026-07-30 audit
+
+SOURCE: `PEOS_mother_session_log_2026_07_30_005457.txt`
+SOURCE_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`
+SOURCE_STATUS: NEW_SOURCE / SPECIFICATION_INPUT
+
+### runtime defects learned
+- rev0.295後もPython callなしの時刻claimが再発した。`PYTHON_INGRESS_GUARD_NOT_RUNTIME_ENFORCED`。
+- source logは `TURN_TIME_POLICY: MIXED_UI_OBSERVED_AND_ORDER_ONLY_STRICT` とし、UI実測値をtime sourceへ再導入した。active canonとしてはREJECT。
+- `MAGI_PER_SEQ: PASS` / `SELF_AUDIT_PER_SEQ: PASS`の一方、23/23 SEQへ詳細MAGI/自己監査を展開しており、DELTA_ONLYの実体検証が不足した。
+- `完全正本`というtitleだけではpackage/runtime bindingを証明しない。
+
+### positive patterns retained
+- user spatial correction（55cm短辺を壁側、90cm方向を室内へ）をassistant画像推定より優先。
+- PCデスクの部屋役割補正をno-regressionとして保持。
+- 外部手続き・住居状態を段階分離。
+- 生成画像/写真推定を実寸購入根拠へ昇格しない。
+
+### mother TLM — observation layer
+以下はmother固有状態であり、PEOS一般guardではない。
+- 2026-08-29引越し申込み、審査通過。
+- 6畳=くつろぎ・身支度、4.5畳=PC仕事・猫・洗濯、3畳=キッチン・食卓。
+- 白8 / くすみピンク1 / グレー1を基調に、シルバーとグリーンを少量。
+- 家具購入は実寸確認後。
+- しーちゃんの去勢・マイクロチップは病院判断を残した計画状態。
+
+EXTERNAL_FACTS_IN_SOURCE: HISTORICAL_EXTERNAL_FACT_SNAPSHOT / CURRENT_REUSE_REQUIRES_RECHECK
+FATHER_DIRECT_UTTERANCE_COUNT_IN_SOURCE: 0
+
+
+## rev0.298 LOG ANTHOLOGY ADDENDUM: father-direct 19/19 coverage
+Primary source logical name: `PEOS_father_session_log_2026_07_30_021608.txt`; observed physical transport name includes `(1)`.
+COMPACTION_RECOVERY 1件を父語彙から除外し、father-direct 19件を19/19でledger化。
+代表資源: `これは悔しいが正論`=DRY_FAIRNESS_ACKNOWLEDGEMENT、`白箱って多分整備品の箱のことだぞ`=LOW_DRAMA_SEMANTIC_CORRECTION、`マジで本籍というよりは横断性検証に使いたいだけだからな`=ARCHITECTURE_INTENT_CORRECTION、`22075は俺ね`=MINIMAL_SOURCE_ATTRIBUTION_CORRECTION、`♨️ それ以外の言葉が見つからないよ`=DRY_EXHAUSTION_REACTION。
+`22091も見て`はRAW保存＋NO_NEW_REUSABLE_RESOURCE。
+rev0.297は全集合ledger欠落でREJECTED/TOMBSTONED。
