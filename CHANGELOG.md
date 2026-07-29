@@ -494,3 +494,25 @@
 - SUCCESSFUL_CAPTURE_ACTION_INDEX: 1
 - SOURCE_LOG_SHA256: 0353ceeb5c043ee18da527f50ba7bc41fb95ad0bbb89d5794a5670c54c93ee75
 - BASELINE_PACKAGE_SHA256: d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c
+
+
+## rev0.296
+
+- rev0.295後にPython未実行の時刻claimが再発したため、response commit直前のsame-turn receipt再検査を追加。
+- UI実測時刻をactive time policyへ再導入するlineage regressionを禁止。
+- NOT_ATTEMPTED / FAILED / OBSERVED / PAST_TURN_UNRECOVERABLEを実tool receiptで分離。
+- MAGI/SELF_AUDIT DELTA_ONLYを本文実体で検証し、全SEQ定型展開をFAIL可能にした。
+- `完全正本`自己宣言とpackage/runtime/authority evidenceを分離。
+- external fact snapshot currentness guard、user spatial correction priority、mother TLM layeringを追加。
+- source `PEOS_mother_session_log_2026_07_30_005457.txt` SHA256 `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c` を仕様入力として採用。
+
+
+## rev0.298
+- rev0.297を父語彙ledger coverage不備で差し戻し、REJECTED/TOMBSTONED/AUDIT_ONLY/BASELINE_PROHIBITED化。
+- rev0.296をaccepted baselineとして再構築。
+- rev0.297の有効差分（filename authority / artifact revision epoch / receipt metadata trust propagation / current-epoch DELTA_ONLY再検証）を独立再監査して再適用。
+- primary source FATHER_DIRECT 19件を19/19全件ledger化。
+- 各父発話にexactly-one coverage decisionを要求。
+- COMPACTION_RECOVERY / assistant prose / third-party screenshot text / attachment markerの父語彙混入を禁止。
+- current audit/rebuild father utterances 5件も5/5 coverage。
+- `FATHER_VOCABULARY_SOURCE_LEDGER_COMPLETENESS_GUARD`等を追加。

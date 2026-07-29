@@ -1,4 +1,21 @@
-# PEOS GitHub Package rev0.295
+# PEOS GitHub Package rev0.296
+
+> rev0.296は、accepted rev0.295を基礎に、時刻規則を「書いてある」状態からresponse commit時のsame-turn Python receipt存在検証へ強化する。active time policyへのUI時刻再導入を回帰として遮断し、MAGI/SELF_AUDIT DELTA_ONLY、完全正本claim、runtime acceptanceを本文実体と外部binding evidenceで検証する。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `仕様化`
+
+## rev0.296 正本関係
+
+```text
+ACCEPTED_BASELINE: rev0.295
+BASELINE_PACKAGE_SHA256: ca0b4faf1d53eb539adff78888f001fd2c9245497761b6de2af53f15c8cd981a
+OPERATIVE_CURRENT: rev0.296
+REJECTED: rev0.280 / rev0.293
+```
+
 
 > rev0.295は、accepted rev0.294を基礎に、PEOS TURN時刻providerを実Python command receiptへ排他的に固定する。UI表示・UI実測・system timestamp・artifact時刻・後続取得値は正規TURN入口時刻の代替にならない。
 >
@@ -12,7 +29,7 @@
 ```text
 ACCEPTED_BASELINE: rev0.294
 BASELINE_PACKAGE_SHA256: d8df8b83016f688eb0ddd92b6d15545caacdd67f8fa392e7f00f093acfdf554c
-OPERATIVE_CURRENT: rev0.295
+OPERATIVE_CURRENT: rev0.296
 REJECTED: rev0.280 / rev0.293
 ```
 
@@ -1181,3 +1198,36 @@ CURRENT_FATHER_DIRECTIVE_SHA256: e424b36391f7c187bb6b85dd0286a96fd5db451fcc700ed
 FORMAT_EXEMPLAR_SHA256: d222ca59a5ca6aec664c944f000fa5462849eedbe2d8de71fe11c3b9eb562d18
 MOTHER_SOURCE_LOG_SHA256: 885cdb1b2084d4b797f451506a410d065376385fc361296a9b7d40bd8049a5d9
 ```
+
+
+## rev0.296 中心差分
+
+- same-turn Python ingress receiptが無ければ、時刻付き最終応答commitを禁止する `FINAL_RESPONSE_TIME_RECEIPT_COMMIT_GUARD`。
+- rev0.295後の再発を `PYTHON_INGRESS_GUARD_NOT_RUNTIME_ENFORCED` として固定。
+- active time policyへのUI時刻再導入をlineage regressionとしてFAIL。
+- `NOT_ATTEMPTED / FAILED / OBSERVED / PAST_TURN_UNRECOVERABLE`をreceipt実体で分離。
+- `完全正本` self-claimと、scope completeness / package binding / runtime conformance / external acceptanceを分離。
+- MAGI/SELF_AUDITのDELTA_ONLYを自己申告ではなく本文実deltaで検証。
+- external fact snapshotは将来再利用時にcurrentness再確認。
+- user spatial correctionをassistant画像推定より優先。
+- mother固有状態はTLM層へ保持し、PEOS一般guardへ過剰一般化しない。
+
+BASELINE: rev0.295  
+BASELINE_SHA256: `ca0b4faf1d53eb539adff78888f001fd2c9245497761b6de2af53f15c8cd981a`  
+PRIMARY_SOURCE_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212acf3c`
+
+
+## rev0.298 中心差分
+- rev0.297をfather vocabulary full-ledger coverage不備でREJECTED/TOMBSTONED/AUDIT_ONLY/BASELINE_PROHIBITED化。
+- accepted rev0.296から再構築し、rev0.297の有効なfilename / revision epoch / receipt trust-propagation差分だけを独立再監査して再適用。
+- primary sourceのfather-direct 19件を19/19でcoverage ledger化。
+- 各発話へ NEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCE をexactly onceで付与。
+- COMPACTION_RECOVERY、assistant prose、第三者スクショ本文、attachment markerをfather vocabularyから除外。
+- current deltaの父発話5件も5/5で別ledger化。
+- `俺発話の語彙吸収は？` → FATHER_VOCABULARY_COVERAGE_AUDIT_CORRECTION。
+- `というわけでやり直し。` → CONCISE_RELEASE_ROLLBACK_AND_REBUILD_DIRECTIVE。
+
+BASELINE: rev0.296
+BASELINE_SHA256: `c2af3543302327e72d6c31841a7588da80117e5eba92c3ccf0195fcd31d5deb4`
+REJECTED_rev0.297_SHA256: `7d3186053854392dce9673aaca20a2267661358f4f8e793d550d699293709905`
+PRIMARY_SOURCE_SHA256: `bd73e0557b1e3999a497397ec1f3d34faed33fcc0f5d4abaa155cad30abf840e`
