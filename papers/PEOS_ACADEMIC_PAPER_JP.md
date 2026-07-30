@@ -1890,3 +1890,14 @@ USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)
 
 ## rev0.298 Academic Addendum: Coverage Completeness in User-Origin Language Learning
 A language-learning subsystem can appear compliant while losing user-origin source material if only salient utterances are evaluated. rev0.298 defines acceptance as set equality between authoritative father-direct references and coverage-ledger references. Every direct utterance receives exactly one decision: new resource, already registered, or no new reusable resource with a reason. Recovered summaries, assistant prose, third-party screenshot text, and attachment markers are excluded from user-origin language learning.
+
+
+## rev0.299 Academic Addendum: Irreversible Order Latches for Fail-Closed Turn Ingress
+
+The rev0.299 source artifact demonstrates a subtle but important distinction between preserving evidence of failure and enforcing failure as control flow. The artifact explicitly recorded that canonical ingress time was missed, yet continued through full generation, validation, and commit. A fail-closed system must prevent this continuation rather than merely annotate it.
+
+PEOS therefore models the first executable action as an immutable ordering latch. Later timestamp acquisition can document a later event, but it cannot repair the ingress event. Receipt-derived metadata is schema-typed and trust-coupled, so provider, attempts, action index, order, and validity cannot carry stronger authority than the underlying receipt.
+
+A second authority boundary is introduced between current canon and historical format exemplars. Exemplars define form, while the active validator epoch defines admissible behavior. This prevents historical boilerplate or deprecated timing semantics from re-entering current artifacts through faithful imitation of an older log.
+
+The co-occurrence of boot and timing failures within one session further supports a shared runtime-binding diagnosis. This strengthens the project-level rule that PEOS正本指示 and continuity guards must be resident before turn handling rather than consulted reactively after a visible defect.
