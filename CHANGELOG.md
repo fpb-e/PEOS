@@ -516,3 +516,21 @@
 - COMPACTION_RECOVERY / assistant prose / third-party screenshot text / attachment markerの父語彙混入を禁止。
 - current audit/rebuild father utterances 5件も5/5 coverage。
 - `FATHER_VOCABULARY_SOURCE_LEDGER_COMPLETENESS_GUARD`等を追加。
+
+
+## rev0.299
+- rev0.298 operative後のmother logで、canonical Python ingressを第一実行行為で取れなかったにもかかわらずfull artifact生成・self-PASS・commitまで進んだ再発を仕様化。
+- `INGRESS_ORDER_LATCH`を追加し、第一実行順序違反をlate captureで修復不能なimmutable stateとした。
+- ORDER_INVALID時のfull work継続を禁止するhard-stop controlを追加。
+- timestamp field / status / attempts / success-index / order / gate-validityをschema型分離し、receipt trustを全metadataへ伝播。
+- shell date / foreign-zone conversion等のnoncanonical providerをcanonical pathから隔離。
+- `CURRENT_CANON > FORMAT_EXEMPLAR`を追加し、古いfather exemplar由来の24/24 MAGI/SELF_AUDIT展開をcurrent DELTA_ONLYで再拒否。
+- required SHA256 value validatorを追加し、`NOT_COMPUTED` placeholderをFAIL。
+- 同一sessionのboot exactness miss + time ingress missをproject-canon/runtime-binding recurrenceとして統合。
+- mother logの`母発話コーパス候補`をfather-only dedicated language corpusへ昇格しない境界を再固定。
+- current father direct 2/2 coverage: audit correctionをNEW_RESOURCE、`仕様化`をALREADY_REGISTEREDとして記録。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-07-31 00:53:28(JST)
+- PRIMARY_SOURCE_SHA256: ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af
+- BASELINE_PACKAGE_SHA256: c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a

@@ -1231,3 +1231,19 @@ BASELINE: rev0.296
 BASELINE_SHA256: `c2af3543302327e72d6c31841a7588da80117e5eba92c3ccf0195fcd31d5deb4`
 REJECTED_rev0.297_SHA256: `7d3186053854392dce9673aaca20a2267661358f4f8e793d550d699293709905`
 PRIMARY_SOURCE_SHA256: `bd73e0557b1e3999a497397ec1f3d34faed33fcc0f5d4abaa155cad30abf840e`
+
+
+## rev0.299 中心差分
+- first executable actionの適合性をimmutable `INGRESS_ORDER_LATCH`として実制御化。late captureで修復不可。
+- ORDER_INVALID時はfull artifact/package/memory workを継続せず、typed incident receiptのみ許可。
+- timestamp/status/attempts/success-index/order/gate-validityをschema分離し、同一receipt trust classを伝播。
+- shell/UI/host/assistant/artifact clockをcanonical turn providerから隔離。
+- `CURRENT_CANON > FORMAT_EXEMPLAR`を固定し、古いexemplarのMAGI全展開や旧validator挙動の復活を禁止。
+- required SHA256は64hex + byte match必須。`NOT_COMPUTED`等placeholderをFAIL。
+- boot exactness + ingress miss同時再発をproject canon/runtime binding incidentへ集約。
+- mother utterance corpus候補をdedicated father vocabularyへ昇格しない。
+- current father delta 2/2 ledger化。
+
+BASELINE: rev0.298
+BASELINE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
+PRIMARY_SOURCE_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
