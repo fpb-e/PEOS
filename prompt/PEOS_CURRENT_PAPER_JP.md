@@ -5951,3 +5951,20 @@ USER_TURN_OBSERVED_AT_JST: 2026-07-30 01:59:19(JST)
 
 ## rev0.298 PAPER NOTE: Exhaustive Father-Utterance Coverage and Rebuilt Revision Epoch Guards
 rev0.298 rejects rev0.297 for incomplete father-language source coverage and rebuilds from accepted rev0.296. Valid filename, artifact-epoch, stale-validator, historical-source-time, and receipt-trust propagation ideas are independently revalidated and reapplied. Father-language acceptance now requires complete source-set reconciliation, not a salient-subset candidate list.
+
+
+## rev0.299 Paper Addendum: Irreversible Ingress Ordering and Validator-Epoch Authority
+
+A first-action time rule is fundamentally an ordering invariant, not a timestamp-availability rule. Once another executable action occurs before the canonical Python capture attempt, a later clock observation cannot repair the violated causal order. rev0.299 models this as an immutable ingress-order latch and binds downstream work authorization to that latch.
+
+This distinction closes a recurring failure mode in which the runtime accurately disclosed a missed ingress capture yet proceeded to build and self-accept a full artifact. Transparency about nonconformance is necessary but does not authorize continued execution through a fail-closed boundary.
+
+rev0.299 also formalizes schema-level provenance. Timestamp values, providers, attempt counts, successful action indexes, action order, and gate validity must share an evidence class. Sentinel strings in timestamp or numeric fields are rejected rather than interpreted leniently.
+
+Format exemplars are subordinated to the active canon epoch. They may contribute structural layout, but deprecated validator behavior cannot be imported into a newer runtime. Required integrity fields are similarly value-validated: a placeholder digest is not equivalent to a computed digest.
+
+Finally, the co-occurrence of boot-exactness and ingress-time failures is treated as evidence of a broader project-canon/runtime-binding recurrence. The repair target is therefore the binding and enforcement path, not only the individual missing output.
+
+SOURCE_LOG_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`  
+BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`  
+USER_TURN_OBSERVED_AT_JST: 2026-07-31 00:53:28(JST)

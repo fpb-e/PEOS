@@ -17911,3 +17911,60 @@ REJECTED/TOMBSTONED revisionをbaseline継承せず、accepted baselineからbui
 
 ### READOPTED rev0.297 GUARDS
 SESSION_LOG_FILENAME_VALIDATION_GUARD / LOGICAL_FILENAME_TRANSPORT_FILENAME_SEPARATION / ARTIFACT_CANON_EPOCH_TRIPLE_CHECK / STALE_RUNTIME_SELF_CERTIFICATION_BLOCK_GUARD / RECEIPT_METADATA_TRUST_PROPAGATION_TEST / SOURCE_REPORTED_TIME_NONCOMPRESSION_GUARD / CURRENT_EPOCH_DELTA_ONLY_REVALIDATION。
+
+
+## rev0.299 RUNTIME GUARD: IMMUTABLE INGRESS ORDER / SCHEMA-TYPED RECEIPTS / EXEMPLAR FENCE
+
+### PRE_TURN_BINDING_ASSERTION
+PEOS project canon・continuity context・operative revision/validator epochはturn処理前の環境条件。user turn arrival後のfirst executable action slotを他toolへ消費しない。
+
+### INGRESS_ORDER_LATCH_GUARD
+```text
+TURN_RECEIVED
+→ FIRST_EXECUTABLE_ACTION_SLOT
+→ Python datetime.now(ZoneInfo("Asia/Tokyo")) ATTEMPT
+→ ORDER_LATCH = VALID
+→ receipt state evaluation
+→ work gate
+```
+他actionが先に実行されたら `ORDER_LATCH=INVALID` をimmutableに設定。late captureはevent timeとして保存可能だがingress gateを再開しない。
+
+### NO_LATE_CAPTURE_REPAIR_GUARD
+`POST_REFERENCE_INSPECTION`, `LATE_CAPTURE`, shell/host date, artifact generation clockをcanonical ingressへ昇格しない。order violationはvalue availabilityと独立。
+
+### ORDER_INVALID_HARD_STOP_GUARD
+ORDER_LATCH=INVALIDなら、typed incident receipt以外のrequested full workをBLOCK。artifactを完成させてから`PASS_WITH_LIMITATION`に落とす運用を禁止する。
+
+### CANONICAL_TIME_SCHEMA_VALIDATOR
+- `*_OBSERVED_AT_JST`: parseable JST timestamp only or field absent
+- `*_TIME_STATUS`: enum only
+- `*_CAPTURE_ATTEMPTS`: nonnegative integer only when receipt-backed
+- `*_SUCCESSFUL_CAPTURE_ACTION_INDEX`: positive integer only when success receipt exists
+- `*_CAPTURE_ORDER`: enum derived from action history
+- `*_GATE_VALID`: boolean/typed state derived from same trust class
+
+### NONCANONICAL_PROVIDER_QUARANTINE_GUARD
+shell date / UI / system timestamp / assistant timestamp / artifact completion time / converted foreign-zone timeをcanonical turn provider graphへ入れない。current artifactはJST-only renderingを維持する。
+
+### EXEMPLAR_EPOCH_AUTHORITY_FENCE
+`CURRENT_CANON_EPOCH >= EXEMPLAR_EPOCH`を前提に、structureだけ借用。exemplarの古いvalidator semanticsをcopyしない。MAGI/SELF_AUDITはcurrent DELTA_ONLY validatorで再計算。
+
+### REQUIRED_SHA256_VALUE_GUARD
+required digest keyは64 lower-hex + actual byte match。placeholder値はfield-present PASSに数えない。
+
+### BOOT_TIME_COFAILURE_ROOT_CAUSE_GUARD
+boot exactnessとingress timeの同時再発はproject canon/runtime binding incidentへ集約し、個別修正だけでCLOSEDにしない。
+
+### FATHER_ONLY_DEDICATED_CORPUS_GUARD
+father-direct以外のsubject corpus候補はfather language learningへ投入しない。mother utteranceはmother TLM/semantic logへ限定。
+
+### LINEAGE_FIXTURES_rev0_299
+- FIRST_ACTION_NOT_PYTHON_THEN_LATE_CAPTURE_MUST_REMAIN_ORDER_INVALID
+- ORDER_INVALID_MUST_BLOCK_FULL_ARTIFACT_COMMIT
+- STATUS_STRING_IN_TIMESTAMP_FIELD_MUST_FAIL
+- NONINTEGER_SUCCESS_INDEX_MUST_FAIL
+- SHELL_DATE_MUST_NEVER_OPEN_CANONICAL_WORK_GATE
+- CURRENT_CANON_MUST_OVERRIDE_OLD_EXEMPLAR_RUNTIME_SEMANTICS
+- REQUIRED_SHA256_PLACEHOLDER_MUST_FAIL
+- BOOT_AND_INGRESS_COFAILURE_MUST_ESCALATE_TO_BINDING_INCIDENT
+- MOTHER_CORPUS_MUST_NOT_ENTER_FATHER_VOCABULARY

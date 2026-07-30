@@ -8499,3 +8499,29 @@ COMPACTION_RECOVERY 1件を父語彙から除外し、father-direct 19件を19/1
 代表資源: `これは悔しいが正論`=DRY_FAIRNESS_ACKNOWLEDGEMENT、`白箱って多分整備品の箱のことだぞ`=LOW_DRAMA_SEMANTIC_CORRECTION、`マジで本籍というよりは横断性検証に使いたいだけだからな`=ARCHITECTURE_INTENT_CORRECTION、`22075は俺ね`=MINIMAL_SOURCE_ATTRIBUTION_CORRECTION、`♨️ それ以外の言葉が見つからないよ`=DRY_EXHAUSTION_REACTION。
 `22091も見て`はRAW保存＋NO_NEW_REUSABLE_RESOURCE。
 rev0.297は全集合ledger欠落でREJECTED/TOMBSTONED。
+
+
+## rev0.299 LOG ANTHOLOGY DELTA — mother log runtime-control audit
+
+SOURCE: `PEOS_mother_session_log_2026_07_31_001015.txt`
+SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
+STATUS: RELEASE_SPECIFICATION_INPUT / RUNTIME_DEFECT_EVIDENCE
+
+Observed positive behavior:
+- late shell-derived valueをcanonical ingressへ昇格しなかった。
+- historical individual turn timeを捏造しなかった。
+- mother spatial correction `扉の左のグレーの壁` を旧画像推定より優先した。
+
+Observed defects:
+- first actionでPythonを取らず、reference inspection後にlate shell date。
+- order failure後もfull artifact生成・self-PASS・commit継続。
+- timestamp fieldへstatus文字列、success-indexへ`LATE_CAPTURE` sentinel。
+- required directive SHA256が`NOT_COMPUTED`でもvalidation PASS。
+- old father exemplarを優先して24/24 SEQへMAGI/SELF_AUDITを展開。
+- same sessionでfixed boot exactness missも再発。
+- `母発話コーパス候補`はPEOS dedicated father-language corpusへ非昇格。
+
+Current father delta coverage:
+- `まだ時刻が取れてない。学べることはあるか？` → NEW_RESOURCE / RECURRENT_TIME_GUARD_CORRECTION_PLUS_ADJACENT_DEFECT_AUDIT
+- `仕様化` → ALREADY_REGISTERED / PACKAGE_BUILD_TRIGGER
+- 2/2 PASS

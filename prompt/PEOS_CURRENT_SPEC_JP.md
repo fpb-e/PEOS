@@ -18197,3 +18197,36 @@ PRIMARY_SOURCE_SHA256: `bd73e0557b1e3999a497397ec1f3d34faed33fcc0f5d4abaa155cad3
 BASELINE_PACKAGE_SHA256: `c2af3543302327e72d6c31841a7588da80117e5eba92c3ccf0195fcd31d5deb4`
 REJECTED_rev0.297_SHA256: `7d3186053854392dce9673aaca20a2267661358f4f8e793d550d699293709905`
 USER_TURN_OBSERVED_AT_JST: 2026-07-30 02:29:57(JST)
+
+
+## rev0.299 SPEC ADDENDUM: INGRESS ORDER LATCH / HARD-GATE CONTROL / EXEMPLAR EPOCH
+
+rev0.298でcanonical Python時刻providerとreceipt検証は存在していたが、source mother logではreference-format inspectionが先に走り、late shell timeを記録した後もfull artifact生成・self-PASS・commitまで継続した。rev0.299は、時刻規則を記述するだけでなく、第一実行順序をimmutable latchとして制御フローへ接続する。
+
+### INGRESS_ORDER_LATCH
+- turn arrival後、最初のexecutable actionがcanonical Python `datetime.now(ZoneInfo("Asia/Tokyo"))` のattemptであればVALID。
+- 他actionが先行した時点でORDER_INVALIDへ固定。
+- late Python/shell/UI/artifact timeでVALIDへ修復しない。
+- ORDER_INVALIDなら通常full work / artifact / package / memory mutationを開始・継続しない。
+
+### CANONICAL_TIME_FIELD_SCHEMA
+status、timestamp、attempts、success-index、order、gate-validityを別型で保持する。timestamp fieldはtimestamp値のみ、attempt/indexはreceipt-backed integerのみ。`NOT_CAPTURED...`や`LATE_CAPTURE`を数値/時刻fieldへ入れない。
+
+### DISCLOSED_FAILURE_IS_NOT_WORK_AUTHORIZATION
+hard gate failureを正直に開示してもfull work継続権は得ない。`PASS_WITH_DISCLOSED_LIMITATION`はruntime hard-gate failureをoperative PASSへ変換しない。
+
+### CURRENT_CANON_OVER_EXEMPLAR
+format exemplarは構造参照でありcurrent canonを上書きしない。古いexemplar由来のMAGI/SELF_AUDIT全SEQ展開、旧時刻provider、旧validator self-PASSをcurrentへ復活させない。
+
+### REQUIRED_INTEGRITY_VALUE_VALIDATION
+required SHA256 fieldは64hex実値と対象bytes一致を要求。`NOT_COMPUTED` / `PENDING` / placeholderはFAIL。
+
+### PROJECT_CANON_RUNTIME_BINDING_RECURRENCE
+同一sessionでboot exactness missとingress-time missが併発した場合、個別事故ではなくproject `PEOS正本指示` / continuity / runtime guardのpre-turn binding再発として扱い、correction interruptとregression fixtureを登録する。
+
+### FATHER-ONLY DEDICATED UTTERANCE CORPUS
+mother/third-party/assistant発話はsemantic/TLM/evidenceへ保存できるが、dedicated father vocabulary/utterance corpusへ昇格しない。subject-specific logが独自に`母発話コーパス候補`を生成しても、PEOS本体のfather-language learningへ取り込まない。
+
+PRIMARY_SOURCE_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
+BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
+USER_TURN_OBSERVED_AT_JST: 2026-07-31 00:53:28(JST)

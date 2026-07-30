@@ -8119,3 +8119,17 @@ SOURCE_LOG_SHA256: `0e10bb8fc3f9cf16078cef344dcef250fe2283c3fd564df12e4c9004212a
 
 ## rev0.298 DESIGN NOTE: 語彙吸収は抜粋ではなく集合被覆
 父語彙学習では目立つ訂正文だけを候補化しても不十分。source内father-direct全集合を先に確定し、その全件へ NEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCE をexactly onceで付ける。乾いた譲歩、語義補正、短い帰属補正、内輪呼称、呆れ表現も落とさない。一方、`22091も見て`のような狭い参照命令はRAW保存しつつNO_NEW_REUSABLE_RESOURCEとしてよい。
+
+
+## rev0.299 DESIGN NOTE: order is evidence, not merely metadata
+
+rev0.299 treats first-action order as a one-way latch. A later correct timestamp cannot retroactively make the turn conforming because the requirement concerns causal ordering, not only clock value. This converts the ingress rule from a post-hoc audit statement into a control-flow condition.
+
+The same principle applies to exemplars: a reference artifact can define shape without defining authority. When a format exemplar predates the active validator epoch, current canon revalidates every inherited behavior. Structural imitation may not resurrect deprecated time providers, all-SEQ MAGI boilerplate, or self-certified PASS semantics.
+
+Field trust is structural. A source-reported timestamp cannot be paired with canonically asserted attempts, action index, or gate validity unless the underlying receipt is equally trusted. Schema typing therefore participates in provenance enforcement.
+
+The mother-session source also demonstrates a role-boundary issue: subject utterances other than father direct may be valuable TLM or semantic evidence, but they do not become the dedicated father-language corpus merely because a session log proposes a corpus section.
+
+SOURCE_LOG_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
+BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
