@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.295
+- 現行latest: rev0.300
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1901,3 +1901,12 @@ PEOS therefore models the first executable action as an immutable ordering latch
 A second authority boundary is introduced between current canon and historical format exemplars. Exemplars define form, while the active validator epoch defines admissible behavior. This prevents historical boilerplate or deprecated timing semantics from re-entering current artifacts through faithful imitation of an older log.
 
 The co-occurrence of boot and timing failures within one session further supports a shared runtime-binding diagnosis. This strengthens the project-level rule that PEOS正本指示 and continuity guards must be resident before turn handling rather than consulted reactively after a visible defect.
+
+
+## rev0.300 Academic Addendum: Self-Reported Conformance vs Recomputed Invariants
+
+A structured artifact can self-label its vocabulary corpus, boot sequence, and audit density as conforming while violating each underlying invariant. rev0.300 therefore treats self-reported PASS labels as claims and recomputes conformance from source sets, exact literals or approved hashes, and material-delta evidence.
+
+Father-language learning is accepted only when authoritative father-direct references and ledger references are set-equal. Boot conformance requires complete canonical literal/hash equivalence; a reference to a boot asset is not execution of the boot asset. DELTA_ONLY means absent audit blocks when no material delta exists, not universal audit blocks carrying a DELTA_ONLY label.
+
+The same non-compression principle extends to provenance and language interpretation: direct-observer status must not be silently downgraded to secondary-source status; exclusive quantifiers are checked against known counterexamples; explicit scope exclusions remain sticky; and language lint must account for idioms, quotations, and rule-version changes before emitting an error.
