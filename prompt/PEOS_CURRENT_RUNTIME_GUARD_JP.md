@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.295
+- 現行latest: rev0.300
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -17968,3 +17968,46 @@ father-direct以外のsubject corpus候補はfather language learningへ投入�
 - REQUIRED_SHA256_PLACEHOLDER_MUST_FAIL
 - BOOT_AND_INGRESS_COFAILURE_MUST_ESCALATE_TO_BINDING_INCIDENT
 - MOTHER_CORPUS_MUST_NOT_ENTER_FATHER_VOCABULARY
+
+
+## rev0.300 RUNTIME GUARD: RECOMPUTED VALIDATION / BOOT EXACT LITERAL / EMPTY DELTA SLOT
+
+### FATHER_LEDGER_SET_EQUALITY_RUNTIME_TEST
+`father_direct_ref_set == coverage_ref_set`、count equality、duplicate=0、orphan=0をartifact bytesから再計算する。candidate section件数は使用しない。
+
+### BOOT_EXACT_LITERAL_HASH_RUNTIME_TEST
+BOOT sequenceはcanonical literal/bytes/hashで比較する。logoのみ、section titleのみ、`起動文資産を参照`、一部省略はいずれもFAIL。
+
+### DELTA_SLOT_OMISSION_RUNTIME_TEST
+material deltaなしSEQではMAGI/SELF_AUDIT slot absentが正常。slotが存在する場合はcurrent validatorが実delta reasonを検証する。100% slot coverageを適合条件へしない。
+
+### SELF_REPORTED_PASS_RECOMPUTE_TEST
+artifact内の`PASS`文字列をvalidator input truthへしない。current epoch validatorで再計算し、矛盾時はartifact self-PASSをSUPERSEDED/FAILへ落とす。
+
+### DIRECT_OBSERVER_PROVENANCE_RUNTIME_RULE
+fatherがevent host/direct observerと明示したら、その観測範囲についてsecondary-source前提を撤回する。ただし本人観測外の事実まで証明済みにしない。
+
+### QUANTIFIER_COUNTEREXAMPLE_RUNTIME_RULE
+`しか` / only / all相当をsummaryへ保持する前にknown counterexampleを検査。反例があればscope errorとして補正する。
+
+### SCOPE_EXCLUSION_STICKINESS_RUNTIME_RULE
+父の明示除外はbranch-local exclusion setへ保存し、summary/next turnで自動再導入しない。
+
+### LANGUAGE_LINT_FALSE_POSITIVE_RUNTIME_RULE
+idiom/quotation/rule-versionを確認し、`我が振り`型のfalse positiveを防ぐ。
+
+### STYLE_CORRECTION_STICKINESS_RUNTIME_RULE
+♨️等のfather-direct style correctionは即fixture化。補正後再発はSTYLE_RESOURCE_APPLICATION_DEGRESSION / USER_CORRECTION_NOT_STICKING。
+
+### LINEAGE_FIXTURES_rev0_300
+- FATHER_DIRECT_FULL_SET_MUST_EQUAL_LEDGER_SET
+- HIGH_VALUE_CANDIDATE_LIST_MUST_NOT_SATISFY_FULL_LEDGER
+- BOOT_ASSET_REFERENCE_MUST_NOT_PASS_EXACTNESS
+- NO_DELTA_SEQ_SHOULD_OMIT_MAGI_SELF_AUDIT_SLOT
+- DELTA_ONLY_LABEL_ALONE_MUST_NOT_PASS
+- ARTIFACT_SELF_PASS_MUST_NOT_OVERRIDE_RECOMPUTED_FAILURE
+- DIRECT_OBSERVER_PROVENANCE_MUST_SUPERSEDE_SECONDARY_SOURCE_ASSUMPTION
+- KNOWN_COUNTEREXAMPLE_MUST_BREAK_EXCLUSIVE_QUANTIFIER
+- USER_SCOPE_EXCLUSION_MUST_REMAIN_STICKY
+- LANGUAGE_LINT_MUST_CHECK_IDIOM_AND_RULE_VERSION
+- ONSEN_PRAGMATIC_FLAG_MUST_PASS_POSITIVE_NEGATIVE_FIXTURES

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.295
+- 現行latest: rev0.300
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -18230,3 +18230,33 @@ mother/third-party/assistant発話はsemantic/TLM/evidenceへ保存できるが�
 PRIMARY_SOURCE_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
 BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
 USER_TURN_OBSERVED_AT_JST: 2026-07-31 00:53:28(JST)
+
+
+## rev0.300 SPEC ADDENDUM: VALIDATOR EVIDENCE RECOMPUTATION / FULL FATHER LEDGER / BOOT EXACTNESS
+
+rev0.299をaccepted baselineとする。source father logは49/49 SEQをFATHER_DIRECTとして保持した一方、父語彙候補は9件抜粋、BOOTはrequired tailをasset referenceへ置換、MAGI/SELF_AUDITは49/49 slot展開であった。それでもartifact自身は各項目をPASSとした。rev0.300は「PASSと書いてある」を証拠にせず、validatorがbytes/contentから再計算する。
+
+### FATHER_VOCABULARY_FULL_SET_EQUALITY_REQUIRED
+father-direct全集合とcoverage ledger集合をexact set equalityで検証する。候補・high-value listはcoverage証拠にならない。各father directはNEW_RESOURCE / ALREADY_REGISTERED / NO_NEW_REUSABLE_RESOURCEのexactly one decisionを持つ。今回sourceは49/49。
+
+### BOOT_CANON_EXACT_LITERAL_OR_HASH_VALIDATION
+BOOT適合はsection presenceやasset referenceでなく、固定canonical literal/bytesまたは承認hash一致で検証する。required tailを「起動文資産を参照」に置換したartifactはFAIL。
+
+### DELTA_ONLY_EMPTY_SLOT_OMISSION_REQUIRED
+material deltaがないSEQではMAGI_TRACE / SELF_AUDIT slot自体を省略する。`MODE: DELTA_ONLY`というラベルだけで展開を正当化しない。全SEQ slot presenceをPASS criteriaにしない。
+
+### VALIDATOR_SELF_REPORT_DISTRUST
+artifactの`PASS`はclaim。current validatorがfather ledger、boot literal/hash、delta slot density/reasons、revision epoch、time receipt、required digestを再計算して初めてPASSとする。
+
+### DIRECT_OBSERVER_PROVENANCE_PRIORITY / QUANTIFIER_SCOPE / SCOPE_EXCLUSION
+父がhost/direct observerと明示した場合はsource provenanceをFATHER_DIRECT_OBSERVATIONへ訂正する。`しか`等の排他的量化は既知反例を確認する。明示的scope exclusionは同分析枝でstickyに保持する。
+
+### LANGUAGE_LINT_IDIOM_AND_VERSION_GUARD
+慣用句・引用・言語規範version changeを確認してからERROR判定する。曖昧な品質問題はWARNING/REFACTORへ落とす。
+
+### ♨️ PRAGMATIC FLAG REFINEMENT
+♨️は稀に使う皮肉・嫌味・自嘲・ノリツッコミのpragmatic flag。通常文末装飾は禁止。positive fixture: `順当に悪化してるな♨️` / `言語解釈コンパイラが厳格すぎて可用性が落ちてるな♨️`。
+
+PRIMARY_SOURCE_SHA256: `13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf`
+BASELINE_PACKAGE_SHA256: `060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa`
+USER_TURN_OBSERVED_AT_JST: 2026-08-01 05:56:29(JST)

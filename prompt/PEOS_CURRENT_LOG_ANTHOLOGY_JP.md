@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.295
+- 現行latest: rev0.300
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8525,3 +8525,32 @@ Current father delta coverage:
 - `まだ時刻が取れてない。学べることはあるか？` → NEW_RESOURCE / RECURRENT_TIME_GUARD_CORRECTION_PLUS_ADJACENT_DEFECT_AUDIT
 - `仕様化` → ALREADY_REGISTERED / PACKAGE_BUILD_TRIGGER
 - 2/2 PASS
+
+
+## rev0.300 LOG ANTHOLOGY DELTA — father full-tab validator audit
+
+SOURCE: `PEOS_father_session_log_2026_08_01_054429.txt`
+SHA256: `13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf`
+STATUS: RELEASE_SPECIFICATION_INPUT / VALIDATOR_DEFECT_EVIDENCE / FATHER_LANGUAGE_SOURCE
+
+Observed defects:
+- 49/49 father-direct SEQに対しfather corpus候補は9件のみ。それでもself-validationはPASS。
+- BOOT canonical tailをasset referenceへ置換したのにBOOT_SEQUENCE PASS。
+- 49/49 SEQへMAGI/SELF_AUDIT slotを展開し、`MODE: DELTA_ONLY`でlaunder。
+
+Positive fixtures:
+- current-turn first Python attempt failure -> immediate second successでもfirst executable action classはtime capture attemptのためINGRESS_ORDER_VALID。
+- rev0.299 continuity contextとrev0.298 source-verified bytesを非圧縮。
+- anonymous identityを未確定のまま保持。
+- father explicit scope exclusionを反映。
+
+Father language full ledger:
+- source father-direct: 49
+- coverage decisions: 49
+- set equality: required PASS
+- representative new resources: `フィルターがアディショナルインパクト起きてた`, `昔のTLM TBLをSELECTってお前…`, `びっくらポンだぜ…`, ♨️ pragmatic fixtures, direct-observer provenance correction, quantifier-scope correction, professional review/language-lint resources.
+
+Current father delta:
+- `学べることはあるか？` -> ALREADY_REGISTERED / ADJACENT_DEFECT_AUDIT
+- `よし。仕様化しよう` -> NEW_RESOURCE / AFFIRMATIVE_SPECIFICATION_PROCEED_DIRECTIVE
+- 2/2 coverage

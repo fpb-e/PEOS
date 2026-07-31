@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.295
+- 現行latest: rev0.300
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8133,3 +8133,10 @@ The mother-session source also demonstrates a role-boundary issue: subject utter
 
 SOURCE_LOG_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
 BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
+
+
+## rev0.300 DESIGN NOTE: validatorは自己申告を読むのではなく不変条件を再計算する
+
+rev0.300の中心設計は、artifactに`PASS`や`DELTA_ONLY`と書かれていることを適合証拠にしないこと。父語彙はsource setとledger set、BOOTはexact literal/hash、MAGI/SELF_AUDITはslotの存在ではなく必要性を再計算する。差分なしslotの省略は情報損失ではなく、DELTA_ONLYの正しい表現である。
+
+また、直接観測者provenance、量化詞の反例検査、scope exclusion stickiness、言語規範versioning/慣用句false-positive controlを同じ「source semanticsを表面ラベルへ圧縮しない」原理へ統合する。
