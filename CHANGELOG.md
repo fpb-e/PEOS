@@ -534,3 +534,19 @@
 - USER_TURN_OBSERVED_AT_JST: 2026-07-31 00:53:28(JST)
 - PRIMARY_SOURCE_SHA256: ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af
 - BASELINE_PACKAGE_SHA256: c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a
+
+
+## rev0.300
+- father session log 49/49 FATHER_DIRECTに対し、候補9件だけで`FATHER_UTTERANCE_CORPUS: PASS`としていたcoverage回帰を仕様化。
+- `FATHER_VOCABULARY_FULL_SET_EQUALITY_REQUIRED`で49/49全件ledgerをrelease acceptanceへ接続。
+- BOOT固定tailをasset referenceへ置換してもPASSした穴を`BOOT_CANON_EXACT_LITERAL_OR_HASH_VALIDATION`で遮断。
+- 49/49 MAGI/SELF_AUDIT slot + `MODE: DELTA_ONLY`を`DELTA_ONLY_LABEL_LAUNDERING`としてFAIL化し、差分なしslot省略を正規化。
+- artifact self-PASSを入力truthにせずcurrent validatorで不変条件を再計算。
+- direct observer provenance、exclusive quantifier反例検査、scope exclusion stickiness、language-lint idiom/version guardを追加。
+- ♨️をsparse pragmatic flagへ精密化し、補正後誤用をSTYLE_RESOURCE_APPLICATION_DEGRESSIONとして保持。
+- current father delta 2/2 coverage。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-08-01 05:56:29(JST)
+- PRIMARY_SOURCE_SHA256: 13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf
+- BASELINE_PACKAGE_SHA256: 060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa

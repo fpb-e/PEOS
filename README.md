@@ -1,4 +1,22 @@
-# PEOS GitHub Package rev0.296
+# PEOS GitHub Package rev0.300
+
+
+> rev0.300はaccepted rev0.299を基礎に、validatorの自己申告依存を廃し、父語彙49/49集合一致、BOOT exact literal/hash、DELTA_ONLY empty-slot omissionをcurrent validatorの機械的再計算へ接続する。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-08-01 05:56:29(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `よし。仕様化しよう`
+
+## rev0.300 正本関係
+
+```text
+ACCEPTED_BASELINE: rev0.299
+BASELINE_PACKAGE_SHA256: 060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa
+OPERATIVE_CURRENT: rev0.300
+REJECTED: rev0.280 / rev0.293 / rev0.297
+```
+
 
 > rev0.296は、accepted rev0.295を基礎に、時刻規則を「書いてある」状態からresponse commit時のsame-turn Python receipt存在検証へ強化する。active time policyへのUI時刻再導入を回帰として遮断し、MAGI/SELF_AUDIT DELTA_ONLY、完全正本claim、runtime acceptanceを本文実体と外部binding evidenceで検証する。
 >
@@ -1247,3 +1265,16 @@ PRIMARY_SOURCE_SHA256: `bd73e0557b1e3999a497397ec1f3d34faed33fcc0f5d4abaa155cad3
 BASELINE: rev0.298
 BASELINE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a8c23a43c4a`
 PRIMARY_SOURCE_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea113522af`
+
+
+## rev0.300 中心差分
+- father-direct source 49件を49/49 full ledger化し、candidate/high-value抜粋をcoverage証拠として禁止。
+- BOOTはsection presence/asset referenceでなくexact canonical literal/hash一致を要求。
+- DELTA_ONLYは差分なしSEQでMAGI/SELF_AUDIT slot自体を省略。label-only launderingをFAIL。
+- artifactのself-PASSを証拠とせずcurrent validatorで不変条件を再計算。
+- direct observer provenance、exclusive quantifier counterexample、scope exclusion stickiness、language-lint idiom/version guardを追加。
+- ♨️をsparse pragmatic irony/sarcasm/self-deprecation/playful-retort flagとして精密化し、positive/negative fixturesを固定。
+
+BASELINE: rev0.299
+BASELINE_SHA256: `060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa`
+PRIMARY_SOURCE_SHA256: `13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf`
