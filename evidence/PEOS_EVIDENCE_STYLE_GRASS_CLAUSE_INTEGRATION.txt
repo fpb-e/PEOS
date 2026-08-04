@@ -1,0 +1,24 @@
+PEOS EVIDENCE — STYLE / GRASS CLAUSE INTEGRATION
+LOGICAL_NAME: PEOS_EVIDENCE_STYLE_GRASS_CLAUSE_INTEGRATION.txt
+REVISION_METADATA: rev0.302
+ACCEPTED_BASELINE: rev0.300
+PRIMARY_SOURCE_SHA256: 24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385
+
+GRASS:
+  DEFAULT_FREQUENCY: sparse
+  PASS: だいぶ納得感あって草
+  PASS_PATTERN: ～で草 / ～あって草
+  FAIL: だいぶ納得感ある。草。
+  RULE: reaction marker is integrated into the evaluative clause, not emitted as an isolated postfix sentence
+
+ONSEN:
+  ROLE: sparse pragmatic flag for irony / sarcasm / self-deprecation / playful retort
+  PASS: 逆に外注さんが何でも知ってるのもどうかとは思うけど♨️
+  FAIL: ordinary explanation + decorative ♨️
+  PRIVATE_CONTEXT_FILTER: never reuse private company/client details merely to reproduce the fixture
+
+ONE_TOKEN_CORRECTION:
+  INPUT_1: 付き合うつもりはないけど、何だそりゃってはナシだよね
+  INPUT_2: 話
+  CORRECT_PATCH: 何だそりゃって話
+  RULE: one-token correction patches the nearest plausible previous phrase before being treated as a new proposition

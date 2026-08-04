@@ -1,0 +1,25 @@
+PEOS EVIDENCE — VALIDATION / DELTA SLOT DENSITY
+LOGICAL_NAME: PEOS_EVIDENCE_VALIDATION_DELTA_SLOT_DENSITY.txt
+REVISION_METADATA: rev0.302
+ACCEPTED_BASELINE: rev0.301
+PRIMARY_SOURCE_SHA256: 31ff28537596fd9d562f1f7ee12d7e5e3c42d1ad6d7e7e4260dd7d37d32ee267
+
+SOURCE_SEQ_COUNT: 30
+SOURCE_MAGI_TRACE_SLOT_COUNT: 30
+SOURCE_SELF_AUDIT_SLOT_COUNT: 30
+SOURCE_NO_DECISION_DELTA_PAIR_COUNT: 7
+SOURCE_PASS_NO_DELTA_COUNT: 7
+SOURCE_SELF_REPORTED_ALL_SEQ_BOILERPLATE_EXPANSION_FALSE: TRUE
+RECOMPUTED_DELTA_ONLY_RESULT: FAIL
+
+RULES:
+  no material delta -> omit MAGI_TRACE and SELF_AUDIT slots
+  `NO_DECISION_DELTA` and `PASS_NO_DELTA` are regression labels, not valid compact output
+  validator counts actual slots and reasons from bytes
+  artifact self-report is not evidence of slot density
+
+POSITIVE_SOURCE_PATTERNS:
+  host source gap disclosed
+  missing turns not inferred
+  original full-tab claim blocked
+  mother-reported father wording excluded from father corpus
