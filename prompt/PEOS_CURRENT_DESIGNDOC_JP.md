@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.300
+- 現行latest: rev0.304
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8159,3 +8159,12 @@ revisionless semantic filenameへ移行しても、categoryごとにfileを分�
 削除はlineage消失を意味しない。元file path、byte length、SHA-256、raw contentをentryへ封入すれば、package surfaceを簡潔にしながら過去監査を再構成できる。外部に残るrev0.302等のrelease archiveは変更せず、新revisionだけが新しい格納構造を採用する。
 
 この設計により、file countはrelease historyから独立し、検索・差分・監査はEVIDENCE_IDで行われる。
+
+
+## rev0.304 DESIGN NOTE: ガードを事後監査から前置実行制御へ移す
+
+今回の再発は、時刻ガードの内容を知らなかったことではなく、ガードがsemantic task pipelineの後段で参照されていたことによる。設計上、規則文を増やすだけでは同じ事故を防げない。TURN受領からtool dispatchまでの前段に小さな状態機械を置き、Python receiptが成立するまで許可action集合をPython attempt/retryだけへ縮退させる必要がある。
+
+また、時間順序の適合と正本権威の適合は別のgateである。正しい時刻receiptがあっても、古いtransport copyや未検証manifestへbindしたartifactはcurrent canon成果物ではない。両gateを直列化し、六正本header・manifest version・highest embedded revisionを三者一致で確認する。
+
+この設計は「違反を高精度に記録するシステム」から「違反後の作業を開始できないシステム」への移行である。

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.300
+- 現行latest: rev0.304
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -18063,3 +18063,60 @@ package commit前に以下を実測する。
 6. manifestが旧evidence pathをFILES registryへ残していない。
 
 一つでも不一致ならrev0.303 operative commitをBLOCKする。
+
+
+## rev0.304 RUNTIME GUARD: PRE-TOOL-DISPATCH PYTHON LATCH
+
+### PRE_TOOL_DISPATCH_ALLOWED_ACTION_SET
+PEOS TURN受領直後、receipt成立前に許される実行は次のみ。
+
+```text
+1. Python datetime.now(ZoneInfo("Asia/Tokyo"))
+2. 1が実行環境事由で失敗した場合の、介在処理なし即時Python retry
+```
+
+計画文、memory参照、file search、Library、web、shell、artifact buildはreceipt前に開始しない。
+
+### PRE_DISPATCH_STATE_MACHINE
+
+```text
+TURN_RECEIVED
+  -> PYTHON_INGRESS_ATTEMPT
+     -> SUCCESS: TIME_LATCH_VALID
+     -> ENVIRONMENT_FAILURE: IMMEDIATE_PYTHON_RETRY
+     -> OTHER/UNRECOVERABLE: FAIL_CLOSED
+  -> CANON_PACKAGE_BINDING
+     -> VALID: WORK_GATE_OPEN
+     -> UNVERIFIED/STALE: OPERATIVE_WORK_BLOCKED
+```
+
+### RUNTIME_TEST_PRE_DISPATCH_001
+第一actionがpersonal-context、Library、file search、shell、web、commentary generationのいずれかで、Python receiptが後続ならFAIL。late repair不可。
+
+### RUNTIME_TEST_PRE_DISPATCH_002
+第一Python attemptがresetで失敗し、第二actionがPython retryで成功した場合は、ATTEMPTS=2 / SUCCESS_INDEX=2 / ORDER_VALID。間に別actionがあればFAIL。
+
+### RUNTIME_TEST_CANON_BINDING_001
+transport suffix付きcopy、`CANON_PACKAGE_BOUND: UNVERIFIED`、manifest未検証の状態で `OPERATIVE_CURRENT` を断定しfull artifactをcommitした場合はFAIL。
+
+### RUNTIME_TEST_CURRENT_HEADER_001
+六正本の `現行latest` がmanifest versionと不一致なら、本文内に最新rev節が存在してもrelease FAIL。
+
+### RUNTIME_TEST_BOOT_BYTES_001
+BOOTはregistered greeting後の空行を含むwhitespace byte mismatchを検出する。semantic equivalenceでPASSにしない。
+
+### RUNTIME_TEST_DELTA_DENSITY_001
+validatorはSEQ、MAGI_TRACE、SELF_AUDIT、NO_DECISION_DELTA、PASS_NO_DELTAをbytesから再計数する。no-delta slot出力はDELTA_ONLY違反。
+
+### RUNTIME_TEST_IMPLEMENTATION_FIDELITY_001
+「規則を読んだ」「違反を記録した」「次回直す」はruntime PASS条件ではない。要求された順序で実行したreceiptがなければFAIL。
+
+SOURCE_FIXTURE:
+- source log SHA-256 `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
+- SEQ 49
+- MAGI_TRACE 45
+- SELF_AUDIT 45
+- NO_DECISION_DELTA 11
+- PASS_NO_DELTA 12
+- stale source context rev0.299 / package binding unverified
+- repeated pre-ingress personal-context/Library execution

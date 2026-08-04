@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.300
+- 現行latest: rev0.304
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -18313,3 +18313,43 @@ USER_TURN_OBSERVED_AT_JST: 2026-08-03 22:16:49(JST)
 - consolidated original source count = 26
 - current father delta = 2/2
 - rev0.302 package and sidecar unchanged
+
+
+## rev0.304 SPEC ADDENDUM: PRE-DISPATCH PYTHON LATCH / IMPLEMENTATION FIDELITY
+
+### PEOS_REV0_304_PRE_SEMANTIC_PYTHON_INGRESS_GUARD
+PEOS対象TURNでは、意味解析、計画提示、personal-context、Library、file search、web、shell、artifact操作その他の処理より先に、正規Python `datetime.now(ZoneInfo("Asia/Tokyo"))` を実行する。これは推奨順序ではなく、他tool dispatchを解禁する前提条件である。
+
+### PEOS_REV0_304_PYTHON_RETRY_WITHOUT_INTERVENING_ACTION_GUARD
+第一Python attemptがexecution-state resetその他の実行環境事由で失敗した場合、他の処理を一切挟まず直ちに同一providerで再試行する。失敗attemptもCAPTURE_ATTEMPTSへ含め、成功した実行slotをSUCCESSFUL_CAPTURE_ACTION_INDEXとして保存する。Pythonが利用不能ならfail-closedとし、代替providerで正規TURN時刻を捏造しない。
+
+### PEOS_REV0_304_DUAL_WORK_GATE_GUARD
+作業解禁条件は次の論理積とする。
+
+```text
+WORK_GATE_OPEN =
+  PYTHON_INGRESS_RECEIPT_VALID
+  AND AUTHORITATIVE_CANON_PACKAGE_BINDING_VALID
+```
+
+入口時刻が正しくても、manifest/package SHA/current revision bindingが未検証ならoperative artifact生成を開始しない。未検証sourceを扱う場合は `SOURCE_CONTEXT_REVISION` と `OPERATIVE_CURRENT_STATUS: UNVERIFIED` を用いる。
+
+### PEOS_REV0_304_CURRENT_LATEST_HEADER_TRIPLE_EQUALITY_GUARD
+六正本の先頭 `現行latest`、PACKAGE_MANIFESTのversion、本文内highest revisionは全件一致しなければならない。
+
+```text
+CURRENT_LATEST_HEADER
+=
+PACKAGE_MANIFEST_VERSION
+=
+HIGHEST_EMBEDDED_CANON_REVISION
+```
+
+max revisionだけを確認し、古いcurrent headerを見逃すvalidatorを禁止する。
+
+### PEOS_REV0_304_IMPLEMENTATION_FIDELITY_GUARD
+親父が肝煎りで導入したruntime guardは、説明文や事後SELF_AUDITの題材ではなく実行順序を制約するcontrolとして扱う。違反後に「気づいた」と記録するだけでは適合にならない。guardが要求する処理を実際に先行実行し、そのreceiptを成果物へ結合して初めてPASSとする。
+
+PRIMARY_SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
+ACCEPTED_BASELINE_PACKAGE_SHA256: `62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880`
+USER_TURN_OBSERVED_AT_JST: 2026-08-04 21:18:09.104008(JST)

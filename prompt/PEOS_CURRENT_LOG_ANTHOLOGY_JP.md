@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.300
+- 現行latest: rev0.304
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8584,3 +8584,34 @@ Decision:
 - their 26 raw payloads, original paths, sizes, and SHA-256 values are consolidated as internal entries
 - existing rev0.302 archive and sidecar remain untouched
 - current father delta coverage: 2/2
+
+
+## rev0.304 LOG ANTHOLOGY ADDENDUM — implementation fidelity and Python-first enforcement
+
+### 父の直接補正
+```text
+何故Pythonで時刻取得しない？前提のガードだろ？
+他、学べるところはあるか？
+```
+
+判定:
+- `PRECONDITION_GUARD_ENFORCEMENT_FAILURE_CORRECTION_PLUS_ADJACENT_DEFECT_AUDIT`
+- 前提guardを事後確認ではなく、作業開始前の実行制御として成立させる要求。
+
+### 仕様化指示
+```text
+頼むから肝煎りの実装したことに忠実であってくれよ
+仕様化。今度こそ頼むぞ
+```
+
+判定:
+- `IMPLEMENTATION_FIDELITY_ESCALATED_SPECIFICATION_COMMAND`
+- 肝煎りの実装を文言上だけでなくruntime behaviorとして忠実に守ったうえでrelease buildを完了する要求。
+
+### source観察
+- source logではログ化要求後にpersonal-context / LibraryがPythonより先行し、ORDER_LATCH違反後に停止した。
+- 正常再実行ではPython action index 1を成立させたが、rev0.299 transport copyへbindしたままpackage authorityは未検証だった。
+- source gapは隔離され、見えていない発話の捏造は行われなかった。
+- mother-reported father wordingはfather-direct corpusへ混入しなかった。
+
+SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
