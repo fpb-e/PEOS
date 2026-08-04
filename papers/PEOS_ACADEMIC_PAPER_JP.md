@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.300
+- 現行latest: rev0.304
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1929,3 +1929,15 @@ USER_TURN_OBSERVED_AT_JST: 2026-08-03 22:16:49(JST)
 A stable semantic filename reduces revision-driven proliferation, but multiple semantic files can still create an expanding physical registry. rev0.303 moves the logical unit of evidence from the file system to entries inside a single container. Each entry records a unique identifier, original path, byte length, and SHA-256, while retaining the original payload for reconstruction.
 
 This transformation distinguishes package compaction from historical erasure. Prior release archives remain immutable, and rejected or tombstoned lineage remains represented inside the consolidated evidence and manifest. The new package therefore minimizes its evidence-file surface without rewriting existing artifacts or discarding audit provenance.
+
+
+## rev0.304 Academic Addendum: From Declarative Guardrails to Executable Admission Control
+
+Repeated Python-ingress failures show that a rule may be precisely documented and still fail operationally when it is consulted after semantic planning or tool dispatch has already begun. The relevant control boundary is therefore not the quality of the later audit record but the set of actions admitted before receipt creation.
+
+rev0.304 models turn ingress as executable admission control. Before the canonical Python receipt exists, the runtime admits only the timestamp attempt and an immediate same-provider retry after an environmental failure. Canon and package binding form a second independent gate. A valid timestamp does not authorize operative work against stale or unverified canon.
+
+Release identity is similarly recomputed through triple equality among the current-header revision, manifest revision, and highest embedded revision. This prevents a validator from accepting a document whose latest section is current while its declared operative header remains stale.
+
+SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
+BASELINE_PACKAGE_SHA256: `62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880`
