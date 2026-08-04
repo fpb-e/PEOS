@@ -8571,3 +8571,16 @@ Positive fixtures:
 
 Evidence filenames from rev0.301 onward are stable semantic names without revision numbers.
 \n\n## rev0.302 LOG ADDENDUM: ARTIFACT-TIME AND AUTHORITY-TYPED SESSION LOGS\n\nSession log headerは以下を分離する。\n- USER_TURN_*: current user event receipt\n- ARTIFACT_GENERATION_*: artifact completion receipt\n- FILENAME_TIMESTAMP_BINDING: artifact eventからの秒projection検証\n- SOURCE_CONTEXT_REVISION: 読込sourceが主張するrevision\n- OPERATIVE_CURRENT_STATUS: package/manifest bindingの検証状態\n\n`CANON_PACKAGE_BOUND: UNVERIFIED`のまま`OPERATIVE_CURRENT`を確定表示しない。transport suffix付きcanon copyはhash binding前にauthoritative listへ入れない。\n\nDELTA_ONLY logではno-delta SEQからMAGI_TRACE/SELF_AUDIT slotを除去する。source gapは専用blockで保存し、original full-tab claimを抑止する。\n
+
+## rev0.303 LOG ANTHOLOGY ADDENDUM — evidence consolidation
+
+Father directives:
+- `エビデンスファイル1つにまとめられない？あと過去のものは消していい`
+- `再仕様化。既存のものは手をつけなくていい`
+
+Decision:
+- new package evidence path is only `evidence/PEOS_EVIDENCE.txt`
+- rev0.302 separate evidence files are not copied as separate files
+- their 26 raw payloads, original paths, sizes, and SHA-256 values are consolidated as internal entries
+- existing rev0.302 archive and sidecar remain untouched
+- current father delta coverage: 2/2

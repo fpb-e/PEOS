@@ -18044,3 +18044,22 @@ PRIVATE_CONTEXT: fixtureのprivate名詞は再利用禁止。
 
 PRIMARY_SOURCE_SHA256: `24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385`
 \n\n## rev0.302 RUNTIME GUARD: ARTIFACT CLOCK RECEIPT / CANON BINDING GATE / SLOT-DENSITY ORACLE\n\n### ARTIFACT_CLOCK_RECEIPT_RUNTIME_TEST\nexact artifact/package event timeを出力する前に、対象event専用Python receiptを確認する。turn receiptの使い回し、filesystem mtime、filename、assistant clockからの逆算は禁止。\n\n### DUAL_GATE_WORK_AUTHORIZATION\n```text\nTURN_GATE = canonical Python first-action receipt + valid order latch\nCANON_GATE = operative revision + baseline package hash + manifest + logical canon hashes + validator epoch binding\nFULL_ARTIFACT_ACCEPTANCE = TURN_GATE && CANON_GATE\n```\nTURN_GATEだけがPASSしCANON_GATEがUNVERIFIEDなら、source recovery/auditは可能だがoperative-conformant full artifact claimをBLOCKする。\n\n### TRANSPORT_COPY_BINDING_RUNTIME_TEST\ntransport filenameをlogical nameへ正規化しただけでは正本化しない。manifest path/hash、package SHA、内部revision metadataを照合する。\n\n### FILENAME_TIME_PROJECTION_RUNTIME_TEST\nlogical filename timestamp == floor_to_second(artifact event receipt)を要求する。日付帯やcurrent user-turn timeをfilename timestampへ流用しない。\n\n### BOOT_BYTE_EXACT_RUNTIME_TEST\napproved canonical boot bytesとobserved bytesを比較する。空白行、全角/半角、末尾改行を含む。section title、意味的一致、可視上の近似はPASS条件ではない。\n\n### AUDIT_SLOT_DENSITY_RUNTIME_TEST\nmaterial deltaのないSEQにMAGI_TRACE/SELF_AUDIT slotがあればFAIL。`NO_DECISION_DELTA`は省略条件であり、正当化ラベルではない。\n\n### SOURCE_GAP_AND_REVISION_STATE_NONCOMPRESSION\n`FULL_KNOWN_SOURCE`と`ORIGINAL_FULL_TAB`、`SOURCE_CONTEXT_REVISION`と`OPERATIVE_CURRENT`、`INGRESS_PASS`と`CANON_BINDING_PASS`を別stateとして保持する。\n\n### rev0.302 FIXTURES\n- exact artifact time without artifact receipt -> FAIL\n- filename timestamp not derived from artifact event -> FAIL\n- canonical ingress PASS + canon package UNVERIFIED -> operative acceptance BLOCK\n- registered greeting followed by extra blank line -> BOOT FAIL\n- 30/30 MAGI+SELF slots with seven NO_DELTA pairs -> DELTA_ONLY FAIL\n- disclosed host gap with no invented turns -> PASS\n
+
+## rev0.303 RUNTIME GUARD — EVIDENCE SINGLE-FILE COMMIT
+
+```text
+PEOS_REV0_303_EVIDENCE_SINGLE_FILE_PRECOMMIT_GUARD
+PEOS_REV0_303_EVIDENCE_ENTRY_HASH_RECONSTRUCTION_GUARD
+PEOS_REV0_303_OLD_EVIDENCE_PATH_ABSENCE_GUARD
+PEOS_REV0_303_PRIOR_RELEASE_BYTE_IMMUTABILITY_GUARD
+```
+
+package commit前に以下を実測する。
+1. `evidence/` 配下の通常file数が1である。
+2. 唯一のfileが `PEOS_EVIDENCE.txt` である。
+3. 統合元26件のentry IDが一意である。
+4. 各entryのbyte lengthとSHA-256が元rev0.302 evidence bytesに一致する。
+5. rev0.302 ZIPとsidecarのhashがbuild前後で変化していない。
+6. manifestが旧evidence pathをFILES registryへ残していない。
+
+一つでも不一致ならrev0.303 operative commitをBLOCKする。

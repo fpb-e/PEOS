@@ -8151,3 +8151,11 @@ Session-log delivery is split into artifact payload and transport receipt. The p
 
 Father-language coverage remains set-based: 31 source utterances and 5 current-delta utterances receive exhaustive decisions. Salience lists remain secondary views only.
 \n\n## rev0.302 DESIGN NOTE: EVENT CLOCKS AND AUTHORITY GATES\n\nPEOSのartifact pipelineを二つの独立gateへ分割する。Turn Ingress Gateは処理順序とuser-event時刻を保証し、Canon Binding Gateはどのrevision/package/validatorが権威を持つかを保証する。前者の成功は後者の成功を含意しない。\n\nArtifact Clockは第三のevent streamであり、user-turn clockから派生させない。session filenameはArtifact Clockの秒単位projectionであり、binding validatorが一致を再計算する。\n\nFormat validationは意味近似ではなくbyte-level fixtureを持つ。BOOTではwhitespace、DELTA_ONLYではslot density、canon sourceではtransport copyとmanifest hashを観測対象とする。\n\nSource gap quarantineは維持する。見えないsourceを推論で埋めない一方、known source completenessとoperative authorityを別々に報告する。\n
+
+## rev0.303 DESIGN NOTE: logical evidence surfaceを一件へ圧縮する
+
+revisionless semantic filenameへ移行しても、categoryごとにfileを分ければregistryの管理対象は増え続ける。rev0.303はevidenceのfile identityを一件へ固定し、内部entry identityへ索引単位を移す。
+
+削除はlineage消失を意味しない。元file path、byte length、SHA-256、raw contentをentryへ封入すれば、package surfaceを簡潔にしながら過去監査を再構成できる。外部に残るrev0.302等のrelease archiveは変更せず、新revisionだけが新しい格納構造を採用する。
+
+この設計により、file countはrelease historyから独立し、検索・差分・監査はEVIDENCE_IDで行われる。

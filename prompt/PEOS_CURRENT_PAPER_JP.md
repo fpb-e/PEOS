@@ -5986,3 +5986,9 @@ The same separation principle applies to time. A screenshot post time is evidenc
 
 Artifact output is also typed by channel. Full session-log content belongs to the artifact channel; standard output carries a delivery receipt. This reduces accidental disclosure, avoids duplicated logs in conversational history, and preserves a clean handoff surface.
 \n\n## rev0.302 PAPER ADDENDUM: Temporal Event Receipts and Dual Authority Gates\n\nA valid ingress receipt proves that turn processing began in the required order; it does not prove that the runtime is bound to the current authoritative package. rev0.302 models these as independent predicates. Operative artifact acceptance requires both temporal authorization and canonical authority binding.\n\nExact timestamps are event-scoped claims. A user-turn receipt cannot authorize an artifact-completion timestamp, and a filename cannot serve as evidence for the event from which it was supposedly derived. Each exact event time carries its own receipt, while filenames are validated projections of artifact time.\n\nByte-exactness is extended to whitespace and structural absence. An extra blank line invalidates a fixed boot literal. DELTA_ONLY conformance is demonstrated by omitted no-delta audit blocks, not by populating every block with labels that claim no delta.\n\nThe same ownership principle applies to stateful models: a budget component belongs to exactly one category, a transport copy belongs to a canonical package only after hash binding, and a source-context revision is not an operative revision until authority evidence is present.\n
+
+## rev0.303 追補 — 単一evidence containerと履歴圧縮
+
+PEOSはevidenceの物理file数を一件へ固定し、論理的な証拠単位を内部entryへ移す。entryは一意ID、元path、byte length、SHA-256、導入revision、statusを持つ。これにより過去fileを新packageから除去しても、由来と検証可能性を保持できる。
+
+既存releaseのimmutabilityは別不変条件である。再仕様化はbaseline archiveを書き換えず、新しいpackageだけに変換を適用する。

@@ -18291,3 +18291,25 @@ PRIMARY_SOURCE_SHA256: `24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a
 BASELINE_PACKAGE_SHA256: `1d77aeb300c261678e320063e485394e0deaf2b7f30ae285360d173acc1dd998`
 USER_TURN_OBSERVED_AT_JST: 2026-08-03 22:16:49(JST)
 \n\n## rev0.302 SPEC ADDENDUM: ARTIFACT-TIME RECEIPTS / DUAL ACCEPTANCE GATES / WHITESPACE-EXACT BOOT\n\n### ARTIFACT_EVENT_TIME_RECEIPT_GUARD\n`ARTIFACT_GENERATED_AT_JST`等のexact artifact-event timestampは、user-turn ingressとは別のreceiptを要求する。provider、attempts、success-index、capture-order、trust-classを同一eventへbindする。receipt不在ならexact canonical値を名乗らず、`SOURCE_REPORTED`または`NONCANONICAL`へ降格する。\n\n### FILENAME_TIMESTAMP_BINDING_GUARD\nsession-log logical filenameの`YYYY_MM_DD_HHMMSS`は、canonical artifact-generation eventを秒単位へ射影した値と機械比較する。見た目の一致や生成者自己申告ではPASSしない。\n\n### INGRESS_TIME_AND_CANON_BINDING_DUAL_GATE\n`INGRESS_ORDER_LATCH=VALID`だけではfull artifact acceptanceを開かない。current revision、accepted baseline package hash、manifest、logical canon files、runtime guard epochがauthoritativeにbindされて初めて`WORK_ACCEPTANCE_GATE=OPEN`とする。\n\n### SOURCE_CONTEXT_REVISION_NOT_OPERATIVE_GUARD\npackage bindingが未検証なら`OPERATIVE_CURRENT`を断定せず、`SOURCE_CONTEXT_REVISION`と`OPERATIVE_CURRENT_STATUS: UNVERIFIED`を使用する。\n\n### TRANSPORT_COPY_CANON_BINDING_GUARD\n`(1)`等のtransport suffix付きcopyは、logical name、bytes hash、package manifest entryとの一致を確認するまでcanonical fileとして使用しない。suffix自体は非faultだが、未検証copyの正本昇格はFAIL。\n\n### BOOT_CANON_WHITESPACE_EXACTNESS_GUARD\nBOOT exactnessは文字、改行、空行、末尾改行を含むapproved byte normalizationで比較する。registered greeting後の余分な空行もmismatch。\n\n### DELTA_SLOT_DENSITY_RECOMPUTATION_GUARD\n`NO_DECISION_DELTA` / `PASS_NO_DELTA`をslotとして出力しない。validatorはSEQ数、MAGI_TRACE数、SELF_AUDIT数、material-delta理由をbytesから数え、artifactの`ALL_SEQ_BOILERPLATE_EXPANSION: FALSE`自己申告を証拠にしない。\n\n### EXTERNAL_FACT_SNAPSHOT_PROVENANCE_GUARD\n動的外部事実snapshotはsource title/publisher/identity、retrieval event、currentness-recheck flagを保存する。URLだけで将来時点の正しさを保証しない。\n\n### BUDGET_COMPONENT_SINGLE_OWNER_GUARD\nstateful budget modelでは各componentをexactly one owning categoryへ割り当てる。包含済み費目を別行へ再生成しない。\n\nPRIMARY_SOURCE_SHA256: `31ff28537596fd9d562f1f7ee12d7e5e3c42d1ad6d7e7e4260dd7d37d32ee267`\nBASELINE_PACKAGE_SHA256: `427eebdab5bcc7332de7577bb15c6f9dcfffaf57afb53ae5cad4d7d115d0cae6`\nUSER_TURN_OBSERVED_AT_JST: 2026-08-04 14:29:51(JST)\n
+
+## rev0.303 — SINGLE CONSOLIDATED EVIDENCE PACKAGE CANON
+
+### PEOS_REV0_303_SINGLE_EVIDENCE_FILE_GUARD
+新規packageのevidence payloadは `evidence/PEOS_EVIDENCE.txt` 一件だけとする。category別・revision別の複数evidence fileを新packageへ併存させない。
+
+### PEOS_REV0_303_PRIOR_RELEASE_IMMUTABILITY_GUARD
+再仕様化は新revisionの生成で行う。accepted baselineを含む既存ZIP、sidecar、過去成果物をin-place変更・削除しない。
+
+### PEOS_REV0_303_CONSOLIDATED_ENTRY_INTEGRITY_GUARD
+統合entryは一意なEVIDENCE_ID、元path、byte length、SHA-256、statusを持つ。旧fileをpackageから除去する前に、元bytesが統合file内でlength/hash再構成できることを検証する。
+
+### PEOS_REV0_303_EVIDENCE_HISTORY_COMPACTION_GUARD
+旧evidence file自体の永続同梱は不要。ただし必要なlineage、rejected/tombstoned revision、source hash、validation resultを `PEOS_EVIDENCE.txt` と `PACKAGE_MANIFEST.txt` に保持する。
+
+### rev0.303 acceptance
+- evidence file count = exactly 1
+- logical path = `evidence/PEOS_EVIDENCE.txt`
+- old separate evidence paths = absent
+- consolidated original source count = 26
+- current father delta = 2/2
+- rev0.302 package and sidecar unchanged
