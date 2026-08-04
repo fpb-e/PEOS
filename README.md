@@ -1278,3 +1278,18 @@ PRIMARY_SOURCE_SHA256: `ac518e5c80d98fec9dd2634adab6c913732ee054e71e4a71a308f3ea
 BASELINE: rev0.299
 BASELINE_SHA256: `060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa`
 PRIMARY_SOURCE_SHA256: `13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf`
+
+## rev0.301 中心差分
+- active evidence filenameをrevisionless semantic nameへ移行。revisionはmanifest/本文metadataへ分離。
+- rev0.300以前のrev名evidenceは互換履歴として凍結し、新規rev名evidenceの増殖を停止。
+- father-direct source 31件を31/31 full ledger化し、current delta 5件も5/5でcoverage。
+- screenshot内投稿時刻とuser-turn時刻をentity分離。`IMAGE_VISIBLE_POST_TIME`をTURN時刻statusへ入れる回帰をFAIL。
+- ログ成果物本文の標準出力漏洩を`LOG_ARTIFACT_CONTENT_STDOUT_LEAK`として禁止。通常配送はreceiptのみ。
+- 草を節へ統合するfixture（`〜で草` / `〜あって草`）を固定し、`〜。草。`をnegative fixture化。
+- 一語補正は直前の最有力句へpatchする。
+- sourceのBOOT exact literal/hash一致とDELTA_ONLY slot omissionをpositive fixtureとして保持。
+
+BASELINE: rev0.300
+BASELINE_SHA256: `1d77aeb300c261678e320063e485394e0deaf2b7f30ae285360d173acc1dd998`
+PRIMARY_SOURCE_SHA256: `24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385`
+\n\n## rev0.302 operative notes\nrev0.302は時刻取得の成否と正本bindingの成否を分離する。Python first-action receiptが正しくても、current package/manifest/hashが未検証ならoperative-conformant full artifactを名乗れない。artifact completion時刻には独立receiptを付け、session filename timestampとのbindingを検証する。BOOTは空白を含むexact bytes、DELTA_ONLYは実slot密度で判定する。\n\nActive evidenceはrevisionless semantic filenameを継続し、revision identityはmanifestと本文metadataへ置く。\n

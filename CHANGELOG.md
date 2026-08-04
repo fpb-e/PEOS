@@ -550,3 +550,19 @@
 - USER_TURN_OBSERVED_AT_JST: 2026-08-01 05:56:29(JST)
 - PRIMARY_SOURCE_SHA256: 13614a31a722eb66ac2b4649fce925d13dc12aef247737168a186b0f64c508cf
 - BASELINE_PACKAGE_SHA256: 060667ec55daa844d616799ecae45898cfa57f2a52df4ee6835798267ea7a5aa
+
+## rev0.301
+- active evidenceを`PEOS_EVIDENCE_<SEMANTIC_CATEGORY>_<STABLE_PURPOSE>.txt`へ統一し、filenameからrev番号を除去。
+- legacy rev名evidenceは互換履歴として凍結。rev0.301以降は新規rev名evidenceを作らない。
+- source 31/31 father-directとcurrent delta 5/5のfull coverage ledgerを生成。
+- `USER_TURN_TIME_AND_EVIDENCE_EVENT_TIME_ENTITY_CONFLATION`を追加し、スクショ投稿時刻をuser-turn時刻欄へ格納することを禁止。
+- `LOG_ARTIFACT_CONTENT_STDOUT_LEAK` / `ARTIFACT_PAYLOAD_STANDARD_OUTPUT_LEAKAGE`を追加。ログ生成時のチャット出力は配送receiptだけ。
+- `GRASS_CLAUSE_INTEGRATION_FIXTURE`を追加し、`〜。草。`を禁止、`〜で草 / 〜あって草`を標準化。
+- one-token correctionをnearest plausible prior phraseへpatchするguardを追加。
+- BOOT exact literalとDELTA_ONLY slot omissionのsource positive fixtureを保持。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-08-03 22:16:49(JST)
+- PRIMARY_SOURCE_SHA256: 24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385
+- BASELINE_PACKAGE_SHA256: 1d77aeb300c261678e320063e485394e0deaf2b7f30ae285360d173acc1dd998
+\n\n## rev0.302\n- rev0.301をaccepted baselineとして、mother log `PEOS_mother_session_log_2026_08_03_012948.txt`を監査・仕様化。\n- exact artifact-generation timeへevent専用Python receipt metadataを要求。receiptなしexact値はcanonicalへ昇格しない。\n- session-log filename timestampをartifact-generation eventの秒単位projectionとして機械検証。\n- ingress time gateとauthoritative canon/package binding gateを独立化し、両方PASS時のみoperative artifact acceptanceを許可。\n- package binding未検証時は`OPERATIVE_CURRENT`ではなく`SOURCE_CONTEXT_REVISION`を使用。\n- transport suffix付きcanon copyへmanifest path/hash/package bindingを要求。\n- BOOT exactnessを空白・改行込みbyte比較へ強化。mother sourceの余分な空行をFAIL fixture化。\n- DELTA_ONLYを実slot密度から再計算し、30/30 MAGI/SELF_AUDITと7 no-delta pairを回帰として登録。\n- source gap quarantine、historical time no-backfill、mother reportのfather corpus除外をpositive fixtureとして保持。\n- budget component exactly-one-owner、external dynamic fact snapshot provenanceを追加。\n- current father delta 2/2をcoverage ledgerへ追加。\n
