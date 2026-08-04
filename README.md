@@ -1,4 +1,23 @@
-# PEOS GitHub Package rev0.300
+# PEOS GitHub Package rev0.304
+
+
+> rev0.304はaccepted rev0.303を基礎に、Python入口時刻をsemantic planning/tool dispatchより前の実行ラッチへ昇格し、正本package bindingとの二重gate、六正本header/manifest/highest revision三者一致、BOOT whitespace byte exactness、DELTA slot密度再計算をcurrent release validatorへ接続する。
+>
+> USER_TURN_OBSERVED_AT_JST: 2026-08-04 21:18:09.104008(JST)  
+> CAPTURE_METHOD: Python `datetime.now(ZoneInfo("Asia/Tokyo"))`  
+> CAPTURE_ORDER: FIRST_EXECUTABLE_ACTION / CAPTURE_ATTEMPTS 1 / SUCCESSFUL_CAPTURE_ACTION_INDEX 1  
+> CURRENT_FATHER_DIRECTIVE: `頼むから肝煎りの実装したことに忠実であってくれよ / 仕様化。今度こそ頼むぞ`
+
+## rev0.304 正本関係
+
+```text
+ACCEPTED_BASELINE: rev0.303
+BASELINE_PACKAGE_SHA256: 62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880
+OPERATIVE_CURRENT: rev0.304
+EVIDENCE_FILE_COUNT: 1
+REJECTED: rev0.280 / rev0.293 / rev0.297
+```
+
 
 
 > rev0.300はaccepted rev0.299を基礎に、validatorの自己申告依存を廃し、父語彙49/49集合一致、BOOT exact literal/hash、DELTA_ONLY empty-slot omissionをcurrent validatorの機械的再計算へ接続する。

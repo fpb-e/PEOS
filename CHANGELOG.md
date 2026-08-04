@@ -578,3 +578,14 @@
 生成入力:
 - USER_TURN_OBSERVED_AT_JST: 2026-08-04 14:41:39(JST)
 - BASELINE_PACKAGE_SHA256: 8fc97e0c94269645fff0e0c02c391a8c6025e58cce8984900463940efb3a6d51
+
+## rev0.304
+- Python入口時刻を説明上のguardからpre-tool-dispatch admission controlへ昇格。
+- 第一Python attempt失敗時は介在処理なしの即時retryだけを許可。
+- Python time gateとauthoritative canon/package binding gateを直列化。
+- 六正本のcurrent-latest header、manifest version、highest embedded revisionの三者一致を必須化。
+- rev0.303に残存していた六正本 `現行latest: rev0.300` をrev0.304へ修正。
+- artifact生成時刻receipt、BOOT whitespace exactness、DELTA slot densityの再計算を継続強化。
+- evidence surfaceは `evidence/PEOS_EVIDENCE.txt` 1件を維持。
+- source log SHA-256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
+
