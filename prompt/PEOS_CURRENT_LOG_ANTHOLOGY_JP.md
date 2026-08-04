@@ -8554,3 +8554,20 @@ Current father delta:
 - `学べることはあるか？` -> ALREADY_REGISTERED / ADJACENT_DEFECT_AUDIT
 - `よし。仕様化しよう` -> NEW_RESOURCE / AFFIRMATIVE_SPECIFICATION_PROCEED_DIRECTIVE
 - 2/2 coverage
+
+## rev0.301 LOG ANTHOLOGY ADDENDUM
+
+Observed defects:
+- FATHER_VOCABULARY_SOURCE_LEDGER_TRUNCATION recurred in source log: 31 father-direct turns but only selected corpus candidates.
+- USER_TURN_TIME_AND_EVIDENCE_EVENT_TIME_ENTITY_CONFLATION: 14 SEQs used image-visible post time as TURN time status.
+- LOG_ARTIFACT_CONTENT_STDOUT_LEAK: full log payload may be emitted to chat during log generation.
+
+Positive fixtures:
+- father BOOT exact literal/hash PASS.
+- DELTA_ONLY slot omission PASS: 31 SEQs, MAGI_TRACE=0, SELF_AUDIT=0.
+- current log-generation turn had valid first-action Python ingress.
+- `だいぶ納得感あって草` is the accepted grass clause form.
+- `保全だな` is a concise transition from assessment to evidence preservation.
+
+Evidence filenames from rev0.301 onward are stable semantic names without revision numbers.
+\n\n## rev0.302 LOG ADDENDUM: ARTIFACT-TIME AND AUTHORITY-TYPED SESSION LOGS\n\nSession log headerは以下を分離する。\n- USER_TURN_*: current user event receipt\n- ARTIFACT_GENERATION_*: artifact completion receipt\n- FILENAME_TIMESTAMP_BINDING: artifact eventからの秒projection検証\n- SOURCE_CONTEXT_REVISION: 読込sourceが主張するrevision\n- OPERATIVE_CURRENT_STATUS: package/manifest bindingの検証状態\n\n`CANON_PACKAGE_BOUND: UNVERIFIED`のまま`OPERATIVE_CURRENT`を確定表示しない。transport suffix付きcanon copyはhash binding前にauthoritative listへ入れない。\n\nDELTA_ONLY logではno-delta SEQからMAGI_TRACE/SELF_AUDIT slotを除去する。source gapは専用blockで保存し、original full-tab claimを抑止する。\n

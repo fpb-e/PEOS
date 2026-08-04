@@ -18011,3 +18011,36 @@ idiom/quotation/rule-versionを確認し、`我が振り`型のfalse positiveを
 - USER_SCOPE_EXCLUSION_MUST_REMAIN_STICKY
 - LANGUAGE_LINT_MUST_CHECK_IDIOM_AND_RULE_VERSION
 - ONSEN_PRAGMATIC_FLAG_MUST_PASS_POSITIVE_NEGATIVE_FIXTURES
+
+## rev0.301 RUNTIME GUARD: TURN/EVENT TIME TYPES / LOG STDOUT BLOCK / EVIDENCE NAME REGISTRY
+
+### PRE_LOG_DELIVERY_OUTPUT_CHANNEL_GATE
+LOG_ARTIFACT_REQUEST時:
+1. file artifactを生成
+2. internal validationをartifact/evidenceへ保存
+3. standard output payloadをdelivery receiptへ制限
+4. full body出力はexplicit display request時のみ
+
+FAIL:
+- artifact本文の自動chat dump
+- source transcriptの自動chat dump
+- full validator traceの自動chat dump
+
+### TIME_ENTITY_SCHEMA
+`TURN_TIME_STATUS: IMAGE_VISIBLE_POST_TIME(S)`は禁止。
+画像内時刻は`EVIDENCE_POST_TIME_STATUS/EVIDENCE_POST_TIME_JST`へ格納し、USER_TURN_TIMEはcanonical receiptまたはunrecoverableのまま維持。
+
+### ACTIVE_EVIDENCE_FILENAME_GATE
+new active evidence basenameに`REV0_`または`rev0.`を含む場合FAIL。semantic registryでbasename重複0を要求。revisionは内部metadataで検証。
+
+### FATHER_LEDGER_RELEASE_GATE
+source 31/31、current delta 5/5、duplicate/orphan 0を要求。
+
+### STYLE_FIXTURES
+PASS: だいぶ納得感あって草
+FAIL: だいぶ納得感ある。草。
+PASS: 逆に外注さんが何でも知ってるのもどうかとは思うけど♨️
+PRIVATE_CONTEXT: fixtureのprivate名詞は再利用禁止。
+
+PRIMARY_SOURCE_SHA256: `24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385`
+\n\n## rev0.302 RUNTIME GUARD: ARTIFACT CLOCK RECEIPT / CANON BINDING GATE / SLOT-DENSITY ORACLE\n\n### ARTIFACT_CLOCK_RECEIPT_RUNTIME_TEST\nexact artifact/package event timeを出力する前に、対象event専用Python receiptを確認する。turn receiptの使い回し、filesystem mtime、filename、assistant clockからの逆算は禁止。\n\n### DUAL_GATE_WORK_AUTHORIZATION\n```text\nTURN_GATE = canonical Python first-action receipt + valid order latch\nCANON_GATE = operative revision + baseline package hash + manifest + logical canon hashes + validator epoch binding\nFULL_ARTIFACT_ACCEPTANCE = TURN_GATE && CANON_GATE\n```\nTURN_GATEだけがPASSしCANON_GATEがUNVERIFIEDなら、source recovery/auditは可能だがoperative-conformant full artifact claimをBLOCKする。\n\n### TRANSPORT_COPY_BINDING_RUNTIME_TEST\ntransport filenameをlogical nameへ正規化しただけでは正本化しない。manifest path/hash、package SHA、内部revision metadataを照合する。\n\n### FILENAME_TIME_PROJECTION_RUNTIME_TEST\nlogical filename timestamp == floor_to_second(artifact event receipt)を要求する。日付帯やcurrent user-turn timeをfilename timestampへ流用しない。\n\n### BOOT_BYTE_EXACT_RUNTIME_TEST\napproved canonical boot bytesとobserved bytesを比較する。空白行、全角/半角、末尾改行を含む。section title、意味的一致、可視上の近似はPASS条件ではない。\n\n### AUDIT_SLOT_DENSITY_RUNTIME_TEST\nmaterial deltaのないSEQにMAGI_TRACE/SELF_AUDIT slotがあればFAIL。`NO_DECISION_DELTA`は省略条件であり、正当化ラベルではない。\n\n### SOURCE_GAP_AND_REVISION_STATE_NONCOMPRESSION\n`FULL_KNOWN_SOURCE`と`ORIGINAL_FULL_TAB`、`SOURCE_CONTEXT_REVISION`と`OPERATIVE_CURRENT`、`INGRESS_PASS`と`CANON_BINDING_PASS`を別stateとして保持する。\n\n### rev0.302 FIXTURES\n- exact artifact time without artifact receipt -> FAIL\n- filename timestamp not derived from artifact event -> FAIL\n- canonical ingress PASS + canon package UNVERIFIED -> operative acceptance BLOCK\n- registered greeting followed by extra blank line -> BOOT FAIL\n- 30/30 MAGI+SELF slots with seven NO_DELTA pairs -> DELTA_ONLY FAIL\n- disclosed host gap with no invented turns -> PASS\n

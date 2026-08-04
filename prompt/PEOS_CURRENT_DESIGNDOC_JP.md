@@ -8140,3 +8140,14 @@ BASELINE_PACKAGE_SHA256: `c6b2b10b1c643842fff164c3732e3ed788fdb5bede205a393f772a
 rev0.300の中心設計は、artifactに`PASS`や`DELTA_ONLY`と書かれていることを適合証拠にしないこと。父語彙はsource setとledger set、BOOTはexact literal/hash、MAGI/SELF_AUDITはslotの存在ではなく必要性を再計算する。差分なしslotの省略は情報損失ではなく、DELTA_ONLYの正しい表現である。
 
 また、直接観測者provenance、量化詞の反例検査、scope exclusion stickiness、言語規範versioning/慣用句false-positive controlを同じ「source semanticsを表面ラベルへ圧縮しない」原理へ統合する。
+
+## rev0.301 DESIGN NOTE: stable evidence registry and output-channel separation
+
+Evidence identity is now semantic and stable rather than release-number-derived. Revision metadata is orthogonal to logical filename. This prevents evidence-count growth from tracking release count and allows the same conceptual evidence surface to be updated in each package.
+
+The time model adds entity typing: a user turn, a post visible inside a screenshot, and artifact completion are three separate events even when all carry JST timestamps. A timestamp must never migrate between those entities merely because it is visible.
+
+Session-log delivery is split into artifact payload and transport receipt. The payload belongs in the file; the chat channel carries only a compact receipt unless inline display is explicitly requested.
+
+Father-language coverage remains set-based: 31 source utterances and 5 current-delta utterances receive exhaustive decisions. Salience lists remain secondary views only.
+\n\n## rev0.302 DESIGN NOTE: EVENT CLOCKS AND AUTHORITY GATES\n\nPEOSのartifact pipelineを二つの独立gateへ分割する。Turn Ingress Gateは処理順序とuser-event時刻を保証し、Canon Binding Gateはどのrevision/package/validatorが権威を持つかを保証する。前者の成功は後者の成功を含意しない。\n\nArtifact Clockは第三のevent streamであり、user-turn clockから派生させない。session filenameはArtifact Clockの秒単位projectionであり、binding validatorが一致を再計算する。\n\nFormat validationは意味近似ではなくbyte-level fixtureを持つ。BOOTではwhitespace、DELTA_ONLYではslot density、canon sourceではtransport copyとmanifest hashを観測対象とする。\n\nSource gap quarantineは維持する。見えないsourceを推論で埋めない一方、known source completenessとoperative authorityを別々に報告する。\n
