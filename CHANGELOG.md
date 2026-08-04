@@ -566,3 +566,15 @@
 - PRIMARY_SOURCE_SHA256: 24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385
 - BASELINE_PACKAGE_SHA256: 1d77aeb300c261678e320063e485394e0deaf2b7f30ae285360d173acc1dd998
 \n\n## rev0.302\n- rev0.301をaccepted baselineとして、mother log `PEOS_mother_session_log_2026_08_03_012948.txt`を監査・仕様化。\n- exact artifact-generation timeへevent専用Python receipt metadataを要求。receiptなしexact値はcanonicalへ昇格しない。\n- session-log filename timestampをartifact-generation eventの秒単位projectionとして機械検証。\n- ingress time gateとauthoritative canon/package binding gateを独立化し、両方PASS時のみoperative artifact acceptanceを許可。\n- package binding未検証時は`OPERATIVE_CURRENT`ではなく`SOURCE_CONTEXT_REVISION`を使用。\n- transport suffix付きcanon copyへmanifest path/hash/package bindingを要求。\n- BOOT exactnessを空白・改行込みbyte比較へ強化。mother sourceの余分な空行をFAIL fixture化。\n- DELTA_ONLYを実slot密度から再計算し、30/30 MAGI/SELF_AUDITと7 no-delta pairを回帰として登録。\n- source gap quarantine、historical time no-backfill、mother reportのfather corpus除外をpositive fixtureとして保持。\n- budget component exactly-one-owner、external dynamic fact snapshot provenanceを追加。\n- current father delta 2/2をcoverage ledgerへ追加。\n
+
+## rev0.303
+- evidence payloadを `evidence/PEOS_EVIDENCE.txt` 一件へ統合。
+- rev0.302の分割evidence 26件を新packageの個別pathから除去し、元path・byte length・SHA-256・raw bytesを内部entryとして保存。
+- EVIDENCE_ID一意性とentry hash再構成をrelease acceptanceへ接続。
+- rev0.302 ZIP/sidecarおよび既存成果物を変更しないprior-release immutability guardを追加。
+- history deletionをfile surface deletionとlineage deletionへ分離。tombstone/rejected revision/hash/validation historyは統合evidenceとmanifestに残す。
+- current father delta 2/2 coverage。
+
+生成入力:
+- USER_TURN_OBSERVED_AT_JST: 2026-08-04 14:41:39(JST)
+- BASELINE_PACKAGE_SHA256: 8fc97e0c94269645fff0e0c02c391a8c6025e58cce8984900463940efb3a6d51

@@ -1293,3 +1293,16 @@ BASELINE: rev0.300
 BASELINE_SHA256: `1d77aeb300c261678e320063e485394e0deaf2b7f30ae285360d173acc1dd998`
 PRIMARY_SOURCE_SHA256: `24ba64fb83451b827c2f0dc624145079b560d5bee67f1f4b115ac82a2924b385`
 \n\n## rev0.302 operative notes\nrev0.302は時刻取得の成否と正本bindingの成否を分離する。Python first-action receiptが正しくても、current package/manifest/hashが未検証ならoperative-conformant full artifactを名乗れない。artifact completion時刻には独立receiptを付け、session filename timestampとのbindingを検証する。BOOTは空白を含むexact bytes、DELTA_ONLYは実slot密度で判定する。\n\nActive evidenceはrevisionless semantic filenameを継続し、revision identityはmanifestと本文metadataへ置く。\n
+
+## rev0.303 evidence layout
+
+```text
+evidence/
+└── PEOS_EVIDENCE.txt
+```
+
+- evidence fileは一件だけ。
+- 過去の個別evidence pathはrev0.303 packageへ含めない。
+- 元26件のpath、size、SHA-256、raw contentは統合entryに保持。
+- 既存rev0.302以前のZIP/sidecarは変更しない。
+- revision情報はmanifestとentry metadataで管理する。
