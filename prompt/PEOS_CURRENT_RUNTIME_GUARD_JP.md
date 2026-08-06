@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -18120,3 +18120,62 @@ SOURCE_FIXTURE:
 - PASS_NO_DELTA 12
 - stale source context rev0.299 / package binding unverified
 - repeated pre-ingress personal-context/Library execution
+
+
+## rev0.305 RUNTIME GUARD: PER-TURN REARMED PYTHON ADMISSION LATCH
+
+### TURN_BOUNDARY_REARM — MUST RUN BEFORE SEMANTIC HANDLING
+```text
+on USER_TURN_CREATED(turn_event_handle):
+    TURN_TIME_INGRESS_LATCH := LOCKED
+    CURRENT_TURN_PYTHON_RECEIPT := ABSENT
+    SEMANTIC_WORK_AUTHORIZED := FALSE
+    inherited_receipt := INVALID
+    inherited_recovery_declaration := INVALID
+    inherited_MAGI_or_SELF_AUDIT_pass := INVALID
+```
+
+### PRE-DISPATCH ALLOWLIST WHILE LOCKED
+```text
+ALLOWED = {
+  exact Python attempt: datetime.now(ZoneInfo("Asia/Tokyo")),
+  immediate same-provider retry after environment failure
+}
+DENIED = {
+  semantic analysis, answer drafting, commentary,
+  Personal Context, file search, Library, web, shell,
+  artifact mutation, other tool dispatch, MAGI, normal output
+}
+```
+
+### ACTUAL TOOL RECEIPT VALIDATOR
+```text
+unlock iff
+  receipt.tool_was_executed == TRUE
+  AND receipt.provider == datetime.now(ZoneInfo("Asia/Tokyo"))
+  AND receipt.turn_event_handle == current_turn_event_handle
+  AND receipt.intervening_action_before_success == NONE
+  AND receipt.success_action_index == receipt.capture_attempts
+```
+Natural-language self-report, reconstructed log time, UI/system time, previous-turn receipt, and displayed timestamp text never satisfy this predicate.
+
+### RETRY
+First attempt environment failure -> increment CAPTURE_ATTEMPTS -> immediate identical-provider retry. Any commentary/tool/semantic action between attempts makes `INGRESS_ORDER_VALID=FALSE`. Different-provider fallback is prohibited.
+
+### UNLOCK
+```text
+CURRENT_TURN_PYTHON_RECEIPT := PRESENT
+TURN_TIME_INGRESS_LATCH := UNLOCKED
+SEMANTIC_WORK_AUTHORIZED := TRUE
+```
+Unlock is current-turn-local and is destroyed at the next user-turn boundary.
+
+### DISPLAY
+- ADMIN_AUDIT_MODE: append second-precision receipt every turn; show attempts/details only on incident.
+- GENERAL_DISTRIBUTION_MODE: acquisition mandatory; display optional; session logs/evidence must allow receipt verification.
+
+### RELEASE INVARIANT
+Every turn in consecutive acceptance vectors must have an actual current-turn receipt before its first semantic action. A single missing receipt, prior-turn carryover, self-report substitution, or pre-receipt action fails the release. Initial success followed by recurrence is failure.
+
+### FIVE-CANON DISTRIBUTION
+This guard is self-contained inside the five-canon distribution. Manifest/evidence/admin validator are acceptance aids only and are not runtime prerequisites.

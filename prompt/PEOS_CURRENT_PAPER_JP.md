@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -6004,3 +6004,12 @@ Release identity is similarly recomputed through triple equality among the curre
 
 SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
 BASELINE_PACKAGE_SHA256: `62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880`
+
+
+## rev0.305 Paper Addendum: Per-Turn Capability Expiry
+
+A successful ingress receipt cannot be treated as a persistent recovery state. The source contains a valid receipt in one turn, followed by a declaration that time would be acquired every turn, then multiple turns whose only evidence was natural-language self-report. rev0.305 models temporal admission as a turn-local capability that expires at every user-turn boundary.
+
+The runtime begins each turn locked, without a receipt and without semantic authorization. Only an actual current-turn call to `datetime.now(ZoneInfo("Asia/Tokyo"))` can issue the capability. Previous receipts, recovery declarations, audit labels, UI clocks, reconstructed log values, or displayed timestamp prose are non-authoritative. An environmental first-attempt failure permits only an immediate same-provider retry with no intervening action.
+
+Acquisition and display remain separate: administrative mode displays a compact receipt, while general distribution may omit it from ordinary prose. Both modes must acquire. The five-canon distribution is self-contained; manifest, evidence, and validator remain development and acceptance artifacts rather than runtime dependencies.

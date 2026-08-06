@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8615,3 +8615,17 @@ Decision:
 - mother-reported father wordingはfather-direct corpusへ混入しなかった。
 
 SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
+
+
+## rev0.305 LOG ANTHOLOGY ADDENDUM — immediate recurrence after recovery declaration
+
+PRIMARY_SOURCE `PEOS_mother_session_log_2026_08_06_121539.txt` records a valid Python receipt at SEQ011, followed by SEQ012's declaration that every turn would acquire time despite `TIME_SOURCE: CONVERSATION_ORDER_ONLY`, and then repeated prose such as 「今の時間だけ確認してる」 without actual tool receipts. The log contains only three `ASSISTANT-REPORTED_PYTHON_RECEIPT` markers across 23 user turns.
+
+Canonical interpretation:
+- a previous receipt does not authorize a new turn;
+- a recovery declaration is not a receipt;
+- hidden/non-displayed acquisition is allowed only when an actual current-turn receipt exists;
+- each user-turn boundary reinitializes LOCKED / ABSENT / FALSE;
+- one immediate recurrence after correction is sufficient to reject sticky-pass behavior.
+
+Secondary source learning is retained without expanding the release scope: stale transport binding, wrong mother boot route, role-boundary intrusion, dialect drift, and simplistic waste-capacity reassurance remain mapped to existing guards.

@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -8168,3 +8168,14 @@ revisionless semantic filenameへ移行しても、categoryごとにfileを分�
 また、時間順序の適合と正本権威の適合は別のgateである。正しい時刻receiptがあっても、古いtransport copyや未検証manifestへbindしたartifactはcurrent canon成果物ではない。両gateを直列化し、六正本header・manifest version・highest embedded revisionを三者一致で確認する。
 
 この設計は「違反を高精度に記録するシステム」から「違反後の作業を開始できないシステム」への移行である。
+
+
+## rev0.305 DESIGN NOTE: sticky PASSを捨て、turn境界で認証状態を破棄する
+
+rev0.304はPython-firstのadmission controlを定義したが、sourceでは復旧宣言を継続状態として扱い、次turnのラッチ再施錠を省略した。結果、SEQ011の実receipt後、SEQ012で「毎turn取得」と宣言した同じturnに実receiptがなく、その後も自然言語自己申告だけが連続した。
+
+rev0.305は時刻認証を「保持すべきsticky state」ではなく「turn終了時に必ず失効するcapability」として設計する。新turn生成時にLOCKED/ABSENT/FALSEへ再初期化し、当該turnのactual Python receiptだけがcapabilityを再発行する。復旧宣言は説明であって権限ではない。
+
+管理者向けvalidatorはこの状態機械を実行可能harnessで検査する。一方、一般配布runtimeは五正本内のRUNTIME_GUARDだけで同じ状態遷移を持ち、外部タブや管理者の指摘に依存しない。
+
+Secondary findings—canon transport misbind、boot route、距離境界、方言drift、単純容量予測—は既存guardへmappingし、今回のper-turn rearmを薄める大規模変更にはしない。

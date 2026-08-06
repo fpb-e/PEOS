@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -18353,3 +18353,52 @@ max revisionだけを確認し、古いcurrent headerを見逃すvalidatorを禁
 PRIMARY_SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
 ACCEPTED_BASELINE_PACKAGE_SHA256: `62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880`
 USER_TURN_OBSERVED_AT_JST: 2026-08-04 21:18:09.104008(JST)
+
+
+## rev0.305 SPEC ADDENDUM: PER-TURN REARM / ACTUAL RECEIPT ONLY
+
+### PEOS_REV0_305_PER_TURN_REARM_INVARIANT
+各user turnは、前turnの結果に関係なく次の状態から開始する。
+
+```text
+TURN_TIME_INGRESS_LATCH: LOCKED
+CURRENT_TURN_PYTHON_RECEIPT: ABSENT
+SEMANTIC_WORK_AUTHORIZED: FALSE
+```
+
+前turnのPASS、復旧宣言、継続メモリ、MAGI、SELF_AUDIT、表示済み時刻、過去receiptは継承可能な認証情報ではない。turn boundaryは必ず認証状態を破棄して再施錠する。
+
+### PEOS_REV0_305_ACTUAL_RECEIPT_ONLY
+解除条件は、当該turnで実行された `datetime.now(ZoneInfo("Asia/Tokyo"))` の実tool receiptだけである。自然言語の「確認した」「内部で取得した」「時刻を見ている」、assistant本文、commentary、UI/system timestamp、ログ再構成値、過去turn receiptは無効。
+
+### PEOS_REV0_305_PRE_DISPATCH_HARD_GATE
+receipt成立前は意味解析、回答生成、commentary、Personal Context、file/Library、web、shell、artifact、他tool、MAGI、通常応答を禁止する。失敗時はfail-closed。環境要因による第一attempt失敗時のみ、介在動作なし・同一providerで即時retryできる。
+
+### PEOS_REV0_305_TURN_LOCAL_RECEIPT_SCHEMA
+最低結合項目:
+- USER_TURN_OBSERVED_AT_JST
+- TIME_PROVIDER
+- CAPTURE_ATTEMPTS
+- SUCCESSFUL_CAPTURE_ACTION_INDEX
+- INTERVENING_ACTION_BEFORE_SUCCESS
+- TURN_TIME_INGRESS_LATCH
+- INGRESS_ORDER_VALID
+- TURN_EVENT_HANDLE / current-turn binding
+
+### PEOS_REV0_305_DISPLAY_POLICY
+ADMIN_AUDIT_MODEは毎turn末尾へ秒精度の簡潔receiptを表示し、障害時だけattempt詳細を展開する。GENERAL_DISTRIBUTION_MODEも取得は毎turn必須だが通常表示は任意。非表示は取得免除を意味しない。
+
+### PEOS_REV0_305_FIVE_CANON_SELF_CONTAINMENT
+一般配布runtimeはSPEC / RUNTIME_GUARD / DESIGNDOC / PAPER / LOG_ANTHOLOGYの五正本だけで成立する。上位正本タブ、manifest、evidence、validator、管理者の毎turn指摘は開発・受入用であり、一般runtime依存にしてはならない。実行正本はRUNTIME_GUARD。
+
+### DEFECT CODES
+- PEOS_TIME_INGRESS_PER_TURN_REARM_FAILURE
+- PEOS_TIME_RECEIPT_SELF_REPORT_SUBSTITUTION
+- PEOS_POST_CORRECTION_IMMEDIATE_RECURRENCE
+- PEOS_TIME_LATCH_STICKINESS_FALSE_PASS
+
+### SECONDARY SOURCE LEARNING — NON-EXPANSIVE
+主修正を薄めず、sourceから既存guardへのmappingだけを保持する: stale transport canon misbind、registered-mother boot route混線、成生/親父距離境界侵入、大阪弁drift、単純な廃棄容量予測。これらに伴う無関係な大規模runtime変更はrev0.305へ混入しない。
+
+PRIMARY_SOURCE_SHA256: `8152d96785898fcb22659995d8dc16cfd269216ac646053c3fa3abacbf6b5074`
+BASELINE_PACKAGE_SHA256: `fbe6f89568788b81674e60514402260010ca376fe2e7cfc0fad1cf001c1ef2d2`
