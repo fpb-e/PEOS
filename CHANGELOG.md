@@ -1,16 +1,9 @@
-# CHANGELOG
+# CHANGELOG — rev0.306-RC2
 
-## rev0.306-RC1
-
-Status: release candidate only.
-
-- Rebuilt the five canons as active-current runtime documents.
-- Preserved rev0.305 as immutable operative baseline.
-- Added one-rule/one-owner registry.
-- Moved history/provenance to migration/evidence assets.
-- Recast LOG_ANTHOLOGY as curated contrastive fixtures.
-- Added father behavior model and coordinate overlays.
-- Preserved rev0.305 per-turn Python rearm as the sole runtime state-machine owner.
-- Added clean-session and consecutive-turn acceptance tests.
-- Separated admin mode from general runtime.
-- Kept explicit father acceptance as the only promotion gate.
+- Built as new candidate from immutable rev0.305 lineage; RC1 not used as baseline.
+- Marked RC1 returned-for-correction and audit-only.
+- Added host pre-dispatch enforcement contract and actual tool-trace binding.
+- Added no-late-repair and validator-to-production trace separation.
+- Added seven production incident contrastive fixtures.
+- Added exact incident source files, current-turn actual trace, negative substitutions, and live clean-session protocol.
+- Release acceptance remains blocked pending external multi-turn live trace and explicit father acceptance.
