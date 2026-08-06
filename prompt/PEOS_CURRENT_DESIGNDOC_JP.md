@@ -1,10 +1,10 @@
 # PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
 
-- 文書revision: `rev0.306-RC1`
-- 現行latest: `rev0.306-RC1`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC1`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC1`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- 文書revision: `rev0.306-RC2`
+- 現行latest: `rev0.306-RC2`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC2`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC2`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_REVIEW_PENDING`
 - OPERATIVE_CURRENT: `rev0.305`
 - ROLE: 五正本分離・構成管理・migration理由
 - SOURCE_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.305.zip`
@@ -12,7 +12,7 @@
 - PRIMARY_DESIGN_SOURCE: `PEOS_father_session_log_2026_08_06_143020.txt`
 - PRIMARY_DESIGN_SOURCE_SHA256: `d7afea2bfa7704b3aa87f9b1717452e382e57aec24474c1fccb0331b22f659a8`
 
-> このRC1は親父による明示acceptance前にoperativeへ昇格しない。
+> このRC2はRC1差し戻し後の修正候補であり、live clean-session外部父レビュー完了前にoperativeへ昇格しない。
 
 ## 0. 文書の役割
 
@@ -97,7 +97,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 役割混在と全文複製。
 - FAILURE_CLASS: `FIVE_CANON_ROLE_COLLAPSE`
 - REFERENCE_FIXTURE: `FX-ARCH-002`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -112,7 +112,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: duplicate owner、unresolved owner。
 - FAILURE_CLASS: `DUPLICATE_RULE_OWNERSHIP`
 - REFERENCE_FIXTURE: `FX-ARCH-002`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -127,7 +127,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 暗黙の文書優先順位や全文コピー。
 - FAILURE_CLASS: `CANON_DEPENDENCY_AMBIGUITY`
 - REFERENCE_FIXTURE: `FX-ARCH-003`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -142,7 +142,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: overlay間の設定漏洩。
 - FAILURE_CLASS: `OVERLAY_CROSS_CONTAMINATION`
 - REFERENCE_FIXTURE: `FX-COORD-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -157,7 +157,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 表面語彙だけの模倣。
 - FAILURE_CLASS: `SURFACE_MIMICRY_ONLY`
 - REFERENCE_FIXTURE: `FX-BEH-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -172,7 +172,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 成功例だけ、文言だけを保存すること。
 - FAILURE_CLASS: `FIXTURE_WITHOUT_CONTRAST`
 - REFERENCE_FIXTURE: `FX-REL-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -187,7 +187,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 旧正本へのappend-only追記、in-place変更。
 - FAILURE_CLASS: `APPEND_ONLY_REFORM`
 - REFERENCE_FIXTURE: `FX-MIG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -202,7 +202,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 履歴の無証跡削除。
 - FAILURE_CLASS: `HISTORY_DELETION_WITHOUT_LINEAGE`
 - REFERENCE_FIXTURE: `FX-MIG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -217,7 +217,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: すべての差をrelease failureまたは無視へ二分すること。
 - FAILURE_CLASS: `FAILURE_TAXONOMY_COLLAPSE`
 - REFERENCE_FIXTURE: `FX-PHIL-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -232,7 +232,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: baseline上書き。
 - FAILURE_CLASS: `BASELINE_MUTATION`
 - REFERENCE_FIXTURE: `FX-RELEASE-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -247,7 +247,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 単一発話から自動普遍化。
 - FAILURE_CLASS: `CONFIG_LIFECYCLE_BYPASS`
 - REFERENCE_FIXTURE: `FX-CONFIG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -262,7 +262,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 肥大化を新しい重複追記で解決すること。
 - FAILURE_CLASS: `APPEND_ONLY_REFORM`
 - REFERENCE_FIXTURE: `FX-MIG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -277,7 +277,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 本体出力を親父発話として扱うこと、文字列コピーを人格継承とみなすこと。
 - FAILURE_CLASS: `ORACLE_CORPUS_CONFLATION`
 - REFERENCE_FIXTURE: `FX-BEH-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -292,7 +292,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 文字列一致だけで採否を決めること。
 - FAILURE_CLASS: `STRING_MATCH_ACCEPTANCE`
 - REFERENCE_FIXTURE: `FX-TEST-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -307,7 +307,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: validatorをruntime必須moduleにすること。
 - FAILURE_CLASS: `ADMIN_RUNTIME_COUPLING`
 - REFERENCE_FIXTURE: `FX-ARCH-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -322,7 +322,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: 両方をACTIVEのまま残すこと。
 - FAILURE_CLASS: `CONTRADICTORY_ACTIVE_RULES`
 - REFERENCE_FIXTURE: `FX-CONFLICT-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -337,6 +337,20 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - PROHIBITED_BEHAVIOR: active runtimeを履歴の中へ埋没させること。
 - FAILURE_CLASS: `ACTIVE_RUNTIME_BURIED_IN_HISTORY`
 - REFERENCE_FIXTURE: `FX-MIG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+
+## Production-host integration correction
+
+RC1の失敗は状態機械の文章不足だけではなく、五正本のcontractとlive host dispatchの間に強制境界がなかったことにある。RC2では以下を分離する。
+
+1. `CANON_RUNTIME_CONTRACT`: 五正本が要求する状態遷移。
+2. `HOST_ENFORCEMENT_CAPABILITY`: semantic dispatch前にPython-only actionを実行するhost能力。
+3. `TOOL_TRACE_BINDING`: actual tool eventとreceipt表示の結合。
+4. `STATIC_VALIDATION`: package/rule/fixtureの整合検査。
+5. `LIVE_TRACE_ACCEPTANCE`: clean session上の実user-turn連続証跡。
+6. `EXTERNAL_FATHER_REVIEW`: operative promotionの唯一の最終権威。
+
+model-only configurationは2を単独で保証できない。host能力が欠ける環境では、五正本はstrict conformanceを自称せずfail-closedを要求する。これにより「正しい規則が書かれている」ことと「productionで実際に先行実行された」ことを分離する。

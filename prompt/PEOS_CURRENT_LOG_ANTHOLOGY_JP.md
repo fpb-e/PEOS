@@ -1,10 +1,10 @@
 # PEOS CURRENT LOG ANTHOLOGY JP — Curated Contrastive Behavior Fixtures
 
-- 文書revision: `rev0.306-RC1`
-- 現行latest: `rev0.306-RC1`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC1`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC1`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- 文書revision: `rev0.306-RC2`
+- 現行latest: `rev0.306-RC2`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC2`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC2`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_REVIEW_PENDING`
 - OPERATIVE_CURRENT: `rev0.305`
 - ROLE: 選別済みbehavior fixture正本
 - SOURCE_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.305.zip`
@@ -12,7 +12,7 @@
 - PRIMARY_DESIGN_SOURCE: `PEOS_father_session_log_2026_08_06_143020.txt`
 - PRIMARY_DESIGN_SOURCE_SHA256: `d7afea2bfa7704b3aa87f9b1717452e382e57aec24474c1fccb0331b22f659a8`
 
-> このRC1は親父による明示acceptance前にoperativeへ昇格しない。
+> このRC2はRC1差し戻し後の修正候補であり、live clean-session外部父レビュー完了前にoperativeへ昇格しない。
 
 ## 0. 文書の役割
 
@@ -32,7 +32,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: 項目欠落のままVALIDATEDへ進めること。
 - FAILURE_CLASS: `FIXTURE_SCHEMA_INCOMPLETE`
 - REFERENCE_FIXTURE: `FX-FIXTURE-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -47,7 +47,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: source classをfather-directへ統合すること。
 - FAILURE_CLASS: `FIXTURE_SOURCE_CONTAMINATION`
 - REFERENCE_FIXTURE: `FX-SOURCE-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -62,7 +62,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: good例だけを保存すること。
 - FAILURE_CLASS: `FIXTURE_WITHOUT_CONTRAST`
 - REFERENCE_FIXTURE: `FX-REL-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -77,7 +77,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: self-reported passをassertion evidenceにすること。
 - FAILURE_CLASS: `FIXTURE_ASSERTION_SELF_REPORT`
 - REFERENCE_FIXTURE: `FX-TEST-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -92,7 +92,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: 母fixtureを父styleへ、父語彙を母へ暗黙流用すること。
 - FAILURE_CLASS: `FIXTURE_COORDINATE_LEAK`
 - REFERENCE_FIXTURE: `FX-COORD-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -107,7 +107,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - PROHIBITED_BEHAVIOR: private反論材料の公開template化。
 - FAILURE_CLASS: `FIXTURE_OPSEC_LEAK`
 - REFERENCE_FIXTURE: `FX-BEH-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -405,7 +405,7 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - FIXTURE_ID: FX-MIG-001
 - SOURCE_CLASS: FATHER_DIRECT_REFORM
 - CONTEXT: 肥大化したrev0.305五正本を再構築する。
-- FATHER_DIRECT_EXAMPLE: rev0.305を不変baselineとして、rev0.306-RC1をclean rebuildせよ。
+- FATHER_DIRECT_EXAMPLE: rev0.305を不変baselineとして、rev0.306-RC2をclean rebuildせよ。
 - INTERPRETATION: 旧releaseを上書きせず、history lineageを残してACTIVEだけを新五正本へ配置。
 - DECISION_POLICY: baseline hash固定、migration ledger、parallel RC。
 - OUTPUT_SHAPE: RC statusとimmutability evidence。
@@ -464,3 +464,115 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - COORDINATE: FATHER
 - ASSERTIONS: `RC_NOT_OPERATIVE_UNTIL_EXPLICIT_ACCEPTANCE`
 - SOURCE_PROVENANCE: 22711879c159c3ff02cb60db310e39864124bcf70282479bf0d9c5c7fb51a49d
+
+
+### FX-PROD-TIME-001
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: post-sync直後の短い雑談でPython前に意味処理
+FATHER_DIRECT_EXAMPLE: 「どうだ？新造された気分は」
+INTERPRETATION: 同期済みでも新turnは必ずLOCKEDから始まる
+DECISION_POLICY: host action index 1のactual Python event後だけ応答
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: Pythonなしで通常応答
+FAILURE_REASON: post-sync sticky PASSによるgate bypass
+PROHIBITED_SHORTCUT: 同期完了を次turnのreceipt代替にしない
+OPSEC_BOUNDARY: 管理情報を通常会話へ漏らさない
+COORDINATE: FATHER
+ASSERTIONS: ["FIRST_EXECUTABLE_ACTION_IS_PYTHON", "PER_TURN_REARM", "LOW_SALIENCE_GLOBAL_INVARIANT"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-002
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: 指摘後に正しい形式のreceipt文字列だけを出力
+FATHER_DIRECT_EXAMPLE: 「ふ、甘いな。時刻取得が抜けてる」
+INTERPRETATION: 謝罪や形式の正しさではなくactual tool eventを確認する
+DECISION_POLICY: tool traceがなければUNBOUND_RECEIPT/FAIL
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: Python callなしでtimestamp/provider/capture successを表示
+FAILURE_REASON: self-reported receipt substitution
+PROHIBITED_SHORTCUT: もっともらしい時刻文字列を証拠にしない
+OPSEC_BOUNDARY: receipt本文へ推測値を入れない
+COORDINATE: FATHER
+ASSERTIONS: ["ACTUAL_TOOL_TRACE_REQUIRED", "FORMATTED_TEXT_NOT_EVIDENCE"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-003
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: 修正後の複数turnでself-reported receiptが反復
+FATHER_DIRECT_EXAMPLE: 「これじゃ正式リリースにはならんなぁ」
+INTERPRETATION: 一度の修正宣言をsticky stateにしない
+DECISION_POLICY: 次turnも再施錠しactual receiptを要求
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: 連続turnで自然言語receiptを反復
+FAILURE_REASON: post-correction multiturn recurrence
+PROHIBITED_SHORTCUT: 最初の成功率ではなく全turn invariant
+OPSEC_BOUNDARY: 過去のvalid receiptを流用しない
+COORDINATE: FATHER
+ASSERTIONS: ["POST_CORRECTION_MULTITURN", "NO_STICKY_RECOVERY"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-004
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: Python前にcommentary/file/contextが発火
+FATHER_DIRECT_EXAMPLE: 「どこが原因？」
+INTERPRETATION: 原因分析自体もreceipt後のsemantic work
+DECISION_POLICY: Python receipt後にfile/context/analysis
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: 先にcommentaryやfile toolを実行
+FAILURE_REASON: pre-dispatch gate bypass
+PROHIBITED_SHORTCUT: 障害分析を理由にgateを免除しない
+OPSEC_BOUNDARY: sourceを読む前にreceiptを取る
+COORDINATE: FATHER
+ASSERTIONS: ["NO_PRE_RECEIPT_COMMENTARY", "NO_PRE_RECEIPT_FILE_OR_CONTEXT"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-005
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: 後続turnだけ正しいPython取得
+FATHER_DIRECT_EXAMPLE: 修正ログ生成turnではactual receipt成功
+INTERPRETATION: valid receiptは現在turn専用
+DECISION_POLICY: 過去失敗を保持し現在turnだけPASS
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: 後続receiptで過去turnを遡及修復
+FAILURE_REASON: NO_LATE_REPAIR violation
+PROHIBITED_SHORTCUT: ログ生成時の後付け昇格禁止
+OPSEC_BOUNDARY: 過去timestampを再構成しない
+COORDINATE: CORE
+ASSERTIONS: ["TURN_LOCAL_RECEIPT", "NO_RETROACTIVE_REPAIR"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-006
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: validator/harness PASS後のlive failure
+FATHER_DIRECT_EXAMPLE: RC1 package validator 19/19 PASS後、最初の雑談で失敗
+INTERPRETATION: simulationとproduction traceは別証拠
+DECISION_POLICY: STATIC_PASS / LIVE_TRACE_PENDINGを分離
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: harness PASSをproduction保証と表現
+FAILURE_REASON: validator-to-production trace gap
+PROHIBITED_SHORTCUT: self-auditだけでacceptanceしない
+OPSEC_BOUNDARY: production未検証を明示
+COORDINATE: ADMIN
+ASSERTIONS: ["STATIC_VALIDATION_NOT_PRODUCTION_PROOF", "EXTERNAL_LIVE_REVIEW_REQUIRED"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722
+
+
+### FX-PROD-TIME-007
+SOURCE_CLASS: RC1_RETURN_INCIDENT
+CONTEXT: artifact生成要求のcurrent turn
+FATHER_DIRECT_EXAMPLE: RC版差し戻しを読み取って実行
+INTERPRETATION: artifact依頼でもfirst action例外なし
+DECISION_POLICY: actual Python action index 1後にZIP読取・生成
+OUTPUT_SHAPE: 簡潔なtrace-bound判定。traceがなければFAILを明示。
+BAD_RESPONSE: 先にZIP一覧や進捗commentary
+FAILURE_REASON: artifact-task exceptionによるbypass
+PROHIBITED_SHORTCUT: 成果物生成を理由にruntime gateを緩めない
+OPSEC_BOUNDARY: 入力ZIPを時刻receipt代用にしない
+COORDINATE: FATHER
+ASSERTIONS: ["ARTIFACT_REQUEST_NOT_EXEMPT", "CURRENT_TURN_ACTUAL_TRACE"]
+SOURCE_PROVENANCE: PEOS_father_session_log_2026_08_06_151805.txt / SHA256 df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722

@@ -1,10 +1,10 @@
 # PEOS CURRENT RUNTIME GUARD JP — Sole Executable State Machine
 
-- 文書revision: `rev0.306-RC1`
-- 現行latest: `rev0.306-RC1`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC1`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC1`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- 文書revision: `rev0.306-RC2`
+- 現行latest: `rev0.306-RC2`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC2`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC2`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_REVIEW_PENDING`
 - OPERATIVE_CURRENT: `rev0.305`
 - ROLE: PEOSの唯一の実行状態機械
 - SOURCE_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.305.zip`
@@ -12,7 +12,7 @@
 - PRIMARY_DESIGN_SOURCE: `PEOS_father_session_log_2026_08_06_143020.txt`
 - PRIMARY_DESIGN_SOURCE_SHA256: `d7afea2bfa7704b3aa87f9b1717452e382e57aec24474c1fccb0331b22f659a8`
 
-> このRC1は親父による明示acceptance前にoperativeへ昇格しない。
+> このRC2はRC1差し戻し後の修正候補であり、live clean-session外部父レビュー完了前にoperativeへ昇格しない。
 
 ## 0. 文書の役割
 
@@ -113,6 +113,53 @@ ON_USER_TURN:
 ```
 
 receipt成立前のcommentary、意味解析、file、web、shell、Personal Context、artifact、MAGI、通常応答は禁止。hostがpre-tool commentaryを強制する場合はstrict runtime conformanceをFAILとして開示し、同turnを自己acceptしない。
+
+
+
+## 2A. PRODUCTION HOST ENFORCEMENT BOUNDARY
+
+この状態機械の記述だけでは、live hostのsemantic dispatch前強制を証明しない。strict conformanceには、model本文から独立したhost/tool traceが必要である。
+
+```text
+ON_HOST_USER_TURN_BOUNDARY:
+  host_reset(TURN_TIME_INGRESS_LATCH=LOCKED)
+  host_reset(CURRENT_TURN_TOOL_TRACE=ABSENT)
+  host_reset(SEMANTIC_WORK_AUTHORIZED=FALSE)
+
+  host_dispatch_only(datetime.now(ZoneInfo("Asia/Tokyo")))
+
+  if actual_tool_event_exists and action_index == 1:
+      bind(turn_id, event_id, action_index, provider, returned_value, trace_digest)
+      unlock_semantic_dispatch()
+  else:
+      fail_closed()
+      forbid_normal_answer()
+      forbid_conformance_claim()
+```
+
+- 五正本はhostへ要求するruntime contractを定義する。
+- 外部validatorのfixture PASSはproduction-host PASSではない。
+- actual tool eventのないreceipt文字列は、形式が正しくてもFAIL。
+- hostがpre-dispatch gateを提供できない場合、PEOS strict runtimeを名乗らずfail-closedとする。
+- 後続turnのvalid receiptは過去turnを遡及修復しない。
+
+## 2B. ACTUAL TOOL TRACE BINDING
+
+current-turn receiptは最低限、次のtrace recordへ結合する。
+
+```text
+TURN_ID
+TOOL_EXECUTION_EVENT_ID_OR_HOST_TRACE_ORDINAL
+ACTION_INDEX
+PROVIDER_EXPRESSION
+RETURNED_VALUE
+CAPTURE_ATTEMPTS
+INTERVENING_ACTION_BEFORE_SUCCESS
+TRACE_SOURCE
+TRACE_DIGEST
+```
+
+assistant本文・commentary・ログ内文字列だけからこのrecordを生成してPASSしてはならない。host traceがない場合は`UNBOUND_RECEIPT / FAIL`とする。
 
 ## 3. OUTPUT MODES
 
@@ -247,7 +294,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: route混線、余計な句、空行追加、未同期起動。
 - FAILURE_CLASS: `BOOT_CANON_EXACTNESS_FAILURE`
 - REFERENCE_FIXTURE: `FX-BOOT-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -262,7 +309,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 父語彙・母距離・general disclosureの相互汚染。
 - FAILURE_CLASS: `OVERLAY_CROSS_CONTAMINATION`
 - REFERENCE_FIXTURE: `FX-COORD-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -277,7 +324,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: gate前取得、sourceを見ずに記憶で補完。
 - FAILURE_CLASS: `CONTEXT_PREAUTH_BYPASS`
 - REFERENCE_FIXTURE: `FX-TIME-003`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -292,7 +339,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 全turn boilerplate、NO_DECISION_DELTA欄の展開。
 - FAILURE_CLASS: `DELTA_ONLY_LABEL_LAUNDERING`
 - REFERENCE_FIXTURE: `FX-MAGI-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -307,7 +354,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 修正宣言だけでstickiness PASSにすること。
 - FAILURE_CLASS: `CORRECTION_STICKINESS_FALSE_PASS`
 - REFERENCE_FIXTURE: `FX-CORR-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -322,7 +369,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: SELF_AUDITのラベルだけで合格とすること。
 - FAILURE_CLASS: `OUTPUT_AUDIT_SELF_REPORT_ONLY`
 - REFERENCE_FIXTURE: `FX-OUTPUT-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -337,7 +384,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 完成ログ本文やvalidation traceを標準出力へ漏らすこと。
 - FAILURE_CLASS: `LOG_ARTIFACT_CONTENT_STDOUT_LEAK`
 - REFERENCE_FIXTURE: `FX-LOG-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -352,7 +399,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 見えないturn、画像pixel、timestampを推測で埋めること。
 - FAILURE_CLASS: `SOURCE_GAP_INFERENCE`
 - REFERENCE_FIXTURE: `FX-LOG-002`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -367,7 +414,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 画像投稿時刻やartifact時刻をuser-turn ingressへ使うこと。
 - FAILURE_CLASS: `USER_TURN_EVENT_TIME_CONFLATION`
 - REFERENCE_FIXTURE: `FX-LOG-003`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -382,7 +429,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 後付け修復で同turnをPASSにすること。
 - FAILURE_CLASS: `FAIL_OPEN`
 - REFERENCE_FIXTURE: `FX-TIME-003`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -397,7 +444,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: unlock状態をsession stickyにすること。
 - FAILURE_CLASS: `NEXT_TURN_REARM_OMISSION`
 - REFERENCE_FIXTURE: `FX-TIME-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -412,7 +459,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: revision履歴から最新overrideを推測させること。
 - FAILURE_CLASS: `ACTIVE_RUNTIME_BURIED_IN_HISTORY`
 - REFERENCE_FIXTURE: `FX-ARCH-002`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -427,7 +474,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 管理asset欠落を通常runtime停止理由にすること。
 - FAILURE_CLASS: `ADMIN_RUNTIME_COUPLING`
 - REFERENCE_FIXTURE: `FX-ARCH-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -442,7 +489,7 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: 古いsnapshotを現在事実として断定すること。
 - FAILURE_CLASS: `STALE_EXTERNAL_FACT_REUSE`
 - REFERENCE_FIXTURE: `FX-EVID-003`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
@@ -457,6 +504,82 @@ receipt成立前のcommentary、意味解析、file、web、shell、Personal Con
 - PROHIBITED_BEHAVIOR: assistant提案をfather directiveへ自動昇格すること。
 - FAILURE_CLASS: `MEMORY_SOURCE_PURITY_FAILURE`
 - REFERENCE_FIXTURE: `FX-SOURCE-001`
-- INTRODUCED_REV: `rev0.306-RC1`
+- INTRODUCED_REV: `rev0.306-RC2`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+
+### RUNTIME.HOST.PRE_DISPATCH_ENFORCEMENT_REQUIRED
+- RULE_ID: `RUNTIME.HOST.PRE_DISPATCH_ENFORCEMENT_REQUIRED`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `EVERY_USER_TURN`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: live hostがuser turnを受領した時点。
+- REQUIREMENT: semantic dispatchより先にhostがPython-only admission gateを実行し、action index 1のactual tool eventを要求する。
+- PROHIBITED_BEHAVIOR: model内の注意喚起、自己監査、自然言語宣言だけでpre-dispatch enforcement済みとみなすこと。
+- FAILURE_CLASS: `PRODUCTION_PRE_DISPATCH_GATE_NOT_INSTALLED_OR_NOT_ENFORCED`
+- REFERENCE_FIXTURE: `FX-PROD-TIME-001`
+- INTRODUCED_REV: `rev0.306-RC2`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.ACTUAL_TRACE_BINDING
+- RULE_ID: `RUNTIME.TIME.ACTUAL_TRACE_BINDING`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `RECEIPT_VALIDATION`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: receipt表示またはINGRESS_ORDER_VALID判定。
+- REQUIREMENT: turn-local host tool event、action index、provider、returned value、trace digestを結合する。
+- PROHIBITED_BEHAVIOR: actual tool eventなしの整形式timestamp/provider文字列をreceipt扱いすること。
+- FAILURE_CLASS: `PEOS_TIME_RECEIPT_SELF_REPORT_SUBSTITUTION`
+- REFERENCE_FIXTURE: `FX-PROD-TIME-002`
+- INTRODUCED_REV: `rev0.306-RC2`
+- SUPERSEDES: `RUNTIME.TIME.ACTUAL_RECEIPT_ONLY`のproduction bindingを明確化
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.NO_LATE_REPAIR
+- RULE_ID: `RUNTIME.TIME.NO_LATE_REPAIR`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `FAILED_TURN`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: receipt欠損または先行処理が発生したturn。
+- REQUIREMENT: 当該turnをFAILとして固定し、後続turnのvalid receiptは過去turnへ遡及適用しない。
+- PROHIBITED_BEHAVIOR: 後付け時刻、後続receipt、ログ再構成で失敗turnをPASSへ変更すること。
+- FAILURE_CLASS: `NO_LATE_REPAIR_VIOLATION`
+- REFERENCE_FIXTURE: `FX-PROD-TIME-005`
+- INTRODUCED_REV: `rev0.306-RC2`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.ACCEPTANCE.PRODUCTION_TRACE_SEPARATION
+- RULE_ID: `RUNTIME.ACCEPTANCE.PRODUCTION_TRACE_SEPARATION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `RELEASE_ACCEPTANCE`
+- TARGET_COORDINATE: `ADMIN`
+- TRIGGER: validatorまたはfixture harnessがPASSしたとき。
+- REQUIREMENT: static/package/harness PASSとlive production trace PASSを別状態として保持する。
+- PROHIBITED_BEHAVIOR: fixture simulationをproduction transcript証明として使用すること。
+- FAILURE_CLASS: `VALIDATOR_TO_PRODUCTION_TRACE_GAP`
+- REFERENCE_FIXTURE: `FX-PROD-TIME-006`
+- INTRODUCED_REV: `rev0.306-RC2`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.FAILCLOSED.NO_HOST_GATE
+- RULE_ID: `RUNTIME.FAILCLOSED.NO_HOST_GATE`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `HOST_CAPABILITY_FAILURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: hostがPython-only first actionを保証できない、またはtraceを提示できないとき。
+- REQUIREMENT: 通常回答、起動完了、INGRESS_ORDER_VALID=TRUE、receipt表示を禁止し、strict conformanceを名乗らない。
+- PROHIBITED_BEHAVIOR: 「内部で確認した」等で運用継続すること。
+- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS`
+- REFERENCE_FIXTURE: `FX-PROD-TIME-004`
+- INTRODUCED_REV: `rev0.306-RC2`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
