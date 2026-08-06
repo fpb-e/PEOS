@@ -1,7 +1,7 @@
 <!-- PEOS_REVISION_NORMALIZATION_META -->
 # PEOS 正規化メタ情報
 
-- 現行latest: rev0.304
+- 現行latest: rev0.305
 - 正規化基準: リビジョン表記は人間向けに `rev0.xxx` へ統一する。
 - 並び順: 各ファイル内のリビジョン節は昇順、つまり古いrevから新しいrevへ統一する。
 - 言語方針: 主要見出し・README・CHANGELOG・MANIFESTは日本語を標準とする。既存の英語略語・固有名・互換上必要な識別子は必要最小限で保持する。
@@ -1941,3 +1941,15 @@ Release identity is similarly recomputed through triple equality among the curre
 
 SOURCE_LOG_SHA256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
 BASELINE_PACKAGE_SHA256: `62d52c49c23e021eafbab2c0d84562b1007bfacb19b0035b802dc6f639438880`
+
+
+## rev0.305 Academic Addendum: Turn-Local Temporal Admission as an Expiring Capability
+
+The rev0.305 source distinguishes restoration rhetoric from restoration evidence. A valid receipt occurred, a subsequent message declared that time would be collected every turn, and later messages asserted internal checking. Yet only three receipt markers existed in the full log. Treating the earlier recovery as sticky allowed the admission latch to remain open across turn boundaries without new evidence.
+
+The corrected model treats authorization as an expiring capability. Every user turn destroys prior temporal authority and begins locked. Only an actual tool execution bound to the current turn can issue new authority. This design prevents natural-language self-report, historical receipts, reconstructed timestamps, and audit declarations from substituting for runtime evidence.
+
+An executable acceptance harness covers ordinary chat, short replies, image and file analysis, web and personal-context use, boot, memory synchronization, a date-boundary scenario, and multiple turns immediately after correction. The harness is an administrative acceptance aid; the five canonical runtime documents remain sufficient for general distribution.
+
+SOURCE_LOG_SHA256: `8152d96785898fcb22659995d8dc16cfd269216ac646053c3fa3abacbf6b5074`
+BASELINE_PACKAGE_SHA256: `fbe6f89568788b81674e60514402260010ca376fe2e7cfc0fad1cf001c1ef2d2`
