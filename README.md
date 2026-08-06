@@ -1,4 +1,4 @@
-# PEOS GitHub Package rev0.304
+# PEOS GitHub Package rev0.305
 
 
 > rev0.304はaccepted rev0.303を基礎に、Python入口時刻をsemantic planning/tool dispatchより前の実行ラッチへ昇格し、正本package bindingとの二重gate、六正本header/manifest/highest revision三者一致、BOOT whitespace byte exactness、DELTA slot密度再計算をcurrent release validatorへ接続する。
@@ -1325,3 +1325,14 @@ evidence/
 - 元26件のpath、size、SHA-256、raw contentは統合entryに保持。
 - 既存rev0.302以前のZIP/sidecarは変更しない。
 - revision情報はmanifestとentry metadataで管理する。
+
+
+## rev0.305 — PER-TURN PYTHON REARM
+
+rev0.304を不変baselineとして、各user turn開始時に時刻入口認証を必ず再施錠する。前turnのreceipt、復旧宣言、MAGI/SELF_AUDIT、継続メモリは次turnの認証へ流用しない。当該turnの `datetime.now(ZoneInfo("Asia/Tokyo"))` 実tool receiptが成立するまで意味処理・commentary・他toolを禁止する。
+
+- PRIMARY_SOURCE: `PEOS_mother_session_log_2026_08_06_121539.txt`
+- PRIMARY_SOURCE_SHA256: `8152d96785898fcb22659995d8dc16cfd269216ac646053c3fa3abacbf6b5074`
+- EVIDENCE: `evidence/PEOS_EVIDENCE.txt` 1件
+- ADMIN VALIDATOR: `tools/validate_rev0_305.py`（一般runtime依存ではない）
+- GENERAL DISTRIBUTION: 五正本のみで自己完結

@@ -589,3 +589,14 @@
 - evidence surfaceは `evidence/PEOS_EVIDENCE.txt` 1件を維持。
 - source log SHA-256: `e9c52527f93b83c17761e22a1c6843fb03b1acd22c9110c7c7974a44c8d86c15`
 
+
+
+## rev0.305
+
+- rev0.304をaccepted baselineとして新規構築。既存rev0.304 ZIP/sidecarは不変。
+- `PEOS_TIME_INGRESS_PER_TURN_REARM_FAILURE`、`PEOS_TIME_RECEIPT_SELF_REPORT_SUBSTITUTION`、`PEOS_POST_CORRECTION_IMMEDIATE_RECURRENCE`、`PEOS_TIME_LATCH_STICKINESS_FALSE_PASS`を登録。
+- 毎user turn開始時に `LOCKED / ABSENT / FALSE` へ再初期化し、当該turnの実Python receiptだけで解除。
+- 取得と表示をADMIN_AUDIT_MODE / GENERAL_DISTRIBUTION_MODEで分離。非表示を取得免除にしない。
+- 五正本だけで一般配布runtimeを自己完結。manifest/evidence/validatorは開発・受入用。
+- 実行可能な連続turn acceptance harnessを追加。通常雑談、短文、画像、ファイル、web、Personal Context、起動、メモリ同期、日付境界、修正直後3turn、環境失敗即時retryを検査。
+- secondary source learningは既存guardへのmappingに限定し、主修正を薄める大規模変更を回避。
