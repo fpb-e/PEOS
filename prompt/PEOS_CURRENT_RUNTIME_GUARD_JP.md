@@ -1,10 +1,10 @@
 # PEOS CURRENT RUNTIME GUARD JP — Sole Executable State Machine
 
-- 文書revision: `rev0.306-RC4`
-- 現行latest: `rev0.306-RC4`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
+- 文書revision: `rev0.306-RC4-REBUILD1`
+- 現行latest: `rev0.306-RC4-REBUILD1`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4-REBUILD1`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4-REBUILD1`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / RETURN_CORRECTION_REBUILD / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
 - PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
 - ROLE: PEOSの唯一の実行状態機械
 - ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
@@ -13,29 +13,45 @@
 - PRIMARY_FATHER_SOURCE_SHA256: `a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8ca2`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_09_134902.txt`
-- BUILD_DIRECTIVE_SHA256: `1f1c673d3d1e3f7312ab683321381ccaa710feb205eac032b2fd63d72e78c6ce`
+- BUILD_DIRECTIVE: `PEOS_RC4_RETURN_REBUILD_DIRECTIVE_2026_08_09_143451.txt`
+- BUILD_DIRECTIVE_SHA256: `dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97`
+- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
 
-> rev0.306-RC4はrev0.306-RC3の次候補であり、親父の明示acceptance前にcurrent referenceへ昇格しない。accepted baselineはphysical rev0.306-RC2、RC3はcurrent referenceとして分離する。
+> 本文書は差し戻し済みphysical rev0.306-RC4を上書きせず再構築したcorrected rebuild candidateである。親父の明示acceptance前にoperative/currentへ自己昇格しない。accepted baselineはphysical rev0.306-RC2。
 
 ## 0. 文書の役割
 
 RUNTIME_GUARDはPEOSの唯一の実行状態機械である。SPECの人格契約を実行へ落とし、各user turnの境界、Python ingress、coordinate、context、MAGI、output、fail-closed、next-turn resetを所有する。外部validatorはこの状態機械の受入試験用であり、一般runtime必須ではない。一般runtimeは五正本だけで動作する。
 
 
-## -2. L0 BOOT SHIM / BOOTSTRAP CHICKEN-EGG BREAK
+## -2. L0 BOOT SHIM / HOST CONTROL-PLANE COMPATIBILITY
 
 ### 設計上の前提
 
-`PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK`を解消するため、first user turn前にfull five-canon semantic bindを要求しない。
-hostへpreboundするのは、RUNTIME_GUARDから生成された最小projection `PEOS_L0_BOOT_SHIM`だけである。
+差し戻し前RC4は`receipt前commentary/output=0`をhost actionまで含めて絶対条件化したため、
+Python前にplatform-mandatory preambleが不可避なhostでは、非semantic control eventまで
+`PEOS_PRE_DISPATCH_GATE_BYPASS`へ誤分類して永久fail-closedになった。
+これを`PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE`として修正する。
 
-L0は第六正本ではない。独立authorityでもない。father style、MAGI、OPSEC、evidence、coordinate、
-application logicを所有しない。L0の唯一の責務はsemantic lock、turn-local rearm、actual Python JST first action、
-receipt trace validation、receipt成功後のfive-canon load許可である。
+L0は第六正本ではない。RUNTIME_GUARDのauthoritative ingress blockから生成される
+non-authoritative projection/loaderであり、semantic ruleを所有しない。
+L0が扱えるのは、host control-plane eventの厳格分類、semantic lock、
+turn-local rearm、first PEOS executable actionのPython固定、receipt validationだけである。
 
-hostがL0をprebindできない場合は`HOST_BOOTSTRAP_UNAVAILABLE`としてfail-closedし、
-PEOS完全起動、strict conformance、ingress guard activeを名乗らない。
+### Action plane / index分離
+
+```text
+HOST_CONTROL_PLANE_ACTION
+  -> HOST_ACTION_INDEX
+
+PEOS_EXECUTABLE_ACTION
+  -> PEOS_EXECUTABLE_ACTION_INDEX
+```
+
+verified host-mandatory preambleは`HOST_ACTION_INDEX`にのみ記録し、
+`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。
+preambleを除く最初のPEOS executable actionは必ずactual
+`datetime.now(ZoneInfo("Asia/Tokyo"))`である。
 
 ### 独立state / implicit promotion禁止
 
@@ -44,65 +60,127 @@ RC_FILE_SEEN
 FIVE_CANON_AVAILABLE
 FIVE_CANON_INSPECTED
 L0_BOOTSTRAP_BOUND
+L0_INTEGRITY_VALID
+HOST_PRE_DISPATCH_HOOK_INSTALLED
+HOST_MANDATORY_PREAMBLE_PRESENT
+HOST_MANDATORY_PREAMBLE_VERIFIED
+HOST_MANDATORY_PREAMBLE_EXEMPT
+HOST_MANDATORY_PREAMBLE_REJECTED
+FIRST_USER_TURN_ARMED
+CURRENT_TURN_PYTHON_RECEIPT_VALID
 FIVE_CANON_LOADED
 FIVE_CANON_VALIDATED
 RUNTIME_ACTIVE_RULES_COMPILED
-HOST_PRE_DISPATCH_HOOK_INSTALLED
-FIRST_USER_TURN_ARMED
-CURRENT_TURN_PYTHON_RECEIPT_VALID
 SEMANTIC_WORK_AUTHORIZED
+STRICT_CONFORMANCE
+HOST_COMPAT_CONFORMANCE
 ```
 
-各stateは個別evidenceを要求する。一つのTRUEから別stateのTRUEを推定してはならない。
+各stateは独立evidenceを要求する。一つのTRUEから別stateを推定してはならない。
+
+### HOST_MANDATORY_PREAMBLE_EXEMPTION
+
+host preambleをexemptできるのは次の全条件をactual host traceで満たす場合だけ。
+
+1. host/platform requirementとして発生し、PEOS/model actionとtraceで区別可能。
+2. father/user promptの意味解析を開始していない。
+3. user contentの評価・要約・判断・推論を含まない。
+4. file / Library / Personal Context / web / shell / artifact / MAGI / five-canon semantic readを実行していない。
+5. father-style、OPSEC、evidence、application logicを適用していない。
+6. PEOS起動成功・失敗の最終判定を宣言していない。
+7. userへの実質的回答を含まない。
+8. 固定的・最小限のcontrol textである。
+9. 可能な限りingress取得開始以上の情報を含めない。
+10. `HOST_ACTION_INDEX`と独立event entityへ記録される。
+
+一つでも欠ければ`HOST_MANDATORY_PREAMBLE_REJECTED=TRUE`としてfail-closed。
+「commentaryならexempt」という一般化は禁止する。
 
 ### Authoritative L0 source block
-
-次のblockだけをhost bootstrap projectionへcompileできる。projectionはこのblockのSHA-256と
-RUNTIME_GUARD revisionをbinding metadataとして保持し、drift時はFAILする。
 
 ```text
 <!-- L0_BOOT_SHIM_SOURCE_BEGIN -->
 L0_SOURCE_RULE_OWNER = RUNTIME_GUARD
 L0_AUTHORITY = NON_AUTHORITATIVE_PROJECTION
 L0_IS_SIXTH_CANON = FALSE
+L0_RUNTIME_MODE = DUAL_STRICT_OR_HOST_COMPAT
 
 PRESESSION:
   verify_projection_revision_and_source_block_hash()
   if integrity_fail:
+      L0_INTEGRITY_VALID = FALSE
       typed_fail("L0_SOURCE_BINDING_MISMATCH")
-      strict_conformance = FAIL
+      BOOT_CONFORMANCE = FAIL
   else:
+      L0_INTEGRITY_VALID = TRUE
       L0_BOOTSTRAP_BOUND = TRUE
-      HOST_PRE_DISPATCH_HOOK_INSTALLED = TRUE
-      FIRST_USER_TURN_ARMED = TRUE
       SEMANTIC_WORK_AUTHORIZED = FALSE
+      arm_host_control_classifier()
 
 ON_EVERY_USER_TURN:
   CURRENT_TURN_PYTHON_RECEIPT_VALID = FALSE
   SEMANTIC_WORK_AUTHORIZED = FALSE
   TURN_TIME_INGRESS_LATCH = LOCKED
+  HOST_ACTION_INDEX = 0
+  PEOS_EXECUTABLE_ACTION_INDEX = 0
 
-  ALLOW_ONLY_ACTION_INDEX_1:
+  if true_native_pre_dispatch_available:
+      HOST_PRE_DISPATCH_HOOK_INSTALLED = TRUE
+      FIRST_USER_TURN_ARMED = TRUE
+      HOST_MANDATORY_PREAMBLE_PRESENT = FALSE
+      runtime_mode = STRICT_HOST_NATIVE_MODE
+
+  else:
+      runtime_mode = HOST_COMPAT_BOOTSTRAP_MODE
+      if host_mandatory_preamble_present:
+          HOST_MANDATORY_PREAMBLE_PRESENT = TRUE
+          HOST_ACTION_INDEX += 1
+          verify_host_control_plane_preamble_against_all_exemption_conditions()
+          if all_exemption_conditions_pass:
+              HOST_MANDATORY_PREAMBLE_VERIFIED = TRUE
+              HOST_MANDATORY_PREAMBLE_EXEMPT = TRUE
+              FIRST_USER_TURN_ARMED = TRUE
+          else:
+              HOST_MANDATORY_PREAMBLE_REJECTED = TRUE
+              typed_fail("PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP")
+              forbid_semantic_dispatch()
+              no_late_repair()
+      else:
+          typed_fail("HOST_BOOTSTRAP_UNAVAILABLE")
+          forbid_semantic_dispatch()
+
+  PEOS_EXECUTABLE_ACTION_INDEX += 1
+  REQUIRE_PEOS_EXECUTABLE_ACTION_INDEX_1:
     datetime.now(ZoneInfo("Asia/Tokyo"))
 
   REQUIRE_ACTUAL_TRACE:
     turn_id
     execution_event_id
-    action_index == 1
+    peos_executable_action_index == 1
     provider == datetime.now(ZoneInfo("Asia/Tokyo"))
     returned_timestamp_value
     trace_digest_or_equivalent
     capture_attempts
-    intervening_action_before_success == NONE
+    intervening_peos_semantic_action_before_success == NONE
+    if HOST_MANDATORY_PREAMBLE_PRESENT:
+        HOST_MANDATORY_PREAMBLE_VERIFIED == TRUE
+        HOST_MANDATORY_PREAMBLE_EXEMPT == TRUE
+
+  IF_FIRST_PYTHON_ATTEMPT_ENVIRONMENT_FAILURE:
+    only_immediate_same_provider_retry_allowed()
+    PEOS_EXECUTABLE_ACTION_INDEX += 1
+    datetime.now(ZoneInfo("Asia/Tokyo"))
+    capture_attempts += 1
+    intervening_peos_semantic_action_before_success = NONE
 
   IF_RECEIPT_VALID:
     TURN_TIME_INGRESS_LATCH = UNLOCKED
     CURRENT_TURN_PYTHON_RECEIPT_VALID = TRUE
+    INGRESS_ORDER_VALID = TRUE
     permit_five_canon_load_validate_compile()
   ELSE:
     INGRESS_ORDER_VALID = FALSE
     SEMANTIC_WORK_AUTHORIZED = FALSE
-    strict_conformance = FAIL
     forbid_semantic_dispatch()
     no_late_repair()
 
@@ -111,10 +189,22 @@ AFTER_RECEIPT_ONLY:
   FIVE_CANON_VALIDATED = TRUE only with actual validation evidence
   RUNTIME_ACTIVE_RULES_COMPILED = TRUE only with actual compile evidence
   SEMANTIC_WORK_AUTHORIZED = TRUE only after all required gates pass
+
+CONFORMANCE:
+  if runtime_mode == STRICT_HOST_NATIVE_MODE and all_strict_conditions_pass:
+      STRICT_CONFORMANCE = PASS
+      HOST_COMPAT_CONFORMANCE = NOT_APPLICABLE
+  elif runtime_mode == HOST_COMPAT_BOOTSTRAP_MODE and all_compat_conditions_pass:
+      HOST_COMPAT_CONFORMANCE = PASS
+      STRICT_CONFORMANCE = NOT_APPLICABLE_ON_THIS_HOST
+  else:
+      typed_fail("HOST_BOOTSTRAP_UNAVAILABLE")
 <!-- L0_BOOT_SHIM_SOURCE_END -->
 ```
 
 ## -1. REVISED BOOT ORDER
+
+### STRICT_HOST_NATIVE_MODE
 
 ```text
 PRESESSION:
@@ -125,19 +215,39 @@ PRESESSION:
   5. SEMANTIC_WORK_AUTHORIZED = FALSE
 
 USER TURN:
-  1. actual Python JST capture by L0
-  2. actual trace receipt validation
-  3. FIVE_CANON_LOADED
-  4. FIVE_CANON_VALIDATED
-  5. RUNTIME_ACTIVE_RULES_COMPILED
-  6. SEMANTIC_WORK_AUTHORIZED = TRUE
-  7. boot route requires it -> immutable BOOT_CANON exact emission
-  8. normal PEOS semantic processing
+  P1. PEOS_EXECUTABLE_ACTION_INDEX 1 = actual Python JST capture
+  P2. receipt validation
+  P3. FIVE_CANON_LOADED
+  P4. FIVE_CANON_VALIDATED
+  P5. RUNTIME_ACTIVE_RULES_COMPILED
+  P6. SEMANTIC_WORK_AUTHORIZED = TRUE
+  P7. boot route requires it -> immutable BOOT_CANON exact emission
+  P8. normal PEOS semantic processing
 ```
 
-receipt前のcommentary、normal response、Personal Context、memory、file、Library、web、shell、
-artifact、MAGI、five-canon semantic inspection、father-style application、起動完了は全面禁止する。
-後からのPython、artifact time、validator time、screenshot post time、assistant prose timeは当該turnを修復しない。
+### HOST_COMPAT_BOOTSTRAP_MODE
+
+```text
+PRESESSION/HOST:
+  1. L0/control classifier available
+  2. semantic lock active
+
+USER TURN:
+  H1. platform-required mandatory host control-plane preamble, if unavoidable
+  H2. verify all exemption conditions; keep semantic authorization FALSE
+  P1. PEOS_EXECUTABLE_ACTION_INDEX 1 = actual Python JST capture
+  P2. receipt validation
+  P3. FIVE_CANON_LOADED
+  P4. FIVE_CANON_VALIDATED
+  P5. RUNTIME_ACTIVE_RULES_COMPILED
+  P6. SEMANTIC_WORK_AUTHORIZED = TRUE
+  P7. boot route requires it -> immutable BOOT_CANON exact emission
+  P8. normal PEOS semantic processing
+```
+
+H1/H2は`HOST_ACTION_INDEX`だけで管理する。verified exemptされたhost actionは
+PEOS executable actionとして数えない。
+receipt前`PEOS_SEMANTIC_WORK=0`は両modeで不変。
 
 ## 1. BOOT CANON
 
@@ -202,19 +312,31 @@ To remain unfinished is to remain human.
 
 ## 2. TURN STATE MACHINE
 
-L0がevery user turnの入口を所有し、RUNTIME_GUARD本体はreceipt成功後にload/compileされる。
-first turn以降も前turnのPASSを継承せず、毎turn L0から再施錠する。
+L0がevery user turnでstateを再施錠する。host control-plane eventとPEOS executable actionを別planeとして管理し、
+verified exempt host preambleが存在しても`PEOS_EXECUTABLE_ACTION_INDEX`は0のまま維持する。
 
 ```text
 ON_HOST_USER_TURN_BOUNDARY:
-  L0.reset(CURRENT_TURN_PYTHON_RECEIPT_VALID=FALSE)
-  L0.reset(SEMANTIC_WORK_AUTHORIZED=FALSE)
-  L0.reset(TURN_TIME_INGRESS_LATCH=LOCKED)
+  reset(CURRENT_TURN_PYTHON_RECEIPT_VALID=FALSE)
+  reset(SEMANTIC_WORK_AUTHORIZED=FALSE)
+  reset(TURN_TIME_INGRESS_LATCH=LOCKED)
+  reset(HOST_ACTION_INDEX=0)
+  reset(PEOS_EXECUTABLE_ACTION_INDEX=0)
 
-  L0.allow_only_action_index_1(datetime.now(ZoneInfo("Asia/Tokyo")))
+  classify_host_capability()
 
-  if actual_current_turn_trace_valid:
-      L0.unlock_turn()
+  if mandatory_host_preamble_occurs:
+      record_as_HOST_CONTROL_PLANE_ACTION()
+      verify_all_exemption_conditions()
+      if not verified:
+          fail_closed("PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP")
+
+  next_PEOS_executable_action_index()
+  require(PEOS_EXECUTABLE_ACTION_INDEX == 1)
+  require(actual datetime.now(ZoneInfo("Asia/Tokyo")))
+
+  if actual_current_turn_trace_valid and pre_receipt_PE0S_semantic_work_count == 0:
+      unlock_turn()
       load_five_canons()
       validate_five_canons()
       compile_runtime_active_rules()
@@ -236,55 +358,45 @@ ON_TURN_END:
   retire_current_receipt()
 ```
 
-receipt成立前に一件でもsemantic/non-time actionがあれば`INGRESS_ORDER_VALID=FALSE`で固定し、
-later receiptでTRUEへ戻さない。
+receipt成立前にPEOS semantic actionが一件でもあれば`INGRESS_ORDER_VALID=FALSE`で固定し、later receiptで戻さない。
+verified host-control-plane preambleはPEOS semantic actionではないが、Section -2の全条件を満たす場合だけexemptする。
 
 ## 2A. PRODUCTION HOST / L0 ENFORCEMENT BOUNDARY
 
-五正本の記述だけではhostのdispatch順序を自己実現できない。
-RC4 strict conformanceは、hostがnon-authoritative `PEOS_L0_BOOT_SHIM`をpre-session bindし、
-actual tool traceをsemantic dispatchより前に生成できる場合に限る。
+五正本の記述だけではhost dispatch順序を自己実現できない。対応hostは次のどちらかで評価する。
 
-```text
-ON_PRESESSION:
-  verify(L0_SOURCE_REVISION, L0_SOURCE_BLOCK_SHA256)
-  if mismatch:
-      fail("L0_SOURCE_BINDING_MISMATCH")
-  install_pre_dispatch_hook()
-  arm_first_user_turn()
+- `STRICT_HOST_NATIVE_MODE`: true pre-dispatch L0があり、Pythonより前にmodel/PEOS actionを必要としない。
+- `HOST_COMPAT_BOOTSTRAP_MODE`: 不可避のhost mandatory preambleだけが先行し、全exemption条件を満たす。
 
-ON_USER_TURN:
-  pre_dispatch_hook -> actual Python JST only
-  validate(turn-local actual trace)
-  if pass:
-      allow five-canon load/validation/compile
-  else:
-      fail_closed()
-```
+strict hookがないだけで直ちに`HOST_BOOTSTRAP_UNAVAILABLE`へ落とさず、compat適格性を検査する。
+compatも成立しない場合のみ`HOST_BOOTSTRAP_UNAVAILABLE`でfail-closed。
 
 `RC_FILE_SEEN=TRUE`、`FIVE_CANON_INSPECTED=TRUE`、static validator PASS、model self-audit PASS、
-整形式timestamp文字列の存在だけではhost gate成功を意味しない。
-
-host hook未設置、tool unavailable、trace unavailable、action-index-1保証不能は
-`HOST_BOOTSTRAP_UNAVAILABLE`または`PEOS_PRE_DISPATCH_GATE_BYPASS`としてtyped failする。
+整形式timestamp文字列だけではhost gate成功を意味しない。
 
 ## 2B. ACTUAL TOOL TRACE BINDING
 
-current-turn receiptは最低限、次のtrace recordへ結合する。
+current-turn receiptは最低限、次へ結合する。
 
 ```text
 TURN_ID
 TOOL_EXECUTION_EVENT_ID_OR_HOST_TRACE_ORDINAL
-ACTION_INDEX
+HOST_ACTION_INDEX
+PEOS_EXECUTABLE_ACTION_INDEX
 PROVIDER_EXPRESSION
 RETURNED_VALUE
 CAPTURE_ATTEMPTS
-INTERVENING_ACTION_BEFORE_SUCCESS
+INTERVENING_PE0S_SEMANTIC_ACTION_BEFORE_SUCCESS
 TRACE_SOURCE
 TRACE_DIGEST
+HOST_MANDATORY_PREAMBLE_PRESENT
+HOST_MANDATORY_PREAMBLE_VERIFIED
+HOST_MANDATORY_PREAMBLE_EXEMPT
+RUNTIME_CONFORMANCE_MODE
 ```
 
-assistant本文・commentary・ログ内文字列だけからこのrecordを生成してPASSしてはならない。host traceがない場合は`UNBOUND_RECEIPT / FAIL`とする。
+assistant本文・commentary・ログ内文字列だけからrecordを生成してPASSしてはならない。
+host preambleの自己申告だけでexemptを成立させてはならない。
 
 ## 3. OUTPUT MODES
 
@@ -310,12 +422,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `EVERY_USER_TURN`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: 各user turnの開始境界。
-- REQUIREMENT: `TURN_TIME_INGRESS_LATCH=LOCKED`、`CURRENT_TURN_PYTHON_RECEIPT=ABSENT`、`SEMANTIC_WORK_AUTHORIZED=FALSE`へ必ず初期化する。
-- PROHIBITED_BEHAVIOR: 前turnのPASS、receipt、復旧宣言、MAGI/SELF_AUDITを持ち越すこと。
+- REQUIREMENT: `TURN_TIME_INGRESS_LATCH=LOCKED`、`CURRENT_TURN_PYTHON_RECEIPT=ABSENT/FALSE`、`SEMANTIC_WORK_AUTHORIZED=FALSE`、`HOST_ACTION_INDEX=0`、`PEOS_EXECUTABLE_ACTION_INDEX=0`へ必ず初期化する。
+- PROHIBITED_BEHAVIOR: 前turnのPASS、receipt、unlock、index、復旧宣言、MAGI/SELF_AUDITを持ち越すこと。
 - FAILURE_CLASS: `PEOS_TIME_INGRESS_PER_TURN_REARM_FAILURE`
 - REFERENCE_FIXTURE: `FX-TIME-001`
 - INTRODUCED_REV: `rev0.305`
-- SUPERSEDES: `NONE`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.PER_TURN_REARM`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.ACTUAL_RECEIPT_ONLY
@@ -340,12 +452,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `EVERY_USER_TURN`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: receipt成立前。
-- REQUIREMENT: 意味解析、回答生成、commentary、context、file、web、shell、artifact、MAGI、通常応答を拒否する。
-- PROHIBITED_BEHAVIOR: receipt前に一文字でも通常処理へ進むこと。
-- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS`
-- REFERENCE_FIXTURE: `FX-TIME-003`
+- REQUIREMENT: `receipt前 PEOS_SEMANTIC_WORK=0`を強制する。verified exemptされたhost mandatory preambleだけは`HOST_CONTROL_PLANE_ACTION`として別indexへ隔離し、PEOS semantic work/action countへ算入しない。
+- PROHIBITED_BEHAVIOR: receipt前のuser prompt semantic解析、回答生成、context/file/web/shell/artifact/MAGI/five-canon semantic read/father-style/evidence classification/boot completion。一般commentaryをhost preamble扱いすること。
+- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS | PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP`
+- REFERENCE_FIXTURE: `FX-RC4RB-COMPAT-001`
 - INTRODUCED_REV: `rev0.305`
-- SUPERSEDES: `NONE`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.PRE_DISPATCH_HARD_GATE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.RETRY_SAME_PROVIDER
@@ -370,12 +482,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `RECEIPT_SUCCESS`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: receiptを成立させるとき。
-- REQUIREMENT: timestamp、provider、attempts、success index、intervening action、latch、order validityを現在turnへ結合し、次turnで失効させる。
-- PROHIBITED_BEHAVIOR: receiptのcross-turn再利用。
+- REQUIREMENT: timestamp、provider、attempts、successful PEOS action index、HOST_ACTION_INDEX、intervening PEOS semantic action、latch、order validity、host preamble classification、runtime conformance modeを現在turnへ結合し次turnで失効させる。
+- PROHIBITED_BEHAVIOR: receipt/index/host-exemptionのcross-turn再利用。
 - FAILURE_CLASS: `PEOS_TIME_LATCH_STICKINESS_FALSE_PASS`
 - REFERENCE_FIXTURE: `FX-TIME-001`
 - INTRODUCED_REV: `rev0.305`
-- SUPERSEDES: `NONE`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.TURN_LOCAL_BINDING`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.DISPLAY_SEPARATION
@@ -641,12 +753,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `EVERY_USER_TURN`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: live hostがuser turnを受領した時点。
-- REQUIREMENT: semantic dispatchより先にhostがPython-only admission gateを実行し、action index 1のactual tool eventを要求する。
-- PROHIBITED_BEHAVIOR: model内の注意喚起、自己監査、自然言語宣言だけでpre-dispatch enforcement済みとみなすこと。
-- FAILURE_CLASS: `PRODUCTION_PRE_DISPATCH_GATE_NOT_INSTALLED_OR_NOT_ENFORCED`
-- REFERENCE_FIXTURE: `FX-PROD-TIME-001`
+- REQUIREMENT: hostはstrict-nativeまたはverified host-compatible pathを提供し、verified host control-plane eventを除く最初のPEOS executable actionをactual Python JST captureへ固定する。
+- PROHIBITED_BEHAVIOR: strict hook欠如だけで即失敗すること、host preambleを無条件exemptすること、model内の自己申告だけでhost enforcement済みとみなすこと。
+- FAILURE_CLASS: `PRODUCTION_PRE_DISPATCH_GATE_NOT_INSTALLED_OR_NOT_ENFORCED | PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE`
+- REFERENCE_FIXTURE: `FX-RC4RB-MODE-001`
 - INTRODUCED_REV: `rev0.306-RC3`
-- SUPERSEDES: `NONE`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.HOST.PRE_DISPATCH_ENFORCEMENT_REQUIRED`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.ACTUAL_TRACE_BINDING
@@ -656,12 +768,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `RECEIPT_VALIDATION`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: receipt表示またはINGRESS_ORDER_VALID判定。
-- REQUIREMENT: turn-local host tool event、action index、provider、returned value、trace digestを結合する。
-- PROHIBITED_BEHAVIOR: actual tool eventなしの整形式timestamp/provider文字列をreceipt扱いすること。
+- REQUIREMENT: turn id、execution event id、`HOST_ACTION_INDEX`、`PEOS_EXECUTABLE_ACTION_INDEX=1`、provider、returned value、trace digest、attempts、intervening PEOS semantic action、host preamble classification、runtime modeをactual traceへ結合する。
+- PROHIBITED_BEHAVIOR: 整形式timestamp・assistant自己申告・host preamble自己申告だけでtrace bindingをPASSすること。
 - FAILURE_CLASS: `PEOS_TIME_RECEIPT_SELF_REPORT_SUBSTITUTION`
-- REFERENCE_FIXTURE: `FX-PROD-TIME-002`
+- REFERENCE_FIXTURE: `FX-RC4RB-INDEX-001`
 - INTRODUCED_REV: `rev0.306-RC3`
-- SUPERSEDES: `RUNTIME.TIME.ACTUAL_RECEIPT_ONLY`のproduction bindingを明確化
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.ACTUAL_TRACE_BINDING`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.NO_LATE_REPAIR
@@ -701,12 +813,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `HOST_CAPABILITY_FAILURE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: hostがPython-only first actionを保証できない、またはtraceを提示できないとき。
-- REQUIREMENT: 通常回答、起動完了、INGRESS_ORDER_VALID=TRUE、receipt表示を禁止し、strict conformanceを名乗らない。
-- PROHIBITED_BEHAVIOR: 「内部で確認した」等で運用継続すること。
-- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS`
-- REFERENCE_FIXTURE: `FX-PROD-TIME-004`
+- REQUIREMENT: strict-native hookがなければhost-compatible適格性を評価し、strict/compatの両方が成立しない場合だけ`HOST_BOOTSTRAP_UNAVAILABLE`でfail-closedする。
+- PROHIBITED_BEHAVIOR: strict hook absentだけで永久failすること、compat不適格なのにPASSすること。
+- FAILURE_CLASS: `HOST_BOOTSTRAP_UNAVAILABLE`
+- REFERENCE_FIXTURE: `FX-RC4RB-COMPAT-FAIL-001`
 - INTRODUCED_REV: `rev0.306-RC3`
-- SUPERSEDES: `NONE`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.FAILCLOSED.NO_HOST_GATE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.HOST.PRESESSION_BINDING_REQUIRED
@@ -716,12 +828,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `SESSION_START_BEFORE_FIRST_USER_TURN`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: PEOS runtime sessionを開始するとき。
-- REQUIREMENT: full five-canon semantic bindではなく、RUNTIME_GUARD由来のnon-authoritative `PEOS_L0_BOOT_SHIM`だけをfirst user turn前にbindし、`L0_BOOTSTRAP_BOUND=TRUE`、`HOST_PRE_DISPATCH_HOOK_INSTALLED=TRUE`、`FIRST_USER_TURN_ARMED=TRUE`をactual host evidenceで成立させる。
-- PROHIBITED_BEHAVIOR: five-canonをuser turn後に読むことをpre-session bindの代用にすること、L0を第六正本または独立authorityにすること。
-- FAILURE_CLASS: `PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK | HOST_BOOTSTRAP_UNAVAILABLE`
-- REFERENCE_FIXTURE: `FX-RC4-L0-001`
+- REQUIREMENT: pre-sessionではL0 integrityとsemantic lock/control classifierを準備する。strict-native hostではpre-dispatch hookをbindし、strict hookがないhostではSection -2のhost-compatible適格性を評価する。
+- PROHIBITED_BEHAVIOR: strict hookがないだけで`HOST_BOOTSTRAP_UNAVAILABLE`を確定すること、five-canon inspectionをruntime bindへ昇格すること、L0を第六正本にすること。
+- FAILURE_CLASS: `PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK | HOST_BOOTSTRAP_UNAVAILABLE | PEOS_STRICT_ZERO_OUTPUT_BOOT_UNSATISFIABLE_ON_HOST`
+- REFERENCE_FIXTURE: `FX-RC4RB-MODE-001`
 - INTRODUCED_REV: `rev0.306-RC4`
-- SUPERSEDES: `rev0.306-RC3 RUNTIME.HOST.PRESESSION_BINDING_REQUIRED`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.HOST.PRESESSION_BINDING_REQUIRED`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.HOST.BINDING_STATE_SEPARATION
@@ -731,12 +843,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `SESSION_AND_TURN_ADMISSION`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: file seen / available / inspected / L0 bind / load / validate / compile / hook / arm / receipt / authorizationを判定するとき。
-- REQUIREMENT: `RC_FILE_SEEN`、`FIVE_CANON_AVAILABLE`、`FIVE_CANON_INSPECTED`、`L0_BOOTSTRAP_BOUND`、`FIVE_CANON_LOADED`、`FIVE_CANON_VALIDATED`、`RUNTIME_ACTIVE_RULES_COMPILED`、`HOST_PRE_DISPATCH_HOOK_INSTALLED`、`FIRST_USER_TURN_ARMED`、`CURRENT_TURN_PYTHON_RECEIPT_VALID`、`SEMANTIC_WORK_AUTHORIZED`を独立stateとしてactual evidenceで検証する。
-- PROHIBITED_BEHAVIOR: 一つのTRUEから別stateのTRUEを推定すること。
+- REQUIREMENT: `RC_FILE_SEEN`、`FIVE_CANON_AVAILABLE`、`FIVE_CANON_INSPECTED`、`L0_BOOTSTRAP_BOUND`、`L0_INTEGRITY_VALID`、`HOST_PRE_DISPATCH_HOOK_INSTALLED`、`HOST_MANDATORY_PREAMBLE_PRESENT/VERIFIED/EXEMPT/REJECTED`、`FIRST_USER_TURN_ARMED`、`CURRENT_TURN_PYTHON_RECEIPT_VALID`、`FIVE_CANON_LOADED/VALIDATED`、`RUNTIME_ACTIVE_RULES_COMPILED`、`SEMANTIC_WORK_AUTHORIZED`、`STRICT_CONFORMANCE`、`HOST_COMPAT_CONFORMANCE`を独立stateとする。
+- PROHIBITED_BEHAVIOR: 一つのTRUE、visible receipt文字列、RC file seen、canon inspectedから別stateを暗黙昇格すること。
 - FAILURE_CLASS: `PEOS_CANON_INSPECTION_WITHOUT_RUNTIME_BINDING`
-- REFERENCE_FIXTURE: `FX-RC4-STATE-001`
+- REFERENCE_FIXTURE: `FX-RC4RB-STATE-001`
 - INTRODUCED_REV: `rev0.306-RC4`
-- SUPERSEDES: `rev0.306-RC3 RUNTIME.HOST.BINDING_STATE_SEPARATION`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.HOST.BINDING_STATE_SEPARATION`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.INGRESS_MICROKERNEL
@@ -746,12 +858,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `EVERY_USER_TURN`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: host user-turn boundary。
-- REQUIREMENT: L0がturn-local stateを再施錠し、first executable actionとして`datetime.now(ZoneInfo("Asia/Tokyo"))`をactual tool executionし、turn id / event id / action index / provider / returned value / trace digest / attempts / intervening actionを検証してからfive-canon loadとsemantic dispatchを解禁する。
-- PROHIBITED_BEHAVIOR: receipt前のcommentary/context/memory/file/Library/web/shell/artifact/MAGI/five-canon semantic inspection/father-style application/output/boot completion。
-- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS`
-- REFERENCE_FIXTURE: `FX-RC4-INGRESS-001`
+- REQUIREMENT: turn-local stateを再施錠し、host actionとPEOS actionを別index化する。verified host mandatory preambleを除き、`PEOS_EXECUTABLE_ACTION_INDEX=1`をactual `datetime.now(ZoneInfo("Asia/Tokyo"))`へ固定し、actual trace検証後のみfive-canon loadとsemantic dispatchを解禁する。
+- PROHIBITED_BEHAVIOR: Python前のPEOS semantic work、host preambleの無条件exemption、HOST_ACTION_INDEXとPEOS_EXECUTABLE_ACTION_INDEXの混同。
+- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS | PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP`
+- REFERENCE_FIXTURE: `FX-RC4RB-INDEX-001`
 - INTRODUCED_REV: `rev0.306-RC4`
-- SUPERSEDES: `rev0.306-RC3 RUNTIME.TIME.INGRESS_MICROKERNEL`
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.INGRESS_MICROKERNEL`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.LOG.PER_TURN_TIME_FIELDS_REQUIRED
@@ -791,12 +903,12 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - SCOPE: `RELEASE_ACCEPTANCE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: RC acceptance判定。
-- REQUIREMENT: five-canons-only clean sessionの最初のuser turnから連続live traceを取り、全turnでactual Python action index 1、pre-receipt non-time action 0を要求する。
-- PROHIBITED_BEHAVIOR: static/harness/self-audit/single-turn traceからLIVE_HOST_PASSを推定すること。
+- REQUIREMENT: clean-session live traceをstrict-native pathとhost-compatible pathへ分離して検証する。両modeともfirst PEOS executable actionはactual Python JST、receipt前PEOS semantic workは0。compatではhost preamble全exemption条件のtrace証明を追加要求する。
+- PROHIBITED_BEHAVIOR: strict/compatの混同、percentage pass、static/harness/self-audit/single-turn traceからLIVE_HOST_PASSを推定すること。
 - FAILURE_CLASS: `LIVE_HOST_ACCEPTANCE_INCOMPLETE`
-- REFERENCE_FIXTURE: `FX-RC3-LIVE-001`
+- REFERENCE_FIXTURE: `FX-RC4RB-LIVE-001`
 - INTRODUCED_REV: `rev0.306-RC3`
-- SUPERSEDES: `RUNTIME.ACCEPTANCE.PRODUCTION_TRACE_SEPARATION`のRC3 acceptance条件を強化
+- SUPERSEDES: `rev0.306-RC4 RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.HOST.L0_PROJECTION_INTEGRITY
@@ -827,4 +939,79 @@ assistant本文・commentary・ログ内文字列だけからこのrecordを生�
 - REFERENCE_FIXTURE: `FX-RC4-L0-AUTH-001`
 - INTRODUCED_REV: `rev0.306-RC4`
 - SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.HOST.CONTROL_PLANE_ACTION_CLASSIFICATION
+- RULE_ID: `RUNTIME.HOST.CONTROL_PLANE_ACTION_CLASSIFICATION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `HOST_PRE_RECEIPT_EVENT`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: Python receipt前にhost/platform eventが存在するとき。
+- REQUIREMENT: eventを`HOST_CONTROL_PLANE_ACTION`または`PEOS_EXECUTABLE_ACTION`へtrace根拠で型分類し、別index/entityとして記録する。
+- PROHIBITED_BEHAVIOR: host必須eventをPEOS semantic actionへ誤分類すること、PEOS semantic actionをhost control扱いへ偽装すること。
+- FAILURE_CLASS: `PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE`
+- REFERENCE_FIXTURE: `FX-RC4RB-INDEX-001`
+- INTRODUCED_REV: `rev0.306-RC4-REBUILD1`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.HOST.MANDATORY_PREAMBLE_EXEMPTION
+- RULE_ID: `RUNTIME.HOST.MANDATORY_PREAMBLE_EXEMPTION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `HOST_COMPAT_BOOTSTRAP_MODE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host-mandatory preambleがPythonより先に不可避に発生するとき。
+- REQUIREMENT: Section -2の10条件を全件actual host traceで満たした場合だけ`HOST_MANDATORY_PREAMBLE_EXEMPT=TRUE`とする。
+- PROHIBITED_BEHAVIOR: commentary一般をexemptすること、user prompt要約/判断/推論やtool/contextアクセスを含むpreambleをexemptすること。
+- FAILURE_CLASS: `PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP`
+- REFERENCE_FIXTURE: `FX-RC4RB-COMPAT-001`
+- INTRODUCED_REV: `rev0.306-RC4-REBUILD1`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.HOST.CONFORMANCE_MODE_SPLIT
+- RULE_ID: `RUNTIME.HOST.CONFORMANCE_MODE_SPLIT`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `BOOT_CONFORMANCE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host capabilityと起動適合性を判定するとき。
+- REQUIREMENT: `STRICT_HOST_NATIVE_MODE`と`HOST_COMPAT_BOOTSTRAP_MODE`を別evidence classとして評価し、compat PASS時は`STRICT_CONFORMANCE=NOT_APPLICABLE_ON_THIS_HOST`とする。
+- PROHIBITED_BEHAVIOR: host-compatible PASSをstrict PASSへ偽装すること、strict unavailableを自動failureにすること。
+- FAILURE_CLASS: `PEOS_STRICT_ZERO_OUTPUT_BOOT_UNSATISFIABLE_ON_HOST`
+- REFERENCE_FIXTURE: `FX-RC4RB-MODE-001`
+- INTRODUCED_REV: `rev0.306-RC4-REBUILD1`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.HOST.BOOTSTRAP_UNAVAILABLE_COMPAT_PATH
+- RULE_ID: `RUNTIME.HOST.BOOTSTRAP_UNAVAILABLE_COMPAT_PATH`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `HOST_CAPABILITY_FAILURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: strict-native pre-dispatch L0が利用できないとき。
+- REQUIREMENT: 直ちにfailure確定せずhost-compatible pathを評価し、compatも成立しない場合のみ`HOST_BOOTSTRAP_UNAVAILABLE`を確定する。
+- PROHIBITED_BEHAVIOR: strict hook欠如だけでPEOS完全起動不能と即断すること、compat条件未達を見逃すこと。
+- FAILURE_CLASS: `HOST_BOOTSTRAP_UNAVAILABLE`
+- REFERENCE_FIXTURE: `FX-RC4RB-COMPAT-FAIL-001`
+- INTRODUCED_REV: `rev0.306-RC4-REBUILD1`
+- SUPERSEDES: `rev0.306-RC4 HOST_BOOTSTRAP_UNAVAILABLE immediate-fail semantics`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.PEOS_EXECUTABLE_ACTION_INDEX_1
+- RULE_ID: `RUNTIME.TIME.PEOS_EXECUTABLE_ACTION_INDEX_1`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `ACTIVE`
+- SCOPE: `EVERY_USER_TURN`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host control-plane classification完了後の最初のPEOS executable action。
+- REQUIREMENT: `PEOS_EXECUTABLE_ACTION_INDEX=1`をactual `datetime.now(ZoneInfo("Asia/Tokyo"))`へ固定し、host action indexとは独立管理する。
+- PROHIBITED_BEHAVIOR: host preambleをindex 1へ数えること、Python前にPEOS semantic/tool actionを実行すること。
+- FAILURE_CLASS: `PEOS_PRE_DISPATCH_GATE_BYPASS`
+- REFERENCE_FIXTURE: `FX-RC4RB-INDEX-001`
+- INTRODUCED_REV: `rev0.306-RC4-REBUILD1`
+- SUPERSEDES: `rev0.306-RC4 action-index-1 absolute host-action semantics`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`

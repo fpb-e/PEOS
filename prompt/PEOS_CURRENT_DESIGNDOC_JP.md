@@ -1,10 +1,10 @@
 # PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
 
-- 文書revision: `rev0.306-RC4`
-- 現行latest: `rev0.306-RC4`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
+- 文書revision: `rev0.306-RC4-REBUILD1`
+- 現行latest: `rev0.306-RC4-REBUILD1`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4-REBUILD1`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4-REBUILD1`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / RETURN_CORRECTION_REBUILD / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
 - PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
 - ROLE: 五正本分離・構成管理・migration理由
 - ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
@@ -13,18 +13,19 @@
 - PRIMARY_FATHER_SOURCE_SHA256: `a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8ca2`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_09_134902.txt`
-- BUILD_DIRECTIVE_SHA256: `1f1c673d3d1e3f7312ab683321381ccaa710feb205eac032b2fd63d72e78c6ce`
+- BUILD_DIRECTIVE: `PEOS_RC4_RETURN_REBUILD_DIRECTIVE_2026_08_09_143451.txt`
+- BUILD_DIRECTIVE_SHA256: `dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97`
+- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
 
-> rev0.306-RC4はrev0.306-RC3の次候補であり、親父の明示acceptance前にcurrent referenceへ昇格しない。accepted baselineはphysical rev0.306-RC2、RC3はcurrent referenceとして分離する。
+> 本文書は差し戻し済みphysical rev0.306-RC4を上書きせず再構築したcorrected rebuild candidateである。親父の明示acceptance前にoperative/currentへ自己昇格しない。accepted baselineはphysical rev0.306-RC2。
 
-> **BOOTSTRAP_SENTINEL / L0_PRECEDENCE_POINTER**
-> この正本をsemanticに解釈する前に、host側でRUNTIME_GUARD由来のnon-authoritative projection
-> `PEOS_L0_BOOT_SHIM` がpreboundされ、当該user turnのactual
-> `datetime.now(ZoneInfo("Asia/Tokyo"))` receiptがaction index 1で成立していることを要求する。
-> `RC_FILE_SEEN` / `FIVE_CANON_AVAILABLE` / `FIVE_CANON_INSPECTED` は
-> `L0_BOOTSTRAP_BOUND` / `CURRENT_TURN_PYTHON_RECEIPT_VALID` を意味しない。
-> L0は第六正本ではなくrule ownerでもない。state machineとsource ruleの所有者はRUNTIME_GUARDのみである。
+> **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
+> この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
+> strict-native hostではactual `datetime.now(ZoneInfo("Asia/Tokyo"))`が最初のPEOS executable actionであることを要求する。
+> host mandatory preambleが不可避なhostでは、固定・最小・非semanticでtrace上host actionと区別可能なpreambleだけを`HOST_CONTROL_PLANE_ACTION`としてexemptできる。
+> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。最初のPEOS executable actionは常にPython JST captureである。
+> `RC_FILE_SEEN` / `FIVE_CANON_INSPECTED` / visible timestamp文字列はruntime boundやreceipt validを意味しない。
+> L0は第六正本でもrule ownerでもなく、authority/state machineの所有者はRUNTIME_GUARDのみである。
 
 ## 0. 文書の役割
 
@@ -398,3 +399,19 @@ counterpunch、Japanese-Lint、self-correction、fairness、evidence-first、hum
 
 PROJECT_LEVEL_CURRENT_REFERENCEはrev0.306-RC3、accepted physical baselineはrev0.306-RC2。
 RC4はRC3をcurrent referenceとして差分設計へ使用するが、accepted baselineをRC3へ暗黙昇格しない。
+
+
+## RC4差し戻し再構築: host control plane と semantic plane
+
+差し戻し前RC4は、Pythonより前にhostが強制するcontrol preambleをPEOS semantic actionへ数えたため、
+strict条件を満たせないhostで永久fail-closedとなった。修正はgate緩和ではなくaction taxonomyの分離である。
+
+設計参照:
+- `RUNTIME.HOST.CONTROL_PLANE_ACTION_CLASSIFICATION`
+- `RUNTIME.HOST.MANDATORY_PREAMBLE_EXEMPTION`
+- `RUNTIME.HOST.CONFORMANCE_MODE_SPLIT`
+- `RUNTIME.HOST.BOOTSTRAP_UNAVAILABLE_COMPAT_PATH`
+- `RUNTIME.TIME.PEOS_EXECUTABLE_ACTION_INDEX_1`
+
+strict-native modeとhost-compatible modeは別evidence classであり、compat PASSをstrict PASSへ昇格しない。
+L0は引き続きnon-authoritative projectionで、semantic authorityは五正本にのみ残る。

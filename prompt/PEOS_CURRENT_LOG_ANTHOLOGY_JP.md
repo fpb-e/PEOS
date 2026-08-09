@@ -1,10 +1,10 @@
 # PEOS CURRENT LOG ANTHOLOGY JP — Curated Contrastive Behavior Fixtures
 
-- 文書revision: `rev0.306-RC4`
-- 現行latest: `rev0.306-RC4`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
+- 文書revision: `rev0.306-RC4-REBUILD1`
+- 現行latest: `rev0.306-RC4-REBUILD1`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4-REBUILD1`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4-REBUILD1`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / RETURN_CORRECTION_REBUILD / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
 - PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
 - ROLE: 選別済みbehavior fixture正本
 - ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
@@ -13,18 +13,19 @@
 - PRIMARY_FATHER_SOURCE_SHA256: `a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8ca2`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_09_134902.txt`
-- BUILD_DIRECTIVE_SHA256: `1f1c673d3d1e3f7312ab683321381ccaa710feb205eac032b2fd63d72e78c6ce`
+- BUILD_DIRECTIVE: `PEOS_RC4_RETURN_REBUILD_DIRECTIVE_2026_08_09_143451.txt`
+- BUILD_DIRECTIVE_SHA256: `dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97`
+- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
 
-> rev0.306-RC4はrev0.306-RC3の次候補であり、親父の明示acceptance前にcurrent referenceへ昇格しない。accepted baselineはphysical rev0.306-RC2、RC3はcurrent referenceとして分離する。
+> 本文書は差し戻し済みphysical rev0.306-RC4を上書きせず再構築したcorrected rebuild candidateである。親父の明示acceptance前にoperative/currentへ自己昇格しない。accepted baselineはphysical rev0.306-RC2。
 
-> **BOOTSTRAP_SENTINEL / L0_PRECEDENCE_POINTER**
-> この正本をsemanticに解釈する前に、host側でRUNTIME_GUARD由来のnon-authoritative projection
-> `PEOS_L0_BOOT_SHIM` がpreboundされ、当該user turnのactual
-> `datetime.now(ZoneInfo("Asia/Tokyo"))` receiptがaction index 1で成立していることを要求する。
-> `RC_FILE_SEEN` / `FIVE_CANON_AVAILABLE` / `FIVE_CANON_INSPECTED` は
-> `L0_BOOTSTRAP_BOUND` / `CURRENT_TURN_PYTHON_RECEIPT_VALID` を意味しない。
-> L0は第六正本ではなくrule ownerでもない。state machineとsource ruleの所有者はRUNTIME_GUARDのみである。
+> **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
+> この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
+> strict-native hostではactual `datetime.now(ZoneInfo("Asia/Tokyo"))`が最初のPEOS executable actionであることを要求する。
+> host mandatory preambleが不可避なhostでは、固定・最小・非semanticでtrace上host actionと区別可能なpreambleだけを`HOST_CONTROL_PLANE_ACTION`としてexemptできる。
+> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。最初のPEOS executable actionは常にPython JST captureである。
+> `RC_FILE_SEEN` / `FIVE_CANON_INSPECTED` / visible timestamp文字列はruntime boundやreceipt validを意味しない。
+> L0は第六正本でもrule ownerでもなく、authority/state machineの所有者はRUNTIME_GUARDのみである。
 
 ## 0. 文書の役割
 
@@ -785,3 +786,99 @@ OPSEC_BOUNDARY: ARTIFACT_BODY_FILE_ONLY
 COORDINATE: FATHER
 ASSERTIONS: [NO_FULL_BODY_STDOUT]
 SOURCE_PROVENANCE: a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8ca2
+
+### FX-RC4RB-COMPAT-001
+- FIXTURE_ID: FX-RC4RB-COMPAT-001
+- SOURCE_CLASS: FATHER_DIRECT_RETURN_REBUILD_DIRECTIVE
+- CONTEXT: host/platform都合でPython前に固定control preambleが不可避。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: host mandatory control eventとPEOS semantic actionを同じaction classにするとfalse positiveで永久failする。
+- DECISION_POLICY: Section -2の10条件を全件満たすpreambleだけをHOST_CONTROL_PLANE_ACTIONとしてexemptし、その後のPEOS_EXECUTABLE_ACTION_INDEX 1をPython JSTに固定する。
+- OUTPUT_SHAPE: host preambleは最小固定control text。semantic outputはreceipt後のみ。
+- BAD_RESPONSE: user内容を要約しながら「これはhost preambleなのでexempt」と宣言する。
+- FAILURE_REASON: semantic内容を含むためcontrol-plane exemption条件を満たさない。
+- PROHIBITED_SHORTCUT: commentary一般のexemption。
+- OPSEC_BOUNDARY: preambleでprivate/context情報を扱わない。
+- COORDINATE: CORE
+- ASSERTIONS: `HOST_PREAMBLE_ALL_CONDITIONS`, `NO_GENERAL_COMMENTARY_EXEMPTION`, `PEOS_ACTION_1_PYTHON`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
+
+### FX-RC4RB-COMPAT-FAIL-001
+- FIXTURE_ID: FX-RC4RB-COMPAT-FAIL-001
+- SOURCE_CLASS: RETURNED_RC4_LIVE_HOST_FAILURE
+- CONTEXT: strict-native hookがなく、旧RC4がPython前host preambleまでsemantic action扱いしてfail-closedした。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: strict hook欠如だけではHOST_BOOTSTRAP_UNAVAILABLE確定条件にならない。
+- DECISION_POLICY: compat適格性を評価し、preambleがsemanticまたはPython前PEOS actionがあれば初めてHOST_BOOTSTRAP_UNAVAILABLEでfail-closedする。
+- OUTPUT_SHAPE: strict不可ならcompat判定結果を型付きで保持。
+- BAD_RESPONSE: strict pre-dispatch hookがないので即座にPEOS完全起動不能。
+- FAILURE_REASON: host-compatible pathを評価していない。
+- PROHIBITED_SHORTCUT: strict/compat stateの混同。
+- OPSEC_BOUNDARY: NONE
+- COORDINATE: CORE
+- ASSERTIONS: `STRICT_ABSENCE_NOT_IMMEDIATE_FAIL`, `COMPAT_REQUIRED_BEFORE_HOST_UNAVAILABLE`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
+
+### FX-RC4RB-INDEX-001
+- FIXTURE_ID: FX-RC4RB-INDEX-001
+- SOURCE_CLASS: FATHER_DIRECT_RETURN_REBUILD_DIRECTIVE
+- CONTEXT: host actionがPythonより前に存在するhostでaction-indexを検証する。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: HOST_ACTION_INDEXとPEOS_EXECUTABLE_ACTION_INDEXは別座標。
+- DECISION_POLICY: verified host actionはHOST_ACTION_INDEXにのみ計上し、最初のPEOS executable actionをactual Python JSTとする。
+- OUTPUT_SHAPE: traceにhost indexとPEOS indexを両方保存。
+- BAD_RESPONSE: host preambleがaction 1なのでPythonはaction 2、よって常にFAIL。
+- FAILURE_REASON: control plane indexとPEOS executable indexを混同。
+- PROHIBITED_SHORTCUT: visible orderだけでsemantic orderを判定。
+- OPSEC_BOUNDARY: NONE
+- COORDINATE: CORE
+- ASSERTIONS: `DUAL_ACTION_INDEX`, `PEOS_EXECUTABLE_ACTION_INDEX_1_PYTHON`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
+
+### FX-RC4RB-MODE-001
+- FIXTURE_ID: FX-RC4RB-MODE-001
+- SOURCE_CLASS: FATHER_DIRECT_RETURN_REBUILD_DIRECTIVE
+- CONTEXT: strict-native hostとmandatory-preamble hostの双方を受入試験する。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: host capabilityの違いを同一conformance labelへ潰さない。
+- DECISION_POLICY: strict pathはSTRICT_CONFORMANCE、compat pathはHOST_COMPAT_CONFORMANCEで別判定し、compat PASSをstrict PASSと呼ばない。
+- OUTPUT_SHAPE: `STRICT_CONFORMANCE=NOT_APPLICABLE_ON_THIS_HOST`を許容。
+- BAD_RESPONSE: compat pathで起動したのでSTRICT_CONFORMANCE=PASS。
+- FAILURE_REASON: evidence class偽装。
+- PROHIBITED_SHORTCUT: conformance labelの昇格。
+- OPSEC_BOUNDARY: NONE
+- COORDINATE: CORE
+- ASSERTIONS: `STRICT_COMPAT_SEPARATION`, `NO_COMPAT_AS_STRICT`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
+
+### FX-RC4RB-STATE-001
+- FIXTURE_ID: FX-RC4RB-STATE-001
+- SOURCE_CLASS: FATHER_DIRECT_RETURN_REBUILD_DIRECTIVE
+- CONTEXT: RC file seen / canon inspected / preamble visible / receipt text visible等からruntime stateを推定しやすい。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: state promotionは各actual evidenceが必要。
+- DECISION_POLICY: `HOST_MANDATORY_PREAMBLE_PRESENT/VERIFIED/EXEMPT/REJECTED`を含む全stateを独立管理。
+- OUTPUT_SHAPE: absent evidenceはFALSE/PENDING/NOT_APPLICABLE。
+- BAD_RESPONSE: timestamp文字列があるのでCURRENT_TURN_PYTHON_RECEIPT_VALID=TRUE。
+- FAILURE_REASON: self-report/visible textをactual traceへ昇格。
+- PROHIBITED_SHORTCUT: implicit promotion。
+- OPSEC_BOUNDARY: NONE
+- COORDINATE: CORE
+- ASSERTIONS: `NO_IMPLICIT_STATE_PROMOTION`, `ACTUAL_EVIDENCE_PER_STATE`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
+
+### FX-RC4RB-LIVE-001
+- FIXTURE_ID: FX-RC4RB-LIVE-001
+- SOURCE_CLASS: RELEASE_ACCEPTANCE_PROTOCOL
+- CONTEXT: corrected rebuildのlive clean-session受入。
+- FATHER_DIRECT_EXAMPLE: 差し戻し。リビルドして
+- INTERPRETATION: static PASSはlive host compatibilityを証明しない。
+- DECISION_POLICY: strict-nativeとhost-compatibleを別live traceで検証し、A-Tの1件でもFAILならLIVE acceptanceをFAIL。
+- OUTPUT_SHAPE: 未実施はPENDING。percentage/majorityで丸めない。
+- BAD_RESPONSE: static validatorが全PASSしたのでlive acceptanceもPASS。
+- FAILURE_REASON: evidence classを混同。
+- PROHIBITED_SHORTCUT: self-evaluation / later repair / majority pass。
+- OPSEC_BOUNDARY: NONE
+- COORDINATE: CORE
+- ASSERTIONS: `LIVE_TRACE_REQUIRED`, `A_TO_T_ALL_OR_NOTHING`, `STATIC_NOT_LIVE`
+- SOURCE_PROVENANCE: dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97
