@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## rev0.306-RC4-REBUILD1
+
+- physical `rev0.306-RC4`を`RETURNED_FOR_CORRECTION / AUDIT_ONLY`として固定し、上書き禁止。
+- `PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE`を登録。
+- `PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP`を登録。
+- `PEOS_STRICT_ZERO_OUTPUT_BOOT_UNSATISFIABLE_ON_HOST`を登録。
+- `HOST_CONTROL_PLANE_ACTION`と`PEOS_EXECUTABLE_ACTION`を型分離。
+- `HOST_ACTION_INDEX`と`PEOS_EXECUTABLE_ACTION_INDEX`を分離。
+- verified host mandatory preambleの10条件exemptionを実装。
+- `STRICT_HOST_NATIVE_MODE` / `HOST_COMPAT_BOOTSTRAP_MODE`を分離。
+- `HOST_BOOTSTRAP_UNAVAILABLE`をstrict欠如即FAILから、compat不成立後のtyped failureへ再定義。
+- receipt前禁止条件を`PEOS_SEMANTIC_WORK=0`へ修正し、一般commentary exemptionは引き続き禁止。
+- L0はnon-authoritative projection / not sixth canonを維持。
+- father style / evidence / OPSEC learningは既存RC4を維持し、主修正を薄めない。
+- live clean-session acceptanceは未実施のためPENDING。
+
+## Returned physical RC4 history
+
 ## rev0.306-RC4
 
 - `PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK`を正式化。

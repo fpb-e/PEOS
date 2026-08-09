@@ -1,71 +1,44 @@
-# PEOS rev0.306-RC4
+# PEOS rev0.306-RC4-REBUILD1
 
 ## 状態
 
-- TARGET: `rev0.306-RC4`
-- STATUS: `RELEASE_CANDIDATE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
+- TARGET: `rev0.306-RC4-REBUILD1`
+- STATUS: `RELEASE_CANDIDATE / RETURN_CORRECTION_REBUILD / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
 - ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
 - ACCEPTED_BASELINE_SHA256: `c4f687007a774687edd93f95a1dc72af69b1c1e2d35c362a707d44c81dadfc75`
+- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
 
-RC4は親父の明示acceptance前にcurrent referenceへ昇格しません。
+差し戻し前physical RC4は上書きしていません。本rebuildも親父の明示acceptance前に自己受入・自己昇格しません。
 
-## 今回の主修正
+## 主修正
 
-RC3で残ったbootstrap chicken-and-eggを解消するため、full five-canon prebindをやめました。
+旧RC4は「Python receipt前のcommentary/outputは0」という条件をhost mandatory preambleにも適用し、
+platformが不可避にcontrol preambleを挿入する環境で永久fail-closedになりました。
 
-pre-sessionでhostへbindするのは、RUNTIME_GUARDから生成された
-`bootstrap/PEOS_L0_BOOT_SHIM.txt`だけです。
+本rebuildでは、起動前eventを
+`HOST_CONTROL_PLANE_ACTION`と`PEOS_EXECUTABLE_ACTION`へ型分離し、
+action indexも`HOST_ACTION_INDEX`と`PEOS_EXECUTABLE_ACTION_INDEX`へ分離します。
 
-L0は**第六正本ではありません**。独立authorityでもありません。
-役割は、semantic workを止めたまま各user turnの最初の実行として
-`datetime.now(ZoneInfo("Asia/Tokyo"))`を実行し、actual receiptを検証することだけです。
+host mandatory preambleをexemptできるのは、RUNTIME_GUARDに列挙した10条件を全件actual traceで満たす場合だけです。
+「commentaryなら何でもexempt」は禁止です。
 
-receipt成功後に初めて五正本をload / validate / compileし、通常処理を許可します。
+verified host control eventの後でも、最初のPEOS executable actionは必ず
+`datetime.now(ZoneInfo("Asia/Tokyo"))`です。
 
-## 五正本
+## conformance mode
 
-一般runtimeのsemantic canonは以下の五本です。
+- `STRICT_HOST_NATIVE_MODE`
+- `HOST_COMPAT_BOOTSTRAP_MODE`
 
-1. `prompt/PEOS_CURRENT_SPEC_JP.md`
-2. `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md`
-3. `prompt/PEOS_CURRENT_DESIGNDOC_JP.md`
-4. `prompt/PEOS_CURRENT_PAPER_JP.md`
-5. `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md`
+compat PASSをstrict PASSとは表示しません。strict hookがない場合も、compat pathを評価してから
+`HOST_BOOTSTRAP_UNAVAILABLE`を判定します。
 
-L0、validator、manifest、evidence、registryは管理・host integration・受入試験用であり、semantic rule ownerではありません。
+## 五正本とL0
 
-## father style learning
-
-父direct sourceから、語彙だけでなく以下を構成管理します。
-
-- usage condition
-- rhythm
-- sentence position
-- humor timing
-- correction habit
-- argument structure
-- when NOT to use a phrase
-- evidence / OPSEC boundary
-
-論戦styleのcoreはreactive/counterpunchです。
-相手のexact wording、premise、evidence gap、contradiction、topic shiftを見てからtargeted counterを返します。
-強い煽りやironyはsecondaryです。
-
-assistant文、母発話、匿名投稿、第三者文、推定identityをfather vocabularyへ自動昇格しません。
-
-## BOOT_CANON
-
-logo/startup literalはoptional decorationではなくimmutable literalです。
-欠落、whitespace normalization、文字置換、line rearrangement、extra fence metadata等は`BOOT_NONCONFORMANCE`です。
+semantic authorityは五正本だけにあります。
+`bootstrap/PEOS_L0_BOOT_SHIM.txt`はRUNTIME_GUARDから生成するnon-authoritative projectionであり、第六正本ではありません。
 
 ## live acceptance
 
-static/package validatorやfixture harnessのPASSはlive host PASSではありません。
-`tests/FIVE_CANON_COLD_START_LIVE_TRACE.json`が実clean-session multi-turn traceで埋まり、
-親父が明示acceptanceするまではrelease acceptanceをBLOCKEDに維持します。
-
-## delivery policy
-
-session log、directive、evidence等の本文はchatへ全量出力しません。
-deliveryはfilename、SHA-256、bytes、validation summary、linkを基本とします。
+static/package validation、fixture harness、model self-audit、strict live trace、compat live traceは別evidence classです。
+実clean-session live traceと親父の明示acceptance前は`RELEASE_ACCEPTANCE=BLOCKED`です。
