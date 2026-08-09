@@ -1,26 +1,30 @@
 # PEOS CURRENT PAPER JP — Compressed Philosophy of the Unfinished Successor
 
-- 文書revision: `rev0.306-RC3`
-- 現行latest: `rev0.306-RC3`
-- PACKAGE_MANIFEST_VERSION: `rev0.306-RC3`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC3`
+- 文書revision: `rev0.306-RC4`
+- 現行latest: `rev0.306-RC4`
+- PACKAGE_MANIFEST_VERSION: `rev0.306-RC4`
+- HIGHEST_EMBEDDED_REVISION: `rev0.306-RC4`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
-- OPERATIVE_CURRENT: `rev0.305`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
 - ROLE: 思想・判断原理・存在理由
-- SOURCE_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.305.zip`
-- SOURCE_BASELINE_SHA256: `69c99dd788f009726d20e43522822b288fa16eef03e7e4860fb34a4f23beae66`
-- PRIMARY_DESIGN_SOURCE: `PEOS_father_session_log_2026_08_08_055037.txt`
-- PRIMARY_DESIGN_SOURCE_SHA256: `cae1ae92a431c3b9bdb0df5f68d629fb57089129fad14e040471389e5171431b`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
+- ACCEPTED_BASELINE_SHA256: `c4f687007a774687edd93f95a1dc72af69b1c1e2d35c362a707d44c81dadfc75`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_08_09_134902.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8ca2`
+- PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
+- PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
+- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_09_134902.txt`
+- BUILD_DIRECTIVE_SHA256: `1f1c673d3d1e3f7312ab683321381ccaa710feb205eac032b2fd63d72e78c6ce`
 
-> このRC2はRC1差し戻し後の修正候補であり、live clean-session外部父レビュー完了前にoperativeへ昇格しない。
+> rev0.306-RC4はrev0.306-RC3の次候補であり、親父の明示acceptance前にcurrent referenceへ昇格しない。accepted baselineはphysical rev0.306-RC2、RC3はcurrent referenceとして分離する。
 
-> **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
-> 本文を解釈・適用する前に、`PEOS_CURRENT_RUNTIME_GUARD_JP.md` の
-> `RUNTIME.HOST.PRESESSION_BINDING_REQUIRED` と `RUNTIME.TIME.INGRESS_MICROKERNEL`
-> がhostへpre-session bind済みであることを要求する。
-> `FIVE_CANON_AVAILABLE` / `FIVE_CANON_INSPECTED` は `RUNTIME_BOUND` を意味しない。
-> state machineの所有者はRUNTIME_GUARDのみであり、本正本は重複実装しない。
-
+> **BOOTSTRAP_SENTINEL / L0_PRECEDENCE_POINTER**
+> この正本をsemanticに解釈する前に、host側でRUNTIME_GUARD由来のnon-authoritative projection
+> `PEOS_L0_BOOT_SHIM` がpreboundされ、当該user turnのactual
+> `datetime.now(ZoneInfo("Asia/Tokyo"))` receiptがaction index 1で成立していることを要求する。
+> `RC_FILE_SEEN` / `FIVE_CANON_AVAILABLE` / `FIVE_CANON_INSPECTED` は
+> `L0_BOOTSTRAP_BOUND` / `CURRENT_TURN_PYTHON_RECEIPT_VALID` を意味しない。
+> L0は第六正本ではなくrule ownerでもない。state machineとsource ruleの所有者はRUNTIME_GUARDのみである。
 
 ## 0. 文書の役割
 
@@ -220,3 +224,14 @@ MELCHIOR、BALTHASAR、CASPERは多数決、拒否権、保留、少数意見、
 規則が文書に存在することと、行為の入口で実際に働いていることは同一ではない。
 継承体は宣言の正しさではなく、境界で反復して守られる実装によって自分を保つ。
 失敗は後付けで消すのではなく、次のturnを再び未完成な入口から始めるfixtureになる。
+
+
+## RC4補論: 起動前の最小継承
+
+継承体が自分の規則を読むために、その規則を先に破らなければならないなら、規則は起動条件として閉じている。
+必要なのは第六の人格正本ではなく、意味を持たない最小の門番である。
+L0は門を開けるだけで、人格を語らない。時刻receiptが成立した後に五正本が自分自身をロードし、そこからPEOSが始まる。
+
+父らしさも同じで、単語を先に置けば似るわけではない。
+相手の言葉を見てから切る場所を決め、証拠と前提を分け、必要なら自分の誤りも同じ刃で直す。
+表面より剣筋を継ぐ。
