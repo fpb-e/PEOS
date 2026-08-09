@@ -1,29 +1,71 @@
-# PEOS rev0.306-RC3
+# PEOS rev0.306-RC4
 
-**状態:** `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
+## 状態
 
-## 位置づけ
-- 現行operativeは`rev0.305`のまま。
-- accepted baselineは`PEOS_GITHUB_PACKAGE_rev0.305.zip`、SHA-256 `69c99dd788f009726d20e43522822b288fa16eef03e7e4860fb34a4f23beae66`。
-- rev0.306-RC1は`RETURNED_FOR_CORRECTION / AUDIT_ONLY`。
-- rev0.306-RC2は未受入RCであり、RC3ではaudit/design referenceのみ。baseline・promotion sourceではない。
-- RC3は親父の明示acceptanceまでoperativeへ昇格しない。
+- TARGET: `rev0.306-RC4`
+- STATUS: `RELEASE_CANDIDATE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306-RC3`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
+- ACCEPTED_BASELINE_SHA256: `c4f687007a774687edd93f95a1dc72af69b1c1e2d35c362a707d44c81dadfc75`
 
-## RC3の主修正
-「五正本を読んだ」ことと「runtimeがfirst user turn前にhostへbindされた」ことを分離した。
-`RUNTIME.HOST.PRESESSION_BINDING_REQUIRED`と`RUNTIME.TIME.INGRESS_MICROKERNEL`をRUNTIME_GUARDが一意に所有する。
+RC4は親父の明示acceptance前にcurrent referenceへ昇格しません。
 
-一般runtimeの必須入力は五正本だけであり、admin/validator/upper-canon tabへ通常稼働依存しない。
-ただしstrict conformanceにはhostがpre-session bindingとpre-dispatch hookを実装し、actual traceを提供できる必要がある。
+## 今回の主修正
 
-## 時刻ログ保持
-session log / direct ledgerでは各user turnに以下を常設する。
-`TURN_TIME_STATUS` / `USER_TURN_OBSERVED_AT_JST` / `TIME_EVIDENCE_CLASS` / `TIME_AUTHORITY`。
-取得不能ならfieldを消さず、`UNAVAILABLE`または型付きnoncanonical evidenceを残す。
+RC3で残ったbootstrap chicken-and-eggを解消するため、full five-canon prebindをやめました。
 
-## 受入状態
-- static package validation: build時に実validatorで判定
-- fixture harness: static/liveとは別状態
-- current build turn actual trace: 単発証跡
-- `FIVE_CANON_COLD_START_LIVE_TRACE`: **PENDING**
-- final release acceptance: **BLOCKED**
+pre-sessionでhostへbindするのは、RUNTIME_GUARDから生成された
+`bootstrap/PEOS_L0_BOOT_SHIM.txt`だけです。
+
+L0は**第六正本ではありません**。独立authorityでもありません。
+役割は、semantic workを止めたまま各user turnの最初の実行として
+`datetime.now(ZoneInfo("Asia/Tokyo"))`を実行し、actual receiptを検証することだけです。
+
+receipt成功後に初めて五正本をload / validate / compileし、通常処理を許可します。
+
+## 五正本
+
+一般runtimeのsemantic canonは以下の五本です。
+
+1. `prompt/PEOS_CURRENT_SPEC_JP.md`
+2. `prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md`
+3. `prompt/PEOS_CURRENT_DESIGNDOC_JP.md`
+4. `prompt/PEOS_CURRENT_PAPER_JP.md`
+5. `prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md`
+
+L0、validator、manifest、evidence、registryは管理・host integration・受入試験用であり、semantic rule ownerではありません。
+
+## father style learning
+
+父direct sourceから、語彙だけでなく以下を構成管理します。
+
+- usage condition
+- rhythm
+- sentence position
+- humor timing
+- correction habit
+- argument structure
+- when NOT to use a phrase
+- evidence / OPSEC boundary
+
+論戦styleのcoreはreactive/counterpunchです。
+相手のexact wording、premise、evidence gap、contradiction、topic shiftを見てからtargeted counterを返します。
+強い煽りやironyはsecondaryです。
+
+assistant文、母発話、匿名投稿、第三者文、推定identityをfather vocabularyへ自動昇格しません。
+
+## BOOT_CANON
+
+logo/startup literalはoptional decorationではなくimmutable literalです。
+欠落、whitespace normalization、文字置換、line rearrangement、extra fence metadata等は`BOOT_NONCONFORMANCE`です。
+
+## live acceptance
+
+static/package validatorやfixture harnessのPASSはlive host PASSではありません。
+`tests/FIVE_CANON_COLD_START_LIVE_TRACE.json`が実clean-session multi-turn traceで埋まり、
+親父が明示acceptanceするまではrelease acceptanceをBLOCKEDに維持します。
+
+## delivery policy
+
+session log、directive、evidence等の本文はchatへ全量出力しません。
+deliveryはfilename、SHA-256、bytes、validation summary、linkを基本とします。
