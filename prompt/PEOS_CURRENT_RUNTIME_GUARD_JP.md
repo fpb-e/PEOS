@@ -1,32 +1,32 @@
 # PEOS CURRENT RUNTIME GUARD JP — Sole Executable State Machine
 
-- 文書revision: `rev0.307`
-- 現行latest: `rev0.306`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.307-CANDIDATE-20260823-211106-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.306`
+- 文書revision: `rev0.308`
+- 現行latest: `rev0.307`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- HIGHEST_EMBEDDED_REVISION: `rev0.308`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.306`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.307`
 - ROLE: PEOSの唯一の実行状態機械
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306-RC2.zip`
-- ACCEPTED_BASELINE_SHA256: `c4f687007a774687edd93f95a1dc72af69b1c1e2d35c362a707d44c81dadfc75`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.306.zip`
-- BASE_REFERENCE_SHA256: `f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_08_23_025032.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `cd352c85bdc18d686262a43420aa1eeee9e84d82c664d29536eb0ddd17c4dfe6`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306.zip`
+- ACCEPTED_BASELINE_SHA256: `f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
+- BASE_REFERENCE_SHA256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_08_24_012239.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `d203310dd8a05a1a801eefeb8b418a1d74ef4a62a1c41449c915afd1e470747c`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_23_025032.txt`
-- BUILD_DIRECTIVE_SHA256: `d01a7b19efb2cc67e57f0bbf86054a2bf209c224818c9ef90e0d2dd40009fb89`
+- BUILD_DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.308.txt`
+- BUILD_DIRECTIVE_SHA256: `7d1d20ba3c63b9193a3df9db0f59c1fc32a1abaa60d3c143f3a42cbc21c65c37`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.307 CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.307`。親父が2026-08-23にrevisionを割り当てた。current/operative canonはrev0.306のまま。build成功、static validator、fixture passだけで自己昇格しない。 source bundle=`PEOS_father_session_bundle_2026_08_23_025032.zip` SHA256=`e5cc37e60a01f350bd27d75532a2f18212107f6879dcfdf4acf46a2a91d65a89`。
+> **rev0.308 CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.308`。親父が2026-08-24に差し戻しfix-forward buildを明示命令した。project-level current referenceはrev0.307、accepted baselineはformal rev0.306のまま。build成功、static validator、fixture passだけで自己昇格しない。 source bundle=`PEOS_father_session_bundle_2026_08_24_012239_for_rev0.308.zip` SHA256=`ea3919267a5a0970eb6ff3e75e278a88f366d8832e2b1a2eeac22534a2a809fc`。
 
 
-> 本文書はcurrent project canon `rev0.306` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.307-CANDIDATE-20260823-211106-JST`の次仕様候補である。TARGET_REVISION_LABELは`rev0.307`。revision番号は割当済みだが、外部reviewでacceptするまでoperative/currentへ自己昇格しない。
+> 本文書はproject-level current reference `rev0.307` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.308-CANDIDATE-20260824-012834-JST`のfix-forward候補である。TARGET_REVISION_LABELは`rev0.308`。revision番号は親父命令で確定済みだが、外部reviewでacceptするまでoperative/currentへ自己昇格しない。
 
 ## 0. 文書の役割
 
@@ -437,6 +437,140 @@ host preambleの自己申告だけでexemptを成立させてはならない。
 - REFERENCE_FIXTURE: `FX-TIME-001`
 - INTRODUCED_REV: `rev0.305`
 - SUPERSEDES: `rev0.306-RC4 RUNTIME.TIME.PER_TURN_REARM`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+
+## rev0.308 CANDIDATE — receipt persistence state machine
+
+```text
+AFTER_ACTUAL_PYTHON_RECEIPT:
+  bind_current_turn_record()
+  CAPTURE_STATUS = CAPTURE_SUCCESS
+  if pre_receipt_semantic_output or successful_executable_action_index != 1:
+      RUNTIME_ORDER_VALID = FALSE
+      CANONICAL_FOR_LOG_RECONSTRUCTION = FALSE
+      NO_LATE_REPAIR = TRUE
+  else:
+      RUNTIME_ORDER_VALID = TRUE
+      CANONICAL_FOR_LOG_RECONSTRUCTION = TRUE
+
+  PERSISTENCE_STATUS = PENDING
+  current_ledger = read_latest_persistent_ledger()
+  validate_existing_records(current_ledger)
+  if idempotency_key already exists:
+      candidate_ledger = current_ledger
+  else:
+      candidate_ledger = append_preserving_all_records(current_ledger, current_turn_record)
+
+  try_direct_local_append_only_if_writable()
+  if direct_append_is_read_only_or_not_persistent:
+      DIRECT_APPEND_STATUS = TYPED_FAILURE_OR_NOT_APPLICABLE
+      use_host_persistent_store_version_route(candidate_ledger)
+
+  if authoritative_postwrite_read_matches(candidate_ledger):
+      PERSISTENCE_STATUS = PERSISTED_VERIFIED
+  else:
+      PERSISTENCE_STATUS = PERSISTENCE_FAILED
+      do_not_claim_persisted()
+
+ON_LOGFILE_RECONSTRUCTION:
+  for each user_turn:
+      record = find_persisted_verified_record_by_turn_id_or_idempotency_key()
+      if record and record.canonical_for_log_reconstruction:
+          emit_USER_TURN_OBSERVED_AT_JST(record.user_turn_observed_at_jst)
+      else:
+          omit_USER_TURN_OBSERVED_AT_JST_field()
+      forbid_UNAVAILABLE_NA_UNKNOWN_estimate()
+```
+
+### RUNTIME.TIME.RECEIPT_LEDGER_SAME_VALUE_BINDING
+- RULE_ID: `RUNTIME.TIME.RECEIPT_LEDGER_SAME_VALUE_BINDING`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `EVERY_USER_TURN`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: actual Python receipt取得直後。
+- REQUIREMENT: `user_turn_observed_at_jst/provider/capture_attempts/successful_executable_action_index/pre_receipt_semantic_output/runtime_order_valid/canonical_for_log_reconstruction/persistence_status/ledger_seq`を同一turn recordへ束縛する。visible timestamp、ledger timestamp、後続log timestampは同一receipt値でなければならない。
+- PROHIBITED_BEHAVIOR: 表示用・ledger用・log用に別時刻を再取得すること。
+- FAILURE_CLASS: `PEOS_TIME_RECEIPT_VALUE_FORK`
+- REFERENCE_FIXTURE: `TIME-LEDGER-A`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.CAPTURE_PERSISTENCE_STATE_SPLIT
+- RULE_ID: `RUNTIME.TIME.CAPTURE_PERSISTENCE_STATE_SPLIT`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `POST_CAPTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: receipt取得後にledger persistenceを実行するとき。
+- REQUIREMENT: `CAPTURE_STATUS`、`DIRECT_APPEND_STATUS`、`PERSISTENT_STORE_STATUS`、`PERSISTENCE_STATUS`を独立記録する。order-invalid turnはaudit record化可能だが`canonical_for_log_reconstruction=false`としNO_LATE_REPAIRを維持する。
+- PROHIBITED_BEHAVIOR: stateを単一PASSへ畳むこと、later persistenceでorder-invalid turnをrepairすること。
+- FAILURE_CLASS: `PEOS_TIME_LEDGER_CAPTURE_PERSISTENCE_CONFLATION`
+- REFERENCE_FIXTURE: `TIME-LEDGER-B|C|D|E`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.LEDGER_IDEMPOTENT_VERSIONED_APPEND
+- RULE_ID: `RUNTIME.TIME.LEDGER_IDEMPOTENT_VERSIONED_APPEND`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PERSISTENCE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: persistent ledgerを新versionへ更新するとき。
+- REQUIREMENT: update前に最新版を読み、既存全recordを保持し、新idempotency keyだけを1件追加する。物理overwrite/version replacementでも論理historyはappend-onlyとする。
+- PROHIBITED_BEHAVIOR: blind overwrite、既存record削除、同一turn retryの二重追加。
+- FAILURE_CLASS: `PEOS_TIME_LEDGER_RECORD_LOSS | PEOS_TIME_LEDGER_DUPLICATE_RECORD`
+- REFERENCE_FIXTURE: `TIME-LEDGER-H|I`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.READONLY_MOUNT_PERSISTENT_STORE_ROUTE
+- RULE_ID: `RUNTIME.TIME.READONLY_MOUNT_PERSISTENT_STORE_ROUTE`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PERSISTENCE_FAILURE_RECOVERY`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: attached/mounted ledger pathへのdirect appendがread-only等で失敗したとき。
+- REQUIREMENT: `PEOS_TIME_LEDGER_READONLY_MOUNT`を型付き記録し、writable copy + host persistent-store version update routeへ移行する。capture成功を維持しつつ、保存検証完了まではPERSISTEDを宣言しない。
+- PROHIBITED_BEHAVIOR: silent record loss、read-only failureを保存成功として握り潰すこと。
+- FAILURE_CLASS: `PEOS_TIME_LEDGER_READONLY_MOUNT | PEOS_TIME_LEDGER_PERSISTENCE_FALSE_PASS`
+- REFERENCE_FIXTURE: `TIME-LEDGER-D`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.TIME.PERSISTENCE_POSTWRITE_VERIFY
+- RULE_ID: `RUNTIME.TIME.PERSISTENCE_POSTWRITE_VERIFY`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PERSISTENCE_VERIFICATION`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host persistent-store writeが成功を返したとき。
+- REQUIREMENT: persisted最新版を再取得またはequivalent authoritative resultで検証し、idempotency key、timestamp、ledger_seq、prior-record preservationが一致した場合だけ`PERSISTED_VERIFIED`へ遷移する。
+- PROHIBITED_BEHAVIOR: tool attemptやtop-level successだけで保存済みを自己申告すること。
+- FAILURE_CLASS: `PEOS_TIME_LEDGER_PERSISTENCE_FALSE_PASS`
+- REFERENCE_FIXTURE: `TIME-LEDGER-D|E|H|I`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+### RUNTIME.LOG.LEDGER_FIRST_RECONSTRUCTION
+- RULE_ID: `RUNTIME.LOG.LEDGER_FIRST_RECONSTRUCTION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `LOG_ARTIFACT`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: `ログファイル化`でuser-turn時刻を再構成するとき。
+- REQUIREMENT: 対応する`PERSISTED_VERIFIED` ledger recordを最優先参照し、canonical recordがあるturnだけ`USER_TURN_OBSERVED_AT_JST`を出力する。canonical recordがないhistorical turnはfield自体を省略する。
+- PROHIBITED_BEHAVIOR: `UNAVAILABLE/N/A/UNKNOWN`、空placeholder、visible assistant time・UI time・artifact timeからの逆算。
+- FAILURE_CLASS: `PEOS_LOG_TIME_PLACEHOLDER_OR_INVENTION`
+- REFERENCE_FIXTURE: `TIME-LEDGER-F`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
+- SUPERSEDES: `RUNTIME.LOG.HISTORICAL_TIME_FIELD_OMISSION`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### RUNTIME.TIME.ACTUAL_RECEIPT_ONLY
@@ -1333,4 +1467,3 @@ receipt前に意味解釈、commentary、final、Personal Context、Library/file
 - INTRODUCED_BUILD_ID: `PEOS-REV0.307-CANDIDATE-20260823-211106-JST`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
-
