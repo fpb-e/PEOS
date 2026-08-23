@@ -1,24 +1,44 @@
-# PEOS rev0.306 正式版物理候補
+# PEOS rev0.307 RELEASE CANDIDATE — 2026-08-23
 
-`rev0.306-RC4-REBUILD1`をBASE_REFERENCEとして構築した、suffixなしの`rev0.306`正式版物理候補。
+このpackageは現行project canon `rev0.306`を物理source referenceとして構築した**次仕様候補**である。
 
-- STATUS: `FORMAL_RELEASE_PHYSICAL_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_HOST_ACCEPTANCE_PENDING`
-- BASE_REFERENCE: `rev0.306-RC4-REBUILD1` / `ec57758eaa71f22b0307776b14b6cae5c5fc49e7083b06f5e637e55368997bf8`
-- accepted baseline: physical `rev0.306-RC2` / `c4f687007a774687edd93f95a1dc72af69b1c1e2d35c362a707d44c81dadfc75`
-- 一般runtime authority: 五正本。L0は引き続きRUNTIME_GUARD由来のnon-authoritative projection。
+- BUILD_ID: `PEOS-REV0.307-CANDIDATE-20260823-211106-JST`
+- TARGET_REVISION_LABEL: `rev0.307`
+- CURRENT_PROJECT_CANON: `rev0.306`
+- BASE_REFERENCE_SHA256: `f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332`
+- STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- PRIMARY_SOURCE: `PEOS_father_session_log_2026_08_23_025032.txt`
+- PRIMARY_SOURCE_SHA256: `cd352c85bdc18d686262a43420aa1eeee9e84d82c664d29536eb0ddd17c4dfe6`
+- DIRECTIVE: `PEOS_NEXT_SPEC_BUILD_DIRECTIVE_2026_08_23_025032.txt`
+- DIRECTIVE_SHA256: `d01a7b19efb2cc67e57f0bbf86054a2bf209c224818c9ef90e0d2dd40009fb89`
 
-## rev0.306の主修正
+## 採番について
 
-- 毎turnのactual JST ingress receiptとtime authority分離。
-- user / assistant commentary / assistant finalのFULL-VERBATIM logging。
-- source gapをsummaryで埋めない。
-- `END_OF_LOG`、SEQ、件数、本文hash/bytesのvalidator再計算。
-- 添付binaryの原物保存、extensionとsniffed MIMEの分離、truncated/corrupt sourceの無修復保存。
-- 2026-08-13のsummary-only mother logをnegative fixtureとしてFAILさせる。
-- father source learningの追加自己帰属と、匿名周辺投稿へのauthorship拡張禁止。
-- `LEGAL_ACCURACY`と`CONVERSATIONAL_PROPORTIONALITY`を別軸化。
-- `LOGIC_FIRST`を維持しつつ`LOGIC_ONLY`化を禁止。`草ｗｗ`は禁止、文脈的な文末`ｗｗ`は許容。
+親父の2026-08-23指示により本候補のrevisionは`rev0.307`へ割り当て済み。acceptanceは別権限であり、親父の明示受入まではcurrent/operative `rev0.306`を変更しない。以後の仕様化では、明示overrideがない限り次の連番revisionを自動採番してよい。
 
-## acceptance
+## 主変更
 
-static/package validationとlive host validationは別。STRICT / HOST_COMPAT clean-session live testは未実施のため`PENDING`。父の明示acceptance前にoperative/currentへ自己昇格しない。
+1. `ログファイル化`を正式command化。
+2. historical time欠落時の`USER_TURN_OBSERVED_AT_JST` placeholderを禁止しfield省略へ。
+3. transcript本文をplain UTF-8化し、per-body SHA/bytes/hash-derived boundaryを禁止。file/attachment/bundle SHAは維持。
+4. 父・母responseの秒精度JST常時表示契約。
+5. father/non-father authority別log delivery。
+6. evidence existence / anonymous identity / quote-speaker context guard。
+7. dynamic domain freshness gate。
+8. reminderをhost実automationに限定し、state separation・idempotency・privacy・no replayを正式化。
+9. travel/medical/private continuityをDATA_ONLYとして保存し、reinjectionだけでside effectを起こさない。
+
+## 検証クラス
+
+- source bundle CRC/hash: machine verification
+- session logger positive/negative: machine verification
+- REMINDER-A～M: static mock-provider verification
+- live multi-turn PEOS time guard: **PENDING**
+- live host automation reminder: **PENDING**
+- father external acceptance: **PENDING**
+
+static passをlive passやacceptanceへ昇格しない。
+
+## Revision numbering authority
+
+2026-08-23、親父が本候補を`rev0.307`と指定し、今後は明示overrideがない限り次の連番revisionを自動インクリメントしてよいと許可した。revision割当はrelease acceptanceとは別であり、本candidateは明示受入まで`NOT_ACCEPTED`を維持する。

@@ -1,47 +1,35 @@
 # CHANGELOG
 
-## rev0.306 — formal release physical candidate
+## PEOS-REV0.307-CANDIDATE-20260823-211106-JST — TARGET_REVISION_LABEL: rev0.307
 
-- BASE_REFERENCE `rev0.306-RC4-REBUILD1`を不変参照としてsuffixなし正式版候補を新規構築。
-- full-verbatim logger/schema/validatorを追加。
-- turn-time completeness / source authority separationを正式化。
-- sparse summary-only logをnegative fixture化。
-- attachment binary/MIME/corrupt-source preservationを追加。
-- father attribution / legal proportionality / style balanceを更新。
-- live host acceptanceはPENDING、release acceptanceはBLOCKED。
+### Source
+- current canon/base reference: `rev0.306`
+- source package SHA-256: `f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332`
+- father log SHA-256: `cd352c85bdc18d686262a43420aa1eeee9e84d82c664d29536eb0ddd17c4dfe6`
+- directive SHA-256: `d01a7b19efb2cc67e57f0bbf86054a2bf209c224818c9ef90e0d2dd40009fb89`
+- source bundle SHA-256: `e5cc37e60a01f350bd27d75532a2f18212107f6879dcfdf4acf46a2a91d65a89`
 
-# CHANGELOG
+### Candidate deltas
+- formalized `ログファイル化`
+- authority-gated log delivery
+- per-turn JST ingress + father/mother display contract
+- plain UTF-8 transcript and missing-time field omission
+- per-body hash metadata prohibition; file-level integrity retained
+- evidence physical-source binding
+- quote/speaker context separation
+- dynamic current-fact freshness boundary
+- reminder state machine / idempotency / no replay / privacy
+- source-learning quote-subspan guard
+- travel/medical/private continuity no-replay
 
-## rev0.306-RC4-REBUILD1
+### Release control
+- revision number not assigned by build system
+- current/operative canon remains rev0.306
+- candidate is NOT_ACCEPTED / NOT_SELF_ACCEPTED
 
-- physical `rev0.306-RC4`を`RETURNED_FOR_CORRECTION / AUDIT_ONLY`として固定し、上書き禁止。
-- `PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE`を登録。
-- `PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP`を登録。
-- `PEOS_STRICT_ZERO_OUTPUT_BOOT_UNSATISFIABLE_ON_HOST`を登録。
-- `HOST_CONTROL_PLANE_ACTION`と`PEOS_EXECUTABLE_ACTION`を型分離。
-- `HOST_ACTION_INDEX`と`PEOS_EXECUTABLE_ACTION_INDEX`を分離。
-- verified host mandatory preambleの10条件exemptionを実装。
-- `STRICT_HOST_NATIVE_MODE` / `HOST_COMPAT_BOOTSTRAP_MODE`を分離。
-- `HOST_BOOTSTRAP_UNAVAILABLE`をstrict欠如即FAILから、compat不成立後のtyped failureへ再定義。
-- receipt前禁止条件を`PEOS_SEMANTIC_WORK=0`へ修正し、一般commentary exemptionは引き続き禁止。
-- L0はnon-authoritative projection / not sixth canonを維持。
-- father style / evidence / OPSEC learningは既存RC4を維持し、主修正を薄めない。
-- live clean-session acceptanceは未実施のためPENDING。
-
-## Returned physical RC4 history
-
-## rev0.306-RC4
-
-- `PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK`を正式化。
-- RUNTIME_GUARD authoritative source blockからnon-authoritative `PEOS_L0_BOOT_SHIM` projectionを生成。
-- full five-canon pre-session semantic bindingを廃止し、receipt後load/validate/compileへ変更。
-- stateを`RC_FILE_SEEN`から`SEMANTIC_WORK_AUTHORIZED`まで独立化し、implicit promotionを禁止。
-- `HOST_BOOTSTRAP_UNAVAILABLE` / `L0_SOURCE_BINDING_MISMATCH` / `L0_AUTHORITY_PROMOTION`を追加。
-- BOOT_CANON logo/startup literalのimmutable exactnessを強化。
-- father style learningを語彙模倣からbehavior structureへ拡張。
-- reactive/counterpunch、Japanese-Lint、symmetric self-correction、fairness、evidence-first/context-restorationをfixture化。
-- 2026-08-09 mother logをingress regression fixtureとして統合。
-- mother canonical call drift `ともちゃん -> お母さん`をsticky correction fixtureとして保持。
-- artifact bodyのstdout/chat全量出力禁止をlog/directive/evidenceへ拡張。
-- accepted baselineをphysical rev0.306-RC2、project-level current referenceをrev0.306-RC3として明示分離。
-- RC4はself-acceptしない。live clean-session production traceはPENDING。
+## rev0.307 revision assignment — 2026-08-23
+- Father assigned the previously unassigned candidate to `rev0.307`.
+- Future sequential auto-increment is authorized unless father explicitly overrides the target revision.
+- Revision assignment does not self-accept the candidate; operative/current remains rev0.306 pending explicit acceptance.
+- Original source bundle/log/directive files remain byte-identical.
+- Prior unassigned physical candidate remains external immutable audit artifact.
