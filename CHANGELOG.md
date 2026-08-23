@@ -1,5 +1,33 @@
 # CHANGELOG
 
+## PEOS-REV0.308-CANDIDATE-20260824-012834-JST — TARGET_REVISION_LABEL: rev0.308
+
+### Source
+- project-level current reference: `rev0.307`
+- accepted baseline: `PEOS_GITHUB_PACKAGE_rev0.306.zip`
+- source package SHA-256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
+- father log SHA-256: `d203310dd8a05a1a801eefeb8b418a1d74ef4a62a1c41449c915afd1e470747c`
+- directive SHA-256: `7d1d20ba3c63b9193a3df9db0f59c1fc32a1abaa60d3c143f3a42cbc21c65c37`
+- source bundle SHA-256: `ea3919267a5a0970eb6ff3e75e278a88f366d8832e2b1a2eeac22534a2a809fc`
+
+### Fix-forward deltas
+- persistent `PEOS_TURN_TIME_LEDGER` contract
+- receipt/visible/ledger/log same-value binding
+- capture/persistence state separation
+- logical append-only history over guarded host version replacement
+- read-only mount typed fallback
+- post-write verification and idempotency
+- ledger-first log reconstruction and missing-time field omission
+- five-canon/supporting-state boundary
+- father-private ledger exclusion from general package
+- TIME-LEDGER-A through J static harness
+
+### Release control
+- candidate remains NOT_ACCEPTED / NOT_SELF_ACCEPTED
+- current project reference remains rev0.307
+- accepted baseline remains formal rev0.306
+- live multi-turn/persistent-store/restart acceptance remains PENDING
+
 ## PEOS-REV0.307-CANDIDATE-20260823-211106-JST — TARGET_REVISION_LABEL: rev0.307
 
 ### Source
