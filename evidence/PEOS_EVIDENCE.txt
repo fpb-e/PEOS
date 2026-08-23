@@ -256,3 +256,57 @@ TRUNCATED_ATTACHMENT_COPY_SHA256: f21e41b6ca65e64e276e23d39b184ad8d677b31431a158
 TRUNCATED_ATTACHMENT_COPY_STATUS: PRESERVED_UNMODIFIED / NOT_BASE_REFERENCE
 FORMAL_RELEASE_STATUS: NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED
 LIVE_HOST_ACCEPTANCE: PENDING
+
+
+======================================================================
+REV0_307_CANDIDATE_20260823
+======================================================================
+BUILD_ID: PEOS-REV0.307-CANDIDATE-20260823-211106-JST
+TARGET_REVISION_LABEL: rev0.307
+STATUS: RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED
+CURRENT_PROJECT_CANON: rev0.306
+BASE_REFERENCE_SHA256: f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332
+SOURCE_BUNDLE_SHA256: e5cc37e60a01f350bd27d75532a2f18212107f6879dcfdf4acf46a2a91d65a89
+PRIMARY_FATHER_LOG_SHA256: cd352c85bdc18d686262a43420aa1eeee9e84d82c664d29536eb0ddd17c4dfe6
+DIRECTIVE_SHA256: d01a7b19efb2cc67e57f0bbf86054a2bf209c224818c9ef90e0d2dd40009fb89
+MOTHER_REMINDER_SOURCE_SHA256: a81afdfb68f785c27e91646c5e0fe2ce347f749a7e376f317d36004b9d7b4df4
+
+OBSERVED_SOURCE_COUNTS:
+  SEQ: 159
+  USER_MESSAGE: 61
+  ATTACHMENT_EVENT: 21
+  UNIQUE_PHYSICAL_ATTACHMENTS: 20
+  ASSISTANT_FINAL: 3
+  SOURCE_GAP: 56
+
+NEW_PRIMARY_FIXTURES:
+  T058/T059/T061: actual Python receipt exists but semantic commentary preceded receipt -> STRICT FAIL / NO_LATE_REPAIR
+  T027: father direct correction that alleged evidence does not physically exist; allegation-of-evidence is not evidence
+  T050: interpretation request about another speaker's violent statement; not father violent intent/endorsement
+  T060/T061: historical missing time field omission + plain UTF-8 body + per-body hash prohibition
+  ATT-021 mother log Section 8: reminder state machine / no replay / idempotency / privacy / A-M tests
+
+STATIC_RESULTS:
+  source bundle CRC: PASS
+  source bundle manifest: PASS 22/22
+  session logger positive: PASS
+  session logger negative fixture: EXPECTED FAIL
+  father source log under new validator: PASS
+  REMINDER-A through REMINDER-M static mock-provider: PASS 13/13
+  live reminder host acceptance: PENDING
+  live PEOS multi-turn time/display acceptance: PENDING
+  side effects triggered by source reinjection: 0
+
+CLAIM_BOUNDARY:
+  Static pass is not live host acceptance.
+  No revision number is assigned by this build.
+  rev0.306 remains current/operative until father explicitly assigns and accepts a successor.
+
+[REVISION_ASSIGNMENT_2026_08_23]
+TARGET_REVISION: rev0.307
+AUTHORITY: FATHER_DIRECT_CURRENT_TURN
+FUTURE_AUTO_INCREMENT_AUTHORIZED: TRUE
+EXPLICIT_FATHER_OVERRIDE_PRECEDENCE: TRUE
+RELEASE_ACCEPTANCE_IMPLIED: FALSE
+CURRENT_OPERATIVE_REMAINS: rev0.306
+AUTHORITY_NOTE: admin/REVISION_ASSIGNMENT_AUTHORITY_20260823.md
