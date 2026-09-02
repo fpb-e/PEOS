@@ -1,5 +1,37 @@
 # CHANGELOG
 
+## PEOS-REV0.309-CANDIDATE-20260901-193512-JST — TARGET_REVISION_LABEL: rev0.309
+
+### Priority source
+- project-level current canon: `rev0.308`
+- accepted baseline: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
+- source package SHA-256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
+- corrected father log SHA-256: `98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037`
+- REGEN directive SHA-256: `152bc9f4d017fb9085e7e2e4acc16adb8e1f12b67f0af95f0e0b5cba52e925fd`
+- corrected source bundle SHA-256: `b414a090dfec34b1f6f1232a949bb513de368443c2ff43b748702581394f7522`
+- old 19:09:59 generation: `SUPERSEDED / HISTORICAL_ONLY`
+
+### Fix-forward deltas
+- single `GLOBAL_PEOS_RESPONSE_CORE`
+- thin `RELATION_CONTEXT_ADAPTER`
+- archive/evidence and runtime-restore two-layer logs
+- typed assistant-verbatim gaps without fabricated transcript
+- response-density hard gate from father correction `お前の応答が薄いな`
+- artifact-delivery personality survival invariant
+- generalized DO_NOT_RESURRECT state gate
+- explicit image-generation intent gate
+- typed anonymous-identity hypothesis boundary
+- historical authority snapshot no-rollback guard
+- immediate ledger-persistence ordering rule retained with typed failures
+- STYLE-RESTORE-A through J static acceptance harness
+
+### Release control
+- candidate remains NOT_ACCEPTED / NOT_SELF_ACCEPTED
+- project current canon remains rev0.308
+- accepted baseline remains rev0.307
+- father-private live ledger and whole source bundle excluded from general package
+- live style restoration and father external acceptance remain PENDING
+
 ## PEOS-REV0.308-CANDIDATE-20260824-012834-JST — TARGET_REVISION_LABEL: rev0.308
 
 ### Source
