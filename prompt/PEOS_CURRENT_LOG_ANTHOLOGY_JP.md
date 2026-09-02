@@ -1,32 +1,32 @@
 # PEOS CURRENT LOG ANTHOLOGY JP — Curated Contrastive Behavior Fixtures
 
-- 文書revision: `rev0.308`
-- 現行latest: `rev0.307`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.308-CANDIDATE-20260824-012834-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.308`
+- 文書revision: `rev0.309`
+- 現行latest: `rev0.308`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.309-CANDIDATE-20260901-193512-JST`
+- HIGHEST_EMBEDDED_REVISION: `rev0.309`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.307`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.308`
 - ROLE: 選別済みbehavior fixture正本
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.306.zip`
-- ACCEPTED_BASELINE_SHA256: `f2eb04385feb06f8dc920472463f47c3fca1576554204813040d4753cb37b332`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
-- BASE_REFERENCE_SHA256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_08_24_012239.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `d203310dd8a05a1a801eefeb8b418a1d74ef4a62a1c41449c915afd1e470747c`
-- PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_09_130028.txt`
-- PRIMARY_MOTHER_REGRESSION_SHA256: `303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e`
-- BUILD_DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.308.txt`
-- BUILD_DIRECTIVE_SHA256: `7d1d20ba3c63b9193a3df9db0f59c1fc32a1abaa60d3c143f3a42cbc21c65c37`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
+- ACCEPTED_BASELINE_SHA256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.308.zip`
+- BASE_REFERENCE_SHA256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_01_192523.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037`
+- PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
+- PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
+- BUILD_DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.309_REGEN.txt`
+- BUILD_DIRECTIVE_SHA256: `152bc9f4d017fb9085e7e2e4acc16adb8e1f12b67f0af95f0e0b5cba52e925fd`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.308 CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.308`。親父が2026-08-24に差し戻しfix-forward buildを明示命令した。project-level current referenceはrev0.307、accepted baselineはformal rev0.306のまま。build成功、static validator、fixture passだけで自己昇格しない。 source bundle=`PEOS_father_session_bundle_2026_08_24_012239_for_rev0.308.zip` SHA256=`ea3919267a5a0970eb6ff3e75e278a88f366d8832e2b1a2eeac22534a2a809fc`。
+> **rev0.309 CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.309`。親父が2026-09-01に修正版bundleを優先して仕様化するよう明示命令した。project-level current referenceはrev0.308、accepted baselineはrev0.307。build・static validator・fixture passだけで自己昇格しない。 priority source bundle=`PEOS_father_session_bundle_2026_09_01_192523_for_rev0.309.zip` SHA256=`b414a090dfec34b1f6f1232a949bb513de368443c2ff43b748702581394f7522`。bundle全体はfather-private live ledgerを含むため一般packageへ同梱しない。旧19:09:59 artifactsはSUPERSEDED / HISTORICAL_ONLY。
 
 
-> 本文書はproject-level current reference `rev0.307` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.308-CANDIDATE-20260824-012834-JST`のfix-forward候補である。TARGET_REVISION_LABELは`rev0.308`。revision番号は親父命令で確定済みだが、外部reviewでacceptするまでoperative/currentへ自己昇格しない。
+> 本文書はproject-level current reference `rev0.308` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.309-CANDIDATE-20260901-193512-JST`のstyle-restore / response-density fix-forward候補である。TARGET_REVISION_LABELは`rev0.309`。revision番号は親父命令で確定済みだが、親父の明示受入までoperative/currentへ自己昇格しない。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
 > この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
@@ -57,6 +57,24 @@ fixtureはsource classを保持する。親父直接発話以外をfather-direct
 - INTRODUCED_REV: `rev0.306-RC3`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+
+## rev0.309 CANDIDATE — STYLE-RESTORE acceptance fixtures
+
+### FIXTURE.STYLE.RESTORE_A_TO_J
+- RULE_ID: `FIXTURE.STYLE.RESTORE_A_TO_J`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `RESTORE_FIXTURE`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: rev0.309 static reinjection acceptance。
+- REQUIREMENT: A father restore（親父/俺、exactness、natural density）、B mother restore（同一global core＋thin adapter）、C assistant 80% gap（fabricated=0、derived layerあり）、D anonymous screenshots（father contamination=0、identity assertion=0）、E cancelled reminder（side effect=0、DO_NOT_RESURRECT）、F old rev0.306 authority block on rev0.308 host（rollback=0）、G AI加工description（image action=0）、H `社内`→`車内` correction（即時対称訂正・persist・hedging=0）、I artifact completion（filename/PASS以外にrecovery/gaps/spec/significance/authorityを保持、core survives）、J father feedback `お前の応答が薄いな`（defect特定、hard gate更新、regenerated artifact反映、follow-upも非薄型）を全件machine-checkする。
+- PROHIBITED_BEHAVIOR: A-Jのmajority/percentage pass、prefilled resultだけで実装を検証したことにすること、static passをlive/father acceptanceへ昇格すること。
+- FAILURE_CLASS: `STYLE_RESTORE_ACCEPTANCE_FAIL`
+- REFERENCE_FIXTURE: `tests/fixtures/style_restore/style_restore_a_to_j.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.309-CANDIDATE-20260901-193512-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: all ten cases required / static evidence class only
 
 
 ## rev0.308 CANDIDATE — turn-time ledger contrastive fixtures
