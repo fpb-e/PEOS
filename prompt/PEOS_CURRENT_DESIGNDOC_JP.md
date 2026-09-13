@@ -1,38 +1,39 @@
 # PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
 
-- 文書revision: `rev0.309`
-- 現行latest: `rev0.308`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.309-CANDIDATE-20260901-193512-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.309`
+- 文書revision: `rev0.311`
+- 現行latest: `rev0.310`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- HIGHEST_EMBEDDED_REVISION: `rev0.311`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.308`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.310`
 - ROLE: 五正本分離・構成管理・migration理由
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
-- ACCEPTED_BASELINE_SHA256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.308.zip`
-- BASE_REFERENCE_SHA256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_01_192523.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
+- ACCEPTED_BASELINE_SHA256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
+- BASE_REFERENCE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_13_171409.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
+- DECLARED_MOTHER_TIME_DEFECT_SOURCE: `PEOS_mother_session_log_2026_09_13_151428.txt / PHYSICAL_FILE_NOT_IN_BUNDLE`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.309_REGEN.txt`
-- BUILD_DIRECTIVE_SHA256: `152bc9f4d017fb9085e7e2e4acc16adb8e1f12b67f0af95f0e0b5cba52e925fd`
+- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_09_13_time_gate_fix.txt`
+- BUILD_DIRECTIVE_SHA256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.309 CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.309`。親父が2026-09-01に修正版bundleを優先して仕様化するよう明示命令した。project-level current referenceはrev0.308、accepted baselineはrev0.307。build・static validator・fixture passだけで自己昇格しない。 priority source bundle=`PEOS_father_session_bundle_2026_09_01_192523_for_rev0.309.zip` SHA256=`b414a090dfec34b1f6f1232a949bb513de368443c2ff43b748702581394f7522`。bundle全体はfather-private live ledgerを含むため一般packageへ同梱しない。旧19:09:59 artifactsはSUPERSEDED / HISTORICAL_ONLY。
+> **rev0.311 UNIVERSAL-TIME-GATE CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.311`。親父が2026-09-13にmother/father両tabで再現したper-turn時刻・台帳degradationのfix-forward仕様化を命令した。project current identityはrev0.310、accepted baseline／enumerated detailed-reference setはrev0.309。build・static harness・単発store write成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip` SHA256=`f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`。参照されたmother logはbundleに物理同梱されていないため、father log内のreported evidenceを超えて内容を捏造しない。
 
 
-> 本文書はproject-level current reference `rev0.308` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.309-CANDIDATE-20260901-193512-JST`のstyle-restore / response-density fix-forward候補である。TARGET_REVISION_LABELは`rev0.309`。revision番号は親父命令で確定済みだが、親父の明示受入までoperative/currentへ自己昇格しない。
+> 本文書はproject-level current `rev0.310` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.311-CANDIDATE-20260913-171938-JST`のuniversal user-turn time-gate fix-forward候補である。TARGET_REVISION_LABELは`rev0.311`。accepted/detailed-referenceは父指示どおりrev0.309を維持し、父の明示受入とlive multi-route conformanceなしにoperative/currentへ自己昇格しない。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
 > この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
-> strict-native hostではactual `datetime.now(ZoneInfo("Asia/Tokyo"))`が最初のPEOS executable actionであることを要求する。
+> strict-native hostではactual trusted time-capture adapter invocationを最初のPEOS executable actionとして要求する。reference pathは`datetime.now(ZoneInfo("Asia/Tokyo"))`である。
 > host mandatory preambleが不可避なhostでは、固定・最小・非semanticでtrace上host actionと区別可能なpreambleだけを`HOST_CONTROL_PLANE_ACTION`としてexemptできる。
-> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。最初のPEOS executable actionは常にPython JST captureである。
+> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。Python pathがactualに使えないhostでは事前承認済みtrusted sourceを実行し、`TIME_CAPTURE_PATH_VARIANCE`とactual providerを記録する。実行していないPython成功を宣言しない。
 > `RC_FILE_SEEN` / `FIVE_CANON_INSPECTED` / visible timestamp文字列はruntime boundやreceipt validを意味しない。
 > L0は第六正本でもrule ownerでもなく、authority/state machineの所有者はRUNTIME_GUARDのみである。
 
@@ -616,3 +617,127 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - INTRODUCED_BUILD_ID: `PEOS-REV0.307-CANDIDATE-20260823-211106-JST`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+## rev0.310 CANDIDATE — runtime binding architecture
+
+### DESIGN.RUNTIME.BINDING_STATE_MACHINE
+- RULE_ID: `DESIGN.RUNTIME.BINDING_STATE_MACHINE`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `RUNTIME_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: PEOS boot/runtime lifecycleを構成するとき。
+- REQUIREMENT: `FILE_VISIBLE`、`CONTENT_READ`、`SOURCE_SYNC`、`PROJECT_CANON_CONTEXT_SHARED`、`CONTINUITY_MEMORY_SHARED`、`RUNTIME_GUARDS_BOUND`、`TIME_LEDGER_RUNTIME_READY`、`BOOT_ASSETS_READY`、`PERSISTENCE_PATH_VERIFIED`を独立stateとし、positive evidence付きtransitionだけを許可する。
+- PROHIBITED_BEHAVIOR: source layerとruntime layerを単一のready booleanへ畳むこと。
+- FAILURE_CLASS: `RUNTIME_BINDING_STATE_MACHINE_COLLAPSE`
+- REFERENCE_FIXTURE: `AT-01,AT-02,AT-03,AT-09`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.RUNTIME.BINDING_STATE_SEPARATION`
+
+### DESIGN.TIME.PERSISTENCE_ADAPTER_HANDSHAKE
+- RULE_ID: `DESIGN.TIME.PERSISTENCE_ADAPTER_HANDSHAKE`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `TIME_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host persistent storeとturn transaction driverを接続するとき。
+- REQUIREMENT: expected prior version、idempotency key、append payload、returned version、postwrite materialization/readbackをhandshake境界に置き、全段成功を一つのverified commitとして返す。
+- PROHIBITED_BEHAVIOR: local writable pathだけをpersistent routeとみなすこと、write callの返却だけでreadbackを省略すること。
+- FAILURE_CLASS: `PERSISTENCE_ADAPTER_HANDSHAKE_FAIL`
+- REFERENCE_FIXTURE: `AT-04,AT-05,AT-06`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.PER_TURN_TRANSACTION_ATOMICITY`
+
+### DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE
+- RULE_ID: `DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `CORRECTION_ARCHITECTURE`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: user correctionをruntime stateへ格納するとき。
+- REQUIREMENT: correction id、constraint、origin turn、remaining successful turns、scope、supersessionを構造化し、precommit auditへ必須入力として渡す。
+- PROHIBITED_BEHAVIOR: correctionを会話要約だけに保存すること、uncommitted/failed turnでTTLを減らすこと。
+- FAILURE_CLASS: `CORRECTION_CONSTRAINT_STORE_BYPASS`
+- REFERENCE_FIXTURE: `AT-10,AT-11`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.CORRECTION.NEXT_FOUR_TURN_STICKINESS`
+
+### DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER
+- RULE_ID: `DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `ACCEPTANCE_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: degradation fixのacceptance evidenceを保存するとき。
+- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、father external acceptanceを別classにし、turn id、receipt、store version、prefix、correction resultをlive evidence ledgerへ記録する。
+- PROHIBITED_BEHAVIOR: static mock PASSまたはself-reviewをlive/father acceptanceへ昇格すること。
+- FAILURE_CLASS: `LIVE_STATIC_EVIDENCE_CLASS_COLLAPSE`
+- REFERENCE_FIXTURE: `AT-01..AT-12`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.ACCEPTANCE.LIVE_STATIC_TYPE_SEPARATION`
+
+## rev0.311 CANDIDATE — universal gate architecture
+
+### DESIGN.TIME.UNIVERSAL_ROUTE_GATE
+- RULE_ID: `DESIGN.TIME.UNIVERSAL_ROUTE_GATE`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `TIME_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: PEOS route dispatcherを設計するとき。
+- REQUIREMENT: route tableの共通rootにgateを一個だけ配置し、各handlerへcapability-bearing work permitを渡す。handler内の任意gate呼出しへ依存しない。
+- PROHIBITED_BEHAVIOR: boot/chat/toolごとの分散実装、no-tool bypass branch。
+- FAILURE_CLASS: `UNIVERSAL_ROUTE_GATE_NOT_ROOT_BOUND`
+- REFERENCE_FIXTURE: `UTG-01..UTG-05`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.UNIVERSAL_USER_TURN_PRE_DISPATCH_GATE`
+
+### DESIGN.TIME.CAPABILITY_ADAPTER
+- RULE_ID: `DESIGN.TIME.CAPABILITY_ADAPTER`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `TIME_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: host time sourceとpersistent storeを接続するとき。
+- REQUIREMENT: time adapterはprovider identity、trusted status、actual execution evidence、JST valueを返し、ledger adapterはversion/write/readback evidenceを返す。reference Pythonとtrusted alternateを型分離する。
+- PROHIBITED_BEHAVIOR: host機能の存在推定、clock表示文字列をexecution evidenceにすること。
+- FAILURE_CLASS: `CAPABILITY_ADAPTER_EVIDENCE_COLLAPSE`
+- REFERENCE_FIXTURE: `UTG-08,UTG-09`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.CAPABILITY_TRUTHFUL_PATH_VARIANCE`
+
+### DESIGN.TIME.COVERAGE_AUDITOR
+- RULE_ID: `DESIGN.TIME.COVERAGE_AUDITOR`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `AUDIT_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: turn trace集合とledger集合を照合するとき。
+- REQUIREMENT: turn identityでjoinし、canonical、typed excluded failure、unexplained missingを分類して指定五指標を算出する。countだけでなくturn-level findingsを保持する。
+- PROHIBITED_BEHAVIOR: timestamps近似でjoinすること、unknown gapをexcludedへ落とすこと。
+- FAILURE_CLASS: `COVERAGE_AUDITOR_JOIN_OR_CLASSIFICATION_FAIL`
+- REFERENCE_FIXTURE: `UTG-11`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.LEDGER_COVERAGE_TYPED_AUDIT`
+
+### DESIGN.TIME.GATE_WATCHDOG
+- RULE_ID: `DESIGN.TIME.GATE_WATCHDOG`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `RUNTIME_ARCHITECTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: commit/rearm/log generation boundary。
+- REQUIREMENT: route registration completeness、gate binding、ledger sequence/readback、last turn statusを検査し、dropoutを次turn前にDEGRADEDへ遷移させる。
+- PROHIBITED_BEHAVIOR: 前回成功をsticky session permissionにすること、後続正常turnでgapを消すこと。
+- FAILURE_CLASS: `TIME_GATE_WATCHDOG_DROPOUT`
+- REFERENCE_FIXTURE: `UTG-13`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.DEGRADATION.RESTART_FAIL_CLOSED`

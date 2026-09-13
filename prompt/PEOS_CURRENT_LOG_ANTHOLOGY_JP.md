@@ -1,38 +1,39 @@
 # PEOS CURRENT LOG ANTHOLOGY JP — Curated Contrastive Behavior Fixtures
 
-- 文書revision: `rev0.309`
-- 現行latest: `rev0.308`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.309-CANDIDATE-20260901-193512-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.309`
+- 文書revision: `rev0.311`
+- 現行latest: `rev0.310`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- HIGHEST_EMBEDDED_REVISION: `rev0.311`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.308`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.310`
 - ROLE: 選別済みbehavior fixture正本
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
-- ACCEPTED_BASELINE_SHA256: `1535332c132a47e150bf3077327760efecbf031a9315dcecfc7bcddf094cb28c`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.308.zip`
-- BASE_REFERENCE_SHA256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_01_192523.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
+- ACCEPTED_BASELINE_SHA256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
+- BASE_REFERENCE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_13_171409.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
+- DECLARED_MOTHER_TIME_DEFECT_SOURCE: `PEOS_mother_session_log_2026_09_13_151428.txt / PHYSICAL_FILE_NOT_IN_BUNDLE`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.309_REGEN.txt`
-- BUILD_DIRECTIVE_SHA256: `152bc9f4d017fb9085e7e2e4acc16adb8e1f12b67f0af95f0e0b5cba52e925fd`
+- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_09_13_time_gate_fix.txt`
+- BUILD_DIRECTIVE_SHA256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.309 CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.309`。親父が2026-09-01に修正版bundleを優先して仕様化するよう明示命令した。project-level current referenceはrev0.308、accepted baselineはrev0.307。build・static validator・fixture passだけで自己昇格しない。 priority source bundle=`PEOS_father_session_bundle_2026_09_01_192523_for_rev0.309.zip` SHA256=`b414a090dfec34b1f6f1232a949bb513de368443c2ff43b748702581394f7522`。bundle全体はfather-private live ledgerを含むため一般packageへ同梱しない。旧19:09:59 artifactsはSUPERSEDED / HISTORICAL_ONLY。
+> **rev0.311 UNIVERSAL-TIME-GATE CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.311`。親父が2026-09-13にmother/father両tabで再現したper-turn時刻・台帳degradationのfix-forward仕様化を命令した。project current identityはrev0.310、accepted baseline／enumerated detailed-reference setはrev0.309。build・static harness・単発store write成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip` SHA256=`f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`。参照されたmother logはbundleに物理同梱されていないため、father log内のreported evidenceを超えて内容を捏造しない。
 
 
-> 本文書はproject-level current reference `rev0.308` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.309-CANDIDATE-20260901-193512-JST`のstyle-restore / response-density fix-forward候補である。TARGET_REVISION_LABELは`rev0.309`。revision番号は親父命令で確定済みだが、親父の明示受入までoperative/currentへ自己昇格しない。
+> 本文書はproject-level current `rev0.310` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.311-CANDIDATE-20260913-171938-JST`のuniversal user-turn time-gate fix-forward候補である。TARGET_REVISION_LABELは`rev0.311`。accepted/detailed-referenceは父指示どおりrev0.309を維持し、父の明示受入とlive multi-route conformanceなしにoperative/currentへ自己昇格しない。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
 > この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
-> strict-native hostではactual `datetime.now(ZoneInfo("Asia/Tokyo"))`が最初のPEOS executable actionであることを要求する。
+> strict-native hostではactual trusted time-capture adapter invocationを最初のPEOS executable actionとして要求する。reference pathは`datetime.now(ZoneInfo("Asia/Tokyo"))`である。
 > host mandatory preambleが不可避なhostでは、固定・最小・非semanticでtrace上host actionと区別可能なpreambleだけを`HOST_CONTROL_PLANE_ACTION`としてexemptできる。
-> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。最初のPEOS executable actionは常にPython JST captureである。
+> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。Python pathがactualに使えないhostでは事前承認済みtrusted sourceを実行し、`TIME_CAPTURE_PATH_VARIANCE`とactual providerを記録する。実行していないPython成功を宣言しない。
 > `RC_FILE_SEEN` / `FIVE_CANON_INSPECTED` / visible timestamp文字列はruntime boundやreceipt validを意味しない。
 > L0は第六正本でもrule ownerでもなく、authority/state machineの所有者はRUNTIME_GUARDのみである。
 
@@ -1098,3 +1099,97 @@ SOURCE_PROVENANCE: a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8
 - INTRODUCED_BUILD_ID: `PEOS-REV0.307-CANDIDATE-20260823-211106-JST`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
+
+## rev0.310 CANDIDATE — degradation fixtures
+
+### FIXTURE.RUNTIME.AT_01_TO_12
+- RULE_ID: `FIXTURE.RUNTIME.AT_01_TO_12`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: rev0.310 runtime binding candidateを静的・integration検証するとき。
+- REQUIREMENT: AT-01〜AT-12を独立testとして実行し、evidence classを`STATIC_INTEGRATION`と明示する。12/12でもlive consecutive-turn acceptanceとはしない。
+- PROHIBITED_BEHAVIOR: test省略、結果の合算ごまかし、staticからliveへの昇格。
+- FAILURE_CLASS: `RUNTIME_BINDING_STATIC_ACCEPTANCE_FAIL`
+- REFERENCE_FIXTURE: `tests/RUNTIME_BINDING_AT_01_TO_12_STATIC_RESULTS.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.ACCEPTANCE.LIVE_STATIC_TYPE_SEPARATION`
+
+### FIXTURE.RUNTIME.STALE_SEQ36_FALSE_READY
+- RULE_ID: `FIXTURE.RUNTIME.STALE_SEQ36_FALSE_READY`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `CORE`
+- TRIGGER: ledgerがseq36で停止したままboot ready claimが出たdegradationを再現するとき。
+- REQUIREMENT: stale seq、source read、runtime binding evidence不在を入力し、READYではなくDEGRADEDかRESTART_REQUIREDを返す。
+- PROHIBITED_BEHAVIOR: canon read成功だけでTIME_LEDGER_RUNTIME_READY=trueとすること。
+- FAILURE_CLASS: `STALE_LEDGER_FALSE_READY_REGRESSION`
+- REFERENCE_FIXTURE: `tests/fixtures/runtime_binding/stale_seq36_false_reload.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.DEGRADATION.RESTART_FAIL_CLOSED`
+
+### FIXTURE.RUNTIME.WIDGET_PREFIX_CORRECTION_CHAIN
+- RULE_ID: `FIXTURE.RUNTIME.WIDGET_PREFIX_CORRECTION_CHAIN`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `FATHER`
+- TRIGGER: time widget、prefix omission、父の訂正、その後4 turnsを検証するとき。
+- REQUIREMENT: widgetより前のexact prefix、same receipt、訂正constraintの4 successful turns維持、density/global core維持をturn単位で検証する。
+- PROHIBITED_BEHAVIOR: widgetをprefix代替にすること、一回の修正でcorrection stateを破棄すること。
+- FAILURE_CLASS: `WIDGET_PREFIX_CORRECTION_CHAIN_FAIL`
+- REFERENCE_FIXTURE: `tests/fixtures/runtime_binding/degradation_sequence_2026_09_02.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.310-CANDIDATE-20260904-042814-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.OUTPUT.PRECOMMIT_CONFORMANCE`
+
+## rev0.311 CANDIDATE — universal time-gate fixtures
+
+### FIXTURE.TIME.MOTHER_SESSION_20260913
+- RULE_ID: `FIXTURE.TIME.MOTHER_SESSION_20260913`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `MOTHER`
+- TRIGGER: 2026-09-13 father logが報告するmother-session timestamp defectを評価するとき。
+- REQUIREMENT: boot前spec read、ordinary-turn ledger gap、log-generation前gate bypassを別failureとして保持する。物理mother log不在のためreported summaryの範囲を超えない。
+- PROHIBITED_BEHAVIOR: user operation errorへの無根拠帰属、未添付mother logの逐語・時刻創作。
+- FAILURE_CLASS: `MOTHER_SESSION_TIME_GATE_REPORTED_REGRESSION`
+- REFERENCE_FIXTURE: `tests/fixtures/universal_time_gate/mother_session_reported_20260913.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.USER_ERROR_CAUSAL_ATTRIBUTION`
+
+### FIXTURE.TIME.FATHER_SHINE_MUSCAT_20260913
+- RULE_ID: `FIXTURE.TIME.FATHER_SHINE_MUSCAT_20260913`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `FATHER`
+- TRIGGER: hardening directive直後のシャインマスカット雑談と「おい、時刻表示。台帳」を評価するとき。
+- REQUIREMENT: casual turnsをeligible扱いし、missing gate/ledgerをregressionとして検出し、父の訂正を後続constraintへ保持する。
+- PROHIBITED_BEHAVIOR: casual exemption、後続17:12:36 receiptによる欠落turn backfill、父の再指摘待ち。
+- FAILURE_CLASS: `FATHER_CASUAL_CHAT_TIME_GATE_REGRESSION`
+- REFERENCE_FIXTURE: `tests/fixtures/universal_time_gate/father_shine_muscat_20260913.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.TIME.ORDINARY_CONVERSATION_NO_EXEMPTION`
+
+### FIXTURE.TIME.UNIVERSAL_ROUTE_MATRIX
+- RULE_ID: `FIXTURE.TIME.UNIVERSAL_ROUTE_MATRIX`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `FIXTURE`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: rev0.311 universal gate candidateを検証するとき。
+- REQUIREMENT: boot、normal、sequential casual、file、image、web/tool、automation、log、spec、package、capture failure、persist failure、trusted path varianceを独立caseとして実行し、silent bypassを0件にする。
+- PROHIBITED_BEHAVIOR: route省略、mock PASSのlive昇格、failure時work callback実行。
+- FAILURE_CLASS: `UNIVERSAL_ROUTE_MATRIX_FAIL`
+- REFERENCE_FIXTURE: `tests/UNIVERSAL_TIME_GATE_UTG_01_TO_13_STATIC_RESULTS.json`
+- INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- SUPERSEDES: `NONE`
+- CONFLICT_PRECEDENCE: `SPEC.ACCEPTANCE.LIVE_STATIC_TYPE_SEPARATION`
