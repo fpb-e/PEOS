@@ -1,5 +1,74 @@
 # CHANGELOG
 
+## PEOS-REV0.311-CANDIDATE-20260913-171938-JST — TARGET_REVISION_LABEL: rev0.311
+
+### Priority source
+- project-level current identity: `rev0.310`
+- current physical SHA-256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
+- accepted detailed reference: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
+- father log SHA-256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
+- directive SHA-256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
+- source bundle SHA-256: `f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`
+
+### Fix-forward deltas
+- universal root pre-dispatch dispatcher for 13 USER-turn routes
+- persist/readback/same-timestamp verification before work permit
+- explicit non-exemption for casual chat and artifact operations
+- capability-truthful Python-reference/trusted-alternate capture adapters
+- typed capture, persistence, bypass and missing-coverage failure classes
+- ledger coverage auditor and strict user-error causal attribution
+- no historical timestamp synthesis and no success narration without execution
+- mandatory Shine Muscat regression fixture and UTG-01〜13 harness
+- 27 candidate rules added; registry/canon total 248 unique rules
+
+### Release control
+- candidate remains `NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- project current remains rev0.310; accepted detailed reference remains rev0.309
+- missing mother-session physical log is a declared evidence gap
+- private live ledger excluded from the general package
+- current build turn remains `PRE_DISPATCH_GATE_BYPASS / NO_LATE_REPAIR`
+- live universal route interception and father acceptance remain `PENDING`
+
+## PEOS-REV0.310-CANDIDATE-20260904-042814-JST — TARGET_REVISION_LABEL: rev0.310
+
+### Priority source
+- project-level current canon: `rev0.309`
+- current physical package SHA-256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
+- accepted baseline: `PEOS_GITHUB_PACKAGE_rev0.308.zip`
+- accepted baseline SHA-256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
+- father degradation log SHA-256: `d43f378fabce9300a3bd65f182fc8554b9965ca52829f6896dffc9decac8a3db`
+- treatment directive SHA-256: `0368326137c41a7b2cfc5eb2c09b7f3745084027ba9e9045b797c781c1082b83`
+- degradation source bundle SHA-256: `84ad0e51a49f90db52062fae8262b043c8e0c1508cd7266b8f452f5bcee255f3`
+
+### Fix-forward deltas
+- separate source/read/sync/project/continuity/runtime/ledger/boot/persistence states
+- positive-evidence boot gate and no false sync/ready claims
+- atomic per-turn receipt/persistence/readback/prefix transaction driver
+- exact first-text JST prefix with same-receipt binding
+- persistence-unavailable DEGRADED path; no ephemeral fallback or backfill
+- next-four-successful-turn correction constraint store
+- timestamp/correction/authority/core/density/generic-override precommit audit
+- next-turn degradation detection and stale seq36 fixture
+- observable reasoning-quality gate, independent of UI thinking duration
+- AT-01 through AT-12 static integration harness
+- live/static/father acceptance evidence type separation
+- 30 candidate rules added; registry/canon total 221 unique rules
+
+### Controlled bisect
+- accepted rev0.308 and physical rev0.309 time-ledger implementation files are byte-identical
+- rev0.309 has 23 added candidate rules and zero removals versus rev0.308
+- selected branch: `FIX_FORWARD_FROM_CURRENT_REV0.309`
+- strong provisional root cause: `HOST_RUNTIME_BINDING_DROPOUT / BOOT_STATE_FALSE_POSITIVE`
+
+### Release control
+- candidate remains `NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- project current remains rev0.309; accepted baseline remains rev0.308
+- private live ledger excluded from general package
+- declared missing `14191.png` remains a typed gap; no fabrication
+- explicit versioned host write/readback observed once; automatic per-turn binding not proven
+- live 10-turn and father external acceptance remain `PENDING`
+- current build turn remains `ORDER_INVALID / NO_LATE_REPAIR / NON_ACCEPTANCE_OBSERVATION`
+
 ## PEOS-REV0.309-CANDIDATE-20260901-193512-JST — TARGET_REVISION_LABEL: rev0.309
 
 ### Priority source

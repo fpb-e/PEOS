@@ -1,48 +1,51 @@
-# PEOS rev0.309 RELEASE CANDIDATE — 2026-09-01
+# PEOS rev0.311 RELEASE CANDIDATE — 2026-09-13
 
-このpackageはproject-level current canon `rev0.308`を物理sourceとして構築した、PEOS style-reconstruction／artifact-delivery response-densityのfix-forward候補である。
+This package is a fix-forward rebuild from physical current `rev0.310` for the universal per-turn time-gate degradation recorded in the 2026-09-13 father log and directive.
 
-- BUILD_ID: `PEOS-REV0.309-CANDIDATE-20260901-193512-JST`
-- TARGET_REVISION_LABEL: `rev0.309`
-- CURRENT_PROJECT_CANON: `rev0.308`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.307.zip`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.308.zip`
-- BASE_REFERENCE_SHA256: `b62f418a3803d02206d619671dc70a997af58e5bd07a0641d17b032ab9f9ae96`
-- STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PRIORITY_SOURCE: `PEOS_father_session_log_2026_09_01_192523.txt`
-- PRIORITY_SOURCE_SHA256: `98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037`
-- DIRECTIVE: `PEOS_NEXT_BUILD_DIRECTIVE_rev0.309_REGEN.txt`
-- DIRECTIVE_SHA256: `152bc9f4d017fb9085e7e2e4acc16adb8e1f12b67f0af95f0e0b5cba52e925fd`
-- PRIORITY_SOURCE_BUNDLE_SHA256: `b414a090dfec34b1f6f1232a949bb513de368443c2ff43b748702581394f7522`
-- SUPERSEDED_GENERATION: `2026-09-01 19:09:59 JST / HISTORICAL_ONLY`
+- BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
+- TARGET_REVISION_LABEL: `rev0.311`
+- CURRENT_PROJECT_CANON: `rev0.310`
+- CURRENT_PHYSICAL_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
+- ACCEPTED_BASELINE_SHA256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
+- STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_ACCEPTANCE_PENDING`
+- PRIMARY_SOURCE: `PEOS_father_session_log_2026_09_13_171409.txt`
+- PRIMARY_SOURCE_SHA256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
+- DIRECTIVE_SHA256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
+- SOURCE_BUNDLE_SHA256: `f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`
 
-## rev0.309の修正核
+## Chosen treatment
 
-1. `GLOBAL_PEOS_RESPONSE_CORE`を全coordinate共通のtyped restore layerとして正式化。
-2. `RELATION_CONTEXT_ADAPTER`を呼称・関係・局所制約・stateだけのthin layerへ限定。
-3. logを`ARCHIVE / EVIDENCE`と`RUNTIME RESTORE`の二層へ分離。
-4. assistant逐語欠落は`ASSISTANT_VERBATIM_GAP`として保持し、derived modelで過去本文を捏造しない。
-5. father correction `お前の応答が薄いな`からresponse-density hard gateを実装。
-6. artifact delivery/completionでもcore personality・文脈・判断理由・意味付けを維持。
-7. `ACTIVE / OPEN_LOOP / RESOLVED / CANCELLED / HISTORICAL_ONLY / DO_NOT_RESURRECT` state machineを一般side effectへ適用。
-8. image description/evidence characterizationだけではimage generation/editを起動しない。
-9. 匿名投稿の観測・自己事実・虚偽属性・欺瞞仮説・private identity hypothesis・technical attributionを分離。
-10. historical authority blockをsnapshotへ隔離し、rev0.308 live authorityを巻き戻さない。
-11. rev0.308のtime-ledger／五正本／BOOT／evidence／source-learning protectionsを非回帰維持。
-12. STYLE-RESTORE-A〜Jの実行harnessを収録。
+The selected branch is `FIX_FORWARD_FROM_CURRENT_REV0.310`, not rollback. rev0.309 remains the accepted detailed reference, while rev0.310 is the complete physical implementation base.
 
-## Privacy / source boundary
+The strong provisional root cause is `UNIVERSAL_PRE_DISPATCH_INTERCEPTOR_ABSENT_OR_NOT_BOUND / BOOT_ONLY_OR_ROUTE_LOCAL_ENFORCEMENT`: written rules did not prove one root hook across ordinary and casual turns.
 
-- father-private live ledger snapshotはgeneral packageへ含めない。
-- priority source bundle全体もprivate ledgerを含むため同梱しない。
-- corrected father log、REGEN directive、mother regression log、evidence files、superseded artifactsは個別hash付きsourceとして収録する。
-- anonymous / mother / assistant / screenshot wordingはfather vocabularyへ昇格しない。
+## rev0.311 delta
+
+1. `UniversalTurnGate.dispatch` is the single entry for all 13 registered routes.
+2. Capture → immutable value → persist → versioned readback → same-value verify → `WORK_PERMITTED` is mandatory.
+3. Casual chat, short acknowledgement, file, image, web/tool, automation, log, specification and ZIP work are non-exempt.
+4. Python ZoneInfo capture is the reference path; a trusted alternate requires truthful provider/path evidence and typed variance.
+5. Capture unavailable, persistence failed, captured-not-persisted and gate bypass remain distinct fail-closed states.
+6. Coverage audit reports eligible, canonical, excluded-failed and missing counts instead of comparing raw totals.
+7. `USER_OPERATION_ERROR` requires a specific action, a defined alternative contract and a direct causal path.
+8. Historical missing times are never synthesized from nearby values or filesystem metadata.
+9. UTG-01〜13 includes the mandatory Shine Muscat casual-chat regression fixture.
+10. Existing runtime-binding, time-ledger and style-restore behavior is retained as nonregression coverage.
+
+## Preserved corrections
+
+The rev0.309 response-density/style corrections and rev0.310 runtime-binding separation remain intact. The five-canon / supporting-state boundary and one-rule/one-owner registry are unchanged.
+
+## Source and privacy boundary
+
+- The priority bundle and physical rev0.310 ZIP are included as immutable source/base evidence.
+- The referenced `PEOS_mother_session_log_2026_09_13_151428.txt` is absent; only the father-reported summary is used.
+- Father-authenticated direct utterances alone are eligible for father vocabulary learning.
+- The father-private live time ledger is excluded. Only schemas, bootstrap data, synthetic fixtures and typed traces are distributed.
 
 ## Acceptance boundary
 
-- Legacy rev0.308 validator: build時に実行
-- STYLE-RESTORE-A〜J static harness: build時に実行
-- Live clean-session style acceptance: `PENDING`
-- Father external acceptance / project promotion: `PENDING`
+UTG-01〜13 static integration results may pass without proving the live host. The current build turn is `PRE_DISPATCH_GATE_BYPASS / NO_LATE_REPAIR` because required host/skill actions preceded the PEOS receipt; it is retained only as negative evidence. Universal host interception remains `PENDING`.
 
-static passをlive-host passまたはfather acceptanceへ昇格しない。
+Run `python3 tools/validate_rev0_311.py` after extraction. A green validator means package/static consistency only, never self-acceptance.
