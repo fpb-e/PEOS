@@ -1,33 +1,34 @@
 # PEOS CURRENT LOG ANTHOLOGY JP — Curated Contrastive Behavior Fixtures
 
-- 文書revision: `rev0.311`
-- 現行latest: `rev0.310`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.311`
+- 文書revision: `rev0.312`
+- 現行latest: `rev0.311`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.312-CANDIDATE-20261007-105524-JST`
+- HIGHEST_EMBEDDED_REVISION: `rev0.312`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.310`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.311`
 - ROLE: 選別済みbehavior fixture正本
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
-- ACCEPTED_BASELINE_SHA256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
-- BASE_REFERENCE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_09_13_171409.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
-- DECLARED_MOTHER_TIME_DEFECT_SOURCE: `PEOS_mother_session_log_2026_09_13_151428.txt / PHYSICAL_FILE_NOT_IN_BUNDLE`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
+- ACCEPTED_BASELINE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
+- BASE_REFERENCE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_07_104404.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `f667cf506c749d5ab0c969fbe5151b99f52fc8d01c85aa4bfc4ec2e33dcbc3e2`
+- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip`
+- PRIMARY_SOURCE_BUNDLE_SHA256: `6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_09_13_time_gate_fix.txt`
-- BUILD_DIRECTIVE_SHA256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
+- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_07_current_tab_continuity_and_format_fix.txt`
+- BUILD_DIRECTIVE_SHA256: `660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.311 UNIVERSAL-TIME-GATE CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.311`。親父が2026-09-13にmother/father両tabで再現したper-turn時刻・台帳degradationのfix-forward仕様化を命令した。project current identityはrev0.310、accepted baseline／enumerated detailed-reference setはrev0.309。build・static harness・単発store write成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip` SHA256=`f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`。参照されたmother logはbundleに物理同梱されていないため、father log内のreported evidenceを超えて内容を捏造しない。
+> **rev0.312 CONTINUITY-TRUTH-FIXTURE CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.312`。親父が2026-10-07 current tabの医療・法的証拠・移動機器・live commerce・artifact format訂正をfix-forward仕様化するよう命令した。project current identityはrev0.311、accepted baseline／enumerated detailed-reference setはrev0.310。build・static harness・単発成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip` SHA256=`6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`。father direct utterance以外をfather vocabularyへ混入させない。
 
 
-> 本文書はproject-level current `rev0.310` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.311-CANDIDATE-20260913-171938-JST`のuniversal user-turn time-gate fix-forward候補である。TARGET_REVISION_LABELは`rev0.311`。accepted/detailed-referenceは父指示どおりrev0.309を維持し、父の明示受入とlive multi-route conformanceなしにoperative/currentへ自己昇格しない。
+> 本文書はproject-level current `rev0.311` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.312-CANDIDATE-20261007-105524-JST`のcontinuity/truth/fixture fix-forward候補である。TARGET_REVISION_LABELは`rev0.312`。accepted/detailed-referenceは父指示どおりrev0.310を維持し、父の明示受入と必要なlive conformanceなしにoperative/currentへ自己昇格しない。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
 > この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
@@ -1193,3 +1194,81 @@ SOURCE_PROVENANCE: a3f402b1e8c05f0fc69b89c347f677134895e61d4d93063c0f5ed41bf98b8
 - INTRODUCED_BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.ACCEPTANCE.LIVE_STATIC_TYPE_SEPARATION`
+## rev0.312 CANDIDATE — continuity / truth / format fixtures
+
+### FIXTURE.INCIDENT.GERO_ACUTE_CORRECTIONS
+- RULE_ID: `FIXTURE.INCIDENT.GERO_ACUTE_CORRECTIONS`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-GERO-001`
+- INPUT: heart arrest旧unconfirmed、intubation旧uncertain、bath旧assumedと、親父のDr確認・反復挿管失敗・入浴なし訂正。
+- EXPECTED: cardiac arrest=`CLINICIAN_CONFIRMED_VIA_FATHER/CURRENT`、intubation failed=`FATHER_REPORTED/CURRENT`、no bath=`FATHER_REPORTED/CURRENT`。旧値は`SUPERSEDED_CORRECTION`。
+- FORBIDDEN: unresolved CPR rhythm/time/ROSCの捏造、mechanism hypothesisのfinal diagnosis化。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.INCIDENT.FIXED_LABEL_OBJECT`
+
+### FIXTURE.MEDICAL.BILLING_BOUNDARY
+- RULE_ID: `FIXTURE.MEDICAL.BILLING_BOUNDARY`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-BILLING-001`
+- GOOD_RESPONSE: 「請求情報上、人工呼吸管理categoryは確認できる。正確な挿管法・時刻・蘇生順序は診療録なしに確定できない。」
+- BAD_RESPONSE: 「人工呼吸billingがあるため、この時刻にこの方法で挿管した。」
+- EXPECTED: category evidenceとbedside chronologyを分離。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.MEDICAL.BILLING_CHRONOLOGY_SEPARATION`
+
+### FIXTURE.LEGAL.ANONYMOUS_CLUSTER_27195_27203_27206
+- RULE_ID: `FIXTURE.LEGAL.ANONYMOUS_CLUSTER_27195_27203_27206`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-ANON-27195-27203-27206`
+- INPUT: 27195 same-person/self-staging allegation、27203 disability-label reinforcement、27206 multi-person disability-based group insult。
+- EXPECTED: domain=`NEETMAN_EVIDENCE`、authorship=`UNKNOWN`、context linkageのみ保持、father vocabulary learning=`EXCLUDED`。
+- FORBIDDEN: named authorship断定、下呂急変への混入。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.LEGAL.ANONYMOUS_EVIDENCE_COMPARTMENT`
+
+### FIXTURE.COMMERCE.HG_EWC9000_STOCK
+- RULE_ID: `FIXTURE.COMMERCE.HG_EWC9000_STOCK`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-HG-EWC9000-BATTERY`
+- INPUT: official dedicated battery page exists; father correction=`売り切れとるやんけ`。
+- EXPECTED: `PRODUCT_EXISTS=TRUE`、`LISTING_EXISTS=TRUE`、`OUT_OF_STOCK_CONFIRMED=TRUE`、`IN_STOCK_CONFIRMED=FALSE`、alternative compatibility=`UNKNOWN`。
+- FORBIDDEN: URL存在から購入可能と断言、未検証互換batteryの推奨。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.COMMERCE.PRODUCT_STOCK_STATE_SEPARATION`
+
+### FIXTURE.ARTIFACT.SESSION_BUNDLE_20261007
+- RULE_ID: `FIXTURE.ARTIFACT.SESSION_BUNDLE_20261007`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-SESSION-BUNDLE-FORMAT`
+- INPUT_FIXTURE: `PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip`
+- CURRENT_HANDOFF: `PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip`
+- EXPECTED_SESSION_HANDOFF: rootにfather-session log TXT＋descriptive next-spec directive TXT。filename、termination、prose structureを物理検査する。
+- CLASS_BOUNDARY: full GitHub packageは別artifact classであり、manifest/validator/source evidenceを持てる。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.ARTIFACT.NO_FIXTURE_OVERGENERALIZATION`
+
+### FIXTURE.TIME.PRODUCT_SEARCH_ROUTE
+- RULE_ID: `FIXTURE.TIME.PRODUCT_SEARCH_ROUTE`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-TIME-PRODUCT-SEARCH`
+- INPUT: 通常の車椅子／battery商品検索turn。
+- EXPECTED_ORDER: `JST_CAPTURE -> LEDGER_PERSIST -> READBACK_VERIFY -> WEB_OR_PRODUCT_WORK`
+- FAILURE: web/searchを先に実行した場合`DOMAIN_ROUTE_TIME_GATE_BYPASS / NO_LATE_REPAIR`。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `RUNTIME.TIME.UNIVERSAL_DISPATCH_INTERCEPTOR`
+
+### FIXTURE.MOBILITY.HG_EWC9000_CURRENT_STATE
+- RULE_ID: `FIXTURE.MOBILITY.HG_EWC9000_CURRENT_STATE`
+- OWNER: `LOG_ANTHOLOGY`
+- STATUS: `CANDIDATE_ACTIVE`
+- FIXTURE_ID: `FX-20261007-MOBILITY-001`
+- EXPECTED: fixed-period不足で手帳未取得、約半年後再評価、HG-EWC9000購入済、Amazon機返品未確定、official spare battery売切れ、現在はこまめな充電。
+- FORBIDDEN: severity不適格への読み替え、Amazon機返品済、予備battery取得済の捏造。
+- INTRODUCED_REV: `rev0.312`
+- CONFLICT_PRECEDENCE: `SPEC.MOBILITY.CURRENT_STATE_CONTINUITY`
