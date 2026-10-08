@@ -1,5 +1,36 @@
 # CHANGELOG
 
+## PEOS-REV0.312-CANDIDATE-20261007-105524-JST — TARGET_REVISION_LABEL: rev0.312
+
+### Priority source
+- project-level current identity: `rev0.311`
+- current physical SHA-256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
+- accepted detailed reference: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
+- father log SHA-256: `f667cf506c749d5ab0c969fbe5151b99f52fc8d01c85aa4bfc4ec2e33dcbc3e2`
+- directive SHA-256: `660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f`
+- source bundle SHA-256: `6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`
+
+### Fix-forward deltas
+- typed incident/source/status continuity graph with monotonic correction state
+- confirmed/unresolved medical separation and patient-side epistemic boundary
+- billing category versus bedside chronology guard
+- anonymous-evidence compartment and father-vocabulary exclusion
+- mobility/device current-state continuity for HG-EWC9000
+- product/listing/price/stock/compatibility state separation
+- live merchant stock recheck and full battery compatibility gate
+- physical fixture inspection and artifact-class routing
+- session-handoff two-root-TXT topology kept local to its class
+- universal time gate retained across all new domain routes
+- 39 candidate rules added; registry/canon total 287 unique rules
+- CT-01〜15 static harness plus inherited 13+12+10+10 nonregression cases
+
+### Release control
+- candidate remains `NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
+- project current remains rev0.311; accepted detailed reference remains rev0.310
+- private live ledger excluded from the general package
+- current build turn remains `PRE_DISPATCH_GATE_BYPASS / TIME_INGRESS_ORDER_INVALID / NO_LATE_REPAIR`
+- live stock, live host conformance and father acceptance remain `PENDING`
+
 ## PEOS-REV0.311-CANDIDATE-20260913-171938-JST — TARGET_REVISION_LABEL: rev0.311
 
 ### Priority source
