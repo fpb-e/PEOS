@@ -1,3 +1,14 @@
+# rev0.313 retention correction
+
+- 過去版はrev0.312・rev0.311の2版へ限定。両版の内部からも旧履歴を除去。
+- 全ての埋め込みarchiveを展開済み資料とflat snapshotに置換し、ZIPの再帰を禁止。
+- 49件の原文入力を維持。現行共通部品の安定pathへ参照を更新。
+- 元archive validatorと整理tree validatorの適用範囲を分離。
+- current/accepted/同期reported状態・private ledger非再実行は維持。
+
+---
+以下は変更の系譜であり、旧release payloadではない。
+
 # CHANGELOG
 
 ## PEOS-REV0.312-CANDIDATE-20261007-105524-JST — TARGET_REVISION_LABEL: rev0.312
@@ -193,3 +204,14 @@
 - Revision assignment does not self-accept the candidate; operative/current remains rev0.306 pending explicit acceptance.
 - Original source bundle/log/directive files remain byte-identical.
 - Prior unassigned physical candidate remains external immutable audit artifact.
+# rev0.313 full redelivery
+
+- Fix forward from complete rev0.312; current remains rev0.312 and accepted/detailed reference rev0.311.
+- Preserve all 287 inherited rule identities and add 34 candidate rules across five canons.
+- Define pre-response durable commit/sync/new-file-ID verification and distinct PASS/DEGRADED/FAIL outcomes.
+- Preserve ten normal consecutive PASS, emergency priority, scoped father exemption and no late promotion.
+- Preserve source-reported sync without replay, 17 user bodies, quote exclusions and typed clinical/family continuity.
+- Add PB-01..26 and retain all 60 inherited behavior cases. Live/father acceptance remains pending.
+- Retain every historical package ZIP binary in full; no lightweight edition or archive omission.
+- Reconstructed delivery has its own fingerprint; byte identity with the unavailable prior rev0.313 ZIP is not claimed.
+
