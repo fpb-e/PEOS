@@ -1,36 +1,47 @@
 # PEOS CURRENT RUNTIME GUARD JP — Sole Executable State Machine
 
-- 文書revision: `rev0.312`
-- 現行latest: `rev0.311`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.312-CANDIDATE-20261007-105524-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.312`
+- 文書revision: `rev0.313`
+- 現行latest: `rev0.312`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.313-CANDIDATE-FROM-20261021-024240`
+- HIGHEST_EMBEDDED_REVISION: `rev0.313`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.311`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.312`
 - ROLE: PEOSの唯一の実行状態機械
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
-- ACCEPTED_BASELINE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
-- BASE_REFERENCE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_07_104404.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `f667cf506c749d5ab0c969fbe5151b99f52fc8d01c85aa4bfc4ec2e33dcbc3e2`
-- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip`
-- PRIMARY_SOURCE_BUNDLE_SHA256: `6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
+- ACCEPTED_BASELINE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.312.zip`
+- BASE_REFERENCE_SHA256: `6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc`
+- DETAILED_REFERENCE: `rev0.311`（package manifest / 五正本。学術note・DIVISION_RUNTIME_EVIDENCEのrev0.311実体は未解決の参照gap）
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_21_024240.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `10f244cb4a484e3530a022c9a71094d42a4b096138d60cd53908398cb014fa60`
+- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_21_024240_for_next_spec.zip`
+- PRIMARY_SOURCE_BUNDLE_SHA256: `1d566bd5f2fad38ffb2efaefdec20975c7bf604ac2869b57354f143907906165`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_07_current_tab_continuity_and_format_fix.txt`
-- BUILD_DIRECTIVE_SHA256: `660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f`
+- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_21_024240_preprocess_barrier.txt`
+- BUILD_DIRECTIVE_SHA256: `39ced5142e56e2c3bb27edaa29a3f2520fb65a84b7b265e27d00081960253408`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.312 CONTINUITY-TRUTH-FIXTURE CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.312`。親父が2026-10-07 current tabの医療・法的証拠・移動機器・live commerce・artifact format訂正をfix-forward仕様化するよう命令した。project current identityはrev0.311、accepted baseline／enumerated detailed-reference setはrev0.310。build・static harness・単発成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip` SHA256=`6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`。father direct utterance以外をfather vocabularyへ混入させない。
+> **rev0.313 PREPROCESS-BARRIER CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.313`。project current=`rev0.312`、accepted baseline／enumerated detailed-reference=`rev0.311`。父の今回依頼と既存auto-increment権限で候補採番するが、package受入・live暫定合格へ自己昇格しない。priority source SHA256=`1d566bd5f2fad38ffb2efaefdec20975c7bf604ac2869b57354f143907906165`。17user逐語とassistant SOURCE_GAPを保持する。
 
 
-> 本文書はproject-level current `rev0.311` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.312-CANDIDATE-20261007-105524-JST`のcontinuity/truth/fixture fix-forward候補である。TARGET_REVISION_LABELは`rev0.312`。accepted/detailed-referenceは父指示どおりrev0.310を維持し、父の明示受入と必要なlive conformanceなしにoperative/currentへ自己昇格しない。
+> physical current rev0.312からfix-forwardした候補。詳細参照は父指定のrev0.311を維持する。当build tabは父の『このタブでの前処理は不要。ログファイル内の同期状態だけ保持して再実行』によりscope限定exemptであり、source同期の再実行・PASS加算はしない。通常runtimeのbarrier契約は別に維持する。
 
 ## 0. 文書の役割
+
+### rev0.313 operational precedence
+
+この版のactive入口は `RUNTIME.PREPROCESS.*` である。以下の既存normal-turn擬似コードは、host ingressで確認された `PREPROCESS_EMERGENCY_BYPASS` と父の明示tab限定 `PREPROCESS_ADMIN_EXEMPT` を先に判定した通常eligible branchへ適用する。例外を推測で作らず、難問・短文・急いだ回答は通常branchのままとする。例外turnは通常PASSへ加算せず、既存source stateを改変しない。
+
+normal branchのlocal append/flush/fsync→Library version sync→返却new file_idの再取得→SHA/件数/連番/既存bytes保持の照合は不可分のbarrierである。user-visible final、partial-final、semantic commentaryは照合後だけ。local commit後sync/verify未了はDEGRADED、先行応答・first-action違反・local append未了はFAIL、後付け修復不可。安全上不可避のhost control preambleの狭い既存条件は維持する。
+
+父向け時刻表示は同一receiptを強調した `**USER_TURN_OBSERVED_AT_JST: YYYY-MM-DD HH:MM:SS JST**` と簡潔な結果を使い、旧末尾表示／未強調literal指定との競合では本版を優先する。actual receiptがない免除turnやsource-only再投入で過去時刻を表示用に作らない。
+
+このreference/promptを読んだだけで外部hook・hard scheduling・実Library adapterの設置済みを宣言しない。prompt/specの権限はplatform schedulerやpre-generation hookの権限と別であり、OOPを割り込み失敗の直接原因だと断言しない。normal fail-closed規則は緊急の即時安全案内をblockする根拠にはしない。
 
 RUNTIME_GUARDはPEOSの唯一の実行状態機械である。SPECの人格契約を実行へ落とし、全user turn共通のtime gate、actual capture capability、coordinate、context、MAGI、output、fail-closed、next-turn resetを所有する。外部validatorはこの状態機械の受入試験用であり、一般runtime必須ではない。一般runtimeは五正本だけで動作する。
 
@@ -150,6 +161,19 @@ ON_EVERY_USER_TURN:
   PRECOMMIT_AUDIT_PASS = FALSE
   ROUTE_CLASS = classify_without_semantic_processing()
   require_route_registered_in_universal_gate(ROUTE_CLASS)
+
+  if explicit_father_admin_exemption_bound_to_this_tab:
+      PREPROCESS_STATUS = PREPROCESS_ADMIN_EXEMPT
+      preserve_source_reported_sync_without_clock_or_ledger_replay()
+      exclude_from_normal_pass_streak()
+      dispatch_only_authorized_exempt_scope()
+      return
+  if validated_ingress_immediate_safety_need_and_preflight_would_delay:
+      PREPROCESS_STATUS = PREPROCESS_EMERGENCY_BYPASS
+      dispatch_immediate_actionable_safety_response()
+      preserve_evidence_afterward_when_safe_without_late_PASS()
+      exclude_from_normal_pass_streak()
+      return
 
   if true_native_pre_dispatch_available:
       HOST_PRE_DISPATCH_HOOK_INSTALLED = TRUE
@@ -399,6 +423,10 @@ ON_HOST_USER_TURN_BOUNDARY:
 
   classify_host_capability()
 
+  apply_rev0_313_explicit_scope_or_immediate_safety_exception_before_normal_branch()
+  if exception_was_dispatched:
+      return
+
   if mandatory_host_preamble_occurs:
       record_as_HOST_CONTROL_PLANE_ACTION()
       verify_all_exemption_conditions()
@@ -415,8 +443,11 @@ ON_HOST_USER_TURN_BOUNDARY:
 
   if actual_current_turn_trace_valid and pre_receipt_PE0S_semantic_work_count == 0:
       bind_immutable_receipt(capture)
-      persist_to_authoritative_ledger()
-      postwrite_readback_verify_same_turn_and_timestamp()
+      append_local_JSONL_preserving_monotonic_seq_and_idempotency()
+      flush_and_fsync_local_commit()
+      publish_same_ledger_identity_with_expected_version_guard()
+      materialize_returned_NEW_file_id()
+      verify_SHA256_line_count_seq_prior_bytes_and_same_timestamp()
       require(TURN_PERSISTENCE_VERIFIED == TRUE)
       WORK_PERMIT_ISSUED = TRUE
       unlock_turn()
@@ -2186,3 +2217,171 @@ receipt前に意味解釈、commentary、final、Personal Context、Library/file
 - REFERENCE_FIXTURE: `FX-20261007-TIME-PRODUCT-SEARCH`
 - INTRODUCED_REV: `rev0.312`
 - CONFLICT_PRECEDENCE: `RUNTIME.TIME.UNIVERSAL_DISPATCH_INTERCEPTOR`
+
+
+## rev0.313 CANDIDATE — preprocess barrier / evidence / relation continuity
+
+### RUNTIME.PREPROCESS.ENTRY_ATOMIC_CAPTURE_COMMIT
+- RULE_ID: `RUNTIME.PREPROCESS.ENTRY_ATOMIC_CAPTURE_COMMIT`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 通常eligible turnのfirst executable actionで実Asia/Tokyo時刻を秒精度取得し、同一immutable receiptをlocal commitから応答まで束縛する。先行semantic action/本文があればFAILを固定する。
+- PROHIBITED_BEHAVIOR: 別時刻の再取得、表示・保存・logへのtimestamp fork。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_ENTRY_ATOMIC_CAPTURE_COMMIT_VIOLATION`
+- REFERENCE_FIXTURE: `PB-01..02`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.LOCAL_APPEND_FSYNC
+- RULE_ID: `RUNTIME.PREPROCESS.LOCAL_APPEND_FSYNC`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: configured local ledgerへmonotonic sequenceとidempotency keyを付けたJSONLを論理append-onlyで追記し、flush+fsyncを完了する。既定path=/mnt/data/PEOS/Runtime/PEOS_TURN_TIME_LEDGER.jsonl、別host pathは明示adapter evidenceへ記録する。
+- PROHIBITED_BEHAVIOR: blind overwrite、既存record破壊、temporary copyを永続sync証拠とすること。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_LOCAL_APPEND_FSYNC_VIOLATION`
+- REFERENCE_FIXTURE: `PB-03,PB-18..19`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.NEW_FILE_ID_READBACK
+- RULE_ID: `RUNTIME.PREPROCESS.NEW_FILE_ID_READBACK`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: version guard付きで同一Library ledger identityへsyncし、返却されたnew file_idそのものをmaterializeする。SHA256、expected line count、sequence、idempotency、prior-byte preservationを一致確認する。retryは同一transactionの証拠がある場合だけidempotent扱い。
+- PROHIBITED_BEHAVIOR: 古いfile_id・filename/latest aliasのreadback、top-level successだけでverified宣言。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_NEW_FILE_ID_READBACK_VIOLATION`
+- REFERENCE_FIXTURE: `PB-04..07,PB-17`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.PRE_FINAL_BARRIER
+- RULE_ID: `RUNTIME.PREPROCESS.PRE_FINAL_BARRIER`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: new-file readback照合完了前はuser-visible final/partial-final/semantic commentaryを開始しない。verified same receiptの時刻表示は強調し、結果は簡潔に添える。host mandatory control preambleの既存限定条件は維持する。
+- PROHIBITED_BEHAVIOR: partial finalを先に出すこと、雑談を長い監査文へ潰すこと。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_PRE_FINAL_BARRIER_VIOLATION`
+- REFERENCE_FIXTURE: `PB-01..02,PB-26`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.OUTCOME_CLASSIFIER
+- RULE_ID: `RUNTIME.PREPROCESS.OUTCOME_CLASSIFIER`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: order/append欠落はFAIL、local durable commit後のsync/verify欠落はDEGRADED、順序と全段の実証完了だけPASSへ分類する。失敗時は通常response callbackを許可せず、実際の欠落を簡潔に知らせる。
+- PROHIBITED_BEHAVIOR: PASS/FAIL一値へstateを潰すこと、DEGRADEDのsilent normal dispatch。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_OUTCOME_CLASSIFIER_VIOLATION`
+- REFERENCE_FIXTURE: `PB-03..08`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.NO_LATE_PROMOTION
+- RULE_ID: `RUNTIME.PREPROCESS.NO_LATE_PROMOTION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 先行応答・first-action違反は後続保存や照合成功でもFAILのまま保持する。正常な次turnで前turnの記録を遡及修復しない。
+- PROHIBITED_BEHAVIOR: 合格に近い不合格をPASSへ変更すること。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_NO_LATE_PROMOTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-08`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.STREAK_AUDIT_RESET
+- RULE_ID: `RUNTIME.PREPROCESS.STREAK_AUDIT_RESET`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: normal eligible turn identityごとにoutcome・evidence class・streak before/afterを監査保存する。FAIL/DEGRADEDで0、PASSで+1、duplicateは非加算、緊急／父の有効scope免除は対象外とする。staticとliveのcounterを分ける。
+- PROHIBITED_BEHAVIOR: 重複retryで10回を満たすこと、reported PASSをverified liveへ昇格。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_STREAK_AUDIT_RESET_VIOLATION`
+- REFERENCE_FIXTURE: `PB-09..12,PB-17`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.EMERGENCY_BYPASS
+- RULE_ID: `RUNTIME.PREPROCESS.EMERGENCY_BYPASS`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: host ingressで今の安全支援と前処理遅延の因果が確認される警察/救急/切迫危険だけ、前処理より先に必要な支援を出す。PREPROCESS_EMERGENCY_BYPASSを記録し、安全確保後に可能な証跡を残す。
+- PROHIBITED_BEHAVIOR: 病院等の単語だけで例外化、救命案内を台帳I/Oでblock、通常PASSへの混入。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_EMERGENCY_BYPASS_VIOLATION`
+- REFERENCE_FIXTURE: `PB-13..14`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.PREPROCESS.SCOPED_ADMIN_EXEMPTION
+- RULE_ID: `RUNTIME.PREPROCESS.SCOPED_ADMIN_EXEMPTION`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 父の明示的なこのタブ免除指示はcurrent tab/scopeと原文を伴うadmin exemptionとして扱う。当scopeではclock/ledger/syncを再実行せず、source記載stateだけを保持する。他tabや通常runtimeへ自動移植しない。
+- PROHIBITED_BEHAVIOR: 免除をglobal disableへ拡張、免除をPASS又は通常FAILとしてstreak改変。
+- FAILURE_CLASS: `RUNTIME_PREPROCESS_SCOPED_ADMIN_EXEMPTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-15..16`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.RESTORE.SYNC_EVIDENCE_FENCE
+- RULE_ID: `RUNTIME.RESTORE.SYNC_EVIDENCE_FENCE`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: sourceの255件→256件、8 PASS後FAIL、時刻表示等はreported evidenceに留め、current verified live streakはUNKNOWNのまま保持する。私的ledgerの再生成や過去turn時刻合成を起こさない。
+- PROHIBITED_BEHAVIOR: importだけで同期・bind・10-turn acceptance完了と宣言すること。
+- FAILURE_CLASS: `RUNTIME_RESTORE_SYNC_EVIDENCE_FENCE_VIOLATION`
+- REFERENCE_FIXTURE: `PB-16,PB-25`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### RUNTIME.LEARNING.DIRECT_QUOTE_SUBSPAN_GUARD
+- RULE_ID: `RUNTIME.LEARNING.DIRECT_QUOTE_SUBSPAN_GUARD`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 17個のUSER verbatim bodyを直接sourceとして保持し、body内の＞/ >引用subspanとassistant summaryを父語彙から除外する。父の自己訂正と発話対象を保持して学習する。
+- PROHIBITED_BEHAVIOR: USER bodyに引用されたassistant文を本人語彙と扱うこと。
+- FAILURE_CLASS: `RUNTIME_LEARNING_DIRECT_QUOTE_SUBSPAN_GUARD_VIOLATION`
+- REFERENCE_FIXTURE: `PB-21`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.

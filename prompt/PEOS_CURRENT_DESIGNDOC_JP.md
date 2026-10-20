@@ -1,34 +1,35 @@
 # PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
 
-- 文書revision: `rev0.312`
-- 現行latest: `rev0.311`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.312-CANDIDATE-20261007-105524-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.312`
+- 文書revision: `rev0.313`
+- 現行latest: `rev0.312`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.313-CANDIDATE-FROM-20261021-024240`
+- HIGHEST_EMBEDDED_REVISION: `rev0.313`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.311`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.312`
 - ROLE: 五正本分離・構成管理・migration理由
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
-- ACCEPTED_BASELINE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
-- BASE_REFERENCE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_07_104404.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `f667cf506c749d5ab0c969fbe5151b99f52fc8d01c85aa4bfc4ec2e33dcbc3e2`
-- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip`
-- PRIMARY_SOURCE_BUNDLE_SHA256: `6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
+- ACCEPTED_BASELINE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.312.zip`
+- BASE_REFERENCE_SHA256: `6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc`
+- DETAILED_REFERENCE: `rev0.311`（package manifest / 五正本。学術note・DIVISION_RUNTIME_EVIDENCEのrev0.311実体は未解決の参照gap）
+- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_21_024240.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `10f244cb4a484e3530a022c9a71094d42a4b096138d60cd53908398cb014fa60`
+- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_21_024240_for_next_spec.zip`
+- PRIMARY_SOURCE_BUNDLE_SHA256: `1d566bd5f2fad38ffb2efaefdec20975c7bf604ac2869b57354f143907906165`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_07_current_tab_continuity_and_format_fix.txt`
-- BUILD_DIRECTIVE_SHA256: `660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f`
+- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_21_024240_preprocess_barrier.txt`
+- BUILD_DIRECTIVE_SHA256: `39ced5142e56e2c3bb27edaa29a3f2520fb65a84b7b265e27d00081960253408`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.312 CONTINUITY-TRUTH-FIXTURE CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.312`。親父が2026-10-07 current tabの医療・法的証拠・移動機器・live commerce・artifact format訂正をfix-forward仕様化するよう命令した。project current identityはrev0.311、accepted baseline／enumerated detailed-reference setはrev0.310。build・static harness・単発成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip` SHA256=`6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`。father direct utterance以外をfather vocabularyへ混入させない。
+> **rev0.313 PREPROCESS-BARRIER CANDIDATE FENCE**  
+> TARGET_REVISION_LABEL=`rev0.313`。project current=`rev0.312`、accepted baseline／enumerated detailed-reference=`rev0.311`。父の今回依頼と既存auto-increment権限で候補採番するが、package受入・live暫定合格へ自己昇格しない。priority source SHA256=`1d566bd5f2fad38ffb2efaefdec20975c7bf604ac2869b57354f143907906165`。17user逐語とassistant SOURCE_GAPを保持する。
 
 
-> 本文書はproject-level current `rev0.311` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.312-CANDIDATE-20261007-105524-JST`のcontinuity/truth/fixture fix-forward候補である。TARGET_REVISION_LABELは`rev0.312`。accepted/detailed-referenceは父指示どおりrev0.310を維持し、父の明示受入と必要なlive conformanceなしにoperative/currentへ自己昇格しない。
+> physical current rev0.312からfix-forwardした候補。詳細参照は父指定のrev0.311を維持する。当build tabは父の『このタブでの前処理は不要。ログファイル内の同期状態だけ保持して再実行』によりscope限定exemptであり、source同期の再実行・PASS加算はしない。通常runtimeのbarrier契約は別に維持する。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
 > この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
@@ -318,7 +319,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SCOPE: `RELEASE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: RC構築時。
-- REQUIREMENT: rev0.305 ZIP、sidecar、manifest、evidenceをbyte不変で保持し、RCは別pathへ生成する。
+- REQUIREMENT: accepted baselineの保持対象五正本と原文evidenceをbyte不変で保持し、候補は別pathへ生成する。release履歴は父の直近2版保持指示とSPECの配布履歴方針に従い、過去版内部の旧履歴・入れ子ZIPも除去する。元ZIPと整理treeのbyte同一性は主張しない。
 - PROHIBITED_BEHAVIOR: baseline上書き。
 - FAILURE_CLASS: `BASELINE_MUTATION`
 - REFERENCE_FIXTURE: `FX-RELEASE-001`
@@ -423,7 +424,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SCOPE: `MIGRATION`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: 旧revision本文・事故経緯を保存するとき。
-- REQUIREMENT: baseline packageとmigration ledgerをhistory/provenance sourceとし、五正本本文へ再埋込しない。
+- REQUIREMENT: 直近2版のflat snapshotと版ごとのmigration ledgerをhistory/provenance sourceとし、五正本本文へ再埋込しない。snapshot内へ旧historyやZIPを継承しない。元archiveの名前・hashは出自記録として扱い、配布内実在ZIPと誤認しない。
 - PROHIBITED_BEHAVIOR: active runtimeを履歴の中へ埋没させること。
 - FAILURE_CLASS: `ACTIVE_RUNTIME_BURIED_IN_HISTORY`
 - REFERENCE_FIXTURE: `FX-MIG-001`
@@ -798,3 +799,81 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - REFERENCE_FIXTURE: `FX-20261007-DOMAIN-COMPARTMENT-001`
 - INTRODUCED_REV: `rev0.312`
 - CONFLICT_PRECEDENCE: `SPEC.LEGAL.ANONYMOUS_EVIDENCE_COMPARTMENT`
+
+
+## rev0.313 CANDIDATE — preprocess barrier / evidence / relation continuity
+
+### DESIGN.PREPROCESS.EXTERNAL_ORCHESTRATOR_BOUNDARY
+- RULE_ID: `DESIGN.PREPROCESS.EXTERNAL_ORCHESTRATOR_BOUNDARY`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: pre-response barrierをhost-neutral referenceとexternal orchestrator adapterに分ける。実platform hookの有無とテスト内callback順序は独立evidence classで示す。
+- PROHIBITED_BEHAVIOR: promptの自己宣言をplatform scheduler controlと同一視。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_EXTERNAL_ORCHESTRATOR_BOUNDARY_VIOLATION`
+- REFERENCE_FIXTURE: `PB-24`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### DESIGN.PREPROCESS.VERSION_PINNED_TRANSACTION
+- RULE_ID: `DESIGN.PREPROCESS.VERSION_PINNED_TRANSACTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: capture→local flush/fsync→versioned sync→returned file_id readback→byte/hash/count/seq verifyをtransaction境界とする。結果auditはverified payloadのhash/file_idへ外部bindingし、検証済みstatusを事前payloadへ書く循環証明を避ける。
+- PROHIBITED_BEHAVIOR: 検証前のPASS刻印、readback後にledger bytesを変更して照合値を破棄。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_VERSION_PINNED_TRANSACTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-01..08`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### DESIGN.PREPROCESS.OUTCOME_STREAK_PRODUCT_STATE
+- RULE_ID: `DESIGN.PREPROCESS.OUTCOME_STREAK_PRODUCT_STATE`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: transaction status、normal-turn streak、evidence class、父のpackage受入を別stateとして設計する。4turn correction stickinessと10turn preprocess暫定合格も別契約である。
+- PROHIBITED_BEHAVIOR: counter共用、10回のstatic成功をlive acceptanceと呼ぶこと。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_OUTCOME_STREAK_PRODUCT_STATE_VIOLATION`
+- REFERENCE_FIXTURE: `PB-09..12`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### DESIGN.RESTORE.OBSERVED_VS_REPORTED_SYNC
+- RULE_ID: `DESIGN.RESTORE.OBSERVED_VS_REPORTED_SYNC`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: archive source observationとruntime-ready stateを別namespaceで保存する。source gap、原source HASH、父のscope免除を保ち、台帳件数からrecordを生成しない。
+- PROHIBITED_BEHAVIOR: reported ledger countからobserved persistent truthを捏造。
+- FAILURE_CLASS: `DESIGN_RESTORE_OBSERVED_VS_REPORTED_SYNC_VIOLATION`
+- REFERENCE_FIXTURE: `PB-16,PB-25`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### DESIGN.ARTIFACT.CLASS_CONTRACT_EVOLUTION
+- RULE_ID: `DESIGN.ARTIFACT.CLASS_CONTRACT_EVOLUTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 旧session handoff fixtureをhistorical exampleとして維持し、manifest付きcurrent source classとfull GitHub package classを分離する。nearest physical fixtureは最新父指示と正本pipelineで解決する。
+- PROHIBITED_BEHAVIOR: 旧2-TXT例の普遍化、full packageを3ファイルだけへ縮退。
+- FAILURE_CLASS: `DESIGN_ARTIFACT_CLASS_CONTRACT_EVOLUTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-20`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
