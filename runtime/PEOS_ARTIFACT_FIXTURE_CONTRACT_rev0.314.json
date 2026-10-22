@@ -1,0 +1,27 @@
+{
+  "closure": "ENDPOINT_NOT_RECURSIVELY_EMBEDDED",
+  "count_semantics": "OBSERVED_FIXTURE_VALUES_NOT_GENERAL_LIMITS",
+  "current_fixture": "source/2026_10_23_rev0.314_short_preprocess",
+  "current_fixture_file_count": 49,
+  "current_fixture_user_turns": 114,
+  "current_source_class": "ATTACHMENT_BEARING_TAB_LOG",
+  "embedded_archives": false,
+  "fixed_root_two_txt_required": false,
+  "fixed_seventeen_user_limit": false,
+  "maximum_user_turns": null,
+  "pipeline": [
+    "log",
+    "validation",
+    "next-spec directive",
+    "file-level manifest",
+    "attachments",
+    "reinjection bundle"
+  ],
+  "raw_body": "PLAIN_UTF8_WITH_BODY_VERBATIM_BOUNDARIES",
+  "required_layers": [
+    "ARCHIVE_EVIDENCE",
+    "TYPED_RUNTIME_RESTORE"
+  ],
+  "revision": "rev0.314",
+  "source_gaps": "TYPED_NO_SUMMARY_SUBSTITUTION"
+}

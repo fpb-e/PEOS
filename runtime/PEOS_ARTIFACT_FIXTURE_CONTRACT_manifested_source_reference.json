@@ -1,0 +1,70 @@
+{
+  "artifact_classes": {
+    "ATTACHMENT_BEARING_LOG_PIPELINE": {
+      "broad_reference": "PEOS_GITHUB_PACKAGE_rev0.310.zip",
+      "ordered_stages": [
+        "LOG",
+        "VALIDATION",
+        "NEXT_SPEC_DIRECTIVE",
+        "FILE_LEVEL_MANIFEST",
+        "ATTACHMENTS",
+        "REINJECTION_BUNDLE"
+      ]
+    },
+    "FATHER_SESSION_NEXT_SPEC_HANDOFF": {
+      "closest_fixture": "PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip",
+      "required_terminators": [
+        "END OF SESSION LOG",
+        "END OF DIRECTIVE"
+      ],
+      "root_topology": [
+        "PEOS_father_session_log_YYYY_MM_DD_HHMMSS.txt",
+        "PEOS_next_spec_directive_YYYY_MM_DD_<slug>.txt"
+      ],
+      "unrelated_extra_root_files": "PROHIBITED"
+    },
+    "GITHUB_PACKAGE": {
+      "closest_fixture": "PEOS_GITHUB_PACKAGE_rev0.311.zip",
+      "required_classes": [
+        "FIVE_CANONS",
+        "PACKAGE_MANIFEST",
+        "VALIDATOR",
+        "SOURCE_EVIDENCE",
+        "STATIC_FIXTURES"
+      ],
+      "two_txt_only_rule": "NOT_APPLICABLE"
+    },
+    "MANIFESTED_SOURCE_COMMAND_BUNDLE": {
+      "closure": [
+        "END_OF_LOG",
+        "END_OF_DIRECTIVE",
+        "END_OF_MANIFEST",
+        "ENDPOINT_NOT_RECURSIVELY_EMBEDDED"
+      ],
+      "crc_required": true,
+      "current_physical_fixture": "source/2026_10_21_rev0.313_preprocess_barrier/",
+      "file_hashes_required": true,
+      "finished_revision": false,
+      "fixture_representation": "THREE_BYTE_PRESERVED_FILES; TEMPORARY_REBUILT_ZIP_FOR_API_INSPECTION",
+      "root_file_count": 3,
+      "root_topology": [
+        "FATHER_SESSION_LOG_TXT",
+        "NEXT_SPEC_DIRECTIVE_TXT",
+        "FILE_LEVEL_MANIFEST_TXT"
+      ],
+      "two_txt_only": false
+    }
+  },
+  "build_id": "PEOS-REV0.312-CANDIDATE-20261007-105524-JST",
+  "cross_class_overgeneralization": "PROHIBITED",
+  "current_source_class": "MANIFESTED_SOURCE_COMMAND_BUNDLE",
+  "fixture_selection": "CLOSEST_FATHER_SUPPLIED_PHYSICAL_FIXTURE_BY_ARTIFACT_CLASS",
+  "full_package_history_policy": "ONLY_TWO_FLAT_PREVIOUS_VERSIONS_NO_EMBEDDED_ARCHIVES",
+  "full_package_may_omit_history_archives": true,
+  "historical_two_root_txt_contract_replaced_globally": false,
+  "inspection_before_generation": true,
+  "is_sixth_canon": false,
+  "memory_only_format_inference": "PROHIBITED",
+  "revision": "rev0.313",
+  "rule_owner": "RUNTIME_GUARD"
+}

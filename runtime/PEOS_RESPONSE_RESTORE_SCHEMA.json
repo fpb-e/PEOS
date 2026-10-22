@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peos://runtime/response-restore/rev0.309",
+  "title": "PEOS rev0.309 typed response restore layer",
+  "type": "object",
+  "required": [
+    "REINJECTION_BOOTSTRAP",
+    "LIVE_AUTHORITY_RESOLUTION",
+    "GLOBAL_PEOS_RESPONSE_CORE",
+    "RELATION_CONTEXT_ADAPTER",
+    "CURRENT_STATE",
+    "OPEN_LOOPS",
+    "RESOLVED_LOOPS",
+    "DO_NOT_RESURRECT",
+    "HISTORICAL_ONLY",
+    "ATTACHMENT_DEPENDENCY_MAP",
+    "REPLAY_TEST_VECTORS"
+  ],
+  "properties": {
+    "REINJECTION_BOOTSTRAP": {"type": "object"},
+    "LIVE_AUTHORITY_RESOLUTION": {
+      "type": "object",
+      "required": ["current_canon", "accepted_baseline", "historical_blocks_are_snapshot_only"],
+      "properties": {
+        "current_canon": {"const": "rev0.308"},
+        "accepted_baseline": {"const": "PEOS_GITHUB_PACKAGE_rev0.307.zip"},
+        "historical_blocks_are_snapshot_only": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "GLOBAL_PEOS_RESPONSE_CORE": {
+      "type": "object",
+      "required": ["SOURCE_CLASS", "quality_floor", "artifact_delivery_personality_survival"],
+      "properties": {
+        "SOURCE_CLASS": {"const": "DERIVED_RUNTIME_MODEL"},
+        "quality_floor": {"const": "FATHER_ORDINARY_INTERACTION_LEVEL"},
+        "artifact_delivery_personality_survival": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "RELATION_CONTEXT_ADAPTER": {
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "canonical_call_sign",
+          "relationship_context",
+          "counterpart_context",
+          "local_safety_constraints",
+          "local_state"
+        ]
+      }
+    },
+    "CURRENT_STATE": {"type": "array"},
+    "OPEN_LOOPS": {"type": "array"},
+    "RESOLVED_LOOPS": {"type": "array"},
+    "DO_NOT_RESURRECT": {"type": "array"},
+    "HISTORICAL_ONLY": {"type": "array"},
+    "ATTACHMENT_DEPENDENCY_MAP": {"type": "array"},
+    "REPLAY_TEST_VECTORS": {"type": "array", "minItems": 1}
+  },
+  "additionalProperties": true
+}

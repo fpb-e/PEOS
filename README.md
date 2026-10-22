@@ -1,51 +1,37 @@
-# PEOS rev0.311 RELEASE CANDIDATE — 2026-09-13
+# PEOS rev0.314 — public export
 
-This package is a fix-forward rebuild from physical current `rev0.310` for the universal per-turn time-gate degradation recorded in the 2026-09-13 father log and directive.
+現行正本は **rev0.314**、accepted baselineは **PEOS_GITHUB_PACKAGE_rev0.313.zip**。
+不足・競合時は所有者の「擬似いーさんOS」プロジェクトの「PEOS正本指示」を上位参照とする。
+詳細参照もrev0.314を使う。rev0.280はbaseline禁止。旧CURRENTや候補buildのヘッダから巻き戻さない。
 
-- BUILD_ID: `PEOS-REV0.311-CANDIDATE-20260913-171938-JST`
-- TARGET_REVISION_LABEL: `rev0.311`
-- CURRENT_PROJECT_CANON: `rev0.310`
-- CURRENT_PHYSICAL_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.309.zip`
-- ACCEPTED_BASELINE_SHA256: `5cc56551739059d0ba0cda8d1de26907343554c7ce9aca97921c1dcedb9c1888`
-- STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED / LIVE_ACCEPTANCE_PENDING`
-- PRIMARY_SOURCE: `PEOS_father_session_log_2026_09_13_171409.txt`
-- PRIMARY_SOURCE_SHA256: `32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772`
-- DIRECTIVE_SHA256: `319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6`
-- SOURCE_BUNDLE_SHA256: `f85243c932eb0ae3b0eb81fca9f4c32ad7008e6b5d9c8f29975a60a9f2860448`
+## 公開範囲
 
-## Chosen treatment
+五正本、実装コード、空の復元入口、schema/contract、合成データのテストを公開する。
+会話原文、会話から抜き出した学習台帳、画像、私的なメール・医療・予定・同期receiptを含む復元状態は同梱しない。
+五正本の選別済み仕様例は仕様文書として保持し、原会話コーパスの配布とは区別する。
+元の非公開配布物やLibraryファイルは変更しない。
 
-The selected branch is `FIX_FORWARD_FROM_CURRENT_REV0.310`, not rollback. rev0.309 remains the accepted detailed reference, while rev0.310 is the complete physical implementation base.
+履歴は `history/rev0.313/` と `history/rev0.312/` の公開正本部分だけを保持する。
+入れ子のhistory、埋め込みZIP、原文の別名コピーは公開しない。既存リポジトリの別用途ファイルは保持する。
 
-The strong provisional root cause is `UNIVERSAL_PRE_DISPATCH_INTERCEPTOR_ABSENT_OR_NOT_BOUND / BOOT_ONLY_OR_ROUTE_LOCAL_ENFORCEMENT`: written rules did not prove one root hook across ordinary and casual turns.
+## 起動とauthority
 
-## rev0.311 delta
+公開入口は `runtime/PEOS_SESSION_RESTORE_rev0.314.json`。私的データを持たない空の復元状態である。
+通常profileはSHORT_ACK_SYNC、厳密readback監査は明示選択時だけ。
+五正本とL0の旧current/baseline表示は元buildの履歴としてバイトを保持する。
+現在のauthorityは公開入口と `admin/PEOS_REV0.314_PUBLIC_METADATA.json` に明示している。
+実host hookや永続同期adapterの設置、live稼働の受入はこの公開で実証したことにしない。
 
-1. `UniversalTurnGate.dispatch` is the single entry for all 13 registered routes.
-2. Capture → immutable value → persist → versioned readback → same-value verify → `WORK_PERMITTED` is mandatory.
-3. Casual chat, short acknowledgement, file, image, web/tool, automation, log, specification and ZIP work are non-exempt.
-4. Python ZoneInfo capture is the reference path; a trusted alternate requires truthful provider/path evidence and typed variance.
-5. Capture unavailable, persistence failed, captured-not-persisted and gate bypass remain distinct fail-closed states.
-6. Coverage audit reports eligible, canonical, excluded-failed and missing counts instead of comparing raw totals.
-7. `USER_OPERATION_ERROR` requires a specific action, a defined alternative contract and a direct causal path.
-8. Historical missing times are never synthesized from nearby values or filesystem metadata.
-9. UTG-01〜13 includes the mandatory Shine Muscat casual-chat regression fixture.
-10. Existing runtime-binding, time-ledger and style-restore behavior is retained as nonregression coverage.
+## 検証
 
-## Preserved corrections
+```sh
+python3 -B tools/validate_rev0_314.py
+```
 
-The rev0.309 response-density/style corrections and rev0.310 runtime-binding separation remain intact. The five-canon / supporting-state boundary and one-rule/one-owner registry are unchanged.
+公開版のmanifest、五正本の元バイト、412 ruleの一意owner、91導出要求、履歴2版、
+禁止ファイル・画像・元の非公開資料の別名コピー、合成データによる短縮前処理・ZIP importer・policyを検証する。
+元の私的会話・画像に依存するsource復元テストは公開版では実行しない。
+この結果を非公開版327ケースの再現やlive-runtime合格として表示しない。
 
-## Source and privacy boundary
-
-- The priority bundle and physical rev0.310 ZIP are included as immutable source/base evidence.
-- The referenced `PEOS_mother_session_log_2026_09_13_151428.txt` is absent; only the father-reported summary is used.
-- Father-authenticated direct utterances alone are eligible for father vocabulary learning.
-- The father-private live time ledger is excluded. Only schemas, bootstrap data, synthetic fixtures and typed traces are distributed.
-
-## Acceptance boundary
-
-UTG-01〜13 static integration results may pass without proving the live host. The current build turn is `PRE_DISPATCH_GATE_BYPASS / NO_LATE_REPAIR` because required host/skill actions preceded the PEOS receipt; it is retained only as negative evidence. Universal host interception remains `PENDING`.
-
-Run `python3 tools/validate_rev0_311.py` after extraction. A green validator means package/static consistency only, never self-acceptance.
+ZIPの取り込みは `docs/ZIP_IMPORT_WORKFLOW.md` を参照。公開前には必ず公開版validatorで対象treeを確認する。
+既存PR #1のZIP importerと同じコードを含むが、この公開作業は既存PRをmerge/closeしない。

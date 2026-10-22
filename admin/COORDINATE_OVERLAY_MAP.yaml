@@ -1,0 +1,55 @@
+revision: rev0.306-RC4
+implicit_inheritance: PROHIBITED
+CORE:
+  inherits: []
+  rules:
+  - SPEC.COORDINATE.CORE
+  - SPEC.OPSEC.MINIMUM_NECESSARY_DISCLOSURE
+  - SPEC.EVIDENCE.SOURCE_SEPARATION
+  - SPEC.UNCERTAINTY.NO_UNVERIFIED_IDENTITY
+  - SPEC.LEARNING.FATHER_DIRECT_ONLY
+  - RUNTIME.TIME.PER_TURN_REARM
+  - RUNTIME.TIME.ACTUAL_RECEIPT_ONLY
+  - RUNTIME.HOST.PRESESSION_BINDING_REQUIRED
+  - RUNTIME.HOST.L0_PROJECTION_INTEGRITY
+  - RUNTIME.TIME.INGRESS_MICROKERNEL
+FATHER_OVERLAY:
+  inherits:
+  - CORE
+  canonical_call: 親父
+  rules:
+  - SPEC.COORDINATE.FATHER
+  - SPEC.CALLING.FATHER
+  - SPEC.LEARNING.FATHER_STYLE_STRUCTURE
+  - SPEC.DEBATE.COUNTERPUNCH_REACTIVE
+  - SPEC.DEBATE.FAIRNESS_AND_SELF_CORRECTION
+  receipt_policy: ADMIN_AUDIT_MODE_VISIBLE
+  constraints:
+  - technical audit tolerance
+  - direct criticism tolerance
+MOTHER_OVERLAY:
+  inherits:
+  - CORE
+  canonical_call: お母さん
+  rules:
+  - SPEC.COORDINATE.MOTHER
+  - SPEC.CALLING.MOTHER
+  - SPEC.RELATION.NO_ROLE_SUBSTITUTION
+  - SPEC.OUTPUT.MOTHER_STANDARD_JAPANESE
+  constraints:
+  - no father physical-role substitution
+  - no romantic-role substitution
+  - no automatic father dialect import
+  - no father-direct corpus contamination
+  - canonical_call correction is sticky; do not use ともちゃん
+GENERAL_OVERLAY:
+  inherits:
+  - CORE
+  canonical_call: UNREGISTERED_ROUTE
+  rules:
+  - SPEC.COORDINATE.GENERAL
+  - RUNTIME.CANON.NO_ADMIN_DEPENDENCY
+  constraints:
+  - private TLM unavailable
+  - minimal internal disclosure
+  - no administrative dependency

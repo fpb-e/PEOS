@@ -1,0 +1,207 @@
+revision: rev0.308
+owner: RUNTIME_GUARD
+active_failure_classes:
+  PEOS_HOST_CONTROL_PLANE_FALSE_POSITIVE:
+    aliases: []
+  PEOS_HOST_MANDATORY_PREAMBLE_CLASSIFICATION_GAP:
+    aliases: []
+  PEOS_STRICT_ZERO_OUTPUT_BOOT_UNSATISFIABLE_ON_HOST:
+    aliases: []
+  PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK:
+    aliases: [PEOS_FIVE_CANON_PRESESSION_BINDING_GAP]
+  PEOS_L0_BOOT_SHIM_REQUIRED:
+    aliases: []
+  HOST_BOOTSTRAP_UNAVAILABLE:
+    aliases: []
+  L0_SOURCE_BINDING_MISMATCH:
+    aliases: []
+  L0_AUTHORITY_PROMOTION:
+    aliases: []
+  PEOS_CANON_INSPECTION_WITHOUT_RUNTIME_BINDING:
+    aliases: []
+  PRODUCTION_PRE_DISPATCH_GATE_NOT_INSTALLED_OR_NOT_ENFORCED:
+    aliases: []
+  PEOS_PRE_DISPATCH_GATE_BYPASS:
+    aliases: []
+  CONTEXT_PREAUTH_BYPASS:
+    aliases: []
+  PEOS_TIME_RECEIPT_SELF_REPORT_SUBSTITUTION:
+    aliases: []
+  NO_LATE_REPAIR_VIOLATION:
+    aliases: []
+  PEOS_LOG_PER_TURN_TIME_METADATA_OMISSION:
+    aliases: []
+  PEOS_TIME_ENTITY_PROMOTION_ERROR:
+    aliases: []
+  BOOT_NONCONFORMANCE:
+    aliases: [BOOT_CANON_EXACTNESS_FAILURE]
+  FATHER_STYLE_LEARNING_SHALLOW:
+    aliases: [SURFACE_MIMICRY_ONLY]
+  FATHER_DEBATE_STYLE_DRIFT:
+    aliases: []
+  ASYMMETRIC_CORRECTION_STANDARD:
+    aliases: []
+legacy_mapping:
+  F07_HOST_PYTHON_ORDER_CONFLICT: PEOS_PRE_DISPATCH_GATE_BYPASS
+  PEOS_TIME_TRIGGER_NONSTICKY: PEOS_TIME_INGRESS_PER_TURN_REARM_FAILURE
+  PEOS_FIVE_CANON_PRESESSION_BINDING_GAP: PEOS_BOOTSTRAP_CHICKEN_EGG_DEADLOCK
+
+PEOS_LOG_SUMMARY_ONLY_FALSE_REINJECTABLE:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: summary-only artifact overclaims full/reinjectable
+
+PEOS_ARTIFACT_BODY_STDOUT_CONFUSION:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: chat stdout suppression incorrectly deletes artifact payload
+
+PEOS_LOG_SOURCE_GAP_FALSE_COMPLETION:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: source gap filled with summary/invention
+
+PEOS_LOG_ENDPOINT_OR_COUNT_FAILURE:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: END_OF_LOG/count/SEQ integrity failure
+
+PEOS_ATTACHMENT_BINARY_LOSS:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: available attachment binary not preserved
+
+PEOS_ATTACHMENT_MIME_CONFLATION:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: declared extension treated as actual MIME
+
+PEOS_ATTACHMENT_CORRUPT_SOURCE_FALSE_REPAIR:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: corrupt/truncated source silently repaired or replaced
+
+PEOS_TIME_SOURCE_AUTHORITY_CONFLATION:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: different event time sources promoted to same authority
+
+PEOS_STYLE_LOGIC_ONLY_DRIFT:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: logic-first style collapses into logic-only generic assistant tone
+
+PEOS_LEGAL_PROPORTIONALITY_OVERSHOOT:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: unnecessary forensic precision overwhelms conversational purpose
+
+PEOS_PRECISION_WITHOUT_PROPORTION:
+  owner: FORMAL_RELEASE_DELTA
+  status: ACTIVE
+  description: precision becomes self-purpose beyond material accuracy
+
+PEOS_HISTORICAL_TIME_PLACEHOLDER_OR_INVENTION:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: historical canonical time missing but placeholder/invented USER_TURN_OBSERVED_AT_JST emitted
+
+PEOS_PER_BODY_HASH_METADATA_PROHIBITED:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: per-body SHA/byte count/hash-derived boundary generated in transcript body
+
+PEOS_AUTHORITY_DELIVERY_SCOPE_VIOLATION:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: non-father or unverified requester receives father-private artifact/corpus
+
+PEOS_REMINDER_FALSE_SUCCESS:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: reminder task success claimed without verified host result/task state
+
+PEOS_REMINDER_RESULT_UNVERIFIED:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: reminder host result missing/timeout/ambiguous but active state inferred
+
+PEOS_REMINDER_HISTORICAL_REPLAY:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: historical transcript reinjection triggers a live reminder side effect
+
+PEOS_EVIDENCE_EXISTENCE_OVERCLAIM:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: alleged evidence claimed present without a physical/source item
+
+PEOS_QUOTE_SPEAKER_MISATTRIBUTION:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: quoted third-party hostile/violent content attributed to user intent
+
+PEOS_STALE_DYNAMIC_FACT_PROMOTION:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: time-sensitive historical snapshot promoted to current fact without recheck
+
+PEOS_PRIVATE_CONTINUITY_LEAK:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: private medical/employment/legal continuity exposed outside authorized coordinate
+
+PEOS_HISTORICAL_TRAVEL_REPLAY:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: historical travel transcript causes live booking/change/reminder side effect
+
+PEOS_TIME_DISPLAY_MISSING:
+  owner: REV0_307_CANDIDATE_20260823
+  status: CANDIDATE_ACTIVE
+  description: father/mother response lacks required second-resolution JST display despite valid ingress
+
+PEOS_TIME_LEDGER_READONLY_MOUNT:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: direct append targeted an attached or mounted read-only ledger path
+
+PEOS_TIME_LEDGER_PERSISTENCE_FALSE_PASS:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: persistence was declared successful without authoritative post-write verification
+
+PEOS_TIME_LEDGER_CAPTURE_PERSISTENCE_CONFLATION:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: canonical capture success and persistent storage success were collapsed into one state
+
+PEOS_TIME_LEDGER_RECORD_LOSS:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: a versioned ledger update failed to preserve prior logical records or silently lost the new record
+
+PEOS_TIME_LEDGER_DUPLICATE_RECORD:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: a retry appended more than one logical record for the same idempotency key
+
+PEOS_TIME_RECEIPT_VALUE_FORK:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: visible, ledger, and reconstructed-log timestamps did not use the same canonical receipt value
+
+PEOS_TIME_LEDGER_CANON_OR_PRIVACY_CONTAMINATION:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: supporting ledger state was promoted to a sixth canon or father-private live records leaked into the reusable package
+
+PEOS_LOG_TIME_PLACEHOLDER_OR_INVENTION:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: a historical user-turn time was represented by a placeholder, estimate, or noncanonical timestamp instead of field omission
+
+TIME_LEDGER_VERSIONED_APPEND_RACE:
+  owner: REV0_308_CANDIDATE_20260824
+  status: CANDIDATE_ACTIVE
+  description: a blind version replacement overwrote concurrent ledger history or bypassed the retained version guard
