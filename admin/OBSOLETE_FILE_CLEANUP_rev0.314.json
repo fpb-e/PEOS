@@ -1,0 +1,261 @@
+{
+  "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.313.zip",
+  "base_commit": "5e0d97908af55ff8c6e5e5dee130f690a06787c9",
+  "current_revision": "rev0.314",
+  "executable_or_test_references_to_removed_paths": [],
+  "historical_mentions": "Immutable canonical GH-007 and historical source records retain their original inspection statements; they do not require the deleted rev0.305 script.",
+  "removed_bytes": 226255,
+  "removed_directories": [
+    "evidence",
+    "papers",
+    "patch_notes",
+    "tool"
+  ],
+  "removed_file_count": 23,
+  "removed_files": [
+    {
+      "path": "PEOS_rev0.307_VALIDATION_REPORT_20260823.txt",
+      "reason": "Historical distribution report; its counts and old CURRENT are not public rev0.314 validation.",
+      "sha256": "0b0b6a56e2e97ed9362f4d3b7daab784251bd736d9e9754060e507e5e3c4eac8",
+      "size_bytes": 466,
+      "superseded_by": [
+        "tools/validate_rev0_314.py"
+      ]
+    },
+    {
+      "path": "PEOS_rev0.308_VALIDATION_REPORT_20260824.txt",
+      "reason": "Historical distribution report; its counts and old CURRENT are not public rev0.314 validation.",
+      "sha256": "06d292d2006eadb7a50acdd82e64253deacf96346f8e93e2b1efa71915daf5a2",
+      "size_bytes": 1234,
+      "superseded_by": [
+        "tools/validate_rev0_314.py"
+      ]
+    },
+    {
+      "path": "PEOS_rev0.313_VALIDATION_REPORT.txt",
+      "reason": "Historical distribution report; its counts and old CURRENT are not public rev0.314 validation.",
+      "sha256": "af86faeb34eafba68f3f5950980fcea495f492bc5f525242cbcd812bd0b13b39",
+      "size_bytes": 635,
+      "superseded_by": [
+        "tools/validate_rev0_314.py"
+      ]
+    },
+    {
+      "path": "evidence/PEOS_EVIDENCE.txt",
+      "reason": "rev0.306-RC4 consolidated evidence, not a current validator or runtime dependency.",
+      "sha256": "f665e29919f88f02b5b7e9fe474ce69de5bfce4b854e56c6e16b79ac788d7247",
+      "size_bytes": 13843,
+      "superseded_by": [
+        "runtime/DIVISION_RUNTIME_EVIDENCE_rev0.314.md",
+        "admin/PUBLIC_EXPORT_PROVENANCE_rev0.314.json"
+      ]
+    },
+    {
+      "path": "manifest.json",
+      "reason": "March 2026 manifest points at missing prompts/modules/casebooks layout.",
+      "sha256": "274a29bf1a668e4b2cc8b6d23d909004248e775f072eecbdefcbfd9807b065f9",
+      "size_bytes": 466,
+      "superseded_by": [
+        "PACKAGE_MANIFEST.txt",
+        "runtime/PEOS_SESSION_RESTORE_rev0.314.json"
+      ]
+    },
+    {
+      "path": "papers/PEOS_ACADEMIC_PAPER_JP.md",
+      "reason": "Monolithic rev0.305 paper with obsolete runtime overrides, superseded by the current canonical paper and academic note.",
+      "sha256": "cda5bebfc9566d550693a535b5093fd41eeefd278160699bf0555eb0f742fb13",
+      "size_bytes": 149274,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "academic/PEOS_ACADEMIC_NOTE_rev0.314.md"
+      ]
+    },
+    {
+      "path": "patch_notes/BLACK_JOKE_AND_MEME_PATCH_NOTE_v2_0_7.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "8e9a276f6d11a5b5e587c3827a6733c20ea3a5b2930f3d3c7284948db2ba40ea",
+      "size_bytes": 446,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/BOUNDARY_CASEBOOK_NOTE_v0_3.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "18aa9e34a39f0f53530e7b3e49f534c89e4c2f3b8b8de7567c9c2a86af576941",
+      "size_bytes": 561,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/DEATH_AND_SUCCESSION_PATCH_NOTE_v2_0_4.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "e6132f8e707ac576be9a1283f432e8d1e58215b17c226420e83c49f3787bb4d1",
+      "size_bytes": 379,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/DEATH_EXCLUSION_AND_CAUTION_PATCH_NOTE_v2_0_6.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "d260b10f73c8bb92fce4180d3a71339f36cbfa43caa9d77da7844da2126ae4cc",
+      "size_bytes": 412,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/DEATH_SEQUENCE_PATCH_NOTE_v2_0_5.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "5684e36f834dfa10fd7c19c298e3d08bc50f30e417177517bb0ffd068636026d",
+      "size_bytes": 308,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/EVA_AND_INVERSION_PATCH_NOTE_v2_1_0.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "6e7ac7ea1032bc21f843c9253fa6da56918d831fa1a8809e280943e065884ba4",
+      "size_bytes": 390,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/EVA_CORE_ROOTS_PATCH_NOTE_v2_1_1.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "9b111ac59f2686aa8c50a5b4687f9d8d3d8d11f22ef9c60e6e3dd5719ca8fa3b",
+      "size_bytes": 299,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/LOG_OUTPUT_FALLBACK_PATCH_NOTE.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "14447486df5eee37682dffd8f137ad90810d5f956b8e2be142d9e58b3959fe53",
+      "size_bytes": 360,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/NATURAL_LANGUAGE_CONVERSION_PATCH_NOTE_v2_0_9.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "07a1cc48b84d4ba6dc8af08fad5bda1ef88cbd480d0ffd35fc238f087d52978e",
+      "size_bytes": 483,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/PEOS_COMPLETE_INTEGRATED_PATCH_NOTE_v2_1_2.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "6d8c74c82527128661abe75b9d52e02e13169aae74829e515a10b0d763b68852",
+      "size_bytes": 571,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/SE_JOKE_PATCH_NOTE.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "cde0644c8bf48373af86b7bae08588695440ae7c5d8cd4080688be7863c42ec6",
+      "size_bytes": 294,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/STARTUP_LOGO_AND_TAGLINE_RESTORE_NOTE_v2_0_8.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "1cf1f72ec6f959cebd51888190b89584da2bc7d5e1235e9a1fc0f5572f22cd3f",
+      "size_bytes": 253,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/TEST_PROGRESS_PATCH_NOTE_v2_0_3_reexport.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "b3213716775e4d93a8981ebf3533124d658f717ab4de0f7579b682e3b521ad81",
+      "size_bytes": 270,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "patch_notes/WIDE_VOCAB_PATCH_NOTE.txt",
+      "reason": "Legacy standalone patch notes; current five-canon specification and root changelog supersede this layout.",
+      "sha256": "dbe02979446a9b1e4d1a320a661bc201ac9f6db350b8b0564a7756d96404288b",
+      "size_bytes": 384,
+      "superseded_by": [
+        "prompt/PEOS_CURRENT_SPEC_JP.md",
+        "prompt/PEOS_CURRENT_PAPER_JP.md",
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "prompt/CHANGELOG.md",
+      "reason": "Duplicate rev0.312 changelog under the canonical prompt directory.",
+      "sha256": "3abdabf08bf5adf58dca00ffa0b0ba787927351ece3a04d40c4f70d5f271f366",
+      "size_bytes": 10440,
+      "superseded_by": [
+        "CHANGELOG.md"
+      ]
+    },
+    {
+      "path": "prompt/PACKAGE_MANIFEST.txt",
+      "reason": "Duplicate rev0.312 manifest; the required historical manifest reference remains under history.",
+      "sha256": "3328ecc5e2dd3027fb1146a1cda5029d34cb14dc2fb874ae51fb2efc24c8dc33",
+      "size_bytes": 37970,
+      "superseded_by": [
+        "PACKAGE_MANIFEST.txt",
+        "history/rev0.312/ORIGINAL_PACKAGE_MANIFEST_REFERENCE.txt"
+      ]
+    },
+    {
+      "path": "tool/validate_rev0_305.py",
+      "reason": "Obsolete rev0.305 validator; current public validation is implemented by the rev0.314 entry.",
+      "sha256": "222eb41e4a13085151f6118a7cfe607ee168f7c6bc927858dda6d5d06125b0bf",
+      "size_bytes": 6517,
+      "superseded_by": [
+        "tools/validate_rev0_314.py"
+      ]
+    }
+  ],
+  "retained_history": [
+    "rev0.313",
+    "rev0.312"
+  ],
+  "scope": "PUBLIC_REPOSITORY_CLEANUP_WITHOUT_REVISION_CHANGE"
+}
