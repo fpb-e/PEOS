@@ -32,9 +32,11 @@ The first command is a dry run and leaves the working copy unchanged. The second
 - Unsafe paths, output collisions, symlinks, Git metadata paths, and the private `PEOS_TURN_TIME_LEDGER.jsonl` are rejected.
 - Archive CRC checking, SHA-256 change detection, and path checks validate the import operation. They do not validate the meaning of the imported PEOS specifications.
 
-## Current validation boundary
+## Validation and historical inspection
 
-At the base repository inspected for this change, `tool/validate_rev0_305.py` is present, but `tools/validate_rev0_311.py` and `tools/validate_rev0_313.py` referenced by release documents are absent. The older script is not a substitute for rev0.313 validation.
+Validate the current public tree with `python3 -B tools/validate_rev0_314.py`. Its scope is the public manifest, canonical specification bindings, publication exclusions, and synthetic tests; original conversations and images are intentionally outside this public tree.
+
+At the earlier repository inspection recorded in the canonical source, `tool/validate_rev0_305.py` existed while the referenced `tools/validate_rev0_311.py` and `tools/validate_rev0_313.py` were absent. The obsolete rev0.305 script has now been removed because it is not the current validation entry. That historical observation is retained in the immutable canons and does not require restoring the old script. The cleanup audit is `admin/OBSOLETE_FILE_CLEANUP_rev0.314.json`.
 
 The importer does not change the project's authoritative revision or accepted baseline. Embedded candidate metadata and historical CURRENT labels must be interpreted against the owner's explicit revision instructions.
 

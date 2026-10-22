@@ -12,7 +12,9 @@
 元の非公開配布物やLibraryファイルは変更しない。
 
 履歴は `history/rev0.313/` と `history/rev0.312/` の公開正本部分だけを保持する。
-入れ子のhistory、埋め込みZIP、原文の別名コピーは公開しない。既存リポジトリの別用途ファイルは保持する。
+入れ子のhistory、埋め込みZIP、原文の別名コピーは公開しない。
+現行の実行・検証から参照されない旧統合論文、個別patch note、旧検証器・旧report、重複manifestは整理した。
+削除対象と後継の対応は `admin/OBSOLETE_FILE_CLEANUP_rev0.314.json` に記録している。
 
 ## 起動とauthority
 

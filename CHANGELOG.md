@@ -1,5 +1,14 @@
 # Public export rev0.314
 
+## Repository cleanup — 2026-10-23
+
+- Remove 23 obsolete files (226,255 bytes) and the resulting empty `evidence/`, `papers/`, `patch_notes/`, and `tool/` directories.
+- Use the root public manifest/changelog and `tools/validate_rev0_314.py`; retire the missing-layout March manifest, duplicate rev0.312 prompt metadata, old validation reports, and rev0.305 validator.
+- Keep the current five canons, their original bytes, generic runtime code, public validation, and the two required canonical history subsets.
+- Record the path/hash/successor audit in `admin/OBSOLETE_FILE_CLEANUP_rev0.314.json`. Earlier inspection statements in immutable canons remain historical evidence.
+
+## Initial public export
+
 - Authority: current/detailed rev0.314; accepted baseline rev0.313.
 - Excludes raw conversation corpora, images, direct-learning ledgers and private restore snapshots.
 - Retains canonical bytes and executable generic code; replaces source-bound checks with an explicit public validation entry.
