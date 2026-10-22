@@ -1,0 +1,46 @@
+{
+  "revision": "rev0.310",
+  "status": "RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED",
+  "rule_owner": "RUNTIME_GUARD",
+  "is_sixth_canon": false,
+  "state_order": [
+    "FILE_VISIBLE", "CONTENT_READ", "SOURCE_SYNC", "PROJECT_CANON_CONTEXT_SHARED",
+    "CONTINUITY_MEMORY_SHARED", "RUNTIME_GUARDS_BOUND", "BOOT_ASSETS_READY",
+    "TIME_LEDGER_LOCATOR_RESOLVED", "TIME_LEDGER_SCHEMA_VALID", "PERSISTENCE_PATH_VERIFIED",
+    "PER_TURN_HOOK_BOUND", "DISPLAY_RENDERER_BOUND", "PRECOMMIT_AUDIT_BOUND",
+    "CORRECTION_CONSTRAINTS_BOUND", "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE", "TIME_LEDGER_RUNTIME_READY"
+  ],
+  "source_read_success_is_runtime_reload_success": false,
+  "ready_requires_all": [
+    "RUNTIME_GUARDS_BOUND", "BOOT_ASSETS_READY", "TIME_LEDGER_LOCATOR_RESOLVED",
+    "TIME_LEDGER_SCHEMA_VALID", "PERSISTENCE_PATH_VERIFIED", "PER_TURN_HOOK_BOUND",
+    "DISPLAY_RENDERER_BOUND", "PRECOMMIT_AUDIT_BOUND", "CORRECTION_CONSTRAINTS_BOUND",
+    "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE", "TIME_LEDGER_RUNTIME_READY"
+  ],
+  "per_turn_transaction": [
+    "PER_TURN_REARM", "CAPTURE_CANONICAL_JST_ONCE", "BIND_IMMUTABLE_RECEIPT",
+    "BEGIN_PERSISTENT_LEDGER_MERGE", "PERSIST_VERSIONED_WRITE", "POSTWRITE_READBACK_VERIFY",
+    "RENDER_SAME_RECEIPT_AS_EXACT_TEXT_PREFIX", "PRECOMMIT_AUDIT", "SEMANTIC_RESPONSE"
+  ],
+  "exact_prefix_pattern": "^\\[[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} JST\\]",
+  "host_control_plane_exemption": {
+    "semantic_commentary_exempt": false,
+    "requires_explicit_classification": true,
+    "allowed_class": "HOST_CONTROL_PLANE_ACTION_VERIFIED_EXEMPT"
+  },
+  "persistence_fail_closed": {
+    "runtime_status": "DEGRADED",
+    "persisted_claim": false,
+    "runtime_ready_claim": false,
+    "ephemeral_file_as_persistence": false,
+    "later_backfill": false
+  },
+  "correction_stickiness_turns": 4,
+  "precommit_required_checks": [
+    "EXACT_TIMESTAMP_PREFIX", "RECEIPT_DISPLAY_LEDGER_SAME_VALUE", "LATEST_FATHER_CORRECTION",
+    "AUTHORITY_NO_ROLLBACK", "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE", "RESPONSE_DENSITY",
+    "NO_HOST_GENERIC_OVERRIDE", "NO_FALSE_RUNTIME_READY_CLAIM"
+  ],
+  "evidence_classes": ["STATIC_UNIT", "STATIC_INTEGRATION", "LIVE_SINGLE_TURN", "LIVE_MULTI_TURN"],
+  "static_can_promote_live": false
+}

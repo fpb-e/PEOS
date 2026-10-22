@@ -1,0 +1,27 @@
+{
+  "revision": "rev0.312",
+  "build_id": "PEOS-REV0.312-CANDIDATE-20261007-105524-JST",
+  "rule_owner": "RUNTIME_GUARD",
+  "is_sixth_canon": false,
+  "inspection_before_generation": true,
+  "artifact_classes": {
+    "FATHER_SESSION_NEXT_SPEC_HANDOFF": {
+      "closest_fixture": "PEOS_father_session_bundle_2026_09_13_171409_for_next_spec.zip",
+      "root_topology": ["PEOS_father_session_log_YYYY_MM_DD_HHMMSS.txt", "PEOS_next_spec_directive_YYYY_MM_DD_<slug>.txt"],
+      "required_terminators": ["END OF SESSION LOG", "END OF DIRECTIVE"],
+      "unrelated_extra_root_files": "PROHIBITED"
+    },
+    "GITHUB_PACKAGE": {
+      "closest_fixture": "PEOS_GITHUB_PACKAGE_rev0.311.zip",
+      "required_classes": ["FIVE_CANONS", "PACKAGE_MANIFEST", "VALIDATOR", "SOURCE_EVIDENCE", "STATIC_FIXTURES"],
+      "two_txt_only_rule": "NOT_APPLICABLE"
+    },
+    "ATTACHMENT_BEARING_LOG_PIPELINE": {
+      "broad_reference": "PEOS_GITHUB_PACKAGE_rev0.310.zip",
+      "ordered_stages": ["LOG", "VALIDATION", "NEXT_SPEC_DIRECTIVE", "FILE_LEVEL_MANIFEST", "ATTACHMENTS", "REINJECTION_BUNDLE"]
+    }
+  },
+  "fixture_selection": "CLOSEST_FATHER_SUPPLIED_PHYSICAL_FIXTURE_BY_ARTIFACT_CLASS",
+  "memory_only_format_inference": "PROHIBITED",
+  "cross_class_overgeneralization": "PROHIBITED"
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peos://runtime/universal-time-gate/state/rev0.311",
+  "title": "PEOS rev0.311 universal user-turn time gate state",
+  "type": "object",
+  "required": [
+    "schema_version", "build_id", "turn_id", "session_id", "route",
+    "gate_state", "work_permitted", "time_capture", "persistence",
+    "failure_classes", "variance_classes"
+  ],
+  "properties": {
+    "schema_version": {"const": "rev0.311"},
+    "build_id": {"const": "PEOS-REV0.311-CANDIDATE-20260913-171938-JST"},
+    "turn_id": {"type": "string", "minLength": 1},
+    "session_id": {"type": "string", "minLength": 1},
+    "route": {
+      "enum": [
+        "BOOT", "NORMAL_CONVERSATION", "CASUAL_CHAT", "SHORT_ACK",
+        "FILE", "IMAGE", "WEB_TOOL", "AUTOMATION", "LOG_GENERATION",
+        "SPECIFICATION", "PACKAGE_ZIP", "DEVICE", "TRAVEL"
+      ]
+    },
+    "gate_state": {
+      "enum": [
+        "LOCKED", "CAPTURE_ATTEMPTED", "CAPTURED", "PERSIST_ATTEMPTED",
+        "PERSISTED", "READBACK_VERIFIED", "WORK_PERMITTED", "DEGRADED"
+      ]
+    },
+    "work_permitted": {"type": "boolean"},
+    "time_capture": {
+      "type": "object",
+      "required": [
+        "success", "value_jst", "provider_id", "implementation_path",
+        "path_class", "trusted", "actual_execution_evidence", "attempts",
+        "peos_executable_action_index"
+      ],
+      "properties": {
+        "success": {"type": "boolean"},
+        "value_jst": {"type": ["string", "null"]},
+        "provider_id": {"type": ["string", "null"]},
+        "implementation_path": {"type": ["string", "null"]},
+        "path_class": {"enum": ["REFERENCE_PYTHON_PATH", "TRUSTED_PATH_VARIANCE", "UNAVAILABLE", "UNTRUSTED"]},
+        "trusted": {"type": "boolean"},
+        "actual_execution_evidence": {"type": "boolean"},
+        "attempts": {"type": "integer", "minimum": 0},
+        "peos_executable_action_index": {"type": "integer", "minimum": 0}
+      },
+      "additionalProperties": true
+    },
+    "persistence": {
+      "type": "object",
+      "required": ["attempted", "success", "postwrite_readback_verified", "same_timestamp_verified"],
+      "properties": {
+        "attempted": {"type": "boolean"},
+        "success": {"type": "boolean"},
+        "postwrite_readback_verified": {"type": "boolean"},
+        "same_timestamp_verified": {"type": "boolean"},
+        "store_locator": {"type": ["string", "null"]},
+        "version_before": {"type": ["integer", "null"], "minimum": 0},
+        "version_after": {"type": ["integer", "null"], "minimum": 1},
+        "ledger_seq": {"type": ["integer", "null"], "minimum": 1}
+      },
+      "additionalProperties": true
+    },
+    "failure_classes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "variance_classes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "state_history": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"work_permitted": {"const": true}}},
+      "then": {
+        "properties": {
+          "gate_state": {"const": "WORK_PERMITTED"},
+          "time_capture": {"properties": {"success": {"const": true}, "trusted": {"const": true}, "actual_execution_evidence": {"const": true}, "peos_executable_action_index": {"const": 1}}},
+          "persistence": {"properties": {"attempted": {"const": true}, "success": {"const": true}, "postwrite_readback_verified": {"const": true}, "same_timestamp_verified": {"const": true}}},
+          "failure_classes": {"maxItems": 0}
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}

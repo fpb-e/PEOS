@@ -1,0 +1,39 @@
+{
+  "embedded_archives_allowed": false,
+  "nested_history_allowed": false,
+  "policy_id": "PEOS_PUBLIC_TWO_PREDECESSORS_V1",
+  "private_originals_modified": false,
+  "raw_user_inputs_preserved": false,
+  "retained_previous_version_count": 2,
+  "retained_previous_versions": [
+    "rev0.313",
+    "rev0.312"
+  ],
+  "snapshots": {
+    "rev0.312": {
+      "canons": {
+        "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "44abc40384e44ce623f5b8b141169f625415530a590583c2d2e6397ec13438a4",
+        "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "6a4e643fc43dc08952b8bff6a61b914c92b1bb9ecc6e17a23b40282bbf0069bd",
+        "prompt/PEOS_CURRENT_PAPER_JP.md": "43eac6a46ec97835ebada982a013d18d14e3ce7aa2d07450f31f3e8c70666af0",
+        "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "96bc8e5bc7f59cf25b525e8a6c938e8521b932e4376cf50ee55a9b54ebbd6d48",
+        "prompt/PEOS_CURRENT_SPEC_JP.md": "ad52d3c440c5b2d3af3a5b4617025892722701ad17c6713c4365d465eb35e1a4"
+      },
+      "path": "history/rev0.312",
+      "scope": "PUBLIC_CANONICAL_SUBSET",
+      "source_archive_sha256": "6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc"
+    },
+    "rev0.313": {
+      "canons": {
+        "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "d93f9c444d5f7121ee763dd3690dfcdf2a5074352ee72bab068e5bf59e683c5e",
+        "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "9f97a5ae705ca09fe74769023749ae19786259fd2e75c4b1d6b30c0ee5f144fb",
+        "prompt/PEOS_CURRENT_PAPER_JP.md": "96c7a3b9f173f2568c427cae557f019096a2121ee9f77abf9731751c241176d4",
+        "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "09a11b9efc1253e252dc49d06f90f19f4d152185f53e57a6d0a7fc4dbf00eb48",
+        "prompt/PEOS_CURRENT_SPEC_JP.md": "b9c01193e3ef27c9308c2306a56ad85fc908ca66e232cbe070df7f2bdc345ff0"
+      },
+      "path": "history/rev0.313",
+      "scope": "PUBLIC_CANONICAL_SUBSET",
+      "source_archive_sha256": "d3d6c8726b775d7ddd33e733c5671f9e688ef1b51a5d1f6989d97a4d6e6925e8"
+    }
+  },
+  "target_revision": "rev0.314"
+}

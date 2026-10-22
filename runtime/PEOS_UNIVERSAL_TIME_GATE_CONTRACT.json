@@ -1,0 +1,50 @@
+{
+  "revision": "rev0.311",
+  "build_id": "PEOS-REV0.311-CANDIDATE-20260913-171938-JST",
+  "status": "RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / LIVE_PENDING",
+  "rule_owner": "RUNTIME_GUARD",
+  "is_sixth_canon": false,
+  "root_interceptor": "UniversalTurnGate.dispatch",
+  "all_routes": [
+    "BOOT", "NORMAL_CONVERSATION", "CASUAL_CHAT", "SHORT_ACK",
+    "FILE", "IMAGE", "WEB_TOOL", "AUTOMATION", "LOG_GENERATION",
+    "SPECIFICATION", "PACKAGE_ZIP", "DEVICE", "TRAVEL"
+  ],
+  "required_transition_order": [
+    "LOCKED", "CAPTURE_ATTEMPTED", "CAPTURED", "PERSIST_ATTEMPTED",
+    "PERSISTED", "READBACK_VERIFIED", "WORK_PERMITTED"
+  ],
+  "reference_capture": {
+    "provider_id": "Python datetime.now(ZoneInfo(\"Asia/Tokyo\"))",
+    "implementation_path": "datetime.now(ZoneInfo(\"Asia/Tokyo\"))",
+    "preferred": true
+  },
+  "trusted_alternate_policy": {
+    "allowed_only_when_reference_unavailable": true,
+    "actual_execution_evidence_required": true,
+    "trusted_registry_membership_required": true,
+    "variance_class": "TIME_CAPTURE_PATH_VARIANCE",
+    "claim_python_execution": false
+  },
+  "work_permit_requires": [
+    "PEOS_EXECUTABLE_ACTION_INDEX_1", "TIME_CAPTURE_SUCCESS",
+    "ACTUAL_CAPTURE_MECHANISM_RECORDED", "LEDGER_PERSIST_ATTEMPTED",
+    "LEDGER_PERSIST_SUCCESS", "POSTWRITE_READBACK_VERIFIED",
+    "SAME_IMMUTABLE_TIMESTAMP_VERIFIED"
+  ],
+  "failure_states": [
+    "TIME_CAPTURE_UNAVAILABLE", "TIME_CAPTURE_PATH_VARIANCE",
+    "LEDGER_PERSIST_FAILED", "PRE_DISPATCH_GATE_BYPASS",
+    "TIME_CAPTURED_BUT_NOT_PERSISTED"
+  ],
+  "coverage_outputs": [
+    "ELIGIBLE_USER_TURN_COUNT", "CANONICAL_LEDGER_ENTRY_COUNT",
+    "EXCLUDED_FAILED_TURN_COUNT", "MISSING_LEDGER_ENTRY_COUNT",
+    "COVERAGE_STATUS"
+  ],
+  "historical_backfill": "PROHIBITED",
+  "user_error_attribution_requires": ["SPECIFIC_USER_ACTION", "DEFINED_DIFFERENT_ACTION_CONTRACT", "DIRECT_CAUSAL_PATH"],
+  "static_can_promote_live": false,
+  "live_multi_route_acceptance": "PENDING",
+  "father_external_acceptance": "PENDING"
+}

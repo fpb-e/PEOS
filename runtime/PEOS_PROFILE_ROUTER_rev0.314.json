@@ -1,0 +1,15 @@
+{
+  "current_entry": "runtime/PEOS_SESSION_RESTORE_rev0.314.json",
+  "default": "SHORT_ACK_SYNC",
+  "legacy_bootstraps_do_not_override_current_authority": true,
+  "legacy_compatibility_implementations": [
+    "tools/peos_preprocess_barrier.py",
+    "tools/peos_universal_time_gate.py",
+    "tools/peos_runtime_binding.py"
+  ],
+  "optional": "STRICT_READBACK_AUDIT",
+  "optional_requires_current_explicit_selection": true,
+  "publication_scope": "PUBLIC_EMPTY_RESTORE_WITHOUT_PRIVATE_SOURCE",
+  "short_implementation": "tools/peos_short_preprocess.py",
+  "strict_test_pass_does_not_activate_profile": true
+}

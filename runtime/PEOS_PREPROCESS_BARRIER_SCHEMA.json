@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PEOS preprocess barrier outcome",
+  "type": "object",
+  "required": [
+    "turn_id",
+    "status",
+    "evidence_class",
+    "trace",
+    "no_late_promotion"
+  ],
+  "properties": {
+    "turn_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "DEGRADED",
+        "FAIL",
+        "PREPROCESS_EMERGENCY_BYPASS",
+        "PREPROCESS_ADMIN_EXEMPT"
+      ]
+    },
+    "evidence_class": {
+      "enum": [
+        "STATIC_INTEGRATION",
+        "LIVE_TRACE_VERIFIED"
+      ]
+    },
+    "receipt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ledger_seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "line_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "readback_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "no_late_promotion": {
+      "const": true
+    },
+    "trace": {
+      "type": "object",
+      "required": [
+        "turn_id",
+        "events",
+        "first_executable_valid",
+        "prior_visible_body"
+      ],
+      "properties": {
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "first_executable_valid": {
+          "type": "boolean"
+        },
+        "prior_visible_body": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "description": "Order, exact new-file-id and independent live evidence are semantic checks enforced by the reference harness; schema validity alone is never PASS."
+}

@@ -1,3 +1,19 @@
+# Public export rev0.314
+
+- Authority: current/detailed rev0.314; accepted baseline rev0.313.
+- Excludes raw conversation corpora, images, direct-learning ledgers and private restore snapshots.
+- Retains canonical bytes and executable generic code; replaces source-bound checks with an explicit public validation entry.
+- Earlier entries below describe original distribution builds, not files included in this public tree.
+
+# rev0.314 candidate
+
+91 source requirements mapped to canon owners and actual event SEQ. Short
+ACK-sync, boot priority and scoped pause/resume supersede unconditional full
+readback in normal operation. Completed work, correction provenance, attribution,
+GitHub HOLD and logification pairing gain executable supporting guards. Retained
+history rolls to rev0.313/rev0.312 with no nested history or archive payloads.
+
+---
 # rev0.313 retention correction
 
 - 過去版はrev0.312・rev0.311の2版へ限定。両版の内部からも旧履歴を除去。

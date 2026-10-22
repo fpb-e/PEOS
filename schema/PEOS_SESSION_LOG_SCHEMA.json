@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PEOS rev0.309 two-layer reinjectable session log",
+  "type": "object",
+  "required": ["archive_evidence_layer", "runtime_restore_layer"],
+  "properties": {
+    "archive_evidence_layer": {
+      "type": "object",
+      "required": ["events", "source_gaps", "attachment_events", "integrity"],
+      "properties": {
+        "events": {"type": "array"},
+        "source_gaps": {"type": "array"},
+        "attachment_events": {"type": "array"},
+        "integrity": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "runtime_restore_layer": {
+      "$ref": "../runtime/PEOS_RESPONSE_RESTORE_SCHEMA.json"
+    },
+    "assistant_verbatim_status": {
+      "enum": ["OBSERVED_VERBATIM", "ASSISTANT_VERBATIM_GAP"]
+    },
+    "source_class": {
+      "enum": ["OBSERVED_VERBATIM", "CANON_RULE", "FATHER_CORRECTION", "DERIVED_RUNTIME_MODEL"]
+    },
+    "historical_state": {
+      "enum": ["ACTIVE", "OPEN_LOOP", "RESOLVED", "CANCELLED", "HISTORICAL_ONLY", "DO_NOT_RESURRECT"]
+    }
+  },
+  "additionalProperties": true
+}

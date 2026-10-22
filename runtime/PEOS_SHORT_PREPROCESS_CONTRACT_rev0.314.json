@@ -1,0 +1,33 @@
+{
+  "ack_label": "同期済",
+  "boot_before_preprocessing_wait": true,
+  "captured_historical_version_is_write_guard": false,
+  "expected_current_version_required": true,
+  "external_replay_side_effects": [],
+  "flush_fsync_required": true,
+  "github_state": "HOLD_UNTIL_NEXT_FATHER_INSTRUCTION",
+  "host_hook_installed": false,
+  "learning_empty_delta_allowed": true,
+  "legacy_streak_credit": 0,
+  "live_adapter_installed": false,
+  "local_append_only": true,
+  "normal_order": [
+    "ACTUAL_JST_CAPTURE",
+    "DURABLE_APPEND_RAW_AND_LEARNING",
+    "ONE_GUARDED_REPLACE",
+    "SYNC_ACK_RECORDED",
+    "BOLD_PREFIX",
+    "BODY"
+  ],
+  "normal_profile": "SHORT_ACK_SYNC",
+  "pause_states": [
+    "ONE_TURN_EXEMPT",
+    "PAUSED",
+    "ACTIVE"
+  ],
+  "readback_in_normal_path": false,
+  "revision": "rev0.314",
+  "same_identity_required": true,
+  "strict_readback_profile": "OPTIONAL_EXPLICIT_ONLY",
+  "unperformed_readback_claims": false
+}

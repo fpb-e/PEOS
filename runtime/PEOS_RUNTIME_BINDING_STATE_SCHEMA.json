@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peos://runtime/binding-state/rev0.310",
+  "title": "PEOS rev0.310 runtime binding state",
+  "type": "object",
+  "required": ["schema_version", "build_id", "authority", "runtime_status", "evidence", "failure_classes", "runtime_ready_claim_authorized"],
+  "properties": {
+    "schema_version": {"const": "rev0.310"},
+    "build_id": {"const": "PEOS-REV0.310-CANDIDATE-20260904-042814-JST"},
+    "authority": {
+      "type": "object",
+      "required": ["live_current", "accepted_baseline", "historical_snapshots_can_rollback"],
+      "properties": {
+        "live_current": {"const": "rev0.309"},
+        "accepted_baseline": {"const": "PEOS_GITHUB_PACKAGE_rev0.308.zip"},
+        "historical_snapshots_can_rollback": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "runtime_status": {"enum": ["UNINITIALIZED", "SOURCE_ONLY", "BINDING_IN_PROGRESS", "READY", "DEGRADED"]},
+    "evidence": {
+      "type": "object",
+      "required": [
+        "FILE_VISIBLE", "CONTENT_READ", "SOURCE_SYNC", "PROJECT_CANON_CONTEXT_SHARED",
+        "CONTINUITY_MEMORY_SHARED", "RUNTIME_GUARDS_BOUND", "TIME_LEDGER_LOCATOR_RESOLVED",
+        "TIME_LEDGER_SCHEMA_VALID", "PERSISTENCE_PATH_VERIFIED", "PER_TURN_HOOK_BOUND",
+        "DISPLAY_RENDERER_BOUND", "PRECOMMIT_AUDIT_BOUND", "CORRECTION_CONSTRAINTS_BOUND",
+        "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE", "BOOT_ASSETS_READY", "TIME_LEDGER_RUNTIME_READY"
+      ],
+      "properties": {
+        "FILE_VISIBLE": {"type": "boolean"},
+        "CONTENT_READ": {"type": "boolean"},
+        "SOURCE_SYNC": {"type": "boolean"},
+        "PROJECT_CANON_CONTEXT_SHARED": {"type": "boolean"},
+        "CONTINUITY_MEMORY_SHARED": {"type": "boolean"},
+        "RUNTIME_GUARDS_BOUND": {"type": "boolean"},
+        "TIME_LEDGER_LOCATOR_RESOLVED": {"type": "boolean"},
+        "TIME_LEDGER_SCHEMA_VALID": {"type": "boolean"},
+        "PERSISTENCE_PATH_VERIFIED": {"type": "boolean"},
+        "PER_TURN_HOOK_BOUND": {"type": "boolean"},
+        "DISPLAY_RENDERER_BOUND": {"type": "boolean"},
+        "PRECOMMIT_AUDIT_BOUND": {"type": "boolean"},
+        "CORRECTION_CONSTRAINTS_BOUND": {"type": "boolean"},
+        "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE": {"type": "boolean"},
+        "BOOT_ASSETS_READY": {"type": "boolean"},
+        "TIME_LEDGER_RUNTIME_READY": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "persistence_evidence": {
+      "type": ["object", "null"],
+      "properties": {
+        "store_locator": {"type": "string"},
+        "version_before": {"type": "integer", "minimum": 0},
+        "version_after": {"type": "integer", "minimum": 1},
+        "ledger_seq": {"type": "integer", "minimum": 1},
+        "postwrite_readback_verified": {"type": "boolean"},
+        "prior_records_preserved": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    },
+    "failure_classes": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "runtime_ready_claim_authorized": {"type": "boolean"},
+    "last_verified_ledger_seq": {"type": ["integer", "null"], "minimum": 1},
+    "last_transition": {"type": ["string", "null"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"runtime_status": {"const": "READY"}}},
+      "then": {
+        "properties": {
+          "runtime_ready_claim_authorized": {"const": true},
+          "evidence": {
+            "properties": {
+              "RUNTIME_GUARDS_BOUND": {"const": true},
+              "PERSISTENCE_PATH_VERIFIED": {"const": true},
+              "PER_TURN_HOOK_BOUND": {"const": true},
+              "DISPLAY_RENDERER_BOUND": {"const": true},
+              "PRECOMMIT_AUDIT_BOUND": {"const": true},
+              "GLOBAL_PEOS_RESPONSE_CORE_ACTIVE": {"const": true},
+              "BOOT_ASSETS_READY": {"const": true},
+              "TIME_LEDGER_RUNTIME_READY": {"const": true}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,73 @@
+{
+  "revision": "rev0.313",
+  "build_id": "PEOS-REV0.313-CANDIDATE-FROM-20261021-024240",
+  "rule_owner": "RUNTIME_GUARD",
+  "reference_module": "tools/peos_preprocess_barrier.py",
+  "implementation_class": "HOST_NEUTRAL_COOPERATIVE_REFERENCE",
+  "platform_hook_installed": false,
+  "external_orchestrator_installed": false,
+  "live_library_adapter_implemented": false,
+  "normal_order": [
+    "TIME_CAPTURED",
+    "LOCAL_APPEND",
+    "FLUSH",
+    "FSYNC",
+    "PUBLISHED",
+    "NEW_FILE_ID_READBACK",
+    "HASH_AND_SEQUENCE_VERIFIED",
+    "STATUS_AUDIT_COMMITTED"
+  ],
+  "response_body_permitted_after": "STATUS_AUDIT_COMMITTED",
+  "clock_contract": {
+    "first_executable_action": "ACTUAL_TRUSTED_JST_CAPTURE",
+    "timezone": "Asia/Tokyo",
+    "precision": "SECONDS",
+    "one_immutable_receipt": true
+  },
+  "local_contract": {
+    "default_ledger_path": "/mnt/data/PEOS/Runtime/PEOS_TURN_TIME_LEDGER.jsonl",
+    "append_only": true,
+    "monotonic_sequence": true,
+    "idempotency_key": "TURN_ID",
+    "flush_required": true,
+    "fsync_required": true,
+    "reference_tests_use": "TEMPORARY_SYNTHETIC_FILES_ONLY"
+  },
+  "persistent_adapter_contract": {
+    "logical_path": "/PEOS/Runtime/PEOS_TURN_TIME_LEDGER.jsonl",
+    "same_library_identity": true,
+    "expected_current_version_required": true,
+    "readback_target": "EXACT_RETURNED_NEW_FILE_ID",
+    "checks": [
+      "SHA256",
+      "EXACT_BYTES",
+      "EXPECTED_LINE_COUNT",
+      "MONOTONIC_SEQUENCE",
+      "TURN_RECEIPT",
+      "PRIOR_BYTE_PRESERVATION"
+    ],
+    "version_conflict": "STOP_NO_GUARD_REMOVAL",
+    "adapter_is_installed": false
+  },
+  "status": {
+    "PASS": "ALL_PHASES_AND_ORDER_PROVEN_BEFORE_RESPONSE",
+    "DEGRADED": "LOCAL_DURABLE_COMMIT_COMPLETE_BUT_SYNC_READBACK_OR_STATUS_AUDIT_INCOMPLETE",
+    "FAIL": "FIRST_ACTION_OR_RESPONSE_ORDER_VIOLATION_OR_MISSING_LOCAL_COMMIT",
+    "PREPROCESS_EMERGENCY_BYPASS": "URGENT_ACTIONABLE_POLICE_AMBULANCE_IMMINENT_DANGER_WHEN_IO_WOULD_DELAY_SAFETY",
+    "PREPROCESS_ADMIN_EXEMPT": "EXPLICIT_FATHER_INSTRUCTION_VALID_ONLY_IN_MATCHING_TAB_SCOPE"
+  },
+  "late_promotion_allowed": false,
+  "streak": {
+    "normal_full_pass_threshold": 10,
+    "fail_or_degraded_resets_to": 0,
+    "duplicate_credit": 0,
+    "emergency_admin_effect": "EXCLUDE_NO_ADVANCE_NO_RESET",
+    "static_live_counters_separate": true,
+    "live_requires_independent_trace": true,
+    "audit_requires_flush_fsync_readback": true,
+    "provisional_is_permanent_guarantee": false,
+    "package_acceptance_independent": true
+  },
+  "audit_payload_boundary": "Immutable captured ledger payload is verified first; result/streak audit binds its hash, file_id and sequence in separate records.",
+  "host_installation_boundary": "A production adapter and pre-generation/orchestrator enforcement require separate authorized installation and live proof."
+}

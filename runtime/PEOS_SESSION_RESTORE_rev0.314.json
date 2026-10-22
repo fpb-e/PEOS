@@ -1,0 +1,39 @@
+{
+  "authority": {
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.313.zip",
+    "authority_basis": "EXPLICIT_OWNER_ACCEPTANCE_OVERRIDES_EMBEDDED_BUILD_HEADERS",
+    "current_canon": "rev0.314",
+    "detailed_reference": "rev0.314",
+    "fallback_authority": "PEOS正本指示",
+    "fallback_project": "擬似いーさんOS",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "corrections": {},
+  "current_turn_receipt": null,
+  "github": {
+    "last_observed_pr_merged": null,
+    "state": "HOLD_UNTIL_CURRENT_EXPLICIT_INSTRUCTION"
+  },
+  "host_hook_installed": false,
+  "job_priorities": {},
+  "live_adapter_installed": false,
+  "mail_states": {},
+  "preprocessing": {
+    "captured_version": null,
+    "ledger_library_file_id": null,
+    "normal_profile": "SHORT_ACK_SYNC",
+    "state": "REQUIRES_HOST_BINDING"
+  },
+  "private_continuity": "NOT_DISTRIBUTED",
+  "profile": "PUBLIC_EMPTY_RESTORE_rev0.314",
+  "publication_scope": "NO_RAW_CONVERSATIONS_OR_IMAGES",
+  "replay_actions": [],
+  "runtime_ready": false,
+  "source_sync_receipt": null,
+  "verified_live_streak": null
+}

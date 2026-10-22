@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peos://runtime/continuity-truth-state/rev0.312",
+  "title": "PEOS rev0.312 typed continuity and truth state",
+  "type": "object",
+  "required": ["schema_version", "build_id", "authority", "incidents", "commerce", "artifact_fixture_policy"],
+  "properties": {
+    "schema_version": {"const": "rev0.312"},
+    "build_id": {"const": "PEOS-REV0.312-CANDIDATE-20261007-105524-JST"},
+    "authority": {
+      "type": "object",
+      "required": ["project_current", "accepted_baseline", "historical_can_rollback"],
+      "properties": {
+        "project_current": {"const": "rev0.311"},
+        "accepted_baseline": {"const": "PEOS_GITHUB_PACKAGE_rev0.310.zip"},
+        "historical_can_rollback": {"const": false}
+      }
+    },
+    "incidents": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["fixed_label", "domain", "facts"],
+        "properties": {
+          "fixed_label": {"type": "string", "minLength": 1},
+          "domain": {"enum": ["MEDICAL", "LEGAL_EVIDENCE", "MOBILITY_DEVICE"]},
+          "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}}
+        }
+      }
+    },
+    "commerce": {
+      "type": "object",
+      "properties": {
+        "items": {"type": "array", "items": {"$ref": "#/$defs/commerceItem"}}
+      }
+    },
+    "artifact_fixture_policy": {
+      "type": "object",
+      "required": ["inspect_physical_before_generation", "resolve_by_artifact_class", "overgeneralization_allowed"],
+      "properties": {
+        "inspect_physical_before_generation": {"const": true},
+        "resolve_by_artifact_class": {"const": true},
+        "overgeneralization_allowed": {"const": false}
+      }
+    }
+  },
+  "$defs": {
+    "fact": {
+      "type": "object",
+      "required": ["fact_id", "value", "source_class", "status_class", "current"],
+      "properties": {
+        "fact_id": {"type": "string", "minLength": 1},
+        "value": {},
+        "source_class": {"enum": ["FATHER_REPORTED", "CLINICIAN_CONFIRMED_VIA_FATHER", "DOCUMENT_OR_IMAGE_DERIVED", "ASSISTANT_INFERENCE", "UNRESOLVED"]},
+        "status_class": {"enum": ["CURRENT", "UNRESOLVED", "SUPERSEDED_CORRECTION"]},
+        "current": {"type": "boolean"},
+        "supersedes": {"type": ["string", "null"]}
+      }
+    },
+    "commerceItem": {
+      "type": "object",
+      "required": ["item_id", "product_state", "listing_state", "stock_state", "compatibility_state"],
+      "properties": {
+        "item_id": {"type": "string"},
+        "product_state": {"enum": ["PRODUCT_EXISTS", "PRODUCT_UNKNOWN"]},
+        "listing_state": {"enum": ["LISTING_EXISTS", "LISTING_UNKNOWN"]},
+        "stock_state": {"enum": ["IN_STOCK_CONFIRMED", "OUT_OF_STOCK_CONFIRMED", "STOCK_UNKNOWN"]},
+        "compatibility_state": {"enum": ["COMPATIBILITY_CONFIRMED", "COMPATIBILITY_UNKNOWN"]}
+      }
+    }
+  },
+  "additionalProperties": true
+}

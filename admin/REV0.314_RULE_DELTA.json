@@ -1,0 +1,534 @@
+{
+  "base_rule_count": 321,
+  "base_rule_ids_removed": [],
+  "inherited_rules_scoped_to_optional_strict_profile": [
+    "SPEC.TIME.PERSISTENT_TURN_LEDGER_CONTRACT",
+    "SPEC.TIME.LEDGER_SUPPORTING_ASSET_BOUNDARY",
+    "SPEC.TIME.CAPTURE_PERSISTENCE_AUTHORITY_SPLIT",
+    "SPEC.TIME.USER_FACING_JST_DISPLAY_REQUIRED",
+    "SPEC.TIME.RUNTIME_READY_POSITIVE_EVIDENCE",
+    "SPEC.TIME.PER_TURN_TRANSACTION_ATOMICITY",
+    "SPEC.TIME.UNIVERSAL_USER_TURN_PRE_DISPATCH_GATE",
+    "SPEC.TIME.PERSIST_BEFORE_WORK_VERIFIED",
+    "SPEC.TIME.CAPABILITY_TRUTHFUL_PATH_VARIANCE",
+    "SPEC.TIME.ORDINARY_CONVERSATION_NO_EXEMPTION",
+    "SPEC.TIME.USER_ERROR_CAUSAL_ATTRIBUTION",
+    "SPEC.TIME.LEDGER_COVERAGE_TYPED_AUDIT",
+    "SPEC.TIME.HISTORICAL_NO_SYNTHESIS",
+    "SPEC.PREPROCESS.BARRIER_OUTCOME_CONTRACT",
+    "SPEC.PREPROCESS.TEN_CONSECUTIVE_PROVISIONAL",
+    "SPEC.PREPROCESS.EMERGENCY_PRIORITY",
+    "RUNTIME.TIME.PER_TURN_REARM",
+    "RUNTIME.TIME.TRANSACTION_DRIVER_REQUIRED",
+    "RUNTIME.TIME.TEXT_PREFIX_EXACT_FIRST",
+    "RUNTIME.TIME.PERSISTENCE_UNAVAILABLE_DEGRADE",
+    "RUNTIME.DEGRADATION.NEXT_TURN_DETECTION",
+    "RUNTIME.TIME.NO_BACKFILL_CURRENT_TAB",
+    "RUNTIME.TIME.CAPTURE_THEN_IMMEDIATE_LEDGER_PERSIST",
+    "RUNTIME.TIME.RECEIPT_LEDGER_SAME_VALUE_BINDING",
+    "RUNTIME.TIME.CAPTURE_PERSISTENCE_STATE_SPLIT",
+    "RUNTIME.TIME.LEDGER_IDEMPOTENT_VERSIONED_APPEND",
+    "RUNTIME.TIME.READONLY_MOUNT_PERSISTENT_STORE_ROUTE",
+    "RUNTIME.TIME.PERSISTENCE_POSTWRITE_VERIFY",
+    "RUNTIME.TIME.ACTUAL_RECEIPT_ONLY",
+    "RUNTIME.TIME.PRE_DISPATCH_HARD_GATE",
+    "RUNTIME.TIME.RETRY_SAME_PROVIDER",
+    "RUNTIME.TIME.TURN_LOCAL_BINDING",
+    "RUNTIME.TIME.DISPLAY_SEPARATION",
+    "RUNTIME.TIME.NO_SELF_REPORTED_PASS",
+    "RUNTIME.HOST.PRE_DISPATCH_ENFORCEMENT_REQUIRED",
+    "RUNTIME.TIME.ACTUAL_TRACE_BINDING",
+    "RUNTIME.TIME.NO_LATE_REPAIR",
+    "RUNTIME.TIME.INGRESS_MICROKERNEL",
+    "RUNTIME.HOST.MANDATORY_PREAMBLE_EXEMPTION",
+    "RUNTIME.TIME.PEOS_EXECUTABLE_ACTION_INDEX_1",
+    "RUNTIME.TIME.NEW_TURN_INGRESS_COMPLETENESS",
+    "RUNTIME.TIME.UNIVERSAL_DISPATCH_INTERCEPTOR",
+    "RUNTIME.TIME.GATE_STATE_MACHINE",
+    "RUNTIME.TIME.SAME_TIMESTAMP_PERSISTENCE_BINDING",
+    "RUNTIME.TIME.CAPTURE_PATH_EVIDENCE",
+    "RUNTIME.TIME.CASUAL_CHAT_ROUTE_COVERAGE",
+    "RUNTIME.TIME.TOOL_ARTIFACT_ROUTE_COVERAGE",
+    "RUNTIME.TIME.FAILURE_STATE_TYPED",
+    "RUNTIME.TIME.LEDGER_COVERAGE_WATCHDOG",
+    "RUNTIME.TIME.USER_ERROR_EVIDENCE_GATE",
+    "RUNTIME.TIME.NO_SUCCESS_NARRATION_WITHOUT_EXECUTION",
+    "RUNTIME.TIME.DOMAIN_ROUTE_COVERAGE",
+    "RUNTIME.PREPROCESS.ENTRY_ATOMIC_CAPTURE_COMMIT",
+    "RUNTIME.PREPROCESS.LOCAL_APPEND_FSYNC",
+    "RUNTIME.PREPROCESS.NEW_FILE_ID_READBACK",
+    "RUNTIME.PREPROCESS.PRE_FINAL_BARRIER",
+    "RUNTIME.PREPROCESS.OUTCOME_CLASSIFIER",
+    "RUNTIME.PREPROCESS.NO_LATE_PROMOTION",
+    "RUNTIME.PREPROCESS.STREAK_AUDIT_RESET",
+    "DESIGN.TIME.LEDGER_SUPPORTING_RUNTIME_STATE",
+    "DESIGN.TIME.VERSIONED_APPEND_IDEMPOTENCY_MODEL",
+    "DESIGN.TIME.PERSISTENCE_ADAPTER_HANDSHAKE",
+    "DESIGN.TIME.UNIVERSAL_ROUTE_GATE",
+    "DESIGN.TIME.CAPABILITY_ADAPTER",
+    "DESIGN.TIME.COVERAGE_AUDITOR",
+    "DESIGN.TIME.GATE_WATCHDOG",
+    "DESIGN.PREPROCESS.EXTERNAL_ORCHESTRATOR_BOUNDARY",
+    "DESIGN.PREPROCESS.VERSION_PINNED_TRANSACTION",
+    "DESIGN.PREPROCESS.OUTCOME_STREAK_PRODUCT_STATE"
+  ],
+  "new_rule_count": 91,
+  "new_rules": [
+    {
+      "id": "LOG-001",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LOG_001"
+    },
+    {
+      "id": "LOG-002",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LOG_002"
+    },
+    {
+      "id": "LOG-003",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_003"
+    },
+    {
+      "id": "LOG-004",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_004"
+    },
+    {
+      "id": "LOG-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_005"
+    },
+    {
+      "id": "LOG-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_006"
+    },
+    {
+      "id": "LOG-007",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_007"
+    },
+    {
+      "id": "LOG-008",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_008"
+    },
+    {
+      "id": "LOG-009",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.LOG_009"
+    },
+    {
+      "id": "PRE-001",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_001"
+    },
+    {
+      "id": "PRE-002",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_002"
+    },
+    {
+      "id": "PRE-003",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_003"
+    },
+    {
+      "id": "PRE-004",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_004"
+    },
+    {
+      "id": "PRE-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_005"
+    },
+    {
+      "id": "PRE-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_006"
+    },
+    {
+      "id": "PRE-007",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_007"
+    },
+    {
+      "id": "PRE-008",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_008"
+    },
+    {
+      "id": "PRE-009",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.PRE_009"
+    },
+    {
+      "id": "LANG-001",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LANG_001"
+    },
+    {
+      "id": "LANG-002",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LANG_002"
+    },
+    {
+      "id": "LANG-003",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LANG_003"
+    },
+    {
+      "id": "LANG-004",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LANG_004"
+    },
+    {
+      "id": "LANG-005",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.LANG_005"
+    },
+    {
+      "id": "GH-001",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_001"
+    },
+    {
+      "id": "GH-002",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_002"
+    },
+    {
+      "id": "GH-003",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_003"
+    },
+    {
+      "id": "GH-004",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_004"
+    },
+    {
+      "id": "GH-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_005"
+    },
+    {
+      "id": "GH-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_006"
+    },
+    {
+      "id": "GH-007",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_007"
+    },
+    {
+      "id": "GH-008",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_008"
+    },
+    {
+      "id": "GH-009",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_009"
+    },
+    {
+      "id": "GH-010",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_010"
+    },
+    {
+      "id": "GH-011",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.GH_011"
+    },
+    {
+      "id": "MAIL-001",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_001"
+    },
+    {
+      "id": "MAIL-002",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_002"
+    },
+    {
+      "id": "MAIL-003",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_003"
+    },
+    {
+      "id": "MAIL-004",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_004"
+    },
+    {
+      "id": "MAIL-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_005"
+    },
+    {
+      "id": "MAIL-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_006"
+    },
+    {
+      "id": "MAIL-007",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_007"
+    },
+    {
+      "id": "MAIL-008",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_008"
+    },
+    {
+      "id": "MAIL-009",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_009"
+    },
+    {
+      "id": "MAIL-010",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_010"
+    },
+    {
+      "id": "MAIL-011",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_011"
+    },
+    {
+      "id": "MAIL-012",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_012"
+    },
+    {
+      "id": "MAIL-013",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_013"
+    },
+    {
+      "id": "MAIL-014",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.MAIL_014"
+    },
+    {
+      "id": "JOB-001",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.JOB_001"
+    },
+    {
+      "id": "JOB-002",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.JOB_002"
+    },
+    {
+      "id": "JOB-003",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.JOB_003"
+    },
+    {
+      "id": "JOB-004",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.JOB_004"
+    },
+    {
+      "id": "JOB-005",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.JOB_005"
+    },
+    {
+      "id": "EVID-001",
+      "owner": "PAPER",
+      "rule_id": "PAPER.REV314.EVID_001"
+    },
+    {
+      "id": "EVID-002",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_002"
+    },
+    {
+      "id": "EVID-003",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_003"
+    },
+    {
+      "id": "EVID-004",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_004"
+    },
+    {
+      "id": "EVID-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_005"
+    },
+    {
+      "id": "EVID-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_006"
+    },
+    {
+      "id": "EVID-007",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_007"
+    },
+    {
+      "id": "EVID-008",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_008"
+    },
+    {
+      "id": "EVID-009",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_009"
+    },
+    {
+      "id": "EVID-010",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.EVID_010"
+    },
+    {
+      "id": "P02-001",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.P02_001"
+    },
+    {
+      "id": "P02-002",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.P02_002"
+    },
+    {
+      "id": "P02-003",
+      "owner": "PAPER",
+      "rule_id": "PAPER.REV314.P02_003"
+    },
+    {
+      "id": "P02-004",
+      "owner": "PAPER",
+      "rule_id": "PAPER.REV314.P02_004"
+    },
+    {
+      "id": "P02-005",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.P02_005"
+    },
+    {
+      "id": "P02-006",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME_GUARD.REV314.P02_006"
+    },
+    {
+      "id": "HEALTH-001",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.HEALTH_001"
+    },
+    {
+      "id": "HEALTH-002",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.HEALTH_002"
+    },
+    {
+      "id": "HEALTH-003",
+      "owner": "PAPER",
+      "rule_id": "PAPER.REV314.HEALTH_003"
+    },
+    {
+      "id": "HEALTH-004",
+      "owner": "PAPER",
+      "rule_id": "PAPER.REV314.HEALTH_004"
+    },
+    {
+      "id": "HEALTH-005",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.HEALTH_005"
+    },
+    {
+      "id": "AC-001",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_001"
+    },
+    {
+      "id": "AC-002",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_002"
+    },
+    {
+      "id": "AC-003",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_003"
+    },
+    {
+      "id": "AC-004",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_004"
+    },
+    {
+      "id": "AC-005",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_005"
+    },
+    {
+      "id": "AC-006",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.AC_006"
+    },
+    {
+      "id": "FORMAT-001",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.FORMAT_001"
+    },
+    {
+      "id": "FORMAT-002",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.FORMAT_002"
+    },
+    {
+      "id": "FORMAT-003",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGNDOC.REV314.FORMAT_003"
+    },
+    {
+      "id": "SOURCE-001",
+      "owner": "LOG_ANTHOLOGY",
+      "rule_id": "LOG_ANTHOLOGY.REV314.SOURCE_001"
+    },
+    {
+      "id": "SOURCE-002",
+      "owner": "LOG_ANTHOLOGY",
+      "rule_id": "LOG_ANTHOLOGY.REV314.SOURCE_002"
+    },
+    {
+      "id": "SOURCE-003",
+      "owner": "LOG_ANTHOLOGY",
+      "rule_id": "LOG_ANTHOLOGY.REV314.SOURCE_003"
+    },
+    {
+      "id": "AUTH-001",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.AUTH_001"
+    },
+    {
+      "id": "AUTH-002",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.AUTH_002"
+    },
+    {
+      "id": "AUTH-003",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.AUTH_003"
+    },
+    {
+      "id": "AUTH-004",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.AUTH_004"
+    },
+    {
+      "id": "AUTH-005",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV314.AUTH_005"
+    }
+  ],
+  "total_rule_count": 412
+}

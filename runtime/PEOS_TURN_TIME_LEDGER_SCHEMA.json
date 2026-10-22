@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peos://runtime/PEOS_TURN_TIME_LEDGER_SCHEMA/rev0.308",
+  "title": "PEOS persistent turn-time ledger record",
+  "type": "object",
+  "required": [
+    "record_type",
+    "schema_version",
+    "ledger_seq",
+    "idempotency_key",
+    "turn_id",
+    "user_turn_observed_at_jst",
+    "provider",
+    "capture_attempts",
+    "successful_executable_action_index",
+    "pre_receipt_semantic_output",
+    "runtime_order_valid",
+    "canonical_for_log_reconstruction",
+    "capture_status",
+    "direct_append_status",
+    "persistent_store_status",
+    "persistence_status",
+    "persistence_verified"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "TURN_TIME_RECORD"
+    },
+    "schema_version": {
+      "const": "rev0.308"
+    },
+    "ledger_seq": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "idempotency_key": {
+      "type": "string",
+      "minLength": 8
+    },
+    "turn_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "user_turn_observed_at_jst": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} JST$"
+    },
+    "provider": {
+      "const": "datetime.now(ZoneInfo(\"Asia/Tokyo\"))"
+    },
+    "capture_attempts": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "successful_executable_action_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "pre_receipt_semantic_output": {
+      "type": "boolean"
+    },
+    "pre_receipt_action_class": {
+      "type": "string"
+    },
+    "intervening_semantic_action_before_success": {
+      "type": "string"
+    },
+    "runtime_order_valid": {
+      "type": "boolean"
+    },
+    "canonical_for_log_reconstruction": {
+      "type": "boolean"
+    },
+    "capture_status": {
+      "enum": [
+        "CAPTURE_SUCCESS",
+        "CAPTURE_FAILED"
+      ]
+    },
+    "direct_append_status": {
+      "enum": [
+        "NOT_ATTEMPTED",
+        "NOT_APPLICABLE_PERSISTENT_STORE",
+        "APPENDED_WRITABLE_PERSISTENT_TARGET",
+        "FAILED_READ_ONLY",
+        "FAILED_OTHER"
+      ]
+    },
+    "persistent_store_status": {
+      "enum": [
+        "NOT_ATTEMPTED",
+        "WRITE_SUCCESS",
+        "WRITE_FAILED"
+      ]
+    },
+    "persistence_status": {
+      "enum": [
+        "PENDING",
+        "PERSISTED_VERIFIED",
+        "PERSISTENCE_FAILED"
+      ]
+    },
+    "persistence_verified": {
+      "type": "boolean"
+    },
+    "coordinate": {
+      "enum": [
+        "FATHER",
+        "MOTHER",
+        "GENERAL",
+        "ADMIN"
+      ]
+    },
+    "visible_timestamp": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_class": {
+      "type": "string"
+    },
+    "fixture": {
+      "type": "boolean"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "runtime_order_valid": {
+            "const": false
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "canonical_for_log_reconstruction": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "persistence_status": {
+            "const": "PERSISTED_VERIFIED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "persistence_verified": {
+            "const": true
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": true
+}
