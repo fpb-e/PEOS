@@ -1,7 +1,3 @@
-# Public release validation
+# 検証依存
 
-Run `python3 -B tools/validate_rev0_314.py` on the public tree.
-This entry validates only the public manifest, specification bindings and synthetic tests.
-Original conversation/image corpus validation stays outside this public repository;
-missing private sources are an intentional publication boundary, not a passing source test.
-The original release archive remains immutable. No credentials or live private-ledger adapter is distributed.
+この候補の検証器は `python -B tools/validate_rev0_315.py --json`。旧版検証器を候補の意味検証へ代用しない。将来のGitHub反映時は最新branch・既存PR・差分を確認する。今回の作業はローカル成果物の生成だけで、commit・push・mergeを行わない。

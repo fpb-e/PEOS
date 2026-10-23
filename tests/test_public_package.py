@@ -19,7 +19,7 @@ class PublicPackageTests(unittest.TestCase):
         self.assertEqual(validate(ROOT), [])
 
     def test_five_current_and_ten_historical_canons_are_exact_source_bytes(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.314.json').read_text())
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.315.json').read_text())
         self.assertEqual(len(p['canonical_documents']), 15)
         self.assertEqual(specification_errors(ROOT), [])
 
@@ -27,7 +27,7 @@ class PublicPackageTests(unittest.TestCase):
         self.assertEqual(authority_errors(ROOT), [])
 
     def test_no_source_corpus_or_images_are_distributed(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.314.json').read_text())
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.315.json').read_text())
         self.assertFalse(p['raw_conversation_files_included'])
         self.assertFalse(p['image_files_included'])
         self.assertGreater(len(p['excluded_original_sha256']), 0)
@@ -87,7 +87,7 @@ class PublicPackageTests(unittest.TestCase):
             self.assertEqual(publication_errors(root), [])
 
     def test_history_keeps_two_numeric_predecessors_and_protects_baseline(self):
-        self.assertEqual(select_previous_versions('rev0.314', ['rev0.280', 'rev0.312', 'rev0.313'], 'rev0.313'), ['rev0.313', 'rev0.312'])
+        self.assertEqual(select_previous_versions('rev0.315', ['rev0.280', 'rev0.312', 'rev0.313', 'rev0.314'], 'rev0.313'), ['rev0.314', 'rev0.313'])
         with self.assertRaises(ValueError):
             select_previous_versions('rev0.315', ['rev0.312', 'rev0.313', 'rev0.314'], 'rev0.312')
 

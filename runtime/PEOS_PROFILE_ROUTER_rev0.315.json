@@ -1,5 +1,5 @@
 {
-  "current_entry": "runtime/PEOS_SESSION_RESTORE_rev0.314.json",
+  "current_entry": "runtime/PEOS_SESSION_RESTORE_rev0.315.json",
   "default": "SHORT_ACK_SYNC",
   "legacy_bootstraps_do_not_override_current_authority": true,
   "legacy_compatibility_implementations": [

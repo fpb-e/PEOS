@@ -30,10 +30,12 @@
     "state": "REQUIRES_HOST_BINDING"
   },
   "private_continuity": "NOT_DISTRIBUTED",
-  "profile": "PUBLIC_EMPTY_RESTORE_rev0.314",
+  "profile": "PUBLIC_EMPTY_RESTORE_rev0.315_CANDIDATE",
   "publication_scope": "NO_RAW_CONVERSATIONS_OR_IMAGES",
   "replay_actions": [],
   "runtime_ready": false,
   "source_sync_receipt": null,
-  "verified_live_streak": null
+  "verified_live_streak": null,
+  "candidate_revision": "rev0.315",
+  "candidate_accepted": false
 }

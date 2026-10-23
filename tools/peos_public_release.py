@@ -98,11 +98,12 @@ def write_manifest(root):
     names = {p.relative_to(root).as_posix() for p in files(root)}
     names.update({'DIRECTORY_AND_FILE_LIST.txt', 'PACKAGE_MANIFEST.txt'})
     (root / 'DIRECTORY_AND_FILE_LIST.txt').write_text(
-        'PEOS rev0.314 public tree (Git metadata excluded)\n\n'
+        'PEOS rev0.315 candidate public tree (Git metadata excluded)\n\n'
         + '\n'.join(sorted(names)) + '\n', encoding='utf-8')
     entries = manifest_rows(root)
     text = ('PEOS_PUBLIC_PACKAGE_MANIFEST_V1\n'
-            'TARGET_REVISION: rev0.314\n'
+            'TARGET_REVISION: rev0.315\n'
+            'STATUS: RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED\n'
             'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.314\n'
             'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.313.zip\n'
             'DETAILED_REFERENCE: rev0.314\n'
@@ -145,7 +146,7 @@ def manifest_errors(root):
 def specification_errors(root):
     root = Path(root)
     errors = []
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.314.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.315.json').read_text())
     for item in provenance['canonical_documents']:
         path = root / item['path']
         if not path.is_file() or digest(path.read_bytes()) != item['source_sha256']:
@@ -153,17 +154,19 @@ def specification_errors(root):
     ids, owners, blocks = [], {}, {}
     for owner in OWNERS:
         text = (root / f'prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
-        if '- 文書revision: `rev0.314`' not in text:
+        if '- 文書revision: `rev0.315`' not in text:
             errors.append('CURRENT_DOCUMENT_REVISION:' + owner)
         for block in re.split(r'(?=^### )', text, flags=re.M):
             match = re.search(r'^- RULE_ID: `([^`]+)`', block, re.M)
             if match:
                 ids.append(match[1]); owners[match[1]] = owner; blocks[match[1]] = block
-    if len(ids) != 412 or len(set(ids)) != 412:
-        errors.append('412_UNIQUE_RULES_REQUIRED')
+    if len(ids) != 430 or len(set(ids)) != 430:
+        errors.append('430_UNIQUE_RULES_REQUIRED')
     registry = (root / 'admin/RULE_OWNERSHIP_REGISTRY.yaml').read_text()
+    if not all(line in registry.splitlines() for line in ('revision: rev0.315', 'current_project_canon: rev0.314', 'accepted_baseline: rev0.313', 'rule_count: 430')):
+        errors.append('RULE_REGISTRY_AUTHORITY_OR_COUNT_DIFFERS')
     pairs = re.findall(r'^- RULE_ID: (\S+)\n  OWNER: (\S+)', registry, re.M)
-    if len(pairs) != 412 or dict(pairs) != owners:
+    if len(pairs) != 430 or dict(pairs) != owners:
         errors.append('RULE_OWNER_REGISTRY_DIFFERS')
     trace = json.loads((root / 'admin/REV0.314_REQUIREMENT_TRACEABILITY.json').read_text())
     requirements = trace['requirements']
@@ -175,8 +178,27 @@ def specification_errors(root):
                 or normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], ''))
                 or item['public_verification'] != 'CANON_TEXT_AND_UNIQUE_OWNER'):
             errors.append('REQUIREMENT_BINDING:' + item['id'])
+    latest = json.loads((root / 'admin/REV0.315_REQUIREMENT_TRACEABILITY.json').read_text())
+    if latest.get('requirement_count') != 18 or len(latest['requirements']) != 18:
+        errors.append('18_NEW_DERIVED_REQUIREMENTS_REQUIRED')
+    for item in latest['requirements']:
+        if owners.get(item['rule_id']) != item['owner'] or normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], '')):
+            errors.append('LATEST_REQUIREMENT_BINDING:' + item['id'])
+    readme = (root / 'README.md').read_text()
+    if '## インストールマニュアル\n' not in readme:
+        errors.append('INSTALL_MANUAL_MISSING')
+    else:
+        before, manual = readme.split('## インストールマニュアル\n', 1)
+        if '## 公開範囲' not in before or '## 検証' not in before:
+            errors.append('README_OVERVIEW_BEFORE_INSTALL_REQUIRED')
+        if len(re.findall(r'^\| `prompt` \| `PEOS_CURRENT_[^`]+` \|$', manual, re.M)) != 5:
+            errors.append('EXACTLY_FIVE_INSTALL_ATTACHMENTS')
+        if 'ユーザー名：〈呼んでほしいユーザー名〉' not in manual or 'お母さん' in manual:
+            errors.append('GENERIC_USER_NAME_REQUIRED')
+    if restore_candidate_promoted(root):
+        errors.append('CANDIDATE_SELF_PROMOTION')
     history = root / 'history'
-    if sorted(p.name for p in history.iterdir()) != ['rev0.312', 'rev0.313']:
+    if sorted(p.name for p in history.iterdir()) != ['rev0.313', 'rev0.314']:
         errors.append('HISTORY_MUST_HAVE_EXACTLY_TWO_PREDECESSORS')
     for p in history.rglob('history'):
         errors.append('NESTED_HISTORY:' + p.relative_to(root).as_posix())
@@ -188,9 +210,13 @@ def specification_errors(root):
     return errors
 
 
+def restore_candidate_promoted(root):
+    r = json.loads((Path(root) / 'runtime/PEOS_SESSION_RESTORE_rev0.315.json').read_text())
+    return r.get('candidate_revision') != 'rev0.315' or r.get('candidate_accepted') is not False
+
 def authority_errors(root):
     root = Path(root)
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.314.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.315.json').read_text())
     value = restore['authority']
     expected = ('rev0.314', 'PEOS_GITHUB_PACKAGE_rev0.313.zip', 'rev0.314')
     errors = []
@@ -206,7 +232,7 @@ def authority_errors(root):
 
 def validate(root, *, check_manifest=True):
     root = Path(root)
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.314.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.315.json').read_text())
     return (publication_errors(root, set(provenance['excluded_original_sha256']))
             + (manifest_errors(root) if check_manifest else [])
             + specification_errors(root) + authority_errors(root))

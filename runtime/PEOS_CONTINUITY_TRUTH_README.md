@@ -1,4 +1,4 @@
-> Retained compatibility/optional strict reference. The current normal entry is PEOS_SESSION_RESTORE_rev0.314.json and SHORT_ACK_SYNC; current L0 and REV314 rules control. This older protocol is not automatically activated.
+> Retained compatibility/optional strict reference. The current normal entry is PEOS_SESSION_RESTORE_rev0.315.json and SHORT_ACK_SYNC; candidate L0 and REV315 rules apply without promoting current authority. This older protocol is not automatically activated.
 
 # PEOS rev0.312 typed continuity / live-truth / fixture layer
 

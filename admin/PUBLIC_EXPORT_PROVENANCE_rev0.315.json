@@ -2,63 +2,78 @@
   "canonical_documents": [
     {
       "path": "prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "83a023f72364445dcc0507fec99307ba48023bc379e82f1e63fb71daa714f70a"
+      "source_sha256": "537a6dbb8f0f17eef667b9018adeea2b72cfe866b74a5d9cd793f343360ea737",
+      "origin": "CURRENT_CANDIDATE"
     },
     {
       "path": "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "778e0ec12b8d7c79dba8b9ca5586f378ddb9fa872725df63dcfe1ccf28936dd8"
+      "source_sha256": "8e60a47d067d1457ac34279c21be774fc49fdfaf9c22862f0534ec7f1f800807",
+      "origin": "CURRENT_CANDIDATE"
     },
     {
       "path": "prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "3e00a0c2f22c8af1e865907e8a8d9ffa7d0a97cc3465d690cf1f6a58da5daecd"
+      "source_sha256": "6b443eba46abc858ed628a5c6775305afd35bf5c562ebd52300b467973e8d3d5",
+      "origin": "CURRENT_CANDIDATE"
     },
     {
       "path": "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "1847cc62f0bec6a7a3d12273d286630fce125fd294fd3d545878c0783e3cd427"
+      "source_sha256": "3b17f08648557ea38e9f2602409f9dcc2ae713e797c737b90d4b607a7aa1f8fa",
+      "origin": "CURRENT_CANDIDATE"
     },
     {
       "path": "prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "95d1a0bf42d725bc9e2f8892c1a76078a7dadb0dd33bd22c76d12112c9119609"
+      "source_sha256": "51e1740af85600b80acbb35e1467b47e2227a6f6224ad30c45c9c24ba2ddc871",
+      "origin": "CURRENT_CANDIDATE"
+    },
+    {
+      "path": "history/rev0.314/prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
+      "source_sha256": "83a023f72364445dcc0507fec99307ba48023bc379e82f1e63fb71daa714f70a",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
+    },
+    {
+      "path": "history/rev0.314/prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
+      "source_sha256": "778e0ec12b8d7c79dba8b9ca5586f378ddb9fa872725df63dcfe1ccf28936dd8",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
+    },
+    {
+      "path": "history/rev0.314/prompt/PEOS_CURRENT_PAPER_JP.md",
+      "source_sha256": "3e00a0c2f22c8af1e865907e8a8d9ffa7d0a97cc3465d690cf1f6a58da5daecd",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
+    },
+    {
+      "path": "history/rev0.314/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
+      "source_sha256": "1847cc62f0bec6a7a3d12273d286630fce125fd294fd3d545878c0783e3cd427",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
+    },
+    {
+      "path": "history/rev0.314/prompt/PEOS_CURRENT_SPEC_JP.md",
+      "source_sha256": "95d1a0bf42d725bc9e2f8892c1a76078a7dadb0dd33bd22c76d12112c9119609",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
       "path": "history/rev0.313/prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "d93f9c444d5f7121ee763dd3690dfcdf2a5074352ee72bab068e5bf59e683c5e"
+      "source_sha256": "d93f9c444d5f7121ee763dd3690dfcdf2a5074352ee72bab068e5bf59e683c5e",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
       "path": "history/rev0.313/prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "9f97a5ae705ca09fe74769023749ae19786259fd2e75c4b1d6b30c0ee5f144fb"
+      "source_sha256": "9f97a5ae705ca09fe74769023749ae19786259fd2e75c4b1d6b30c0ee5f144fb",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
       "path": "history/rev0.313/prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "96c7a3b9f173f2568c427cae557f019096a2121ee9f77abf9731751c241176d4"
+      "source_sha256": "96c7a3b9f173f2568c427cae557f019096a2121ee9f77abf9731751c241176d4",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
       "path": "history/rev0.313/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "09a11b9efc1253e252dc49d06f90f19f4d152185f53e57a6d0a7fc4dbf00eb48"
+      "source_sha256": "09a11b9efc1253e252dc49d06f90f19f4d152185f53e57a6d0a7fc4dbf00eb48",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
       "path": "history/rev0.313/prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "b9c01193e3ef27c9308c2306a56ad85fc908ca66e232cbe070df7f2bdc345ff0"
-    },
-    {
-      "path": "history/rev0.312/prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "44abc40384e44ce623f5b8b141169f625415530a590583c2d2e6397ec13438a4"
-    },
-    {
-      "path": "history/rev0.312/prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "6a4e643fc43dc08952b8bff6a61b914c92b1bb9ecc6e17a23b40282bbf0069bd"
-    },
-    {
-      "path": "history/rev0.312/prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "43eac6a46ec97835ebada982a013d18d14e3ce7aa2d07450f31f3e8c70666af0"
-    },
-    {
-      "path": "history/rev0.312/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "96bc8e5bc7f59cf25b525e8a6c938e8521b932e4376cf50ee55a9b54ebbd6d48"
-    },
-    {
-      "path": "history/rev0.312/prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "ad52d3c440c5b2d3af3a5b4617025892722701ad17c6713c4365d465eb35e1a4"
+      "source_sha256": "b9c01193e3ef27c9308c2306a56ad85fc908ca66e232cbe070df7f2bdc345ff0",
+      "origin": "BYTE_EXACT_HISTORICAL_CANON"
     }
   ],
   "canonical_examples": "Selected specification examples remain part of the five canonical documents; no original transcript corpus is shipped.",
@@ -66,6 +81,7 @@
     "009e52de99f218f279a8b417fa44d6f555e74d859e3e9ae8598902929fe82d27",
     "0368326137c41a7b2cfc5eb2c09b7f3745084027ba9e9045b797c781c1082b83",
     "05fd096b59a60943108ba71ee045cdf3a3611e737808c95ece9ef5e9f31f5ccf",
+    "07cce2f8074aa433397f6deb43d25dd0aab147511c92d3acac2530d8e3e6273a",
     "0917ebe45626436d3e371daf211d21aa4223f418655bc3dbbe9e8e3d588fc9df",
     "0a26723cd5c9ce4a1232d6c78b9da6e4fff61d7c629608d9e1ef1c0dcbd78f9d",
     "0b10070ad007fd35b8869fc256185f0ebe5dd70d51f9b929ecc76f9d1b214221",
@@ -78,6 +94,7 @@
     "197cdc9e037cb335ef2e5af1e028ef3ab87db00092d535c65267d48605f029fb",
     "1a80d7225b11d733e5a9f2e2977d032d8cec2ade285364ea65405f4eeb36b197",
     "1c027efb1ba16c7282bfa34ddec5d26a078637ec76ce2efed65ba2b4d705809d",
+    "1de1d6663ea1aaa62beee62c8be9c28d573d38ca4c4a3affd01cdb457fe72e3c",
     "1f1c673d3d1e3f7312ab683321381ccaa710feb205eac032b2fd63d72e78c6ce",
     "219ff9b07823ed66ba0e7f4ee50cef425dc830d30773c3e1b527e3df671c2206",
     "27206fee8f0fde74acb56ba305e35a010964e5924fa6e1875645933527cb5f86",
@@ -86,27 +103,38 @@
     "297cc3dabb4b6e2f98664a51bd45e2feaa10741b4f9be4c6b60a4d28ed919f0d",
     "29d0ab23d0b0778569d67d2b9ffdb8324b07ace3b78b41a403b9de5b277124d3",
     "2b2ca3bed7ececa3d38ee4ec85bdf69234b667ea881063450d8091d36c8a20b4",
+    "2b713319e4c448ab0ae4696988f905c4cc26178fdabe7dd6e484fb7647756f90",
+    "2cacde50d2a03089cb3869ceab6335a0d9370aa1db2a72a2ca17c3fb2e75c706",
+    "2d0dcbbbdb051a6abcd924ed9830d429998fa3e15f5593857905e5426cb5488c",
     "303f6d194874006f78c26be5c513e24c1f0480f506b2e13a53ddded9b195af2e",
     "319c957429db8692cdc8f0832d46497f21ac9f36565c4232ac4300a1e384b9a6",
     "31db299c330c7128a2f24fd250e6813a79e387049699c59828f665041fe6260f",
     "32dfe78bdab5f1e559c83cf2e2ec4ed65ad5696a093e202ba7f9ccc97a5d0772",
+    "346123c141f52132fb816e48277c169e2297ec6a666b5eda1a3e0e2c669a29c6",
     "352f28b7c693249d393eafac2d239481c9b085db368f572000823706326f8d3f",
+    "3687f7802bdc2120e9a8d4f5539b0d4cb09f9806f3d441bf2449052d06e731fe",
     "39ced5142e56e2c3bb27edaa29a3f2520fb65a84b7b265e27d00081960253408",
     "3c26ef243add0821f3da767996c38f43c71a9e06640f0e4bb1f5567bc4ad4c89",
     "3e92b78272c0cee1f35491ba286d69d3d4d3de9de365b62b157f042d793b1a8b",
     "409847dba40559e5809852b69fe7b84bdb1068c4b1b9dc451c460336fd9afbbe",
     "44f7fd51de92e4fc102cb67549933557e1c133496d43256962784c6698fbe65a",
     "454e1b99866ec9819770a7460171ad716134156d99a91603521122b4b08d8ec9",
+    "46d49c2d1cf272e47f756d8ecd4ca969fdcb08b9e104c7082af7945cd5b1daea",
+    "498ae9a24d2e770d20b77162ad81a9bb8d6905f15b0def63bc180f2434f8d47f",
     "49f33ce9fa676d4f7ccad8f7fe025e384c93036641920ead8a7f2135c36d1039",
+    "4d04982ed0b0dd18847f9ee37dd1cb28da483e5cb35f343ad5832ce5e8d47d54",
     "4d3a2b934075ed179833dc67ebac0a45074dfa7f4e51b2c5a7a828e909c07f3f",
     "5270a4e1eba79b474c04ec97310b60288d516b850d444cf57bb0d0dbf4047e4f",
     "543098aa8f3cd9e6e3db2637aa7dd3bd85f7e18d918c4d577b6fbd791a4cbb7c",
     "579d49072009b77e1ed652a95c9c7fd9af9e384587280a65c082a1fc17fd5689",
+    "57baae7f2379d023683fbc9a8f906c2ec065af1a354fac0581fd75c3773a4f2c",
     "59c344d3083b57c3612b08de91927b561ac4e3f86a9ac3cc8b3965ac79dc0bea",
+    "59c878c745a615a4b61642f1768bc9a6b5749edeb75b2b7f452dbc7f705c1a11",
     "5c99abdfc0481d70d71ed26975b0eaddf8c308d94236e778ca921dd2921aa086",
     "632f69a37a64ec0c6a028503c397270b93125c864a9a14c550a5eda0028537d8",
     "660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f",
     "67da251d09717fa7c42b83ac452074d295551ea3a9bbd20b7ef01d833a3e3b9d",
+    "6849a89e183dad04190a6ca166954c6e13645254838f7408aee35760d650604e",
     "6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203",
     "6ddfa95ecaee53b02ef832567859b7a6aed3f4a361703999c0b4180b9b69debc",
     "6ee7adcaf0a3cb88932e8113d7280de90aec700d42214e713aa61e06d4d3e8b2",
@@ -122,10 +150,17 @@
     "83929a6afc9f97592680993a174a19d9574f1c1406ca2d75139c65055e2b7656",
     "84a2ff78fd8f639bdbf5dcc8835d77a049fb6697c2e5119439be4c039cd9c45c",
     "84f09b140c3b7b3a7921eb45dfdf550579dbb88a68d7bb24a673ef69f647dcc7",
+    "8549dde0de5a9b4fdacbcbcb2d8c2a95d119bb5e4bcbc251d9849d52a4179bf4",
     "85d70556c8cb7838a2c16a8412a7166a230c99f24b0c5040ef73a0448811a2ba",
+    "8832c4751896429b570716d5ae7fa04aadd60221d695a0a792c64a078aba8d2a",
+    "89135ab3ad28efc792d7db0e83e42e9c059fd42585ae5382de0abc4ed72096f8",
+    "898020b40d204e6b50497c146c46542e6cf2dfe0801f4081095b05159c2578bc",
     "8b6fccbf47693a8d17e0a448e070f296e2284a844e8b5e40f57b855b2be34436",
     "91025fc83ed43f589f8a5b3d85471605910ff03f3e9d85e3ac09737a165a8713",
+    "93aac2b9c80b834256439a16bc01e376d5e07bc518e16987821a6c37bb888b7f",
+    "9841a62c225ce8f6e3675f5c08e055e8115cd593d45d3a1267767fa3662bdc75",
     "98d37d29df7f1fe2670229220ec31ab3994040509c5ab86deec7863af097d037",
+    "9a2a0ce87d2813fe6a516590ac80f8295fefa28b51b1af18dcb79f9c09b29c50",
     "9b0962b71b2f805b5ab1c43c08a987557a4df0da993c7537eb18d1058e227302",
     "9ce10adb2f4c2ef1e32403d6768a3fa47f917ea483ae636bae3db81de6904466",
     "9e21e42b9d81cbb4ebba77c7e9b4f599213097b453bbb61a1b47c57316a9b9f3",
@@ -134,16 +169,31 @@
     "a52291cfd7cc8bf8966b84f353678c3389d83770397fe2a9385d3b3c06df637c",
     "a7d2016290539791978ba8f594a79246d478023264fd2269fc72bcdc134932f0",
     "a81afdfb68f785c27e91646c5e0fe2ce347f749a7e376f317d36004b9d7b4df4",
+    "a8450ac75079e0871316a7ddfb4f7c54fb497e15ccf517b8cf7da1d2260de7ab",
+    "ac46ca80590088645a07482b3646c776429b6205a00daab1cd2c2c63618b5bbe",
     "acefa9f4f0b007b1ce4d65384ead1149b8fe46786b2536485185104f2b903280",
+    "ad8046076c40ab5a5a4e5ea94db8b6a33fb878f072a0e6c0bc6f8b7694203d41",
     "ae660927d174651245a62f089dff47fccadb846c4591323f0b2a92952ec5328d",
     "b15e7ec3117585ceb3fc25926157fda440d0c84173f03af43d40eba57e23547d",
     "b2acada1bafc699db38cb8b614aa53656a0a90da9a4712a44cf32338a13dfdb1",
+    "b2dad6f81b2e5c0c890c4289e5f467667e929011dbe8865851c170a298295f6f",
+    "b40f32288f8e0b5fa535e9fd79a36ba850d202e0ac24ffaaf733f27cdf104dab",
     "b4d9337e50717d1612bbdec47019c894107ba729da60ed60b7f797c8ed0a7ead",
+    "b64b6ef1aff3e46ef49ccb5a389fadf2f2c532cbee33b7cac5c4de5ff7ed67e0",
+    "b65d92842573ae1e4572b4173773989868b1f7f1ffdcb6c1b3c0684ea16a9c8a",
     "b7abc33b52d73c304e2a9c5a5e8df82cf39119ec9a67f3e34232a5b0a112a070",
     "b9dd59fb9400d1068f37148897eac12d29e2ed1804686447076fd03d0eb7201f",
     "b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0",
     "bdba63f8047065c8dc008d168ebe03bc30335a169c7a32a1f34a27dc699f856e",
     "c01122dad887be0bd7bf9931c905120e60df2b5e8193799021098cb42123d3f5",
+    "c277d7742781e385fe4614807505f124d15034d2c8ac1a0d952ec7776b3a93d6",
+    "c4fc91d9358bc6cf2431a1ff35d222065ac02784a4ac46a87fe330c2b6c5bda9",
+    "c5a82b7d5b8e3aa698a633f0bfeff1eecfcd99c0aaf25668f4c2e46c3846cf32",
+    "c5f3318fd76f55f5b4eaa06ff2cf8ba7a054594ad17c1868a64abcf45a959973",
+    "c8d2b53fdbd54081901a1f900d0fb8d9961fe161260833011768ab7b3288f976",
+    "c9053d84211755ca90531de5dff63ebcba96e25979493891132f4e8f6b6667c8",
+    "c986cfb615c20f2c06b19cd9378b277cdff1880e681938bb954d080a0ce4e844",
+    "ca0215c3b1e60e5a929ed2f14f5d56cf70f37399c5122cdd0615e0ca942c0490",
     "cae1ae92a431c3b9bdb0df5f68d629fb57089129fad14e040471389e5171431b",
     "cba587f1ccf4f7174938765ef5557e3f40fe2f588ceac510e205324b249bc61e",
     "cd352c85bdc18d686262a43420aa1eeee9e84d82c664d29536eb0ddd17c4dfe6",
@@ -151,12 +201,15 @@
     "cf94cb5630314b8ed3addc660f4d3265ca5e5c3d81f398e81ad8223959c25dbe",
     "d00bb1eef4d61fa3f54e23c118181649975ac473863dab06892e3d8004496dc7",
     "d01a7b19efb2cc67e57f0bbf86054a2bf209c224818c9ef90e0d2dd40009fb89",
+    "d043006e97ce22dd4ee8ddc9fed20c9596460184b4fccf703b2da3f23d3f86f0",
     "d203310dd8a05a1a801eefeb8b418a1d74ef4a62a1c41449c915afd1e470747c",
     "d43f378fabce9300a3bd65f182fc8554b9965ca52829f6896dffc9decac8a3db",
     "d7da58fefba8e5a17be54714b2c99c8e2a2a3a1f65086f3dfbcc567ec9ab4f8e",
     "d8d6a541583f96cfea348ca4e2931a24c9927b7fe3fc5cabc3ee5f1bda905f87",
+    "d8da58e877aefd920d3bd641f3641c88ba8ea2618c1ed48dd894f98fec928c13",
     "db90e0d3890017a0040e273c3a953fa06635e0f76a5bd6b7a49ad0767be1f9e6",
     "dbad057b4a14cc645d896b0de52db116444cb820e356c3ded5aad80eaac4fdc4",
+    "dcc7fa5fb4cb691fcb1e85b786838fa63569c49d6994c569f995713839ed3ae3",
     "dd7182ed0b40e4541ad5d059c9bed3995569141c815a1ef5543de14303e429a1",
     "dee2fe1395b20373b2e20eaafae376205253227df887cf14605870d69c14da97",
     "df0ba41e8b16d4bca21a9ee4dfc66e141d12240ae9fa17e5422946cfcea86722",
@@ -173,11 +226,13 @@
     "f978732ee136f202e6d3ab38393b2b810d05468ae80f09a6493969fe7d685fd9",
     "f9ac8faf2fe04287126db75510138e091daa2de0481c1fc5a50c11477c26154e"
   ],
-  "excluded_private_file_count": 148,
+  "excluded_private_file_count": 147,
   "full_private_validation_is_public_validation": false,
   "image_files_included": false,
   "private_runtime_snapshots_included": false,
   "publication_scope": "SPECIFICATIONS_CODE_AND_SYNTHETIC_TESTS",
   "raw_conversation_files_included": false,
-  "source_archive_sha256": "e7ede945e3255d3db2bc81b6d975f113d131cf029ab4e7adc8ea0547b8a56ae5"
+  "source_archive_sha256": "e7ede945e3255d3db2bc81b6d975f113d131cf029ab4e7adc8ea0547b8a56ae5",
+  "revision": "rev0.315",
+  "excluded_private_file_count_meaning": "distinct known source-byte deny hashes, including the latest private handoff"
 }

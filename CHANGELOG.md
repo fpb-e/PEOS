@@ -1,4 +1,25 @@
+# rev0.315 candidate
+
+- 18要求を五正本へ統合。全430規則、一規則一所有者。
+- 共通の論説調・笑い・呆れ・自己懐疑と、利用者別前処理束縛を明確化。
+- 五正本5添付、任意呼称、README後半マニュアルを維持。
+- 公開版と私的根拠を分離し、歴史snapshotは314/313の2版。
+- 現行314・baseline313を維持する未受入候補。実モデル・実同期の受入は未実施。
+
 # Public export rev0.314
+
+## Beginner installation guide and public ZIP — 2026-10-24
+
+- Put project purpose, publication scope, authority and validation first in README, followed by a five-step installation guide requiring only the five canonical upload files and copyable, self-contained project instructions.
+- Let each user specify their preferred user name; include boot-display checks, troubleshooting and a truthful path for unavailable record/sync capabilities.
+- Keep developer notes below the introductory guide; package the validated public tree without original conversations, images, private state, Git metadata or embedded archives.
+
+## Division common-core deployment profile — 2026-10-24
+
+- Add a derived Japanese entry and hash-bound profile for shared reasoned prose, contextual laughter of two or more characters, sentence-final exasperation marking, evidence-proportional skepticism and actual short preprocessing.
+- Keep one shared core for FATHER/MOTHER/GENERAL; limit relationship adapters to context and call-signs.
+- Reuse the short preprocessing driver with durable per-user journal bindings, no fabricated capability receipts and no cross-coordinate father learning.
+- Add synthetic integration cases and a separate paired model-replay rubric. Live host/model acceptance remains unclaimed; the five canonical documents and release authority retain their bytes and values.
 
 ## Repository cleanup — 2026-10-23
 

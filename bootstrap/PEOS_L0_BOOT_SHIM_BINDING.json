@@ -1,15 +1,7 @@
 {
-  "authority": "NON_AUTHORITATIVE_PROJECTION",
-  "boot_priority": true,
-  "default_profile": "SHORT_ACK_SYNC",
-  "is_sixth_canon": false,
-  "live_adapter_installed": false,
-  "live_hook_installed": false,
-  "optional_profile": "STRICT_READBACK_AUDIT",
-  "projection_sha256": "8e5abee31456c870f80fd9021109b38acfa03da112fef2606400ec68d9739432",
-  "revision": "rev0.314",
-  "source_block_sha256": "72be7a84323258f0917c1ca6050a2cb722823c63b5fc746cf538cef5ca2a0b07",
   "source_canon": "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-  "source_canon_revision": "rev0.314",
-  "source_canon_sha256": "1847cc62f0bec6a7a3d12273d286630fce125fd294fd3d545878c0783e3cd427"
+  "source_sha256": "3b17f08648557ea38e9f2602409f9dcc2ae713e797c737b90d4b607a7aa1f8fa",
+  "projection_sha256": "113efafe954e1a0f09414b0105a78511de5623a8fa321b1cb1a57e1a89e843c2",
+  "is_canon": false,
+  "required_install_attachment": false
 }

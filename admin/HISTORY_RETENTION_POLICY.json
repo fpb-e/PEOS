@@ -6,22 +6,10 @@
   "raw_user_inputs_preserved": false,
   "retained_previous_version_count": 2,
   "retained_previous_versions": [
-    "rev0.313",
-    "rev0.312"
+    "rev0.314",
+    "rev0.313"
   ],
   "snapshots": {
-    "rev0.312": {
-      "canons": {
-        "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "44abc40384e44ce623f5b8b141169f625415530a590583c2d2e6397ec13438a4",
-        "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "6a4e643fc43dc08952b8bff6a61b914c92b1bb9ecc6e17a23b40282bbf0069bd",
-        "prompt/PEOS_CURRENT_PAPER_JP.md": "43eac6a46ec97835ebada982a013d18d14e3ce7aa2d07450f31f3e8c70666af0",
-        "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "96bc8e5bc7f59cf25b525e8a6c938e8521b932e4376cf50ee55a9b54ebbd6d48",
-        "prompt/PEOS_CURRENT_SPEC_JP.md": "ad52d3c440c5b2d3af3a5b4617025892722701ad17c6713c4365d465eb35e1a4"
-      },
-      "path": "history/rev0.312",
-      "scope": "PUBLIC_CANONICAL_SUBSET",
-      "source_archive_sha256": "6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc"
-    },
     "rev0.313": {
       "canons": {
         "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "d93f9c444d5f7121ee763dd3690dfcdf2a5074352ee72bab068e5bf59e683c5e",
@@ -33,7 +21,19 @@
       "path": "history/rev0.313",
       "scope": "PUBLIC_CANONICAL_SUBSET",
       "source_archive_sha256": "d3d6c8726b775d7ddd33e733c5671f9e688ef1b51a5d1f6989d97a4d6e6925e8"
+    },
+    "rev0.314": {
+      "path": "history/rev0.314",
+      "scope": "PUBLIC_CANONICAL_SUBSET",
+      "source_archive_sha256": "e7ede945e3255d3db2bc81b6d975f113d131cf029ab4e7adc8ea0547b8a56ae5",
+      "canons": {
+        "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "83a023f72364445dcc0507fec99307ba48023bc379e82f1e63fb71daa714f70a",
+        "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "778e0ec12b8d7c79dba8b9ca5586f378ddb9fa872725df63dcfe1ccf28936dd8",
+        "prompt/PEOS_CURRENT_PAPER_JP.md": "3e00a0c2f22c8af1e865907e8a8d9ffa7d0a97cc3465d690cf1f6a58da5daecd",
+        "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "1847cc62f0bec6a7a3d12273d286630fce125fd294fd3d545878c0783e3cd427",
+        "prompt/PEOS_CURRENT_SPEC_JP.md": "95d1a0bf42d725bc9e2f8892c1a76078a7dadb0dd33bd22c76d12112c9119609"
+      }
     }
   },
-  "target_revision": "rev0.314"
+  "target_revision": "rev0.315"
 }

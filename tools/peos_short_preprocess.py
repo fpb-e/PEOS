@@ -30,11 +30,13 @@ def valid_jst(stamp):
 def validate_learning(updates):
     if not isinstance(updates,list): raise PreprocessError('learning delta must be a list; empty is valid')
     for item in updates:
-        if not isinstance(item,dict) or item.get('source_class') not in {'FATHER_EXPLICIT_INSTRUCTION','FATHER_SELF_REPORT','FATHER_CORRECTION'}:
-            raise PreprocessError('non-father material cannot be a father learning delta')
+        if not isinstance(item,dict) or item.get('source_class') not in {'FATHER_EXPLICIT_INSTRUCTION','FATHER_SELF_REPORT','FATHER_CORRECTION','USER_EXPLICIT_INSTRUCTION','USER_SELF_REPORT','USER_CORRECTION'}:
+            raise PreprocessError('learning requires an attributed father or user source')
+        if item['source_class'].startswith('USER_') and (not isinstance(item.get('subject_namespace'), str) or not item['subject_namespace'].strip()):
+            raise PreprocessError('user learning requires its subject namespace')
         if not item.get('source_turn_id') or not item.get('source_span'):
             raise PreprocessError('learning update must bind an original turn and span')
-        if item.get('quoted_other_speaker',False): raise PreprocessError('quoted speaker is not father')
+        if item.get('quoted_other_speaker',False): raise PreprocessError('quoted speaker is not the learning subject')
 
 class DurableTurnJournal:
     """A time ledger entry also preserves raw source and its typed learning delta."""
