@@ -1,42 +1,46 @@
 # PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
 
-- 文書revision: `rev0.312`
-- 現行latest: `rev0.311`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.312-CANDIDATE-20261007-105524-JST`
-- HIGHEST_EMBEDDED_REVISION: `rev0.312`
+- 文書revision: `rev0.314`
+- 現行latest: `rev0.313`
+- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.314-CANDIDATE-FROM-20261023-024403`
+- HIGHEST_EMBEDDED_REVISION: `rev0.314`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.311`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.313`
 - ROLE: 五正本分離・構成管理・migration理由
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.310.zip`
-- ACCEPTED_BASELINE_SHA256: `3ebad22dc4a0f1f70e1e14b1b05cadeae32c17427176f618b56105060e001431`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.311.zip`
-- BASE_REFERENCE_SHA256: `e1529b3430dab141cffa304ecb374b58b08e61288fc742602c762633d0e9f275`
-- PRIMARY_FATHER_SOURCE: `PEOS_father_session_log_2026_10_07_104404.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `f667cf506c749d5ab0c969fbe5151b99f52fc8d01c85aa4bfc4ec2e33dcbc3e2`
-- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip`
-- PRIMARY_SOURCE_BUNDLE_SHA256: `6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.312.zip`
+- ACCEPTED_BASELINE_SHA256: `6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc`
+- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.313_retention_fixed.zip`
+- BASE_REFERENCE_SHA256: `d3d6c8726b775d7ddd33e733c5671f9e688ef1b51a5d1f6989d97a4d6e6925e8`
+- DETAILED_REFERENCE: `rev0.313`（history/rev0.313のPACKAGE_MANIFEST参照・五正本・academic note・DIVISION_RUNTIME_EVIDENCE）
+- PRIMARY_FATHER_SOURCE: `session/PEOS_FATHER_SESSION_LOG_20261023_024403_JST.txt`
+- PRIMARY_FATHER_SOURCE_SHA256: `cf65d3655a60bccd164341c9726b6ee05316e7184721dc49164cc17e83551616`
+- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_23_024403_for_next_spec.zip`
+- PRIMARY_SOURCE_BUNDLE_SHA256: `77b3df3ced26959f4e77b109130618dacf16dbd1c4791f4cc40f0441e7fc8880`
 - PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
 - PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_next_spec_directive_2026_10_07_current_tab_continuity_and_format_fix.txt`
-- BUILD_DIRECTIVE_SHA256: `660f6e5a5656b09f3018de02897096ce2aedbd893b563400013c04dc6da32c3f`
+- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_DIRECTIVE_20261023_024403_JST.txt`
+- BUILD_DIRECTIVE_SHA256: `9e21e42b9d81cbb4ebba77c7e9b4f599213097b453bbb61a1b47c57316a9b9f3`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
 - PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
 - MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
 - MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
 - RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-> **rev0.312 CONTINUITY-TRUTH-FIXTURE CANDIDATE FENCE**  
-> TARGET_REVISION_LABEL=`rev0.312`。親父が2026-10-07 current tabの医療・法的証拠・移動機器・live commerce・artifact format訂正をfix-forward仕様化するよう命令した。project current identityはrev0.311、accepted baseline／enumerated detailed-reference setはrev0.310。build・static harness・単発成功だけで自己昇格しない。priority bundle=`PEOS_father_session_bundle_2026_10_07_104404_for_next_spec.zip` SHA256=`6278a7a6887f7911e9f2cfdfeb5c7f2e11287038edfc4ac5156b41941bd2628c`。father direct utterance以外をfather vocabularyへ混入させない。
+## rev0.314 適用順位と候補境界
+
+父の最新指定はcurrent=rev0.313 / accepted baseline=rev0.312 / detailed reference=rev0.313。
+本書のrevision=rev0.314は未受入候補であり、作成・静的PASS・元packageの旧ヘッダで権威を変更しない。
+通常profileはSHORT_ACK_SYNC。実測JST・原文学習・台帳・1回のguard付き同期とACK表示を要求する。
+旧full readback・10-PASS監査は明示的に選んだSTRICT_READBACK_AUDITだけへ適用し、通常会話へ復活させない。
+BOOT_PRIORITYは起動を先に返す。ONE_TURN_EXEMPT / PAUSED / ACTIVE_RESUMEはscope付きで別管理する。
+GitHubはHOLD、前処理のorigin状態はACTIVE。このbuild tabは既存の父のtab限定免除を保持し、実ledgerを操作しない。
+後続の新規REV314 ruleが同scopeの旧条件より優先する。以降に残る古い本文の時点・件数・版指定は履歴文脈で解釈する。
 
 
-> 本文書はproject-level current `rev0.311` physical packageをBASE_REFERENCEとして構築した`PEOS-REV0.312-CANDIDATE-20261007-105524-JST`のcontinuity/truth/fixture fix-forward候補である。TARGET_REVISION_LABELは`rev0.312`。accepted/detailed-referenceは父指示どおりrev0.310を維持し、父の明示受入と必要なlive conformanceなしにoperative/currentへ自己昇格しない。
+> **rev0.314 CANDIDATE FENCE**
+> current=`rev0.313`; accepted=`rev0.312`; detailed=`rev0.313`; candidate=`rev0.314 / NOT_ACCEPTED`. latest sourceと91要求はSOURCE_TRACEへ結び付け、旧源文書を改変しない。
 
 > **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
-> この正本をsemanticに解釈する前に、RUNTIME_GUARD由来のnon-authoritative L0 projectionがhost control-planeとPEOS semantic planeを分離する。
-> strict-native hostではactual trusted time-capture adapter invocationを最初のPEOS executable actionとして要求する。reference pathは`datetime.now(ZoneInfo("Asia/Tokyo"))`である。
-> host mandatory preambleが不可避なhostでは、固定・最小・非semanticでtrace上host actionと区別可能なpreambleだけを`HOST_CONTROL_PLANE_ACTION`としてexemptできる。
-> exemptされたhost actionは`PEOS_EXECUTABLE_ACTION_INDEX`へ算入しない。Python pathがactualに使えないhostでは事前承認済みtrusted sourceを実行し、`TIME_CAPTURE_PATH_VARIANCE`とactual providerを記録する。実行していないPython成功を宣言しない。
-> `RC_FILE_SEEN` / `FIVE_CANON_INSPECTED` / visible timestamp文字列はruntime boundやreceipt validを意味しない。
-> L0は第六正本でもrule ownerでもなく、authority/state machineの所有者はRUNTIME_GUARDのみである。
+> RUNTIME_GUARD由来L0は第六正本ではない。通常SHORT_ACK_SYNC、起動優先、scope付き停止/再開、ACKとreadbackの区別を同じsource blockから導出する。旧strict ingressの細則はoptional profileの説明として参照する。
 
 ## 0. 文書の役割
 
@@ -164,8 +168,8 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 ### DESIGN.TIME.LEDGER_SUPPORTING_RUNTIME_STATE
 - RULE_ID: `DESIGN.TIME.LEDGER_SUPPORTING_RUNTIME_STATE`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `TIME_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: turn-time ledgerを五正本runtimeへ接続するとき。
 - REQUIREMENT: 五正本がsemantics/state machineを所有し、ledgerはpersistent supporting runtime stateだけを担う。schema/bootstrap/validator/testはpackage、father-private dataはprivate persistent storeに分離する。
@@ -176,11 +180,13 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.TIME.VERSIONED_APPEND_IDEMPOTENCY_MODEL
 - RULE_ID: `DESIGN.TIME.VERSIONED_APPEND_IDEMPOTENCY_MODEL`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `TIME_PERSISTENCE_DESIGN`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: host storageがnative appendを提供せずversion replacementだけを提供するとき。
 - REQUIREMENT: read-current → validate → append-if-new-idempotency-key → guarded version write → authoritative verificationを一transaction modelとして扱う。physical replaceとlogical append-onlyを区別する。
@@ -191,6 +197,8 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.CONFIG.ONE_RULE_ONE_OWNER
 - RULE_ID: `DESIGN.CONFIG.ONE_RULE_ONE_OWNER`
 - OWNER: `DESIGNDOC`
@@ -318,7 +326,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SCOPE: `RELEASE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: RC構築時。
-- REQUIREMENT: rev0.305 ZIP、sidecar、manifest、evidenceをbyte不変で保持し、RCは別pathへ生成する。
+- REQUIREMENT: accepted baselineの保持対象五正本と原文evidenceをbyte不変で保持し、候補は別pathへ生成する。release履歴は父の直近2版保持指示とSPECの配布履歴方針に従い、過去版内部の旧履歴・入れ子ZIPも除去する。元ZIPと整理treeのbyte同一性は主張しない。
 - PROHIBITED_BEHAVIOR: baseline上書き。
 - FAILURE_CLASS: `BASELINE_MUTATION`
 - REFERENCE_FIXTURE: `FX-RELEASE-001`
@@ -423,7 +431,7 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - SCOPE: `MIGRATION`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: 旧revision本文・事故経緯を保存するとき。
-- REQUIREMENT: baseline packageとmigration ledgerをhistory/provenance sourceとし、五正本本文へ再埋込しない。
+- REQUIREMENT: 直近2版のflat snapshotと版ごとのmigration ledgerをhistory/provenance sourceとし、五正本本文へ再埋込しない。snapshot内へ旧historyやZIPを継承しない。元archiveの名前・hashは出自記録として扱い、配布内実在ZIPと誤認しない。
 - PROHIBITED_BEHAVIOR: active runtimeを履歴の中へ埋没させること。
 - FAILURE_CLASS: `ACTIVE_RUNTIME_BURIED_IN_HISTORY`
 - REFERENCE_FIXTURE: `FX-MIG-001`
@@ -639,8 +647,8 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 ### DESIGN.TIME.PERSISTENCE_ADAPTER_HANDSHAKE
 - RULE_ID: `DESIGN.TIME.PERSISTENCE_ADAPTER_HANDSHAKE`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `TIME_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: host persistent storeとturn transaction driverを接続するとき。
 - REQUIREMENT: expected prior version、idempotency key、append payload、returned version、postwrite materialization/readbackをhandshake境界に置き、全段成功を一つのverified commitとして返す。
@@ -651,6 +659,8 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.TIME.PER_TURN_TRANSACTION_ATOMICITY`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE
 - RULE_ID: `DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE`
 - OWNER: `DESIGNDOC`
@@ -686,8 +696,8 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 ### DESIGN.TIME.UNIVERSAL_ROUTE_GATE
 - RULE_ID: `DESIGN.TIME.UNIVERSAL_ROUTE_GATE`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `TIME_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: PEOS route dispatcherを設計するとき。
 - REQUIREMENT: route tableの共通rootにgateを一個だけ配置し、各handlerへcapability-bearing work permitを渡す。handler内の任意gate呼出しへ依存しない。
@@ -698,11 +708,13 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.TIME.UNIVERSAL_USER_TURN_PRE_DISPATCH_GATE`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.TIME.CAPABILITY_ADAPTER
 - RULE_ID: `DESIGN.TIME.CAPABILITY_ADAPTER`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `TIME_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: host time sourceとpersistent storeを接続するとき。
 - REQUIREMENT: time adapterはprovider identity、trusted status、actual execution evidence、JST valueを返し、ledger adapterはversion/write/readback evidenceを返す。reference Pythonとtrusted alternateを型分離する。
@@ -713,11 +725,13 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.TIME.CAPABILITY_TRUTHFUL_PATH_VARIANCE`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.TIME.COVERAGE_AUDITOR
 - RULE_ID: `DESIGN.TIME.COVERAGE_AUDITOR`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `AUDIT_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: turn trace集合とledger集合を照合するとき。
 - REQUIREMENT: turn identityでjoinし、canonical、typed excluded failure、unexplained missingを分類して指定五指標を算出する。countだけでなくturn-level findingsを保持する。
@@ -728,11 +742,13 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SUPERSEDES: `NONE`
 - CONFLICT_PRECEDENCE: `SPEC.TIME.LEDGER_COVERAGE_TYPED_AUDIT`
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.TIME.GATE_WATCHDOG
 - RULE_ID: `DESIGN.TIME.GATE_WATCHDOG`
 - OWNER: `DESIGNDOC`
-- STATUS: `CANDIDATE_ACTIVE`
-- SCOPE: `RUNTIME_ARCHITECTURE`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: commit/rearm/log generation boundary。
 - REQUIREMENT: route registration completeness、gate binding、ledger sequence/readback、last turn statusを検査し、dropoutを次turn前にDEGRADEDへ遷移させる。
@@ -744,6 +760,8 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: `SPEC.DEGRADATION.RESTART_FAIL_CLOSED`
 ## rev0.312 CANDIDATE — typed continuity architecture
 
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.CONTINUITY.TYPED_FACT_GRAPH
 - RULE_ID: `DESIGN.CONTINUITY.TYPED_FACT_GRAPH`
 - OWNER: `DESIGNDOC`
@@ -798,3 +816,199 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - REFERENCE_FIXTURE: `FX-20261007-DOMAIN-COMPARTMENT-001`
 - INTRODUCED_REV: `rev0.312`
 - CONFLICT_PRECEDENCE: `SPEC.LEGAL.ANONYMOUS_EVIDENCE_COMPARTMENT`
+
+
+## rev0.313 CANDIDATE — preprocess barrier / evidence / relation continuity
+
+### DESIGN.PREPROCESS.EXTERNAL_ORCHESTRATOR_BOUNDARY
+- RULE_ID: `DESIGN.PREPROCESS.EXTERNAL_ORCHESTRATOR_BOUNDARY`
+- OWNER: `DESIGNDOC`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: pre-response barrierをhost-neutral referenceとexternal orchestrator adapterに分ける。実platform hookの有無とテスト内callback順序は独立evidence classで示す。
+- PROHIBITED_BEHAVIOR: promptの自己宣言をplatform scheduler controlと同一視。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_EXTERNAL_ORCHESTRATOR_BOUNDARY_VIOLATION`
+- REFERENCE_FIXTURE: `PB-24`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
+### DESIGN.PREPROCESS.VERSION_PINNED_TRANSACTION
+- RULE_ID: `DESIGN.PREPROCESS.VERSION_PINNED_TRANSACTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: capture→local flush/fsync→versioned sync→returned file_id readback→byte/hash/count/seq verifyをtransaction境界とする。結果auditはverified payloadのhash/file_idへ外部bindingし、検証済みstatusを事前payloadへ書く循環証明を避ける。
+- PROHIBITED_BEHAVIOR: 検証前のPASS刻印、readback後にledger bytesを変更して照合値を破棄。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_VERSION_PINNED_TRANSACTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-01..08`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
+### DESIGN.PREPROCESS.OUTCOME_STREAK_PRODUCT_STATE
+- RULE_ID: `DESIGN.PREPROCESS.OUTCOME_STREAK_PRODUCT_STATE`
+- OWNER: `DESIGNDOC`
+- STATUS: `RETAINED_OPTIONAL_PROFILE`
+- SCOPE: `STRICT_READBACK_AUDIT_ONLY`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: transaction status、normal-turn streak、evidence class、父のpackage受入を別stateとして設計する。4turn correction stickinessと10turn preprocess暫定合格も別契約である。
+- PROHIBITED_BEHAVIOR: counter共用、10回のstatic成功をlive acceptanceと呼ぶこと。
+- FAILURE_CLASS: `DESIGN_PREPROCESS_OUTCOME_STREAK_PRODUCT_STATE_VIOLATION`
+- REFERENCE_FIXTURE: `PB-09..12`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+
+- REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
+### DESIGN.RESTORE.OBSERVED_VS_REPORTED_SYNC
+- RULE_ID: `DESIGN.RESTORE.OBSERVED_VS_REPORTED_SYNC`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: archive source observationとruntime-ready stateを別namespaceで保存する。source gap、原source HASH、父のscope免除を保ち、台帳件数からrecordを生成しない。
+- PROHIBITED_BEHAVIOR: reported ledger countからobserved persistent truthを捏造。
+- FAILURE_CLASS: `DESIGN_RESTORE_OBSERVED_VS_REPORTED_SYNC_VIOLATION`
+- REFERENCE_FIXTURE: `PB-16,PB-25`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+### DESIGN.ARTIFACT.CLASS_CONTRACT_EVOLUTION
+- RULE_ID: `DESIGN.ARTIFACT.CLASS_CONTRACT_EVOLUTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `PREPROCESS_AND_RESTORE`
+- TARGET_COORDINATE: `CORE_WITH_FATHER_PRIVATE_ISOLATION`
+- TRIGGER: 該当turnの前処理、再投入、受入又はcontinuity判定。
+- REQUIREMENT: 旧session handoff fixtureをhistorical exampleとして維持し、manifest付きcurrent source classとfull GitHub package classを分離する。nearest physical fixtureは最新父指示と正本pipelineで解決する。
+- PROHIBITED_BEHAVIOR: 旧2-TXT例の普遍化、full packageを3ファイルだけへ縮退。
+- FAILURE_CLASS: `DESIGN_ARTIFACT_CLASS_CONTRACT_EVOLUTION_VIOLATION`
+- REFERENCE_FIXTURE: `PB-20`
+- INTRODUCED_REV: `rev0.313`
+- SUPERSEDES: `NARROW_DELTA_ONLY_NO_HISTORICAL_DELETION`
+- CONFLICT_PRECEDENCE: 現turnの父明示scope > rev0.313 emergency/admin exception and outcome contract > inherited normal-turn gate; platform safety/authority remains higher.
+
+
+## rev0.314 最新directiveのowner別要求
+
+### DESIGNDOC.REV314.AC_001
+- RULE_ID: `DESIGNDOC.REV314.AC_001`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-001`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 上記項目を、会話ログの実際の SEQ 又は保持された証拠位置へ対応付けたトレーサビリティ表を添付せよ。未付番のドラフト参照は、最終ログの SEQ に置換又は併記せよ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-001
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.AC_002
+- RULE_ID: `DESIGNDOC.REV314.AC_002`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-002`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 父の明示要求、実装案、事実の出所、未確認事項が識別できることを検証せよ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-002
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.AC_003
+- RULE_ID: `DESIGNDOC.REV314.AC_003`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-003`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 現行 rev0.313 / accepted baseline rev0.312、GitHub 作業保留、前処理再開、PR #1 未 merge という復元状態が互いに矛盾しないことを検証せよ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-003
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.AC_004
+- RULE_ID: `DESIGNDOC.REV314.AC_004`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-004`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 既知の対応済み依頼を未対応へ戻す遷移、古い版への巻戻し、匿名投稿から本人経歴への混入、生成されていないコミット・検証・通知の成功宣言を拒否することを確認せよ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-004
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.AC_005
+- RULE_ID: `DESIGNDOC.REV314.AC_005`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-005`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 無人の GitHub 変更又は新規リマインドを、このログ化命令の実行副作用として作成してはならない。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-005
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.AC_006
+- RULE_ID: `DESIGNDOC.REV314.AC_006`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `AC-006`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 完了報告では成果物のリンク、逐語回収範囲、回収不能区間、検証結果及び次仕様への採用待ち状態を簡潔に示せ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / AC-006
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.FORMAT_001
+- RULE_ID: `DESIGNDOC.REV314.FORMAT_001`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `FORMAT-001`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 現行root ZIP内の3-file source fixtureを物理検査済み。今回classは添付付き全タブログであり、fixture固有17 user又は旧2-root-TXTを固定件数・固定上限として流用するな。authority/current/FIXTURE_CLASS_INSPECTION.jsonを参照せよ。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / FORMAT-001
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.FORMAT_002
+- RULE_ID: `DESIGNDOC.REV314.FORMAT_002`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `FORMAT-002`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 原文を保持した五正本にはcurrent rev0.312 / baseline rev0.311 / detailed rev0.311の古いbuild snapshotが残る。父の最新指定current rev0.313 / baseline rev0.312 / detailed rev0.313を解釈上の現行値とし、原ファイルbytesは改変するな。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / FORMAT-002
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+### DESIGNDOC.REV314.FORMAT_003
+- RULE_ID: `DESIGNDOC.REV314.FORMAT_003`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV0.314_CURRENT_PROFILE`
+- SOURCE_REQUIREMENT_ID: `FORMAT-003`
+- SOURCE_CLASS: `DIRECTIVE_REQUIREMENT_NOT_FATHER_VERBATIM`
+- REQUIREMENT: 過去の同期PASSや件数は出所付きreported stateとして復元せよ。current receipt又はverified streakに昇格するな。
+- SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / FORMAT-003
+- PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
+- CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+

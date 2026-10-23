@@ -1,0 +1,31 @@
+{
+  "revision": "rev0.315",
+  "status": "RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED",
+  "authority": {
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.313.zip",
+    "authority_basis": "EXPLICIT_OWNER_ACCEPTANCE_OVERRIDES_EMBEDDED_BUILD_HEADERS",
+    "current_canon": "rev0.314",
+    "detailed_reference": "rev0.314",
+    "fallback_authority": "PEOS正本指示",
+    "fallback_project": "擬似いーさんOS",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "new_requirements": 18,
+  "rule_count": 430,
+  "history_versions": [
+    "rev0.314",
+    "rev0.313"
+  ],
+  "scope": "PUBLIC_CANDIDATE_WITHOUT_RAW_CONVERSATIONS_OR_IMAGES",
+  "live_model_acceptance": "NOT_PERFORMED",
+  "live_sync_acceptance": "NOT_PERFORMED",
+  "github_mutations_performed": false,
+  "private_ledger_mutations_performed": false,
+  "input_package_sha256": "e7ede945e3255d3db2bc81b6d975f113d131cf029ab4e7adc8ea0547b8a56ae5",
+  "latest_source_bundle_sha256": "bdfda3e0077b19c84e71cbbe812c98b9bdbbf131640e08a3c6cb5f2e7704ee39"
+}

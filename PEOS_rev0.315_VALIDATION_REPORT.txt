@@ -1,0 +1,24 @@
+PEOS rev0.315 candidate validation
+
+STATUS: RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED
+CURRENT_CANON: rev0.314
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.313.zip
+DETAILED_REFERENCE: rev0.314
+NEW_REQUIREMENTS: 18/18 mapped to unique five-canon owners
+RULES: 430/430 unique (412 inherited +18 new)
+STATIC_AND_SYNTHETIC_TESTS: 123/123 PASS; zero failures/errors/skips
+LATEST_INPUT_BUNDLE_CHECKS: 367/367 PASS_WITH_DECLARED_SOURCE_GAPS
+LATEST_SOURCE: 65 user turns, 15 recovered assistant events, 12 images
+SOURCE_GAPS: earlier assistant and initial T061 commentary unavailable; exact missing count unknown
+PUBLIC_PRIVATE_SEPARATION: enforced; no raw conversation/image/live private identifiers in public tree
+HISTORY: rev0.314 and rev0.313 only; no nested history or embedded archive
+BOOT_LITERALS: three routes byte-equal to retained rev0.314
+GENERAL_INSTALL: five canons only, arbitrary display name, overview before manual
+LIVE_MODEL_ACCEPTANCE: NOT_PERFORMED
+LIVE_SYNC_ACCEPTANCE: NOT_PERFORMED
+PRIVATE_LEDGER_ACTIONS: NONE
+GITHUB / MAIL / CALENDAR / AUTOMATION MUTATIONS: NONE
+
+Reproduce public checks: python -B tools/validate_rev0_315.py --json
+The input-bundle checks verify source integrity, not missing-text recovery or live model behavior.
+The source archive is preserved separately; it is not recursively embedded.

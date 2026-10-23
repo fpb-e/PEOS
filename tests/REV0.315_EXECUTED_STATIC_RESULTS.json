@@ -1,0 +1,11 @@
+{
+  "scope": "PUBLIC_SPECIFICATION_AND_SYNTHETIC_TESTS_WITHOUT_ORIGINAL_CONVERSATIONS_OR_IMAGES",
+  "result": "PASS",
+  "structural_errors": [],
+  "tests_run": 123,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "private_source_validation_performed": false,
+  "live_runtime_acceptance": "NOT_CLAIMED"
+}

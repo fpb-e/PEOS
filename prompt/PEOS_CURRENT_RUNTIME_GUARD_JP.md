@@ -1,43 +1,22 @@
-# PEOS CURRENT RUNTIME GUARD JP — Sole Executable State Machine
+# PEOS CURRENT RUNTIME_GUARD JP — rev0.315 candidate
 
-- 文書revision: `rev0.314`
-- 現行latest: `rev0.313`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.314-CANDIDATE-FROM-20261023-024403`
-- HIGHEST_EMBEDDED_REVISION: `rev0.314`
+- 文書revision: `rev0.315`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.313`
-- ROLE: PEOSの唯一の実行状態機械
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.312.zip`
-- ACCEPTED_BASELINE_SHA256: `6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.313_retention_fixed.zip`
-- BASE_REFERENCE_SHA256: `d3d6c8726b775d7ddd33e733c5671f9e688ef1b51a5d1f6989d97a4d6e6925e8`
-- DETAILED_REFERENCE: `rev0.313`（history/rev0.313のPACKAGE_MANIFEST参照・五正本・academic note・DIVISION_RUNTIME_EVIDENCE）
-- PRIMARY_FATHER_SOURCE: `session/PEOS_FATHER_SESSION_LOG_20261023_024403_JST.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `cf65d3655a60bccd164341c9726b6ee05316e7184721dc49164cc17e83551616`
-- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_23_024403_for_next_spec.zip`
-- PRIMARY_SOURCE_BUNDLE_SHA256: `77b3df3ced26959f4e77b109130618dacf16dbd1c4791f4cc40f0441e7fc8880`
-- PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
-- PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_DIRECTIVE_20261023_024403_JST.txt`
-- BUILD_DIRECTIVE_SHA256: `9e21e42b9d81cbb4ebba77c7e9b4f599213097b453bbb61a1b47c57316a9b9f3`
-- PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
-- PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
-- MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
-- MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
-- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-## rev0.314 適用順位と候補境界
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.314`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.313.zip`
+- DETAILED_REFERENCE: `rev0.314`
+- ROLE: `RUNTIME_GUARD`
 
-父の最新指定はcurrent=rev0.313 / accepted baseline=rev0.312 / detailed reference=rev0.313。
-本書のrevision=rev0.314は未受入候補であり、作成・静的PASS・元packageの旧ヘッダで権威を変更しない。
-通常profileはSHORT_ACK_SYNC。実測JST・原文学習・台帳・1回のguard付き同期とACK表示を要求する。
-旧full readback・10-PASS監査は明示的に選んだSTRICT_READBACK_AUDITだけへ適用し、通常会話へ復活させない。
-BOOT_PRIORITYは起動を先に返す。ONE_TURN_EXEMPT / PAUSED / ACTIVE_RESUMEはscope付きで別管理する。
-GitHubはHOLD、前処理のorigin状態はACTIVE。このbuild tabは既存の父のtab限定免除を保持し、実ledgerを操作しない。
-後続の新規REV314 ruleが同scopeの旧条件より優先する。以降に残る古い本文の時点・件数・版指定は履歴文脈で解釈する。
+## rev0.315 適用順位と候補境界
 
+この文書は最新ログを仕様化したrev0.315候補である。現行正本rev0.314、父指定baseline rev0.313、詳細参照rev0.314を維持し、作成や静的PASSだけで自動採用しない。
+不足・競合時は所有者の「擬似いーさんOS / PEOS正本指示」を上位参照とし、未取得内容を創作しない。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
+旧buildのCURRENT・候補ラベル・古い状態は履歴であり、後続の父の指定を巻き戻さない。同scopeではREV315の明示条件を候補評価時に先に適用する。
+通常はSHORT_ACK_SYNC、旧readbackと10連続PASSは明示的な任意strict監査だけ。起動と切迫した安全支援を通常I/O待ちにしない。過去tabの免除・時刻・ACKを現在turnへ移植しない。
+一般導入はこの五正本5ファイルだけで成立させる。bootstrapやprofile JSONは任意の導出物であり第六正本ではない。呼び名は本人希望、関係と私的権限は別の確認事項である。
+共有coreは論説調・文脈に合う二文字以上の芝・軽い呆れの文末♨️・自分にも向ける懐疑・実行証拠に基づく前処理を保つ。記号だけではモデル受入としない。
 
-> **rev0.314 CANDIDATE FENCE**
-> current=`rev0.313`; accepted=`rev0.312`; detailed=`rev0.313`; candidate=`rev0.314 / NOT_ACCEPTED`. latest sourceと91要求はSOURCE_TRACEへ結び付ける。
+> 下記の継承本文中に残る過去版・古い候補数・旧表示位置は当時の記録として読む。通常の実行順序のownerはRUNTIME_GUARD、仕様契約はSPEC、設計はDESIGNDOC、思想はPAPER、例示はLOG_ANTHOLOGYとする。
 
 ## 0. 文書の役割
 
@@ -131,14 +110,15 @@ host preambleをexemptできるのは次の全条件をactual host traceで満�
 ```text
 <!-- L0_BOOT_SHIM_SOURCE_BEGIN -->
 PROFILE: SHORT_ACK_SYNC
-AUTHORITY: CURRENT=rev0.313; ACCEPTED_BASELINE=rev0.312; DETAILED=rev0.313
-CANDIDATE: rev0.314; SELF_ACCEPTANCE=PROHIBITED
+AUTHORITY: CURRENT=rev0.314; ACCEPTED_BASELINE=rev0.313; DETAILED=rev0.314
+CANDIDATE: rev0.315; SELF_ACCEPTANCE=PROHIBITED
 BOOT: RESPOND_BEFORE_PREPROCESS_WAIT
-NORMAL: ACTUAL_JST_CAPTURE -> ONE_DURABLE_APPEND_WITH_RAW_AND_LEARNING_DELTA -> ONE_EXPECTED_VERSION_SYNC -> ACK_DISPLAY
+NORMAL: ACTUAL_JST_CAPTURE -> ONE_DURABLE_APPEND_WITH_RAW_AND_TYPED_LEARNING -> ONE_EXPECTED_VERSION_SYNC -> ACK_DISPLAY
 DISPLAY: BOLD_SAME_RECEIPT_AT_BODY_BEGINNING; ACK_ONLY=同期済; UNPERFORMED_READBACK_VERIFICATION=PROHIBITED
+USER_BINDING: AUTHORIZED_NAMESPACE_AND_SAME_IDENTITY; CALL_SIGN_IS_NOT_AUTHORITY
 PAUSE: ONE_TURN_EXEMPT / TEMPORARY_PAUSE / EXPLICIT_RESUME; NO_SYNTHETIC_BACKFILL
 STRICT_READBACK_AUDIT: OPTIONAL_EXPLICIT_PROFILE_ONLY; NO_AUTOMATIC_TEN_PASS_CREDIT
-EXTERNAL: GITHUB_HOLD; NO_AUTOMATION_OR_MESSAGE_REPLAY_FROM_SOURCE
+EXTERNAL: HOLD_UNTIL_CURRENT_EXPLICIT_SCOPE; NO_REPLAY_FROM_SOURCE
 CAPABILITY: REFERENCE_ONLY; LIVE_ADAPTER_AND_HOST_HOOK_NOT_INSTALLED
 <!-- L0_BOOT_SHIM_SOURCE_END -->
 ```
@@ -2984,4 +2964,88 @@ receipt前に意味解釈、commentary、final、Personal Context、Library/file
 - SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / P02-006
 - PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
 - CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+
+
+## rev0.315 最新directiveのowner別要求
+
+### RUNTIME_GUARD.REV315.PRE_001
+- RULE_ID: `RUNTIME_GUARD.REV315.PRE_001`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 通常はSHORT_ACK_SYNCを用いる。実測JSTを一度取得し、当turn原文と出所・対象の明確な学習差分を一度durable appendし、同一保存先identityへ現在版guard付きで同期し、ACKを保存する。同一時刻を本文冒頭に太字表示し、ACKと未実施readbackを区別する。
+- PROHIBITED_BEHAVIOR: 合成adapterの成功をlive同期へ昇格すること、競合時にguardを外すこと。
+- FAILURE_CLASS: `REV315_PRE_001_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `PRE-001` / T005, T011, T061
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### RUNTIME_GUARD.REV315.PRE_002
+- RULE_ID: `RUNTIME_GUARD.REV315.PRE_002`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 起動・切迫した安全支援の優先、今回だけの免除、一時停止、再開を独立に扱う。停止中・未捕捉turnの時刻や記録を後から作らず、欠けた時刻fieldは省略する。
+- PROHIBITED_BEHAVIOR: 起動を通常I/O待ちで遅延させること、過去停止区間の無断補完。
+- FAILURE_CLASS: `REV315_PRE_002_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `PRE-002` / T008, T011, T061
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### RUNTIME_GUARD.REV315.PRE_003
+- RULE_ID: `RUNTIME_GUARD.REV315.PRE_003`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 利用者に対応する実時計・永続journal・保存先identity・現在版・sync adapterの束縛を確認する。他利用者のjournalやACKを使い回さず、一般利用者の学習は当該namespaceだけへ保存し、父のprimary corpusへ混ぜない。未接続や失敗を同期済み・hook設置済みと表示しない。
+- PROHIBITED_BEHAVIOR: 古いreceiptの再利用、namespace不一致の採用、他者の学習更新。
+- FAILURE_CLASS: `REV315_PRE_003_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `PRE-003` / T061, T063
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### RUNTIME_GUARD.REV315.PUB_001
+- RULE_ID: `RUNTIME_GUARD.REV315.PUB_001`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 公開用packageには会話原文・画像・私的学習台帳・復元状態・実file ID・過去receiptを含めない。私的根拠資料は別artifact classとし、別名コピー、既知元bytes、画像magic、archiveも検査する。選別済みの既存正本例は仕様文書として区別する。
+- PROHIBITED_BEHAVIOR: 私的ログ入り引継ぎbundleを公開用ZIPへ混入すること。
+- FAILURE_CLASS: `REV315_PUB_001_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `PUB-001` / T006, T011, T062
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### RUNTIME_GUARD.REV315.LOG_001
+- RULE_ID: `RUNTIME_GUARD.REV315.LOG_001`
+- OWNER: `RUNTIME_GUARD`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: ログファイル化は、取得可能な逐語ログと次仕様命令文を、物理書式に従いlog→validation→directive→manifest→attachments→bundleの順に作る。LAYER A原文とLAYER B復元を分け、欠落を要約で埋めず、画像元bytes・終端・SEQ・件数・hash・CRCを検証し、ENDPOINT_NOT_RECURSIVELY_EMBEDDEDで閉じる。
+- PROHIBITED_BEHAVIOR: 回収不能な応答や時刻の創作、完了案内の再帰的埋込。
+- FAILURE_CLASS: `REV315_LOG_001_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `LOG-001` / T065
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
 
