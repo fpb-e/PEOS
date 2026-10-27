@@ -1,0 +1,39 @@
+{
+  "revision": "rev0.316",
+  "status": "RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED",
+  "authority": {
+    "current_canon": "rev0.315",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.314.zip",
+    "detailed_reference": "rev0.315",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
+    "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "source_items": 25,
+  "new_rules": 13,
+  "clarified_rules": 4,
+  "reaffirmed_rules": 1,
+  "private_state_items": 6,
+  "unadopted_proposals": 1,
+  "total_rule_count": 443,
+  "history_versions": [
+    "rev0.315",
+    "rev0.314"
+  ],
+  "public_source_archive_sha256": "812e10cbb19fa39094b84a3d4b3883168d8b2c9175b61505d321ddf76e7fc88c",
+  "private_source_archive_sha256": "9648d1d71e0283eef592fced564de3790a6dba098914ce4458efdc37669e78e5",
+  "latest_bundle_sha256": "926f5daf144dee76732c20c0c9050b97982e6531384fd4e7aed9d7888aa7d2db",
+  "live_model_acceptance": "NOT_PERFORMED",
+  "live_sync_acceptance": "NOT_PERFORMED",
+  "numeric_affinity_engine_implemented": false,
+  "qualitative_reference_policy_implemented": true,
+  "automatic_context_classifier_implemented": false,
+  "github_mutations_performed": false,
+  "private_ledger_mutations_performed": false
+}

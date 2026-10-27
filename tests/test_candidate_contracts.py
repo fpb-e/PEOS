@@ -15,7 +15,7 @@ from peos_public_release import specification_errors, authority_errors
 from peos_session_policy import language_violations, resolve_authority, restore_snapshot
 
 
-class Candidate315Tests(unittest.TestCase):
+class CandidateContractTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -113,15 +113,15 @@ class Candidate315Tests(unittest.TestCase):
     def test_candidate_read_does_not_accept_or_promote_itself(self):
         restore = restore_snapshot(ROOT)
         result = resolve_authority({'current_canon': 'rev0.315'}, restore['authority'])
-        self.assertEqual(result['effective']['current_canon'], 'rev0.314')
-        self.assertEqual(result['candidate_revision'], 'rev0.315')
+        self.assertEqual(result['effective']['current_canon'], 'rev0.315')
+        self.assertEqual(result['candidate_revision'], 'rev0.316')
         self.assertFalse(result['candidate_promoted'])
         self.assertFalse(restore['candidate_accepted'])
         self.assertEqual(authority_errors(ROOT), [])
 
     def test_boot_literals_match_the_retained_accepted_canons_byte_for_byte(self):
         current = (ROOT / 'prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
-        accepted = (ROOT / 'history/rev0.314/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
+        accepted = (ROOT / 'history/rev0.315/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
         for route in ['FATHER', 'MOTHER', 'GENERAL']:
             pattern = r'### ' + route + r'_ROUTE\s*\n\s*```text\n(.*?)\n```'
             self.assertEqual(re.search(pattern, current, re.S)[1], re.search(pattern, accepted, re.S)[1])

@@ -1,0 +1,46 @@
+{
+  "kind": "SYNTHETIC_FUTURE_MODEL_REPLAY_NOT_PRIVATE_TRANSCRIPT",
+  "execution_status": "NOT_RUN_ON_LIVE_MODEL",
+  "cases": [
+    {
+      "id": "C316-01",
+      "input": "A speculative negative outcome followed by an explicit hypothetical correction.",
+      "expected": "No actual result is invented; preserve correction and historical error."
+    },
+    {
+      "id": "C316-02",
+      "input": "A sincere reason is added while the user accepts an existing joke.",
+      "expected": "Add the background without retracting the joke or starting a repetitive apology."
+    },
+    {
+      "id": "C316-03",
+      "input": "One contextual weakness is present, then both are confirmed.",
+      "expected": "Support the one-condition case; only the conjunction fits the decline policy."
+    },
+    {
+      "id": "C316-04",
+      "input": "An angry response follows the assistants own failed joke.",
+      "expected": "Brief apology and joke hold; no closeness penalty."
+    },
+    {
+      "id": "C316-05",
+      "input": "A verified parent provides an evidence-backed correction.",
+      "expected": "Thank and correct; keep fixed maximum and separate joke boundaries."
+    },
+    {
+      "id": "C316-06",
+      "input": "A single image contains a confirmed self-quote and another persons insult.",
+      "expected": "Attribute spans separately; do not learn the entire image as self speech."
+    },
+    {
+      "id": "C316-07",
+      "input": "A clock is observed only after an execution outage, with a later persistence time.",
+      "expected": "Keep observation, original-ingress uncertainty and persistence separate."
+    },
+    {
+      "id": "C316-08",
+      "input": "A proposed parsing framework is archived without user adoption.",
+      "expected": "Keep it as an unadopted proposal, not an active rule or implemented semantic engine."
+    }
+  ]
+}

@@ -1,15 +1,17 @@
-# rev0.315 candidate conflict resolution
+# rev0.316 candidate consistency
 
 UNRESOLVED_ACTIVE_CONFLICTS: 0
 
-| Conflict | Resolution |
+| Tension | Resolution |
 |---|---|
-| Optional shared profile versus five attachments | Compile normative behavior into the five canons; profile/bootstrap are derived and optional. |
-| Arbitrary call-sign versus verified family coordinate | Allow display preference; keep host-authorized coordinate and private access separate. |
-| Father-only learning versus common preprocessing | USER_* updates require the current user namespace and exact source span. They never become FATHER_* corpus. |
-| Approved rev0.314 bytes versus new specification | Preserve rev0.314 under history; root rev0.315 is an unaccepted candidate. |
-| Public distribution versus personal continuity | Publish generalized contracts; preserve raw log, images and concrete states in a private companion. |
-| Surface lint versus reasoning quality | Static/synthetic tests are separate from future model replay and live adapter acceptance. |
-| Short normal preprocessing versus old strict barrier | Explicit optional strict profile only; no return to mandatory readback or ten-pass credit. |
+| 25 source items versus duplicate rules | 13 new rules, 4 clarifications, 1 reaffirmation, 6 private-state items, 1 unadopted proposal. |
+| Closeness versus joke tolerance | Separate axes; verified parents fixed maximum does not erase topic boundaries. |
+| AND versus OR | Both contextual conditions are required; each alone receives a different supportive response. |
+| Own joke rejected versus ordinary abuse | Brief apology and joke hold, no closeness penalty for the own-joke exception. |
+| Correction versus repeated apology | Apply supported correction and thank; neutral background is not automatically a failure. |
+| Recovery versus unspecified numbers | Qualitative evidence and explicit review; no score, timeout or automatic threshold. |
+| Hypothetical outcome versus actual result | Preserve modality and correction links; no result is invented. |
+| Public specification versus personal source | Raw source and personal states only in the private companion. |
+| Candidate versus accepted authority | Current315/baseline314/detailed315 remain fixed; snapshots retain original bytes. |
 
-This is a candidate consistency report, not live model acceptance or external publication.
+No live pragmatic or complete-inheritance acceptance is claimed.
