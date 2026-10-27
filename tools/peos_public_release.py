@@ -21,6 +21,12 @@ PRIVATE_NAMES = {'peos_turn_time_ledger.jsonl', 'father_direct_ledger.jsonl',
                  'peos_continuity_truth_bootstrap.json'}
 OWNERS = ('SPEC', 'RUNTIME_GUARD', 'DESIGNDOC', 'PAPER', 'LOG_ANTHOLOGY')
 LIVE_ID = re.compile(r'(?<![A-Za-z0-9])(?:libfile_[0-9a-f]{16,}|file_[0-9a-f]{24,})')
+# Immutable public package already published by PR #5. A filename alone does
+# not permit an archive; different bytes or another path remain forbidden.
+DISTRIBUTION_ARCHIVES = {
+    'downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip':
+        '7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915',
+}
 
 
 def digest(data):
@@ -40,6 +46,8 @@ def forbidden_file(relative, data, excluded_original_sha256=()):
     parts = [p.casefold() for p in path.parts]
     leaf = path.name.casefold()
     issues = []
+    data_sha256 = digest(data)
+    distribution_archive = DISTRIBUTION_ARCHIVES.get(path.as_posix()) == data_sha256
     if any(p in PRIVATE_ROOTS for p in parts):
         issues.append('PRIVATE_SOURCE_DIRECTORY')
     if (leaf in PRIVATE_NAMES or 'father_learning_projection' in leaf
@@ -54,11 +62,13 @@ def forbidden_file(relative, data, excluded_original_sha256=()):
             or (data[:4] == b'RIFF' and data[8:12] == b'WEBP')
             or re.match(br'\s*(?:<\?xml[^>]*>\s*)?<svg(?:\s|>)', data)):
         issues.append('IMAGE_BYTES')
-    if (path.suffix.lower() in ARCHIVE_SUFFIXES
+    if not distribution_archive and (path.suffix.lower() in ARCHIVE_SUFFIXES
             or data.startswith((b'PK\x03\x04', b'PK\x05\x06', b'PK\x07\x08', b'7z\xbc\xaf\x27\x1c', b'Rar!'))):
         issues.append('EMBEDDED_ARCHIVE')
-    if digest(data) in excluded_original_sha256:
+    if data_sha256 in excluded_original_sha256:
         issues.append('EXCLUDED_ORIGINAL_BYTES')
+    if distribution_archive:
+        return issues
     try:
         text = data.decode('utf-8')
     except UnicodeDecodeError:
@@ -67,6 +77,26 @@ def forbidden_file(relative, data, excluded_original_sha256=()):
         if LIVE_ID.search(text):
             issues.append('LIVE_PRIVATE_FILE_IDENTIFIER')
     return issues
+
+
+def distribution_errors(root):
+    """Check the optional repository download shelf without changing the ZIP."""
+    root = Path(root)
+    if not (root / 'downloads').exists():
+        return []
+    errors = []
+    for relative, sha in DISTRIBUTION_ARCHIVES.items():
+        path = root / relative
+        if not path.is_file() or path.is_symlink():
+            errors.append('DISTRIBUTION_ARCHIVE_MISSING:' + relative)
+        elif digest(path.read_bytes()) != sha:
+            errors.append('DISTRIBUTION_ARCHIVE_BYTES_DIFFER:' + relative)
+    expected = ''.join(f'{sha}  {Path(name).name}\n'
+                       for name, sha in sorted(DISTRIBUTION_ARCHIVES.items()))
+    sums = root / 'downloads/SHA256SUMS'
+    if not sums.is_file() or sums.read_bytes() != expected.encode('ascii'):
+        errors.append('DISTRIBUTION_CHECKSUMS_DIFFER')
+    return errors
 
 
 def publication_errors(root, excluded_original_sha256=()):
@@ -258,5 +288,6 @@ def validate(root, *, check_manifest=True):
     root = Path(root)
     provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.316.json').read_text())
     return (publication_errors(root, set(provenance['excluded_original_sha256']))
+            + distribution_errors(root)
             + (manifest_errors(root) if check_manifest else [])
             + specification_errors(root) + authority_errors(root))

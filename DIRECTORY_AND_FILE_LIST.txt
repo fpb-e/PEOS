@@ -30,6 +30,9 @@ docs/GITHUB_VALIDATION_DEPENDENCIES.md
 docs/REV0.316_SPECIFICATION_JP.md
 docs/UNADOPTED_PROPOSALS_rev0.316.md
 docs/ZIP_IMPORT_WORKFLOW.md
+downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip
+downloads/README.md
+downloads/SHA256SUMS
 history/rev0.314/ORIGINAL_PACKAGE_MANIFEST_REFERENCE.txt
 history/rev0.314/README.md
 history/rev0.314/academic/PEOS_ACADEMIC_NOTE_rev0.314.md
@@ -90,6 +93,7 @@ tests/fixtures/context316_replay_cases.json
 tests/fixtures/division_core_replay_cases.json
 tests/test_candidate_contracts.py
 tests/test_context_evidence.py
+tests/test_distribution_downloads.py
 tests/test_division_core.py
 tests/test_peos_zip_import.py
 tests/test_public_package.py

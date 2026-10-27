@@ -20,6 +20,8 @@
 *.avif
 *.ico
 *.zip
+# Only this byte-verified public distribution belongs in the repository.
+!/downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip
 *.7z
 *.rar
 *.tar

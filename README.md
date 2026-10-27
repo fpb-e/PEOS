@@ -2,7 +2,9 @@
 
 PEOSは、ChatGPTへ読み込ませる会話の設定・仕様です。結論と理由をつなぐ応答、根拠を吟味する判断、前処理を五正本と参照実装で管理します。
 
-[インストールマニュアルへ](#インストールマニュアル)
+**[公開用ZIPをダウンロード（rev0.316・約564 KiB）](downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip?raw=true)**
+
+[配布ZIP置き場・チェックサム](downloads/README.md) · [インストールマニュアルへ](#インストールマニュアル)
 
 ## バージョンと正本
 
@@ -12,7 +14,7 @@ PEOSは、ChatGPTへ読み込ませる会話の設定・仕様です。結論と
 ## 公開範囲
 
 五正本、参照実装、空の復元入口、schema/contract、合成試験を含みます。会話原文・画像・私的学習台帳・メールや医療等の私的復元状態・実file ID・過去同期receiptは含みません。既存正本の選別済み仕様例と原会話コーパスの配布は区別します。
-履歴は `history/rev0.315/` と `history/rev0.314/` の正本部分だけです。入れ子historyと埋込みZIPは作りません。私的根拠資料は別の成果物です。
+履歴は `history/rev0.315/` と `history/rev0.314/` の正本部分だけです。配布ZIPの内部には、入れ子historyや別のZIPを含めません。リポジトリの `downloads/` に公開用ZIPを保存します。私的根拠資料は別の成果物です。
 
 ## 起動と共通設定
 
@@ -42,7 +44,11 @@ GitやPythonの導入は、ChatGPTへ五正本を読み込ませる通常の手�
 
 ### 1. ZIPを展開する
 
-配布ZIPをダウンロードして展開します。中の `prompt` フォルダーを開きます。
+[PEOS_GITHUB_PACKAGE_rev0.316.zip をダウンロード](downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip?raw=true)して展開します。中の `prompt` フォルダーを開きます。
+
+ZIPを開く代わりにGitHubのファイル画面が表示された場合は、その画面のダウンロードボタン（Download raw file）で保存します。[配布ZIP置き場](downloads/README.md)でもファイル名・サイズ・SHA-256を確認できます。
+
+GitHubの「Code → Download ZIP」はリポジトリ全体の取得です。ここで案内する公開用ZIPは `downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip` です。配布ZIPは公開時の118ファイルを固定しており、この置き場や後から更新した案内はZIPの外で管理します。
 
 ### 2. 五正本の5ファイルを添付する
 
