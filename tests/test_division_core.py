@@ -35,7 +35,7 @@ class DivisionCoreTests(unittest.TestCase):
 
     def bound_copy(self):
         target = self.directory / 'package'
-        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.315.json']
+        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.316.json']
         names.extend(load_profile(ROOT)['source_canon_sha256'])
         for name in names:
             path = target / name
@@ -82,7 +82,7 @@ class DivisionCoreTests(unittest.TestCase):
             if change == 'canon':
                 value['kind'] = 'CANON'
             elif change == 'authority':
-                value['authority']['current_canon'] = 'rev0.315'
+                value['authority']['current_canon'] = 'rev0.316'
             elif change == 'rule':
                 value['source_rule_ids'].append('MISSING.SYNTHETIC.RULE')
             else:

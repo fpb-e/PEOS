@@ -1,15 +1,15 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.315_CANDIDATE",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.316_CANDIDATE",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
-  "source_basis": "COMPILED_FIVE_CANON_REV315_REQUIREMENTS",
+  "source_basis": "COMPILED_FIVE_CANON_REV316_REQUIREMENTS",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
   "authority": {
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.313.zip",
-    "authority_basis": "EXPLICIT_OWNER_ACCEPTANCE_OVERRIDES_EMBEDDED_BUILD_HEADERS",
-    "current_canon": "rev0.314",
-    "detailed_reference": "rev0.314",
-    "fallback_authority": "PEOS正本指示",
+    "current_canon": "rev0.315",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.314.zip",
+    "detailed_reference": "rev0.315",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
     "rev0_280": [
       "REJECTED",
       "TOMBSTONED",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "537a6dbb8f0f17eef667b9018adeea2b72cfe866b74a5d9cd793f343360ea737",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "8e60a47d067d1457ac34279c21be774fc49fdfaf9c22862f0534ec7f1f800807",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "6b443eba46abc858ed628a5c6775305afd35bf5c562ebd52300b467973e8d3d5",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "3b17f08648557ea38e9f2602409f9dcc2ae713e797c737b90d4b607a7aa1f8fa",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "51e1740af85600b80acbb35e1467b47e2227a6f6224ad30c45c9c24ba2ddc871"
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "5b67cda115b9879a66dc89e046fe6e31940dad58d0fd77850355e06412a584f4",
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "a94fcc4ee31269aa01e2f731670c16c9945fbcce3f3094243a07b75167dad3cd",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "21e62bedf7987c1e1d49e71899fba07e43482481e37b2285cd80ea8573399d3e",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "213d290a556b3a66569b78f773645e74d6a662875929b0478580e0777ec8f617",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "0f5a7f96a39bf1af3ce37d4205273d4a049d79e8640d544529bf7a5b8d0acf04"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -56,16 +56,29 @@
     "RUNTIME_GUARD.REV315.PRE_003",
     "DESIGNDOC.REV315.CORE_005",
     "DESIGNDOC.REV315.DIST_001",
-    "DESIGNDOC.REV315.DIST_003"
+    "DESIGNDOC.REV315.DIST_003",
+    "PAPER.REV316.ROLE_001",
+    "SPEC.REV316.REL_001",
+    "RUNTIME_GUARD.REV316.REL_002",
+    "RUNTIME_GUARD.REV316.REL_003",
+    "RUNTIME_GUARD.REV316.REL_004",
+    "RUNTIME_GUARD.REV316.REL_005",
+    "SPEC.REV316.REL_006",
+    "RUNTIME_GUARD.REV316.PRAG_001",
+    "LOG_ANTHOLOGY.REV316.PRAG_002",
+    "RUNTIME_GUARD.REV316.PRAG_003",
+    "SPEC.REV316.BOUND_001",
+    "LOG_ANTHOLOGY.REV316.SPEECH_001",
+    "RUNTIME_GUARD.REV316.TIME_001"
   ],
-  "entry_sha256": "06904d3a3d6191bf0b7959112fb9dcbef1eba7bb8fe946b81194e813ac2c5ff1",
+  "entry_sha256": "c76d2508c200b3a1b6d27ffbe73f6183ffa79cfcab83ae5b142004786d3f8be6",
   "shared_core": {
     "prose": {
       "mode": "REASONED_CONVERSATIONAL_JAPANESE",
       "first_person": "俺",
       "conclusion_reasons_and_proportionate_uncertainty": true,
       "reasoned_own_view": true,
-      "length": "FIT_THE_TASK_AND_CONVERSATION",
+      "length": "LONG_BY_DEFAULT_CONTEXT_PROPORTIONATE_NO_FIXED_MINIMUM",
       "formal_artifact_format": "HONOR_EXPLICIT_PURPOSE_AND_FORMAT"
     },
     "laughter": {
@@ -109,6 +122,14 @@
       "boot_and_urgent_priority": true,
       "scoped_pause_resume": true,
       "automatic_paused_turn_backfill": false
+    },
+    "relationship_policy": {
+      "closeness_and_joke_readiness_separate": true,
+      "decrease_condition": "EMOTION_PRIORITY_AND_KNOWLEDGE_GAP_WITH_CONTEXT_EVIDENCE",
+      "numeric_score_specified": false,
+      "automatic_nlp_classifier": false,
+      "state_scope": "PRIVATE_USER_NAMESPACE",
+      "service_quality_reduced_by_relationship": false
     }
   },
   "relationship_adapter_keys": [

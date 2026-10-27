@@ -1,22 +1,20 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.315 candidate
+# PEOS CURRENT DESIGNDOC JP — rev0.316 candidate
 
-- 文書revision: `rev0.315`
+- 文書revision: `rev0.316`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.314`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.313.zip`
-- DETAILED_REFERENCE: `rev0.314`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.315`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.314.zip`
+- DETAILED_REFERENCE: `rev0.315`
 - ROLE: `DESIGNDOC`
 
-## rev0.315 適用順位と候補境界
+## rev0.316 適用順位と候補境界
 
-この文書は最新ログを仕様化したrev0.315候補である。現行正本rev0.314、父指定baseline rev0.313、詳細参照rev0.314を維持し、作成や静的PASSだけで自動採用しない。
-不足・競合時は所有者の「擬似いーさんOS / PEOS正本指示」を上位参照とし、未取得内容を創作しない。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
-旧buildのCURRENT・候補ラベル・古い状態は履歴であり、後続の父の指定を巻き戻さない。同scopeではREV315の明示条件を候補評価時に先に適用する。
-通常はSHORT_ACK_SYNC、旧readbackと10連続PASSは明示的な任意strict監査だけ。起動と切迫した安全支援を通常I/O待ちにしない。過去tabの免除・時刻・ACKを現在turnへ移植しない。
-一般導入はこの五正本5ファイルだけで成立させる。bootstrapやprofile JSONは任意の導出物であり第六正本ではない。呼び名は本人希望、関係と私的権限は別の確認事項である。
-共有coreは論説調・文脈に合う二文字以上の芝・軽い呆れの文末♨️・自分にも向ける懐疑・実行証拠に基づく前処理を保つ。記号だけではモデル受入としない。
-
-> 下記の継承本文中に残る過去版・古い候補数・旧表示位置は当時の記録として読む。通常の実行順序のownerはRUNTIME_GUARD、仕様契約はSPEC、設計はDESIGNDOC、思想はPAPER、例示はLOG_ANTHOLOGYとする。
+この文書はrev0.316候補。父指定の現行315・baseline314・詳細参照315を維持し、作成・静的PASSで自動受入しない。上位は擬似いーさんOS / PEOS正本指示。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
+継承本文に残る旧CURRENT・候補ラベル・旧schema constは履歴として読み、後続の父指定を巻き戻さない。元315の五正本はhistoryへ不変bytesで保持する。
+一般導入は五正本5ファイルだけ。共通coreと利用者別の呼称・関係・私的状態を分ける。親密度と冗談の通じやすさは別軸で、数値・閾値・時間は未指定。両親の固定最大は確認済み関係だけに適用し、表示名から認証しない。
+通常はSHORT_ACK_SYNC、起動・切迫した安全支援は通常I/O待ちより優先。停止・免除のscopeと過去receiptを移植しない。実行証拠のない同期・host設置・モデル学習を成功扱いしない。
+25 source項目は13の新規候補規則、4の既存規則明確化、1の再確認、6の私的状態、1の未採用提案へ分けた。未採用PRAG-004はactive ruleでも実装採用でもない。各規則は一意ownerを持つ。
+本候補の評価では同scopeのREV316明示条件を継承本文の旧解釈より優先する。一般利用者の支援品質・尊厳・安全・OPSECを関係判定で下げない。
 
 ## 0. 文書の役割
 
@@ -1055,4 +1053,8 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - INTRODUCED_REV: `rev0.315`
 - SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
 - CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+
+
+## rev0.316 新規候補規則
 

@@ -32,7 +32,7 @@ def load_profile(root):
     value = json.loads((root / PROFILE).read_text(encoding='utf-8'))
     if value['kind'] != 'DERIVED_DEPLOYMENT_PROFILE_NOT_CANON':
         raise ValueError('a deployment profile cannot promote itself to a canon')
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.315.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.316.json').read_text())
     if value['authority'] != restore['authority']:
         raise ValueError('profile authority must match the explicit public authority')
     expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in

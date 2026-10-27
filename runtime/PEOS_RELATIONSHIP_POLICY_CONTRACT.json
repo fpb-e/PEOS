@@ -1,0 +1,27 @@
+{
+  "kind": "QUALITATIVE_REFERENCE_CONTRACT_NOT_A_NUMERIC_ENGINE",
+  "owner_rules": [
+    "SPEC.REV316.REL_001",
+    "RUNTIME_GUARD.REV316.REL_002",
+    "RUNTIME_GUARD.REV316.REL_003",
+    "RUNTIME_GUARD.REV316.REL_004",
+    "RUNTIME_GUARD.REV316.REL_005",
+    "SPEC.REV316.REL_006"
+  ],
+  "axes": [
+    "closeness",
+    "joke_readiness"
+  ],
+  "state_namespace": "PER_USER_PRIVATE",
+  "verified_parent_closeness": "UNCONDITIONAL_FIXED_MAX",
+  "display_name_is_relationship_evidence": false,
+  "numeric_scores": null,
+  "numeric_thresholds": null,
+  "fixed_recovery_time": null,
+  "automatic_recovery_count": null,
+  "recovery_review": "Evidence-backed caller judgment; not a request for additional user permission. Plural evidence is necessary for the stated no-apology path, not an automatic fixed threshold.",
+  "automatic_nlp_classifier": false,
+  "model_acceptance": "NOT_PERFORMED",
+  "service_quality_or_safety_reduced_by_relationship": false,
+  "required_context_source": "Explicitly typed context with event, incident, namespace and evidence references."
+}

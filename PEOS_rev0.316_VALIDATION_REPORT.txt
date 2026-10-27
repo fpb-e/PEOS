@@ -1,0 +1,27 @@
+PEOS rev0.316 candidate — validation scope
+
+STATUS: RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED
+CURRENT_CANON: rev0.315
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.314.zip
+DETAILED_REFERENCE: rev0.315
+SOURCE_ITEMS: 25/25 traced to actual source turns, session SEQ and ledger SEQ
+DISPOSITIONS: 13 new rules; 4 existing clarifications; 1 reaffirmation; 6 private-state items; 1 unadopted proposal
+RULE_OWNERSHIP: 443 unique; all 430 inherited IDs retained; exactly 13 declared additions
+STATIC_AND_SYNTHETIC_TESTS: 172/172 PASS; zero failures, errors or skips
+RECEIVED_SOURCE_CHECKS: 277/277 PASS_WITH_DECLARED_SOURCE_GAPS
+LATEST_SOURCE: 100 user turns (99 text +1 image-only), 45 recovered assistant events
+ATTACHMENTS: 6 occurrences, 5 byte-exact physical images
+SOURCE_GAPS: early assistant originals unavailable; exact missing assistant count unknown
+CLOCKS: 98 bound observation clocks, not platform-ingress proof; T099 deferred after outage
+UNADOPTED_PRAG_004: retained as proposal; no active rule or adoption claim
+QUALITATIVE_RELATIONSHIP_REFERENCE: typed inputs only, no automatic NLP classification
+NUMERIC_AFFINITY_SCORE / THRESHOLD / FIXED_RECOVERY_TIME: UNSPECIFIED
+PUBLIC_SCOPE: no raw conversations, images, private restore, live private IDs or receipts
+HISTORY: rev0.315 and rev0.314 only; no nested history or embedded archives
+BOOT_LITERALS: all three routes byte-equal to accepted rev0.315
+GENERAL_INSTALL: five canons only, arbitrary display name, overview before manual
+LIVE_MODEL / LIVE_SYNC / COMPLETE_IDENTITY_INHERITANCE_ACCEPTANCE: NOT_PERFORMED
+PRIVATE_LEDGER / GITHUB / MAIL / CALENDAR / AUTOMATION MUTATIONS: NONE
+
+Reproduce: python -B tools/validate_rev0_316.py --json
+Static code tests and source integrity do not establish pragmatic model competence or original ingress capture.

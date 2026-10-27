@@ -9,3 +9,7 @@
 通常は実時計→当turnの一度の永続追記→現在版guard付き一度の同期→ACK保存→同時刻の太字文頭表示→本文。失敗時の根拠を保ち、成功を偽装しない。起動・緊急支援とscope付き停止・再開を別に扱う。
 
 `tests/fixtures/division_core_replay_cases.json` は今後の実モデル比較用の合成課題である。同一課題をFATHER/MOTHER/GENERALへ与え、理由のつながり、留保、反証への更新、自然な文体、情報境界、実前処理証拠を複数turnで比較する。笑い記号や♨️の一致だけでは受入にしない。実モデル・実保存先のlive受入は未実施である。
+
+## 関係と文脈の候補評価
+
+`peos_relationship_policy.py` と `peos_context_evidence.py` は型付き入力を評価する参照実装であり、モデルによる文脈判定や自動学習を実装しない。数値設定は未指定のまま。未採用PRAG-004は `UNADOPTED_PROPOSALS_rev0.316.md` へ保持する。実モデルの複数turn評価は別途必要。

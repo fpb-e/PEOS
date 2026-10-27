@@ -34,7 +34,7 @@ The first command is a dry run and leaves the working copy unchanged. The second
 
 ## Validation and historical inspection
 
-Validate the current public tree with `python3 -B tools/validate_rev0_315.py`. Its scope is the public manifest, canonical specification bindings, publication exclusions, and synthetic tests; original conversations and images are intentionally outside this public tree.
+Validate the current public tree with `python3 -B tools/validate_rev0_316.py`. Its scope is the public manifest, canonical specification bindings, publication exclusions, and synthetic tests; original conversations and images are intentionally outside this public tree.
 
 At the earlier repository inspection recorded in the canonical source, `tool/validate_rev0_305.py` existed while the referenced `tools/validate_rev0_311.py` and `tools/validate_rev0_313.py` were absent. The obsolete rev0.305 script has now been removed because it is not the current validation entry. That historical observation is retained in the immutable canons and does not require restoring the old script. The cleanup audit is `admin/OBSOLETE_FILE_CLEANUP_rev0.314.json`.
 
