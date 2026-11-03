@@ -15,8 +15,9 @@ class ReleaseDownloadTests(unittest.TestCase):
         restore=json.loads((ROOT/'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
         self.assertEqual(status['target_revision'],'rev0.317')
         self.assertEqual(restore['candidate_revision'],'rev0.317')
-        self.assertEqual(restore['authority']['current_canon'],'rev0.316')
-        self.assertFalse(restore['candidate_accepted'])
+        self.assertEqual(restore['authority']['current_canon'],'rev0.317')
+        self.assertEqual(restore['authority']['accepted_baseline'],'PEOS_GITHUB_PACKAGE_rev0.316.zip')
+        self.assertTrue(restore['candidate_accepted'])
         for p in (ROOT/'prompt').glob('*.md'):
             self.assertIn('- 文書revision: `rev0.317`',p.read_text())
             self.assertNotIn('次revisionは未採番',p.read_text().split('## 0. 文書の役割')[0])

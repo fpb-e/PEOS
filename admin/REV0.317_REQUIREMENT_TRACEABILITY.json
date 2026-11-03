@@ -9,8 +9,10 @@
       "rule_id": "SPEC.AUTHORITY.PRECEDENCE",
       "source_status": "CONFIRMED_AUTHORITY",
       "disposition": "CLARIFY_EXISTING_RULE",
-      "requirement_summary": "上位正本は擬似いーさんOS / PEOS正本指示。現行rev0.316、accepted baseline rev0.315。旧ラベルで巻き戻さない。",
-      "active_requirement_sha256": "5c348268941ef65cd0afa20852c94b0793407a5814a70d5f49b396b0683ab65d"
+      "requirement_summary": "上位正本は擬似いーさんOS / PEOS正本指示。所有者の後続明示採用により現行rev0.317、accepted baseline rev0.316、詳細参照rev0.317。旧ラベルで巻き戻さない。",
+      "active_requirement_sha256": "409fd2a44ef0e603cc35c6f44bb2e04d45b30950d983561651935ec6d71730ee",
+      "source_requirement_summary": "上位正本は擬似いーさんOS / PEOS正本指示。現行rev0.316、accepted baseline rev0.315。旧ラベルで巻き戻さない。",
+      "superseded_authority_basis": "admin/REV0.317_OWNER_ACCEPTANCE.json"
     },
     {
       "id": "CORE-001",

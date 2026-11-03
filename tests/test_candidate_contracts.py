@@ -110,13 +110,14 @@ class CandidateContractTests(unittest.TestCase):
         self.assertEqual(language_violations('合成発話ｗ', verbatim=True), [])
         self.assertIn('SINGLE_W_FORBIDDEN', language_violations('合成発話ｗ'))
 
-    def test_candidate_read_does_not_accept_or_promote_itself(self):
+    def test_read_preserves_explicit_owner_acceptance_without_self_promotion(self):
         restore = restore_snapshot(ROOT)
         result = resolve_authority({'current_canon': 'rev0.315'}, restore['authority'])
-        self.assertEqual(result['effective']['current_canon'], 'rev0.316')
+        self.assertEqual(result['effective']['current_canon'], 'rev0.317')
         self.assertEqual(result['candidate_revision'], 'rev0.317')
         self.assertFalse(result['candidate_promoted'])
-        self.assertFalse(restore['candidate_accepted'])
+        self.assertTrue(restore['candidate_accepted'])
+        self.assertEqual(restore['release_acceptance_basis'], 'OWNER_EXPLICIT_INSTRUCTION')
         self.assertEqual(authority_errors(ROOT), [])
 
     def test_boot_literals_match_the_retained_accepted_canons_byte_for_byte(self):

@@ -1,5 +1,5 @@
-# 次仕様候補の実行証拠
+# rev0.317正本と参照実装の実行証拠
 
-PEOS_REV0.317_20261103、target revisionはrev0.317。完全版設定は採用済み要求として統合。参照実装は型付き条件と合成callbackの順序を検証する。実モデルによる独立五正本試験、他利用者への接続、実sync、hostへの常設hookは未実施。生成時の古い候補表記から現行316・baseline315を巻き戻さない。
+PEOS_REV0.317_20261103、target revisionはrev0.317。完全版設定は採用済み要求として統合。参照実装は型付き条件と合成callbackの順序を検証する。実モデルによる独立五正本試験、他利用者への接続、実sync、hostへの常設hookは未実施。所有者が正式採用した現行317・baseline316・詳細317を、生成時の古い候補表記から巻き戻さない。release受入と実モデル・実接続の成功を区別する。
 
 実行済みの静的結果はPEOS_rev0.317_VALIDATION_REPORT.txt、未実施のモデル試験はtests/fixtures/next_spec_20261103_model_replay.jsonで区別する。

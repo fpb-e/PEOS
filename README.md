@@ -2,13 +2,13 @@
 
 PEOSは、判断の軸と会話の規則を五正本で管理する対話設定です。論説調で根拠と見解をつなぎ、独立して考え、必要な異論と自己訂正を保ちます。
 
-**[rev0.317 公開ZIPをダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/3b4a21b98c0a787472898c2ecba31816ab195562/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip)**
+**[rev0.317 公開ZIPをダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/80dd4a9812131013ccc5e34e9106ca0e40a5f03e/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip)**
 
 [配布ZIP置き場・チェックサム](downloads/README.md) · [インストールマニュアルへ](#インストールマニュアル)
 
 ## バージョンと正本
 
-この配布物は **rev0.317**（build PEOS_REV0.317_20261103）の仕様候補です。現行正本 **rev0.316**、accepted baseline **PEOS_GITHUB_PACKAGE_rev0.315.zip**、詳細参照 **rev0.316** を維持します。完全版の機能設定は採用済み要求として統合しています。仕様候補の作成・静的試験・PRの作成を新releaseの受入とは扱いません。
+この配布物は、所有者が正式採用した **現行正本rev0.317**（build PEOS_REV0.317_20261103）です。accepted baselineは **PEOS_GITHUB_PACKAGE_rev0.316.zip**、詳細参照は **rev0.317** です。完全版の機能設定を含みます。[採用記録](admin/REV0.317_OWNER_ACCEPTANCE.json)は所有者の明示指定を記録し、実モデル試験と実接続の実施状況は個別に管理します。
 上位参照は所有者の「擬似いーさんOS / PEOS正本指示」です。旧CURRENTで巻き戻さず、rev0.280はbaselineに使いません。既存rev0.316 ZIPは固定スナップショットとして保存します。
 
 ## 公開範囲
@@ -45,11 +45,11 @@ python -B tools/validate_rev0_317.py --json
 
 ### 1. 配布ZIPを保存する
 
-[PEOS_GITHUB_PACKAGE_rev0.317.zip をダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/3b4a21b98c0a787472898c2ecba31816ab195562/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip)します。この方法では、利用者が先に展開する必要はありません。
+[PEOS_GITHUB_PACKAGE_rev0.317.zip をダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/80dd4a9812131013ccc5e34e9106ca0e40a5f03e/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip)します。この方法では、利用者が先に展開する必要はありません。
 
 GitHubのファイル画面が表示された場合は、ダウンロードボタン（Download raw file）で保存します。[配布ZIP置き場](downloads/README.md)でファイル名・サイズ・SHA-256を確認できます。「Code → Download ZIP」で取得するリポジトリ全体とは別の配布物です。
 
-このZIPの版はrev0.317です。版の採番とreleaseの受入は区別します。ZIP内にもこの導入手順を収録し、五正本は直下のprompt/から選びます。
+このZIPは所有者が正式採用した現行正本rev0.317です。ZIP内にもこの導入手順を収録し、五正本は直下のprompt/から選びます。
 
 ### 2. ZIPをそのまま添付する
 
@@ -70,7 +70,7 @@ prompt/PEOS_CURRENT_DESIGNDOC_JP.md
 prompt/PEOS_CURRENT_PAPER_JP.md
 prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md
 history/内の旧版や合成試験用データを、現行の起動・応答規則へ置き換えないでください。補助ファイルは役割に応じた参考資料として扱ってください。
-所有者の現在の指定は現行正本rev0.316、accepted baseline PEOS_GITHUB_PACKAGE_rev0.315.zipです。ZIP内の旧CURRENT・候補表記・旧baselineから巻き戻さないでください。読解や試験だけで新しい版を正式採用したとは扱わないでください。
+所有者の現在の指定は正式採用済み現行正本rev0.317、accepted baseline PEOS_GITHUB_PACKAGE_rev0.316.zip、詳細参照rev0.317です。ZIP内の旧CURRENT・候補表記・旧baselineから巻き戻さないでください。読解や試験だけで新しい版を正式採用したとは扱わないでください。
 不足・競合時は所有者の「擬似いーさんOS / PEOS正本指示」を上位参照とし、取得できない内容は創作しないでください。
 ユーザー名：〈呼んでほしいユーザー名〉
 導入設定：完全版。五正本に定義されたMAGIと、利用可能・許可済みの範囲の前処理を有効にしてください。
@@ -110,7 +110,7 @@ PEOS起動
 
 ```text
 添付した現行五正本5ファイルの本文を読んで、起動・応答の規則として適用してください。
-所有者の現在の指定は現行正本rev0.316、accepted baseline PEOS_GITHUB_PACKAGE_rev0.315.zipです。旧CURRENT・候補表記・旧baselineから巻き戻さず、読解や試験だけで新しい版を正式採用したとは扱わないでください。
+所有者の現在の指定は正式採用済み現行正本rev0.317、accepted baseline PEOS_GITHUB_PACKAGE_rev0.316.zip、詳細参照rev0.317です。旧CURRENT・候補表記・旧baselineから巻き戻さず、読解や試験だけで新しい版を正式採用したとは扱わないでください。
 不足・競合時は所有者の「擬似いーさんOS / PEOS正本指示」を上位参照とし、取得できない内容は創作しないでください。
 ユーザー名：〈呼んでほしいユーザー名〉
 導入設定：完全版。五正本に定義されたMAGIと、利用可能・許可済みの範囲の前処理を有効にしてください。

@@ -1,3 +1,3 @@
 # Current build evidence
 
-See DIVISION_RUNTIME_EVIDENCE_rev0.317.md. Target revision rev0.317; current authority rev0.316, accepted baseline rev0.315.
+See DIVISION_RUNTIME_EVIDENCE_rev0.317.md. Target revision rev0.317; owner-accepted current authority rev0.317, accepted baseline rev0.316.

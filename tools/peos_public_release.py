@@ -125,10 +125,10 @@ def write_manifest(root):
     text = ('PEOS_PUBLIC_PACKAGE_MANIFEST_V1\n'
             'TARGET_REVISION: rev0.317\n'
             'CANDIDATE_ID: PEOS_REV0.317_20261103\n'
-            'STATUS: NEXT_SPEC_CANDIDATE / NOT_ACCEPTED / NOT_SELF_ACCEPTED\n'
-            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.316\n'
-            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.315.zip\n'
-            'DETAILED_REFERENCE: rev0.316\n'
+            'STATUS: ACCEPTED_BY_OWNER / NO_AUTOMATIC_ACCEPTANCE\n'
+            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.317\n'
+            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.316.zip\n'
+            'DETAILED_REFERENCE: rev0.317\n'
             'PUBLICATION_SCOPE: SPECIFICATIONS_CODE_SYNTHETIC_TESTS_WITHOUT_RAW_CONVERSATIONS_OR_IMAGES\n'
             'PRIVATE_SOURCE_VALIDATION: NOT_PERFORMED_BY_PUBLIC_VALIDATOR\n'
             f'FILE_COUNT_EXCLUDING_MANIFEST: {len(entries)}\n\nFILES:\n')
@@ -185,7 +185,7 @@ def specification_errors(root):
     if len(ids) != 444 or len(set(ids)) != 444:
         errors.append('444_UNIQUE_RULES_REQUIRED')
     registry = (root / 'admin/RULE_OWNERSHIP_REGISTRY.yaml').read_text()
-    if not all(line in registry.splitlines() for line in ('revision: rev0.317', 'current_project_canon: rev0.316', 'accepted_baseline: rev0.315', 'rule_count: 444')):
+    if not all(line in registry.splitlines() for line in ('revision: rev0.317', 'current_project_canon: rev0.317', 'accepted_baseline: rev0.316', 'rule_count: 444')):
         errors.append('RULE_REGISTRY_AUTHORITY_OR_COUNT_DIFFERS')
     pairs = re.findall(r'^- RULE_ID: (\S+)\n  OWNER: (\S+)', registry, re.M)
     if len(pairs) != 444 or dict(pairs) != owners:
@@ -241,8 +241,7 @@ def specification_errors(root):
             errors.append('EXACTLY_FIVE_INSTALL_ATTACHMENTS')
         if 'ユーザー名：〈呼んでほしいユーザー名〉' not in manual or 'お母さん' in manual:
             errors.append('GENERIC_USER_NAME_REQUIRED')
-    if restore_candidate_promoted(root):
-        errors.append('CANDIDATE_SELF_PROMOTION')
+    errors.extend(release_acceptance_errors(root))
     history = root / 'history'
     if sorted(p.name for p in history.iterdir()) != ['rev0.315', 'rev0.316']:
         errors.append('HISTORY_MUST_HAVE_EXACTLY_TWO_PREDECESSORS')
@@ -256,15 +255,57 @@ def specification_errors(root):
     return errors
 
 
-def restore_candidate_promoted(root):
-    r = json.loads((Path(root) / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
-    return (r.get('candidate_revision') != 'rev0.317' or r.get('candidate_id') != 'PEOS_REV0.317_20261103' or r.get('candidate_accepted') is not False)
+def release_acceptance_errors(root):
+    """Check this recorded owner decision, not authenticate future user input.
+
+    An accepted flag, successful test or PR alone never supplies acceptance.
+    The recorded decision binds the five canons and public restore together.
+    """
+    root = Path(root)
+    name = 'admin/REV0.317_OWNER_ACCEPTANCE.json'
+    try:
+        record = json.loads((root / name).read_text())
+        restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
+    except (OSError, ValueError):
+        return ['OWNER_ACCEPTANCE_RECORD_MISSING_OR_INVALID']
+    if (not isinstance(record, dict) or record.get('revision') != 'rev0.317'
+            or record.get('status') != 'ACCEPTED_BY_OWNER'
+            or record.get('source_class') != 'OWNER_EXPLICIT_INSTRUCTION'
+            or record.get('basis') != 'EXPLICIT_OWNER_ADOPTION_IN_CURRENT_CONVERSATION'
+            or record.get('accepted_candidate_id') != 'PEOS_REV0.317_20261103'
+            or record.get('self_acceptance') is not False):
+        return ['OWNER_ACCEPTANCE_BASIS_DIFFERS']
+    errors = []
+    expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in OWNERS}
+    binding = record.get('five_canon_sha256')
+    if (not isinstance(binding, dict) or set(binding) != expected
+            or any(not (root / path).is_file() or digest((root / path).read_bytes()) != value
+                   for path, value in binding.items())):
+        errors.append('OWNER_ACCEPTANCE_CANON_BINDING_DIFFERS')
+    if (restore.get('candidate_revision') != 'rev0.317'
+            or restore.get('candidate_id') != record['accepted_candidate_id']
+            or restore.get('candidate_accepted') is not True
+            or restore.get('release_accepted') is not True
+            or restore.get('acceptance_record') != name
+            or restore.get('release_acceptance_basis') != 'OWNER_EXPLICIT_INSTRUCTION'
+            or restore.get('authority') != record.get('authority')):
+        errors.append('OWNER_ACCEPTANCE_RESTORE_DIFFERS')
+    if (record.get('live_model_acceptance') != 'NOT_PERFORMED'
+            or record.get('live_connections_created') is not False
+            or record.get('native_memory_write_claimed') is not False):
+        errors.append('OWNER_ACCEPTANCE_OVERCLAIMS_LIVE_STATE')
+    for filename in ('admin/REV0.317_STATUS.json', 'admin/PEOS_REV0.317_CANDIDATE_METADATA.json'):
+        value = json.loads((root / filename).read_text())
+        if (value.get('release_accepted') is not True or value.get('status') != 'ACCEPTED_BY_OWNER'
+                or value.get('acceptance_record') != name or value.get('authority') != record.get('authority')):
+            errors.append('OWNER_ACCEPTANCE_METADATA_DIFFERS:' + filename)
+    return errors
 
 def authority_errors(root):
     root = Path(root)
     restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
     value = restore['authority']
-    expected = ('rev0.316', 'PEOS_GITHUB_PACKAGE_rev0.315.zip', 'rev0.316')
+    expected = ('rev0.317', 'PEOS_GITHUB_PACKAGE_rev0.316.zip', 'rev0.317')
     errors = []
     if tuple(value[k] for k in ('current_canon', 'accepted_baseline', 'detailed_reference')) != expected:
         errors.append('CURRENT_AUTHORITY_DIFFERS')

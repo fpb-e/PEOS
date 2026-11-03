@@ -55,7 +55,8 @@ def next_spec_errors(root):
         errors.append('NEXT_SPEC_POST_PREPROCESS_CLOCK')
     for p in (root/'prompt').glob('*.md'):
         h=p.read_text().split('## 0. 文書の役割',1)[0]
-        if '現行指定はrev0.316' not in h or 'target revisionをrev0.317へ採番' not in h:
+        if ('現行指定はrev0.317' not in h or '所有者の明示採用' not in h
+                or '`ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.317`' not in h):
             errors.append('NEXT_SPEC_HEADER_AUTHORITY:'+p.name)
     replay=json.loads((root/'tests/fixtures/next_spec_20261103_model_replay.json').read_text())
     if replay['status']!='NOT_EXECUTED' or replay['live_model_pass'] is not False:
