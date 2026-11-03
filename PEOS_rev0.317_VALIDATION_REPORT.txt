@@ -1,0 +1,13 @@
+PEOS_rev0.317_VALIDATION_REPORT
+TARGET_REVISION: rev0.317
+CURRENT_CANON: rev0.316
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.315.zip
+PUBLIC_REFERENCE_TESTS: 202 PASS, failures/errors/skips 0
+PACKAGE_REFERENCE_TESTS: 196 PASS, failures/errors/skips 0
+RULES: 444 unique owners, all prior rule IDs retained
+HISTORY: rev0.316, rev0.315 only; original snapshots byte exact
+BOOT_LITERAL: unchanged across all three routes
+DOWNLOAD_LINK_TESTS: absolute raw URL pinned to asset commit; real HTTP and downloaded bytes checked separately after publication
+PRIVATE_RAW_SOURCE: excluded
+LIVE_MODEL_ACCEPTANCE: NOT_PERFORMED
+RELEASE_ACCEPTANCE: NOT_PERFORMED

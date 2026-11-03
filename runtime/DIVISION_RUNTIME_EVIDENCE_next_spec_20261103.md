@@ -1,5 +1,0 @@
-# 次仕様候補の実行証拠
-
-PEOS_NEXT_SPEC_20261103、次revision未採番。完全版設定は採用済み要求として統合。参照実装は型付き条件と合成callbackの順序を検証する。実モデルによる独立五正本試験、他利用者への接続、実sync、hostへの常設hookは未実施。生成時の古い候補表記から現行316・baseline315を巻き戻さない。
-
-実行済みの静的結果はNEXT_SPEC_20261103_VALIDATION_REPORT.txt、未実施のモデル試験はtests/fixtures/next_spec_20261103_model_replay.jsonで区別する。

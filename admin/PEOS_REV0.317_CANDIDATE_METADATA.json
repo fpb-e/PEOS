@@ -1,6 +1,8 @@
 {
-  "candidate_id": "PEOS_NEXT_SPEC_20261103",
-  "target_revision": null,
+  "revision": "rev0.317",
+  "target_revision": "rev0.317",
+  "candidate_id": "PEOS_REV0.317_20261103",
+  "status": "RELEASE_CANDIDATE_NOT_SELF_ACCEPTED",
   "authority": {
     "current_canon": "rev0.316",
     "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.315.zip",
@@ -15,13 +17,10 @@
       "BASELINE_PROHIBITED"
     ]
   },
-  "fullmode_requirement": "ADOPTED_BY_OWNER",
-  "specification": "INTEGRATED",
-  "reference_code": "IMPLEMENTED_NOT_LIVE_HOST",
-  "static_tests": "198_REFERENCE_TESTS_PASS",
-  "live_model_replay": "NOT_EXECUTED",
-  "live_connections": "NOT_CREATED",
+  "total_rule_count": 444,
+  "source_requirements": 15,
+  "previous_unnumbered_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "live_model_acceptance": "NOT_PERFORMED",
   "release_accepted": false,
-  "raw_private_source_publication": false,
-  "package_tests": "192_REFERENCE_TESTS_PASS"
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
 }

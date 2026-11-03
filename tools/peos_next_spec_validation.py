@@ -4,14 +4,14 @@ import json
 from pathlib import Path
 import re
 
-CID = 'PEOS_NEXT_SPEC_20261103'
+CID = 'PEOS_REV0.317_20261103'
 
 
 def next_spec_errors(root):
     root = Path(root)
     errors = []
-    delta = json.loads((root/'admin/NEXT_SPEC_20261103_RULE_DELTA.json').read_text())
-    trace = json.loads((root/'admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json').read_text())
+    delta = json.loads((root/'admin/REV0.317_RULE_DELTA.json').read_text())
+    trace = json.loads((root/'admin/REV0.317_REQUIREMENT_TRACEABILITY.json').read_text())
     text = '\n'.join(p.read_text() for p in sorted((root/'prompt').glob('*.md')))
     ids = re.findall(r'^- RULE_ID: `([^`]+)`',text,re.M)
     if len(ids)!=444 or len(set(ids))!=444:
@@ -20,7 +20,7 @@ def next_spec_errors(root):
     for b in re.split(r'(?=^### )',text,flags=re.M):
         m=re.search(r'^- RULE_ID: `([^`]+)`',b,re.M)
         if m: blocks[m[1]]=b
-    if (trace.get('target_revision') is not None or trace.get('candidate_id')!=CID
+    if (trace.get('target_revision') != 'rev0.317' or trace.get('candidate_id')!=CID
             or trace.get('requirement_count')!=15 or len(trace['requirements'])!=15
             or len({x['id'] for x in trace['requirements']})!=15):
         errors.append('NEXT_SPEC_TRACE_SCOPE')
@@ -55,7 +55,7 @@ def next_spec_errors(root):
         errors.append('NEXT_SPEC_POST_PREPROCESS_CLOCK')
     for p in (root/'prompt').glob('*.md'):
         h=p.read_text().split('## 0. 文書の役割',1)[0]
-        if '現行指定はrev0.316' not in h or '次revisionは未採番' not in h:
+        if '現行指定はrev0.316' not in h or 'target revisionをrev0.317へ採番' not in h:
             errors.append('NEXT_SPEC_HEADER_AUTHORITY:'+p.name)
     replay=json.loads((root/'tests/fixtures/next_spec_20261103_model_replay.json').read_text())
     if replay['status']!='NOT_EXECUTED' or replay['live_model_pass'] is not False:

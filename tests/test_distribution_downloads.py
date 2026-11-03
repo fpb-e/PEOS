@@ -28,9 +28,9 @@ class DistributionDownloadTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256((ROOT/'downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip').read_bytes()).hexdigest(),'7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915')
         self.assertEqual(distribution_errors(ROOT),[])
     def test_primary_download_and_local_manual_links_resolve(self):
-        primary=json.loads((ROOT/'downloads/PUBLIC_PACKAGES.json').read_text())['primary']
+        registry=json.loads((ROOT/'downloads/PUBLIC_PACKAGES.json').read_text());primary=next(x['download_url'] for x in registry['packages'] if x['path']==registry['primary'])
         before,manual=(ROOT/'README.md').read_text().split('## インストールマニュアル\n',1)
-        self.assertIn('('+primary+'?raw=true)',before);self.assertIn('('+primary+'?raw=true)',manual)
+        self.assertIn('('+primary+')',before);self.assertIn('('+primary+')',manual)
         for path in [ROOT/'README.md',ROOT/'downloads/README.md']:
             for link in re.findall(r'\]\(([^)]+)\)',path.read_text()):
                 u=urlsplit(link)

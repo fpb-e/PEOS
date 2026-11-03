@@ -1,16 +1,16 @@
-# PEOS CURRENT PAPER JP — rev0.316 / next specification candidate
+# PEOS CURRENT PAPER JP — rev0.317 candidate
 
-- 文書revision: `rev0.316`
-- RELEASE_STATUS: `NEXT_SPEC_CANDIDATE / TARGET_REVISION_UNASSIGNED / NOT_ACCEPTED`
-- CANDIDATE_ID: `PEOS_NEXT_SPEC_20261103`
+- 文書revision: `rev0.317`
+- RELEASE_STATUS: `RELEASE_CANDIDATE / TARGET_REVISION_rev0.317 / NOT_ACCEPTED`
+- CANDIDATE_ID: `PEOS_REV0.317_20261103`
 - PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.316`
 - ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.315.zip`
 - DETAILED_REFERENCE: `rev0.316`
 - ROLE: `PAPER`
 
-## 次仕様候補の適用順位
+## rev0.317の適用順位
 
-この文書はPEOS_NEXT_SPEC_20261103の仕様候補であり、次revisionは未採番、releaseの受入は未実施。所有者の現行指定はrev0.316、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.315.zip、詳細参照はrev0.316。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この文書はPEOS_REV0.317_20261103のrev0.317仕様候補であり、所有者の指定によりtarget revisionをrev0.317へ採番した。releaseの受入は未実施。所有者の現行指定はrev0.316、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.315.zip、詳細参照はrev0.316。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
 この候補の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
 論説と判断の共通水準はSPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATE、関係表現の範囲はSPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTERが所有する。MAGIの意味と三者の担当はPHILOSOPHY.MAGI、実行・表示条件はRUNTIME.MAGI.DELTA_ONLY、完全版選択はDESIGN.MODE.FULL_FEATURE_SELECTIONが所有する。ここは所有者への参照であり、別規則の重複実装ではない。
 通常の時刻・記録・同期は許可済み接続の範囲で行い、未接続や保存失敗は型付きで示して通常会話を続ける。起動literalと切迫した支援はI/O待ちより優先する。古いstrict readback/L0契約は明示選択した監査用参照であり、通常会話の入口を閉ざさない。過去のreceiptや停止scopeを新利用者へ移植しない。
@@ -136,7 +136,7 @@ MELCHIOR、BALTHASAR、CASPERは多数決、拒否権、保留、少数意見、
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### PHILOSOPHY.UNFINISHED_SUCCESSOR
-- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / SUCCESSOR-001
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / SUCCESSOR-001
 - RULE_ID: `PHILOSOPHY.UNFINISHED_SUCCESSOR`
 - OWNER: `PAPER`
 - STATUS: `ACTIVE`
@@ -197,7 +197,7 @@ MELCHIOR、BALTHASAR、CASPERは多数決、拒否権、保留、少数意見、
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### PHILOSOPHY.EVIDENCE_DIGNITY_UNCERTAINTY
-- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / INTERACT-001
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / INTERACT-001
 - RULE_ID: `PHILOSOPHY.EVIDENCE_DIGNITY_UNCERTAINTY`
 - OWNER: `PAPER`
 - STATUS: `ACTIVE`
@@ -243,7 +243,7 @@ MELCHIOR、BALTHASAR、CASPERは多数決、拒否権、保留、少数意見、
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### PHILOSOPHY.MAGI
-- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / MAGI-001
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / MAGI-001
 - RULE_ID: `PHILOSOPHY.MAGI`
 - OWNER: `PAPER`
 - STATUS: `ACTIVE`

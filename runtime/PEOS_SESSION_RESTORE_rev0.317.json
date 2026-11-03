@@ -30,16 +30,16 @@
     "state": "REQUIRES_HOST_BINDING"
   },
   "private_continuity": "NOT_DISTRIBUTED",
-  "profile": "PUBLIC_EMPTY_NEXT_SPEC_RESTORE",
+  "profile": "PUBLIC_EMPTY_RESTORE_rev0.317_CANDIDATE",
   "publication_scope": "NO_RAW_CONVERSATIONS_OR_IMAGES",
   "replay_actions": [],
   "runtime_ready": false,
   "source_sync_receipt": null,
   "verified_live_streak": null,
-  "candidate_revision": null,
+  "candidate_revision": "rev0.317",
   "candidate_accepted": false,
-  "candidate_id": "PEOS_NEXT_SPEC_20261103",
-  "target_revision": null,
+  "candidate_id": "PEOS_REV0.317_20261103",
+  "target_revision": "rev0.317",
   "fullmode_requirement_status": "ADOPTED_FOR_IMPLEMENTATION",
   "feature_selection": "USER_SELECTION_REQUIRED"
 }

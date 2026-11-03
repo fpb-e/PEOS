@@ -35,8 +35,8 @@ class PublicPolicyTests(unittest.TestCase):
             resolve_authority({}, value)
 
     def test_future_explicit_authority_can_advance(self):
-        value = dict(self.authority, current_canon='rev0.316', detailed_reference='rev0.316',
-                     accepted_baseline='PEOS_GITHUB_PACKAGE_rev0.315.zip')
+        value = dict(self.authority, current_canon='rev0.317', detailed_reference='rev0.317',
+                     accepted_baseline='PEOS_GITHUB_PACKAGE_rev0.316.zip')
         self.assertEqual(resolve_authority({}, value)['effective'], value)
 
     def test_detailed_reference_lag_is_rejected(self):
