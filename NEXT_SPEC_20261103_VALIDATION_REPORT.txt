@@ -1,0 +1,15 @@
+PEOS_NEXT_SPEC_20261103
+TARGET_REVISION: UNASSIGNED
+CURRENT_CANON: rev0.316
+ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.315.zip
+PUBLIC_REFERENCE_TESTS: 198 PASS, failures/errors/skips 0
+PACKAGE_TESTS: 192 PASS, failures/errors/skips 0; 6 repository-only download tests excluded
+INPUT_BUNDLE: 403 checks PASS
+RULES: 443 inherited, 1 added, 444 unique owners
+SOURCE_REQUIREMENTS: 15
+BOOT_LITERAL: unchanged across all three routes
+PRIVATE_RAW_SOURCE: excluded from public artifacts
+LIVE_MODEL_ACCEPTANCE: NOT_EXECUTED
+LIVE_CONNECTIONS: NOT_CREATED
+RELEASE_ACCEPTANCE: NOT_PERFORMED
+This is a reference/static result, not independent model replay acceptance.

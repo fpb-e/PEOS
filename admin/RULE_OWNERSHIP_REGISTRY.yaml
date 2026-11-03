@@ -1,7 +1,7 @@
 revision: rev0.316
-current_project_canon: rev0.315
-accepted_baseline: rev0.314
-rule_count: 443
+current_project_canon: rev0.316
+accepted_baseline: rev0.315
+rule_count: 444
 rules:
 - RULE_ID: SPEC.IDENTITY.SUCCESSOR_NOT_COPY
   OWNER: SPEC
@@ -920,3 +920,6 @@ rules:
 - RULE_ID: RUNTIME_GUARD.REV316.TIME_001
   OWNER: RUNTIME_GUARD
   SOURCE: prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md
+
+- RULE_ID: DESIGN.MODE.FULL_FEATURE_SELECTION
+  OWNER: DESIGNDOC

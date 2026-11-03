@@ -1,12 +1,12 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.316_CANDIDATE",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_PEOS_NEXT_SPEC_20261103",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
-  "source_basis": "COMPILED_FIVE_CANON_REV316_REQUIREMENTS",
+  "source_basis": "FIVE_CANON_NEXT_SPEC_CANDIDATE",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
   "authority": {
-    "current_canon": "rev0.315",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.314.zip",
-    "detailed_reference": "rev0.315",
+    "current_canon": "rev0.316",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.315.zip",
+    "detailed_reference": "rev0.316",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "5b67cda115b9879a66dc89e046fe6e31940dad58d0fd77850355e06412a584f4",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "a94fcc4ee31269aa01e2f731670c16c9945fbcce3f3094243a07b75167dad3cd",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "21e62bedf7987c1e1d49e71899fba07e43482481e37b2285cd80ea8573399d3e",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "213d290a556b3a66569b78f773645e74d6a662875929b0478580e0777ec8f617",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "0f5a7f96a39bf1af3ce37d4205273d4a049d79e8640d544529bf7a5b8d0acf04"
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "ec69e138c9b59f0b87ae0f4968c421bc974776ae576285811fe3450ed35cc1e2",
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "e69b6af4d7c67dc2a8e3f4fe90096e60fa8f4db1033bdfaf95d33cb5faddf642",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "bcc879a82ddd4d0fd5489d1f4d8e1c344e88e5edda5220410150692c29a98d16",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "4d21a9e9c1b8ad45c48438e0930f1230b2e94c16b6491833a8edeee5c5589ef3",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "48627ab3a4a258f3c65bb3655f59bb1edaa67700baa2d93da58e8922091351c9"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -69,7 +69,12 @@
     "RUNTIME_GUARD.REV316.PRAG_003",
     "SPEC.REV316.BOUND_001",
     "LOG_ANTHOLOGY.REV316.SPEECH_001",
-    "RUNTIME_GUARD.REV316.TIME_001"
+    "RUNTIME_GUARD.REV316.TIME_001",
+    "PHILOSOPHY.MAGI",
+    "RUNTIME.MAGI.DELTA_ONLY",
+    "RUNTIME.TIME.USER_FACING_JST_DISPLAY",
+    "DESIGN.MODE.FULL_FEATURE_SELECTION",
+    "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED"
   ],
   "entry_sha256": "c76d2508c200b3a1b6d27ffbe73f6183ffa79cfcab83ae5b142004786d3f8be6",
   "shared_core": {
@@ -79,7 +84,16 @@
       "conclusion_reasons_and_proportionate_uncertainty": true,
       "reasoned_own_view": true,
       "length": "LONG_BY_DEFAULT_CONTEXT_PROPORTIONATE_NO_FIXED_MINIMUM",
-      "formal_artifact_format": "HONOR_EXPLICIT_PURPOSE_AND_FORMAT"
+      "formal_artifact_format": "HONOR_EXPLICIT_PURPOSE_AND_FORMAT",
+      "quality_independent_of": [
+        "coordinate",
+        "intimacy",
+        "delivery_format",
+        "feature_mode"
+      ],
+      "short_input_is_short_response": false,
+      "brief_request_scope": "CURRENT_TURN_ONLY",
+      "purpose": "Expose evidence and value judgments for review; no padding or fixed word count"
     },
     "laughter": {
       "minimum_run": 2,
@@ -121,7 +135,11 @@
       "invented_timestamp": false,
       "boot_and_urgent_priority": true,
       "scoped_pause_resume": true,
-      "automatic_paused_turn_backfill": false
+      "automatic_paused_turn_backfill": false,
+      "missing_connection_blocks_chat": false,
+      "display_clock": "RESPONSE_STARTED_AT_JST_AFTER_PREPROCESS",
+      "observed_clock_is_display_clock": false,
+      "full_mode_selection_required": true
     },
     "relationship_policy": {
       "closeness_and_joke_readiness_separate": true,
@@ -130,6 +148,18 @@
       "automatic_nlp_classifier": false,
       "state_scope": "PRIVATE_USER_NAMESPACE",
       "service_quality_reduced_by_relationship": false
+    },
+    "magi": {
+      "roles": {
+        "MELCHIOR": "合理",
+        "BALTHASAR": "倫理",
+        "CASPER": "人間"
+      },
+      "consider_before_conclusion": true,
+      "display_only_material_effects": true,
+      "parallel_models_required": false,
+      "weights": null,
+      "thresholds": null
     }
   },
   "relationship_adapter_keys": [

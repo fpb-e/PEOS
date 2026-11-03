@@ -79,36 +79,27 @@ def forbidden_file(relative, data, excluded_original_sha256=()):
     return issues
 
 
-def distribution_errors(root):
-    """Check the optional repository download shelf without changing the ZIP."""
-    root = Path(root)
-    if not (root / 'downloads').exists():
-        return []
-    errors = []
-    for relative, sha in DISTRIBUTION_ARCHIVES.items():
-        path = root / relative
-        if not path.is_file() or path.is_symlink():
-            errors.append('DISTRIBUTION_ARCHIVE_MISSING:' + relative)
-        elif digest(path.read_bytes()) != sha:
-            errors.append('DISTRIBUTION_ARCHIVE_BYTES_DIFFER:' + relative)
-    expected = ''.join(f'{sha}  {Path(name).name}\n'
-                       for name, sha in sorted(DISTRIBUTION_ARCHIVES.items()))
-    sums = root / 'downloads/SHA256SUMS'
-    if not sums.is_file() or sums.read_bytes() != expected.encode('ascii'):
-        errors.append('DISTRIBUTION_CHECKSUMS_DIFFER')
-    return errors
+from peos_distribution import distribution_errors, load_packages, registered_archive_errors
 
 
 def publication_errors(root, excluded_original_sha256=()):
     root = Path(root)
     issues = []
+    try:
+        packages = load_packages(root)
+    except (ValueError, KeyError, TypeError):
+        packages = {}
     for path in files(root):
         relative = path.relative_to(root).as_posix()
         if path.is_symlink():
             issues.append(relative + ':SYMLINK')
             continue
-        issues.extend(relative + ':' + code for code in
-                      forbidden_file(relative, path.read_bytes(), excluded_original_sha256))
+        data = path.read_bytes()
+        if relative in packages:
+            issues.extend(registered_archive_errors(relative, data, packages[relative], excluded_original_sha256))
+        else:
+            issues.extend(relative + ':' + code for code in
+                          forbidden_file(relative, data, excluded_original_sha256))
     return issues
 
 
@@ -128,15 +119,16 @@ def write_manifest(root):
     names = {p.relative_to(root).as_posix() for p in files(root)}
     names.update({'DIRECTORY_AND_FILE_LIST.txt', 'PACKAGE_MANIFEST.txt'})
     (root / 'DIRECTORY_AND_FILE_LIST.txt').write_text(
-        'PEOS rev0.316 candidate public tree (Git metadata excluded)\n\n'
+        'PEOS_NEXT_SPEC_20261103 public tree (Git metadata excluded)\n\n'
         + '\n'.join(sorted(names)) + '\n', encoding='utf-8')
     entries = manifest_rows(root)
     text = ('PEOS_PUBLIC_PACKAGE_MANIFEST_V1\n'
-            'TARGET_REVISION: rev0.316\n'
-            'STATUS: RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED\n'
-            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.315\n'
-            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.314.zip\n'
-            'DETAILED_REFERENCE: rev0.315\n'
+            'TARGET_REVISION: UNASSIGNED\n'
+            'CANDIDATE_ID: PEOS_NEXT_SPEC_20261103\n'
+            'STATUS: NEXT_SPEC_CANDIDATE / NOT_ACCEPTED / NOT_SELF_ACCEPTED\n'
+            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.316\n'
+            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.315.zip\n'
+            'DETAILED_REFERENCE: rev0.316\n'
             'PUBLICATION_SCOPE: SPECIFICATIONS_CODE_SYNTHETIC_TESTS_WITHOUT_RAW_CONVERSATIONS_OR_IMAGES\n'
             'PRIVATE_SOURCE_VALIDATION: NOT_PERFORMED_BY_PUBLIC_VALIDATOR\n'
             f'FILE_COUNT_EXCLUDING_MANIFEST: {len(entries)}\n\nFILES:\n')
@@ -190,13 +182,13 @@ def specification_errors(root):
             match = re.search(r'^- RULE_ID: `([^`]+)`', block, re.M)
             if match:
                 ids.append(match[1]); owners[match[1]] = owner; blocks[match[1]] = block
-    if len(ids) != 443 or len(set(ids)) != 443:
-        errors.append('443_UNIQUE_RULES_REQUIRED')
+    if len(ids) != 444 or len(set(ids)) != 444:
+        errors.append('444_UNIQUE_RULES_REQUIRED')
     registry = (root / 'admin/RULE_OWNERSHIP_REGISTRY.yaml').read_text()
-    if not all(line in registry.splitlines() for line in ('revision: rev0.316', 'current_project_canon: rev0.315', 'accepted_baseline: rev0.314', 'rule_count: 443')):
+    if not all(line in registry.splitlines() for line in ('revision: rev0.316', 'current_project_canon: rev0.316', 'accepted_baseline: rev0.315', 'rule_count: 444')):
         errors.append('RULE_REGISTRY_AUTHORITY_OR_COUNT_DIFFERS')
     pairs = re.findall(r'^- RULE_ID: (\S+)\n  OWNER: (\S+)', registry, re.M)
-    if len(pairs) != 443 or dict(pairs) != owners:
+    if len(pairs) != 444 or dict(pairs) != owners:
         errors.append('RULE_OWNER_REGISTRY_DIFFERS')
     trace = json.loads((root / 'admin/REV0.314_REQUIREMENT_TRACEABILITY.json').read_text())
     requirements = trace['requirements']
@@ -205,14 +197,14 @@ def specification_errors(root):
     normalize = lambda value: re.sub(r'\s+', ' ', value).strip()
     for item in requirements:
         if (owners.get(item['rule_id']) != item['owner']
-                or normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], ''))
+                or (not item.get('current_binding_superseded_by') and normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], '')))
                 or item['public_verification'] != 'CANON_TEXT_AND_UNIQUE_OWNER'):
             errors.append('REQUIREMENT_BINDING:' + item['id'])
     latest = json.loads((root / 'admin/REV0.315_REQUIREMENT_TRACEABILITY.json').read_text())
     if latest.get('requirement_count') != 18 or len(latest['requirements']) != 18:
         errors.append('18_NEW_DERIVED_REQUIREMENTS_REQUIRED')
     for item in latest['requirements']:
-        if owners.get(item['rule_id']) != item['owner'] or normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], '')):
+        if owners.get(item['rule_id']) != item['owner'] or (not item.get('current_binding_superseded_by') and normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], ''))):
             errors.append('LATEST_REQUIREMENT_BINDING:' + item['id'])
     source = json.loads((root / 'admin/REV0.316_REQUIREMENT_TRACEABILITY.json').read_text())
     from collections import Counter
@@ -224,13 +216,13 @@ def specification_errors(root):
         old = (root / f'history/rev0.315/prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
         inherited.update(re.findall(r'^- RULE_ID: `([^`]+)`', old, re.M))
     added = {x['rule_id'] for x in source['requirements'] if x['disposition'] == 'NEW_CANDIDATE_RULE'}
-    if len(inherited) != 430 or not inherited <= set(ids) or set(ids) - inherited != added:
+    if len(inherited) != 430 or not inherited <= set(ids) or set(ids) - inherited != added | {'DESIGN.MODE.FULL_FEATURE_SELECTION'}:
         errors.append('INHERITED_RULE_LOSS_OR_UNDECLARED_ADDITION')
     for item in source['requirements']:
         if item['disposition'] in {'NEW_CANDIDATE_RULE','CLARIFY_EXISTING_RULE','REAFFIRM_EXISTING_RULE'}:
             if owners.get(item['rule_id']) != item['owner']:
                 errors.append('SOURCE_OWNER:' + item['id'])
-            if item['disposition'] != 'REAFFIRM_EXISTING_RULE' and normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], '')):
+            if item['disposition'] != 'REAFFIRM_EXISTING_RULE' and (not item.get('current_binding_superseded_by') and normalize(item['requirement']) not in normalize(blocks.get(item['rule_id'], ''))):
                 errors.append('SOURCE_REQUIREMENT:' + item['id'])
         elif item.get('rule_id') is not None:
             errors.append('NONOPERATIVE_ITEM_HAS_ACTIVE_RULE:' + item['id'])
@@ -266,13 +258,13 @@ def specification_errors(root):
 
 def restore_candidate_promoted(root):
     r = json.loads((Path(root) / 'runtime/PEOS_SESSION_RESTORE_rev0.316.json').read_text())
-    return r.get('candidate_revision') != 'rev0.316' or r.get('candidate_accepted') is not False
+    return (r.get('candidate_revision') is not None or r.get('candidate_id') != 'PEOS_NEXT_SPEC_20261103' or r.get('candidate_accepted') is not False)
 
 def authority_errors(root):
     root = Path(root)
     restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.316.json').read_text())
     value = restore['authority']
-    expected = ('rev0.315', 'PEOS_GITHUB_PACKAGE_rev0.314.zip', 'rev0.315')
+    expected = ('rev0.316', 'PEOS_GITHUB_PACKAGE_rev0.315.zip', 'rev0.316')
     errors = []
     if tuple(value[k] for k in ('current_canon', 'accepted_baseline', 'detailed_reference')) != expected:
         errors.append('CURRENT_AUTHORITY_DIFFERS')
@@ -287,7 +279,8 @@ def authority_errors(root):
 def validate(root, *, check_manifest=True):
     root = Path(root)
     provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.316.json').read_text())
-    return (publication_errors(root, set(provenance['excluded_original_sha256']))
+    from peos_next_spec_validation import next_spec_errors
+    return (next_spec_errors(root) + publication_errors(root, set(provenance['excluded_original_sha256']))
             + distribution_errors(root)
             + (manifest_errors(root) if check_manifest else [])
             + specification_errors(root) + authority_errors(root))

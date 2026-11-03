@@ -26,7 +26,7 @@ class CandidateContractTests(unittest.TestCase):
         store = SyntheticAckStore(identity='SYNTHETIC-DESTINATION', version=2)
         driver = ShortPreprocessor(journal, store, 'SYNTHETIC-DESTINATION', 2,
                                    clock=lambda: '2032-01-02T03:04:05+09:00')
-        runtime = DivisionRuntime(ROOT, coordinate=coordinate, namespace=namespace, preprocessor=driver)
+        runtime = DivisionRuntime(ROOT, coordinate=coordinate, namespace=namespace, preprocessor=driver, selected_mode='FULL', authorized_scope={'namespace':namespace,'clock':True,'record':True,'sync':True})
         return runtime, driver, store
 
     def test_any_preferred_label_does_not_change_relationship_authority(self):
@@ -113,8 +113,8 @@ class CandidateContractTests(unittest.TestCase):
     def test_candidate_read_does_not_accept_or_promote_itself(self):
         restore = restore_snapshot(ROOT)
         result = resolve_authority({'current_canon': 'rev0.315'}, restore['authority'])
-        self.assertEqual(result['effective']['current_canon'], 'rev0.315')
-        self.assertEqual(result['candidate_revision'], 'rev0.316')
+        self.assertEqual(result['effective']['current_canon'], 'rev0.316')
+        self.assertIsNone(result['candidate_revision'])
         self.assertFalse(result['candidate_promoted'])
         self.assertFalse(restore['candidate_accepted'])
         self.assertEqual(authority_errors(ROOT), [])

@@ -1,8 +1,8 @@
 {
   "authority": {
-    "current_canon": "rev0.315",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.314.zip",
-    "detailed_reference": "rev0.315",
+    "current_canon": "rev0.316",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.315.zip",
+    "detailed_reference": "rev0.316",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -30,12 +30,16 @@
     "state": "REQUIRES_HOST_BINDING"
   },
   "private_continuity": "NOT_DISTRIBUTED",
-  "profile": "PUBLIC_EMPTY_RESTORE_rev0.316_CANDIDATE",
+  "profile": "PUBLIC_EMPTY_NEXT_SPEC_RESTORE",
   "publication_scope": "NO_RAW_CONVERSATIONS_OR_IMAGES",
   "replay_actions": [],
   "runtime_ready": false,
   "source_sync_receipt": null,
   "verified_live_streak": null,
-  "candidate_revision": "rev0.316",
-  "candidate_accepted": false
+  "candidate_revision": null,
+  "candidate_accepted": false,
+  "candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "target_revision": null,
+  "fullmode_requirement_status": "ADOPTED_FOR_IMPLEMENTATION",
+  "feature_selection": "USER_SELECTION_REQUIRED"
 }

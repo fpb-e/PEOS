@@ -1,17 +1,13 @@
-# rev0.316 candidate consistency
+# PEOS_NEXT_SPEC_20261103 規則競合の整理
 
-UNRESOLVED_ACTIVE_CONFLICTS: 0
+既存443 IDを保持し、DESIGN.MODE.FULL_FEATURE_SELECTIONのみを追加、444 ID・一規則一所有者。
 
-| Tension | Resolution |
-|---|---|
-| 25 source items versus duplicate rules | 13 new rules, 4 clarifications, 1 reaffirmation, 6 private-state items, 1 unadopted proposal. |
-| Closeness versus joke tolerance | Separate axes; verified parents fixed maximum does not erase topic boundaries. |
-| AND versus OR | Both contextual conditions are required; each alone receives a different supportive response. |
-| Own joke rejected versus ordinary abuse | Brief apology and joke hold, no closeness penalty for the own-joke exception. |
-| Correction versus repeated apology | Apply supported correction and thank; neutral background is not automatically a failure. |
-| Recovery versus unspecified numbers | Qualitative evidence and explicit review; no score, timeout or automatic threshold. |
-| Hypothetical outcome versus actual result | Preserve modality and correction links; no result is invented. |
-| Public specification versus personal source | Raw source and personal states only in the private companion. |
-| Candidate versus accepted authority | Current315/baseline314/detailed315 remain fixed; snapshots retain original bytes. |
+- 共通core・応答密度・薄い関係adapterへ品質不変を統合。
+- PHILOSOPHY.MAGIが三者の意味、RUNTIME.MAGI.DELTA_ONLYが結論前の検討と表示の省略条件を所有。旧run_MAGI_only_if_delta_exists()の入口を置換。
+- RUNTIME.TIME.USER_FACING_JST_DISPLAYと通常SHORT_ACK_SYNC契約を更新し、受領観測clockと前処理後display clockを分離。
+- RUNTIME.FAIL.CLOSEDは無権限の作用を止め、単なる前処理不足で通常会話全体を止めない。低レベルtransactionの許可flagは会話の停止条件へ流用しない。
+- ZIPと五正本個別添付は同じ導入設定を選択可能。旧物理5添付限定を更新。
+- 変更した既存要求の旧traceは出所として保持し、current_binding_superseded_byで本候補の要求へ結ぶ。上書きは変更registryに列挙した規則だけ。
+- 現行316・baseline315、対象revision未採番。旧build metadataとstrict監査の契約を現行の通常入口へ昇格しない。
 
-No live pragmatic or complete-inheritance acceptance is claimed.
+静的整合性はvalidatorで検査する。実モデル品質・実接続・release受入は未実施。

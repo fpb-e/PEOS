@@ -1,3 +1,3 @@
-# Runtime evidence
+# Current candidate evidence
 
-Accepted detailed reference: `history/rev0.315/runtime/DIVISION_RUNTIME_EVIDENCE_rev0.315.md`. Candidate reference: `DIVISION_RUNTIME_EVIDENCE_rev0.316.md`. Neither proves a live host installation.
+See DIVISION_RUNTIME_EVIDENCE_next_spec_20261103.md. Current canon rev0.316, baseline rev0.315; target revision unassigned. Prior reports retain their historical scope.

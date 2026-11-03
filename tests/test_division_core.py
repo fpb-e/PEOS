@@ -30,7 +30,8 @@ class DivisionCoreTests(unittest.TestCase):
         store = store or SyntheticAckStore(identity=identity, version=version)
         driver = ShortPreprocessor(journal, store, identity, version, clock=lambda: STAMP)
         runtime = DivisionRuntime(ROOT, coordinate=coordinate, namespace=namespace,
-                                  preprocessor=driver)
+                                  preprocessor=driver, selected_mode='FULL',
+                                  authorized_scope={'namespace':namespace,'clock':True,'record':True,'sync':True})
         return runtime, driver, store
 
     def bound_copy(self):
@@ -82,7 +83,7 @@ class DivisionCoreTests(unittest.TestCase):
             if change == 'canon':
                 value['kind'] = 'CANON'
             elif change == 'authority':
-                value['authority']['current_canon'] = 'rev0.316'
+                value['authority']['current_canon'] = 'rev0.315'
             elif change == 'rule':
                 value['source_rule_ids'].append('MISSING.SYNTHETIC.RULE')
             else:
@@ -130,7 +131,7 @@ class DivisionCoreTests(unittest.TestCase):
             with self.subTest(coordinate=coordinate):
                 self.assertEqual(result['status'], 'SYNC_ACKNOWLEDGED')
                 self.assertEqual(result['work_result'], 'SYNTHETIC BODY')
-                self.assertIn(STAMP, result['prefix'])
+                self.assertIn(STAMP.replace('T',' ').replace('+09:00',' JST'), result['prefix'])
                 self.assertEqual(store.readback_calls, 0)
                 self.assertFalse(result['readback_verified'])
                 self.assertEqual(len(store.sync_calls), 1)
@@ -139,7 +140,7 @@ class DivisionCoreTests(unittest.TestCase):
         runtime, driver, store = self.runtime()
         runtime.dispatch('T1', 'SYNTHETIC INPUT', [])
         before = driver.journal.path.read_bytes()
-        other = DivisionRuntime(ROOT, namespace='SYNTHETIC-B', preprocessor=driver)
+        other = DivisionRuntime(ROOT, namespace='SYNTHETIC-B', preprocessor=driver, selected_mode='FULL', authorized_scope={'namespace':'SYNTHETIC-B','clock':True,'record':True,'sync':True})
         with self.assertRaisesRegex(PreprocessError, 'namespace'):
             other.dispatch('T2', 'OTHER INPUT', [], lambda: self.fail('body must not run'))
         self.assertEqual(driver.journal.path.read_bytes(), before)
@@ -180,13 +181,13 @@ class DivisionCoreTests(unittest.TestCase):
             self.assertFalse(driver.journal.path.exists())
             self.assertEqual(store.sync_calls, [])
 
-    def test_missing_tools_never_generate_a_receipt_or_execute_normal_work(self):
-        runtime = DivisionRuntime(ROOT, namespace='SYNTHETIC-A')
-        result = runtime.dispatch('T1', 'INPUT', [], lambda: self.fail('no normal work'))
+    def test_missing_tools_keep_chat_without_generating_a_receipt(self):
+        runtime = DivisionRuntime(ROOT, namespace='SYNTHETIC-A', selected_mode='FULL', authorized_scope={'namespace':'SYNTHETIC-A','clock':True,'record':True,'sync':True})
+        result = runtime.dispatch('T1', 'INPUT', [], lambda: 'NORMAL BODY')
         self.assertEqual(result['status'], 'PREPROCESS_UNAVAILABLE')
         self.assertIsNone(result['receipt'])
-        self.assertEqual(result['prefix'], '')
-        self.assertFalse(result['work_authorized'])
+        self.assertIn('時刻未取得', result['prefix'])
+        self.assertTrue(result['work_authorized'])
         self.assertFalse(result['sync_performed'])
 
     def test_boot_and_urgent_support_do_not_wait_for_binding_or_disk(self):
@@ -200,12 +201,12 @@ class DivisionCoreTests(unittest.TestCase):
         missing = DivisionRuntime(ROOT, namespace='SYNTHETIC-NO-TOOLS')
         self.assertEqual(missing.dispatch('T1', 'BOOT', [], lambda: 'BOOTED', route='BOOT')['work_result'], 'BOOTED')
 
-    def test_sync_failure_blocks_normal_body_and_keeps_truthful_status(self):
+    def test_sync_failure_keeps_normal_chat_and_truthful_status(self):
         store = SyntheticAckStore(identity='SYNTHETIC-A', fail=True)
         runtime, driver, store = self.runtime(store=store)
-        result = runtime.dispatch('T1', 'INPUT', [], lambda: self.fail('no normal body'))
+        result = runtime.dispatch('T1', 'INPUT', [], lambda: 'NORMAL BODY')
         self.assertEqual(result['status'], 'DEGRADED')
-        self.assertFalse(result['work_authorized'])
+        self.assertTrue(result['work_authorized'])
         self.assertNotIn('同期済', result['prefix'])
         self.assertTrue(driver.journal.path.exists())
 
@@ -231,11 +232,12 @@ class DivisionCoreTests(unittest.TestCase):
         self.assertEqual([json.loads(x)['turn_id'] for x in driver.journal.path.read_text().splitlines()], ['ACTIVE'])
         self.assertEqual(len(store.sync_calls), 1)
 
-    def test_binding_fsync_failure_does_not_run_remote_or_body(self):
+    def test_binding_fsync_failure_skips_remote_and_keeps_normal_chat(self):
         runtime, driver, store = self.runtime()
         with patch('peos_division_core.os.fsync', side_effect=OSError('disk unavailable')):
-            with self.assertRaises(OSError):
-                runtime.dispatch('T1', 'INPUT', [], lambda: self.fail('no body'))
+            result = runtime.dispatch('T1', 'INPUT', [], lambda: 'NORMAL BODY')
+            self.assertEqual(result['status'], 'LOCAL_BINDING_UNAVAILABLE')
+            self.assertEqual(result['work_result'], 'NORMAL BODY')
         self.assertFalse(driver.journal.path.exists())
         self.assertEqual(store.sync_calls, [])
 
@@ -243,8 +245,8 @@ class DivisionCoreTests(unittest.TestCase):
         runtime, driver, store = self.runtime()
         for attempt in range(2):
             with self.subTest(attempt=attempt), patch('peos_division_core.os.fsync', side_effect=OSError('disk unavailable')):
-                with self.assertRaises(OSError):
-                    runtime.dispatch('T1', 'INPUT', [], lambda: self.fail('no body'))
+                result = runtime.dispatch('T1', 'INPUT', [], lambda: 'NORMAL BODY')
+                self.assertEqual(result['status'], 'LOCAL_BINDING_UNAVAILABLE')
             self.assertFalse(driver.journal.path.exists())
             self.assertEqual(store.sync_calls, [])
         self.assertEqual(runtime.dispatch('T1', 'INPUT', [])['status'], 'SYNC_ACKNOWLEDGED')

@@ -28,3 +28,5 @@
 *.gz
 __pycache__/
 *.py[cod]
+
+!/downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip

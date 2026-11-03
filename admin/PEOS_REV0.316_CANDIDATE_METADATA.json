@@ -35,5 +35,7 @@
   "qualitative_reference_policy_implemented": true,
   "automatic_context_classifier_implemented": false,
   "github_mutations_performed": false,
-  "private_ledger_mutations_performed": false
+  "private_ledger_mutations_performed": false,
+  "metadata_scope": "HISTORICAL_REV316_BUILD_SNAPSHOT_NOT_CURRENT_AUTHORITY",
+  "effective_authority_reference": "runtime/PEOS_SESSION_RESTORE_rev0.316.json"
 }

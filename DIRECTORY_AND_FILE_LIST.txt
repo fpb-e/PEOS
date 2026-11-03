@@ -1,18 +1,23 @@
-PEOS rev0.316 candidate public tree (Git metadata excluded)
+PEOS_NEXT_SPEC_20261103 public tree (Git metadata excluded)
 
 .gitignore
 BUILD_STATUS.txt
 CHANGELOG.md
 DIRECTORY_AND_FILE_LIST.txt
+NEXT_SPEC_20261103_VALIDATION_REPORT.txt
 PACKAGE_MANIFEST.txt
 PEOS_rev0.316_VALIDATION_REPORT.txt
 README.md
 academic/PEOS_ACADEMIC_NOTE_rev0.316.md
+academic/PEOS_NEXT_SPEC_20261103_NOTE.md
 admin/ACTIVE_RULE_CONFLICT_REPORT.md
 admin/COORDINATE_OVERLAY_MAP.yaml
 admin/FAILURE_CLASS_REGISTRY.yaml
 admin/HISTORY_RETENTION_POLICY.json
 admin/INHERITED_PUBLIC_CLEANUP_REFERENCE.json
+admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json
+admin/NEXT_SPEC_20261103_RULE_DELTA.json
+admin/NEXT_SPEC_20261103_STATUS.json
 admin/PEOS_REV0.316_CANDIDATE_METADATA.json
 admin/PUBLIC_EXPORT_PROVENANCE_rev0.316.json
 admin/REV0.314_REQUIREMENT_TRACEABILITY.json
@@ -27,10 +32,13 @@ bootstrap/PEOS_L0_BOOT_SHIM.txt
 bootstrap/PEOS_L0_BOOT_SHIM_BINDING.json
 docs/DIVISION_CORE_WORKFLOW.md
 docs/GITHUB_VALIDATION_DEPENDENCIES.md
+docs/NEXT_SPEC_20261103_VALIDATION.md
 docs/REV0.316_SPECIFICATION_JP.md
 docs/UNADOPTED_PROPOSALS_rev0.316.md
 docs/ZIP_IMPORT_WORKFLOW.md
+downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip
 downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip
+downloads/PUBLIC_PACKAGES.json
 downloads/README.md
 downloads/SHA256SUMS
 history/rev0.314/ORIGINAL_PACKAGE_MANIFEST_REFERENCE.txt
@@ -61,6 +69,7 @@ prompt/PEOS_CURRENT_PAPER_JP.md
 prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md
 prompt/PEOS_CURRENT_SPEC_JP.md
 runtime/DIVISION_RUNTIME_EVIDENCE.md
+runtime/DIVISION_RUNTIME_EVIDENCE_next_spec_20261103.md
 runtime/DIVISION_RUNTIME_EVIDENCE_rev0.316.md
 runtime/PEOS_ARTIFACT_FIXTURE_CONTRACT.json
 runtime/PEOS_ARTIFACT_FIXTURE_CONTRACT_manifested_source_reference.json
@@ -91,10 +100,12 @@ schema/PEOS_SESSION_LOG_TIME_LEDGER_SCHEMA.json
 tests/REV0.316_EXECUTED_STATIC_RESULTS.json
 tests/fixtures/context316_replay_cases.json
 tests/fixtures/division_core_replay_cases.json
+tests/fixtures/next_spec_20261103_model_replay.json
 tests/test_candidate_contracts.py
 tests/test_context_evidence.py
 tests/test_distribution_downloads.py
 tests/test_division_core.py
+tests/test_next_spec.py
 tests/test_peos_zip_import.py
 tests/test_public_package.py
 tests/test_public_policy.py
@@ -104,12 +115,15 @@ tools/generate_l0_projection_rev0_316.py
 tools/generate_package_manifest_rev0_316.py
 tools/peos_context_evidence.py
 tools/peos_continuity_truth_runtime.py
+tools/peos_distribution.py
 tools/peos_division_core.py
 tools/peos_full_verbatim_logger.py
 tools/peos_history_policy.py
+tools/peos_next_spec_validation.py
 tools/peos_preprocess_barrier.py
 tools/peos_public_release.py
 tools/peos_relationship_policy.py
+tools/peos_response_policy.py
 tools/peos_restore_runtime.py
 tools/peos_runtime_binding.py
 tools/peos_session_policy.py
@@ -118,6 +132,7 @@ tools/peos_turn_time_ledger.py
 tools/peos_universal_time_gate.py
 tools/peos_zip_import.py
 tools/run_unittest_report.py
+tools/validate_next_spec.py
 tools/validate_reminder_state_machine.py
 tools/validate_rev0_316.py
 tools/validate_session_log.py

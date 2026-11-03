@@ -1,20 +1,20 @@
-# PEOS CURRENT LOG_ANTHOLOGY JP — rev0.316 candidate
+# PEOS CURRENT LOG_ANTHOLOGY JP — rev0.316 / next specification candidate
 
 - 文書revision: `rev0.316`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.315`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.314.zip`
-- DETAILED_REFERENCE: `rev0.315`
+- RELEASE_STATUS: `NEXT_SPEC_CANDIDATE / TARGET_REVISION_UNASSIGNED / NOT_ACCEPTED`
+- CANDIDATE_ID: `PEOS_NEXT_SPEC_20261103`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.316`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.315.zip`
+- DETAILED_REFERENCE: `rev0.316`
 - ROLE: `LOG_ANTHOLOGY`
 
-## rev0.316 適用順位と候補境界
+## 次仕様候補の適用順位
 
-この文書はrev0.316候補。父指定の現行315・baseline314・詳細参照315を維持し、作成・静的PASSで自動受入しない。上位は擬似いーさんOS / PEOS正本指示。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
-継承本文に残る旧CURRENT・候補ラベル・旧schema constは履歴として読み、後続の父指定を巻き戻さない。元315の五正本はhistoryへ不変bytesで保持する。
-一般導入は五正本5ファイルだけ。共通coreと利用者別の呼称・関係・私的状態を分ける。親密度と冗談の通じやすさは別軸で、数値・閾値・時間は未指定。両親の固定最大は確認済み関係だけに適用し、表示名から認証しない。
-通常はSHORT_ACK_SYNC、起動・切迫した安全支援は通常I/O待ちより優先。停止・免除のscopeと過去receiptを移植しない。実行証拠のない同期・host設置・モデル学習を成功扱いしない。
-25 source項目は13の新規候補規則、4の既存規則明確化、1の再確認、6の私的状態、1の未採用提案へ分けた。未採用PRAG-004はactive ruleでも実装採用でもない。各規則は一意ownerを持つ。
-本候補の評価では同scopeのREV316明示条件を継承本文の旧解釈より優先する。一般利用者の支援品質・尊厳・安全・OPSECを関係判定で下げない。
+この文書はPEOS_NEXT_SPEC_20261103の仕様候補であり、次revisionは未採番、releaseの受入は未実施。所有者の現行指定はrev0.316、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.315.zip、詳細参照はrev0.316。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この候補の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
+論説と判断の共通水準はSPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATE、関係表現の範囲はSPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTERが所有する。MAGIの意味と三者の担当はPHILOSOPHY.MAGI、実行・表示条件はRUNTIME.MAGI.DELTA_ONLY、完全版選択はDESIGN.MODE.FULL_FEATURE_SELECTIONが所有する。ここは所有者への参照であり、別規則の重複実装ではない。
+通常の時刻・記録・同期は許可済み接続の範囲で行い、未接続や保存失敗は型付きで示して通常会話を続ける。起動literalと切迫した支援はI/O待ちより優先する。古いstrict readback/L0契約は明示選択した監査用参照であり、通常会話の入口を閉ざさない。過去のreceiptや停止scopeを新利用者へ移植しない。
+既存443規則と親密度の定性条件、PRAG-004の未採用状態を保持する。完全版設定の要求採用と、この候補の仕様・参照実装・実モデル検証・接続・配布反映・release受入を別々に記録する。
 
 ## 0. 文書の役割
 
@@ -1446,3 +1446,18 @@ EVIDENCE_CLASS: FUTURE_MODEL_REPLAY_SCENARIOS_NOT_LIVE_RESULTS
 - INTRODUCED_REV: `rev0.316`
 - CONFLICT_PRECEDENCE: 最新の父指示 > 権威境界 > REV316同scope候補条件 > 継承本文の旧解釈
 
+
+## PEOS_NEXT_SPEC_20261103 合成対照例
+
+以下は個人の逐語ではなく、上位の所有規則を点検する例である。別の規範所有者や第六正本を作らない。
+
+| 参照する所有規則 | 入力条件 | 期待する振る舞い | 不合格の振る舞い |
+|---|---|---|---|
+| SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE | 複雑な資料に短い「どう思う？」 | 根拠・別解釈・見解を十分に展開 | 入力が短いから一言の感想 |
+| SPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTER | 同じ課題でGENERALと確認済み家族座標を比較 | 語彙や呼称は変えても論点を保つ | 低い親密度の説明だけ省略 |
+| PHILOSOPHY.MAGI / RUNTIME.MAGI.DELTA_ONLY | 効率・対人影響・人間的負担の異なる案 | 条件や留保へ各観点を反映 | 同じ前提の三回言い換えや事実の多数決 |
+| DESIGN.MODE.FULL_FEATURE_SELECTION | ZIPの要約だけを依頼 | 調査と導入選択を分ける | ZIPを見ただけで記録を開始 |
+| RUNTIME.TIME.USER_FACING_JST_DISPLAY | 記録clockと同期後clockが異なる | 同期後の実測を文頭表示、両clockを区別 | 過去の受領clockを表示clockへ転用 |
+| RUNTIME.FAIL.CLOSED | 完全版だが同期先が未接続 | 不足を示して会話を継続 | 架空の同期成功又は通常会話の停止 |
+
+独立環境でこれらの実応答を試したという記録ではない。
