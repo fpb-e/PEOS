@@ -2,11 +2,11 @@
   "revision": "rev0.317",
   "target_revision": "rev0.317",
   "candidate_id": "PEOS_REV0.317_20261103",
-  "status": "RELEASE_CANDIDATE_NOT_SELF_ACCEPTED",
+  "status": "ACCEPTED_BY_OWNER",
   "authority": {
-    "current_canon": "rev0.316",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.315.zip",
-    "detailed_reference": "rev0.316",
+    "current_canon": "rev0.317",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.316.zip",
+    "detailed_reference": "rev0.317",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -21,6 +21,8 @@
   "source_requirements": 15,
   "previous_unnumbered_candidate_id": "PEOS_NEXT_SPEC_20261103",
   "live_model_acceptance": "NOT_PERFORMED",
-  "release_accepted": false,
-  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
+  "release_accepted": true,
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103",
+  "acceptance_record": "admin/REV0.317_OWNER_ACCEPTANCE.json",
+  "release_acceptance_basis": "OWNER_EXPLICIT_INSTRUCTION"
 }

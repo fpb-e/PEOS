@@ -21,6 +21,7 @@ admin/REV0.315_REQUIREMENT_TRACEABILITY.json
 admin/REV0.315_RULE_DELTA.json
 admin/REV0.316_REQUIREMENT_TRACEABILITY.json
 admin/REV0.316_RULE_DELTA.json
+admin/REV0.317_OWNER_ACCEPTANCE.json
 admin/REV0.317_REQUIREMENT_TRACEABILITY.json
 admin/REV0.317_RULE_DELTA.json
 admin/REV0.317_STATUS.json
@@ -105,6 +106,7 @@ tests/test_context_evidence.py
 tests/test_distribution_downloads.py
 tests/test_division_core.py
 tests/test_next_spec.py
+tests/test_owner_acceptance.py
 tests/test_peos_zip_import.py
 tests/test_public_package.py
 tests/test_public_policy.py

@@ -10,4 +10,4 @@
 - 変更した既存要求の旧traceは出所として保持し、current_binding_superseded_byで本候補の要求へ結ぶ。上書きは変更registryに列挙した規則だけ。
 - 現行316・baseline315、対象revision未採番。旧build metadataとstrict監査の契約を現行の通常入口へ昇格しない。
 
-静的整合性はvalidatorで検査する。実モデル品質・実接続・release受入は未実施。
+静的整合性はvalidatorで検査する。rev0.317のrelease受入は所有者の明示指定により実施済み。実モデル品質・実接続は未実施。

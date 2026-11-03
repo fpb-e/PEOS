@@ -1,3 +1,9 @@
+## rev0.317 — 正本として正式採用
+
+所有者の明示採用により現行正本・詳細参照をrev0.317、accepted baselineをrev0.316へ更新。五正本、復元入口、導入指示、派生投影、配布ZIPを揃え、所有者の採用記録を五正本のハッシュへ束縛した。444規則と過去二版の本文は維持。採用前の状態は以前の固定コミットで参照できる。実モデル試験・実接続の記録は未実施のまま個別管理する。
+
+以下は各時点の変更記録であり、現在の権威指定ではない。
+
 ## rev0.317 — revision and download correction
 
 Assign the owner-requested rev0.317 to the package, current five documents, metadata and filenames. Fix download buttons to immutable verified raw-file URLs. Keep previous ZIP bytes unchanged and retain history/rev0.316 and history/rev0.315 only.

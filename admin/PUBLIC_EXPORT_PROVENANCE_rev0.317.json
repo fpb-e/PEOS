@@ -2,35 +2,35 @@
   "canonical_documents": [
     {
       "path": "prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "60ab6ef70b0952e402687b2d5f1e1ceeb86decb62b276cb2ca4ba67a4cb5e1d7",
+      "source_sha256": "50f2d2c31586cc0586c2ebe6e55a2fef0a4daa257eb5248b7a320403d0739b45",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "5b67cda115b9879a66dc89e046fe6e31940dad58d0fd77850355e06412a584f4",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "846a347ce6abc581ddc2f927465818140e7eb90e6dcf79b911ff19a7dd6e0320",
+      "source_sha256": "8c035eb3d7dcd588b4a701696dac760413a47ce9bb7a4c77bd4b45648d150f4f",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "a94fcc4ee31269aa01e2f731670c16c9945fbcce3f3094243a07b75167dad3cd",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "395d70195a33e5c9228795665d8e940a73c473bb7cb42706e34b54f62350cbf5",
+      "source_sha256": "4d71880a14239be72872b35d91c9a8333ea938ed5e9cfa6ee93b3cb2acd56b87",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "21e62bedf7987c1e1d49e71899fba07e43482481e37b2285cd80ea8573399d3e",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "21d177b8872064e67aeb23be9a5dcf4a4be386656e49955c3a2581725b7a82ad",
+      "source_sha256": "d4c112f1030de8b2a1851cf3a67e324ae08e700971a3ad5a93dcf609b60474da",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "213d290a556b3a66569b78f773645e74d6a662875929b0478580e0777ec8f617",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "a071fc6da67ee7d270e11526354d88963522bb64a8195c595b9dfeefed8ecb0b",
+      "source_sha256": "9d9a9cb43b568f33556dc974f8f42a377cafd855fc3f640153d180280559a853",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "0f5a7f96a39bf1af3ce37d4205273d4a049d79e8640d544529bf7a5b8d0acf04",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
@@ -346,5 +346,7 @@
   "candidate_id": "PEOS_REV0.317_20261103",
   "target_revision": "rev0.317",
   "previous_candidate_id": "PEOS_NEXT_SPEC_20261103",
-  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103",
+  "release_acceptance_record": "admin/REV0.317_OWNER_ACCEPTANCE.json",
+  "current_canon_derivation": "OWNER_ADOPTED_SPECIFICATION_WITH_AUTHORITY_METADATA_UPDATED"
 }

@@ -1,20 +1,20 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.317 candidate
+# PEOS CURRENT DESIGNDOC JP — rev0.317 accepted
 
 - 文書revision: `rev0.317`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / TARGET_REVISION_rev0.317 / NOT_ACCEPTED`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.317`
 - CANDIDATE_ID: `PEOS_REV0.317_20261103`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.316`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.315.zip`
-- DETAILED_REFERENCE: `rev0.316`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.317`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.316.zip`
+- DETAILED_REFERENCE: `rev0.317`
 - ROLE: `DESIGNDOC`
 
 ## rev0.317の適用順位
 
-この文書はPEOS_REV0.317_20261103のrev0.317仕様候補であり、所有者の指定によりtarget revisionをrev0.317へ採番した。releaseの受入は未実施。所有者の現行指定はrev0.316、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.315.zip、詳細参照はrev0.316。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
-この候補の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
+この文書は所有者の明示採用によりrev0.317の正式正本である。所有者の現行指定はrev0.317、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.316.zip、詳細参照はrev0.317。release受入の根拠は所有者の直接指定であり、採番・資料読解・静的試験・PR作成からの自動昇格ではない。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この正本の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
 論説と判断の共通水準はSPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATE、関係表現の範囲はSPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTERが所有する。MAGIの意味と三者の担当はPHILOSOPHY.MAGI、実行・表示条件はRUNTIME.MAGI.DELTA_ONLY、完全版選択はDESIGN.MODE.FULL_FEATURE_SELECTIONが所有する。ここは所有者への参照であり、別規則の重複実装ではない。
 通常の時刻・記録・同期は許可済み接続の範囲で行い、未接続や保存失敗は型付きで示して通常会話を続ける。起動literalと切迫した支援はI/O待ちより優先する。古いstrict readback/L0契約は明示選択した監査用参照であり、通常会話の入口を閉ざさない。過去のreceiptや停止scopeを新利用者へ移植しない。
-既存443規則と親密度の定性条件、PRAG-004の未採用状態を保持する。完全版設定の要求採用と、この候補の仕様・参照実装・実モデル検証・接続・配布反映・release受入を別々に記録する。
+既存443規則と親密度の定性条件、PRAG-004の未採用状態を保持する。完全版設定の要求採用と、この版の仕様・参照実装・実モデル検証・接続・配布反映・所有者によるrelease受入を別々に記録する。所有者の受入から実モデル試験や実接続の成功を推定しない。
 
 ## 0. 文書の役割
 
@@ -1077,5 +1077,5 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SOURCE_REQUIREMENT_ID: `MODE-001`
 - SOURCE_CLASS: `ADOPTED_REQUIREMENT_NOT_RELEASE_ACCEPTANCE`
 - CANDIDATE_ID: `PEOS_REV0.317_20261103`
-- CONFLICT_PRECEDENCE: 最新の所有者明示scopeと上位正本 > この候補の同scope条件 > 継承文の旧解釈
+- CONFLICT_PRECEDENCE: 最新の所有者明示scopeと上位正本 > この正本の同scope条件 > 継承文の旧解釈
 
