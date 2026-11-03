@@ -14,6 +14,14 @@
       "bytes": 611704,
       "class": "PUBLIC_SPECIFICATION_PACKAGE",
       "status": "UNNUMBERED_NEXT_SPEC_CANDIDATE"
+    },
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
+      "sha256": "98f544694fc8ebb94d5f290f2240020e9718cb4c05d5a6f8fbc586fed3cb9e58",
+      "bytes": 614183,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "REV0.317_SPECIFICATION_CANDIDATE",
+      "revision": "rev0.317"
     }
   ],
   "registry_embedded_in_archives": false

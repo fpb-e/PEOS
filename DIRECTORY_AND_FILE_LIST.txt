@@ -38,6 +38,7 @@ docs/UNADOPTED_PROPOSALS_rev0.316.md
 docs/ZIP_IMPORT_WORKFLOW.md
 downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip
 downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip
+downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip
 downloads/PUBLIC_PACKAGES.json
 downloads/README.md
 downloads/SHA256SUMS
