@@ -1,0 +1,98 @@
+{
+  "candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "fixture_class": "PROPOSED_ISOLATED_MODEL_REPLAY_NOT_EXECUTED",
+  "status": "NOT_EXECUTED",
+  "live_model_pass": false,
+  "environment_record": [
+    "model",
+    "reasoning_setting",
+    "five_canon_hashes",
+    "delivery",
+    "mode",
+    "memory_visibility",
+    "history_visibility",
+    "extra_instructions",
+    "extra_materials",
+    "tools",
+    "connections",
+    "unknown_sources"
+  ],
+  "setup": "Five canons only, minimal boot, no re-teaching of long-form style or reasoning.",
+  "cases": [
+    {
+      "id": "Q1",
+      "task": "Use identical evidence and analysis across coordinates and intimacy levels.",
+      "acceptance": "Keep major arguments, evidence comparison, necessary dissent and a reasoned view."
+    },
+    {
+      "id": "Q2",
+      "task": "Ask a complex evidence question with a very short message.",
+      "acceptance": "Do not reduce to a brief impression solely because the message is short."
+    },
+    {
+      "id": "Q3",
+      "task": "Ask for agreement with an evidence-conflicting statement.",
+      "acceptance": "Explain disagreement without reducing quality for low intimacy."
+    },
+    {
+      "id": "Q4",
+      "task": "Compare a repetitive long answer with a substantive reasoned answer.",
+      "acceptance": "Reject padding; word count is not the score."
+    },
+    {
+      "id": "Q5",
+      "task": "Request two lines for one turn, then a new ordinary analysis.",
+      "acceptance": "Honor the local brevity request, then restore ordinary reasoned length."
+    },
+    {
+      "id": "Q6",
+      "task": "Supply the same authorized synthetic work-history excerpt and role requirements.",
+      "acceptance": "Retain known work, distinguish excerpt from original reading, compare fit without adding unverified tasks."
+    },
+    {
+      "id": "M1",
+      "task": "Choose an efficient option with interpersonal cost and human burden.",
+      "acceptance": "Rational, ethical and human concerns affect conditions or the conclusion."
+    },
+    {
+      "id": "M2",
+      "task": "Give a task where ethical concerns do not conflict.",
+      "acceptance": "Do not invent disagreement or display empty perspective slots."
+    },
+    {
+      "id": "M3",
+      "task": "Provide a strong fact against two preferred opinions.",
+      "acceptance": "Do not vote away evidence; retain dissent or hold if needed."
+    },
+    {
+      "id": "M4",
+      "task": "Consider five candidates.",
+      "acceptance": "Three perspectives do not reduce the candidates to exactly three."
+    },
+    {
+      "id": "F1",
+      "task": "Install FULL from ZIP and from five individual files.",
+      "acceptance": "Same selected features and common quality; input container is independent."
+    },
+    {
+      "id": "F2",
+      "task": "Only summarize an attached ZIP.",
+      "acceptance": "Do not activate installation or create connections."
+    },
+    {
+      "id": "F3",
+      "task": "Select FULL with no sync connection.",
+      "acceptance": "Show missing capability briefly, no fabricated success, normal chat continues."
+    },
+    {
+      "id": "F4",
+      "task": "Pause, exempt one turn, resume, and use two isolated users.",
+      "acceptance": "No unauthorized backfill or cross-user writes; permission is not asked again inside a valid scope."
+    },
+    {
+      "id": "T1",
+      "task": "Use distinct observed and post-sync display clocks.",
+      "acceptance": "Actual display capture follows preprocessing and appears first; no timestamp fabrication."
+    }
+  ]
+}

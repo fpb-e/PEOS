@@ -11,7 +11,11 @@
       "disposition": "CLARIFY_EXISTING_RULE",
       "owner": "SPEC",
       "rule_id": "SPEC.AUTHORITY.PRECEDENCE",
-      "requirement": "最新の父指定は現行正本rev0.315・accepted baseline PEOS_GITHUB_PACKAGE_rev0.314.zip・詳細参照rev0.315である。上位のPEOS正本指示と後続訂正を優先し、旧buildのCURRENTやschemaの版constで権威を戻さない。"
+      "requirement": "最新の父指定は現行正本rev0.315・accepted baseline PEOS_GITHUB_PACKAGE_rev0.314.zip・詳細参照rev0.315である。上位のPEOS正本指示と後続訂正を優先し、旧buildのCURRENTやschemaの版constで権威を戻さない。",
+      "current_binding_superseded_by": [
+        "AUTH-001"
+      ],
+      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "ROLE-001",
@@ -56,7 +60,11 @@
       "disposition": "CLARIFY_EXISTING_RULE",
       "owner": "SPEC",
       "rule_id": "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
-      "requirement": "原則長文として根拠・留保・見解を展開し、固定最小字数や同義反復で水増ししない。作業移行等では目的に合わせ、比喩・省略・軽口を文脈で読む。"
+      "requirement": "原則長文として根拠・留保・見解を展開し、固定最小字数や同義反復で水増ししない。作業移行等では目的に合わせ、比喩・省略・軽口を文脈で読む。",
+      "current_binding_superseded_by": [
+        "CORE-001"
+      ],
+      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "REL-001",

@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import copy
+from datetime import datetime
 import hashlib
 import json
 import os
@@ -16,6 +17,8 @@ from pathlib import Path
 import re
 
 from peos_short_preprocess import PreprocessError, ShortPreprocessor
+from peos_short_preprocess import valid_jst
+from peos_response_policy import installation_configuration, response_plan, summarize_magi
 
 PROFILE = 'runtime/PEOS_DIVISION_CORE_PROFILE.json'
 ENTRY = 'bootstrap/PEOS_DIVISION_CORE_JP.md'
@@ -180,24 +183,46 @@ def bind_journal_namespace(preprocessor, namespace):
 
 
 class DivisionRuntime:
-    """Run the same actual preprocessing path for every verified coordinate."""
+    """One response path with optional, authorized, user-isolated persistence.
+
+    Callbacks are host supplied. Executing this reference does not install a
+    live chat hook or demonstrate the semantic quality of a model response.
+    """
     def __init__(self, root, *, coordinate='GENERAL', namespace,
-                 preprocessor=None, adapter=None):
+                 preprocessor=None, adapter=None, selected_mode='CORE',
+                 delivery='FIVE_FILES', intent='INSTALL', authorized_scope=None,
+                 display_clock=None):
+        if not isinstance(namespace, str) or not namespace.strip():
+            raise PreprocessError('a user namespace is required')
         self.core = compile_core(root, coordinate, adapter)
         self.coordinate = coordinate
         self.preprocessor = preprocessor
         self.namespace = namespace
+        self.configuration = installation_configuration(delivery=delivery, intent=intent,
+                                                        selected_mode=selected_mode)
+        self.authorized_scope = copy.deepcopy(authorized_scope or {})
+        if self.authorized_scope:
+            if self.authorized_scope.get('namespace') != namespace:
+                raise PreprocessError('authorization namespace mismatch')
+            if (set(self.authorized_scope) - {'namespace', 'clock', 'record', 'sync'}
+                    or any(type(self.authorized_scope.get(k, False)) is not bool
+                           for k in ('clock', 'record', 'sync'))):
+                raise PreprocessError('typed authorization scope required')
+        self.display_clock = display_clock or (preprocessor.clock if preprocessor else None)
+        self.paused = False
+        self.exempt_turn = None
 
-    def dispatch(self, turn_id, raw, updates, work=lambda: None, *, route='NORMAL'):
-        if self.preprocessor is None:
-            special = {'BOOT': 'BOOT_PRIORITY', 'URGENT_SAFETY': 'EMERGENCY_BYPASS'}.get(route)
-            return {'status': special or 'PREPROCESS_UNAVAILABLE', 'receipt': None,
-                    'prefix': '', 'sync_performed': False, 'readback_verified': False,
-                    'work_authorized': bool(special),
-                    'work_result': work() if special else None,
-                    'missing_capability': 'CURRENT_USER_CLOCK_DURABLE_JOURNAL_AND_SYNC_BINDING'}
+    def dispatch(self, turn_id, raw, updates, work=lambda: None, *, route='NORMAL',
+                 task_kind='ANALYSIS', brief_requested=False, review=None):
+        if route not in {'NORMAL', 'BOOT', 'URGENT_SAFETY'}:
+            raise PreprocessError('unknown route')
         if route in {'BOOT', 'URGENT_SAFETY'}:
-            return self.preprocessor.dispatch(turn_id, raw, updates, work, route=route)
+            if self.exempt_turn == turn_id:
+                self.exempt_turn = None
+            return {'status': 'BOOT_PRIORITY' if route == 'BOOT' else 'EMERGENCY_BYPASS',
+                    'receipt': None, 'prefix': '', 'sync_performed': False,
+                    'readback_verified': False, 'work_authorized': True,
+                    'work_result': work(), 'response_started_at_jst': None}
         for update in updates:
             source = update.get('source_class') if isinstance(update, dict) else None
             if self.coordinate == 'FATHER':
@@ -206,14 +231,79 @@ class DivisionRuntime:
             elif (source not in {'USER_EXPLICIT_INSTRUCTION', 'USER_SELF_REPORT', 'USER_CORRECTION'}
                   or update.get('subject_namespace') != self.namespace):
                 raise PreprocessError('user learning must belong to this namespace, not the father corpus')
-        if self.preprocessor.mode == 'ACTIVE' and self.preprocessor.exempt_turn != turn_id:
-            bind_journal_namespace(self.preprocessor, self.namespace)
-        return self.preprocessor.dispatch(turn_id, raw, updates, work, route=route)
+        plan = response_plan(task_kind=task_kind, brief_requested=brief_requested)
+        exempt = self.exempt_turn == turn_id
+        if exempt:
+            self.exempt_turn = None
+        selected = self.configuration['preprocess_selected']
+        scope = self.authorized_scope
+        if not selected:
+            status = 'PREPROCESS_NOT_SELECTED'
+        elif self.paused:
+            status = 'PAUSED'
+        elif exempt:
+            status = 'ONE_TURN_EXEMPT'
+        elif not all(scope.get(k, False) for k in ('clock', 'record', 'sync')):
+            status = 'PREPROCESS_SCOPE_UNAVAILABLE'
+        elif self.preprocessor is None:
+            status = 'PREPROCESS_UNAVAILABLE'
+        else:
+            status = None
+        if status:
+            result = {'status': status, 'receipt': None, 'sync_performed': False,
+                      'readback_verified': False, 'prefix': ''}
+        else:
+            try:
+                bind_journal_namespace(self.preprocessor, self.namespace)
+            except OSError:
+                result = {'status': 'LOCAL_BINDING_UNAVAILABLE', 'receipt': None,
+                          'sync_performed': False, 'readback_verified': False, 'prefix': ''}
+            else:
+                # The persistence driver must not invoke the response callback
+                # before the separate post-preprocessing display-clock capture.
+                result = self.preprocessor.dispatch(turn_id, raw, updates, route=route)
+        stamp = None
+        if (selected and scope.get('clock') and not self.paused and not exempt
+                and self.display_clock is not None):
+            try:
+                supplied = self.display_clock()
+                if valid_jst(supplied):
+                    stamp = supplied
+            except Exception:
+                # Failure of this injected clock is not a fabricated timestamp
+                # and must not stop an otherwise answerable conversation.
+                pass
+        result['response_started_at_jst'] = stamp
+        result['display_clock_kind'] = 'RESPONSE_STARTED_AT_JST_AFTER_PREPROCESS'
+        result['observation_receipt_is_display_clock'] = False
+        labels = {'SYNC_ACKNOWLEDGED': '同期済', 'DEGRADED': '同期未完了',
+                  'FAIL': '記録未完了', 'PAUSED': '前処理停止',
+                  'ONE_TURN_EXEMPT': '今回の前処理免除',
+                  'PREPROCESS_NOT_SELECTED': '前処理対象外',
+                  'PREPROCESS_UNAVAILABLE': '前処理未接続',
+                  'PREPROCESS_SCOPE_UNAVAILABLE': '前処理未接続',
+                  'LOCAL_BINDING_UNAVAILABLE': '記録未接続'}
+        label = labels.get(result['status'], '前処理未完了')
+        shown = datetime.fromisoformat(stamp).strftime('%Y-%m-%d %H:%M:%S JST') if stamp else '時刻未取得又は対象外'
+        result['prefix'] = '**' + shown + '｜' + label + '**'
+        result['work_authorized'] = True
+        result['decision_policy'] = plan
+        result['configuration'] = copy.deepcopy(self.configuration)
+        result['magi_summary'] = (summarize_magi(review(copy.deepcopy(plan)))
+                                  if review is not None and plan['consider_before_conclusion'] else None)
+        result['live_model_quality_verified'] = False
+        result['work_result'] = work()
+        return result
 
     def control(self, action, turn_id=None):
-        if self.preprocessor is None:
-            raise PreprocessError('no preprocessing driver is bound')
-        self.preprocessor.control(action, turn_id)
+        if action == 'PAUSE':
+            self.paused = True
+        elif action == 'RESUME':
+            self.paused = False
+        elif action == 'ONE_TURN_EXEMPT' and isinstance(turn_id, str) and turn_id:
+            self.exempt_turn = turn_id
+        else:
+            raise PreprocessError('a valid scoped control is required')
 
 
 def main():

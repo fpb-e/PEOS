@@ -1,0 +1,20 @@
+{
+  "primary": "downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip",
+  "packages": [
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip",
+      "sha256": "7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915",
+      "bytes": 577135,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "ACCEPTED_REV316_FIXED_SNAPSHOT"
+    },
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip",
+      "sha256": "df8f23ba933a272fe71b8f1e60ff9314bb47c55009f6a88f3b7a8d72f1a199d3",
+      "bytes": 611704,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "UNNUMBERED_NEXT_SPEC_CANDIDATE"
+    }
+  ],
+  "registry_embedded_in_archives": false
+}

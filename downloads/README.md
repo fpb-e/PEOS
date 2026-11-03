@@ -1,25 +1,26 @@
 # 公開用ZIPのダウンロード
 
-**[PEOS_GITHUB_PACKAGE_rev0.316.zip をダウンロード](PEOS_GITHUB_PACKAGE_rev0.316.zip?raw=true)**
+**[今回の仕様候補ZIPをダウンロード](PEOS_GITHUB_PACKAGE_next_spec_20261103.zip?raw=true)**
 
-| バージョン | ファイル | サイズ |
+| 種別 | ファイル | サイズ |
 |---|---|---|
-| rev0.316 | [PEOS_GITHUB_PACKAGE_rev0.316.zip](PEOS_GITHUB_PACKAGE_rev0.316.zip?raw=true) | 577,135 bytes（約564 KiB） |
+| 次仕様候補・revision未採番 | [PEOS_GITHUB_PACKAGE_next_spec_20261103.zip](PEOS_GITHUB_PACKAGE_next_spec_20261103.zip?raw=true) | 611,704 bytes |
+| 現行rev0.316の固定スナップショット | [PEOS_GITHUB_PACKAGE_rev0.316.zip](PEOS_GITHUB_PACKAGE_rev0.316.zip?raw=true) | 577,135 bytes |
 
-ダウンロードしたZIPをそのまま会話又はプロジェクトへ添付し、取り込み指示を送ります。ZIPを展開・本文読解できない環境では、端末で展開して `prompt/` の現行五正本5ファイルを個別に添付します。対象の選び方と取り込み指示は[インストールマニュアル](../README.md#インストールマニュアル)を参照してください。GitやPythonは通常の導入には不要です。リンク先がファイル画面になった場合は、その画面のダウンロードボタン（Download raw file）で保存できます。
+今回の候補はPEOS_NEXT_SPEC_20261103です。現行rev0.316・accepted baseline rev0.315を維持し、候補の読解・試験・PRを新releaseの受入と扱いません。既存のrev0.316 ZIPは同一バイトで保持しています。
 
-このZIPは、PR #5で公開したrev0.316の118ファイルを収めた公開パッケージと同一バイトです。会話原文・画像・私的復元資料は含みません。ZIP内の候補表記やCURRENTは作成時点の記録であり、後日の所有者による正本指定はその指示に従います。
+ZIPをそのまま添付して直下prompt/の五正本を読み込ませます。読めない環境では五正本5ファイルを個別添付します。いずれも同じ完全版設定を選べます。調査・要約のための添付と導入選択は区別します。詳しい指示は[インストールマニュアル](../README.md#インストールマニュアル)を参照してください。
 
-## チェックサム
+リンク先がGitHubのファイル画面になった場合はDownload raw fileで保存できます。「Code → Download ZIP」はリポジトリ全体の取得です。
 
-[SHA256SUMS](SHA256SUMS)にSHA-256を記録しています。
+## チェックサムと保存方針
+
+[SHA256SUMS](SHA256SUMS)と[公開パッケージ一覧](PUBLIC_PACKAGES.json)にファイル名・サイズ・SHA-256を記録しています。同名の配布物を後から差し替えません。
+
+今回の候補SHA-256:
 
 ```text
-7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915  PEOS_GITHUB_PACKAGE_rev0.316.zip
+df8f23ba933a272fe71b8f1e60ff9314bb47c55009f6a88f3b7a8d72f1a199d3
 ```
 
-## 配布物の更新
-
-版ごとのZIP名とチェックサムを固定し、同じ名前のZIPを後から作り直しません。新しい版を追加するときは、その公開範囲と中身を確認し、READMEのダウンロード先、SHA256SUMS、公開検証コードの許可するパスとSHA-256を一緒に更新します。
-
-ZIPを作る際は`downloads/`を取り込まず、ZIPの中に別のZIPを含めません。リポジトリ全体の「Code → Download ZIP」と、この公開用パッケージは別の取得物です。
+ZIP内部にはdownloads/、ZIP本体、配布用registry、および置き場だけを検査するrepository用試験を入れません。ZIP内のmanifestはその展開内容、リポジトリのmanifestは置き場も含む全体に対応します。五正本の内容は両者で一致します。今回の会話原文・画像・私的職務補足は公開ZIPへ入れません。

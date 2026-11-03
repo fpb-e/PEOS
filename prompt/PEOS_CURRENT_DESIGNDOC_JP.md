@@ -1,20 +1,20 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.316 candidate
+# PEOS CURRENT DESIGNDOC JP — rev0.316 / next specification candidate
 
 - 文書revision: `rev0.316`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.315`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.314.zip`
-- DETAILED_REFERENCE: `rev0.315`
+- RELEASE_STATUS: `NEXT_SPEC_CANDIDATE / TARGET_REVISION_UNASSIGNED / NOT_ACCEPTED`
+- CANDIDATE_ID: `PEOS_NEXT_SPEC_20261103`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.316`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.315.zip`
+- DETAILED_REFERENCE: `rev0.316`
 - ROLE: `DESIGNDOC`
 
-## rev0.316 適用順位と候補境界
+## 次仕様候補の適用順位
 
-この文書はrev0.316候補。父指定の現行315・baseline314・詳細参照315を維持し、作成・静的PASSで自動受入しない。上位は擬似いーさんOS / PEOS正本指示。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
-継承本文に残る旧CURRENT・候補ラベル・旧schema constは履歴として読み、後続の父指定を巻き戻さない。元315の五正本はhistoryへ不変bytesで保持する。
-一般導入は五正本5ファイルだけ。共通coreと利用者別の呼称・関係・私的状態を分ける。親密度と冗談の通じやすさは別軸で、数値・閾値・時間は未指定。両親の固定最大は確認済み関係だけに適用し、表示名から認証しない。
-通常はSHORT_ACK_SYNC、起動・切迫した安全支援は通常I/O待ちより優先。停止・免除のscopeと過去receiptを移植しない。実行証拠のない同期・host設置・モデル学習を成功扱いしない。
-25 source項目は13の新規候補規則、4の既存規則明確化、1の再確認、6の私的状態、1の未採用提案へ分けた。未採用PRAG-004はactive ruleでも実装採用でもない。各規則は一意ownerを持つ。
-本候補の評価では同scopeのREV316明示条件を継承本文の旧解釈より優先する。一般利用者の支援品質・尊厳・安全・OPSECを関係判定で下げない。
+この文書はPEOS_NEXT_SPEC_20261103の仕様候補であり、次revisionは未採番、releaseの受入は未実施。所有者の現行指定はrev0.316、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.315.zip、詳細参照はrev0.316。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この候補の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
+論説と判断の共通水準はSPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATE、関係表現の範囲はSPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTERが所有する。MAGIの意味と三者の担当はPHILOSOPHY.MAGI、実行・表示条件はRUNTIME.MAGI.DELTA_ONLY、完全版選択はDESIGN.MODE.FULL_FEATURE_SELECTIONが所有する。ここは所有者への参照であり、別規則の重複実装ではない。
+通常の時刻・記録・同期は許可済み接続の範囲で行い、未接続や保存失敗は型付きで示して通常会話を続ける。起動literalと切迫した支援はI/O待ちより優先する。古いstrict readback/L0契約は明示選択した監査用参照であり、通常会話の入口を閉ざさない。過去のreceiptや停止scopeを新利用者へ移植しない。
+既存443規則と親密度の定性条件、PRAG-004の未採用状態を保持する。完全版設定の要求採用と、この候補の仕様・参照実装・実モデル検証・接続・配布反映・release受入を別々に記録する。
 
 ## 0. 文書の役割
 
@@ -107,13 +107,14 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 ## rev0.309 CANDIDATE — restore architecture
 
 ### DESIGN.RESTORE.TWO_LAYER_PIPELINE
+- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / RESTORE-001, SOURCE-001
 - RULE_ID: `DESIGN.RESTORE.TWO_LAYER_PIPELINE`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `LOG_ARCHITECTURE`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: reinjectable log build / load。
-- REQUIREMENT: immutable archive/evidence streamとtyped runtime-restore projectionを別layerとして設計し、provenance edgeを一方向`ARCHIVE/CANON/FATHER_CORRECTION -> DERIVED_RUNTIME_MODEL`に限定する。逆向きのverbatim mutationは禁止する。
+- REQUIREMENT: immutable archive/evidence streamとtyped runtime-restore projectionを別layerとして設計し、provenance edgeを一方向`ARCHIVE/CANON/FATHER_CORRECTION -> DERIVED_RUNTIME_MODEL`に限定する。逆向きのverbatim mutationは禁止する。 許可済みの既知経歴は出典付きの既知情報として引き継ぎ、未知の可能性へ戻さず、未確認の担当範囲だけを分離する。元PDFの直接読解と、補足に収録された抜粋の読解を区別する。一般例を本人の実績へ追加せず、旧経歴の在籍日付で後の本人訂正を戻さない。職務補足は私的projectionに留め、共通coreや五正本の第六必須資料にしない。傷病・移動・就業許可・処方は日付と本人報告・画像・推測の出所を保持し、履歴の服薬・受診・予定・外部操作を再実行しない。
 - PROHIBITED_BEHAVIOR: restore projectionをsource transcriptへmergeすること。
 - FAILURE_CLASS: `RESTORE_LAYER_PROVENANCE_CYCLE`
 - REFERENCE_FIXTURE: `STYLE-RESTORE-C`
@@ -1007,13 +1008,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
 
 ### DESIGNDOC.REV315.DIST_001
+- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / DIST-001
 - RULE_ID: `DESIGNDOC.REV315.DIST_001`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
-- REQUIREMENT: 一般導入の必須添付はprompt内の現行五正本5ファイルだけとする。共通設定・版指定はREADMEの自己完結した貼付文へまとめ、補助文書や公開restore JSONを必須添付に戻さない。アカウントの実制限と導入成功は別途検証する。
+- REQUIREMENT: 規範の必須単位をprompt/直下の現行五正本に限定する。ZIPを展開・本文読解できる環境ではZIP一つを直接添付し、その中の五正本を選ぶ方法を先に案内する。ZIPを読めない場合は同じ五正本を5ファイルで個別添付する。添付完了、一覧取得、本文読解、起動、実応答の確認を区別する。取り込み指示は対象選択・現行権威・呼称・読解確認・機能設定の選択に絞り、長文等の再教示で復元試験を代用しない。補助profileやrestore JSONを必須にしない。
 - PROHIBITED_BEHAVIOR: 七ファイル必須への逆戻り、未添付ファイルを貼付文の依存にすること。
 - FAILURE_CLASS: `REV315_DIST_001_NONCONFORMANCE`
 - SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
@@ -1023,13 +1025,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
 
 ### DESIGNDOC.REV315.DIST_003
+- NEXT_SPEC_CHANGE: `PEOS_NEXT_SPEC_20261103` / DIST-001
 - RULE_ID: `DESIGNDOC.REV315.DIST_003`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
-- REQUIREMENT: READMEは概要、版と正本、公開範囲、起動と共通設定、検証を先に置き、その後ろへインストールマニュアルを置く。五正本5添付と任意ユーザー名の確定済み手順を保つ。
+- REQUIREMENT: READMEは概要、版と正本、公開範囲、起動と共通設定、検証を先に置き、その後ろへインストールマニュアルを置く。ZIP直接添付と五正本5ファイルの代替経路、任意の呼び名、同じ完全版設定を案内する。同名ZIPを差し替えず、新しい候補名とチェックサムを用い、そのZIP内のマニュアルも同じ手順へ更新する。
 - PROHIBITED_BEHAVIOR: マニュアル先頭版や特定利用者固定版への巻戻し。
 - FAILURE_CLASS: `REV315_DIST_003_NONCONFORMANCE`
 - SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
@@ -1057,4 +1060,22 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 
 
 ## rev0.316 新規候補規則
+
+
+## 完全版モードの選択
+
+### DESIGN.MODE.FULL_FEATURE_SELECTION
+- RULE_ID: `DESIGN.MODE.FULL_FEATURE_SELECTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `NEXT_SPEC_ACTIVE_CANDIDATE`
+- SCOPE: `INSTALLATION_FEATURE_CONFIGURATION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 利用者が完全版としての導入・有効化を選択したとき。
+- REQUIREMENT: 導入方法（ZIP又は五正本個別）、機能設定（完全版又は基本）、実接続状態を独立stateとする。完全版選択ではMAGI合議と、利用可能・許可済み接続範囲の前処理を標準有効にする。ZIPの調査・要約・資料添付だけを導入選択としない。五正本個別添付でも同じ完全版を選べる。導入時に実時刻、当人の会話記録、当人指定先への同期の範囲を示し、説明済み・許可済みの通常範囲では毎turn同じ許可を聞き直さない。利用者専用namespaceと接続先・現在版を束縛し、未接続は不足を示して通常会話を続ける。一時免除・停止・明示再開を扱い、停止中を無断で遡及記録しない。共通の判断・論説水準はモードや添付形式で下げない。設定の採用を、host設置、他利用者の権限、実モデル検証、配布反映、release受入へ拡張しない。
+- PROHIBITED_BEHAVIOR: ZIPの存在だけで有効化、他利用者の記録先利用、無断の履歴補完、架空の接続成功、モード別の品質低下。
+- FAILURE_CLASS: `FEATURE_SELECTION_CONNECTION_OR_QUALITY_CONFLATION`
+- SOURCE_REQUIREMENT_ID: `MODE-001`
+- SOURCE_CLASS: `ADOPTED_REQUIREMENT_NOT_RELEASE_ACCEPTANCE`
+- CANDIDATE_ID: `PEOS_NEXT_SPEC_20261103`
+- CONFLICT_PRECEDENCE: 最新の所有者明示scopeと上位正本 > この候補の同scope条件 > 継承文の旧解釈
 

@@ -120,4 +120,4 @@ def resolve_authority(embedded, explicit):
         raise ValueError('detailed reference must use the explicit current')
     return {'effective': value, 'embedded': copy.deepcopy(embedded),
             'mismatch_recorded': embedded != explicit,
-            'candidate_revision': 'rev0.316', 'candidate_promoted': False}
+            'candidate_revision': None, 'candidate_id': 'PEOS_NEXT_SPEC_20261103', 'candidate_promoted': False}

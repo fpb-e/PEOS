@@ -11,5 +11,12 @@
   "optional_requires_current_explicit_selection": true,
   "publication_scope": "PUBLIC_EMPTY_RESTORE_WITHOUT_PRIVATE_SOURCE",
   "short_implementation": "tools/peos_short_preprocess.py",
-  "strict_test_pass_does_not_activate_profile": true
+  "strict_test_pass_does_not_activate_profile": true,
+  "current_implementation": "tools/peos_division_core.py",
+  "feature_mode_default": "CORE",
+  "full_mode_selection_defaults": [
+    "MAGI",
+    "SHORT_ACK_SYNC"
+  ],
+  "short_driver_scope": "LOW_LEVEL_PERSISTENCE_ONLY_NOT_NORMAL_CHAT_GATE"
 }

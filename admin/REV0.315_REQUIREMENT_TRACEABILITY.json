@@ -183,7 +183,12 @@
       ],
       "public_verification": "CANON_TEXT_AND_UNIQUE_OWNER",
       "live_behavior_verified": false,
-      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION"
+      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION",
+      "current_binding_superseded_by": [
+        "TIME-001",
+        "MODE-001"
+      ],
+      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "PRE-002",
@@ -268,7 +273,11 @@
       ],
       "public_verification": "CANON_TEXT_AND_UNIQUE_OWNER",
       "live_behavior_verified": false,
-      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION"
+      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION",
+      "current_binding_superseded_by": [
+        "DIST-001"
+      ],
+      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "DIST-003",
@@ -281,7 +290,11 @@
       ],
       "public_verification": "CANON_TEXT_AND_UNIQUE_OWNER",
       "live_behavior_verified": false,
-      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION"
+      "private_detail_binding": "PRIVATE_EVIDENCE_COMPANION",
+      "current_binding_superseded_by": [
+        "DIST-001"
+      ],
+      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "PUB-002",
