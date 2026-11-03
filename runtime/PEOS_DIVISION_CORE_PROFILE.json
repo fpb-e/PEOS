@@ -1,5 +1,5 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_PEOS_NEXT_SPEC_20261103",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.317_CANDIDATE",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
   "source_basis": "FIVE_CANON_NEXT_SPEC_CANDIDATE",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "ec69e138c9b59f0b87ae0f4968c421bc974776ae576285811fe3450ed35cc1e2",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "e69b6af4d7c67dc2a8e3f4fe90096e60fa8f4db1033bdfaf95d33cb5faddf642",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "bcc879a82ddd4d0fd5489d1f4d8e1c344e88e5edda5220410150692c29a98d16",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "4d21a9e9c1b8ad45c48438e0930f1230b2e94c16b6491833a8edeee5c5589ef3",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "48627ab3a4a258f3c65bb3655f59bb1edaa67700baa2d93da58e8922091351c9"
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "60ab6ef70b0952e402687b2d5f1e1ceeb86decb62b276cb2ca4ba67a4cb5e1d7",
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "846a347ce6abc581ddc2f927465818140e7eb90e6dcf79b911ff19a7dd6e0320",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "395d70195a33e5c9228795665d8e940a73c473bb7cb42706e34b54f62350cbf5",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "21d177b8872064e67aeb23be9a5dcf4a4be386656e49955c3a2581725b7a82ad",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "a071fc6da67ee7d270e11526354d88963522bb64a8195c595b9dfeefed8ecb0b"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -193,5 +193,6 @@
   "general_call_sign_policy": {
     "arbitrary_user_preference_allowed": true,
     "call_sign_grants_family_authority": false
-  }
+  },
+  "target_revision": "rev0.317"
 }

@@ -119,12 +119,12 @@ def write_manifest(root):
     names = {p.relative_to(root).as_posix() for p in files(root)}
     names.update({'DIRECTORY_AND_FILE_LIST.txt', 'PACKAGE_MANIFEST.txt'})
     (root / 'DIRECTORY_AND_FILE_LIST.txt').write_text(
-        'PEOS_NEXT_SPEC_20261103 public tree (Git metadata excluded)\n\n'
+        'PEOS_REV0.317_20261103 public tree (Git metadata excluded)\n\n'
         + '\n'.join(sorted(names)) + '\n', encoding='utf-8')
     entries = manifest_rows(root)
     text = ('PEOS_PUBLIC_PACKAGE_MANIFEST_V1\n'
-            'TARGET_REVISION: UNASSIGNED\n'
-            'CANDIDATE_ID: PEOS_NEXT_SPEC_20261103\n'
+            'TARGET_REVISION: rev0.317\n'
+            'CANDIDATE_ID: PEOS_REV0.317_20261103\n'
             'STATUS: NEXT_SPEC_CANDIDATE / NOT_ACCEPTED / NOT_SELF_ACCEPTED\n'
             'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.316\n'
             'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.315.zip\n'
@@ -168,7 +168,7 @@ def manifest_errors(root):
 def specification_errors(root):
     root = Path(root)
     errors = []
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.316.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.317.json').read_text())
     for item in provenance['canonical_documents']:
         path = root / item['path']
         if not path.is_file() or digest(path.read_bytes()) != item['source_sha256']:
@@ -176,7 +176,7 @@ def specification_errors(root):
     ids, owners, blocks = [], {}, {}
     for owner in OWNERS:
         text = (root / f'prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
-        if '- 文書revision: `rev0.316`' not in text:
+        if '- 文書revision: `rev0.317`' not in text:
             errors.append('CURRENT_DOCUMENT_REVISION:' + owner)
         for block in re.split(r'(?=^### )', text, flags=re.M):
             match = re.search(r'^- RULE_ID: `([^`]+)`', block, re.M)
@@ -185,7 +185,7 @@ def specification_errors(root):
     if len(ids) != 444 or len(set(ids)) != 444:
         errors.append('444_UNIQUE_RULES_REQUIRED')
     registry = (root / 'admin/RULE_OWNERSHIP_REGISTRY.yaml').read_text()
-    if not all(line in registry.splitlines() for line in ('revision: rev0.316', 'current_project_canon: rev0.316', 'accepted_baseline: rev0.315', 'rule_count: 444')):
+    if not all(line in registry.splitlines() for line in ('revision: rev0.317', 'current_project_canon: rev0.316', 'accepted_baseline: rev0.315', 'rule_count: 444')):
         errors.append('RULE_REGISTRY_AUTHORITY_OR_COUNT_DIFFERS')
     pairs = re.findall(r'^- RULE_ID: (\S+)\n  OWNER: (\S+)', registry, re.M)
     if len(pairs) != 444 or dict(pairs) != owners:
@@ -244,7 +244,7 @@ def specification_errors(root):
     if restore_candidate_promoted(root):
         errors.append('CANDIDATE_SELF_PROMOTION')
     history = root / 'history'
-    if sorted(p.name for p in history.iterdir()) != ['rev0.314', 'rev0.315']:
+    if sorted(p.name for p in history.iterdir()) != ['rev0.315', 'rev0.316']:
         errors.append('HISTORY_MUST_HAVE_EXACTLY_TWO_PREDECESSORS')
     for p in history.rglob('history'):
         errors.append('NESTED_HISTORY:' + p.relative_to(root).as_posix())
@@ -257,12 +257,12 @@ def specification_errors(root):
 
 
 def restore_candidate_promoted(root):
-    r = json.loads((Path(root) / 'runtime/PEOS_SESSION_RESTORE_rev0.316.json').read_text())
-    return (r.get('candidate_revision') is not None or r.get('candidate_id') != 'PEOS_NEXT_SPEC_20261103' or r.get('candidate_accepted') is not False)
+    r = json.loads((Path(root) / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
+    return (r.get('candidate_revision') != 'rev0.317' or r.get('candidate_id') != 'PEOS_REV0.317_20261103' or r.get('candidate_accepted') is not False)
 
 def authority_errors(root):
     root = Path(root)
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.316.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
     value = restore['authority']
     expected = ('rev0.316', 'PEOS_GITHUB_PACKAGE_rev0.315.zip', 'rev0.316')
     errors = []
@@ -278,9 +278,10 @@ def authority_errors(root):
 
 def validate(root, *, check_manifest=True):
     root = Path(root)
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.316.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.317.json').read_text())
     from peos_next_spec_validation import next_spec_errors
-    return (next_spec_errors(root) + publication_errors(root, set(provenance['excluded_original_sha256']))
+    from peos_download_links import download_link_errors
+    return (download_link_errors(root) + next_spec_errors(root) + publication_errors(root, set(provenance['excluded_original_sha256']))
             + distribution_errors(root)
             + (manifest_errors(root) if check_manifest else [])
             + specification_errors(root) + authority_errors(root))

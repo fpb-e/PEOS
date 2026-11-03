@@ -15,7 +15,7 @@
       "current_binding_superseded_by": [
         "AUTH-001"
       ],
-      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
+      "current_binding_source": "admin/REV0.317_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "ROLE-001",
@@ -64,7 +64,7 @@
       "current_binding_superseded_by": [
         "CORE-001"
       ],
-      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
+      "current_binding_source": "admin/REV0.317_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "REL-001",

@@ -1,4 +1,8 @@
-## PEOS_NEXT_SPEC_20261103（次revision未採番）
+## rev0.317 — revision and download correction
+
+Assign the owner-requested rev0.317 to the package, current five documents, metadata and filenames. Fix download buttons to immutable verified raw-file URLs. Keep previous ZIP bytes unchanged and retain history/rev0.316 and history/rev0.315 only.
+
+## PEOS_REV0.317_20261103（次revision未採番）
 
 共通の論説・原則長文・独立判断を親密度から分離。MAGI三者の担当と結論前の検討・表示条件を復元。採用済み完全版設定、未接続時の会話継続、前処理後の文頭実時刻、ZIP/五正本の同等導入を統合。現行316・baseline315を維持。実モデル試験は未実施。
 

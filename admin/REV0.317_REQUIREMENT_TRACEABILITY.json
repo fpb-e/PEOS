@@ -1,6 +1,6 @@
 {
-  "candidate_id": "PEOS_NEXT_SPEC_20261103",
-  "target_revision": null,
+  "candidate_id": "PEOS_REV0.317_20261103",
+  "target_revision": "rev0.317",
   "requirement_count": 15,
   "requirements": [
     {
@@ -138,5 +138,7 @@
       "requirement_summary": "原文・欠落・添付・状態・次命令文を二層で保持し、log→validation→directive→manifest→attachments→bundleの書式を守る。",
       "active_requirement_sha256": "265f9d22d8fbfc776702f576dd338e5daed4e432d803a7513b98b96a0095ac22"
     }
-  ]
+  ],
+  "previous_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
 }

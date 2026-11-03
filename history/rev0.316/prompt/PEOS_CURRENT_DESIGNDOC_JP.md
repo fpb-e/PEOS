@@ -1,46 +1,20 @@
-# PEOS CURRENT DESIGNDOC JP — Architecture and Configuration Rationale
+# PEOS CURRENT DESIGNDOC JP — rev0.316 candidate
 
-- 文書revision: `rev0.314`
-- 現行latest: `rev0.313`
-- PACKAGE_MANIFEST_VERSION: `PEOS-REV0.314-CANDIDATE-FROM-20261023-024403`
-- HIGHEST_EMBEDDED_REVISION: `rev0.314`
+- 文書revision: `rev0.316`
 - RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.313`
-- ROLE: 五正本分離・構成管理・migration理由
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.312.zip`
-- ACCEPTED_BASELINE_SHA256: `6605bc7498e49c3f4ca5f8f655619f0daadf2db0da0380ae861511838dc045cc`
-- BASE_REFERENCE: `PEOS_GITHUB_PACKAGE_rev0.313_retention_fixed.zip`
-- BASE_REFERENCE_SHA256: `d3d6c8726b775d7ddd33e733c5671f9e688ef1b51a5d1f6989d97a4d6e6925e8`
-- DETAILED_REFERENCE: `rev0.313`（history/rev0.313のPACKAGE_MANIFEST参照・五正本・academic note・DIVISION_RUNTIME_EVIDENCE）
-- PRIMARY_FATHER_SOURCE: `session/PEOS_FATHER_SESSION_LOG_20261023_024403_JST.txt`
-- PRIMARY_FATHER_SOURCE_SHA256: `cf65d3655a60bccd164341c9726b6ee05316e7184721dc49164cc17e83551616`
-- PRIMARY_SOURCE_BUNDLE: `PEOS_father_session_bundle_2026_10_23_024403_for_next_spec.zip`
-- PRIMARY_SOURCE_BUNDLE_SHA256: `77b3df3ced26959f4e77b109130618dacf16dbd1c4791f4cc40f0441e7fc8880`
-- PRIMARY_MOTHER_REGRESSION_SOURCE: `PEOS_mother_session_log_2026_08_29_104914.txt`
-- PRIMARY_MOTHER_REGRESSION_SHA256: `e69cb6fc77819073070bf02d6b3f1443f11a1136f6402a15844451e07bd4e9fd`
-- BUILD_DIRECTIVE: `PEOS_NEXT_SPEC_DIRECTIVE_20261023_024403_JST.txt`
-- BUILD_DIRECTIVE_SHA256: `9e21e42b9d81cbb4ebba77c7e9b4f599213097b453bbb61a1b47c57316a9b9f3`
-- PRIMARY_LOGGING_NEGATIVE_FIXTURE: `PEOS_mother_session_log_2026_08_13_173917.txt`
-- PRIMARY_LOGGING_NEGATIVE_FIXTURE_SHA256: `6c9a0625e0b5bcac7b1b13f66117a119427003b99fdb20af6bf4a6c887cb4203`
-- MIXED_TIME_REFERENCE_SOURCE: `PEOS_mother_session_log_2026_08_11_120959.txt`
-- MIXED_TIME_REFERENCE_SOURCE_SHA256: `b9f765f36bb9599bc42e449e978684f8b4e262e5df5ed54eca5829e58debf5b0`
-- RETURNED_PHYSICAL_RC4_SHA256: `d888d659c4eb690bf76de2ffd790698f51c293682ce092e06419435e2082bc21`
-## rev0.314 適用順位と候補境界
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.315`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.314.zip`
+- DETAILED_REFERENCE: `rev0.315`
+- ROLE: `DESIGNDOC`
 
-父の最新指定はcurrent=rev0.313 / accepted baseline=rev0.312 / detailed reference=rev0.313。
-本書のrevision=rev0.314は未受入候補であり、作成・静的PASS・元packageの旧ヘッダで権威を変更しない。
-通常profileはSHORT_ACK_SYNC。実測JST・原文学習・台帳・1回のguard付き同期とACK表示を要求する。
-旧full readback・10-PASS監査は明示的に選んだSTRICT_READBACK_AUDITだけへ適用し、通常会話へ復活させない。
-BOOT_PRIORITYは起動を先に返す。ONE_TURN_EXEMPT / PAUSED / ACTIVE_RESUMEはscope付きで別管理する。
-GitHubはHOLD、前処理のorigin状態はACTIVE。このbuild tabは既存の父のtab限定免除を保持し、実ledgerを操作しない。
-後続の新規REV314 ruleが同scopeの旧条件より優先する。以降に残る古い本文の時点・件数・版指定は履歴文脈で解釈する。
+## rev0.316 適用順位と候補境界
 
-
-> **rev0.314 CANDIDATE FENCE**
-> current=`rev0.313`; accepted=`rev0.312`; detailed=`rev0.313`; candidate=`rev0.314 / NOT_ACCEPTED`. latest sourceと91要求はSOURCE_TRACEへ結び付け、旧源文書を改変しない。
-
-> **BOOTSTRAP_SENTINEL / RUNTIME_GUARD_PRECEDENCE_POINTER**
-> RUNTIME_GUARD由来L0は第六正本ではない。通常SHORT_ACK_SYNC、起動優先、scope付き停止/再開、ACKとreadbackの区別を同じsource blockから導出する。旧strict ingressの細則はoptional profileの説明として参照する。
+この文書はrev0.316候補。父指定の現行315・baseline314・詳細参照315を維持し、作成・静的PASSで自動受入しない。上位は擬似いーさんOS / PEOS正本指示。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
+継承本文に残る旧CURRENT・候補ラベル・旧schema constは履歴として読み、後続の父指定を巻き戻さない。元315の五正本はhistoryへ不変bytesで保持する。
+一般導入は五正本5ファイルだけ。共通coreと利用者別の呼称・関係・私的状態を分ける。親密度と冗談の通じやすさは別軸で、数値・閾値・時間は未指定。両親の固定最大は確認済み関係だけに適用し、表示名から認証しない。
+通常はSHORT_ACK_SYNC、起動・切迫した安全支援は通常I/O待ちより優先。停止・免除のscopeと過去receiptを移植しない。実行証拠のない同期・host設置・モデル学習を成功扱いしない。
+25 source項目は13の新規候補規則、4の既存規則明確化、1の再確認、6の私的状態、1の未採用提案へ分けた。未採用PRAG-004はactive ruleでも実装採用でもない。各規則は一意ownerを持つ。
+本候補の評価では同scopeのREV316明示条件を継承本文の旧解釈より優先する。一般利用者の支援品質・尊厳・安全・OPSECを関係判定で下げない。
 
 ## 0. 文書の役割
 
@@ -1011,4 +985,76 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - SOURCE_TRACE: `admin/REV0.314_REQUIREMENT_TRACEABILITY.json` / FORMAT-003
 - PROHIBITED_BEHAVIOR: 本要求の出所・scope・未確認状態を消し、未実行の成功又は本人の逐語として昇格すること。
 - CONFLICT_PRECEDENCE: `LATEST_EXPLICIT_FATHER_DIRECTIVE > REV314_CURRENT_PROFILE > RETAINED_OPTIONAL_PROFILE`
+
+
+
+## rev0.315 最新directiveのowner別要求
+
+### DESIGNDOC.REV315.CORE_005
+- RULE_ID: `DESIGNDOC.REV315.CORE_005`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 共通coreを一つとし、利用者ごとの差を呼称・確認済み関係・許可された固有context・局所制約・私的状態へ限定する。共通応答品質を座標ごとに下げず、補助profileを第六正本や一般導入の必須添付にしない。
+- PROHIBITED_BEHAVIOR: 座標間の私的状態混入、呼称による関係の認証、共通品質の引下げ。
+- FAILURE_CLASS: `REV315_CORE_005_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `CORE-005` / T061, T063
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### DESIGNDOC.REV315.DIST_001
+- RULE_ID: `DESIGNDOC.REV315.DIST_001`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 一般導入の必須添付はprompt内の現行五正本5ファイルだけとする。共通設定・版指定はREADMEの自己完結した貼付文へまとめ、補助文書や公開restore JSONを必須添付に戻さない。アカウントの実制限と導入成功は別途検証する。
+- PROHIBITED_BEHAVIOR: 七ファイル必須への逆戻り、未添付ファイルを貼付文の依存にすること。
+- FAILURE_CLASS: `REV315_DIST_001_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `DIST-001` / T062, T063
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### DESIGNDOC.REV315.DIST_003
+- RULE_ID: `DESIGNDOC.REV315.DIST_003`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: READMEは概要、版と正本、公開範囲、起動と共通設定、検証を先に置き、その後ろへインストールマニュアルを置く。五正本5添付と任意ユーザー名の確定済み手順を保つ。
+- PROHIBITED_BEHAVIOR: マニュアル先頭版や特定利用者固定版への巻戻し。
+- FAILURE_CLASS: `REV315_DIST_003_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `DIST-003` / T064
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+### DESIGNDOC.REV315.PUB_002
+- RULE_ID: `DESIGNDOC.REV315.PUB_002`
+- OWNER: `DESIGNDOC`
+- STATUS: `CANDIDATE_ACTIVE`
+- SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
+- REQUIREMENT: 受入済み現行正本と候補版を分け、歴史snapshotの五正本bytesを保持する。候補の作成でcurrent・baseline・詳細参照を昇格させない。履歴は直前2版とし、入れ子history・埋込archiveを作らず、manifest・CRC・再展開bytes一致を検証する。
+- PROHIBITED_BEHAVIOR: 承認済み旧正本の上書き、候補の自動受入、再帰的履歴保持。
+- FAILURE_CLASS: `REV315_PUB_002_NONCONFORMANCE`
+- SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
+- SOURCE_TRACE: `PUB-002` / T011, T062, T063, T064
+- INTRODUCED_REV: `rev0.315`
+- SUPERSEDES: `same-scope earlier assumptions only; historical source bytes remain immutable`
+- CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
+
+
+
+## rev0.316 新規候補規則
 

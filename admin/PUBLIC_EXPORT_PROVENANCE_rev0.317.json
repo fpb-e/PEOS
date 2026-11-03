@@ -2,35 +2,35 @@
   "canonical_documents": [
     {
       "path": "prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "ec69e138c9b59f0b87ae0f4968c421bc974776ae576285811fe3450ed35cc1e2",
+      "source_sha256": "60ab6ef70b0952e402687b2d5f1e1ceeb86decb62b276cb2ca4ba67a4cb5e1d7",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "5b67cda115b9879a66dc89e046fe6e31940dad58d0fd77850355e06412a584f4",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "e69b6af4d7c67dc2a8e3f4fe90096e60fa8f4db1033bdfaf95d33cb5faddf642",
+      "source_sha256": "846a347ce6abc581ddc2f927465818140e7eb90e6dcf79b911ff19a7dd6e0320",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "a94fcc4ee31269aa01e2f731670c16c9945fbcce3f3094243a07b75167dad3cd",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "bcc879a82ddd4d0fd5489d1f4d8e1c344e88e5edda5220410150692c29a98d16",
+      "source_sha256": "395d70195a33e5c9228795665d8e940a73c473bb7cb42706e34b54f62350cbf5",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "21e62bedf7987c1e1d49e71899fba07e43482481e37b2285cd80ea8573399d3e",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "4d21a9e9c1b8ad45c48438e0930f1230b2e94c16b6491833a8edeee5c5589ef3",
+      "source_sha256": "21d177b8872064e67aeb23be9a5dcf4a4be386656e49955c3a2581725b7a82ad",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "213d290a556b3a66569b78f773645e74d6a662875929b0478580e0777ec8f617",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
     },
     {
       "path": "prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "48627ab3a4a258f3c65bb3655f59bb1edaa67700baa2d93da58e8922091351c9",
+      "source_sha256": "a071fc6da67ee7d270e11526354d88963522bb64a8195c595b9dfeefed8ecb0b",
       "origin": "CURRENT_CANDIDATE",
       "prior_rev0_316_sha256": "0f5a7f96a39bf1af3ce37d4205273d4a049d79e8640d544529bf7a5b8d0acf04",
       "source_class": "NEXT_SPEC_GENERALIZED_NORMATIVE_EDIT_NOT_VERBATIM"
@@ -61,28 +61,28 @@
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
-      "path": "history/rev0.314/prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
-      "source_sha256": "83a023f72364445dcc0507fec99307ba48023bc379e82f1e63fb71daa714f70a",
+      "path": "history/rev0.316/prompt/PEOS_CURRENT_DESIGNDOC_JP.md",
+      "source_sha256": "5b67cda115b9879a66dc89e046fe6e31940dad58d0fd77850355e06412a584f4",
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
-      "path": "history/rev0.314/prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
-      "source_sha256": "778e0ec12b8d7c79dba8b9ca5586f378ddb9fa872725df63dcfe1ccf28936dd8",
+      "path": "history/rev0.316/prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md",
+      "source_sha256": "a94fcc4ee31269aa01e2f731670c16c9945fbcce3f3094243a07b75167dad3cd",
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
-      "path": "history/rev0.314/prompt/PEOS_CURRENT_PAPER_JP.md",
-      "source_sha256": "3e00a0c2f22c8af1e865907e8a8d9ffa7d0a97cc3465d690cf1f6a58da5daecd",
+      "path": "history/rev0.316/prompt/PEOS_CURRENT_PAPER_JP.md",
+      "source_sha256": "21e62bedf7987c1e1d49e71899fba07e43482481e37b2285cd80ea8573399d3e",
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
-      "path": "history/rev0.314/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-      "source_sha256": "1847cc62f0bec6a7a3d12273d286630fce125fd294fd3d545878c0783e3cd427",
+      "path": "history/rev0.316/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
+      "source_sha256": "213d290a556b3a66569b78f773645e74d6a662875929b0478580e0777ec8f617",
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     },
     {
-      "path": "history/rev0.314/prompt/PEOS_CURRENT_SPEC_JP.md",
-      "source_sha256": "95d1a0bf42d725bc9e2f8892c1a76078a7dadb0dd33bd22c76d12112c9119609",
+      "path": "history/rev0.316/prompt/PEOS_CURRENT_SPEC_JP.md",
+      "source_sha256": "0f5a7f96a39bf1af3ce37d4205273d4a049d79e8640d544529bf7a5b8d0acf04",
       "origin": "BYTE_EXACT_HISTORICAL_CANON"
     }
   ],
@@ -334,7 +334,7 @@
   "publication_scope": "SPECIFICATIONS_CODE_AND_SYNTHETIC_TESTS",
   "raw_conversation_files_included": false,
   "source_archive_sha256": "812e10cbb19fa39094b84a3d4b3883168d8b2c9175b61505d321ddf76e7fc88c",
-  "revision": "rev0.316",
+  "revision": "rev0.317",
   "excluded_private_file_count_meaning": "distinct known source-byte deny hashes, including the latest private handoff",
   "publicly_reusable_validation_code": [
     {
@@ -343,6 +343,8 @@
       "basis": "Exact bytes already present in the accepted public rev0.315; this is generic validator code, not conversation or private state."
     }
   ],
-  "candidate_id": "PEOS_NEXT_SPEC_20261103",
-  "target_revision": null
+  "candidate_id": "PEOS_REV0.317_20261103",
+  "target_revision": "rev0.317",
+  "previous_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
 }

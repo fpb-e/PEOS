@@ -1,5 +1,5 @@
 {
-  "primary": "downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip",
+  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
   "packages": [
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip",
@@ -21,7 +21,10 @@
       "bytes": 614183,
       "class": "PUBLIC_SPECIFICATION_PACKAGE",
       "status": "REV0.317_SPECIFICATION_CANDIDATE",
-      "revision": "rev0.317"
+      "revision": "rev0.317",
+      "asset_commit": "3b4a21b98c0a787472898c2ecba31816ab195562",
+      "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/3b4a21b98c0a787472898c2ecba31816ab195562/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
+      "publication_state": "ASSET_COMMIT_CREATED"
     }
   ],
   "registry_embedded_in_archives": false

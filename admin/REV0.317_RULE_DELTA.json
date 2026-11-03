@@ -1,5 +1,5 @@
 {
-  "candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "candidate_id": "PEOS_REV0.317_20261103",
   "inherited_rule_count": 443,
   "new_rule_ids": [
     "DESIGN.MODE.FULL_FEATURE_SELECTION"
@@ -197,5 +197,8 @@
       ]
     }
   },
-  "rule_count": 444
+  "rule_count": 444,
+  "target_revision": "rev0.317",
+  "previous_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "revision_assignment_basis": "OWNER_EXPLICIT_REVISION_CORRECTION_20261103"
 }

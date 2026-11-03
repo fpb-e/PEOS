@@ -114,7 +114,7 @@ class CandidateContractTests(unittest.TestCase):
         restore = restore_snapshot(ROOT)
         result = resolve_authority({'current_canon': 'rev0.315'}, restore['authority'])
         self.assertEqual(result['effective']['current_canon'], 'rev0.316')
-        self.assertIsNone(result['candidate_revision'])
+        self.assertEqual(result['candidate_revision'], 'rev0.317')
         self.assertFalse(result['candidate_promoted'])
         self.assertFalse(restore['candidate_accepted'])
         self.assertEqual(authority_errors(ROOT), [])

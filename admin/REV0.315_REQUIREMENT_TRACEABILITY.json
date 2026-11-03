@@ -188,7 +188,7 @@
         "TIME-001",
         "MODE-001"
       ],
-      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
+      "current_binding_source": "admin/REV0.317_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "PRE-002",
@@ -277,7 +277,7 @@
       "current_binding_superseded_by": [
         "DIST-001"
       ],
-      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
+      "current_binding_source": "admin/REV0.317_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "DIST-003",
@@ -294,7 +294,7 @@
       "current_binding_superseded_by": [
         "DIST-001"
       ],
-      "current_binding_source": "admin/NEXT_SPEC_20261103_REQUIREMENT_TRACEABILITY.json"
+      "current_binding_source": "admin/REV0.317_REQUIREMENT_TRACEABILITY.json"
     },
     {
       "id": "PUB-002",
