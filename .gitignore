@@ -29,6 +29,7 @@
 __pycache__/
 *.py[cod]
 
-!/downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip
 
 !/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip
+
+!/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip

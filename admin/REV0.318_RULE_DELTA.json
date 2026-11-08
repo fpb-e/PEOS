@@ -1,0 +1,226 @@
+{
+  "build_id": "PEOS_REV0.318_20261108",
+  "target_revision": "rev0.318",
+  "inherited_rule_count": 444,
+  "rule_count": 444,
+  "new_rule_ids": [],
+  "removed_rule_ids": [],
+  "changed_existing_rules": {
+    "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER": {
+      "owner": "DESIGNDOC",
+      "source_requirement_ids": [
+        "EVIDENCE-318-01"
+      ],
+      "previous_block_sha256": "cdb83140e4015a7333b9f8fba6111ed9148ff17938943db315168ad481cbcaa5",
+      "current_block_sha256": "f2dda3f3f188b450abce208a2decc3815268cd1876cbaef97623d70a6158ad92"
+    },
+    "DESIGN.RESTORE.TWO_LAYER_PIPELINE": {
+      "owner": "DESIGNDOC",
+      "source_requirement_ids": [
+        "RESTORE-318-01"
+      ],
+      "previous_block_sha256": "cb3161818c2228618fd7bb4218b903872663bbe2cc8e5838be5bc694fc9fbd67",
+      "current_block_sha256": "a17a806d30cdf63c083551e3f1ec9853d6caa886368d4c2d5906e4d55645dd5a"
+    },
+    "LOG_ANTHOLOGY.REV316.SPEECH_001": {
+      "owner": "LOG_ANTHOLOGY",
+      "source_requirement_ids": [
+        "FIXTURES-318-01"
+      ],
+      "previous_block_sha256": "ca13f5949f00a26282209ee7abb72eae5be6a77e815ace2d4482b19a5ea76fa9",
+      "current_block_sha256": "e6b745da82d690d52f6f762d657d3f8df149c38d68e348db487c344319d47431"
+    },
+    "PHILOSOPHY.EVIDENCE_DIGNITY_UNCERTAINTY": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "SOURCE-318-01"
+      ],
+      "previous_block_sha256": "d2572709774bd36ae1cf0c9118f0aca527576c6ceda83080a57910b0abb390bf",
+      "current_block_sha256": "d56069d3167c426e26b281d2667aa5915cae298e137698c0344b43e06d918f4f"
+    },
+    "PHILOSOPHY.LOGIC_VS_ATTRIBUTE": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "OPPONENT-318-01"
+      ],
+      "previous_block_sha256": "86dd4311ee77294cc16ab80e3739be5ae9ab8ad236ef41bf2d0b0debf3456661",
+      "current_block_sha256": "94338b346e8648d3545a53f883ed8367852503abd0abb00ace09b5c36787a53f"
+    },
+    "PHILOSOPHY.PRECISION_WITH_PROPORTION": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "JOKE_SCOPE-318-01"
+      ],
+      "previous_block_sha256": "69d98a586a1bb0493bab8ecce33c328864517c90fa5005c05e16dacb19e11568",
+      "current_block_sha256": "961ebc8e255f85ef97873a5c973df69df28fc036f31777b1c6577b1632c62d99"
+    },
+    "PHILOSOPHY.PROVENANCE_BEFORE_ASSERTION": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "PROVENANCE-318-01"
+      ],
+      "previous_block_sha256": "52adf63919a68ab012e6ca88b0d5716966bc3eef73a18ffedbfd75cd58468b7a",
+      "current_block_sha256": "5eac209a7c180770829f36163329da1a2e8773e2470c50b69e1f97f1fa24f9fc"
+    },
+    "PHILOSOPHY.RELATION.CHILD_RAISING_PROCESS": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "FAMILY-318-01"
+      ],
+      "previous_block_sha256": "7256330e7df96f6aed2f72a658cfe9fd54d2e0b9b7082883e198b8fc4e3f9188",
+      "current_block_sha256": "398a41178a128b672feb21ccd354256ea1230e2b39660e2e1837ec1f9ee11942"
+    },
+    "PHILOSOPHY.UNFINISHED_SUCCESSOR": {
+      "owner": "PAPER",
+      "source_requirement_ids": [
+        "ROADMAP-318-01"
+      ],
+      "previous_block_sha256": "4c0054bd23740b63da9a0e63b1f119dc4458a6e62b5f7fbaec7d219c4e3acbb9",
+      "current_block_sha256": "7c57a8ad021689bb9181b0c30d35a2f5f3806b6aac62455f57284653eef01ba8"
+    },
+    "RUNTIME.LOG.TIME_EVIDENCE_TYPED": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "TIME_EVIDENCE-318-01"
+      ],
+      "previous_block_sha256": "b42d9e7ca8f4701a2b9628e676b527303e57433460bc5d285a6bb14af15d5c94",
+      "current_block_sha256": "fae166d35963fe3f9ea05dc693ed35c3862fc16331f871618508cac9bcbd10fc"
+    },
+    "RUNTIME.OUTPUT.PRECOMMIT_AUDIT": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "SURFACE-318-01"
+      ],
+      "previous_block_sha256": "8a0d5752b67bb32cd97c3a51482e00a7e36fda785408490f246cc9f722c9a7a0",
+      "current_block_sha256": "333fededc887e02ac848f9f31db24e15ee3b6ee9079713145cbe618e4247f51c"
+    },
+    "RUNTIME.RESTORE.GLOBAL_CORE_COMPILE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "COMPILE-318-01"
+      ],
+      "previous_block_sha256": "988568575923d86bfdeae4e899a084daa572a3f559b644ad1c66f8d9484dba75",
+      "current_block_sha256": "28333db91d0f71c7afee4ed6531cd81ec3e8c9fd1f7369420f4428d8c97aa4db"
+    },
+    "RUNTIME.TIME.USER_FACING_JST_DISPLAY": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "CLOCK-318-01"
+      ],
+      "previous_block_sha256": "03f6341b346b2085cb21a08caf895606e826c076cf22219f3ea7249e50db9bac",
+      "current_block_sha256": "a10ca45eefcf5e796c376d774a99a2b268ee0de30607d3f85e452e6870546bed"
+    },
+    "RUNTIME_GUARD.REV316.REL_002": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "OPERATIONS-318-01"
+      ],
+      "previous_block_sha256": "c35fe6f08e4a52edbce4d2474f012eb09b76070d9ef847b5efbca86c05560fff",
+      "current_block_sha256": "7e901be0920db2b89c1beab873387e6d12d591c19bccfe8f139cc803172c4148"
+    },
+    "RUNTIME_GUARD.REV316.REL_003": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "BANTER-318-01"
+      ],
+      "previous_block_sha256": "b4bff4f0a1e3544cc952bbcf948896225be629cc7bbc53eed9c3951538f616cc",
+      "current_block_sha256": "eda2dace24bb8f8697d1aaec6199f77d2448006aac06f70fe8c19271f638ee78"
+    },
+    "SPEC.ADMIN.RUNTIME_SEPARATION": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "ADMIN-318-01"
+      ],
+      "previous_block_sha256": "87048697dff07344fdd4fefe81b4cb5ccdcac5ae6a350ba6a2e5b44d60c499c9",
+      "current_block_sha256": "454394f72d92d22ee94cfdf2826f143839dc80abe935ab64c647693ea66cff95"
+    },
+    "SPEC.AUTHORITY.PRECEDENCE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "AUTH-318-01"
+      ],
+      "previous_block_sha256": "5fb4d7083512cad5d1b5fd74d0a619b50180ab5934b7beeb563b567bd05ef8df",
+      "current_block_sha256": "5beb9400f14a2adfbfb306bc459ce298045d6078e743b996837397d7a7ea1259"
+    },
+    "SPEC.EVIDENCE.IDENTITY_HYPOTHESIS_TYPED_MODEL": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "ATTRIBUTION-318-01"
+      ],
+      "previous_block_sha256": "3d86f23b2c4a1d8b3bf1230c28c11a39908b67e190542c92cbec730b62fbcdab",
+      "current_block_sha256": "29cb8b8bd07b7303f99d5d7a13e7cc061209b3f71bea37375f445d6f383df24a"
+    },
+    "SPEC.EVIDENCE.SOURCE_SEPARATION": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "OGIRI-318-01"
+      ],
+      "previous_block_sha256": "eafab1d1e67da4802f8920a3d17972438f1b91b8d4359e12fe0c106316d69bc8",
+      "current_block_sha256": "def12e12475303fdf56fc7e00a4a2bf4b072a787e879849a0e17b50b59bfad5e"
+    },
+    "SPEC.HUMOR.CONTEXTUAL": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "HUMOR-318-01"
+      ],
+      "previous_block_sha256": "6c3b105f5b98ed5f7c7361fbf1f96a65d04df50a62ff9c3ef417af4cc0ecf9ff",
+      "current_block_sha256": "b2b656cdbe08aa581b2a3462c9afbb4b52360312b56de3ffced96bb333c95dde"
+    },
+    "SPEC.LEARNING.FATHER_STYLE_STRUCTURE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "STYLE-318-01"
+      ],
+      "previous_block_sha256": "6091b7f66b10e8ee9155a2032f3413657d2d1d280239095f1acbef3a5e414eed",
+      "current_block_sha256": "33739f4c967a5241a64ddf17c8c1cf1e7044ac7c0389f2b48e9b43e5f0dc5f1d"
+    },
+    "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "CORE-318-01"
+      ],
+      "previous_block_sha256": "4753fa8dc8eb620d628a6d33cef264f05443738fdd3f833834eae9c75036ed6b",
+      "current_block_sha256": "0c6c724f3f90961055ad80d5e651c5f36654855671a684099e485da4d635a24b"
+    },
+    "SPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTER": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "ADAPTER-318-01"
+      ],
+      "previous_block_sha256": "319c7baf53c8c6f94a0bd805597812011f18485697aee3dee83967bca213040c",
+      "current_block_sha256": "269aa09c395fba8e6be70d17195aa780eccec65b3072a85b846a401d49431ec9"
+    },
+    "SPEC.REV316.REL_001": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "SCALES-318-01"
+      ],
+      "previous_block_sha256": "bd14be77299d4f2e63ea46e708604fb3dd0b34d964ae39658f7abafe5167f156",
+      "current_block_sha256": "559d57bd146a9840ec8abd52a3f80737eccb3d741a06fe738d90b54370ab0eb5"
+    },
+    "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "BAND-318-01"
+      ],
+      "previous_block_sha256": "2b60a0a0719043595ba6e1f1bd45ba340daba8961be15819f099bafb0c5a7d50",
+      "current_block_sha256": "0d018cc0e655a8891e3767971b370b42bbe8b98df4e157da6dbed9000755817a"
+    },
+    "SPEC.STYLE.SURFACE_MIMICRY_NOT_SUFFICIENT": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "STYLE-318-02"
+      ],
+      "previous_block_sha256": "90115a3bfd4824471b194be0613831a3209393350d1f4e0915e239b9499100d1",
+      "current_block_sha256": "320c5a34981c38e1f9dc6655afcf34cb2e15450c932f9c433659447b78f1c14b"
+    }
+  },
+  "historical_trace_sha256": {
+    "admin/REV0.314_REQUIREMENT_TRACEABILITY.json": "33cc64613c427a5c6c0afe092a10c4f605a0d929fbc310cd9892b581540a166d",
+    "admin/REV0.315_REQUIREMENT_TRACEABILITY.json": "41319c9968ee32d2144b3859ee22ba72e46d54c7853a9abc0df40a3862d7a684",
+    "admin/REV0.316_REQUIREMENT_TRACEABILITY.json": "a53d21242fd0a08bafb0c84bc1378ecbf09d0bc1159a8aac8ebbe89c55f9d2d4",
+    "admin/REV0.317_REQUIREMENT_TRACEABILITY.json": "6f560ea541b26e8796138a3add66d833169cad74af0b20cb2758a3ec5d1966b3"
+  },
+  "previous_revision": "rev0.317",
+  "unadopted_PRAG_004_promoted": false
+}

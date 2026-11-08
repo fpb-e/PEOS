@@ -113,8 +113,8 @@ class CandidateContractTests(unittest.TestCase):
     def test_read_preserves_explicit_owner_acceptance_without_self_promotion(self):
         restore = restore_snapshot(ROOT)
         result = resolve_authority({'current_canon': 'rev0.315'}, restore['authority'])
-        self.assertEqual(result['effective']['current_canon'], 'rev0.317')
-        self.assertEqual(result['candidate_revision'], 'rev0.317')
+        self.assertEqual(result['effective']['current_canon'], 'rev0.318')
+        self.assertEqual(result['candidate_revision'], 'rev0.318')
         self.assertFalse(result['candidate_promoted'])
         self.assertTrue(restore['candidate_accepted'])
         self.assertEqual(restore['release_acceptance_basis'], 'OWNER_EXPLICIT_INSTRUCTION')
@@ -122,7 +122,7 @@ class CandidateContractTests(unittest.TestCase):
 
     def test_boot_literals_match_the_retained_accepted_canons_byte_for_byte(self):
         current = (ROOT / 'prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
-        accepted = (ROOT / 'history/rev0.315/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
+        accepted = (ROOT / 'history/rev0.317/prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md').read_text()
         for route in ['FATHER', 'MOTHER', 'GENERAL']:
             pattern = r'### ' + route + r'_ROUTE\s*\n\s*```text\n(.*?)\n```'
             self.assertEqual(re.search(pattern, current, re.S)[1], re.search(pattern, accepted, re.S)[1])

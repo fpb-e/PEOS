@@ -31,7 +31,7 @@ def father_learning_spans(event):
 def language_violations(text,*,verbatim=False):
     if verbatim:return []
     from peos_division_core import surface_violations
-    return [x for x in surface_violations(text, genuine_laughter=True) if x in {'SINGLE_W_FORBIDDEN', 'PARENTHETICAL_LAUGHTER_FORBIDDEN', 'STACKED_LAUGHTER_FORBIDDEN'}]
+    return [x for x in surface_violations(text, genuine_laughter=True) if x in {'SINGLE_W_FORBIDDEN', 'PARENTHETICAL_LAUGHTER_FORBIDDEN', 'STACKED_LAUGHTER_FORBIDDEN', 'PERIOD_BEFORE_LAUGHTER_FORBIDDEN', 'PERIOD_BEFORE_EXASPERATION_MARK_FORBIDDEN', 'EXASPERATION_MARK_MUST_REPLACE_PERIOD'}]
 
 def interaction_style(task):
     return {'mode':'ONE_SCREEN_ONE_ACTION','steps_per_reply':1} if task=='UNFAMILIAR_UI' else {'mode':'REASONED_DISCUSSION','length':'AS_NEEDED_FOR_THOUGHT'}
@@ -95,7 +95,7 @@ def death_context_policy(*,explicit_no_self_harm,acute_new_risk=False):
       'successor_decided':False,'autonomous_posthumous_execution':False}
 
 def restore_snapshot(root):
-    result=json.loads((Path(root)/'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
+    result=json.loads((Path(root)/'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())
     result['current_turn_receipt']=None;result['verified_live_streak']=None;result['replay_actions']=[]
     result['live_state_verified_this_build']=False
     return result
@@ -110,7 +110,7 @@ def resolve_authority(embedded, explicit):
     match = re.fullmatch(r'PEOS_GITHUB_PACKAGE_(rev[0-9]+\.[0-9]+)\.zip', baseline)
     if not match or match[1] == 'rev0.280':
         raise ValueError('invalid or prohibited accepted baseline')
-    floor = json.loads((Path(__file__).resolve().parents[1] / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())['authority']
+    floor = json.loads((Path(__file__).resolve().parents[1] / 'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())['authority']
     if revision_key(current) < revision_key(floor['current_canon']):
         raise ValueError('explicit authority would roll back the accepted current')
     floor_baseline = re.fullmatch(r'PEOS_GITHUB_PACKAGE_(rev[0-9]+\.[0-9]+)\.zip', floor['accepted_baseline'])[1]
@@ -120,4 +120,4 @@ def resolve_authority(embedded, explicit):
         raise ValueError('detailed reference must use the explicit current')
     return {'effective': value, 'embedded': copy.deepcopy(embedded),
             'mismatch_recorded': embedded != explicit,
-            'candidate_revision': 'rev0.317', 'candidate_id': 'PEOS_REV0.317_20261103', 'candidate_promoted': False}
+            'candidate_revision': 'rev0.318', 'candidate_id': 'PEOS_REV0.318_20261108', 'candidate_promoted': False}

@@ -19,7 +19,7 @@ class OwnerAcceptanceTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         for folder in ('admin', 'prompt', 'runtime'):
             shutil.copytree(ROOT / folder, self.root / folder)
-        self.record = self.root / 'admin/REV0.317_OWNER_ACCEPTANCE.json'
+        self.record = self.root / 'admin/REV0.318_OWNER_ACCEPTANCE.json'
 
     def change_record(self, **values):
         record = json.loads(self.record.read_text())
@@ -40,7 +40,7 @@ class OwnerAcceptanceTests(unittest.TestCase):
         self.assertIn('OWNER_ACCEPTANCE_CANON_BINDING_DIFFERS', release_acceptance_errors(self.root))
 
     def test_restore_cannot_roll_back_accepted_authority(self):
-        path = self.root / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json'
+        path = self.root / 'runtime/PEOS_SESSION_RESTORE_rev0.318.json'
         value = json.loads(path.read_text())
         value['authority']['current_canon'] = 'rev0.316'
         path.write_text(json.dumps(value))

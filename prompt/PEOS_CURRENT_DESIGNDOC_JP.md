@@ -1,20 +1,19 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.317 accepted
+# PEOS CURRENT DESIGNDOC JP — rev0.318 accepted
 
-- 文書revision: `rev0.317`
-- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.317`
-- CANDIDATE_ID: `PEOS_REV0.317_20261103`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.317`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.316.zip`
-- DETAILED_REFERENCE: `rev0.317`
+- 文書revision: `rev0.318`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.318`
+- BUILD_ID: `PEOS_REV0.318_20261108`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.318`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.317.zip`
+- DETAILED_REFERENCE: `rev0.318`
 - ROLE: `DESIGNDOC`
 
-## rev0.317の適用順位
+## rev0.318の適用順位
 
-この文書は所有者の明示採用によりrev0.317の正式正本である。所有者の現行指定はrev0.317、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.316.zip、詳細参照はrev0.317。release受入の根拠は所有者の直接指定であり、採番・資料読解・静的試験・PR作成からの自動昇格ではない。上位は「擬似いーさんOS / PEOS正本指示」。旧CURRENT・候補表記・schema constでこの指定を巻き戻さない。rev0.280はbaseline利用禁止。
-この正本の同scopeの変更を、継承本文の旧解釈より優先する。規範は五正本で閉じ、補助profile・台帳・validatorを第六正本にしない。受け渡しはZIP直接添付又は五正本個別添付で、導入形式と完全版設定、現在の接続状態を分ける。
-論説と判断の共通水準はSPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATE、関係表現の範囲はSPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTERが所有する。MAGIの意味と三者の担当はPHILOSOPHY.MAGI、実行・表示条件はRUNTIME.MAGI.DELTA_ONLY、完全版選択はDESIGN.MODE.FULL_FEATURE_SELECTIONが所有する。ここは所有者への参照であり、別規則の重複実装ではない。
-通常の時刻・記録・同期は許可済み接続の範囲で行い、未接続や保存失敗は型付きで示して通常会話を続ける。起動literalと切迫した支援はI/O待ちより優先する。古いstrict readback/L0契約は明示選択した監査用参照であり、通常会話の入口を閉ざさない。過去のreceiptや停止scopeを新利用者へ移植しない。
-既存443規則と親密度の定性条件、PRAG-004の未採用状態を保持する。完全版設定の要求採用と、この版の仕様・参照実装・実モデル検証・接続・配布反映・所有者によるrelease受入を別々に記録する。所有者の受入から実モデル試験や実接続の成功を推定しない。
+この文書は所有者の明示採用によるrev0.318の正式正本である。現行指定はrev0.318、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.317.zip、詳細参照はrev0.318。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・候補・未受入表記は当時の記録として保ち、後続の明示指定を巻き戻さない。rev0.280はbaseline利用禁止。
+既存444規則のIDと所有者を保持し、同scopeの今回の明示訂正を旧解釈より優先する。論説・独立判断・根拠・自己訂正は全座標共通であり、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEに一本化する。採用済みの親密度25未満の簡潔化を、古い全帯原則長文へ戻さない。低でも必要な論証の精度と深さは下げず、25以上の通常分析は原則長文とする。
+数値尺度・帯別表現・保存ノリと実効ノリはSPEC.REV316.REL_001、明示操作と更新はRUNTIME_GUARD.REV316.REL_002/REL_003、指定された語調の継承はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。ここは参照であり重複規則ではない。必須規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。
+受け渡し形式、完全版の選択、許可済み接続、実装、実モデルの品質、所有者による正本採用を別状態にする。未接続や同期失敗でも通常会話を続け、起動literalと切迫した支援をI/O待ちで遅らせない。過去の外部操作・引用コマンドは再実行しない。旧strict契約は明示選択の監査用参照に限る。PRAG-004等の別の未採用提案を今回の採用へ含めず、未指定の増減幅やモデル試験成功を創作しない。
 
 ## 0. 文書の役割
 
@@ -108,13 +107,14 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 
 ### DESIGN.RESTORE.TWO_LAYER_PIPELINE
 - NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / RESTORE-001, SOURCE-001
+- REV318_CHANGE: `PEOS_REV0.318_20261108` / RESTORE-318
 - RULE_ID: `DESIGN.RESTORE.TWO_LAYER_PIPELINE`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `LOG_ARCHITECTURE`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: reinjectable log build / load。
-- REQUIREMENT: immutable archive/evidence streamとtyped runtime-restore projectionを別layerとして設計し、provenance edgeを一方向`ARCHIVE/CANON/FATHER_CORRECTION -> DERIVED_RUNTIME_MODEL`に限定する。逆向きのverbatim mutationは禁止する。 許可済みの既知経歴は出典付きの既知情報として引き継ぎ、未知の可能性へ戻さず、未確認の担当範囲だけを分離する。元PDFの直接読解と、補足に収録された抜粋の読解を区別する。一般例を本人の実績へ追加せず、旧経歴の在籍日付で後の本人訂正を戻さない。職務補足は私的projectionに留め、共通coreや五正本の第六必須資料にしない。傷病・移動・就業許可・処方は日付と本人報告・画像・推測の出所を保持し、履歴の服薬・受診・予定・外部操作を再実行しない。
+- REQUIREMENT: immutable archive/evidenceとtyped runtime-restoreを別layerとし、provenance edgeをARCHIVE/CANON/OWNER_CORRECTIONからDERIVED_RUNTIME_MODELへの一方向に限定する。後続の本人訂正と正式採用を派生状態へ反映し、元資料の旧状態・欠落・観測時刻を改変しない。許可済みの既知経歴は既知として出典付きで引き継ぎ、元PDFの直接読解と補足抜粋を区別し、未知の担当範囲だけを分離する。継続症状を新規急変へ変えず、本人の診断推測・画像表示・第三者説・条件付き見積と確定事項を区別する。完了は本人の明示報告や実証の範囲で判定し、時刻経過・帰宅・一括要約だけで複数手続の個別完了を補わない。年収の基本給・賞与残業込み・希望・予想と確定提示を分け、創作・表示・照明・商品名から現実の予定、化学同定、合法性、安全性や行動を断定しない。履歴の受診・服薬・予定・メール・公開操作はDATA_ONLYとして再実行しない。私的contextを公開共通coreや第六必須資料へ移さない。
 - PROHIBITED_BEHAVIOR: restore projectionをsource transcriptへmergeすること。
 - FAILURE_CLASS: `RESTORE_LAYER_PROVENANCE_CYCLE`
 - REFERENCE_FIXTURE: `STYLE-RESTORE-C`
@@ -652,13 +652,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: `SPEC.CORRECTION.NEXT_FOUR_TURN_STICKINESS`
 
 ### DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER
+- REV318_CHANGE: `PEOS_REV0.318_20261108` / EVIDENCE-318
 - RULE_ID: `DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `ACCEPTANCE_ARCHITECTURE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: degradation fixのacceptance evidenceを保存するとき。
-- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、father external acceptanceを別classにし、turn id、receipt、store version、prefix、correction resultをlive evidence ledgerへ記録する。
+- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。
 - PROHIBITED_BEHAVIOR: static mock PASSまたはself-reviewをlive/father acceptanceへ昇格すること。
 - FAILURE_CLASS: `LIVE_STATIC_EVIDENCE_CLASS_COLLAPSE`
 - REFERENCE_FIXTURE: `AT-01..AT-12`

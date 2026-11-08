@@ -1,0 +1,37 @@
+{
+  "candidate_id": "PEOS_REV0.318_20261108",
+  "target_revision": "rev0.318",
+  "authority": {
+    "current_canon": "rev0.318",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.317.zip",
+    "detailed_reference": "rev0.318",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
+    "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "fullmode_requirement": "ADOPTED_BY_OWNER",
+  "specification": "INTEGRATED",
+  "reference_code": "IMPLEMENTED_NOT_LIVE_HOST",
+  "static_tests": "248_REPOSITORY_REFERENCE_TESTS_PASS",
+  "live_model_replay": "NOT_EXECUTED",
+  "live_connections": "NOT_CREATED",
+  "release_accepted": true,
+  "raw_private_source_publication": false,
+  "package_tests": "242_REFERENCE_TESTS_PASS",
+  "previous_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "revision_assignment_basis": "OWNER_EXPLICIT_REV0_318_CANON_INSTRUCTION_20261108",
+  "status": "ACCEPTED_BY_OWNER",
+  "acceptance_record": "admin/REV0.318_OWNER_ACCEPTANCE.json",
+  "release_acceptance_basis": "OWNER_EXPLICIT_INSTRUCTION",
+  "previous_accepted_revision": "rev0.317",
+  "total_rule_count": 444,
+  "source_requirements": 26,
+  "changed_existing_rules": 26,
+  "repository_download_validation": "HTTP200_AND_EXACT_BYTES_VERIFIED"
+}
