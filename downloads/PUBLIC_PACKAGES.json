@@ -1,5 +1,5 @@
 {
-  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
+  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
   "packages": [
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip",
@@ -7,13 +7,6 @@
       "bytes": 577135,
       "class": "PUBLIC_SPECIFICATION_PACKAGE",
       "status": "ACCEPTED_REV316_FIXED_SNAPSHOT"
-    },
-    {
-      "path": "downloads/PEOS_GITHUB_PACKAGE_next_spec_20261103.zip",
-      "sha256": "df8f23ba933a272fe71b8f1e60ff9314bb47c55009f6a88f3b7a8d72f1a199d3",
-      "bytes": 611704,
-      "class": "PUBLIC_SPECIFICATION_PACKAGE",
-      "status": "UNNUMBERED_NEXT_SPEC_CANDIDATE"
     },
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
@@ -27,6 +20,19 @@
       "publication_state": "ASSET_COMMIT_CREATED",
       "release_accepted": true,
       "acceptance_record": "admin/REV0.317_OWNER_ACCEPTANCE.json"
+    },
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
+      "sha256": "2d658c5cbf704ff14b74acceb0462b1e914240c39a80778136a9427548247c0c",
+      "bytes": 660977,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "ACCEPTED_REV318_OWNER_EXPLICIT",
+      "revision": "rev0.318",
+      "asset_commit": "a25810f3b214e2387d5d2158615c2961af597227",
+      "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
+      "release_accepted": true,
+      "acceptance_record": "admin/REV0.318_OWNER_ACCEPTANCE.json",
+      "publication_state": "ASSET_COMMIT_CREATED"
     }
   ],
   "registry_embedded_in_archives": false

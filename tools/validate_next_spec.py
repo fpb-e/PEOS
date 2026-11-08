@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Validate the numbered rev0.317 public candidate, not live model acceptance."""
+"""Validate the owner-accepted rev0.318 public specification, not live model acceptance."""
 import runpy
 from pathlib import Path
 if __name__ == '__main__':
-    runpy.run_path(str(Path(__file__).with_name('validate_rev0_317.py')), run_name='__main__')
+    runpy.run_path(str(Path(__file__).with_name('validate_rev0_318.py')), run_name='__main__')

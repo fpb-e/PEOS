@@ -19,6 +19,7 @@ import re
 from peos_short_preprocess import PreprocessError, ShortPreprocessor
 from peos_short_preprocess import valid_jst
 from peos_response_policy import installation_configuration, response_plan, summarize_magi
+from peos_affinity_policy import response_context, process_command, restore_state
 
 PROFILE = 'runtime/PEOS_DIVISION_CORE_PROFILE.json'
 ENTRY = 'bootstrap/PEOS_DIVISION_CORE_JP.md'
@@ -35,7 +36,7 @@ def load_profile(root):
     value = json.loads((root / PROFILE).read_text(encoding='utf-8'))
     if value['kind'] != 'DERIVED_DEPLOYMENT_PROFILE_NOT_CANON':
         raise ValueError('a deployment profile cannot promote itself to a canon')
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.317.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())
     if value['authority'] != restore['authority']:
         raise ValueError('profile authority must match the explicit public authority')
     expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in
@@ -115,6 +116,8 @@ def surface_violations(text, *, tone='NEUTRAL', genuine_laughter=False, verbatim
         laughs.append(match)
         if len(match[0]) < 2:
             errors.append('SINGLE_W_FORBIDDEN')
+        if re.search(r'[。｡．.]\s*$', text[:match.start()]):
+            errors.append('PERIOD_BEFORE_LAUGHTER_FORBIDDEN')
     if laughs and not genuine_laughter:
         errors.append('LAUGHTER_WITHOUT_CONTEXT')
     if re.search(r'[（(]\s*笑\s*[)）]', text):
@@ -127,6 +130,10 @@ def surface_violations(text, *, tone='NEUTRAL', genuine_laughter=False, verbatim
     if marks and tone != 'LIGHT_EXASPERATION':
         errors.append('EXASPERATION_MARK_WITHOUT_CONTEXT')
     for mark in marks:
+        if re.search(r'[。｡．.]\s*$', text[:mark.start()]):
+            errors.append('PERIOD_BEFORE_EXASPERATION_MARK_FORBIDDEN')
+        if re.match(r'\s*[。｡．.]', text[mark.end():]):
+            errors.append('EXASPERATION_MARK_MUST_REPLACE_PERIOD')
         if mark[0] != '♨️' or not re.match(r'(?:\s|[。！？!?」』）)]|$)', text[mark.end():]):
             errors.append('EXASPERATION_MARK_NOT_SENTENCE_FINAL')
     if tone == 'SERIOUS' and laughs:
@@ -191,13 +198,16 @@ class DivisionRuntime:
     def __init__(self, root, *, coordinate='GENERAL', namespace,
                  preprocessor=None, adapter=None, selected_mode='CORE',
                  delivery='FIVE_FILES', intent='INSTALL', authorized_scope=None,
-                 display_clock=None):
+                 display_clock=None, relationship_state=None):
         if not isinstance(namespace, str) or not namespace.strip():
             raise PreprocessError('a user namespace is required')
         self.core = compile_core(root, coordinate, adapter)
         self.coordinate = coordinate
         self.preprocessor = preprocessor
         self.namespace = namespace
+        self.relationship_state = None
+        if relationship_state is not None:
+            self.bind_relationship_state(relationship_state)
         self.configuration = installation_configuration(delivery=delivery, intent=intent,
                                                         selected_mode=selected_mode)
         self.authorized_scope = copy.deepcopy(authorized_scope or {})
@@ -213,7 +223,8 @@ class DivisionRuntime:
         self.exempt_turn = None
 
     def dispatch(self, turn_id, raw, updates, work=lambda: None, *, route='NORMAL',
-                 task_kind='ANALYSIS', brief_requested=False, review=None):
+                 task_kind='ANALYSIS', brief_requested=False, review=None,
+                 relationship_command_context=None):
         if route not in {'NORMAL', 'BOOT', 'URGENT_SAFETY'}:
             raise PreprocessError('unknown route')
         if route in {'BOOT', 'URGENT_SAFETY'}:
@@ -231,7 +242,25 @@ class DivisionRuntime:
             elif (source not in {'USER_EXPLICIT_INSTRUCTION', 'USER_SELF_REPORT', 'USER_CORRECTION'}
                   or update.get('subject_namespace') != self.namespace):
                 raise PreprocessError('user learning must belong to this namespace, not the father corpus')
-        plan = response_plan(task_kind=task_kind, brief_requested=brief_requested)
+        relationship_operation = None
+        if relationship_command_context is not None:
+            if (not isinstance(relationship_command_context, dict)
+                    or set(relationship_command_context) - {'actor_namespace', 'source_class',
+                                                           'admin_authorization', 'applied_at'}):
+                raise PreprocessError('host-typed relationship command context required')
+            if self.relationship_state is None:
+                relationship_operation = {'effect': 'RELATIONSHIP_STATE_UNAVAILABLE',
+                                          'state_changed': False, 'live_persistence_claimed': False}
+            else:
+                self.relationship_state, relationship_operation = process_command(
+                    self.relationship_state, raw, event_id=turn_id,
+                    actor_namespace=relationship_command_context.get('actor_namespace'),
+                    source_class=relationship_command_context.get('source_class'),
+                    admin_authorization=relationship_command_context.get('admin_authorization'),
+                    applied_at=relationship_command_context.get('applied_at'))
+        plan = response_plan(task_kind=task_kind, brief_requested=brief_requested,
+                             relationship_state=self.relationship_state,
+                             namespace=self.namespace, coordinate=self.coordinate)
         exempt = self.exempt_turn == turn_id
         if exempt:
             self.exempt_turn = None
@@ -288,12 +317,31 @@ class DivisionRuntime:
         result['prefix'] = '**' + shown + '｜' + label + '**'
         result['work_authorized'] = True
         result['decision_policy'] = plan
+        result['relationship_operation'] = relationship_operation
         result['configuration'] = copy.deepcopy(self.configuration)
         result['magi_summary'] = (summarize_magi(review(copy.deepcopy(plan)))
                                   if review is not None and plan['consider_before_conclusion'] else None)
         result['live_model_quality_verified'] = False
         result['work_result'] = work()
         return result
+
+    def bind_relationship_state(self, snapshot):
+        """Use an already verified namespace/coordinate binding, without replay.
+
+        The host owns durable monotonic guards. This in-memory runtime also
+        rejects a snapshot older than the relationship state already bound.
+        No display name or message text creates a relationship authorization.
+        """
+        previous = self.relationship_state
+        minimum_epoch = previous['epoch'] if previous is not None else 0
+        minimum_revision = previous['revision'] if previous is not None else 0
+        restored = restore_state(snapshot, namespace=self.namespace, coordinate=self.coordinate,
+                                 minimum_epoch=minimum_epoch, minimum_revision=minimum_revision)
+        if (previous is not None and restored['revision'] == previous['revision']
+                and restored != previous):
+            raise PreprocessError('a same-version relationship snapshot changed its contents')
+        response_context(restored, namespace=self.namespace, coordinate=self.coordinate)
+        self.relationship_state = restored
 
     def control(self, action, turn_id=None):
         if action == 'PAUSE':

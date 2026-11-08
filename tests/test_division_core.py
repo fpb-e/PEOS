@@ -36,7 +36,7 @@ class DivisionCoreTests(unittest.TestCase):
 
     def bound_copy(self):
         target = self.directory / 'package'
-        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.317.json']
+        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.318.json']
         names.extend(load_profile(ROOT)['source_canon_sha256'])
         for name in names:
             path = target / name

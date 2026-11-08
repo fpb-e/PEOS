@@ -1,13 +1,9 @@
-# PEOS_REV0.317_20261103 規則競合の整理
+# rev0.318の競合解決
 
-既存443 IDを保持し、DESIGN.MODE.FULL_FEATURE_SELECTIONのみを追加、444 ID・一規則一所有者。
+- 旧全帯長文と低親密度簡潔化は、採用済みの25未満例外をSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEへ統合し、論証品質を全帯で保持する。
+- 数値未指定という旧制約は、明示された尺度・境界だけを採用し、未指定の増減幅へ維持する。
+- 保存ノリと実効値、初回開始値と固定値、通常評価と本人リセット/管理操作を分離する。父母100固定は崩さない。
+- 元資料の未採番・未受入は歴史状態であり、現在の所有者指定318/baseline317へ戻す根拠にしない。
+- PRAG-004と未採用比較試験、将来ロードマップは別状態に保つ。
 
-- 共通core・応答密度・薄い関係adapterへ品質不変を統合。
-- PHILOSOPHY.MAGIが三者の意味、RUNTIME.MAGI.DELTA_ONLYが結論前の検討と表示の省略条件を所有。旧run_MAGI_only_if_delta_exists()の入口を置換。
-- RUNTIME.TIME.USER_FACING_JST_DISPLAYと通常SHORT_ACK_SYNC契約を更新し、受領観測clockと前処理後display clockを分離。
-- RUNTIME.FAIL.CLOSEDは無権限の作用を止め、単なる前処理不足で通常会話全体を止めない。低レベルtransactionの許可flagは会話の停止条件へ流用しない。
-- ZIPと五正本個別添付は同じ導入設定を選択可能。旧物理5添付限定を更新。
-- 変更した既存要求の旧traceは出所として保持し、current_binding_superseded_byで本候補の要求へ結ぶ。上書きは変更registryに列挙した規則だけ。
-- 現行316・baseline315、対象revision未採番。旧build metadataとstrict監査の契約を現行の通常入口へ昇格しない。
-
-静的整合性はvalidatorで検査する。rev0.317のrelease受入は所有者の明示指定により実施済み。実モデル品質・実接続は未実施。
+規則ID・所有者・変更前後ハッシュをvalidatorで検査する。実モデル品質の成功は未実施として維持する。

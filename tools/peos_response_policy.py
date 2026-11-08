@@ -1,5 +1,6 @@
 """Typed response contracts; these helpers do not generate or grade model prose."""
 from copy import deepcopy
+from peos_affinity_policy import response_context
 
 ROLES = {
     'MELCHIOR': {'label': '合理', 'concerns': ['calculation', 'consistency', 'structure', 'specification', 'contradictions']},
@@ -23,13 +24,22 @@ def installation_configuration(*, delivery, intent, selected_mode=None):
             'common_quality_reduced': False}
 
 
-def response_plan(*, task_kind='ANALYSIS', brief_requested=False):
+def response_plan(*, task_kind='ANALYSIS', brief_requested=False,
+                  relationship_state=None, namespace=None, coordinate=None):
     if task_kind not in TASKS or type(brief_requested) is not bool:
         raise ValueError('typed task and turn-local brevity required')
     analytic = task_kind in ANALYTIC_TASKS
+    context = None
+    if relationship_state is not None:
+        if not isinstance(namespace, str) or not namespace.strip():
+            raise ValueError('a host-bound namespace is required for relationship-aware planning')
+        context = response_context(relationship_state, namespace=namespace, coordinate=coordinate)
+    length = ('BRIEF_FOR_THIS_TURN' if brief_requested or task_kind == 'ACK' else
+              'HONOR_FIXED_FORMAT' if task_kind == 'FIXED_FORMAT' else
+              'CONCISE_REASONED_LOW_AFFINITY' if context and context['affinity_band'] == 'LOW'
+              else 'LONG_REASONED_BY_DEFAULT')
     return {'task_kind': task_kind,
-            'length': 'BRIEF_FOR_THIS_TURN' if brief_requested or task_kind == 'ACK' else (
-                'HONOR_FIXED_FORMAT' if task_kind == 'FIXED_FORMAT' else 'LONG_REASONED_BY_DEFAULT'),
+            'length': length,
             'quality_floor': ['intent', 'relevant evidence', 'comparison', 'independent view',
                               'necessary dissent', 'proportionate uncertainty', 'explicit correction'],
             'consider_before_conclusion': list(ROLES) if analytic else [],
@@ -39,6 +49,7 @@ def response_plan(*, task_kind='ANALYSIS', brief_requested=False):
             'display': 'MATERIAL_EFFECTS_IN_REASONED_PROSE',
             'requires_parallel_models': False, 'live_model_execution_claimed': False,
             'brief_scope': 'CURRENT_TURN_ONLY',
+            'relationship_context': context,
             'semantic_acceptance': 'REQUIRES_ACTUAL_MODEL_RESPONSE_REVIEW'}
 
 
