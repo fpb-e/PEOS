@@ -9,7 +9,8 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from peos_affinity_policy import (new_state, restore_state, response_context,
-    process_command, evaluate_context, register_joke, react_to_joke, affinity_band)
+    process_command, evaluate_context, register_joke, react_to_joke, affinity_band,
+    banter_transition_plan)
 from peos_response_policy import response_plan
 from peos_division_core import DivisionRuntime, surface_violations
 
@@ -70,7 +71,7 @@ class AffinityPolicyTests(unittest.TestCase):
         for affinity in [0, 101, True, 24.0, '24']:
             with self.subTest(affinity=affinity), self.assertRaises(ValueError):
                 new_state(self.namespace, affinity=affinity)
-        for value in [0, 6, True, 3.0, '3']:
+        for value in [0, 1, 6, True, 3.0, '3']:
             with self.subTest(banter=value), self.assertRaises(ValueError):
                 new_state(self.namespace, stored_banter=value)
         with self.assertRaises(ValueError):
@@ -104,6 +105,9 @@ class AffinityPolicyTests(unittest.TestCase):
             config = self.personal(initial_value=3); config.update(changed)
             with self.subTest(changed=changed), self.assertRaises(ValueError):
                 new_state(self.namespace, personal_banter=config)
+        for field in ['initial_value', 'fixed_value']:
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                new_state(self.namespace, personal_banter=self.personal(**{field: 1}))
 
     def test_self_reset_is_immediate_and_preserves_banter_and_unrelated_context(self):
         before = deepcopy(self.state)
@@ -286,16 +290,131 @@ class AffinityPolicyTests(unittest.TestCase):
         self.assertEqual(again, raised)
         self.assertEqual(decision['effect'], 'REACTION_JOKE_CONTEXT_UNAVAILABLE')
 
-    def test_fixed_banter_and_other_levels_do_not_gain_invented_reaction_rules(self):
-        for value in [1, 2, 4, 5]:
+    def test_other_levels_do_not_gain_unspecified_negative_reaction_rules(self):
+        for value in [2, 4, 5]:
             state = self.joke(new_state(self.namespace, affinity=75, stored_banter=value))
-            after, decision = self.reaction(state, 'JOINED')
+            after, decision = self.reaction(state, 'TAKEN_LITERAL')
             self.assertIsNone(decision['requested_direction'])
             self.assertEqual(after['stored_banter'], value)
         fixed = self.joke(self.parent(personal_banter=self.personal(fixed_value=5)))
         after, decision = self.reaction(fixed, 'TAKEN_LITERAL')
         self.assertEqual(after['stored_banter'], 5)
         self.assertIsNone(decision['requested_direction'])
+
+    def test_good_reaction_can_increase_every_normal_level_without_inventing_a_step(self):
+        for value in [2, 3, 4, 5]:
+            for reaction in ['JOINED', 'WELL_RECEIVED']:
+                with self.subTest(value=value, reaction=reaction):
+                    state = self.joke(new_state(self.namespace, affinity=75, stored_banter=value))
+                    after, decision = self.reaction(state, reaction)
+                    self.assertEqual(decision['requested_direction'], 'INCREASE')
+                    self.assertEqual(after['stored_banter'], value)
+                    self.assertFalse(decision['numeric_change_applied'])
+                    self.assertIsNone(decision['numeric_increment_policy'])
+                    self.assertEqual(decision['transition_plan']['bounded_after'], 5 if value == 5 else None)
+
+    def test_only_adopted_normal_endpoints_have_determinate_unchanged_values(self):
+        floor = new_state(self.namespace, affinity=50, stored_banter=2)
+        plan = banter_transition_plan(floor, 'DECREASE')
+        self.assertEqual((plan['before'], plan['bounded_after']), (2, 2))
+        self.assertEqual(plan['effect'], 'AT_NORMAL_FLOOR_UNCHANGED')
+        self.assertFalse(plan['trigger_inferred'])
+        self.assertEqual(banter_transition_plan(new_state(self.namespace, affinity=50, stored_banter=5),
+                                               'INCREASE')['bounded_after'], 5)
+        for direction in ['INCREASE', 'DECREASE']:
+            self.assertIsNone(banter_transition_plan(self.state, direction)['bounded_after'])
+
+    def test_low_overlay_one_does_not_overwrite_normal_value_and_five_allows_wit(self):
+        state = new_state(self.namespace, affinity=24, stored_banter=4)
+        context = response_context(state)
+        self.assertEqual((context['stored_banter'], context['effective_banter']), (4, 1))
+        self.assertTrue(context['irony_targets_reasoning_not_personal_attributes'])
+        after, _ = self.command('親密度リセット', state=state)
+        self.assertEqual(response_context(after)['effective_banter'], 4)
+        unknown = new_state(self.namespace, affinity=24)
+        unknown, _ = self.command('親密度リセット', state=unknown)
+        self.assertIsNone(unknown['stored_banter'])
+        self.assertIsNone(response_context(unknown)['effective_banter'])
+        fixed = self.parent(personal_banter=self.personal(fixed_value=5))
+        self.assertTrue(response_context(fixed)['contextual_wit_allowed'])
+        reacted, decision = self.reaction(self.joke(fixed), 'WELL_RECEIVED')
+        self.assertEqual(reacted['stored_banter'], 5)
+        self.assertEqual(decision['observed_direction'], 'INCREASE')
+        self.assertIsNone(decision['requested_direction'])
+
+    def test_legacy_saved_one_is_not_silently_clamped_or_treated_as_a_normal_value(self):
+        legacy = deepcopy(self.state); legacy['stored_banter'] = 1
+        before = deepcopy(legacy)
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0)
+        self.assertEqual(legacy, before)
+        for resolution in [None, {'normal_value': 4},
+                           {'namespace': self.namespace, 'source_class': 'SELF_DECLARED',
+                            'basis': 'LAST_VERIFIED_NORMAL_VALUE', 'normal_value': 4, 'evidence_ref': 'SYNTHETIC-E'}]:
+            with self.subTest(resolution=resolution), self.assertRaises(ValueError):
+                restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                              legacy_banter_resolution=resolution)
+
+    def test_legacy_resolution_uses_verified_last_normal_and_preserves_its_source(self):
+        legacy = deepcopy(self.state); legacy['stored_banter'] = 1
+        resolution = {'namespace': self.namespace, 'source_class': 'HOST_VERIFIED_LEGACY_BANTER_RESOLUTION',
+                      'basis': 'LAST_VERIFIED_NORMAL_VALUE', 'normal_value': 4, 'evidence_ref': 'SYNTHETIC-VERIFIED-NORMAL'}
+        restored = restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                                 legacy_banter_resolution=resolution)
+        self.assertEqual(restored['stored_banter'], 4)
+        self.assertEqual(response_context(restored)['effective_banter'], 1)
+        self.assertEqual(restored['legacy_banter_resolution']['before'], 1)
+        self.assertEqual(restored['legacy_banter_resolution']['source'], resolution)
+        self.assertEqual(legacy['stored_banter'], 1)
+        reset, _ = self.command('親密度リセット', state=restored)
+        after, decision = self.command('親密度リセット', state=reset)
+        self.assertEqual(after, reset)
+        self.assertEqual(decision['effect'], 'NONE_DUPLICATE_EVENT')
+        self.assertEqual(response_context(reset)['effective_banter'], 4)
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0, minimum_revision=1,
+                          legacy_banter_resolution=resolution)
+
+    def test_legacy_resolution_cannot_invent_one_or_override_a_fixed_personal_value(self):
+        legacy = self.parent(personal_banter=self.personal(fixed_value=5)); legacy['stored_banter'] = 1
+        resolution = {'namespace': self.namespace, 'source_class': 'HOST_VERIFIED_LEGACY_BANTER_RESOLUTION',
+                      'basis': 'OWNER_EXPLICIT_MIGRATION', 'normal_value': 4, 'evidence_ref': 'SYNTHETIC-EXPLICIT-MIGRATION'}
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                          legacy_banter_resolution=resolution)
+        resolution['normal_value'] = 5
+        restored = restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                                 legacy_banter_resolution=resolution)
+        self.assertEqual((restored['affinity'], restored['stored_banter'], restored['fixed_banter']), (100, 5, 5))
+        resolution['normal_value'] = 1
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                          legacy_banter_resolution=resolution)
+
+    def test_legacy_initial_one_is_retired_without_resetting_a_valid_saved_value(self):
+        legacy = new_state(self.namespace, affinity=50, stored_banter=4,
+                           personal_banter=self.personal(initial_value=3))
+        legacy['personal_configuration']['initial_value'] = 1
+        resolution = {'namespace': self.namespace, 'source_class': 'HOST_VERIFIED_LEGACY_BANTER_RESOLUTION',
+                      'basis': 'LAST_VERIFIED_NORMAL_VALUE', 'normal_value': 4, 'evidence_ref': 'SYNTHETIC-VERIFIED-NORMAL'}
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0)
+        restored = restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                                 legacy_banter_resolution=resolution)
+        self.assertEqual(restored['stored_banter'], 4)
+        self.assertIsNone(restored['personal_configuration'])
+        self.assertEqual(restored['legacy_banter_resolution']['original_initial_configuration']['initial_value'], 1)
+        self.assertEqual(legacy['personal_configuration']['initial_value'], 1)
+        resolution['normal_value'] = 3
+        with self.assertRaises(ValueError):
+            restore_state(legacy, namespace=self.namespace, minimum_epoch=0,
+                          legacy_banter_resolution=resolution)
+    def test_old_normal_one_joke_is_not_reused_as_new_low_affinity_overlay(self):
+        state = self.joke(new_state(self.namespace, affinity=50, stored_banter=3))
+        state['jokes']['SYNTHETIC-J1']['effective_banter_at_joke'] = 1
+        after, decision = self.reaction(state, 'JOINED')
+        self.assertEqual(after, state)
+        self.assertEqual(decision['effect'], 'LEGACY_JOKE_CONTEXT_REQUIRES_REVIEW')
 
     def test_reaction_dedup_survives_restore_and_conflicting_reaction_is_held(self):
         state = self.joke(new_state(self.namespace, affinity=50, stored_banter=3))
@@ -311,6 +430,11 @@ class AffinityPolicyTests(unittest.TestCase):
         conflict, decision = self.reaction(restored, 'JOINED', event_id='SYNTHETIC-REACTION-E3')
         self.assertEqual(conflict, restored)
         self.assertEqual(decision['effect'], 'HOLD_CONFLICTING_REACTION')
+        positive = self.joke(new_state(self.namespace, affinity=50, stored_banter=4))
+        positive, _ = self.reaction(positive, 'JOINED')
+        aliased, decision = self.reaction(positive, 'WELL_RECEIVED', event_id='SYNTHETIC-REACTION-ALIAS')
+        self.assertEqual(aliased, positive)
+        self.assertEqual(decision['effect'], 'NONE_DUPLICATE_REACTION')
 
     def test_quoted_hypothetical_foreign_or_unknown_reactions_do_not_count(self):
         state = self.joke(new_state(self.namespace, affinity=50, stored_banter=3))

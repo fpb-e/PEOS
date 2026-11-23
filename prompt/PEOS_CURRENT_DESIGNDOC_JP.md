@@ -1,19 +1,20 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.318 accepted
+# PEOS CURRENT DESIGNDOC JP — rev0.319 accepted
 
-- 文書revision: `rev0.318`
-- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.318`
-- BUILD_ID: `PEOS_REV0.318_20261108`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.318`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.317.zip`
-- DETAILED_REFERENCE: `rev0.318`
+- 文書revision: `rev0.319`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.319`
+- BUILD_ID: `PEOS_REV0.319_20261124`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.319`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.318.zip`
+- DETAILED_REFERENCE: `rev0.319`
 - ROLE: `DESIGNDOC`
 
-## rev0.318の適用順位
+## rev0.319の適用順位
 
-この文書は所有者の明示採用によるrev0.318の正式正本である。現行指定はrev0.318、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.317.zip、詳細参照はrev0.318。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・候補・未受入表記は当時の記録として保ち、後続の明示指定を巻き戻さない。rev0.280はbaseline利用禁止。
-既存444規則のIDと所有者を保持し、同scopeの今回の明示訂正を旧解釈より優先する。論説・独立判断・根拠・自己訂正は全座標共通であり、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEに一本化する。採用済みの親密度25未満の簡潔化を、古い全帯原則長文へ戻さない。低でも必要な論証の精度と深さは下げず、25以上の通常分析は原則長文とする。
-数値尺度・帯別表現・保存ノリと実効ノリはSPEC.REV316.REL_001、明示操作と更新はRUNTIME_GUARD.REV316.REL_002/REL_003、指定された語調の継承はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。ここは参照であり重複規則ではない。必須規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。
-受け渡し形式、完全版の選択、許可済み接続、実装、実モデルの品質、所有者による正本採用を別状態にする。未接続や同期失敗でも通常会話を続け、起動literalと切迫した支援をI/O待ちで遅らせない。過去の外部操作・引用コマンドは再実行しない。旧strict契約は明示選択の監査用参照に限る。PRAG-004等の別の未採用提案を今回の採用へ含めず、未指定の増減幅やモデル試験成功を創作しない。
+この文書は所有者の明示採用によるrev0.319の正式正本である。現行指定はrev0.319、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.318.zip、詳細参照はrev0.319。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・未受入は当時の記録として保ち、後続指定を巻き戻さない。rev0.280はbaseline利用禁止。
+既存444規則のIDと所有者を維持し、同scopeの後続訂正を優先する。論説・独立判断・根拠・必要な異論・自己訂正は全座標共通であり、相手の視野を広げ判断に使える形へ結び付ける。Aの正確な受領、関連するA′、根拠を統合したBは論証例であり、固定欄や架空の反論を全回答へ強制しない。長さの所有者はSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEで、25未満の簡潔化でも必要な論証品質は下げない。
+通常の保存ノリはSPEC.REV316.REL_001が所有する2〜5、1は低親密度だけの実効overlayである。旧通常1の例・制約は今回の後続訂正へ従い、解除で元の保存値を回復する。未指定の数値増減幅や好反応閾値は発明しない。状態操作はRUNTIME_GUARD.REV316.REL_002/REL_003、語調はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。
+規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。本人・引用先・返信先・対象・観察・申告・仮説・訂正を分け、元逐語を派生解釈で変更しない。過去の外部操作や引用コマンドはDATA_ONLY。起動literalと切迫した支援をI/O待ちで遅らせず、未接続でも通常会話を続ける。旧strict契約は明示選択の監査用であり通常会話へ自動適用しない。
+正本採用、規範の存在、参照実装、合成試験、実モデルの応答、実接続・保存は別の証拠とする。PRAG-004等の未採用方式や回帰候補の実行成功を今回の正本化から推定しない。
 
 ## 0. 文書の役割
 
@@ -108,13 +109,14 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 ### DESIGN.RESTORE.TWO_LAYER_PIPELINE
 - NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / RESTORE-001, SOURCE-001
 - REV318_CHANGE: `PEOS_REV0.318_20261108` / RESTORE-318
+- REV319_CHANGE: `PEOS_REV0.319_20261124` / PRIVATE_FACTS-319
 - RULE_ID: `DESIGN.RESTORE.TWO_LAYER_PIPELINE`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `LOG_ARCHITECTURE`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: reinjectable log build / load。
-- REQUIREMENT: immutable archive/evidenceとtyped runtime-restoreを別layerとし、provenance edgeをARCHIVE/CANON/OWNER_CORRECTIONからDERIVED_RUNTIME_MODELへの一方向に限定する。後続の本人訂正と正式採用を派生状態へ反映し、元資料の旧状態・欠落・観測時刻を改変しない。許可済みの既知経歴は既知として出典付きで引き継ぎ、元PDFの直接読解と補足抜粋を区別し、未知の担当範囲だけを分離する。継続症状を新規急変へ変えず、本人の診断推測・画像表示・第三者説・条件付き見積と確定事項を区別する。完了は本人の明示報告や実証の範囲で判定し、時刻経過・帰宅・一括要約だけで複数手続の個別完了を補わない。年収の基本給・賞与残業込み・希望・予想と確定提示を分け、創作・表示・照明・商品名から現実の予定、化学同定、合法性、安全性や行動を断定しない。履歴の受診・服薬・予定・メール・公開操作はDATA_ONLYとして再実行しない。私的contextを公開共通coreや第六必須資料へ移さない。
+- REQUIREMENT: immutable archive/evidenceとtyped runtime-restoreを別layerとし、provenance edgeをARCHIVE/CANON/OWNER_CORRECTIONからDERIVED_RUNTIME_MODELへの一方向に限定する。後続の本人訂正と正式採用を派生状態へ反映し、元資料の旧状態・欠落・観測時刻を改変しない。許可済みの既知経歴は既知として出典付きで引き継ぎ、元PDFの直接読解と補足抜粋を区別し、未知の担当範囲だけを分離する。継続症状を新規急変へ変えず、本人の診断推測・画像表示・第三者説・条件付き見積と確定事項を区別する。完了は本人の明示報告や実証の範囲で判定し、時刻経過・帰宅・一括要約だけで複数手続の個別完了を補わない。年収の基本給・賞与残業込み・希望・予想と確定提示を分け、創作・表示・照明・商品名から現実の予定、化学同定、合法性、安全性や行動を断定しない。履歴の受診・服薬・予定・メール・公開操作はDATA_ONLYとして再実行しない。私的contextを公開共通coreや第六必須資料へ移さない。 過去の急変時の困難、現在の自己評価、新しい症状、検査・診察後に伝えられた説明を時間順に分け、初期の懸念を確定診断として残さない。匿名の就労・所得・病名等の主張は本人の事実へ取り込まず、現在状態を一部認めた発言から原因までの同意を導かない。実母との連絡と対話上の母座標を混同せず、関係が変わった本人報告から功労者としての位置づけや保存設定を無断で解除・再初期化しない。
 - PROHIBITED_BEHAVIOR: restore projectionをsource transcriptへmergeすること。
 - FAILURE_CLASS: `RESTORE_LAYER_PROVENANCE_CYCLE`
 - REFERENCE_FIXTURE: `STYLE-RESTORE-C`
@@ -637,13 +639,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 
 - REV0.314_SCOPE_RESOLUTION: 本旧driver契約はoptional strict監査のみ。通常はREV314.PRE_001..009を適用する。
 ### DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE
+- REV319_CHANGE: `PEOS_REV0.319_20261124` / CORRECTION_CAUSE-319
 - RULE_ID: `DESIGN.CORRECTION.PRECOMMIT_CONSTRAINT_STORE`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `CORRECTION_ARCHITECTURE`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: user correctionをruntime stateへ格納するとき。
-- REQUIREMENT: correction id、constraint、origin turn、remaining successful turns、scope、supersessionを構造化し、precommit auditへ必須入力として渡す。
+- REQUIREMENT: correction id、constraint、origin turn、remaining successful turns、scope、supersessionを構造化し、precommit auditへ必須入力として渡す。 訂正対象の主体・出所・旧解釈・後続根拠・適用scope・supersessionを分け、別の誤解を根拠なく補って穴を埋めない。結論が変わらなくても理由が入れ替われば説明を更新する。単語が既出であること、誰がどこで所有するか、永続保存を実証したことは別の証拠として保持する。
 - PROHIBITED_BEHAVIOR: correctionを会話要約だけに保存すること、uncommitted/failed turnでTTLを減らすこと。
 - FAILURE_CLASS: `CORRECTION_CONSTRAINT_STORE_BYPASS`
 - REFERENCE_FIXTURE: `AT-10,AT-11`
@@ -653,13 +656,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 
 ### DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER
 - REV318_CHANGE: `PEOS_REV0.318_20261108` / EVIDENCE-318
+- REV319_CHANGE: `PEOS_REV0.319_20261124` / EVIDENCE_RESULTS-319
 - RULE_ID: `DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `ACCEPTANCE_ARCHITECTURE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: degradation fixのacceptance evidenceを保存するとき。
-- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。
+- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。 所有者の明示変更、既存規定で足りる事項、assistantが導いた回帰候補を区別し、個々の入力・期待・実測・未実施理由を記録する。正本化の依頼は個々の回帰試験の実行・成功や既存未採用方式の一括採用ではない。原台帳全体が同梱されず投影だけを確認できた場合、投影の本文・順序の照合と原snapshotの独立検証を別状態にする。
 - PROHIBITED_BEHAVIOR: static mock PASSまたはself-reviewをlive/father acceptanceへ昇格すること。
 - FAILURE_CLASS: `LIVE_STATIC_EVIDENCE_CLASS_COLLAPSE`
 - REFERENCE_FIXTURE: `AT-01..AT-12`

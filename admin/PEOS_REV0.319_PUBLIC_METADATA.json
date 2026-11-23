@@ -1,12 +1,12 @@
 {
-  "revision": "rev0.318",
-  "target_revision": "rev0.318",
-  "candidate_id": "PEOS_REV0.318_20261108",
+  "revision": "rev0.319",
+  "target_revision": "rev0.319",
+  "candidate_id": "PEOS_REV0.319_20261124",
   "status": "ACCEPTED_BY_OWNER",
   "authority": {
-    "current_canon": "rev0.318",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.317.zip",
-    "detailed_reference": "rev0.318",
+    "current_canon": "rev0.319",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.318.zip",
+    "detailed_reference": "rev0.319",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -18,13 +18,13 @@
     ]
   },
   "total_rule_count": 444,
-  "source_requirements": 26,
+  "source_requirements": 28,
   "previous_unnumbered_candidate_id": "PEOS_NEXT_SPEC_20261103",
   "live_model_acceptance": "NOT_PERFORMED",
   "release_accepted": true,
-  "revision_assignment_basis": "OWNER_EXPLICIT_REV0_318_CANON_INSTRUCTION_20261108",
-  "acceptance_record": "admin/REV0.318_OWNER_ACCEPTANCE.json",
+  "revision_assignment_basis": "OWNER_EXPLICIT_REV0_319_CANON_INSTRUCTION_20261124",
+  "acceptance_record": "admin/REV0.319_OWNER_ACCEPTANCE.json",
   "release_acceptance_basis": "OWNER_EXPLICIT_INSTRUCTION",
-  "previous_accepted_revision": "rev0.317",
-  "changed_existing_rules": 26
+  "previous_accepted_revision": "rev0.318",
+  "changed_existing_rules": 28
 }

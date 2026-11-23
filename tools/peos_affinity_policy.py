@@ -14,6 +14,7 @@ from peos_relationship_policy import new_state as qualitative_state
 from peos_relationship_policy import evaluate as qualitative_evaluate
 
 KIND = 'SCOPED_NUMERIC_RELATIONSHIP_REFERENCE_STATE'
+BANTER_POLICY = 'NORMAL_STORED_2_TO_5_LOW_AFFINITY_OVERLAY_1'
 COORDINATES = {'FATHER', 'MOTHER', 'GENERAL'}
 OBSERVATION_SOURCES = {'TYPED_CONTEXT_OBSERVATION', 'USER_EXPLICIT_CORRECTION',
                        'HOST_VERIFIED_CONTEXT'}
@@ -44,8 +45,10 @@ def validate_state(state, *, namespace=None, coordinate=None):
     if coordinate is not None and state['coordinate'] != coordinate:
         raise ValueError('relationship coordinate differs from the host binding')
     _number(state.get('affinity'), 1, 100, 'affinity', unknown=True)
-    _number(state.get('stored_banter'), 1, 5, 'stored banter', unknown=True)
-    _number(state.get('fixed_banter'), 1, 5, 'fixed banter', unknown=True)
+    if type(state.get('stored_banter')) is int and state['stored_banter'] == 1:
+        raise ValueError('legacy stored banter 1 requires a verified normal value; overlay is not storage')
+    _number(state.get('stored_banter'), 2, 5, 'normal stored banter', unknown=True)
+    _number(state.get('fixed_banter'), 2, 5, 'normal fixed banter', unknown=True)
     for name in ('epoch', 'revision'):
         value = state.get(name)
         if type(value) is not int or value < 0:
@@ -64,11 +67,11 @@ def validate_state(state, *, namespace=None, coordinate=None):
             raise ValueError('restored personal configuration has no verified scoped basis')
         _text(configuration.get('evidence_ref'), 'personal configuration evidence')
         if 'fixed_value' in configuration:
-            _number(configuration['fixed_value'], 1, 5, 'configured fixed banter')
+            _number(configuration['fixed_value'], 2, 5, 'configured fixed banter')
             if state['fixed_banter'] != configuration['fixed_value']:
                 raise ValueError('restored fixed value differs from its configuration')
         else:
-            _number(configuration['initial_value'], 1, 5, 'configured initial banter')
+            _number(configuration['initial_value'], 2, 5, 'configured initial banter')
             if state['fixed_banter'] is not None:
                 raise ValueError('an initial personal value is not a fixed value')
     elif state['fixed_banter'] is not None:
@@ -104,7 +107,7 @@ def new_state(namespace, *, coordinate='GENERAL', affinity=None, stored_banter=N
             raise ValueError('parent affinity cannot be changed from 100')
         affinity = 100
     _number(affinity, 1, 100, 'affinity', unknown=True)
-    _number(stored_banter, 1, 5, 'stored banter', unknown=True)
+    _number(stored_banter, 2, 5, 'normal stored banter', unknown=True)
     fixed = None
     if personal_banter is not None:
         if (not isinstance(personal_banter, dict)
@@ -118,18 +121,18 @@ def new_state(namespace, *, coordinate='GENERAL', affinity=None, stored_banter=N
             raise ValueError('choose one initial or fixed personal value')
         _text(personal_banter['evidence_ref'], 'personal configuration evidence')
         if 'fixed_value' in personal_banter:
-            fixed = _number(personal_banter['fixed_value'], 1, 5, 'fixed banter')
+            fixed = _number(personal_banter['fixed_value'], 2, 5, 'fixed banter')
             if stored_banter is not None and stored_banter != fixed:
                 raise ValueError('stored state conflicts with the verified fixed value')
             stored_banter = fixed
         elif stored_banter is None:
-            stored_banter = _number(personal_banter['initial_value'], 1, 5, 'initial banter')
+            stored_banter = _number(personal_banter['initial_value'], 2, 5, 'initial banter')
         else:
-            _number(personal_banter['initial_value'], 1, 5, 'initial banter')
+            _number(personal_banter['initial_value'], 2, 5, 'initial banter')
     state = {'kind': KIND, 'namespace': namespace, 'coordinate': coordinate,
              'relation_evidence_ref': relation_evidence_ref,
              'affinity': affinity, 'stored_banter': stored_banter, 'fixed_banter': fixed,
-             'personal_configuration': deepcopy(personal_banter),
+             'personal_configuration': deepcopy(personal_banter), 'banter_policy': BANTER_POLICY,
              'epoch': 0, 'revision': 0, 'event_fingerprints': {},
              'jokes': {}, 'reactions': {}, 'history': [],
              'qualitative': qualitative_state(namespace, verified_parent=parent,
@@ -140,15 +143,60 @@ def new_state(namespace, *, coordinate='GENERAL', affinity=None, stored_banter=N
     return state
 
 
-def restore_state(snapshot, *, namespace, minimum_epoch, minimum_revision=0, coordinate=None):
-    """Restore the complete snapshot without rerunning old command/history text."""
-    validate_state(snapshot, namespace=namespace, coordinate=coordinate)
+def restore_state(snapshot, *, namespace, minimum_epoch, minimum_revision=0, coordinate=None,
+                  legacy_banter_resolution=None):
+    """Restore without replay; an old saved 1 needs a verified normal value.
+
+    The resolution is supplied by an already verified host/private source. It
+    preserves the old value as evidence rather than silently clamping it to 2.
+    A legacy fixed-value configuration of 1 requires a new explicit personal
+    configuration outside this restore helper.
+    """
     for label, value in (('minimum epoch', minimum_epoch), ('minimum revision', minimum_revision)):
         if type(value) is not int or value < 0:
             raise ValueError(label + ' must be an actual nonnegative guard')
+    if (not isinstance(snapshot, dict) or type(snapshot.get('epoch')) is not int
+            or type(snapshot.get('revision')) is not int):
+        raise ValueError('a typed snapshot with monotonic guards is required')
     if snapshot['epoch'] < minimum_epoch or snapshot['revision'] < minimum_revision:
         raise ValueError('snapshot is older than the retained relationship boundary')
-    return deepcopy(snapshot)
+    result = deepcopy(snapshot)
+    configuration = snapshot.get('personal_configuration')
+    legacy_initial = (isinstance(configuration, dict) and type(configuration.get('initial_value')) is int
+                      and configuration['initial_value'] == 1)
+    legacy_stored = type(snapshot.get('stored_banter')) is int and snapshot['stored_banter'] == 1
+    if legacy_stored or legacy_initial:
+        resolution = legacy_banter_resolution
+        if (snapshot.get('namespace') != namespace or not isinstance(resolution, dict)
+                or resolution.get('namespace') != namespace
+                or resolution.get('source_class') != 'HOST_VERIFIED_LEGACY_BANTER_RESOLUTION'
+                or resolution.get('basis') not in {'LAST_VERIFIED_NORMAL_VALUE', 'OWNER_EXPLICIT_MIGRATION'}):
+            raise ValueError('legacy stored banter 1 has no verified normal-value resolution')
+        _text(resolution.get('evidence_ref'), 'legacy normal-value evidence')
+        normal = _number(resolution.get('normal_value'), 2, 5, 'resolved normal banter')
+        current = snapshot.get('stored_banter')
+        if not legacy_stored and current is not None and current != normal:
+            raise ValueError('retiring a legacy initial value must preserve the verified current normal value')
+        if snapshot.get('fixed_banter') == 1:
+            raise ValueError('legacy fixed banter 1 requires a new explicit personal configuration')
+        original_configuration = None
+        if legacy_initial:
+            if (configuration.get('namespace') != namespace
+                    or configuration.get('source_class') != 'HOST_VERIFIED_PERSONAL_CONFIGURATION'):
+                raise ValueError('legacy initial configuration belongs to an unverified source')
+            _text(configuration.get('evidence_ref'), 'legacy initial configuration evidence')
+            original_configuration = deepcopy(configuration)
+            result['personal_configuration'] = None
+        result['stored_banter'] = normal
+        result['revision'] += 1
+        result['banter_policy'] = BANTER_POLICY
+        receipt = {'operation': 'LEGACY_NORMAL_BANTER_RESOLUTION', 'before': current, 'after': normal,
+                   'source': deepcopy(resolution), 'original_initial_configuration': original_configuration,
+                   'numeric_increment_applied': False, 'live_persistence_claimed': False}
+        result.setdefault('history', []).append(deepcopy(receipt))
+        result['legacy_banter_resolution'] = receipt
+    validate_state(result, namespace=namespace, coordinate=coordinate)
+    return result
 
 
 def affinity_band(value):
@@ -170,7 +218,33 @@ def response_context(state, *, namespace=None, coordinate=None):
             'stored_banter': state['stored_banter'], 'effective_banter': effective,
             'relationship_expression': expression, 'epoch': state['epoch'],
             'revision': state['revision'], 'quality_reduced': False,
-            'forced_endearments': False, 'invented_shared_memories': False}
+            'forced_endearments': False, 'invented_shared_memories': False,
+            'normal_banter_range': [2, 5], 'overlay_only_banter': 1,
+            'contextual_wit_allowed': band in {'MIDDLE', 'HIGH'} and state['stored_banter'] is not None,
+            'irony_targets_reasoning_not_personal_attributes': band == 'LOW',
+            'fixed_joke_frequency': None}
+
+
+def banter_transition_plan(state, direction):
+    """Bound a justified direction without inventing its trigger or amount."""
+    validate_state(state)
+    if direction not in {'INCREASE', 'DECREASE'}:
+        raise ValueError('an explicitly justified banter direction is required')
+    before = state['stored_banter']
+    if state['fixed_banter'] is not None:
+        effect, after = 'PERSONAL_FIXED_VALUE_UNCHANGED', before
+    elif before is None:
+        effect, after = 'NORMAL_VALUE_UNCONFIRMED', None
+    elif direction == 'DECREASE' and before == 2:
+        effect, after = 'AT_NORMAL_FLOOR_UNCHANGED', 2
+    elif direction == 'INCREASE' and before == 5:
+        effect, after = 'AT_NORMAL_CAP_UNCHANGED', 5
+    else:
+        effect, after = 'PENDING_UNSPECIFIED_AMOUNT', None
+    return {'effect': effect, 'direction': direction, 'before': before,
+            'bounded_after': after, 'normal_range': [2, 5],
+            'numeric_increment_policy': None, 'numeric_change_applied': False,
+            'trigger_inferred': False, 'live_persistence_claimed': False}
 
 
 def _fingerprint(event):
@@ -225,7 +299,7 @@ def process_command(state, raw, *, actor_namespace, event_id, source_class,
     event = {'operation': 'SELF_RESET' if reset else 'ADMIN_SET', 'raw': text,
              'actor_namespace': actor_namespace, 'source_class': source_class}
     if _duplicate(state, event_id, event):
-        original = next((deepcopy(row) for row in state['history'] if row['event_id'] == event_id), None)
+        original = next((deepcopy(row) for row in state['history'] if row.get('event_id') == event_id), None)
         return _unchanged(state, 'NONE_DUPLICATE_EVENT', original_operation=original)
     before = state['affinity']
     if reset:
@@ -308,7 +382,8 @@ def register_joke(state, *, joke_id, event_id, source_class, evidence_ref, epoch
     result = deepcopy(state)
     context = response_context(state)
     result['jokes'][joke_id] = {'epoch': epoch, 'effective_banter_at_joke': context['effective_banter'],
-                               'affinity_at_joke': state['affinity'], 'evidence_ref': evidence_ref}
+                               'affinity_at_joke': state['affinity'], 'evidence_ref': evidence_ref,
+                               'normal_banter_at_joke': state['stored_banter'], 'banter_policy': BANTER_POLICY}
     return _finish(result, event_id, event, {'effect': 'JOKE_CONTEXT_RECORDED',
                                            'joke_id': joke_id, **result['jokes'][joke_id]})
 
@@ -329,22 +404,37 @@ def react_to_joke(state, event):
     joke = state['jokes'].get(joke_id)
     if not joke or joke['epoch'] != state['epoch']:
         return _unchanged(state, 'REACTION_JOKE_CONTEXT_UNAVAILABLE')
+    effective = joke.get('effective_banter_at_joke')
+    affinity_at_joke = joke.get('affinity_at_joke')
+    if effective == 1 and (type(affinity_at_joke) is not int or affinity_at_joke >= 25):
+        return _unchanged(state, 'LEGACY_JOKE_CONTEXT_REQUIRES_REVIEW')
     reaction = event.get('reaction')
-    if reaction not in {'TAKEN_LITERAL', 'JOINED'}:
+    if reaction not in {'TAKEN_LITERAL', 'JOINED', 'WELL_RECEIVED'}:
         return _unchanged(state, 'HOLD_REACTION_UNCONFIRMED')
     if joke_id in state['reactions']:
         old = state['reactions'][joke_id]
-        return _unchanged(state, 'NONE_DUPLICATE_REACTION' if old['reaction'] == reaction
+        same_reception = (old['reaction'] == reaction or
+                          old['reaction'] in {'JOINED', 'WELL_RECEIVED'} and reaction in {'JOINED', 'WELL_RECEIVED'})
+        return _unchanged(state, 'NONE_DUPLICATE_REACTION' if same_reception
                           else 'HOLD_CONFLICTING_REACTION')
     result = deepcopy(state)
-    direction = None
-    if joke['effective_banter_at_joke'] == 3 and state['fixed_banter'] is None:
-        direction = 'DECREASE' if reaction == 'TAKEN_LITERAL' else 'INCREASE'
+    observed_direction = None
+    if (reaction in {'JOINED', 'WELL_RECEIVED'} and type(effective) is int
+            and 2 <= effective <= 5 and type(affinity_at_joke) is int and affinity_at_joke >= 25):
+        observed_direction = 'INCREASE'
+    elif reaction == 'TAKEN_LITERAL' and effective == 3:
+        observed_direction = 'DECREASE'
+    direction = observed_direction if state['fixed_banter'] is None else None
+    transition = banter_transition_plan(state, observed_direction) if observed_direction else None
     result['reactions'][joke_id] = {'reaction': reaction, 'evidence_ref': event['evidence_ref'],
-                                    'requested_direction': direction, 'epoch': state['epoch']}
+                                    'requested_direction': direction, 'epoch': state['epoch'],
+                                    'observed_direction': observed_direction}
     actions = ['BRIEF_APOLOGY_FOR_OWN_JOKE'] if reaction == 'TAKEN_LITERAL' and joke['effective_banter_at_joke'] == 3 else []
-    decision = {'effect': 'BANTER_DIRECTION_PENDING_UNSPECIFIED_AMOUNT' if direction else 'NO_DEFINED_BANTER_TRANSITION',
+    effect = ('BANTER_DIRECTION_PENDING_UNSPECIFIED_AMOUNT' if transition and transition['effect'] == 'PENDING_UNSPECIFIED_AMOUNT'
+              else transition['effect'] if transition else 'NO_DEFINED_BANTER_TRANSITION')
+    decision = {'effect': effect,
                 'joke_id': joke_id, 'requested_direction': direction, 'actions': actions,
+                'observed_direction': observed_direction, 'transition_plan': transition,
                 'stored_banter_before': state['stored_banter'], 'stored_banter_after': state['stored_banter'],
                 'effective_banter_at_joke': joke['effective_banter_at_joke'],
                 'affinity_unchanged': True, 'numeric_change_applied': False,

@@ -21,7 +21,6 @@
 *.ico
 *.zip
 # Only this byte-verified public distribution belongs in the repository.
-!/downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip
 *.7z
 *.rar
 *.tar
@@ -33,3 +32,5 @@ __pycache__/
 !/downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip
 
 !/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip
+
+!/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip
