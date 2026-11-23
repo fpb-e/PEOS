@@ -24,8 +24,8 @@ class DistributionDownloadTests(unittest.TestCase):
             root=Path(temp);(root/'downloads').mkdir();self.assertIn('DISTRIBUTION_REGISTRY_MISSING',distribution_errors(root))
             (root/'downloads/PUBLIC_PACKAGES.json').write_bytes((ROOT/'downloads/PUBLIC_PACKAGES.json').read_bytes())
             self.assertIn('DISTRIBUTION_CHECKSUMS_DIFFER',distribution_errors(root));self.assertTrue(any('MISSING' in e for e in distribution_errors(root)))
-    def test_original_rev316_zip_remains_immutable(self):
-        self.assertEqual(hashlib.sha256((ROOT/'downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip').read_bytes()).hexdigest(),'7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915')
+    def test_original_rev317_zip_remains_immutable(self):
+        self.assertEqual(hashlib.sha256((ROOT/'downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip').read_bytes()).hexdigest(),'cbdf55a6f6a95635b5869a3500231b65e7b2c431f3f51f85e8edb6d7147dc143')
         self.assertEqual(distribution_errors(ROOT),[])
     def test_primary_download_and_local_manual_links_resolve(self):
         registry=json.loads((ROOT/'downloads/PUBLIC_PACKAGES.json').read_text());primary=next(x['download_url'] for x in registry['packages'] if x['path']==registry['primary'])

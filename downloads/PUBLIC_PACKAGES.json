@@ -1,13 +1,6 @@
 {
-  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
+  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip",
   "packages": [
-    {
-      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.316.zip",
-      "sha256": "7a35699d30153ae8ce30234f20aa35bef7a2f1520060ff85af398da4e3016915",
-      "bytes": 577135,
-      "class": "PUBLIC_SPECIFICATION_PACKAGE",
-      "status": "ACCEPTED_REV316_FIXED_SNAPSHOT"
-    },
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip",
       "sha256": "cbdf55a6f6a95635b5869a3500231b65e7b2c431f3f51f85e8edb6d7147dc143",
@@ -32,6 +25,19 @@
       "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
       "release_accepted": true,
       "acceptance_record": "admin/REV0.318_OWNER_ACCEPTANCE.json",
+      "publication_state": "ASSET_COMMIT_CREATED"
+    },
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip",
+      "sha256": "4aadc7a608995602b62826abe75410e1bbb01cda13e968c364f5ec1e75fc694c",
+      "bytes": 711040,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "ACCEPTED_REV319_OWNER_EXPLICIT",
+      "revision": "rev0.319",
+      "asset_commit": "040254275e844c8ecc44781ac63dbca1dd30e53b",
+      "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/040254275e844c8ecc44781ac63dbca1dd30e53b/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip",
+      "release_accepted": true,
+      "acceptance_record": "admin/REV0.319_OWNER_ACCEPTANCE.json",
       "publication_state": "ASSET_COMMIT_CREATED"
     }
   ],

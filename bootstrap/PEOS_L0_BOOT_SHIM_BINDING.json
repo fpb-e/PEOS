@@ -1,7 +1,7 @@
 {
   "source_canon": "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md",
-  "source_sha256": "3b0b6d133b2ad2f4201f85e271cc86e858e4956b3fcc39267a56bdc7f06c9507",
-  "projection_sha256": "11cbf140b4ea177078df05bb1949d48be87d796024de0c0aa246b86cc44837ee",
+  "source_sha256": "a804fff3569cbaf7c2517d22c5945be64e4f65389f624feafbbfbbfc9378da62",
+  "projection_sha256": "f322914c02db0c2e0d45e939e72d2580858c78d2cca1b9350eb3f79179bbd1ce",
   "is_canon": false,
   "required_install_attachment": false
 }

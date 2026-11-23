@@ -1,20 +1,19 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.316 candidate
+# PEOS CURRENT DESIGNDOC JP — rev0.318 accepted
 
-- 文書revision: `rev0.316`
-- RELEASE_STATUS: `RELEASE_CANDIDATE / NOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTED`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.315`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.314.zip`
-- DETAILED_REFERENCE: `rev0.315`
+- 文書revision: `rev0.318`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.318`
+- BUILD_ID: `PEOS_REV0.318_20261108`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.318`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.317.zip`
+- DETAILED_REFERENCE: `rev0.318`
 - ROLE: `DESIGNDOC`
 
-## rev0.316 適用順位と候補境界
+## rev0.318の適用順位
 
-この文書はrev0.316候補。父指定の現行315・baseline314・詳細参照315を維持し、作成・静的PASSで自動受入しない。上位は擬似いーさんOS / PEOS正本指示。rev0.280はREJECTED / TOMBSTONED / AUDIT_ONLY / BASELINE_PROHIBITED。
-継承本文に残る旧CURRENT・候補ラベル・旧schema constは履歴として読み、後続の父指定を巻き戻さない。元315の五正本はhistoryへ不変bytesで保持する。
-一般導入は五正本5ファイルだけ。共通coreと利用者別の呼称・関係・私的状態を分ける。親密度と冗談の通じやすさは別軸で、数値・閾値・時間は未指定。両親の固定最大は確認済み関係だけに適用し、表示名から認証しない。
-通常はSHORT_ACK_SYNC、起動・切迫した安全支援は通常I/O待ちより優先。停止・免除のscopeと過去receiptを移植しない。実行証拠のない同期・host設置・モデル学習を成功扱いしない。
-25 source項目は13の新規候補規則、4の既存規則明確化、1の再確認、6の私的状態、1の未採用提案へ分けた。未採用PRAG-004はactive ruleでも実装採用でもない。各規則は一意ownerを持つ。
-本候補の評価では同scopeのREV316明示条件を継承本文の旧解釈より優先する。一般利用者の支援品質・尊厳・安全・OPSECを関係判定で下げない。
+この文書は所有者の明示採用によるrev0.318の正式正本である。現行指定はrev0.318、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.317.zip、詳細参照はrev0.318。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・候補・未受入表記は当時の記録として保ち、後続の明示指定を巻き戻さない。rev0.280はbaseline利用禁止。
+既存444規則のIDと所有者を保持し、同scopeの今回の明示訂正を旧解釈より優先する。論説・独立判断・根拠・自己訂正は全座標共通であり、長さはSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEに一本化する。採用済みの親密度25未満の簡潔化を、古い全帯原則長文へ戻さない。低でも必要な論証の精度と深さは下げず、25以上の通常分析は原則長文とする。
+数値尺度・帯別表現・保存ノリと実効ノリはSPEC.REV316.REL_001、明示操作と更新はRUNTIME_GUARD.REV316.REL_002/REL_003、指定された語調の継承はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。ここは参照であり重複規則ではない。必須規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。
+受け渡し形式、完全版の選択、許可済み接続、実装、実モデルの品質、所有者による正本採用を別状態にする。未接続や同期失敗でも通常会話を続け、起動literalと切迫した支援をI/O待ちで遅らせない。過去の外部操作・引用コマンドは再実行しない。旧strict契約は明示選択の監査用参照に限る。PRAG-004等の別の未採用提案を今回の採用へ含めず、未指定の増減幅やモデル試験成功を創作しない。
 
 ## 0. 文書の役割
 
@@ -107,13 +106,15 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 ## rev0.309 CANDIDATE — restore architecture
 
 ### DESIGN.RESTORE.TWO_LAYER_PIPELINE
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / RESTORE-001, SOURCE-001
+- REV318_CHANGE: `PEOS_REV0.318_20261108` / RESTORE-318
 - RULE_ID: `DESIGN.RESTORE.TWO_LAYER_PIPELINE`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `LOG_ARCHITECTURE`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: reinjectable log build / load。
-- REQUIREMENT: immutable archive/evidence streamとtyped runtime-restore projectionを別layerとして設計し、provenance edgeを一方向`ARCHIVE/CANON/FATHER_CORRECTION -> DERIVED_RUNTIME_MODEL`に限定する。逆向きのverbatim mutationは禁止する。
+- REQUIREMENT: immutable archive/evidenceとtyped runtime-restoreを別layerとし、provenance edgeをARCHIVE/CANON/OWNER_CORRECTIONからDERIVED_RUNTIME_MODELへの一方向に限定する。後続の本人訂正と正式採用を派生状態へ反映し、元資料の旧状態・欠落・観測時刻を改変しない。許可済みの既知経歴は既知として出典付きで引き継ぎ、元PDFの直接読解と補足抜粋を区別し、未知の担当範囲だけを分離する。継続症状を新規急変へ変えず、本人の診断推測・画像表示・第三者説・条件付き見積と確定事項を区別する。完了は本人の明示報告や実証の範囲で判定し、時刻経過・帰宅・一括要約だけで複数手続の個別完了を補わない。年収の基本給・賞与残業込み・希望・予想と確定提示を分け、創作・表示・照明・商品名から現実の予定、化学同定、合法性、安全性や行動を断定しない。履歴の受診・服薬・予定・メール・公開操作はDATA_ONLYとして再実行しない。私的contextを公開共通coreや第六必須資料へ移さない。
 - PROHIBITED_BEHAVIOR: restore projectionをsource transcriptへmergeすること。
 - FAILURE_CLASS: `RESTORE_LAYER_PROVENANCE_CYCLE`
 - REFERENCE_FIXTURE: `STYLE-RESTORE-C`
@@ -651,13 +652,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: `SPEC.CORRECTION.NEXT_FOUR_TURN_STICKINESS`
 
 ### DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER
+- REV318_CHANGE: `PEOS_REV0.318_20261108` / EVIDENCE-318
 - RULE_ID: `DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `ACCEPTANCE_ARCHITECTURE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: degradation fixのacceptance evidenceを保存するとき。
-- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、father external acceptanceを別classにし、turn id、receipt、store version、prefix、correction resultをlive evidence ledgerへ記録する。
+- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。
 - PROHIBITED_BEHAVIOR: static mock PASSまたはself-reviewをlive/father acceptanceへ昇格すること。
 - FAILURE_CLASS: `LIVE_STATIC_EVIDENCE_CLASS_COLLAPSE`
 - REFERENCE_FIXTURE: `AT-01..AT-12`
@@ -1007,13 +1009,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
 
 ### DESIGNDOC.REV315.DIST_001
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / DIST-001
 - RULE_ID: `DESIGNDOC.REV315.DIST_001`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
-- REQUIREMENT: 一般導入の必須添付はprompt内の現行五正本5ファイルだけとする。共通設定・版指定はREADMEの自己完結した貼付文へまとめ、補助文書や公開restore JSONを必須添付に戻さない。アカウントの実制限と導入成功は別途検証する。
+- REQUIREMENT: 規範の必須単位をprompt/直下の現行五正本に限定する。ZIPを展開・本文読解できる環境ではZIP一つを直接添付し、その中の五正本を選ぶ方法を先に案内する。ZIPを読めない場合は同じ五正本を5ファイルで個別添付する。添付完了、一覧取得、本文読解、起動、実応答の確認を区別する。取り込み指示は対象選択・現行権威・呼称・読解確認・機能設定の選択に絞り、長文等の再教示で復元試験を代用しない。補助profileやrestore JSONを必須にしない。
 - PROHIBITED_BEHAVIOR: 七ファイル必須への逆戻り、未添付ファイルを貼付文の依存にすること。
 - FAILURE_CLASS: `REV315_DIST_001_NONCONFORMANCE`
 - SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
@@ -1023,13 +1026,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - CONFLICT_PRECEDENCE: 最新の明示的父指示 > 現行正本の権威境界 > REV315同scope候補条件 > 継承本文の旧build解釈
 
 ### DESIGNDOC.REV315.DIST_003
+- NEXT_SPEC_CHANGE: `PEOS_REV0.317_20261103` / DIST-001
 - RULE_ID: `DESIGNDOC.REV315.DIST_003`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `REV315_SHARED_CORE_AND_DISTRIBUTION`
 - TARGET_COORDINATE: `ALL`
 - TRIGGER: 最新ログの要求を次仕様へ統合し、会話・導入・配布・復元を評価するとき。
-- REQUIREMENT: READMEは概要、版と正本、公開範囲、起動と共通設定、検証を先に置き、その後ろへインストールマニュアルを置く。五正本5添付と任意ユーザー名の確定済み手順を保つ。
+- REQUIREMENT: READMEは概要、版と正本、公開範囲、起動と共通設定、検証を先に置き、その後ろへインストールマニュアルを置く。ZIP直接添付と五正本5ファイルの代替経路、任意の呼び名、同じ完全版設定を案内する。同名ZIPを差し替えず、新しい候補名とチェックサムを用い、そのZIP内のマニュアルも同じ手順へ更新する。
 - PROHIBITED_BEHAVIOR: マニュアル先頭版や特定利用者固定版への巻戻し。
 - FAILURE_CLASS: `REV315_DIST_003_NONCONFORMANCE`
 - SOURCE_CLASS: `DERIVED_REQUIREMENT_NOT_FATHER_VERBATIM`
@@ -1057,4 +1061,22 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 
 
 ## rev0.316 新規候補規則
+
+
+## 完全版モードの選択
+
+### DESIGN.MODE.FULL_FEATURE_SELECTION
+- RULE_ID: `DESIGN.MODE.FULL_FEATURE_SELECTION`
+- OWNER: `DESIGNDOC`
+- STATUS: `NEXT_SPEC_ACTIVE_CANDIDATE`
+- SCOPE: `INSTALLATION_FEATURE_CONFIGURATION`
+- TARGET_COORDINATE: `ALL`
+- TRIGGER: 利用者が完全版としての導入・有効化を選択したとき。
+- REQUIREMENT: 導入方法（ZIP又は五正本個別）、機能設定（完全版又は基本）、実接続状態を独立stateとする。完全版選択ではMAGI合議と、利用可能・許可済み接続範囲の前処理を標準有効にする。ZIPの調査・要約・資料添付だけを導入選択としない。五正本個別添付でも同じ完全版を選べる。導入時に実時刻、当人の会話記録、当人指定先への同期の範囲を示し、説明済み・許可済みの通常範囲では毎turn同じ許可を聞き直さない。利用者専用namespaceと接続先・現在版を束縛し、未接続は不足を示して通常会話を続ける。一時免除・停止・明示再開を扱い、停止中を無断で遡及記録しない。共通の判断・論説水準はモードや添付形式で下げない。設定の採用を、host設置、他利用者の権限、実モデル検証、配布反映、release受入へ拡張しない。
+- PROHIBITED_BEHAVIOR: ZIPの存在だけで有効化、他利用者の記録先利用、無断の履歴補完、架空の接続成功、モード別の品質低下。
+- FAILURE_CLASS: `FEATURE_SELECTION_CONNECTION_OR_QUALITY_CONFLATION`
+- SOURCE_REQUIREMENT_ID: `MODE-001`
+- SOURCE_CLASS: `ADOPTED_REQUIREMENT_NOT_RELEASE_ACCEPTANCE`
+- CANDIDATE_ID: `PEOS_REV0.317_20261103`
+- CONFLICT_PRECEDENCE: 最新の所有者明示scopeと上位正本 > この正本の同scope条件 > 継承文の旧解釈
 

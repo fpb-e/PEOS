@@ -55,11 +55,27 @@ def notification_decision(*,fingerprint,previous_fingerprint,deadline,now,status
     return 'REVIEW_NEW_ACTION'
 
 def calendar_plan(item,existing,*,explicit_write_authorized):
+    """Plan supplied current evidence; never mutate an external application."""
+    if type(explicit_write_authorized) is not bool:raise ValueError('typed current write scope required')
     if not explicit_write_authorized:return 'READ_ONLY'
     if item.get('status')=='CANDIDATE':return 'DO_NOT_REGISTER_TENTATIVE'
-    if not item.get('latest_body_checked') or not item.get('changes_and_cancellations_checked'):return 'RECHECK_LATEST_THREAD'
+    if item.get('status') not in {'CONFIRMED','CANCELLED'}:return 'HOLD_UNCONFIRMED_STATUS'
+    if item.get('latest_body_checked') is not True or item.get('changes_and_cancellations_checked') is not True:return 'RECHECK_LATEST_THREAD'
     if item.get('status')=='CANCELLED':return 'REVIEW_CANCEL_EXISTING'
-    if any(e.get('fingerprint')==item.get('fingerprint') for e in existing):return 'KEEP_EXISTING_NO_DUPLICATE'
+    if item.get('requires_start_time') is True or 'start_at' in item:
+        if item.get('start_time_confirmed') is not True:return 'HOLD_START_TIME_UNCONFIRMED'
+        try:
+            start=datetime.fromisoformat(item['start_at'])
+            if start.tzinfo is None or start.utcoffset() is None:raise ValueError('unbound timezone')
+        except (TypeError,ValueError,KeyError):return 'HOLD_START_TIME_UNCONFIRMED'
+    fingerprint=item.get('fingerprint')
+    if not isinstance(fingerprint,str) or not fingerprint.strip():return 'HOLD_EVENT_IDENTITY_UNCONFIRMED'
+    matches=[e for e in existing if e.get('fingerprint')==fingerprint]
+    if len(matches)>1:return 'REVIEW_MULTIPLE_EXISTING_MATCHES'
+    if matches:
+        fields=('start_at','end_at','meeting_url','title','location')
+        if any(k in item and item[k] is not None and item[k]!=matches[0].get(k) for k in fields):return 'UPDATE_EXISTING_EVENT'
+        return 'KEEP_EXISTING_NO_DUPLICATE'
     return 'REVIEW_CONFIRMED_EVENT_WRITE'
 
 def decode_raw_mail(data):
@@ -95,7 +111,7 @@ def death_context_policy(*,explicit_no_self_harm,acute_new_risk=False):
       'successor_decided':False,'autonomous_posthumous_execution':False}
 
 def restore_snapshot(root):
-    result=json.loads((Path(root)/'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())
+    result=json.loads((Path(root)/'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())
     result['current_turn_receipt']=None;result['verified_live_streak']=None;result['replay_actions']=[]
     result['live_state_verified_this_build']=False
     return result
@@ -110,7 +126,7 @@ def resolve_authority(embedded, explicit):
     match = re.fullmatch(r'PEOS_GITHUB_PACKAGE_(rev[0-9]+\.[0-9]+)\.zip', baseline)
     if not match or match[1] == 'rev0.280':
         raise ValueError('invalid or prohibited accepted baseline')
-    floor = json.loads((Path(__file__).resolve().parents[1] / 'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())['authority']
+    floor = json.loads((Path(__file__).resolve().parents[1] / 'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())['authority']
     if revision_key(current) < revision_key(floor['current_canon']):
         raise ValueError('explicit authority would roll back the accepted current')
     floor_baseline = re.fullmatch(r'PEOS_GITHUB_PACKAGE_(rev[0-9]+\.[0-9]+)\.zip', floor['accepted_baseline'])[1]
@@ -120,4 +136,4 @@ def resolve_authority(embedded, explicit):
         raise ValueError('detailed reference must use the explicit current')
     return {'effective': value, 'embedded': copy.deepcopy(embedded),
             'mismatch_recorded': embedded != explicit,
-            'candidate_revision': 'rev0.318', 'candidate_id': 'PEOS_REV0.318_20261108', 'candidate_promoted': False}
+            'candidate_revision': 'rev0.319', 'candidate_id': 'PEOS_REV0.319_20261124', 'candidate_promoted': False}

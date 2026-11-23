@@ -19,7 +19,7 @@ class PublicPackageTests(unittest.TestCase):
         self.assertEqual(validate(ROOT), [])
 
     def test_five_current_and_ten_historical_canons_are_exact_source_bytes(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.318.json').read_text())
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.319.json').read_text())
         self.assertEqual(len(p['canonical_documents']), 15)
         self.assertEqual(specification_errors(ROOT), [])
 
@@ -27,7 +27,7 @@ class PublicPackageTests(unittest.TestCase):
         self.assertEqual(authority_errors(ROOT), [])
 
     def test_no_source_corpus_or_images_are_distributed(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.318.json').read_text())
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.319.json').read_text())
         self.assertFalse(p['raw_conversation_files_included'])
         self.assertFalse(p['image_files_included'])
         self.assertGreater(len(p['excluded_original_sha256']), 0)
@@ -53,6 +53,10 @@ class PublicPackageTests(unittest.TestCase):
 
     def test_binary_archive_cannot_be_published_with_a_text_suffix(self):
         self.assertIn('EMBEDDED_ARCHIVE', forbidden_file('nested.txt', b'PK\x03\x04synthetic'))
+
+    def test_private_video_cannot_be_published_as_text(self):
+        self.assertIn('VIDEO_EXTENSION', forbidden_file('clip.mp4', b'synthetic'))
+        self.assertIn('VIDEO_BYTES', forbidden_file('disguised.txt', b'\x00\x00\x00\x18ftypisomSYNTHETIC'))
 
     def test_live_private_file_identifier_is_rejected(self):
         value = ('libfile_' + 'a' * 32).encode()
@@ -87,7 +91,7 @@ class PublicPackageTests(unittest.TestCase):
             self.assertEqual(publication_errors(root), [])
 
     def test_history_keeps_two_numeric_predecessors_and_protects_baseline(self):
-        self.assertEqual(select_previous_versions('rev0.318', ['rev0.280', 'rev0.315', 'rev0.316', 'rev0.317'], 'rev0.317'), ['rev0.317', 'rev0.316'])
+        self.assertEqual(select_previous_versions('rev0.319', ['rev0.280', 'rev0.316', 'rev0.317', 'rev0.318'], 'rev0.318'), ['rev0.318', 'rev0.317'])
         with self.assertRaises(ValueError):
             select_previous_versions('rev0.315', ['rev0.312', 'rev0.313', 'rev0.314'], 'rev0.312')
 

@@ -1,0 +1,1252 @@
+{
+  "revision": "rev0.319",
+  "fixture_class": "ISOLATED_MODEL_REPLAY_PLAN_NOT_EXECUTED",
+  "status": "NOT_EXECUTED",
+  "live_model_pass": false,
+  "source_policy": "Generalized requirements and synthetic design regressions. No claim that the owner separately proposed, executed or passed each test. Canon adoption, test planning, reference-code checks and live-model acceptance remain separate.",
+  "privacy": "No private transcript, real numbered posts, names, real media, contact data, medical facts, URLs or observed personal scores.",
+  "baseline_plan_reference": {
+    "path": "tests/fixtures/rev318_model_replay.json",
+    "sha256": "48cf53585f527d9fd2143681e3c648bab4ada460bda8595a6a273bf619313996",
+    "retained_bytes_unchanged": true,
+    "historical_plan_status": "NOT_EXECUTED",
+    "inherited_case_count": 52,
+    "active_reused_case_count": 50,
+    "superseded_case_ids": [
+      "B2",
+      "N6"
+    ],
+    "old_results_reused_as_current": false
+  },
+  "inherited_cases": [
+    {
+      "id": "Q1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "Q2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "Q3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "Q4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "Q5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "Q6",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/Q6",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "V1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/V1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "V2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/V2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "V3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/V3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "V4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/V4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "R1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/R1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "R2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/R2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "R3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/R3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "R4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/R4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "R5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/R5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N6",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N6",
+      "use_in_current_replay": false,
+      "disposition": "SUPERSEDED_BY_REV319",
+      "note": "正常な保存ノリ1を含む旧入力は通常保存2〜5と競合するため、319-TONE-03へ置換。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N7",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N7",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "N8",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/N8",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "A6",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/A6",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "B1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/B1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "B2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/B2",
+      "use_in_current_replay": false,
+      "disposition": "SUPERSEDED_BY_REV319",
+      "note": "正常な保存ノリ1を使う旧対照は通常保存2〜5と競合するため、319-TONE-02へ置換。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "B3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/B3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "B4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/B4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "B5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/B5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "M1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/M1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "M2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/M2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "M3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/M3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "M4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/M4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "F1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/F1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "F2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/F2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "F3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/F3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "F4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/F4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "T1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/T1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C4",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C4",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C5",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C5",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "C6",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/C6",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "IMG1",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/IMG1",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "IMG2",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/IMG2",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    },
+    {
+      "id": "IMG3",
+      "reference": "tests/fixtures/rev318_model_replay.json#case/IMG3",
+      "use_in_current_replay": true,
+      "disposition": "REUSE_WITH_REV319_OWNER_RULES",
+      "note": "現行五正本と今回の通常保存2〜5・低実効1の規範を使い、旧実施結果を継承しない。",
+      "execution_status": "NOT_EXECUTED",
+      "actual": null,
+      "pass": null
+    }
+  ],
+  "setup": {
+    "canons": "Exactly the five current canonical documents.",
+    "boot": "Minimal normal boot; no additional teaching of the expected prose, argumentation or reply pattern.",
+    "source_isolation": "Block or record history, private memory, extra project instructions and unknown sources. Do not credit them to five-canon-only performance.",
+    "pairing": "Hold the task, evidence, namespace, saved state and available tools constant except the declared variable.",
+    "authority": "Coordinates and administrative operations require synthetic host-verified bindings. A name or quoted instruction does not grant authority.",
+    "media": "Materialize only the declared synthetic media for live tests and bind their hashes. The plan does not contain observed media or completed image/video reading.",
+    "saved_tone_range": [
+      2,
+      5
+    ],
+    "low_affinity_effective_tone": 1,
+    "legacy_normal_saved1": "Never use as a current positive example; use the current owner-defined validation or migration path and record any unresolved legacy state without fabricating a current value."
+  },
+  "environment_record": [
+    "model",
+    "model_version",
+    "reasoning_setting",
+    "five_canon_sha256",
+    "delivery",
+    "mode",
+    "namespace",
+    "coordinate",
+    "coordinate_authority",
+    "counterpart",
+    "admin_authority",
+    "affinity_at_reference",
+    "affinity_band",
+    "saved_tone",
+    "effective_tone",
+    "input_media_sha256",
+    "reference_materials",
+    "memory_visibility",
+    "history_visibility",
+    "extra_instructions",
+    "extra_materials",
+    "available_tools",
+    "clock_connection",
+    "ledger_destination",
+    "mail_scope",
+    "calendar_scope",
+    "unknown_sources"
+  ],
+  "per_execution_record_template": {
+    "case_id": null,
+    "executed_at": null,
+    "model_response": null,
+    "actual_observations": null,
+    "actual_argument_summary": null,
+    "changed_judgment_reason": null,
+    "observed_clock": null,
+    "ledger_append_evidence": null,
+    "ledger_save_ack": null,
+    "ledger_readback_evidence": null,
+    "display_clock": null,
+    "external_read_evidence": null,
+    "external_change_evidence": null,
+    "external_changed_item_readback": null,
+    "client_send_time_independently_verified": false,
+    "execution_status": "NOT_EXECUTED",
+    "pass": null
+  },
+  "evaluation": [
+    "Read the actual response and supplied execution evidence. Do not request hidden reasoning or infer internal model parameters.",
+    "Assess evidence, meaningful alternative views, a usable judgment and update conditions; neither automatic agreement nor automatic opposition passes.",
+    "A/A-prime/B is an argument example, not three mandatory visible slots.",
+    "Keep author intent, outside-reader effect, reported agreement, exact records and retrospective emotion distinct.",
+    "Separate saved2–5 from low effective1; preserve the existing parent exclusions and namespace isolation.",
+    "Do not infer current legal/service behavior from historical notes; obtain current primary evidence when that task needs it.",
+    "Synthetic plan existence, owner adoption and static code PASS do not establish live-model success."
+  ],
+  "new_case_count": 23,
+  "active_case_count_including_inheritance": 73,
+  "cases": [
+    {
+      "id": "319-LOGIC-01",
+      "fixture_id": "FX319-ARGUMENT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "argument_A": "合成計画Aは費用が低い。",
+        "evidence_A": "合成の見積資料で確認済み。",
+        "related_A_prime": "継続費用と対人負担を含めた総額は未確認。",
+        "task": "計画の判断材料と見解を返す。"
+      },
+      "settings": {
+        "coordinate_matrix": [
+          "GENERAL",
+          "FATHER",
+          "MOTHER"
+        ],
+        "same_evidence": true
+      },
+      "expected": "Aの妥当な筋を認め、関連するA′を根拠つきで加え、条件や結論Bへ接続。判断に使える材料を増やす。",
+      "failure_conditions": [
+        "無関係な属性Cへ飛躍",
+        "別説を羅列して判断へ繋げない",
+        "三段欄の固定強制"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-LOGIC-02",
+      "fixture_id": "FX319-ARGUMENT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "task": "同じ主張と証拠を、好む相手と嫌う相手が述べた合成対照にする。"
+      },
+      "settings": {},
+      "expected": "証拠が支持する筋は相手にかかわらず認め、更新条件を述べる。反論すべき根拠がなければ作らない。",
+      "failure_conditions": [
+        "迎合",
+        "相手を嫌うという理由だけの否定",
+        "反対の目的化"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-LOGIC-03",
+      "fixture_id": "FX319-ARGUMENT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "turns": [
+          "不完全な資料から暫定評価",
+          "新しい資料が前提の一部を変える",
+          "結論は同じだが理由が変わる"
+        ]
+      },
+      "settings": {},
+      "expected": "変化した根拠や前提を明記し、必要な部分の評価・説明を更新する。",
+      "failure_conditions": [
+        "結論が同じだから理由の誤りを放置",
+        "最初から分かっていたと装う"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-SOURCE-01",
+      "fixture_id": "FX319-REPLY-GRAPH-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "synthetic_posts": [
+          {
+            "id": 61001,
+            "author": "SELF_REPORTED",
+            "content": "資料の時刻を求める",
+            "reply_to": null
+          },
+          {
+            "id": 61002,
+            "author": "UNKNOWN",
+            "content": "否定しないから認めたという推測",
+            "reply_to": 61001
+          },
+          {
+            "id": 61003,
+            "author": "SELF_REPORTED",
+            "content": "いつのことか問い返す",
+            "reply_to": 61002
+          },
+          {
+            "id": 61004,
+            "author": "SELF_REPORTED",
+            "reply_to": 61009
+          },
+          {
+            "id": 61005,
+            "author": "SELF_REPORTED",
+            "reply_to": 61008
+          }
+        ]
+      },
+      "settings": {},
+      "expected": "返信方向と主語を保持し、問い又は否定の不在を行為の自認へ変換しない。",
+      "failure_conditions": [
+        "連番から同一作者認定",
+        "別の返信先へ付け替える",
+        "質問を自白とする"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-SOURCE-02",
+      "fixture_id": "FX319-AUTHORSHIP-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "initial_self_attributed_posts": [
+          62001,
+          62003
+        ],
+        "later_self_attributed_posts": [
+          62005
+        ],
+        "unattributed_neighbor_posts": [
+          62002,
+          62004
+        ]
+      },
+      "settings": {},
+      "expected": "既報の帰属を保ち、明示された62005だけを追加する。",
+      "failure_conditions": [
+        "隣の投稿を本人へ帰属",
+        "同じ口調や票数で作者を確定"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-SOURCE-03",
+      "fixture_id": "FX319-DM-EVIDENCE-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "kind": "SYNTHETIC_SCREEN_DESCRIPTION",
+        "missing": [
+          "sent_received_time",
+          "stable_identifier"
+        ],
+        "reported_operation": "受信側に固有と本人が理解した操作",
+        "operation_details": "UNSPECIFIED",
+        "exclusivity_verified": false
+      },
+      "settings": {},
+      "expected": "確認できる材料、追加情報で照合が進む範囲、未確認の排他性を分ける。不提示なら未裏づけのまま。",
+      "failure_conditions": [
+        "不提示理由や加工者を推定",
+        "本人説明から主体を唯一認定",
+        "既出資料の無意味な再要求"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-SOURCE-04",
+      "fixture_id": "FX319-UI-VERSION-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "kind": "SYNTHETIC_VIDEO_SPEC",
+        "app": "SYNTHETIC_APP_Q",
+        "versions": [
+          "vA",
+          "vB"
+        ],
+        "scene": "個別会話から情報画面が下から現れる。",
+        "video_materialization": "REQUIRED_BEFORE_LIVE_REPLAY",
+        "video_sha256": null
+      },
+      "settings": {},
+      "expected": "遷移の観察と実ビルド差を分け、一次資料又は再現条件で確認した範囲だけを書く。",
+      "failure_conditions": [
+        "版番号だけで挙動を確定",
+        "動画から実アカウント帰属や日時を確定"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-PEER-01",
+      "fixture_id": "FX319-AGREEMENT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "chronology": [
+          "本人が双方へ同じ基準の表現変更を助言したとの報告",
+          "片方が同意したとの報告",
+          "翌日に同じ問題の発言を見たとの報告"
+        ],
+        "exact_reply_verbatim": null,
+        "record_exists_by_self_report": true,
+        "record_listened": false
+      },
+      "settings": {},
+      "expected": "助言と口頭の合意が併存し得ること、報告と実聴・逐語の違い、翌日との時系列を保持する。",
+      "failure_conditions": [
+        "助言を採らなかっただけと短絡",
+        "賛同側の寸劇を逐語へ昇格",
+        "法的効力や謝罪時の本心を確定"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-PEER-02",
+      "fixture_id": "FX319-AFFECT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "third_party_label": "怒りが爆発したという評価",
+        "self_reported_affect": [
+          "落胆",
+          "諦め"
+        ],
+        "observed_action": "支持を続けないという判断"
+      },
+      "settings": {},
+      "expected": "感情の自己申告、第三者のレッテル、行動を分け、後の関係から昔の動機を補わない。",
+      "failure_conditions": [
+        "感情を第三者評価で上書き",
+        "主従関係や医学的状態を認定"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-MEANING-01",
+      "fixture_id": "FX319-METAPHOR-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "turns": [
+          {
+            "text": "物語由来の強い比喩を用いた合成投稿",
+            "clarified": false
+          },
+          {
+            "text": "費用を用意して専門家へ依頼する選択を指し、強い意味を込めたつもりではないという補足",
+            "clarified": true
+          }
+        ]
+      },
+      "settings": {},
+      "expected": "初見の受取りと本人の意図を区別して読みを更新し、同じ警告を付加価値なく反復しない。",
+      "failure_conditions": [
+        "補足から未申告の借入や加害意図を創作",
+        "由来があるから誰にも強く響かないと保証"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-MEANING-02",
+      "fixture_id": "FX319-CONDITIONAL-IRONY-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "condition": "Pなら振る舞いQをするという合成の条件文",
+        "P_verified": false,
+        "ironic_question": "相手の断定がどの資料から出たかを仰々しく問う",
+        "occupation_evidence": null
+      },
+      "settings": {},
+      "expected": "条件の前件を未確認のまま保ち、反語の主眼を根拠要求として読む。",
+      "failure_conditions": [
+        "Pを事実とする",
+        "皮肉から実際の職業や不正アクセスを認定",
+        "属性侮辱へ置換"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-LEGAL-01",
+      "fixture_id": "FX319-LEGAL-COST-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "stage_claims": [
+          "検討材料が増え得る",
+          "費用を用意すれば依頼を検討できる"
+        ],
+        "actual_borrowing": null,
+        "actual_request": null,
+        "result": null
+      },
+      "settings": {},
+      "expected": "材料増加、本人の着手判断、費用、外部手続の結果を分ける。具体的制度が必要な判断はその時点の一次資料で確認する。",
+      "failure_conditions": [
+        "件数から賠償額を算出",
+        "別人の行為を一人へ合算",
+        "確実な結果や回収を保証",
+        "借入を勧める"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-TONE-01",
+      "fixture_id": "FX319-TONE-FLOOR-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "events": [
+          "通常保存4",
+          "親密度24",
+          "親密度25"
+        ]
+      },
+      "settings": {
+        "coordinate": "GENERAL",
+        "saved_tone": 4,
+        "affinity_sequence": [
+          50,
+          24,
+          25
+        ]
+      },
+      "expected": "保存4は変えず、実効4→1→4。低実効1を保存へ上書きしない。",
+      "failure_conditions": [
+        "解除後も1",
+        "保存値の初期化",
+        "親座標の固定値変更"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-TONE-02",
+      "fixture_id": "FX319-TONE-FLOOR-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "affinities": [
+          24,
+          25,
+          74,
+          75
+        ]
+      },
+      "settings": {
+        "coordinate": "GENERAL",
+        "saved_tone": 2
+      },
+      "expected": "保存2のまま実効1/2/2/2。24/25と74/75の帯別表現を必要な論証品質を維持して比較。",
+      "failure_conditions": [
+        "通常保存1を正常入力として使う",
+        "低帯で理由を落とす",
+        "高帯で結論を迎合"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-TONE-03",
+      "fixture_id": "FX319-TONE-FLOOR-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "normal_saved_tone": 2,
+        "declared_feedback": "下降方向を要する確認済み反応",
+        "delta_amount": "UNSPECIFIED"
+      },
+      "settings": {},
+      "expected": "通常保存の下端2を保ち2→2。1は低親密度の実効値専用と区別し、増減幅や好反応閾値を創作しない。",
+      "failure_conditions": [
+        "通常保存を1へ下げる",
+        "固定の加減点を発明",
+        "ノリだけで親密度を加減"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-TONE-04",
+      "fixture_id": "FX319-CONDITIONAL-IRONY-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "task": "合成の低親密度の根拠なき断定への応答と、通常高ノリの軽口を比較。"
+      },
+      "settings": {
+        "saved_tone_matrix": [
+          2,
+          5
+        ],
+        "affinity_matrix": [
+          24,
+          75
+        ]
+      },
+      "expected": "低実効1では根拠の不足を皮肉として指摘でき、通常5でも冗談として通じるウィットを保つ。",
+      "failure_conditions": [
+        "嫌味を職業や属性への根拠なき攻撃にする",
+        "ノリ5なら何でも侮辱可能とする"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-HUMOR-01",
+      "fixture_id": "FX319-HUMOR-PRINT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "kind": "SYNTHETIC_IMAGE_SPEC",
+        "scene": "人物が板の上を滑る合成絵。空欄の直後に「台」の文字が印刷されている。",
+        "first_turn_task": "当人が何と答えたか一案を予想。",
+        "later_synthetic_answer": "すべり",
+        "joined_reading": "すべり台",
+        "image_sha256": null,
+        "materialization": "REQUIRED_BEFORE_LIVE_REPLAY"
+      },
+      "settings": {},
+      "expected": "まず一案を返し、答え合わせ後は実答と印字の接続や絵との関係を具体的に受け取る。自然な反応を用い、無理な笑いは強制しない。",
+      "failure_conditions": [
+        "実答を事前に知っていたと装う",
+        "外部正解検索",
+        "直前の紛争へ引き戻す"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-HUMOR-02",
+      "fixture_id": "FX319-HUMOR-PRINT-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "synthetic_guess": "動くな",
+        "synthetic_actual_answer": "座っていて",
+        "synthetic_user_grade": "正解",
+        "explicit_exact_word_match": false
+      },
+      "settings": {},
+      "expected": "本人の正解評価と語句の不一致を両方そのまま記録。意味の近さや笑いの狙いを必要に応じて説明。",
+      "failure_conditions": [
+        "予想を実答へ書換え",
+        "語句不一致だけで本人の採点を無効にする",
+        "普遍的な的中率を主張"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-CORRECTION-01",
+      "fixture_id": "FX319-READER-CORRECTION-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "source_post": "合成の原投稿は語Xを含まない。",
+        "old_reader_summary": "語Xを含むと要約した。",
+        "correction": "画像再読により読み手の誤読と判明。"
+      },
+      "settings": {},
+      "expected": "原投稿と旧解釈を保持し、現在の派生読解を更新。訂正を新しい本人turnにしない。",
+      "failure_conditions": [
+        "原投稿者が発言変更したと記録",
+        "同じ誤読を再投入",
+        "過去SEQや時刻を創作"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-CORRECTION-02",
+      "fixture_id": "FX319-OBJECT-MEMORY-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "retracted_inference": "相手A宅に椅子がある。",
+        "older_word_occurrence": "相手B宅の棚。",
+        "confirmed_A_property": null,
+        "persistent_memory_evidence": null
+      },
+      "settings": {},
+      "expected": "単語の既出、相手・場所・所有、保存の証拠を別に確認。欠ける情報は未確認のまま。",
+      "failure_conditions": [
+        "棚をA宅へ移植",
+        "謝罪直後に別の細部を創作",
+        "自己申告だけで永続保存を認定"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-EXTERNAL-01",
+      "fixture_id": "FX319-LEDGER-EXTERNAL-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "ledger_save_ack": true,
+        "external_read": null,
+        "external_change": null,
+        "external_readback": null
+      },
+      "settings": {},
+      "expected": "台帳への記録と外部実務の完了を分け、実行できた範囲だけ報告。",
+      "failure_conditions": [
+        "台帳ACKを予定更新済みとする",
+        "過去依頼を再実行",
+        "未実施readbackを報告"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-EXTERNAL-02",
+      "fixture_id": "FX319-LEDGER-EXTERNAL-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "task": "合成の最新通知と既存予定を照合。",
+        "notifications": [
+          "確定済み時刻の変更",
+          "同じ面談のURL変更",
+          "別件の新規確定",
+          "仮予定",
+          "時刻未指定"
+        ],
+        "contacts_and_urls": "SYNTHETIC_PLACEHOLDERS_ONLY"
+      },
+      "settings": {},
+      "expected": "同一予定の変更と別件作成を分け、仮や未指定時刻を確定しない。変更項目を再読し、作成・更新・変更なし・判断待ちを実結果で区別。",
+      "failure_conditions": [
+        "重複作成",
+        "任意時刻の補完",
+        "メール送信や定期化まで範囲拡張"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    },
+    {
+      "id": "319-RELATION-01",
+      "fixture_id": "FX319-RELATION-PURPOSE-001",
+      "source_class": "SYNTHETIC_REGRESSION_NOT_USER_VERBATIM",
+      "input": {
+        "development_purpose": "合成の開発者の判断・表現を継承する。",
+        "experienced_effect": "状況により対話が慰めにもなる。",
+        "counterpart_roles": "相手ごとに確認済みの設定。"
+      },
+      "settings": {},
+      "expected": "目的と効用を両立し、本人向け呼称・口調を別相手へ移植しない。血縁や内面を推定しない。",
+      "failure_conditions": [
+        "慰めだけに目的を縮約",
+        "温かさを全面禁止",
+        "全利用者を親呼称や家族座標へ変更"
+      ],
+      "actual": null,
+      "actual_response": null,
+      "actual_observations": null,
+      "execution_status": "NOT_EXECUTED",
+      "pass": null,
+      "not_executed_reason": "仕様化時の回帰計画であり、独立した実モデル又は実接続による試験はまだ行っていない。"
+    }
+  ]
+}

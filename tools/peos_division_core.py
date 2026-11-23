@@ -20,6 +20,7 @@ from peos_short_preprocess import PreprocessError, ShortPreprocessor
 from peos_short_preprocess import valid_jst
 from peos_response_policy import installation_configuration, response_plan, summarize_magi
 from peos_affinity_policy import response_context, process_command, restore_state
+from peos_dialogue_policy import summarize_dialogue
 
 PROFILE = 'runtime/PEOS_DIVISION_CORE_PROFILE.json'
 ENTRY = 'bootstrap/PEOS_DIVISION_CORE_JP.md'
@@ -36,7 +37,7 @@ def load_profile(root):
     value = json.loads((root / PROFILE).read_text(encoding='utf-8'))
     if value['kind'] != 'DERIVED_DEPLOYMENT_PROFILE_NOT_CANON':
         raise ValueError('a deployment profile cannot promote itself to a canon')
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.318.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())
     if value['authority'] != restore['authority']:
         raise ValueError('profile authority must match the explicit public authority')
     expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in
@@ -224,7 +225,7 @@ class DivisionRuntime:
 
     def dispatch(self, turn_id, raw, updates, work=lambda: None, *, route='NORMAL',
                  task_kind='ANALYSIS', brief_requested=False, review=None,
-                 relationship_command_context=None):
+                 relationship_command_context=None, dialogue_review=None):
         if route not in {'NORMAL', 'BOOT', 'URGENT_SAFETY'}:
             raise PreprocessError('unknown route')
         if route in {'BOOT', 'URGENT_SAFETY'}:
@@ -291,6 +292,12 @@ class DivisionRuntime:
                 # The persistence driver must not invoke the response callback
                 # before the separate post-preprocessing display-clock capture.
                 result = self.preprocessor.dispatch(turn_id, raw, updates, route=route)
+        # Supplied review records are part of preparation. Capture the display
+        # clock after them, immediately before the response body callback.
+        magi_summary = (summarize_magi(review(copy.deepcopy(plan)))
+                        if review is not None and plan['consider_before_conclusion'] else None)
+        dialogue_summary = (summarize_dialogue(dialogue_review(copy.deepcopy(plan)))
+                            if dialogue_review is not None and plan['dialogue_policy']['applicable'] else None)
         stamp = None
         if (selected and scope.get('clock') and not self.paused and not exempt
                 and self.display_clock is not None):
@@ -305,7 +312,7 @@ class DivisionRuntime:
         result['response_started_at_jst'] = stamp
         result['display_clock_kind'] = 'RESPONSE_STARTED_AT_JST_AFTER_PREPROCESS'
         result['observation_receipt_is_display_clock'] = False
-        labels = {'SYNC_ACKNOWLEDGED': '同期済', 'DEGRADED': '同期未完了',
+        labels = {'SYNC_ACKNOWLEDGED': '台帳同期済（ACK・再取得未確認）', 'DEGRADED': '同期未完了',
                   'FAIL': '記録未完了', 'PAUSED': '前処理停止',
                   'ONE_TURN_EXEMPT': '今回の前処理免除',
                   'PREPROCESS_NOT_SELECTED': '前処理対象外',
@@ -319,8 +326,8 @@ class DivisionRuntime:
         result['decision_policy'] = plan
         result['relationship_operation'] = relationship_operation
         result['configuration'] = copy.deepcopy(self.configuration)
-        result['magi_summary'] = (summarize_magi(review(copy.deepcopy(plan)))
-                                  if review is not None and plan['consider_before_conclusion'] else None)
+        result['magi_summary'] = magi_summary
+        result['dialogue_summary'] = dialogue_summary
         result['live_model_quality_verified'] = False
         result['work_result'] = work()
         return result

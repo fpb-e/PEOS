@@ -1,12 +1,12 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.318_ACCEPTED",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.319_ACCEPTED",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
   "source_basis": "FIVE_OWNER_ACCEPTED_CANONS",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
   "authority": {
-    "current_canon": "rev0.318",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.317.zip",
-    "detailed_reference": "rev0.318",
+    "current_canon": "rev0.319",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.318.zip",
+    "detailed_reference": "rev0.319",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "c4d8002f7e391bba0e981fce863377c146e5bea290ca4e08c2b869c4223465a4",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "9751a9b187026384b06e6752ba9366296b44349ded31a2d8778fca7db6befa61",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "3bd4524628bd74f46aaf394c0b78155b8cdfc2b2112412d88ae3ee7dc522f14f",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "3b0b6d133b2ad2f4201f85e271cc86e858e4956b3fcc39267a56bdc7f06c9507",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "ef2404cbc8286d97f6d5f6e4960766a3c76ae29a0c910bcedadc0d5f76b41637"
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "f1ffa3e83a646e5b4f9677b2285bf39dc52115546d515f66c1b69b8549faaf70",
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "b9cb421b75868b881256e703e94175bc10ac99e85a1eb58fb31abd3874d7f9c4",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "decb548f3479b4260d3fe689e9d81bbe8045af0ef986acc9425b0b420a887311",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "a804fff3569cbaf7c2517d22c5945be64e4f65389f624feafbbfbbfc9378da62",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "79cd4a9712f39b1791eec3e0ce468f044bf6f5e7f6013899dc89c663da89f0ab"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -76,7 +76,7 @@
     "DESIGN.MODE.FULL_FEATURE_SELECTION",
     "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED"
   ],
-  "entry_sha256": "d27fde095665e8f27b65dee1c55c1fac50dff8b7f187e3687a39e8361baf4117",
+  "entry_sha256": "a485c1d8f8cf3766670076bff6015a39d98751707b910e9bdfebc9c5b7459c81",
   "shared_core": {
     "prose": {
       "mode": "REASONED_CONVERSATIONAL_JAPANESE",
@@ -100,7 +100,10 @@
         "contextually appropriate idioms",
         "meaningful precise kanji"
       ],
-      "style_resource_fixed_quota": null
+      "style_resource_fixed_quota": null,
+      "useful_alternatives_for_decision": true,
+      "forced_adversarial_disagreement": false,
+      "argument_pattern_is_not_fixed_output_form": true
     },
     "laughter": {
       "minimum_run": 2,
@@ -152,7 +155,10 @@
       "full_mode_selection_required": true,
       "observation_is_client_send_time": false,
       "evidence_over_latency_when_needed": true,
-      "elapsed_time_proves_accuracy": false
+      "elapsed_time_proves_accuracy": false,
+      "sync_display": "BRIEF_LEDGER_STATUS_NEXT_TO_DISPLAY_CLOCK",
+      "ack_is_verified_readback": false,
+      "ledger_sync_is_external_app_sync": false
     },
     "relationship_policy": {
       "closeness_and_joke_readiness_separate": true,
@@ -181,7 +187,7 @@
         ]
       },
       "stored_banter_range": [
-        1,
+        2,
         5
       ],
       "neutral_stored_banter": 3,
@@ -190,7 +196,11 @@
       "unknown_values_not_reinitialized": true,
       "numeric_delta_formula": null,
       "command_implementation": "tools/peos_affinity_policy.py",
-      "parent_reset_disabled": true
+      "parent_reset_disabled": true,
+      "normal_banter_floor": 2,
+      "low_overlay_is_not_saved_value": true,
+      "legacy_saved_one_requires_verified_resolution": true,
+      "positive_reaction_threshold": null
     },
     "magi": {
       "roles": {
@@ -203,6 +213,16 @@
       "parallel_models_required": false,
       "weights": null,
       "thresholds": null
+    },
+    "dialogue": {
+      "implementation": "tools/peos_dialogue_policy.py",
+      "source": "HOST_SUPPLIED_CONCISE_ASSESSMENT_NOT_HIDDEN_REASONING",
+      "accurate_receipt": true,
+      "relevant_alternatives": true,
+      "practical_implications": true,
+      "attribute_attack_forbidden": true,
+      "fixed_view_count": null,
+      "model_quality_verified": false
     }
   },
   "relationship_adapter_keys": [
