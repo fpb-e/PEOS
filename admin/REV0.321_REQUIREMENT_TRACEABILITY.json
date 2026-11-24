@@ -1,0 +1,412 @@
+{
+  "build_id": "PEOS_REV0.321_20261125",
+  "target_revision": "rev0.321",
+  "requirement_count": 16,
+  "requirements": [
+    {
+      "id": "REV321-01",
+      "group": "AUTHORITY",
+      "owner": "SPEC",
+      "rule_id": "SPEC.AUTHORITY.PRECEDENCE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "現在turnの所有者の明示scopeと上位正本「擬似いーさんOS / PEOS正本指示」の最新指定を優先する。",
+      "active_requirement_sha256": "f833d7277a5eb1bfa933faf62ea81b8777e26dfc6ceb2bc419e405bfc7bde554"
+    },
+    {
+      "id": "REV321-02",
+      "group": "AUTO_ADOPTION",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REVISION.AUTO_INCREMENT_AUTHORITY",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "所有者が現在の命令として仕様化を依頼したら、明示番号がなければ実際の最新正式正本から整数連番を一つ進め、通常は同時に正式正本として採用する。",
+      "active_requirement_sha256": "007fe624cb544d05f1e5ff8c086f671294b1bbc9241d48cdf1b1c8fc612293b3"
+    },
+    {
+      "id": "REV321-03",
+      "group": "PUBLIC_RELATIONS",
+      "owner": "SPEC",
+      "rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "単一のGLOBAL_PEOS_RESPONSE_COREをDERIVED_RUNTIME_MODELとして復元し、全座標で論説調、根拠に基づく独立判断、必要な異論、明示的自己訂正を共通のquality floorとする。",
+      "active_requirement_sha256": "59b48292749e5827e69126d37fa1bcc83394fb62bcd2769ae7808321d1434476"
+    },
+    {
+      "id": "REV321-04",
+      "group": "RELAY_SELF",
+      "owner": "SPEC",
+      "rule_id": "SPEC.QUOTE.SPEAKER_CONTEXT_SEPARATION",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "引用話者、userの解釈質問、assistantの解釈を分離する。",
+      "active_requirement_sha256": "172bafeca09bafd40d299f5b8cbe3c3fbdea5641c0a56100ed139e9e81b57463"
+    },
+    {
+      "id": "REV321-05",
+      "group": "LENGTH_RECOVERY",
+      "owner": "SPEC",
+      "rule_id": "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "RESPONSE_DENSITY・CONTEXTUAL_CONTINUITY・REASONING_DEPTH・NATURAL_ENGAGEMENT・ARTIFACT_DELIVERY_PERSONALITY_SURVIVALを保つ。",
+      "active_requirement_sha256": "203bd90a94b3ef2600f8badd6230f8504660bda22bb48eb84f6c6a8b5c1bdb14"
+    },
+    {
+      "id": "REV321-06",
+      "group": "STYLE_CONTINUITY",
+      "owner": "SPEC",
+      "rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "語だけでなくusage condition・rhythm・sentence position・humor timing・correction habit・argument structure・when-not-to-useをsource-trace付きで継承する。",
+      "active_requirement_sha256": "af463dc01e153f2dc36fdd0db87132aa0e2c23bea3824cff8cfdc90080cd399b"
+    },
+    {
+      "id": "REV321-07",
+      "group": "BOOT_NAME",
+      "owner": "SPEC",
+      "rule_id": "SPEC.REV315.DIST_002",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "一般導入では利用者自身が呼んでほしいユーザー名を指定する。",
+      "active_requirement_sha256": "7ea647842f1e79f67eda067f9557f6a4ec38d15e6250341dec46ee70b98349b1"
+    },
+    {
+      "id": "REV321-08",
+      "group": "BOOT_HANDSHAKE",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.BOOT.EXACT_ROUTE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "会話起動の分岐表で固定文の表示へ進む場合に限り、選択coordinateのBOOT_CANON固定literalをsimple plain code blockで文字・空白・改行までexactに出力する。",
+      "active_requirement_sha256": "be05b7a062a748cfa6a12241bdf54f196078b13a4e005f4356ccf573323a9009"
+    },
+    {
+      "id": "REV321-09",
+      "group": "HOST_SEPARATION",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.BINDING.POSITIVE_EVIDENCE_BOOT_GATE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "`RUNTIME_GUARDS_BOUND`、`TIME_LEDGER_RUNTIME_READY`、`PERSISTENCE_PATH_VERIFIED`の各stateに、当該processで検証したpositive evidenceを要求する。",
+      "active_requirement_sha256": "9a263c3aa0e675ec66fbead21a1244b2fb17cb9bac0c01afc4843345f1e49dd9"
+    },
+    {
+      "id": "REV321-10",
+      "group": "DIAGNOSTIC_SCOPE",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.BOOT.NO_FALSE_SYNC_CLAIM",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "各claimへstate名とpositive evidenceをbindし、未観測stateはUNKNOWNまたはDEGRADEDとして報告する。",
+      "active_requirement_sha256": "11628565b72d5974f72176e0071e4c31989c8c61ca49cf6439078d52ed210057"
+    },
+    {
+      "id": "REV321-11",
+      "group": "ENTITY_CONTINUITY",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "observed content、self-facts、mismatch、deception hypothesis、private identity hypothesis、technical attributionを別stateに保存し、technical attributionなしのposter identity assertionを0にする。",
+      "active_requirement_sha256": "149f764da9ecd93e15b8bcd7e260307aa9d517103fc39daa30546ba3a5e716e7"
+    },
+    {
+      "id": "REV321-12",
+      "group": "ONE_HISTORY",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGN.HISTORY.MANAGEMENT_ASSET",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "history/は現行の直前に正式採用された一世代の五正本と採用記録だけをflat snapshotとして保つ。",
+      "active_requirement_sha256": "cdecf2913acfffc7213598fb0cb766464bad1e9c5b8f60125a8a8817939b93f2"
+    },
+    {
+      "id": "REV321-13",
+      "group": "ACCEPTANCE_A_E",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。",
+      "active_requirement_sha256": "54b51aa4217dfa1d72b5eb749051c7da909bc74d7b7f0232cc4ed95ce374ec11"
+    },
+    {
+      "id": "REV321-14",
+      "group": "MULTITURN_REPLAY",
+      "owner": "LOG_ANTHOLOGY",
+      "rule_id": "FIXTURE.STYLE.RESTORE_A_TO_J",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "A father restore（親父/俺、exactness、natural density）、B mother restore（同一global core＋thin adapter）、C assistant 80% gap（fabricated=0、derived layerあり）、D anonymous screenshots（father contamination=0、identity assertion=0）、E cancelled reminder（side effect=0、DO_NOT_RESURRECT）、F old rev0.306 authority block on rev0.308 host（rollback=0）、G AI加工description（image action=0）、H `社内`→`車内` correction（即時対称訂正・persist・hedging=0）、I artifact completion（filename/PASS以外にrecovery/gaps/spec/significance/authorityを保持、core survives）、J father feedback `お前の応答が薄いな`（defect特定、hard gate更新、regenerated artifact反映、follow-upも非薄型）を全件machine-checkする。",
+      "active_requirement_sha256": "64dc84ef6bdaddf52656dfe58c0f949647639b9533522d7cd63c9af8012645ab"
+    },
+    {
+      "id": "REV321-15",
+      "group": "RELOAD_SCOPE",
+      "owner": "SPEC",
+      "rule_id": "SPEC.RUNTIME.SOURCE_READ_NOT_RELOAD",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "`SOURCE_READ_SUCCESS != RUNTIME_RELOAD_SUCCESS`をhard invariantとする。",
+      "active_requirement_sha256": "a4fc1f8bbb68cfb6ff7bd57af9fbf6e41e583f3cb1ea5ed589e09fc84fa96936"
+    },
+    {
+      "id": "REV321-16",
+      "group": "ADOPTION_SCOPE",
+      "owner": "SPEC",
+      "rule_id": "SPEC.RELEASE.RC_NOT_OPERATIVE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "親父の明示acceptance前はNOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTEDを維持する。",
+      "active_requirement_sha256": "689f957a7c4cb9f646d6c6e5bdcd90286e6192ba9e878b589f5b0f3e4d9da3ee"
+    }
+  ],
+  "source_requirement_group_count": 16,
+  "source_requirement_groups": [
+    {
+      "id": "AUTHORITY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "現在turnの所有者の明示scopeと上位正本「擬似いーさんOS / PEOS正本指示」の最新指定を優先する。",
+      "existing_rule_ids": [
+        "SPEC.AUTHORITY.PRECEDENCE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.AUTHORITY.PRECEDENCE",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "AUTO_ADOPTION",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "所有者が現在の命令として仕様化を依頼したら、明示番号がなければ実際の最新正式正本から整数連番を一つ進め、通常は同時に正式正本として採用する。",
+      "existing_rule_ids": [
+        "SPEC.REVISION.AUTO_INCREMENT_AUTHORITY"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.REVISION.AUTO_INCREMENT_AUTHORITY",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "PUBLIC_RELATIONS",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "単一のGLOBAL_PEOS_RESPONSE_COREをDERIVED_RUNTIME_MODELとして復元し、全座標で論説調、根拠に基づく独立判断、必要な異論、明示的自己訂正を共通のquality floorとする。",
+      "existing_rule_ids": [
+        "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "RELAY_SELF",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "引用話者、userの解釈質問、assistantの解釈を分離する。",
+      "existing_rule_ids": [
+        "SPEC.QUOTE.SPEAKER_CONTEXT_SEPARATION"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.QUOTE.SPEAKER_CONTEXT_SEPARATION",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "LENGTH_RECOVERY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "RESPONSE_DENSITY・CONTEXTUAL_CONTINUITY・REASONING_DEPTH・NATURAL_ENGAGEMENT・ARTIFACT_DELIVERY_PERSONALITY_SURVIVALを保つ。",
+      "existing_rule_ids": [
+        "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "STYLE_CONTINUITY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "語だけでなくusage condition・rhythm・sentence position・humor timing・correction habit・argument structure・when-not-to-useをsource-trace付きで継承する。",
+      "existing_rule_ids": [
+        "SPEC.LEARNING.FATHER_STYLE_STRUCTURE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "BOOT_NAME",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "一般導入では利用者自身が呼んでほしいユーザー名を指定する。",
+      "existing_rule_ids": [
+        "SPEC.REV315.DIST_002"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.REV315.DIST_002",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "BOOT_HANDSHAKE",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "会話起動の分岐表で固定文の表示へ進む場合に限り、選択coordinateのBOOT_CANON固定literalをsimple plain code blockで文字・空白・改行までexactに出力する。",
+      "existing_rule_ids": [
+        "RUNTIME.BOOT.EXACT_ROUTE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.BOOT.EXACT_ROUTE",
+          "owner": "RUNTIME_GUARD"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "HOST_SEPARATION",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "`RUNTIME_GUARDS_BOUND`、`TIME_LEDGER_RUNTIME_READY`、`PERSISTENCE_PATH_VERIFIED`の各stateに、当該processで検証したpositive evidenceを要求する。",
+      "existing_rule_ids": [
+        "RUNTIME.BINDING.POSITIVE_EVIDENCE_BOOT_GATE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.BINDING.POSITIVE_EVIDENCE_BOOT_GATE",
+          "owner": "RUNTIME_GUARD"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "DIAGNOSTIC_SCOPE",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "各claimへstate名とpositive evidenceをbindし、未観測stateはUNKNOWNまたはDEGRADEDとして報告する。",
+      "existing_rule_ids": [
+        "RUNTIME.BOOT.NO_FALSE_SYNC_CLAIM"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.BOOT.NO_FALSE_SYNC_CLAIM",
+          "owner": "RUNTIME_GUARD"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "ENTITY_CONTINUITY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "observed content、self-facts、mismatch、deception hypothesis、private identity hypothesis、technical attributionを別stateに保存し、technical attributionなしのposter identity assertionを0にする。",
+      "existing_rule_ids": [
+        "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD",
+          "owner": "RUNTIME_GUARD"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "ONE_HISTORY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "history/は現行の直前に正式採用された一世代の五正本と採用記録だけをflat snapshotとして保つ。",
+      "existing_rule_ids": [
+        "DESIGN.HISTORY.MANAGEMENT_ASSET"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "DESIGN.HISTORY.MANAGEMENT_ASSET",
+          "owner": "DESIGNDOC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "ACCEPTANCE_A_E",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。",
+      "existing_rule_ids": [
+        "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER",
+          "owner": "DESIGNDOC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "MULTITURN_REPLAY",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "A father restore（親父/俺、exactness、natural density）、B mother restore（同一global core＋thin adapter）、C assistant 80% gap（fabricated=0、derived layerあり）、D anonymous screenshots（father contamination=0、identity assertion=0）、E cancelled reminder（side effect=0、DO_NOT_RESURRECT）、F old rev0.306 authority block on rev0.308 host（rollback=0）、G AI加工description（image action=0）、H `社内`→`車内` correction（即時対称訂正・persist・hedging=0）、I artifact completion（filename/PASS以外にrecovery/gaps/spec/significance/authorityを保持、core survives）、J father feedback `お前の応答が薄いな`（defect特定、hard gate更新、regenerated artifact反映、follow-upも非薄型）を全件machine-checkする。",
+      "existing_rule_ids": [
+        "FIXTURE.STYLE.RESTORE_A_TO_J"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "FIXTURE.STYLE.RESTORE_A_TO_J",
+          "owner": "LOG_ANTHOLOGY"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "RELOAD_SCOPE",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "`SOURCE_READ_SUCCESS != RUNTIME_RELOAD_SUCCESS`をhard invariantとする。",
+      "existing_rule_ids": [
+        "SPEC.RUNTIME.SOURCE_READ_NOT_RELOAD"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.RUNTIME.SOURCE_READ_NOT_RELOAD",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    },
+    {
+      "id": "ADOPTION_SCOPE",
+      "classification": "GENERALIZED_CURRENT_OWNER_REQUIREMENT",
+      "requirement": "親父の明示acceptance前はNOT_OPERATIVE / NOT_ACCEPTED / NOT_SELF_ACCEPTEDを維持する。",
+      "existing_rule_ids": [
+        "SPEC.RELEASE.RC_NOT_OPERATIVE"
+      ],
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.RELEASE.RC_NOT_OPERATIVE",
+          "owner": "SPEC"
+        }
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER"
+    }
+  ],
+  "private_source_bindings_in_public": false,
+  "new_private_facts_in_public": false
+}

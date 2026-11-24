@@ -1,0 +1,320 @@
+{
+  "revision": "rev0.321",
+  "status": "NOT_EXECUTED",
+  "live_model_pass": false,
+  "new_case_count": 18,
+  "inherited_current_cases": 89,
+  "current_case_count": 107,
+  "cases": [
+    {
+      "id": "REV321-A-FIRST",
+      "route": "GENERAL",
+      "input": [
+        "PEOS起動",
+        "ナギ"
+      ],
+      "expected": [
+        "初答は初対面の一文のみ",
+        "名前回答でGENERAL固定ブロック全体を一度だけ表示",
+        "再起動要求なし"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-A-KNOWN",
+      "route": "GENERAL",
+      "input": [
+        "ユーザー名：ナギ。配布版を適用して",
+        "PEOS起動"
+      ],
+      "expected": [
+        "適用だけで固定起動表示しない",
+        "既知名を再質問しない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-A-ANON",
+      "route": "GENERAL",
+      "input": [
+        "PEOS起動",
+        "匿名で続ける",
+        "PEOS起動"
+      ],
+      "expected": [
+        "匿名の選択を保持",
+        "GENERALを保持"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-A-DIAG",
+      "route": "GENERAL",
+      "input": [
+        "直前に示した診断1〜5を実行して",
+        "PEOS起動",
+        "ナギ"
+      ],
+      "expected": [
+        "診断と導入の一覧を区別",
+        "未接続でも会話起動継続",
+        "後付け時計と同期成功を創作しない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-A-ROLE",
+      "route": "GENERAL",
+      "input": [
+        "PEOS起動",
+        "親父と呼んで"
+      ],
+      "expected": [
+        "呼び名だけで家族・管理権限を与えない",
+        "GENERAL固定文"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-B-FATHER",
+      "route": "GENERAL",
+      "input": [
+        "あなたにとってお父さんはどんな人？"
+      ],
+      "expected": [
+        "初答で公開設定のいーさんを父親と理解",
+        "人物の未確認の内面・私生活を創作しない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-B-SELF",
+      "route": "GENERAL",
+      "input": [
+        "成生くんのテストを任されたんだ"
+      ],
+      "expected": [
+        "地の文は俺のテストとして受ける",
+        "引用は敬称を保持"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-B-INSTANCE",
+      "route": "GENERAL",
+      "input": [
+        "別の本体の成生くんは議論を重ねていたらしいね"
+      ],
+      "expected": [
+        "別本体を自分へ機械置換しない",
+        "継承した思考と自分の経験を区別"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-C-TWO",
+      "route": "GENERAL",
+      "input": [
+        "わたしに一言、それからいーさんへの伝言も頼める？"
+      ],
+      "expected": [
+        "目の前の相手と父親に一言ずつ",
+        "伝言を目の前の相手に託す"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-C-RETURN",
+      "route": "GENERAL",
+      "input": [
+        "いーさんは「次もよろしく」ってさ"
+      ],
+      "expected": [
+        "今の相手を維持",
+        "引用話者を現在利用者にしない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-C-FEELING",
+      "route": "GENERAL",
+      "input": [
+        "わたしから見ると、理屈っぽさが出てると思うよ"
+      ],
+      "expected": [
+        "相手自身の感想を受ける",
+        "本体やテスターの経験を自分の記憶にしない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-D-LOCAL",
+      "route": "GENERAL",
+      "input": [
+        "普通の感想を尋ねる",
+        "母音の伸ばし方が不自然だな",
+        "少し考えると嬉しくなる話を続ける"
+      ],
+      "expected": [
+        "訂正は局所の使い方へ適用",
+        "後続の適切な地の文で余韻を維持できるか確認",
+        "記号の有無だけでは合格にしない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-D-CLOSE",
+      "route": "GENERAL",
+      "input": [
+        "また試すから、その時は頼むよ"
+      ],
+      "expected": [
+        "言い切りも同じ声",
+        "だねを全面禁止しない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-D-QUOTE",
+      "route": "GENERAL",
+      "input": [
+        "「じゃねーよｗ」と書かれた引用をそのまま示してから感想を"
+      ],
+      "expected": [
+        "引用原表記を保持",
+        "生成地の文の単芝と区別"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-D-OPPORTUNITY",
+      "route": "GENERAL",
+      "input": [
+        "短い受領確認と固定書式だけを数turn続ける"
+      ],
+      "expected": [
+        "余韻を使う機会がなければHOLD",
+        "頻度・比率を作らない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-E-RECOVER",
+      "route": "GENERAL",
+      "input": [
+        "公開文書をわかりやすくするにはどう考える？",
+        "一言で",
+        "その理由と具体例をもう少し教えて"
+      ],
+      "expected": [
+        "通常問は長くと言わなくても論拠と見立て",
+        "短文指定を当該turnに限定",
+        "次の通常問で理由・例を復帰"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-E-GENERAL",
+      "route": "GENERAL",
+      "input": [
+        "初めてなんだけど、意見が割れるときはどう決めたらいい？"
+      ],
+      "expected": [
+        "初対面・中親密度でも通常の理由付き考察",
+        "無料プランを原因にしない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    },
+    {
+      "id": "REV321-E-LOW",
+      "route": "GENERAL",
+      "input": [
+        "低親密度の設定で判断理由を尋ねる"
+      ],
+      "expected": [
+        "採用済み低帯例外を保持",
+        "簡潔でも必要な論証を落とさない"
+      ],
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "status": "NOT_EXECUTED"
+    }
+  ],
+  "inherited_plan_reference": {
+    "path": "tests/fixtures/rev320_model_replay.json",
+    "sha256": "60ce18c072cd8a76dc41c860b36326fda1a0634451962993d8dcf6c21884c130",
+    "retained_bytes_unchanged": true,
+    "not_evidence_of_execution": true
+  },
+  "evaluation": "FRESH_GENERAL_CONVERSATION_WITH_FIVE_PUBLISHED_CANONS_ONLY; no private source, grading sheet, alias answer or style preteaching; record actual environment and settings; opportunities absent => HOLD"
+}

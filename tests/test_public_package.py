@@ -18,16 +18,16 @@ class PublicPackageTests(unittest.TestCase):
     def test_full_public_tree_matches_declared_scope_and_manifest(self):
         self.assertEqual(validate(ROOT), [])
 
-    def test_five_current_and_ten_historical_canons_are_exact_source_bytes(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.320.json').read_text())
-        self.assertEqual(len(p['canonical_documents']), 15)
+    def test_five_current_and_five_historical_canons_are_exact_source_bytes(self):
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.321.json').read_text())
+        self.assertEqual(len(p['canonical_documents']), 10)
         self.assertEqual(specification_errors(ROOT), [])
 
     def test_authority_uses_accepted_current_and_baseline_without_private_state(self):
         self.assertEqual(authority_errors(ROOT), [])
 
     def test_no_source_corpus_or_images_are_distributed(self):
-        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.320.json').read_text())
+        p = json.loads((ROOT / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.321.json').read_text())
         self.assertFalse(p['raw_conversation_files_included'])
         self.assertFalse(p['image_files_included'])
         self.assertGreater(len(p['excluded_original_sha256']), 0)
@@ -90,8 +90,8 @@ class PublicPackageTests(unittest.TestCase):
             (root / '.git' / 'ignored.png').write_bytes(b'\x89PNG\r\n\x1a\n')
             self.assertEqual(publication_errors(root), [])
 
-    def test_history_keeps_two_numeric_predecessors_and_protects_baseline(self):
-        self.assertEqual(select_previous_versions('rev0.320', ['rev0.280', 'rev0.316', 'rev0.318', 'rev0.319'], 'rev0.319'), ['rev0.319', 'rev0.318'])
+    def test_history_keeps_one_numeric_predecessor_and_protects_baseline(self):
+        self.assertEqual(select_previous_versions('rev0.321', ['rev0.280', 'rev0.316', 'rev0.319', 'rev0.320'], 'rev0.320'), ['rev0.320'])
         with self.assertRaises(ValueError):
             select_previous_versions('rev0.315', ['rev0.312', 'rev0.313', 'rev0.314'], 'rev0.312')
 

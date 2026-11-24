@@ -1,0 +1,41 @@
+{
+  "revision": "rev0.321",
+  "target_revision": "rev0.321",
+  "candidate_id": "PEOS_REV0.321_20261125",
+  "status": "ACCEPTED_BY_OWNER",
+  "authority": {
+    "current_canon": "rev0.321",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.320.zip",
+    "detailed_reference": "rev0.321",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
+    "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "total_rule_count": 444,
+  "source_requirements": 16,
+  "previous_unnumbered_candidate_id": "PEOS_NEXT_SPEC_20261103",
+  "live_model_acceptance": "NOT_PERFORMED",
+  "release_accepted": true,
+  "revision_assignment_basis": "OWNER_STANDING_AND_CURRENT_SPECIFICATION_COMMAND",
+  "acceptance_record": "admin/REV0.321_OWNER_ACCEPTANCE.json",
+  "release_acceptance_basis": "OWNER_STANDING_INSTRUCTION_AND_CURRENT_SPECIFICATION_COMMAND",
+  "previous_accepted_revision": "rev0.320",
+  "changed_existing_rules": 16,
+  "source_requirement_groups": 16,
+  "private_package_created": false,
+  "github_publication_performed": true,
+  "static_tests": "318_REPOSITORY_REFERENCE_TESTS_PASS",
+  "package_tests": "312_REFERENCE_TESTS_PASS",
+  "repository_download_validation": "HTTP200_SIZE_SHA256_CRC_AND_FIVE_CANONS_VERIFIED",
+  "github_publication_requested": true,
+  "repository_reference_tests": "318_REFERENCE_TESTS_PASS",
+  "standing_specification_policy": "admin/SPECIFICATION_RELEASE_POLICY.json",
+  "revision_policy_reference_tests": "14_REFERENCE_TESTS_PASS",
+  "publication_record": "admin/REV0.321_PUBLICATION.json"
+}

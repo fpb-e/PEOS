@@ -36,7 +36,7 @@ class DivisionCoreTests(unittest.TestCase):
 
     def bound_copy(self):
         target = self.directory / 'package'
-        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.320.json']
+        names = [PROFILE, ENTRY, 'runtime/PEOS_SESSION_RESTORE_rev0.321.json']
         names.extend(load_profile(ROOT)['source_canon_sha256'])
         for name in names:
             path = target / name
@@ -195,11 +195,11 @@ class DivisionCoreTests(unittest.TestCase):
             runtime, driver, store = self.runtime(namespace=route, identity=route)
             with patch('peos_division_core.bind_journal_namespace', side_effect=OSError('disk unavailable')):
                 result = runtime.dispatch('T1', 'INPUT', [], lambda: 'PRIORITY BODY', route=route)
-            self.assertEqual(result['work_result'], 'PRIORITY BODY')
+            self.assertEqual(result['work_result'], '' if route == 'BOOT' else 'PRIORITY BODY')
             self.assertFalse(driver.journal.path.exists())
             self.assertFalse(result['sync_performed'])
         missing = DivisionRuntime(ROOT, namespace='SYNTHETIC-NO-TOOLS')
-        self.assertEqual(missing.dispatch('T1', 'BOOT', [], lambda: 'BOOTED', route='BOOT')['work_result'], 'BOOTED')
+        self.assertEqual(missing.dispatch('T1', 'BOOT', [], lambda: 'BOOTED', route='BOOT')['boot']['effect'], 'NEED_CANON_BODY')
 
     def test_sync_failure_keeps_normal_chat_and_truthful_status(self):
         store = SyntheticAckStore(identity='SYNTHETIC-A', fail=True)

@@ -1,5 +1,5 @@
 {
-  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip",
+  "primary": "downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip",
   "packages": [
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
@@ -12,7 +12,8 @@
       "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip",
       "release_accepted": true,
       "acceptance_record": "admin/REV0.318_OWNER_ACCEPTANCE.json",
-      "publication_state": "ASSET_COMMIT_CREATED"
+      "publication_state": "ASSET_COMMIT_CREATED",
+      "acceptance_record_location": "INSIDE_THAT_IMMUTABLE_ZIP"
     },
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip",
@@ -25,7 +26,8 @@
       "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/040254275e844c8ecc44781ac63dbca1dd30e53b/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip",
       "release_accepted": true,
       "acceptance_record": "admin/REV0.319_OWNER_ACCEPTANCE.json",
-      "publication_state": "ASSET_COMMIT_CREATED"
+      "publication_state": "ASSET_COMMIT_CREATED",
+      "acceptance_record_location": "INSIDE_THAT_IMMUTABLE_ZIP"
     },
     {
       "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip",
@@ -39,7 +41,21 @@
       "publication_state": "ASSET_COMMIT_CREATED",
       "asset_commit": "acebab3182ec1be87e6af4c947d7da8100c25151",
       "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip",
-      "distribution_build": "rev0.320_install_entry_20261125"
+      "distribution_build": "rev0.320_install_entry_20261125",
+      "acceptance_record_location": "INSIDE_THAT_IMMUTABLE_ZIP"
+    },
+    {
+      "path": "downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip",
+      "sha256": "172281d592281a0726cbc4f098140dd8c9534e158310b0927a12b6fe14034299",
+      "bytes": 652223,
+      "class": "PUBLIC_SPECIFICATION_PACKAGE",
+      "status": "ACCEPTED_REV321_OWNER_STANDING_AND_CURRENT_COMMAND",
+      "revision": "rev0.321",
+      "release_accepted": true,
+      "acceptance_record": "admin/REV0.321_OWNER_ACCEPTANCE.json",
+      "publication_state": "ASSET_COMMIT_CREATED",
+      "asset_commit": "fdc62c840fbe2a0f8338d737e2ffc50a82e627e4",
+      "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/fdc62c840fbe2a0f8338d737e2ffc50a82e627e4/downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip"
     }
   ],
   "registry_embedded_in_archives": false

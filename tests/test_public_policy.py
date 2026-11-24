@@ -19,12 +19,12 @@ class PublicPolicyTests(unittest.TestCase):
 
     def test_explicit_current_overrides_embedded_candidate_header(self):
         r = resolve_authority({'current_canon': 'rev0.313'}, self.authority)
-        self.assertEqual(r['effective']['current_canon'], 'rev0.320')
+        self.assertEqual(r['effective']['current_canon'], 'rev0.321')
         self.assertTrue(r['mismatch_recorded'])
         self.assertFalse(r['candidate_promoted'])
 
     def test_prohibited_or_older_baseline_is_rejected(self):
-        for revision in ['rev0.280', 'rev0.312', 'rev0.313', 'rev0.314', 'rev0.315', 'rev0.316', 'rev0.318', 'rev0.320']:
+        for revision in ['rev0.280', 'rev0.312', 'rev0.313', 'rev0.314', 'rev0.315', 'rev0.316', 'rev0.318', 'rev0.319', 'rev0.321']:
             value = dict(self.authority, accepted_baseline='PEOS_GITHUB_PACKAGE_' + revision + '.zip')
             with self.subTest(revision=revision), self.assertRaises(ValueError):
                 resolve_authority({}, value)
@@ -35,8 +35,8 @@ class PublicPolicyTests(unittest.TestCase):
             resolve_authority({}, value)
 
     def test_future_explicit_authority_can_advance(self):
-        value = dict(self.authority, current_canon='rev0.321', detailed_reference='rev0.321',
-                     accepted_baseline='PEOS_GITHUB_PACKAGE_rev0.320.zip')
+        value = dict(self.authority, current_canon='rev0.322', detailed_reference='rev0.322',
+                     accepted_baseline='PEOS_GITHUB_PACKAGE_rev0.321.zip')
         self.assertEqual(resolve_authority({}, value)['effective'], value)
 
     def test_detailed_reference_lag_is_rejected(self):

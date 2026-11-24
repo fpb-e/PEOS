@@ -70,6 +70,6 @@ class NextSpecTests(unittest.TestCase):
     def test_authorization_cannot_use_another_namespace(self):
         with self.assertRaises(PreprocessError):DivisionRuntime(ROOT,namespace='SYNTHETIC-A',selected_mode='FULL',authorized_scope={'namespace':'SYNTHETIC-B','clock':True})
     def test_boot_has_no_prefix_and_no_clock_or_persistence_wait(self):
-        r,d,s,t=self.make();x=r.dispatch('BOOT','PEOS起動',[],lambda:'EXACT BOOT',route='BOOT');self.assertEqual(x['work_result'],'EXACT BOOT');self.assertEqual(x['prefix'],'');self.assertEqual(t,[]);self.assertFalse(d.journal.path.exists())
+        r,d,s,t=self.make();x=r.dispatch('BOOT','PEOS起動',[],lambda:'EXACT BOOT',route='BOOT',boot_read_and_applied=True);self.assertEqual(x['work_result'],'初めましてだな。まずは名前を教えてくれ。');self.assertEqual(x['prefix'],'');self.assertEqual(t,[]);self.assertFalse(d.journal.path.exists())
     def test_model_protocol_covers_q1_to_q6_but_is_not_an_execution_result(self):
         x=json.loads((ROOT/'tests/fixtures/rev318_model_replay.json').read_text());self.assertFalse(x['live_model_pass']);self.assertEqual(x['status'],'NOT_EXECUTED');self.assertTrue({'Q'+str(i) for i in range(1,7)}<={v['id'] for v in x['cases']});self.assertEqual(next_spec_errors(ROOT),[])

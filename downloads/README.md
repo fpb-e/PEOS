@@ -1,23 +1,22 @@
 # 公開用ZIPのダウンロード
 
-**[rev0.320をダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip)**
+**[rev0.321 公開ZIPをダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/fdc62c840fbe2a0f8338d737e2ffc50a82e627e4/downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip)**
 
-| 版 | ファイル | サイズ |
+| 版 | ダウンロード | サイズ |
 |---|---|---|
-| rev0.320（現行正本） | [PEOS_GITHUB_PACKAGE_rev0.320.zip](https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip) | 756,266 bytes |
-| rev0.319（baseline・固定保存） | [PEOS_GITHUB_PACKAGE_rev0.319.zip](https://raw.githubusercontent.com/fpb-e/PEOS/040254275e844c8ecc44781ac63dbca1dd30e53b/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip) | 711,040 bytes |
-| rev0.318（固定保存） | [PEOS_GITHUB_PACKAGE_rev0.318.zip](https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip) | 660,977 bytes |
+| rev0.321（現行正本） | [PEOS_GITHUB_PACKAGE_rev0.321.zip](https://raw.githubusercontent.com/fpb-e/PEOS/fdc62c840fbe2a0f8338d737e2ffc50a82e627e4/downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip) | 652,223 bytes |
+| rev0.320（公開済み保管版） | [PEOS_GITHUB_PACKAGE_rev0.320.zip](https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip) | 756,266 bytes |
+| rev0.319（公開済み保管版） | [PEOS_GITHUB_PACKAGE_rev0.319.zip](https://raw.githubusercontent.com/fpb-e/PEOS/040254275e844c8ecc44781ac63dbca1dd30e53b/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip) | 711,040 bytes |
+| rev0.318（公開済み保管版） | [PEOS_GITHUB_PACKAGE_rev0.318.zip](https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip) | 660,977 bytes |
 
-現行正本・詳細参照はrev0.320、accepted baselineはrev0.319。ZIPを直接添付し、直下prompt/の五正本の本文を読み込ませます。ZIPを読めない環境では五正本を個別添付します。[インストールマニュアル](../README.md#インストールマニュアル)を参照してください。
+現行正本はrev0.321、baselineはrev0.320です。ZIP直下のREINJECT_FIRST.txtとprompt/の五正本を使います。完全版の導入文は「REINJECT_FIRST.txtに従って、今の分体に適用して」です。
 
-現在版と過去二版を収録し、旧版のバイトは変更しません。各ダウンロードは実体のあるコミットへ固定し、ZIP内にdownloads/や別のZIPを入れません。
+同梱historyは直前の正本一世代（rev0.320）だけです。ここに置く公開済みZIPと固定ダウンロード先の保管は別方針で、rev0.318・319・320のバイトと固定URLを維持します。ZIP内へdownloads/や他のZIPは入れません。
 
-[SHA256SUMS](SHA256SUMS)と[公開パッケージ一覧](PUBLIC_PACKAGES.json)で名前・サイズ・ハッシュを確認できます。
-
-rev0.320 SHA-256:
+各ダウンロードは実体のあるコミットに固定しています。[SHA256SUMS](SHA256SUMS)で照合できます。
 
 ```text
-17f2a13fba4059f4a84bbd837edfa915589f9f89b662abaf5d7149b79f28c3c0
+172281d592281a0726cbc4f098140dd8c9534e158310b0927a12b6fe14034299  PEOS_GITHUB_PACKAGE_rev0.321.zip
 ```
 
-今回のrev0.320配布ZIPは、完全版導入の入口REINJECT_FIRST.txtを直下に同梱しています。
+[インストールマニュアル](../README.md#インストールマニュアル)

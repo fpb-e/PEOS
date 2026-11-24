@@ -1,0 +1,27 @@
+{
+  "revision": "rev0.321",
+  "current_canon": "rev0.321",
+  "accepted_baseline": "rev0.320",
+  "publication_kind": "SOURCE_FREE_PUBLIC_SPECIFICATION_DISTRIBUTION",
+  "asset_commit": "fdc62c840fbe2a0f8338d737e2ffc50a82e627e4",
+  "asset_blob": "8dfaf8de909a65bed99e7a204f53cc51fd80f272",
+  "download_url": "https://raw.githubusercontent.com/fpb-e/PEOS/fdc62c840fbe2a0f8338d737e2ffc50a82e627e4/downloads/PEOS_GITHUB_PACKAGE_rev0.321.zip",
+  "zip_sha256": "172281d592281a0726cbc4f098140dd8c9534e158310b0927a12b6fe14034299",
+  "zip_bytes": 652223,
+  "package_reference_tests": 312,
+  "repository_reference_tests": 318,
+  "download_verification": {
+    "http_status": 200,
+    "bytes": 652223,
+    "sha256": "172281d592281a0726cbc4f098140dd8c9534e158310b0927a12b6fe14034299",
+    "crc_ok": true,
+    "entry_bytes_match": true,
+    "five_canons_match": true,
+    "zip_bytes_match": true
+  },
+  "raw_private_source_published": false,
+  "private_package_created": false,
+  "live_model_acceptance": "NOT_PERFORMED",
+  "pr_status": "TO_BE_CREATED_AFTER_VALIDATION",
+  "main_merge_status": "NOT_PERFORMED"
+}

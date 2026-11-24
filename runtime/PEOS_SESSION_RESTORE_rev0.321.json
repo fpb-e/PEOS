@@ -1,0 +1,55 @@
+{
+  "authority": {
+    "current_canon": "rev0.321",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.320.zip",
+    "detailed_reference": "rev0.321",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
+    "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "corrections": {},
+  "current_turn_receipt": null,
+  "github": {
+    "last_observed_pr_merged": null,
+    "state": "HOLD_UNTIL_CURRENT_EXPLICIT_INSTRUCTION"
+  },
+  "host_hook_installed": false,
+  "job_priorities": {},
+  "live_adapter_installed": false,
+  "mail_states": {},
+  "preprocessing": {
+    "captured_version": null,
+    "ledger_library_file_id": null,
+    "normal_profile": "SHORT_ACK_SYNC",
+    "state": "REQUIRES_HOST_BINDING"
+  },
+  "private_continuity": "NOT_DISTRIBUTED",
+  "profile": "PUBLIC_EMPTY_RESTORE_rev0.321_ACCEPTED",
+  "publication_scope": "NO_RAW_CONVERSATIONS_OR_IMAGES",
+  "replay_actions": [],
+  "runtime_ready": false,
+  "source_sync_receipt": null,
+  "verified_live_streak": null,
+  "candidate_revision": "rev0.321",
+  "candidate_accepted": true,
+  "candidate_id": "PEOS_REV0.321_20261125",
+  "target_revision": "rev0.321",
+  "fullmode_requirement_status": "ADOPTED_FOR_IMPLEMENTATION",
+  "feature_selection": "USER_SELECTION_REQUIRED",
+  "release_accepted": true,
+  "acceptance_record": "admin/REV0.321_OWNER_ACCEPTANCE.json",
+  "release_acceptance_basis": "OWNER_STANDING_INSTRUCTION_AND_CURRENT_SPECIFICATION_COMMAND",
+  "status": "ACCEPTED_BY_OWNER",
+  "relationship_state": null,
+  "revision_assignment_basis": "OWNER_STANDING_AND_CURRENT_SPECIFICATION_COMMAND",
+  "previous_accepted_revision": "rev0.320",
+  "github_publication_performed": false,
+  "github_publication_requested": true,
+  "private_package_created": false
+}

@@ -22,6 +22,8 @@ from peos_response_policy import installation_configuration, response_plan, summ
 from peos_affinity_policy import response_context, process_command, restore_state
 from peos_dialogue_policy import summarize_dialogue
 from peos_style_policy import style_contract
+from peos_conversation_boot import ConversationBoot
+from peos_speaker_context import public_speaker_context
 
 PROFILE = 'runtime/PEOS_DIVISION_CORE_PROFILE.json'
 ENTRY = 'bootstrap/PEOS_DIVISION_CORE_JP.md'
@@ -38,7 +40,7 @@ def load_profile(root):
     value = json.loads((root / PROFILE).read_text(encoding='utf-8'))
     if value['kind'] != 'DERIVED_DEPLOYMENT_PROFILE_NOT_CANON':
         raise ValueError('a deployment profile cannot promote itself to a canon')
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.320.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.321.json').read_text())
     if value['authority'] != restore['authority']:
         raise ValueError('profile authority must match the explicit public authority')
     expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in
@@ -81,6 +83,7 @@ def compile_core(root, coordinate='GENERAL', adapter=None):
         raise ValueError('a preferred call-sign must be nonempty text')
     shared = copy.deepcopy(profile['shared_core'])
     shared['speech_style'] = style_contract(coordinate=coordinate)
+    shared['public_speaker_context'] = public_speaker_context()
     return {'profile_id': profile['profile_id'], 'coordinate': coordinate,
             'shared_core': shared, 'core_sha256': sha(json.dumps(
                 shared, ensure_ascii=False, sort_keys=True).encode()),
@@ -224,19 +227,27 @@ class DivisionRuntime:
         self.display_clock = display_clock or (preprocessor.clock if preprocessor else None)
         self.paused = False
         self.exempt_turn = None
+        self.boot_state = ConversationBoot(Path(root), coordinate=coordinate, name=self.core.get('relation_adapter', adapter or {}).get('canonical_call_sign'))
 
     def dispatch(self, turn_id, raw, updates, work=lambda: None, *, route='NORMAL',
                  task_kind='ANALYSIS', brief_requested=False, review=None,
-                 relationship_command_context=None, dialogue_review=None):
+                 relationship_command_context=None, dialogue_review=None,
+                 boot_event='BOOT', boot_name=None, boot_read_and_applied=False,
+                 boot_source_context='CURRENT'):
         if route not in {'NORMAL', 'BOOT', 'URGENT_SAFETY'}:
             raise PreprocessError('unknown route')
-        if route in {'BOOT', 'URGENT_SAFETY'}:
+        if route == 'BOOT':
+            boot = self.boot_state.handle(boot_event, name=boot_name, read_and_applied=boot_read_and_applied, source_context=boot_source_context)
+            return {'status': 'BOOT_PRIORITY', 'boot': boot, 'receipt': None,
+                    'prefix': '', 'sync_performed': False, 'readback_verified': False,
+                    'work_authorized': True, 'work_result': boot['text'],
+                    'response_started_at_jst': None}
+        if route == 'URGENT_SAFETY':
             if self.exempt_turn == turn_id:
                 self.exempt_turn = None
-            return {'status': 'BOOT_PRIORITY' if route == 'BOOT' else 'EMERGENCY_BYPASS',
-                    'receipt': None, 'prefix': '', 'sync_performed': False,
-                    'readback_verified': False, 'work_authorized': True,
-                    'work_result': work(), 'response_started_at_jst': None}
+            return {'status': 'EMERGENCY_BYPASS', 'receipt': None, 'prefix': '',
+                    'sync_performed': False, 'readback_verified': False,
+                    'work_authorized': True, 'work_result': work(), 'response_started_at_jst': None}
         for update in updates:
             source = update.get('source_class') if isinstance(update, dict) else None
             if self.coordinate == 'FATHER':
