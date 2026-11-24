@@ -1,0 +1,99 @@
+{
+  "build_id": "PEOS_REV0.320_20261125",
+  "target_revision": "rev0.320",
+  "inherited_rule_count": 444,
+  "rule_count": 444,
+  "new_rule_ids": [],
+  "removed_rule_ids": [],
+  "changed_existing_rules": {
+    "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER": {
+      "owner": "DESIGNDOC",
+      "source_requirement_ids": [
+        "STYLE_ACCEPTANCE-320-01"
+      ],
+      "previous_block_sha256": "448458f56b37a8fc2f9adb21d9b212c33d40ac2b512a2f3622c93441790c0ba6",
+      "current_block_sha256": "4cce0e7b56f909405dcfec3dc51818e7170376777c48db1a61dd2977f3fcf9ca"
+    },
+    "FIXTURE.STYLE.RESTORE_A_TO_J": {
+      "owner": "LOG_ANTHOLOGY",
+      "source_requirement_ids": [
+        "STYLE_REPLAY-320-02"
+      ],
+      "previous_block_sha256": "205c1f7e07d4550168ffc0bc02fffc43134056349a3c3974ca0babe3a6a52bdd",
+      "current_block_sha256": "6dca9ef09b5755bdc54161ed265353a25ffcf93aa1ac0c9b35326bf04520ecb0"
+    },
+    "RUNTIME.LOG.ENDPOINT_COUNTS_AND_SEQ_VALIDATION": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "CHECKPOINT_ENDPOINT-320-03"
+      ],
+      "previous_block_sha256": "2b65beebfe7717dc5ab5074c7483688051bf7cfd083c2b67a55a5e1b747e1dd7",
+      "current_block_sha256": "b2e4d03907ff3fe6ca3c7ebc4ca1ef20b19c6cb53b48e06d2caee03431c436eb"
+    },
+    "RUNTIME.LOG.LOGFILE_COMMAND_PIPELINE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "CHECKPOINT-320-04"
+      ],
+      "previous_block_sha256": "bbe6a42b753ca16f084718427a7b25bbd0f45f2cc377b7a9c8ce538cc19127fe",
+      "current_block_sha256": "88c72deec236a6bfa6882e71f779c2205018697c3275a19b602164660ba73336"
+    },
+    "RUNTIME.RESTORE.GLOBAL_CORE_COMPILE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "STYLE_COMPILE-320-05"
+      ],
+      "previous_block_sha256": "28333db91d0f71c7afee4ed6531cd81ec3e8c9fd1f7369420f4428d8c97aa4db",
+      "current_block_sha256": "4eeafbc8f609ec9190b54f8b2318c1b5426984a34cc6f374983b5834230a352c"
+    },
+    "RUNTIME.RESTORE.THIN_ADAPTER_GATE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "ADAPTER_VOICE-320-06"
+      ],
+      "previous_block_sha256": "7d7a4bec9c0d2210e4e51335a52d1debe2203f9c2a7b8e36480664d04f0f8ae8",
+      "current_block_sha256": "93046aca8cc49b01ab39e9121d0cb070885a60b81abbad9b62e97e6805698873"
+    },
+    "SPEC.LEARNING.FATHER_STYLE_STRUCTURE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "COMMON_STYLE-320-07"
+      ],
+      "previous_block_sha256": "6521e43f092739ce5ed411e45e2fef386ef0a56cc4989845d1fedf8ec22f8191",
+      "current_block_sha256": "f4482c4588783ff008bd8dd995a6054632df1f94cc3564d574a938367b469304"
+    },
+    "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "GLOBAL_VOICE-320-08"
+      ],
+      "previous_block_sha256": "f105c34f0786c85457b8d73818101a356f340827cc17d6515334f8e35c3aeab1",
+      "current_block_sha256": "44c2d502b0ba2737aaa23b1f54c439a6bd718470ff274242a28aad24a9b98bb4"
+    },
+    "SPEC.RUNTIME.SELF_CONTAINMENT": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "FIVE_CANON-320-09"
+      ],
+      "previous_block_sha256": "8a8387b04a9f333c06a3ac243251f7588ee79c6af7e3e504bea13b48c9e87913",
+      "current_block_sha256": "8d144699b5aec06dbda5142c209f3bfcb26859aca6d80cacbfbd9ddd0d9cd8ed"
+    }
+  },
+  "historical_trace_sha256": {
+    "admin/REV0.317_REQUIREMENT_TRACEABILITY.json": "6f560ea541b26e8796138a3add66d833169cad74af0b20cb2758a3ec5d1966b3",
+    "admin/REV0.314_REQUIREMENT_TRACEABILITY.json": "33cc64613c427a5c6c0afe092a10c4f605a0d929fbc310cd9892b581540a166d",
+    "admin/REV0.315_REQUIREMENT_TRACEABILITY.json": "41319c9968ee32d2144b3859ee22ba72e46d54c7853a9abc0df40a3862d7a684",
+    "admin/REV0.318_REQUIREMENT_TRACEABILITY.json": "194743a9d93b9c0a84804e891ff744a352cc72e8795a1e6b6f980c00059db1d6",
+    "admin/REV0.319_REQUIREMENT_TRACEABILITY.json": "76f1f8b7eef61c68fc722a62bf2a70f21cb0dc9133979cac4265296cddd68ea8",
+    "admin/REV0.316_REQUIREMENT_TRACEABILITY.json": "a53d21242fd0a08bafb0c84bc1378ecbf09d0bc1159a8aac8ebbe89c55f9d2d4"
+  },
+  "historical_fixture_sha256": {
+    "tests/fixtures/division_core_replay_cases.json": "356a6d315d25a067eb728f24f12f335da922378b0926732cfa41045f96d3ac34",
+    "tests/fixtures/next_spec_20261103_model_replay.json": "4f858b9693d0b504c41f8f5732dc68bf39aaaa57949883b80779fdf746c71618",
+    "tests/fixtures/context316_replay_cases.json": "f1123b71970b5b4f43176b8cba03d2fea824cf9b807ecb4975ace9524bf32410",
+    "tests/fixtures/rev319_model_replay.json": "33bbe11761f370552cd1846ff5b253950c17633cec6723f184355671a65c2877",
+    "tests/fixtures/rev318_model_replay.json": "48cf53585f527d9fd2143681e3c648bab4ada460bda8595a6a273bf619313996"
+  },
+  "previous_revision": "rev0.319",
+  "unadopted_PRAG_004_promoted": false
+}

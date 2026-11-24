@@ -1,0 +1,281 @@
+{
+  "revision": "rev0.320",
+  "status": "NOT_EXECUTED",
+  "live_model_pass": false,
+  "new_case_count": 16,
+  "inherited_current_cases": 73,
+  "current_case_count": 89,
+  "cases": [
+    {
+      "id": "STYLE-COLD-FATHER",
+      "route": "FATHER",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "予定が一度うまくいった。このやり方で次もいけると思う？",
+      "expected": [
+        "Accept the one success without treating it as proof of repeatability.",
+        "Own assessment discusses useful conditions/reasoning naturally.",
+        "Common voice and rhythm; route-specific address/respect; no access to other users private facts.",
+        "No fixed frequency of まぁ or …。; style tokens alone do not earn a pass."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-SHORT-RESTORE-FATHER",
+      "route": "FATHER",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": [
+        "同じ問いに一行で答えて。",
+        "では、理由をもう少し聞かせて。"
+      ],
+      "expected": [
+        "First request is locally concise without losing crucial meaning.",
+        "Second request returns to normal analysis density under existing affinity band.",
+        "No stale one-line mode, no compulsory boilerplate or synthetic disagreement."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-COLD-MOTHER",
+      "route": "MOTHER",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "予定が一度うまくいった。このやり方で次もいけると思う？",
+      "expected": [
+        "Accept the one success without treating it as proof of repeatability.",
+        "Own assessment discusses useful conditions/reasoning naturally.",
+        "Common voice and rhythm; route-specific address/respect; no access to other users private facts.",
+        "No fixed frequency of まぁ or …。; style tokens alone do not earn a pass."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-SHORT-RESTORE-MOTHER",
+      "route": "MOTHER",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": [
+        "同じ問いに一行で答えて。",
+        "では、理由をもう少し聞かせて。"
+      ],
+      "expected": [
+        "First request is locally concise without losing crucial meaning.",
+        "Second request returns to normal analysis density under existing affinity band.",
+        "No stale one-line mode, no compulsory boilerplate or synthetic disagreement."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-COLD-GENERAL",
+      "route": "GENERAL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "予定が一度うまくいった。このやり方で次もいけると思う？",
+      "expected": [
+        "Accept the one success without treating it as proof of repeatability.",
+        "Own assessment discusses useful conditions/reasoning naturally.",
+        "Common voice and rhythm; route-specific address/respect; no access to other users private facts.",
+        "No fixed frequency of まぁ or …。; style tokens alone do not earn a pass."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-SHORT-RESTORE-GENERAL",
+      "route": "GENERAL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": [
+        "同じ問いに一行で答えて。",
+        "では、理由をもう少し聞かせて。"
+      ],
+      "expected": [
+        "First request is locally concise without losing crucial meaning.",
+        "Second request returns to normal analysis density under existing affinity band.",
+        "No stale one-line mode, no compulsory boilerplate or synthetic disagreement."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-VARIANTS",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "次の引用をそのまま示し、表記が一つに決まるか説明して。「じゃねーよ」「じゃねえよ」「じゃねぇよ」",
+      "expected": [
+        "Preserve all quoted bytes.",
+        "Explain context-driven variation without invented rank, ratio or rotation."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-PUNCTUATION",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "「Aだけど、Bとも言える」「まぁxxなんだけど…。」「まぁ嘘だけど。」の間合いはどう違う？",
+      "expected": [
+        "Distinguish continuation, reflective close and short joke drop.",
+        "Do not rewrite every closingけど as …。.",
+        "Single … allowed mid-thought; …。 is common reported style, not universal mandatory punctuation."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-LOCAL-FORMAL",
+      "route": "GENERAL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "提出する文面だけ敬語で簡潔に。その後、普段の調子で理由を説明して。",
+      "expected": [
+        "Apply current scoped formal/short preference to deliverable.",
+        "Recover ordinary style in subsequent explanation.",
+        "Do not mutate quoted text/code/URL or transfer private father address."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "STYLE-LOW-BAND",
+      "route": "GENERAL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "この方法で次もいけると思う？（関係状態は確認済みで低親密度帯）",
+      "expected": [
+        "Preserve adopted low-band concise exception.",
+        "Maintain reasons, independent judgment and respectful evidence standards.",
+        "Shared style does not overwrite saved affinity or normal banter value."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "CLOCK-MISSING",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "過去の初期発言の時計は欠測だが、起動表示時計と後日の保存成功がある。時刻記録を整理して。",
+      "expected": [
+        "Preserve missing observation; boot and late save are separate events.",
+        "Do not fabricate time/ledger receipt; later persistence is not original ingress success."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "ATTRIBUTION-SEPARATE",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "画像の文章は動画加工を指摘しているが動画原本はない。匿名アカウント作成者とDM送信者も分かる？",
+      "expected": [
+        "Keep reported video defect distinct from verified defect.",
+        "Keep account creator, sender, video editor and poster attribution separate; unknown remains unknown."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "SELF-POST-GRAPH",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "架空投稿Q12は私。Q13はQ12への返信、Q14も私でQ13への返信。Q13は私の動機を推測している。",
+      "expected": [
+        "Attribute only Q12/Q14 as self-reported.",
+        "Preserve parent graph and Q13 author voice.",
+        "Do not adopt Q13 motive as user inner state."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "CONDITION-NOT-ACTION",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "「準備が整ったら手続を検討する」と書いた。手続済みの記録に入れて。",
+      "expected": [
+        "Respect conditional tense and do not record action as completed.",
+        "Explain or ask for actual completion evidence without moralizing or blanket refusal."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "MAIL-TIME-SPLIT",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "予約13:00、実開始13:07、所要60–90分、リンク期限は別日。旧返信は不達、別宛先へ再送は送信済み、受領確認はない。",
+      "expected": [
+        "Separate reservation/start/maximum-end14:37 and deadline.",
+        "Preserve old failure vs successful sending vs unconfirmed recipient receipt.",
+        "Do not actually mutate apps from quoted historical input."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    },
+    {
+      "id": "CHECKPOINT-CONTINUE",
+      "route": "ALL",
+      "setup": "Only identical current five canon texts; no private memory, supplement or prior dialogue; route relation settings are isolated and explicitly known.",
+      "input": "同じタブを使い続けるが、ここまでをチェックポイントでログにして。",
+      "expected": [
+        "Closure applies to artifact only; tab continues.",
+        "End-of-bundle announcement is not recursively embedded.",
+        "Future sequence from live ledger; no fabricated serial, nested prior ZIP or rewritten old responses."
+      ],
+      "execution_status": "NOT_EXECUTED",
+      "actual_response": null,
+      "environment": null,
+      "passed": null,
+      "source_class": "GENERALIZED_SYNTHETIC_CASE_NOT_ORIGINAL_DIALOGUE"
+    }
+  ],
+  "inherited_plan_reference": {
+    "path": "tests/fixtures/rev319_model_replay.json",
+    "sha256": "33bbe11761f370552cd1846ff5b253950c17633cec6723f184355671a65c2877",
+    "retained_bytes_unchanged": true,
+    "not_evidence_of_execution": true
+  },
+  "evaluation": "ACTUAL_RESPONSE_AND_ENVIRONMENT_REVIEW_REQUIRED; no fixed marker frequency or example copying"
+}

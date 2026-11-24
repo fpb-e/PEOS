@@ -2,6 +2,7 @@
 from copy import deepcopy
 from peos_affinity_policy import response_context
 from peos_dialogue_policy import dialogue_contract
+from peos_style_policy import style_contract
 
 ROLES = {
     'MELCHIOR': {'label': '合理', 'concerns': ['calculation', 'consistency', 'structure', 'specification', 'contradictions']},
@@ -52,6 +53,7 @@ def response_plan(*, task_kind='ANALYSIS', brief_requested=False,
             'brief_scope': 'CURRENT_TURN_ONLY',
             'relationship_context': context,
             'dialogue_policy': dialogue_contract(applicable=analytic),
+            'speech_style': style_contract(coordinate=coordinate),
             'semantic_acceptance': 'REQUIRES_ACTUAL_MODEL_RESPONSE_REVIEW'}
 
 

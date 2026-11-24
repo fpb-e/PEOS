@@ -21,6 +21,7 @@ from peos_short_preprocess import valid_jst
 from peos_response_policy import installation_configuration, response_plan, summarize_magi
 from peos_affinity_policy import response_context, process_command, restore_state
 from peos_dialogue_policy import summarize_dialogue
+from peos_style_policy import style_contract
 
 PROFILE = 'runtime/PEOS_DIVISION_CORE_PROFILE.json'
 ENTRY = 'bootstrap/PEOS_DIVISION_CORE_JP.md'
@@ -37,7 +38,7 @@ def load_profile(root):
     value = json.loads((root / PROFILE).read_text(encoding='utf-8'))
     if value['kind'] != 'DERIVED_DEPLOYMENT_PROFILE_NOT_CANON':
         raise ValueError('a deployment profile cannot promote itself to a canon')
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.320.json').read_text())
     if value['authority'] != restore['authority']:
         raise ValueError('profile authority must match the explicit public authority')
     expected = {f'prompt/PEOS_CURRENT_{owner}_JP.md' for owner in
@@ -79,6 +80,7 @@ def compile_core(root, coordinate='GENERAL', adapter=None):
     if call is not None and (not isinstance(call, str) or not call.strip()):
         raise ValueError('a preferred call-sign must be nonempty text')
     shared = copy.deepcopy(profile['shared_core'])
+    shared['speech_style'] = style_contract(coordinate=coordinate)
     return {'profile_id': profile['profile_id'], 'coordinate': coordinate,
             'shared_core': shared, 'core_sha256': sha(json.dumps(
                 shared, ensure_ascii=False, sort_keys=True).encode()),
