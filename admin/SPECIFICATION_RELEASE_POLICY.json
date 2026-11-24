@@ -1,0 +1,26 @@
+{
+  "policy_id": "PEOS_OWNER_SPECIFICATION_RELEASE_20261125",
+  "source_class": "OWNER_EXPLICIT_STANDING_INSTRUCTION",
+  "source_verbatim": "仕様化命令が出されたとき\n自動で次のリビジョンにインクリメントして正本扱いして",
+  "effective_scope": "CURRENT_OWNER_AUTHORIZED_PEOS_SPECIFICATION_WORKFLOW",
+  "enabled": true,
+  "current_command_and_inputs_must_be_bound": true,
+  "unspecified_revision": "NEXT_LATEST_ACCEPTED_INTEGER_SERIAL",
+  "explicit_revision": "PREFER_OWNER_SPECIFIED_REVISION",
+  "normal_specification_release_status": "ACCEPTED_BY_OWNER",
+  "acceptance_basis": "OWNER_STANDING_INSTRUCTION_AND_CURRENT_SPECIFICATION_COMMAND",
+  "separate_canon_confirmation_required": false,
+  "newer_revision_baseline": "PREVIOUS_ACCEPTED_CURRENT_CANON",
+  "same_revision_rebuild_baseline": "PRESERVE_EXISTING_BASELINE",
+  "detailed_reference": "SAME_AS_TARGET_REVISION",
+  "retry_policy": "REUSE_REQUEST_ID_SOURCE_DIGEST_AND_PRIOR_ASSIGNMENT",
+  "candidate_only_explicit_scope_respected": true,
+  "policy_registration_consumes_revision": false,
+  "quote_archive_load_or_boot_triggers": false,
+  "supersedes_in_scope": [
+    "SPEC.REVISION.AUTO_INCREMENT_AUTHORITY:NO_AUTOMATIC_ACCEPTANCE_FOR_CURRENT_OWNER_SPECIFICATION_COMMAND"
+  ],
+  "authority_test_publication_are_separate": true,
+  "does_not_grant_new_external_permissions": true,
+  "current_rule_registration_changes_canon_revision": false
+}

@@ -18,7 +18,7 @@
   "fullmode_requirement": "ADOPTED_BY_OWNER",
   "specification": "INTEGRATED",
   "reference_code": "IMPLEMENTED_NOT_LIVE_HOST",
-  "static_tests": "291_REPOSITORY_REFERENCE_TESTS_PASS",
+  "static_tests": "305_REPOSITORY_REFERENCE_TESTS_PASS",
   "live_model_replay": "NOT_EXECUTED",
   "live_connections": "NOT_CREATED",
   "release_accepted": true,
@@ -39,7 +39,9 @@
   "github_publication_performed": true,
   "publication_record": "admin/REV0.320_PUBLICATION.json",
   "github_publication_requested": true,
-  "repository_reference_tests": "291_REFERENCE_TESTS_PASS",
+  "repository_reference_tests": "305_REFERENCE_TESTS_PASS",
   "distribution_build": "rev0.320_install_entry_20261125",
-  "install_entry_record": "admin/REV0.320_INSTALL_ENTRY.json"
+  "install_entry_record": "admin/REV0.320_INSTALL_ENTRY.json",
+  "standing_specification_policy": "admin/SPECIFICATION_RELEASE_POLICY.json",
+  "revision_policy_reference_tests": "14_REFERENCE_TESTS_PASS"
 }
