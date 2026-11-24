@@ -1,10 +1,10 @@
 # 公開用ZIPのダウンロード
 
-**[rev0.320をダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/3867ac4f0742eb1377dfd057fa62c0c0b6ccdad3/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip)**
+**[rev0.320をダウンロード](https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip)**
 
 | 版 | ファイル | サイズ |
 |---|---|---|
-| rev0.320（現行正本） | [PEOS_GITHUB_PACKAGE_rev0.320.zip](https://raw.githubusercontent.com/fpb-e/PEOS/3867ac4f0742eb1377dfd057fa62c0c0b6ccdad3/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip) | 751,798 bytes |
+| rev0.320（現行正本） | [PEOS_GITHUB_PACKAGE_rev0.320.zip](https://raw.githubusercontent.com/fpb-e/PEOS/acebab3182ec1be87e6af4c947d7da8100c25151/downloads/PEOS_GITHUB_PACKAGE_rev0.320.zip) | 756,266 bytes |
 | rev0.319（baseline・固定保存） | [PEOS_GITHUB_PACKAGE_rev0.319.zip](https://raw.githubusercontent.com/fpb-e/PEOS/040254275e844c8ecc44781ac63dbca1dd30e53b/downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip) | 711,040 bytes |
 | rev0.318（固定保存） | [PEOS_GITHUB_PACKAGE_rev0.318.zip](https://raw.githubusercontent.com/fpb-e/PEOS/a25810f3b214e2387d5d2158615c2961af597227/downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip) | 660,977 bytes |
 
@@ -17,5 +17,7 @@
 rev0.320 SHA-256:
 
 ```text
-25a2e5d569e1247416375b94d4f68feef9dce58eef85e3f1f59c59e272b8e61e
+17f2a13fba4059f4a84bbd837edfa915589f9f89b662abaf5d7149b79f28c3c0
 ```
+
+今回のrev0.320配布ZIPは、完全版導入の入口REINJECT_FIRST.txtを直下に同梱しています。
