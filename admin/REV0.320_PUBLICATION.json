@@ -29,5 +29,7 @@
     "bytes": 751798,
     "sha256": "25a2e5d569e1247416375b94d4f68feef9dce58eef85e3f1f59c59e272b8e61e",
     "crc_ok": true
-  }
+  },
+  "record_scope": "ORIGINAL_CANON_PUBLICATION_BEFORE_INSTALL_ENTRY_UPDATE",
+  "subsequent_distribution_update": "admin/REV0.320_INSTALL_ENTRY.json"
 }
