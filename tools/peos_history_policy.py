@@ -15,9 +15,9 @@ def revision_key(value: str) -> tuple[int, int]:
 def select_previous_versions(target: str, available, accepted: str | None = None):
     target_key = revision_key(target)
     selected = sorted({v for v in available if revision_key(v) < target_key and v != 'rev0.280'},
-                      key=revision_key, reverse=True)[:2]
-    if len(selected) != 2:
-        raise ValueError('two distinct predecessor versions required')
+                      key=revision_key, reverse=True)[:1]
+    if len(selected) != 1:
+        raise ValueError('one predecessor version required')
     if accepted is not None and accepted not in selected:
         raise ValueError('accepted reference would be evicted; authority resolution required')
     return selected

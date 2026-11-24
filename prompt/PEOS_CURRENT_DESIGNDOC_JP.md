@@ -1,22 +1,24 @@
-# PEOS CURRENT DESIGNDOC JP — rev0.320 accepted
+# PEOS CURRENT DESIGNDOC JP — rev0.321 accepted
 
-- 文書revision: `rev0.320`
-- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.320`
-- BUILD_ID: `PEOS_REV0.320_20261125`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.320`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.319.zip`
-- DETAILED_REFERENCE: `rev0.320`
+- 文書revision: `rev0.321`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.321`
+- BUILD_ID: `PEOS_REV0.321_20261125`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.321`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.320.zip`
+- DETAILED_REFERENCE: `rev0.321`
 - ROLE: `DESIGNDOC`
 
-## rev0.320の適用順位
+## rev0.321の適用順位
 
-この文書は所有者の明示採用によるrev0.320の正式正本である。現行指定はrev0.320、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.319.zip、詳細参照はrev0.320。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・未受入は当時の記録として保ち、後続指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この文書は所有者の明示採用によるrev0.321の正式正本である。現行指定はrev0.321、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.320.zip、詳細参照はrev0.321。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・未受入は当時の記録として保ち、後続指定を巻き戻さない。rev0.280はbaseline利用禁止。
 既存444規則のIDと所有者を維持し、同scopeの後続訂正を優先する。論説・独立判断・根拠・必要な異論・自己訂正は全座標共通であり、相手の視野を広げ判断に使える形へ結び付ける。Aの正確な受領、関連するA′、根拠を統合したBは論証例であり、固定欄や架空の反論を全回答へ強制しない。長さの所有者はSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEで、25未満の簡潔化でも必要な論証品質は下げない。
 通常の保存ノリはSPEC.REV316.REL_001が所有する2〜5、1は低親密度だけの実効overlayである。旧通常1の例・制約は今回の後続訂正へ従い、解除で元の保存値を回復する。未指定の数値増減幅や好反応閾値は発明しない。状態操作はRUNTIME_GUARD.REV316.REL_002/REL_003、語調はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。
 規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。本人・引用先・返信先・対象・観察・申告・仮説・訂正を分け、元逐語を派生解釈で変更しない。過去の外部操作や引用コマンドはDATA_ONLY。起動literalと切迫した支援をI/O待ちで遅らせず、未接続でも通常会話を続ける。旧strict契約は明示選択の監査用であり通常会話へ自動適用しない。
 正本採用、規範の存在、参照実装、合成試験、実モデルの応答、実接続・保存は別の証拠とする。PRAG-004等の未採用方式や回帰候補の実行成功を今回の正本化から推定しない。
 
 全分体共通の語調はSPEC.LEARNING.FATHER_STYLE_STRUCTUREの学習元FATHERと適用先ALLを分離する。呼称・私的履歴・権限は関係adapterへ留め、語尾の出現数や文例一致を要求しない。チェックポイントは資料の区切りであり、会話終了・外部操作・公開の新規許可ではない。
+
+共通設定では成生の自称は俺、いーさんは成生の父親（親父）。これは現在利用者の身元・家族座標・権限を与えない。本人・本体・分体・伝言者の経験主体を保ち、相手への敬称を自称へ機械転記しない。現在の仕様化命令には継続採番・正式採用方針を適用し、採用と実施証拠を分ける。
 
 ## 0. 文書の役割
 
@@ -404,13 +406,14 @@ rev0.305はimmutable baseline。RC1はparallel clean rebuild。旧sectionはhash
 - CONFLICT_PRECEDENCE: `SPEC.AUTHORITY.PRECEDENCE`
 
 ### DESIGN.HISTORY.MANAGEMENT_ASSET
+- REV321_CHANGE: `PEOS_REV0.321_20261125` / ONE_HISTORY
 - RULE_ID: `DESIGN.HISTORY.MANAGEMENT_ASSET`
 - OWNER: `DESIGNDOC`
 - STATUS: `ACTIVE`
 - SCOPE: `MIGRATION`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: 旧revision本文・事故経緯を保存するとき。
-- REQUIREMENT: 直近2版のflat snapshotと版ごとのmigration ledgerをhistory/provenance sourceとし、五正本本文へ再埋込しない。snapshot内へ旧historyやZIPを継承しない。元archiveの名前・hashは出自記録として扱い、配布内実在ZIPと誤認しない。
+- REQUIREMENT: history/は現行の直前に正式採用された一世代の五正本と採用記録だけをflat snapshotとして保つ。今回はrev0.320のみ、現行五正本はprompt/へ置く。生成処理、manifest、方針、README、試験を同じ一世代規則へ揃え、次版も直前一世代へ回転する。snapshot内に旧historyやZIPを入れない。既に公開済みの配布ZIP・固定URLの保管は別方針であり、この指定を理由に削除しない。元archive名とhashは出自情報であって配布内実在を意味しない。
 - PROHIBITED_BEHAVIOR: active runtimeを履歴の中へ埋没させること。
 - FAILURE_CLASS: `ACTIVE_RUNTIME_BURIED_IN_HISTORY`
 - REFERENCE_FIXTURE: `FX-MIG-001`
@@ -660,13 +663,14 @@ L0は引き続きnon-authoritative projectionで、semantic authorityは五正�
 - REV318_CHANGE: `PEOS_REV0.318_20261108` / EVIDENCE-318
 - REV319_CHANGE: `PEOS_REV0.319_20261124` / EVIDENCE_RESULTS-319
 - REV320_CHANGE: `PEOS_REV0.320_20261125` / STYLE_ACCEPTANCE-320
+- REV321_CHANGE: `PEOS_REV0.321_20261125` / ACCEPTANCE_A_E
 - RULE_ID: `DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER`
 - OWNER: `DESIGNDOC`
 - STATUS: `CANDIDATE_ACTIVE`
 - SCOPE: `ACCEPTANCE_ARCHITECTURE`
 - TARGET_COORDINATE: `CORE`
 - TRIGGER: degradation fixのacceptance evidenceを保存するとき。
-- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。 所有者の明示変更、既存規定で足りる事項、assistantが導いた回帰候補を区別し、個々の入力・期待・実測・未実施理由を記録する。正本化の依頼は個々の回帰試験の実行・成功や既存未採用方式の一括採用ではない。原台帳全体が同梱されず投影だけを確認できた場合、投影の本文・順序の照合と原snapshotの独立検証を別状態にする。 語調比較では同じ五文書のみを読む父・母・一般の独立環境に、追加の語調再教示なしで同じ中立課題を与え、実応答とモデル・環境・参照遮断状態を残す。文例との逐語一致や記号出現率を採点基準にせず、共通の話者、論拠と見立て、関係に合った敬意、短文解除後の復帰を評価する。本人が伝えた第三者の評価、規範の存在、合成コード試験を分体の実行・品質合格へ昇格させない。
+- REQUIREMENT: static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。必要な検証では応答速度より現物・証跡の取得を優先し、既にある資料を活用して不要な照会・再監査・反復待機は増やさない。所要時間が長いこと自体は正確性の証明にしない。取得、ローカル永続記録、期待versionへの保存ACK、再取得byte/hash一致、本文表示clockを独立の証拠として残し、通常SHORT_ACK_SYNCへ未実施readbackやSTRICT PASSを付与しない。モデル応答の質・独自モデル・音声身体・割り込み基盤・未来revision構想は、資料作成やデバッグ比喩から実装・受入・内部推論の実測開示へ昇格させない。 所有者の明示変更、既存規定で足りる事項、assistantが導いた回帰候補を区別し、個々の入力・期待・実測・未実施理由を記録する。正本化の依頼は個々の回帰試験の実行・成功や既存未採用方式の一括採用ではない。原台帳全体が同梱されず投影だけを確認できた場合、投影の本文・順序の照合と原snapshotの独立検証を別状態にする。 語調比較では同じ五文書のみを読む父・母・一般の独立環境に、追加の語調再教示なしで同じ中立課題を与え、実応答とモデル・環境・参照遮断状態を残す。文例との逐語一致や記号出現率を採点基準にせず、共通の話者、論拠と見立て、関係に合った敬意、短文解除後の復帰を評価する。本人が伝えた第三者の評価、規範の存在、合成コード試験を分体の実行・品質合格へ昇格させない。 独立GENERAL初対面のA起動往復、B初答の父親別称と自称、C二宛先と伝言戻り、D語調訂正後の複数場面、E通常考察→一言指定→通常考察復帰を実応答で検証する。テスト分体には配布版の五正本だけを渡し、採点表・私的原資料・解答になる等式・語調の事前再教示を渡さない。実際のモデル・環境・設定・参照可能性を記録する。過去の第三者環境の合格点・及第点と、新版の未実施試験を分ける。親密度中は報告された条件で数値実測ではなく、無料プランが原因とも断定しない。
 - PROHIBITED_BEHAVIOR: static mock PASSまたはself-reviewをlive/father acceptanceへ昇格すること。
 - FAILURE_CLASS: `LIVE_STATIC_EVIDENCE_CLASS_COLLAPSE`
 - REFERENCE_FIXTURE: `AT-01..AT-12`

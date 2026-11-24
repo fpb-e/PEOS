@@ -1,0 +1,43 @@
+{
+  "acceptance_id": "PEOS_OWNER_ACCEPTANCE_rev0.321_20261125",
+  "revision": "rev0.321",
+  "status": "ACCEPTED_BY_OWNER",
+  "source_class": "OWNER_EXPLICIT_INSTRUCTION",
+  "basis": "OWNER_STANDING_INSTRUCTION_AND_CURRENT_SPECIFICATION_COMMAND",
+  "source_verbatim": "仕様化",
+  "standing_instruction_verbatim": "仕様化命令が出されたとき 自動で次のリビジョンにインクリメントして正本扱いして",
+  "revision_assignment": "NEXT_ACCEPTED_REVISION",
+  "request_id": "PEOS_REV0.321_20261125_064304_SPECIFICATION",
+  "input_binding": "RETAINED_IN_PRIVATE_BUILD_RECEIPT_NOT_DISTRIBUTED",
+  "authority": {
+    "current_canon": "rev0.321",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.320.zip",
+    "detailed_reference": "rev0.321",
+    "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
+    "fallback_project": "擬似いーさんOS",
+    "fallback_authority": "PEOS正本指示",
+    "rev0_280": [
+      "REJECTED",
+      "TOMBSTONED",
+      "AUDIT_ONLY",
+      "BASELINE_PROHIBITED"
+    ]
+  },
+  "accepted_candidate_id": "PEOS_REV0.321_20261125",
+  "previous_accepted_revision": "rev0.320",
+  "previous_public_archive_sha256": "17f2a13fba4059f4a84bbd837edfa915589f9f89b662abaf5d7149b79f28c3c0",
+  "five_canon_sha256": {
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "b291e4d1732340fb97be18d70b20853cedda60e0c4c7cd21124e0ae12b6c7ecb",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "97bfb944104c98ac3132b81f05ca9d85783291f64fe5cdabd1396a4676ce1ebb",
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "6854f164e3ed193911db71906f832be5e1d9e41422c07d5b99ac762fdb11d86a",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "7b109a03e1b438a16a95e083d3f3e299525a48894c82064a92eb538621695f2b",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "5aad740e750160349821aee8ebe104a96f143863e1df71c4080bbc85d8a718ec"
+  },
+  "rule_count": 444,
+  "live_model_acceptance": "NOT_PERFORMED",
+  "live_connections_created": false,
+  "native_memory_write_claimed": false,
+  "private_package_created": false,
+  "github_publication_performed": false,
+  "self_acceptance": false
+}

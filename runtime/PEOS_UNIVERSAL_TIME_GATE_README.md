@@ -1,4 +1,4 @@
-> Retained compatibility/optional strict reference. The owner-accepted current canon is rev0.320, baseline rev0.319. The current normal entry is PEOS_SESSION_RESTORE_rev0.320.json and SHORT_ACK_SYNC; current five-canon rules apply. This older protocol is not automatically activated.
+> Retained compatibility/optional strict reference. The owner-accepted current canon is rev0.321, baseline rev0.320. The current normal entry is PEOS_SESSION_RESTORE_rev0.321.json and SHORT_ACK_SYNC; current five-canon rules apply. This older protocol is not automatically activated.
 
 # PEOS rev0.311 universal user-turn time gate
 

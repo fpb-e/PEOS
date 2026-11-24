@@ -1,0 +1,163 @@
+{
+  "build_id": "PEOS_REV0.321_20261125",
+  "target_revision": "rev0.321",
+  "previous_revision": "rev0.320",
+  "inherited_rule_count": 444,
+  "rule_count": 444,
+  "new_rule_ids": [],
+  "removed_rule_ids": [],
+  "changed_existing_rules": {
+    "SPEC.AUTHORITY.PRECEDENCE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-01"
+      ],
+      "previous_block_sha256": "ab949bf03fa3955067e06898c7119db8b6c503d16c8ed16e1a16601df1b1c148",
+      "current_block_sha256": "a39380be7770c4202e365996b94c92d729fcf6f366ee3db5c01d41914bca72ce"
+    },
+    "SPEC.REVISION.AUTO_INCREMENT_AUTHORITY": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-02"
+      ],
+      "previous_block_sha256": "fa618443e56f0a759015160d120cae03f5b2ce0ebc28c62b1ac6def41c2e6ee5",
+      "current_block_sha256": "6bce45529cc10527d07d88f4079e4fd8aae7cc68cd7528d6cc1e7b11382cbc6b"
+    },
+    "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-03"
+      ],
+      "previous_block_sha256": "44c2d502b0ba2737aaa23b1f54c439a6bd718470ff274242a28aad24a9b98bb4",
+      "current_block_sha256": "73f8457eca60ba6f2a1d3f7b4bfe6e3cce0548d3607c561b3467afd120bed22d"
+    },
+    "SPEC.QUOTE.SPEAKER_CONTEXT_SEPARATION": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-04"
+      ],
+      "previous_block_sha256": "fecaf873d8061d7abfbda6abb4d71f48fade13d556b1173094e14bf0882d6c38",
+      "current_block_sha256": "1f31d36873cc4afd5a0190c6ea56e32cc5bfff4c7f422758caab2f40ea3faf35"
+    },
+    "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-05"
+      ],
+      "previous_block_sha256": "56cf0cc8eb4290ce50f554e6dc5d1ca0544f8b089031ba6a8fb77142d44cb44b",
+      "current_block_sha256": "390eb6e993c66a7415b3d8b0f523b6319f9550203c4f18bfb6c46d8303ab6963"
+    },
+    "SPEC.LEARNING.FATHER_STYLE_STRUCTURE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-06"
+      ],
+      "previous_block_sha256": "f4482c4588783ff008bd8dd995a6054632df1f94cc3564d574a938367b469304",
+      "current_block_sha256": "63fee098584d7b1bc6b3db6800dae6a6a9ad6de7d80a387553c621fd6696135c"
+    },
+    "SPEC.REV315.DIST_002": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-07"
+      ],
+      "previous_block_sha256": "1d1b098b4f8115908397afa2abc2b7d9bfa42ae1c822ee82a5b31b2c8d37d0b4",
+      "current_block_sha256": "e13b389d628e363720b5e43d4936497d4feb9e444bd44d7b3a0b54bbba328e51"
+    },
+    "RUNTIME.BOOT.EXACT_ROUTE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "REV321-08"
+      ],
+      "previous_block_sha256": "b023fab06fc99e71f9534a7e3fe2c9f9e39b9a437c90d3d4332550d03d71c29f",
+      "current_block_sha256": "9640367c820f38904442d5e74dbe5b75ab2e3338dd0d2f90be5124cfbeccf085"
+    },
+    "RUNTIME.BINDING.POSITIVE_EVIDENCE_BOOT_GATE": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "REV321-09"
+      ],
+      "previous_block_sha256": "dc9378fba621007720de75de7225af86de7306bfd9b4b6f2c49a02da664fc6e8",
+      "current_block_sha256": "cbf133aa7acb6f6bdcf0578a762ff22b175ab2f1fafead8b1df97de0f6359a24"
+    },
+    "RUNTIME.BOOT.NO_FALSE_SYNC_CLAIM": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "REV321-10"
+      ],
+      "previous_block_sha256": "6e15435c44fcd778ddebecb9e4aedc5397a0def824f5393b6e744b82137b63ed",
+      "current_block_sha256": "8acf57a8a99496f26f6626236c7e81348dcebe14721257a23f802f785a2b0e6c"
+    },
+    "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD": {
+      "owner": "RUNTIME_GUARD",
+      "source_requirement_ids": [
+        "REV321-11"
+      ],
+      "previous_block_sha256": "a60ed74f54b1aa8f05617fd4e584c3058bb2b70eafcde541a0f7e995c0a20333",
+      "current_block_sha256": "31828095b6bccdfff46fef50e2871ecd2f2f945c8389546e8043cc2afccbc9ef"
+    },
+    "DESIGN.HISTORY.MANAGEMENT_ASSET": {
+      "owner": "DESIGNDOC",
+      "source_requirement_ids": [
+        "REV321-12"
+      ],
+      "previous_block_sha256": "55783fc133268d0b35ee01d6671e4c37736d7df98ec1723c404f9d25960251eb",
+      "current_block_sha256": "204efd15b671baf73efd5a4d5488e06c246b71806c3b3c655909598f381f6325"
+    },
+    "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER": {
+      "owner": "DESIGNDOC",
+      "source_requirement_ids": [
+        "REV321-13"
+      ],
+      "previous_block_sha256": "4cce0e7b56f909405dcfec3dc51818e7170376777c48db1a61dd2977f3fcf9ca",
+      "current_block_sha256": "22fa4364299a92ad8cbbc5a79afa122f4c183c8f9a63eac1947d6588fa90e0e7"
+    },
+    "FIXTURE.STYLE.RESTORE_A_TO_J": {
+      "owner": "LOG_ANTHOLOGY",
+      "source_requirement_ids": [
+        "REV321-14"
+      ],
+      "previous_block_sha256": "6dca9ef09b5755bdc54161ed265353a25ffcf93aa1ac0c9b35326bf04520ecb0",
+      "current_block_sha256": "b623bfe381aba2be15e2ce5169c47884f2bb8add3ce96764dc399152d1617543"
+    },
+    "SPEC.RUNTIME.SOURCE_READ_NOT_RELOAD": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-15"
+      ],
+      "previous_block_sha256": "d596268dec33ef000d916265740471be5a8bd38134bf1830ae3e8de9b3e22b72",
+      "current_block_sha256": "0a7f2552dc95a57e0212d9a0c8dec93324d497e9d8275eb9a6dbff5d9984be32"
+    },
+    "SPEC.RELEASE.RC_NOT_OPERATIVE": {
+      "owner": "SPEC",
+      "source_requirement_ids": [
+        "REV321-16"
+      ],
+      "previous_block_sha256": "88a02b0279d249bd4e8be74c0008715dbd1e7a09243f0d8b047eba0e73813f80",
+      "current_block_sha256": "2a9db3c53600a40a68245bbd080aec28416ec91ddc47d489566415917a460630"
+    }
+  },
+  "historical_trace_sha256": {
+    "admin/REV0.320_REQUIREMENT_TRACEABILITY.json": "833d4ec74ae04d545ae63cfc7fbcc5457e737539f23dc692740b7678937a59ba",
+    "admin/REV0.316_REQUIREMENT_TRACEABILITY.json": "a53d21242fd0a08bafb0c84bc1378ecbf09d0bc1159a8aac8ebbe89c55f9d2d4",
+    "admin/REV0.314_REQUIREMENT_TRACEABILITY.json": "33cc64613c427a5c6c0afe092a10c4f605a0d929fbc310cd9892b581540a166d",
+    "admin/REV0.318_REQUIREMENT_TRACEABILITY.json": "194743a9d93b9c0a84804e891ff744a352cc72e8795a1e6b6f980c00059db1d6",
+    "admin/REV0.317_REQUIREMENT_TRACEABILITY.json": "6f560ea541b26e8796138a3add66d833169cad74af0b20cb2758a3ec5d1966b3",
+    "admin/REV0.319_REQUIREMENT_TRACEABILITY.json": "76f1f8b7eef61c68fc722a62bf2a70f21cb0dc9133979cac4265296cddd68ea8",
+    "admin/REV0.315_REQUIREMENT_TRACEABILITY.json": "41319c9968ee32d2144b3859ee22ba72e46d54c7853a9abc0df40a3862d7a684",
+    "admin/REV0.314_RULE_DELTA.json": "c563ce61d7d138e6f9684d1faa1ae243ab6d817a63a664c0f9e48016dffdd749",
+    "admin/REV0.319_RULE_DELTA.json": "e87d2563dbf5ff046e033b573a54ee06a4204d92e179c0e04de21a1ab83ee458",
+    "admin/REV0.320_RULE_DELTA.json": "ee209f1c49f895b00563d52e31807adc0d53397d52c13df2c8ab81e1a490ce76",
+    "admin/REV0.315_RULE_DELTA.json": "011bba6581d749649cc896e61f14771d100226ac34407958f3c66924db2b1977",
+    "admin/REV0.316_RULE_DELTA.json": "f4e6e1139a38b376963ff4bd30747d1d2278a90b1be4441c9c02d7719d511144",
+    "admin/REV0.318_RULE_DELTA.json": "925d8bff958242f765d25b3b0740229991486ba66b0e017c0c6acbe52bd46b08"
+  },
+  "historical_fixture_sha256": {
+    "tests/fixtures/division_core_replay_cases.json": "356a6d315d25a067eb728f24f12f335da922378b0926732cfa41045f96d3ac34",
+    "tests/fixtures/next_spec_20261103_model_replay.json": "4f858b9693d0b504c41f8f5732dc68bf39aaaa57949883b80779fdf746c71618",
+    "tests/fixtures/rev320_model_replay.json": "60ce18c072cd8a76dc41c860b36326fda1a0634451962993d8dcf6c21884c130",
+    "tests/fixtures/context316_replay_cases.json": "f1123b71970b5b4f43176b8cba03d2fea824cf9b807ecb4975ace9524bf32410",
+    "tests/fixtures/rev319_model_replay.json": "33bbe11761f370552cd1846ff5b253950c17633cec6723f184355671a65c2877",
+    "tests/fixtures/rev318_model_replay.json": "48cf53585f527d9fd2143681e3c648bab4ada460bda8595a6a273bf619313996"
+  },
+  "unadopted_PRAG_004_promoted": false
+}

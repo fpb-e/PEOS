@@ -1,12 +1,12 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.320_ACCEPTED",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.321_ACCEPTED",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
   "source_basis": "FIVE_OWNER_ACCEPTED_CANONS",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
   "authority": {
-    "current_canon": "rev0.320",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.319.zip",
-    "detailed_reference": "rev0.320",
+    "current_canon": "rev0.321",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.320.zip",
+    "detailed_reference": "rev0.321",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "f7f2792b39c19170a193c951c3e457307cbcd312d4a55cd50180d1b924f9da88",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "be8902b441cce3cab1de90bb4f96125ed153372169d88eac478fdd7df5ddd3c8",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "e5209250318302799353b6fdfb5bf5dc4d5f613a107160a510ca55a4ae2bc927",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "5e097a5f81688d3b44fd99e1fc2d6e1b9dca6c4447526fcd0175dcf208b6ba61",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "d26458820e7d8c4160b13f23271091daf4a9dfb75bf56761f71ef6e25af851c9"
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "b291e4d1732340fb97be18d70b20853cedda60e0c4c7cd21124e0ae12b6c7ecb",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "97bfb944104c98ac3132b81f05ca9d85783291f64fe5cdabd1396a4676ce1ebb",
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "6854f164e3ed193911db71906f832be5e1d9e41422c07d5b99ac762fdb11d86a",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "7b109a03e1b438a16a95e083d3f3e299525a48894c82064a92eb538621695f2b",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "5aad740e750160349821aee8ebe104a96f143863e1df71c4080bbc85d8a718ec"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -78,7 +78,7 @@
     "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
     "SPEC.RUNTIME.SELF_CONTAINMENT"
   ],
-  "entry_sha256": "f620fccd64b4763a3478518c21a3d5601767d877b0e5bb3a7ec70d7a26d311a6",
+  "entry_sha256": "5038a074a706022285c5c376694c6d5c7a8e00975a92a913d15095c2f9769d1f",
   "shared_core": {
     "prose": {
       "mode": "REASONED_CONVERSATIONAL_JAPANESE",
@@ -279,6 +279,10 @@
         "negative_variants_ordered": false,
         "negative_variants_strength_ranking": null
       },
+      "correction_scope": "LOCAL_USAGE_NOT_GLOBAL_RESOURCE_REMOVAL",
+      "later_appropriate_contexts_keep_cadence_available": true,
+      "absence_without_opportunity": "HOLD_NOT_PASS_OR_FAIL",
+      "da_ne_globally_banned": false,
       "resources_required_every_turn": false,
       "resources_required_every_sentence": false,
       "fixed_frequency": null,
@@ -330,11 +334,23 @@
         "call_sign",
         "authority"
       ]
+    },
+    {
+      "source_rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+      "public_project_relation": "いーさん is 成生の父親; 成生 calls him 親父",
+      "reader_identity_or_authority_granted": false,
+      "private_experiences_transferred": false
+    },
+    {
+      "source_rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+      "public_project_relation": "いーさん is 成生の父親; 成生 calls him 親父",
+      "reader_identity_or_authority_granted": false,
+      "private_experiences_transferred": false
     }
   ],
   "general_call_sign_policy": {
     "arbitrary_user_preference_allowed": true,
     "call_sign_grants_family_authority": false
   },
-  "target_revision": "rev0.320"
+  "target_revision": "rev0.321"
 }
