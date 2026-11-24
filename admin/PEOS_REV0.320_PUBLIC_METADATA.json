@@ -30,12 +30,14 @@
   "source_requirement_groups": 14,
   "private_package_created": false,
   "github_publication_performed": true,
-  "static_tests": "291_REPOSITORY_REFERENCE_TESTS_PASS",
+  "static_tests": "305_REPOSITORY_REFERENCE_TESTS_PASS",
   "package_tests": "285_REFERENCE_TESTS_PASS",
   "repository_download_validation": "HTTP200_AND_CURRENT_INSTALL_ENTRY_ZIP_BYTES_VERIFIED",
   "publication_record": "admin/REV0.320_PUBLICATION.json",
   "github_publication_requested": true,
-  "repository_reference_tests": "291_REFERENCE_TESTS_PASS",
+  "repository_reference_tests": "305_REFERENCE_TESTS_PASS",
   "distribution_build": "rev0.320_install_entry_20261125",
-  "install_entry_record": "admin/REV0.320_INSTALL_ENTRY.json"
+  "install_entry_record": "admin/REV0.320_INSTALL_ENTRY.json",
+  "standing_specification_policy": "admin/SPECIFICATION_RELEASE_POLICY.json",
+  "revision_policy_reference_tests": "14_REFERENCE_TESTS_PASS"
 }

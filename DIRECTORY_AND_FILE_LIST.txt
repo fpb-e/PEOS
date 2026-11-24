@@ -1,6 +1,7 @@
 PEOS_REV0.320_20261125 public tree (Git metadata excluded)
 
 .gitignore
+AGENTS.md
 BUILD_STATUS.txt
 CHANGELOG.md
 DIRECTORY_AND_FILE_LIST.txt
@@ -34,6 +35,7 @@ admin/REV0.320_REQUIREMENT_TRACEABILITY.json
 admin/REV0.320_RULE_DELTA.json
 admin/REV0.320_STATUS.json
 admin/RULE_OWNERSHIP_REGISTRY.yaml
+admin/SPECIFICATION_RELEASE_POLICY.json
 bootstrap/PEOS_DIVISION_CORE_JP.md
 bootstrap/PEOS_L0_BOOT_SHIM.txt
 bootstrap/PEOS_L0_BOOT_SHIM_BINDING.json
@@ -42,6 +44,7 @@ docs/GITHUB_VALIDATION_DEPENDENCIES.md
 docs/REV0.320_INTEGRATION_REPORT.md
 docs/REV0.320_SPECIFICATION_JP.md
 docs/REV0.320_VALIDATION.md
+docs/SPECIFICATION_RELEASE_POLICY.md
 docs/UNADOPTED_PROPOSALS_rev0.316.md
 docs/ZIP_IMPORT_WORKFLOW.md
 downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip
@@ -117,6 +120,7 @@ tests/test_public_policy.py
 tests/test_relationship_policy.py
 tests/test_release_download_targets.py
 tests/test_rev320_integration.py
+tests/test_revision_policy.py
 tests/test_short_preprocess_public.py
 tests/test_style_policy.py
 tools/generate_l0_projection_rev0_320.py
@@ -136,6 +140,7 @@ tools/peos_public_release.py
 tools/peos_relationship_policy.py
 tools/peos_response_policy.py
 tools/peos_restore_runtime.py
+tools/peos_revision_policy.py
 tools/peos_runtime_binding.py
 tools/peos_session_policy.py
 tools/peos_short_preprocess.py
