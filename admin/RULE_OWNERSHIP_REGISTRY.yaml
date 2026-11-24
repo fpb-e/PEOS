@@ -1,6 +1,6 @@
-revision: rev0.319
-current_project_canon: rev0.319
-accepted_baseline: rev0.318
+revision: rev0.320
+current_project_canon: rev0.320
+accepted_baseline: rev0.319
 rule_count: 444
 rules:
 - RULE_ID: SPEC.IDENTITY.SUCCESSOR_NOT_COPY

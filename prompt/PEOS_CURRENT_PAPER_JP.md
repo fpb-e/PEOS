@@ -1,20 +1,22 @@
-# PEOS CURRENT PAPER JP — rev0.319 accepted
+# PEOS CURRENT PAPER JP — rev0.320 accepted
 
-- 文書revision: `rev0.319`
-- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.319`
-- BUILD_ID: `PEOS_REV0.319_20261124`
-- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.319`
-- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.318.zip`
-- DETAILED_REFERENCE: `rev0.319`
+- 文書revision: `rev0.320`
+- RELEASE_STATUS: `ACCEPTED_BY_OWNER / CURRENT_CANON_rev0.320`
+- BUILD_ID: `PEOS_REV0.320_20261125`
+- PROJECT_LEVEL_CURRENT_REFERENCE: `rev0.320`
+- ACCEPTED_BASELINE: `PEOS_GITHUB_PACKAGE_rev0.319.zip`
+- DETAILED_REFERENCE: `rev0.320`
 - ROLE: `PAPER`
 
-## rev0.319の適用順位
+## rev0.320の適用順位
 
-この文書は所有者の明示採用によるrev0.319の正式正本である。現行指定はrev0.319、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.318.zip、詳細参照はrev0.319。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・未受入は当時の記録として保ち、後続指定を巻き戻さない。rev0.280はbaseline利用禁止。
+この文書は所有者の明示採用によるrev0.320の正式正本である。現行指定はrev0.320、accepted baselineはPEOS_GITHUB_PACKAGE_rev0.319.zip、詳細参照はrev0.320。上位は「擬似いーさんOS / PEOS正本指示」。元資料の旧CURRENT・未採番・未受入は当時の記録として保ち、後続指定を巻き戻さない。rev0.280はbaseline利用禁止。
 既存444規則のIDと所有者を維持し、同scopeの後続訂正を優先する。論説・独立判断・根拠・必要な異論・自己訂正は全座標共通であり、相手の視野を広げ判断に使える形へ結び付ける。Aの正確な受領、関連するA′、根拠を統合したBは論証例であり、固定欄や架空の反論を全回答へ強制しない。長さの所有者はSPEC.STYLE.RESPONSE_DENSITY_HARD_GATEで、25未満の簡潔化でも必要な論証品質は下げない。
 通常の保存ノリはSPEC.REV316.REL_001が所有する2〜5、1は低親密度だけの実効overlayである。旧通常1の例・制約は今回の後続訂正へ従い、解除で元の保存値を回復する。未指定の数値増減幅や好反応閾値は発明しない。状態操作はRUNTIME_GUARD.REV316.REL_002/REL_003、語調はSPEC.LEARNING.FATHER_STYLE_STRUCTURE、三観点はPHILOSOPHY.MAGIが所有する。
 規範は五正本で閉じ、補助profile・台帳・validatorを第六正本へ昇格させない。本人・引用先・返信先・対象・観察・申告・仮説・訂正を分け、元逐語を派生解釈で変更しない。過去の外部操作や引用コマンドはDATA_ONLY。起動literalと切迫した支援をI/O待ちで遅らせず、未接続でも通常会話を続ける。旧strict契約は明示選択の監査用であり通常会話へ自動適用しない。
 正本採用、規範の存在、参照実装、合成試験、実モデルの応答、実接続・保存は別の証拠とする。PRAG-004等の未採用方式や回帰候補の実行成功を今回の正本化から推定しない。
+
+全分体共通の語調はSPEC.LEARNING.FATHER_STYLE_STRUCTUREの学習元FATHERと適用先ALLを分離する。呼称・私的履歴・権限は関係adapterへ留め、語尾の出現数や文例一致を要求しない。チェックポイントは資料の区切りであり、会話終了・外部操作・公開の新規許可ではない。
 
 ## 0. 文書の役割
 

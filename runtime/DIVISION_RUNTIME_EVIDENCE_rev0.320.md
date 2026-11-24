@@ -1,0 +1,3 @@
+# rev0.320の参照契約と実証範囲
+
+現行・詳細320、baseline319。共通語調のFATHER出典/ALL適用、任意の文体資源、3座標の応答計画とcore、関係adapterの分離を参照コードへ投影した。検証結果はPEOS_rev0.320_VALIDATION_REPORT.txtに記録する。実モデル試験89ケースはNOT_EXECUTED。実認証・常設hook・外部保存・実務同期を今回成功させたとはしない。後続の公開依頼とZIP実体はadmin/REV0.320_PUBLICATION.jsonへ分けて記録する。

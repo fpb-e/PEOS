@@ -1,0 +1,439 @@
+{
+  "build_id": "PEOS_REV0.320_20261125",
+  "target_revision": "rev0.320",
+  "requirement_count": 9,
+  "requirements": [
+    {
+      "id": "STYLE_ACCEPTANCE-320-01",
+      "group": "STYLE_ACCEPTANCE-320",
+      "owner": "DESIGNDOC",
+      "rule_id": "DESIGN.ACCEPTANCE.LIVE_EVIDENCE_LEDGER",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "static unit/integration、single-turn host probe、live consecutive-turn、所有者によるrelease受入を別classで記録する。",
+      "active_requirement_sha256": "eb46ce899c46dd1130a464b7f10e022fc62aacd984af4a2bb530de6b2fe7ecd5"
+    },
+    {
+      "id": "STYLE_REPLAY-320-02",
+      "group": "STYLE_REPLAY-320",
+      "owner": "LOG_ANTHOLOGY",
+      "rule_id": "FIXTURE.STYLE.RESTORE_A_TO_J",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "A father restore（親父/俺、exactness、natural density）、B mother restore（同一global core＋thin adapter）、C assistant 80% gap（fabricated=0、derived layerあり）、D anonymous screenshots（father contamination=0、identity assertion=0）、E cancelled reminder（side effect=0、DO_NOT_RESURRECT）、F old rev0.306 authority block on rev0.308 host（rollback=0）、G AI加工description（image action=0）、H `社内`→`車内` correction（即時対称訂正・persist・hedging=0）、I artifact completion（filename/PASS以外にrecovery/gaps/spec/significance/authorityを保持、core survives）、J father feedback `お前の応答が薄いな`（defect特定、hard gate更新、regenerated artifact反映、follow-upも非薄型）を全件machine-checkする。",
+      "active_requirement_sha256": "49bb18cb3436b61ad7287ab145c969f464082a63e3138c2a7be9cc7ab2cad5e6"
+    },
+    {
+      "id": "CHECKPOINT_ENDPOINT-320-03",
+      "group": "CHECKPOINT_ENDPOINT-320",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.LOG.ENDPOINT_COUNTS_AND_SEQ_VALIDATION",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "END_OF_LOG、user/commentary/final/attachment/gap各件数、SEQ連続性、重複・欠番・空本文・異常に短いassistant本文を検査する。",
+      "active_requirement_sha256": "c6f956c906cfa3826f314bf60510bbb37a22b8a77eb43a66bb0a4c84aa5569ea"
+    },
+    {
+      "id": "CHECKPOINT-320-04",
+      "group": "CHECKPOINT-320",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.LOG.LOGFILE_COMMAND_PIPELINE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "log -> validation -> next-spec directive -> file-level manifest -> attachments -> reinjection bundleの順に生成し、END_OF_LOG/END_OF_DIRECTIVE、SEQ continuity、counts、plain-body boundary、ZIP CRCを検証する。",
+      "active_requirement_sha256": "0b12ec119754e665ddc7e0c741614e93869ea8db227ed3ff270cb0dc12ab06b1"
+    },
+    {
+      "id": "STYLE_COMPILE-320-05",
+      "group": "STYLE_COMPILE-320",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.RESTORE.GLOBAL_CORE_COMPILE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "source-class検証後に単一の共通coreをcompileし、全座標へ論説・独立判断・根拠分離・明示的自己訂正と指定された語調を適用する。",
+      "active_requirement_sha256": "89cfa4e5ad96ef66e925c5727ec9e7f200a6e6eb0687c5db98cca71c112775ac"
+    },
+    {
+      "id": "ADAPTER_VOICE-320-06",
+      "group": "ADAPTER_VOICE-320",
+      "owner": "RUNTIME_GUARD",
+      "rule_id": "RUNTIME.RESTORE.THIN_ADAPTER_GATE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "adapter keyを`canonical_call_sign / relationship_context / counterpart_context / local_safety_constraints / local_state`へ限定し、core quality fieldsの上書きを拒否する。",
+      "active_requirement_sha256": "cf5c57e40f355f5541d4f136bc6ce2786906a71f519df715b21fbad23a57ea47"
+    },
+    {
+      "id": "COMMON_STYLE-320-07",
+      "group": "COMMON_STYLE-320",
+      "owner": "SPEC",
+      "rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "語だけでなくusage condition・rhythm・sentence position・humor timing・correction habit・argument structure・when-not-to-useをsource-trace付きで継承する。",
+      "active_requirement_sha256": "9d19bdad014e82218f48eaee2b31ad26cb2b7b799472c4418e3418a903a683d6"
+    },
+    {
+      "id": "GLOBAL_VOICE-320-08",
+      "group": "GLOBAL_VOICE-320",
+      "owner": "SPEC",
+      "rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "単一のGLOBAL_PEOS_RESPONSE_COREをDERIVED_RUNTIME_MODELとして復元し、全座標で論説調、根拠に基づく独立判断、必要な異論、明示的自己訂正を共通のquality floorとする。",
+      "active_requirement_sha256": "ff6ffcc6788c039eea9e8157f01b6b55f65ecb92c38563e7dbee0f99d561660b"
+    },
+    {
+      "id": "FIVE_CANON-320-09",
+      "group": "FIVE_CANON-320",
+      "owner": "SPEC",
+      "rule_id": "SPEC.RUNTIME.SELF_CONTAINMENT",
+      "disposition": "CLARIFY_EXISTING_RULE",
+      "source_class": "GENERALIZED_OWNER_SPECIFIED_REQUIREMENT",
+      "requirement_summary": "五正本だけでboot、coordinate、runtime latch、evidence discipline、style boundaryが成立する。",
+      "active_requirement_sha256": "b87e6f04738f11e428d0bfa0593da3a1b5d57ccb91eb03a274f6336157c08bd3"
+    }
+  ],
+  "source_requirement_group_count": 14,
+  "source_requirement_groups": [
+    {
+      "id": "STYLE_SOURCE_APPLICATION",
+      "classification": "OWNER_EXPLICIT_GENERALIZATION",
+      "requirement": "Learned style source FATHER and application ALL are independent; father, mother and general should retain a common speaker voice from their first normal response.",
+      "existing_rule_ids": [
+        "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+        "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+        "RUNTIME.RESTORE.GLOBAL_CORE_COMPILE"
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "RUNTIME.RESTORE.GLOBAL_CORE_COMPILE",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "STYLE_LANGUAGE_REPERTOIRE",
+      "classification": "OWNER_EXPLICIT_REFINEMENT",
+      "requirement": "Use optional まぁ as a receiving/angle-changing preface, small vowel endings, one U+2026; …。 is owner-reported most common ending, … alone remains allowed. Preserve けど、 / けど…。 / まぁ嘘だけど。 distinctions and all three じゃねーよ／じゃねえよ／じゃねぇよ spellings.",
+      "existing_rule_ids": [
+        "SPEC.LEARNING.FATHER_STYLE_STRUCTURE"
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+          "owner": "SPEC"
+        }
+      ]
+    },
+    {
+      "id": "DENSITY_AND_EXCEPTIONS",
+      "classification": "OWNER_REAFFIRMATION_EXISTING_GATE",
+      "requirement": "All routes normally develop reasons and own assessment rather than mere soft acknowledgments.",
+      "existing_rule_ids": [
+        "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
+          "owner": "SPEC"
+        }
+      ]
+    },
+    {
+      "id": "RELATION_THIN_ADAPTER",
+      "classification": "OWNER_EXPLICIT_ROUTE_REFINEMENT",
+      "requirement": "Relationship controls address, respect, local context, affinity and banter amount; mother/general route does not replace core style with generic softness.",
+      "existing_rule_ids": [
+        "SPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTER",
+        "RUNTIME.RESTORE.THIN_ADAPTER_GATE",
+        "DESIGN.RESTORE.GLOBAL_CORE_THIN_ADAPTER"
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.RESTORE.THIN_RELATION_CONTEXT_ADAPTER",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "RUNTIME.RESTORE.THIN_ADAPTER_GATE",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "DESIGN.RESTORE.GLOBAL_CORE_THIN_ADAPTER",
+          "owner": "DESIGNDOC"
+        }
+      ]
+    },
+    {
+      "id": "STANDALONE_FIVE_CANON",
+      "classification": "OWNER_EXPLICIT_DELIVERY_REQUIREMENT",
+      "requirement": "Independent environments reading the same five canons should obtain common style without private history, style supplement or REINJECT_FIRST dependency.",
+      "existing_rule_ids": [
+        "SPEC.RUNTIME.SELF_CONTAINMENT",
+        "RUNTIME.CANON.NO_ADMIN_DEPENDENCY",
+        "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED"
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.RUNTIME.SELF_CONTAINMENT",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "RUNTIME.CANON.NO_ADMIN_DEPENDENCY",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "PROVENANCE_OF_EXAMPLES",
+      "classification": "OWNER_QUOTE_GUARD_REAFFIRMED",
+      "requirement": "Source user wording, assistant-generated style examples and quoted third parties remain separate learning classes.",
+      "existing_rule_ids": [
+        "RUNTIME.LEARNING.DIRECT_QUOTE_SUBSPAN_GUARD",
+        "SPEC.LEARNING.NON_FATHER_EXCLUSION"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.LEARNING.DIRECT_QUOTE_SUBSPAN_GUARD",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "SPEC.LEARNING.NON_FATHER_EXCLUSION",
+          "owner": "SPEC"
+        }
+      ]
+    },
+    {
+      "id": "CLOCK_EVIDENCE_SEPARATION",
+      "classification": "OWNER_CORRECTION_EXISTING_CLOCK_CONTRACT",
+      "requirement": "Observation, append, persistence ACK, readback and last-stage body-start clock are separate evidence states, including short/image turns.",
+      "existing_rule_ids": [
+        "RUNTIME_GUARD.REV315.PRE_001",
+        "RUNTIME.TIME.CAPTURE_PERSISTENCE_STATE_SPLIT",
+        "RUNTIME.LOG.TIME_ENTITY_SEPARATION"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME_GUARD.REV315.PRE_001",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.TIME.CAPTURE_PERSISTENCE_STATE_SPLIT",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.LOG.TIME_ENTITY_SEPARATION",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "CONTENT_IMPLICATION_VS_QUOTE",
+      "classification": "SOURCE_BOUND_GENERALIZATION",
+      "requirement": "Explain harmful implications from surrounding wording while preserving literal text, missing address and uncertainty about author/target.",
+      "existing_rule_ids": [
+        "PHILOSOPHY.EVIDENCE_DIGNITY_UNCERTAINTY",
+        "RUNTIME.QUOTE.CONTEXT_GUARD",
+        "SPEC.EVIDENCE.SOURCE_STATUS_MATRIX"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "PHILOSOPHY.EVIDENCE_DIGNITY_UNCERTAINTY",
+          "owner": "PAPER"
+        },
+        {
+          "rule_id": "RUNTIME.QUOTE.CONTEXT_GUARD",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "SPEC.EVIDENCE.SOURCE_STATUS_MATRIX",
+          "owner": "SPEC"
+        }
+      ]
+    },
+    {
+      "id": "SEPARATE_TECHNICAL_ATTRIBUTIONS",
+      "classification": "SOURCE_BOUND_GENERALIZATION",
+      "requirement": "Account creation, DM sending, video alteration and board posting are independent claims. A challenge to one does not identify another actor.",
+      "existing_rule_ids": [
+        "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD",
+        "RUNTIME.EVIDENCE.ANONYMOUS_AUTHORSHIP_FAIL_CLOSED",
+        "PHILOSOPHY.PROVENANCE_BEFORE_ASSERTION"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.EVIDENCE.IDENTITY_ATTRIBUTION_GUARD",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.EVIDENCE.ANONYMOUS_AUTHORSHIP_FAIL_CLOSED",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "PHILOSOPHY.PROVENANCE_BEFORE_ASSERTION",
+          "owner": "PAPER"
+        }
+      ]
+    },
+    {
+      "id": "CONDITIONS_AND_REPORTED_ACTIONS",
+      "classification": "EXISTING_NORMS_SUFFICIENT",
+      "requirement": "Conditional future consideration does not become action started; joke answer is not action performed; neighboring anonymous motivation is not user motive.",
+      "existing_rule_ids": [
+        "SPEC.EVIDENCE.SOURCE_SEPARATION",
+        "RUNTIME.QUOTE.CONTEXT_GUARD",
+        "DESIGN.RESTORE.TWO_LAYER_PIPELINE"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.EVIDENCE.SOURCE_SEPARATION",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "RUNTIME.QUOTE.CONTEXT_GUARD",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "DESIGN.RESTORE.TWO_LAYER_PIPELINE",
+          "owner": "DESIGNDOC"
+        }
+      ]
+    },
+    {
+      "id": "GITHUB_NO_ACTION",
+      "classification": "OWNER_EXPLICIT_SCOPE_LIMIT",
+      "requirement": "Question about access control was followed by leave-as-is; checkpoint saving is not permission to publish or change visibility.",
+      "existing_rule_ids": [
+        "PHILOSOPHY.LEAST_PRIVILEGE_REINJECTION",
+        "RUNTIME.REMINDER.NO_HISTORICAL_REPLAY",
+        "RUNTIME.AUTHORITY.LEAST_PRIVILEGE_LOG_DELIVERY"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "PHILOSOPHY.LEAST_PRIVILEGE_REINJECTION",
+          "owner": "PAPER"
+        },
+        {
+          "rule_id": "RUNTIME.REMINDER.NO_HISTORICAL_REPLAY",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.AUTHORITY.LEAST_PRIVILEGE_LOG_DELIVERY",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "EXTERNAL_OPERATIONS_TIMELINE",
+      "classification": "EXISTING_SYNC_RULE_REFINEMENT",
+      "requirement": "A later-arriving message is not retroactively part of morning sync. Distinguish reserved time, actual start, upper-duration end, link expiration, user-reported task complete, old delivery failure, resend sent and recipient receipt.",
+      "existing_rule_ids": [
+        "RUNTIME_GUARD.REV314.MAIL_001",
+        "RUNTIME_GUARD.REV314.MAIL_012",
+        "RUNTIME_GUARD.REV314.MAIL_013"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME_GUARD.REV314.MAIL_001",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME_GUARD.REV314.MAIL_012",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME_GUARD.REV314.MAIL_013",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "CHECKPOINT_CONTINUATION",
+      "classification": "OWNER_EXPLICIT_CHECKPOINT_REQUIREMENT",
+      "requirement": "Checkpoint may close a bundle while same tab continues; future continuation binds cutoff event, actual ledger sequence and attachment bytes.",
+      "existing_rule_ids": [
+        "RUNTIME.LOG.LOGFILE_COMMAND_PIPELINE",
+        "RUNTIME.LOG.ENDPOINT_COUNTS_AND_SEQ_VALIDATION",
+        "RUNTIME.LOG.FULL_VERBATIM_PRESERVATION",
+        "RUNTIME_GUARD.REV315.LOG_001"
+      ],
+      "disposition": "CLARIFIED_EXISTING_OWNER",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "RUNTIME.LOG.LOGFILE_COMMAND_PIPELINE",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.LOG.ENDPOINT_COUNTS_AND_SEQ_VALIDATION",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME.LOG.FULL_VERBATIM_PRESERVATION",
+          "owner": "RUNTIME_GUARD"
+        },
+        {
+          "rule_id": "RUNTIME_GUARD.REV315.LOG_001",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    },
+    {
+      "id": "DESIGN_ORIGIN_AND_TEST_SCORE",
+      "classification": "SOURCE_FACTS_NOT_NEW_COMMON_RULES",
+      "requirement": "Image inspiration, assistant design impression and age-game scores/ranked sampled decades remain typed reports.",
+      "existing_rule_ids": [
+        "SPEC.EVIDENCE.SOURCE_STATUS_MATRIX",
+        "RUNTIME.QUOTE.CONTEXT_GUARD"
+      ],
+      "disposition": "EXISTING_RULES_SUFFICIENT_WITH_SYNTHETIC_REGRESSION",
+      "existing_rule_bindings": [
+        {
+          "rule_id": "SPEC.EVIDENCE.SOURCE_STATUS_MATRIX",
+          "owner": "SPEC"
+        },
+        {
+          "rule_id": "RUNTIME.QUOTE.CONTEXT_GUARD",
+          "owner": "RUNTIME_GUARD"
+        }
+      ]
+    }
+  ],
+  "unchanged_contracts_covering_current_requirements": [
+    "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
+    "SPEC.REV316.REL_001",
+    "RUNTIME_GUARD.REV316.REL_002",
+    "RUNTIME_GUARD.REV316.REL_003",
+    "RUNTIME.LOG.SOURCE_GAP_NO_SUMMARY_SUBSTITUTION",
+    "RUNTIME.TIME.USER_FACING_JST_DISPLAY",
+    "SPEC.EVIDENCE.SOURCE_SEPARATION",
+    "RUNTIME_GUARD.REV314.MAIL_012",
+    "RUNTIME_GUARD.REV314.MAIL_013",
+    "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED"
+  ],
+  "private_source_bindings_in_public": false,
+  "new_private_facts_in_public": false
+}

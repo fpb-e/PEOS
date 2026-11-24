@@ -25,8 +25,8 @@ LIVE_ID = re.compile(r'(?<![A-Za-z0-9])(?:libfile_[0-9a-f]{16,}|file_[0-9a-f]{24
 # Immutable public package already published by PR #5. A filename alone does
 # not permit an archive; different bytes or another path remain forbidden.
 DISTRIBUTION_ARCHIVES = {
-    'downloads/PEOS_GITHUB_PACKAGE_rev0.317.zip': 'cbdf55a6f6a95635b5869a3500231b65e7b2c431f3f51f85e8edb6d7147dc143',
     'downloads/PEOS_GITHUB_PACKAGE_rev0.318.zip': '2d658c5cbf704ff14b74acceb0462b1e914240c39a80778136a9427548247c0c',
+    'downloads/PEOS_GITHUB_PACKAGE_rev0.319.zip': '4aadc7a608995602b62826abe75410e1bbb01cda13e968c364f5ec1e75fc694c',
 }
 
 
@@ -124,16 +124,16 @@ def write_manifest(root):
     names = {p.relative_to(root).as_posix() for p in files(root)}
     names.update({'DIRECTORY_AND_FILE_LIST.txt', 'PACKAGE_MANIFEST.txt'})
     (root / 'DIRECTORY_AND_FILE_LIST.txt').write_text(
-        'PEOS_REV0.319_20261124 public tree (Git metadata excluded)\n\n'
+        'PEOS_REV0.320_20261125 public tree (Git metadata excluded)\n\n'
         + '\n'.join(sorted(names)) + '\n', encoding='utf-8')
     entries = manifest_rows(root)
     text = ('PEOS_PUBLIC_PACKAGE_MANIFEST_V1\n'
-            'TARGET_REVISION: rev0.319\n'
-            'BUILD_ID: PEOS_REV0.319_20261124\n'
+            'TARGET_REVISION: rev0.320\n'
+            'BUILD_ID: PEOS_REV0.320_20261125\n'
             'STATUS: ACCEPTED_BY_OWNER / NO_AUTOMATIC_ACCEPTANCE\n'
-            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.319\n'
-            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.318.zip\n'
-            'DETAILED_REFERENCE: rev0.319\n'
+            'PROJECT_LEVEL_CURRENT_REFERENCE: rev0.320\n'
+            'ACCEPTED_BASELINE: PEOS_GITHUB_PACKAGE_rev0.319.zip\n'
+            'DETAILED_REFERENCE: rev0.320\n'
             'PUBLICATION_SCOPE: SPECIFICATIONS_CODE_SYNTHETIC_TESTS_WITHOUT_RAW_CONVERSATIONS_OR_IMAGES\n'
             'PRIVATE_SOURCE_VALIDATION: NOT_PERFORMED_BY_PUBLIC_VALIDATOR\n'
             f'FILE_COUNT_EXCLUDING_MANIFEST: {len(entries)}\n\nFILES:\n')
@@ -173,7 +173,7 @@ def manifest_errors(root):
 def specification_errors(root):
     root = Path(root)
     errors = []
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.319.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.320.json').read_text())
     for item in provenance['canonical_documents']:
         path = root / item['path']
         if not path.is_file() or digest(path.read_bytes()) != item['source_sha256']:
@@ -181,7 +181,7 @@ def specification_errors(root):
     ids, owners = [], {}
     for owner in OWNERS:
         text = (root / f'prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
-        if '- 文書revision: `rev0.319`' not in text:
+        if '- 文書revision: `rev0.320`' not in text:
             errors.append('CURRENT_DOCUMENT_REVISION:' + owner)
         for block in re.split(r'(?=^### )', text, flags=re.M):
             match = re.search(r'^- RULE_ID: `([^`]+)`', block, re.M)
@@ -190,20 +190,20 @@ def specification_errors(root):
     if len(ids) != 444 or len(set(ids)) != 444:
         errors.append('444_UNIQUE_RULES_REQUIRED')
     registry = (root / 'admin/RULE_OWNERSHIP_REGISTRY.yaml').read_text()
-    if not all(line in registry.splitlines() for line in ('revision: rev0.319', 'current_project_canon: rev0.319', 'accepted_baseline: rev0.318', 'rule_count: 444')):
+    if not all(line in registry.splitlines() for line in ('revision: rev0.320', 'current_project_canon: rev0.320', 'accepted_baseline: rev0.319', 'rule_count: 444')):
         errors.append('RULE_REGISTRY_AUTHORITY_OR_COUNT_DIFFERS')
     pairs = re.findall(r'^- RULE_ID: (\S+)\n  OWNER: (\S+)', registry, re.M)
     if len(pairs) != 444 or dict(pairs) != owners:
         errors.append('RULE_OWNER_REGISTRY_DIFFERS')
     inherited = set()
     for owner in OWNERS:
-        old = (root / f'history/rev0.318/prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
+        old = (root / f'history/rev0.319/prompt/PEOS_CURRENT_{owner}_JP.md').read_text()
         inherited.update(re.findall(r'^- RULE_ID: `([^`]+)`', old, re.M))
     if len(inherited) != 444 or inherited != set(ids):
         errors.append('INHERITED_RULE_LOSS_OR_UNDECLARED_ADDITION')
     # Old trace documents are immutable lineage; current bindings are checked
-    # by next_spec_errors against the declared, hash-bound rev0.319 delta.
-    expected_counts = {'REV0.314': 91, 'REV0.315': 18, 'REV0.316': 25, 'REV0.317': 15, 'REV0.318': 26}
+    # by next_spec_errors against the declared, hash-bound rev0.320 delta.
+    expected_counts = {'REV0.314': 91, 'REV0.315': 18, 'REV0.316': 25, 'REV0.317': 15, 'REV0.318': 26, 'REV0.319': 28}
     for name, count in expected_counts.items():
         value = json.loads((root / ('admin/' + name + '_REQUIREMENT_TRACEABILITY.json')).read_text())
         items = value['requirements']
@@ -230,7 +230,7 @@ def specification_errors(root):
             errors.append('GENERIC_USER_NAME_REQUIRED')
     errors.extend(release_acceptance_errors(root))
     history = root / 'history'
-    if sorted(p.name for p in history.iterdir()) != ['rev0.317', 'rev0.318']:
+    if sorted(p.name for p in history.iterdir()) != ['rev0.318', 'rev0.319']:
         errors.append('HISTORY_MUST_HAVE_EXACTLY_TWO_PREDECESSORS')
     for p in history.rglob('history'):
         errors.append('NESTED_HISTORY:' + p.relative_to(root).as_posix())
@@ -249,17 +249,17 @@ def release_acceptance_errors(root):
     The recorded decision binds the five canons and public restore together.
     """
     root = Path(root)
-    name = 'admin/REV0.319_OWNER_ACCEPTANCE.json'
+    name = 'admin/REV0.320_OWNER_ACCEPTANCE.json'
     try:
         record = json.loads((root / name).read_text())
-        restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())
+        restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.320.json').read_text())
     except (OSError, ValueError):
         return ['OWNER_ACCEPTANCE_RECORD_MISSING_OR_INVALID']
-    if (not isinstance(record, dict) or record.get('revision') != 'rev0.319'
+    if (not isinstance(record, dict) or record.get('revision') != 'rev0.320'
             or record.get('status') != 'ACCEPTED_BY_OWNER'
             or record.get('source_class') != 'OWNER_EXPLICIT_INSTRUCTION'
             or record.get('basis') != 'EXPLICIT_OWNER_ADOPTION_IN_CURRENT_CONVERSATION'
-            or record.get('accepted_candidate_id') != 'PEOS_REV0.319_20261124'
+            or record.get('accepted_candidate_id') != 'PEOS_REV0.320_20261125'
             or record.get('self_acceptance') is not False):
         return ['OWNER_ACCEPTANCE_BASIS_DIFFERS']
     errors = []
@@ -269,7 +269,7 @@ def release_acceptance_errors(root):
             or any(not (root / path).is_file() or digest((root / path).read_bytes()) != value
                    for path, value in binding.items())):
         errors.append('OWNER_ACCEPTANCE_CANON_BINDING_DIFFERS')
-    if (restore.get('candidate_revision') != 'rev0.319'
+    if (restore.get('candidate_revision') != 'rev0.320'
             or restore.get('candidate_id') != record['accepted_candidate_id']
             or restore.get('candidate_accepted') is not True
             or restore.get('release_accepted') is not True
@@ -281,7 +281,7 @@ def release_acceptance_errors(root):
             or record.get('live_connections_created') is not False
             or record.get('native_memory_write_claimed') is not False):
         errors.append('OWNER_ACCEPTANCE_OVERCLAIMS_LIVE_STATE')
-    for filename in ('admin/REV0.319_STATUS.json', 'admin/PEOS_REV0.319_PUBLIC_METADATA.json'):
+    for filename in ('admin/REV0.320_STATUS.json', 'admin/PEOS_REV0.320_PUBLIC_METADATA.json'):
         value = json.loads((root / filename).read_text())
         if (value.get('release_accepted') is not True or value.get('status') != 'ACCEPTED_BY_OWNER'
                 or value.get('acceptance_record') != name or value.get('authority') != record.get('authority')):
@@ -290,9 +290,9 @@ def release_acceptance_errors(root):
 
 def authority_errors(root):
     root = Path(root)
-    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.319.json').read_text())
+    restore = json.loads((root / 'runtime/PEOS_SESSION_RESTORE_rev0.320.json').read_text())
     value = restore['authority']
-    expected = ('rev0.319', 'PEOS_GITHUB_PACKAGE_rev0.318.zip', 'rev0.319')
+    expected = ('rev0.320', 'PEOS_GITHUB_PACKAGE_rev0.319.zip', 'rev0.320')
     errors = []
     if tuple(value[k] for k in ('current_canon', 'accepted_baseline', 'detailed_reference')) != expected:
         errors.append('CURRENT_AUTHORITY_DIFFERS')
@@ -306,7 +306,7 @@ def authority_errors(root):
 
 def validate(root, *, check_manifest=True):
     root = Path(root)
-    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.319.json').read_text())
+    provenance = json.loads((root / 'admin/PUBLIC_EXPORT_PROVENANCE_rev0.320.json').read_text())
     from peos_next_spec_validation import next_spec_errors
     from peos_download_links import download_link_errors
     return (download_link_errors(root) + next_spec_errors(root) + publication_errors(root, set(provenance['excluded_original_sha256']))

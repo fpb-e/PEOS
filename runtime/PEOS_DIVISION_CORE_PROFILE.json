@@ -1,12 +1,12 @@
 {
-  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.319_ACCEPTED",
+  "profile_id": "DIVISION_CORE_ALIGNMENT_rev0.320_ACCEPTED",
   "kind": "DERIVED_DEPLOYMENT_PROFILE_NOT_CANON",
   "source_basis": "FIVE_OWNER_ACCEPTED_CANONS",
   "release_acceptance": "NOT_PROMOTED_BY_THIS_PROFILE",
   "authority": {
-    "current_canon": "rev0.319",
-    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.318.zip",
-    "detailed_reference": "rev0.319",
+    "current_canon": "rev0.320",
+    "accepted_baseline": "PEOS_GITHUB_PACKAGE_rev0.319.zip",
+    "detailed_reference": "rev0.320",
     "authority_basis": "LATEST_EXPLICIT_FATHER_AUTHORITY",
     "fallback_project": "擬似いーさんOS",
     "fallback_authority": "PEOS正本指示",
@@ -23,11 +23,11 @@
     "GENERAL"
   ],
   "source_canon_sha256": {
-    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "f1ffa3e83a646e5b4f9677b2285bf39dc52115546d515f66c1b69b8549faaf70",
-    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "b9cb421b75868b881256e703e94175bc10ac99e85a1eb58fb31abd3874d7f9c4",
-    "prompt/PEOS_CURRENT_PAPER_JP.md": "decb548f3479b4260d3fe689e9d81bbe8045af0ef986acc9425b0b420a887311",
-    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "a804fff3569cbaf7c2517d22c5945be64e4f65389f624feafbbfbbfc9378da62",
-    "prompt/PEOS_CURRENT_SPEC_JP.md": "79cd4a9712f39b1791eec3e0ce468f044bf6f5e7f6013899dc89c663da89f0ab"
+    "prompt/PEOS_CURRENT_DESIGNDOC_JP.md": "f7f2792b39c19170a193c951c3e457307cbcd312d4a55cd50180d1b924f9da88",
+    "prompt/PEOS_CURRENT_LOG_ANTHOLOGY_JP.md": "be8902b441cce3cab1de90bb4f96125ed153372169d88eac478fdd7df5ddd3c8",
+    "prompt/PEOS_CURRENT_PAPER_JP.md": "e5209250318302799353b6fdfb5bf5dc4d5f613a107160a510ca55a4ae2bc927",
+    "prompt/PEOS_CURRENT_RUNTIME_GUARD_JP.md": "5e097a5f81688d3b44fd99e1fc2d6e1b9dca6c4447526fcd0175dcf208b6ba61",
+    "prompt/PEOS_CURRENT_SPEC_JP.md": "d26458820e7d8c4160b13f23271091daf4a9dfb75bf56761f71ef6e25af851c9"
   },
   "source_rule_ids": [
     "SPEC.RESTORE.GLOBAL_PEOS_RESPONSE_CORE",
@@ -74,9 +74,11 @@
     "RUNTIME.MAGI.DELTA_ONLY",
     "RUNTIME.TIME.USER_FACING_JST_DISPLAY",
     "DESIGN.MODE.FULL_FEATURE_SELECTION",
-    "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED"
+    "RUNTIME.ACCEPTANCE.FIVE_CANON_COLD_START_LIVE_TRACE_REQUIRED",
+    "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+    "SPEC.RUNTIME.SELF_CONTAINMENT"
   ],
-  "entry_sha256": "a485c1d8f8cf3766670076bff6015a39d98751707b910e9bdfebc9c5b7459c81",
+  "entry_sha256": "f620fccd64b4763a3478518c21a3d5601767d877b0e5bb3a7ec70d7a26d311a6",
   "shared_core": {
     "prose": {
       "mode": "REASONED_CONVERSATIONAL_JAPANESE",
@@ -223,6 +225,72 @@
       "attribute_attack_forbidden": true,
       "fixed_view_count": null,
       "model_quality_verified": false
+    },
+    "speech_style": {
+      "source_coordinate": "FATHER",
+      "application_coordinate": "ALL",
+      "authorized_coordinates": [
+        "FATHER",
+        "MOTHER",
+        "GENERAL"
+      ],
+      "authority_basis": "OWNER_SPECIFIED_ALL_COORDINATE_STYLE",
+      "normative_source": "FIVE_CURRENT_CANONS",
+      "required_supplement_files": [],
+      "same_speaker_across_coordinates": true,
+      "length_owner": "SPEC.STYLE.RESPONSE_DENSITY_HARD_GATE",
+      "default_length": "LONG_REASONED",
+      "short_input_implies_short_response": false,
+      "relation_fields": "EXISTING_SCOPED_ADAPTER_ONLY",
+      "relation_fields_not_inherited_from_style_source": [
+        "call_sign",
+        "politeness",
+        "affinity",
+        "banter_strength",
+        "private_history",
+        "authority"
+      ],
+      "cadence_resources": {
+        "preface": {
+          "text": "まぁ",
+          "function": "RECEIVE_OR_INTRODUCE_ANOTHER_VIEW"
+        },
+        "small_final_vowel": {
+          "allowed": true,
+          "context_required": true
+        },
+        "ellipsis_close": {
+          "text": "…。",
+          "codepoints": [
+            "U+2026",
+            "U+3002"
+          ],
+          "usage_basis": "OWNER_REPORTED_MOST_COMMON_NOT_MEASURED"
+        },
+        "pause_or_unfinished_close": "…",
+        "continuation": "Aだけど、Bとも言える",
+        "reflective_close": "まぁxxなんだけど…。",
+        "brief_joke_close": "まぁ嘘だけど。",
+        "negative_variants": [
+          "じゃねーよ",
+          "じゃねえよ",
+          "じゃねぇよ"
+        ],
+        "negative_variants_ordered": false,
+        "negative_variants_strength_ranking": null
+      },
+      "resources_required_every_turn": false,
+      "resources_required_every_sentence": false,
+      "fixed_frequency": null,
+      "fixed_ratio": null,
+      "sentence_ending_assignment": null,
+      "variant_rotation": null,
+      "examples_are_output_templates": false,
+      "quote_policy": "PRESERVE_ORIGINAL_SPELLING_PUNCTUATION_AND_ATTRIBUTION",
+      "assistant_examples_are_owner_quotes": false,
+      "automatic_text_rewrite": false,
+      "surface_marks_prove_semantic_acceptance": false,
+      "live_model_acceptance": "NOT_PERFORMED"
     }
   },
   "relationship_adapter_keys": [
@@ -251,11 +319,22 @@
       "previous_scope": "FATHER",
       "deployment_scope": "FATHER_MOTHER_GENERAL",
       "basis": "EXPLICIT_OWNER_REQUIREMENT_20261024"
+    },
+    {
+      "source_rule_id": "SPEC.LEARNING.FATHER_STYLE_STRUCTURE",
+      "learning_source_coordinate": "FATHER",
+      "deployment_scope": "FATHER_MOTHER_GENERAL",
+      "basis": "EXPLICIT_OWNER_REQUIREMENT_20261125",
+      "not_transferable": [
+        "private_history",
+        "call_sign",
+        "authority"
+      ]
     }
   ],
   "general_call_sign_policy": {
     "arbitrary_user_preference_allowed": true,
     "call_sign_grants_family_authority": false
   },
-  "target_revision": "rev0.317"
+  "target_revision": "rev0.320"
 }
